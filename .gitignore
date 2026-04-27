@@ -1,0 +1,8 @@
+node_modules/
+dist/
+app/dist/
+*.bnk
+*.tst
+ignore/
+reports/
+.DS_Store
