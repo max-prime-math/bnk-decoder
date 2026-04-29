@@ -1,11 +1,17 @@
 export type QuestionType =
   | 'mcq'
+  | 'bimodal'
   | 'true_false'
   | 'matching'
+  | 'completion'
   | 'fill_blank'
   | 'short_answer'
+  | 'problem'
   | 'essay'
+  | 'case'
   | 'numeric'
+  | 'multiple_response'
+  | 'algorithmic'
   | 'unknown';
 
 export interface Section {
@@ -63,6 +69,18 @@ export interface ChoiceOverride {
   solution: string;
 }
 
+export interface GraphDefaults {
+  gridColor: string;
+  axisWeight: number;
+  curveWeight: number;
+  asymptoteColor: string;
+  showGrid: boolean;
+  defaultWidth: number;
+  defaultHeight: number;
+  xStep: number;
+  yStep: number;
+}
+
 export interface TestConfig {
   title: string;
   subtitle: string;
@@ -82,6 +100,7 @@ export interface TestConfig {
   mcqFirst: boolean;
   mcqFullSolutions: boolean;
   customPreamble?: string;
+  graphDefaults?: GraphDefaults;
 }
 
 export function defaultTestConfig(): TestConfig {
@@ -107,5 +126,16 @@ export function defaultTestConfig(): TestConfig {
     showAnswerKey: false,
     mcqFirst: true,
     mcqFullSolutions: false,
+    graphDefaults: {
+      gridColor: 'silver',
+      axisWeight: 2,
+      curveWeight: 1.5,
+      asymptoteColor: 'red',
+      showGrid: true,
+      defaultWidth: 6,
+      defaultHeight: 6,
+      xStep: 1,
+      yStep: 1,
+    },
   };
 }

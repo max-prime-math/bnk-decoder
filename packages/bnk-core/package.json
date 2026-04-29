@@ -10,7 +10,8 @@
     "check": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "@bnk-decoder/question-model": "file:../question-model"
+    "@bnk-decoder/question-model": "file:../question-model",
+    "fflate": "^0.8.2"
   },
   "devDependencies": {
     "typescript": "^5.5.0"

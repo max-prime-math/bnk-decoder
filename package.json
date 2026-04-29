@@ -12,7 +12,12 @@
     "build": "npm run build -w @bnk-decoder/core && npm run build -w @bnk-decoder/question-model && npm run build -w bnk-decoder",
     "check": "npm run check -w @bnk-decoder/core && npm run check -w @bnk-decoder/question-model && npm run check -w bnk-decoder",
     "build:app": "npm run build -w bnk-decoder",
-    "check:app": "npm run check -w bnk-decoder"
+    "check:app": "npm run check -w bnk-decoder",
+    "inspect:corpus": "node scripts/inspect-corpus.mjs",
+    "inspect:records": "node scripts/inspect-records.mjs",
+    "decode:file": "node --experimental-strip-types scripts/decode-file.mjs",
+    "report:quality": "node scripts/report-decode-quality.mjs",
+    "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^4.0.0",

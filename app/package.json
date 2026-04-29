@@ -10,6 +10,9 @@
     "check": "svelte-check --tsconfig ./tsconfig.json"
   },
   "dependencies": {
-    "@bnk-decoder/core": "file:../packages/bnk-core"
+    "@bnk-decoder/core": "file:../packages/bnk-core",
+    "@myriaddreamin/typst-ts-renderer": "^0.7.0-rc2",
+    "@myriaddreamin/typst-ts-web-compiler": "^0.7.0-rc2",
+    "@myriaddreamin/typst.ts": "^0.7.0-rc2"
   }
 }
