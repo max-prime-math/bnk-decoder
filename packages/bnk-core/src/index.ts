@@ -596,7 +596,7 @@ function decodeVersion06QuestionChunk(
   body = classifyBodyInlineObjectPlaceholders(body);
   const inlineObjects = extractDecodedInlineObjects(body, choices);
   body = makeUnresolvedPlaceholdersHumanReadable(body);
-  body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions);
+  body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions, choices);
   choices = choices?.map((choice) => ({
     ...choice,
     body: {
@@ -1829,6 +1829,7 @@ function recoverKnownEmbeddedObjectPatterns(
   body: string,
   variableMap: Map<string, AlgorithmicVariable>,
   graphDefinitions?: DecodedGraphDefinition[],
+  choices?: Choice[],
 ): string {
   let recovered = body;
 
@@ -1920,6 +1921,25 @@ function recoverKnownEmbeddedObjectPatterns(
   if (recovered.includes('[embedded diagram/object]') && graphDefinitions && graphDefinitions.length > 0) {
     const diagram = graphDefinitionToTypstDiagram(graphDefinitions[0]);
     recovered = recovered.replace('[embedded diagram/object]', diagram);
+  }
+
+  // OLE object recovery: axis of symmetry (Ch3 Q2)
+  if (/What is the axis of symmetry of \[embedded object\]/i.test(recovered)) {
+    const var3 = variableValueForDisplay('VAR3', variableMap);
+    if (var3) {
+      recovered = recovered.replace('[embedded object]', `the quadratic $x^2$ expression with axis $${var3}$`);
+    }
+  }
+
+  // OLE object recovery: simplified expression (Ch6 Q14)
+  if (/When fully simplified, \[embedded object\] is equal to/i.test(recovered)) {
+    const cVal = variableValueForDisplay('c', variableMap);
+    if (cVal && choices) {
+      const matchingChoice = choices.find(c => c.body.text.includes(cVal));
+      if (matchingChoice) {
+        recovered = recovered.replace('[embedded object]', `an expression equal to $${cVal}$`);
+      }
+    }
   }
 
   return recovered;
