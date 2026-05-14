@@ -479,6 +479,97 @@ Example hex for choice A ending and choice B starting (record 29):
 This confirmed structure can be used to parse choice blocks directly from the
 binary instead of relying on the visible-string heuristic.
 
+## Graph Expression Syntax (confirmed from ExamView UI, 2026-05-13)
+
+From the Format Graph - Cartesian dialog (Pre-Calculus 11 Ch03, q-10):
+
+- Functions are listed as `y = <expression>` in f(x) mode.
+- The exponent operator is `pow(base, exp)`, NOT `^`. Example: `y = a*(pow((x-p),2))+q` is vertex form.
+- Variable names in graph expressions are the same as the algorithmic variable names in the question.
+- The graph object is embedded **as an inline `0x000f` slot** in the body text stream, between the question prompt and the choice block. The graph settings (expression, axes, etc.) are stored in a binary blob associated with that slot — the plain-text expression string still appears in the UTF-16LE string stream and is found by the heuristic scanner.
+- Decoder fix: `pow()` now converts to `(base)^exp` in Typst/LaTeX and evaluates via `Math.pow()` in the graph sampler.
+
+## Column-Major Choice Ordering (observed, 2026-05-13)
+
+When ExamView displays choices in **2 columns** (status bar shows `Columns: 2`), the binary stores choices in **column-major order**: A, C, B, D — **not** A, B, C, D.
+
+Confirmed for Pre-Calculus 11 Ch03 q-10 (Section 3.2 "vertex | axis of symmetry..."):
+
+| Print order | Binary position | Choice label |
+|---|---|---|
+| 1st in binary | A (wrong vertex, downward) | A |
+| 2nd in binary | C (wrong vertex, upward) | C |
+| 3rd in binary | B (correct: right vertex, upward) | B |
+| 4th in binary | D (right vertex, wrong axis, distractor intercepts, downward) | D |
+
+This means the current decoder cannot correctly reconstruct slot-based choices in 2-column questions without knowing the column count from the binary. The `Columns: n` value is stored somewhere in the unread choice-block region.
+
+## Variable Naming Conventions — Quadratic Characteristics (observed, 2026-05-13)
+
+From the same q-10 (bimodal, Section 3.2):
+
+| Variable | Meaning | Example rule |
+|---|---|---|
+| `a` | Leading coefficient; sign determines direction | `range(-15,2,.1)` |
+| `p` | Vertex x-coordinate | `range(-15,15,1)` |
+| `q` | Vertex y-coordinate | `range(-15,15,1)` |
+| `y_int` | y-intercept | `a*p*p+q` |
+| `x_int1` | First x-intercept | `p+sqrt(-q/a)` |
+| `x_int2` | Second x-intercept | `p-sqrt(-q/a)` |
+| `direction` | Correct direction string | `if(a<0,"downward","upward")` |
+| `direction_dis` | Distractor direction | `if(a>0,"downward","upward")` |
+| `x_int1_dis`, `x_int2_dis` | Distractor x-intercepts | `-1*x_int1`, `-1*x_int2` |
+
+The choice distractors systematically swap p↔q, flip signs, or swap direction to create the four options. This is a general ExamView pattern: correct answer plus three variants that change one attribute at a time.
+
+## Slot-Based Choices (observed, 2026-05-13)
+
+Quadratic-characteristics questions have ALL choice text encoded as `[[slot]]` markers filled from variables — there is NO plain text in the choice bodies (except labels like "vertex:", "axis of symmetry:"). The current decoder cannot reconstruct these choices from the existing approach; it falls back to placeholder text or picks up wrong variables.
+
+These questions need a choice-slot mapper that:
+1. Detects when visible choices have all-slot content
+2. Assigns the correct post-font variable refs to each choice's slots based on column-major ordering
+3. Fills the slots with the resolved variable values
+
+This is distinct from the ANS/DIS pattern — no `ans` or `dis_N` variables are used; instead all choices are built from named variables in a structured block.
+
+## Answer Key Binary Search — Findings (2026-05-13)
+
+Using 13 confirmed answers from ExamView UI screenshots (Q1=A, Q2=C, Q3=B, Q4=C, Q5=B, Q6=B, Q7=B, Q8=A, Q9=B, Q10=B, Q11=B, Q12=C, Q13=D — all from Pre-Calculus 11 Ch03), a comprehensive differential binary analysis was performed.
+
+### What was ruled out
+
+All of the following fixed-position searches returned ZERO perfect groupings (positions where A-records always share one value, B-records share another, C another, D another):
+
+- Every byte position 0..4627 from record start
+- Every byte position 0..300 from record end
+- Every byte position in the 242-byte binary gap at the end of each record
+- Every byte position ±500 from the first "Times New Roman" (fontOffset)
+- Every byte position in the 2437-byte post-font region (from fontOffset)
+- Every byte position 0..508 from the choice block start ([0x10 41 00 11 00])
+- Every byte position 0..2008 from choice block start to second "Times New Roman"
+- ±500 bytes from the second "Times New Roman"
+
+### What was discovered
+
+1. **All 13 records have an identical 242-byte binary gap** at the end (between the last readable string and the next record's difficulty label). Non-zero positions within this gap: 2, 226-230, 238. None of these cleanly encode the answer.
+
+2. **The first "Times New Roman" in each record is a font reference within the choice block binary**, NOT the end of the display region. The true display end is at the second (or later) "Times New Roman" occurrence.
+
+3. **The choice block binary contains one "Times New Roman" pair per choice** for questions with graph-image choices. The two TNRs within each choice's binary record are consistently 144 bytes apart. For a 4-choice question, this produces 4 close-pairs of TNR markers. The spacing between choice blocks varies by question type.
+
+4. **Record 11 (Q12, answer C) has only ONE "Times New Roman"** — a structurally simpler question whose choice content doesn't require multiple font markers. This invalidates the "second TNR as reference point" approach.
+
+5. **Position 2 in the 242-byte gap shows a near-monotonic pattern with answer order** (A tends toward smaller values, D toward larger), but the ranges overlap significantly between answer groups, so it doesn't encode the answer cleanly.
+
+### Next steps for finding the answer
+
+The answer byte is at a position that varies with the question's content length — it requires parsing the RTF-like binary structure of the choice block. Most promising approaches not yet tried:
+
+1. **Parse the 144-byte binary sub-records** between each choice's TNR pair — one of the 4 sub-records may have a flag byte indicating correctness.
+2. **Find the pattern in the 242-byte gap** by correlating the position-2 byte with both content length AND answer (the two variables aren't independent).
+3. **Get an RTF export for a Ch03 bank** and use `evaluate:rtf` to cross-reference answers with binary positions.
+
 ## Known Bugs (as of 2026-05-13)
 
 | Bug | Affected questions | Status |
@@ -486,3 +577,5 @@ binary instead of relying on the visible-string heuristic.
 | Answer is raw ANS sample value instead of choice letter | q-29 and others where ANS embeds in a sentence choice | Partially fixed: substring-match fallback added; true fix needs answer key byte |
 | Correct-answer choice missing from choice list | q-18 ("How many terms…") — n=11 is the answer but no choice contains 11 | Open — inference recovers distractors but misses ANS choice in some patterns |
 | 76 clusters decoded instead of 30 actual questions | All Ch01 records | Open — needs question-type/record-kind byte in binary header |
+| Graph inline slot interpolated as variable value | Graph questions where first body slot is the graph image (e.g. Ch03 q-10) | Partially fixed — graph-image body slots skipped; body instead shows graph expression from graphDefinitions |
+| Slot-based choices not decoded | Questions where all choice text is variable slots (e.g. Ch03 q-10) | Fixed — inferSlotBasedChoices fills slots from post-font refs in column-major order, then sorts A→D |

@@ -536,7 +536,14 @@ function decodeVersion06QuestionChunk(
   const variableMap = new Map(algorithmicVariables.map((variable) => [variable.name.toLowerCase(), variable]));
   const choiceRefs = extractIsUniqueChoiceRefs(preDisplayStrings);
   const choiceLabels = extractChoiceLabels(displaySegment.map((entry) => entry.text), choiceRefs.length);
-  const bodyVariableRefs = extractBodyVariableRefs(postFontRefs, variableMap, choiceRefs);
+  const slotBasedChoices = inferSlotBasedChoices(displayRegions, postFontRefs, variableMap);
+  const bodyStringsForCheck = displayRegions.bodyTexts.join(' ');
+  const bodyHasGraphSlot = slotBasedChoices !== undefined
+    && isGraphOrDiagramQuestion(bodyStringsForCheck)
+    && displayRegions.bodyTexts.some((text) => text.includes(INLINE_OBJECT_SLOT));
+  const bodyVariableRefs = bodyHasGraphSlot
+    ? [] // body slot is an embedded graph image, not a variable value
+    : extractBodyVariableRefs(postFontRefs, variableMap, choiceRefs);
   const bodyStrings = displayRegions.bodyTexts.filter(isLikelyQuestionText);
   const bodyBase = bodyStrings.length
     ? stitchQuestionText(bodyStrings)
@@ -561,13 +568,14 @@ function decodeVersion06QuestionChunk(
   const graphDefinitions = extractVersion06GraphDefinitions(strings, algorithmicVariables, body, title);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   const type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
-  const normalizedChoices = normalizeVersion06Choices(
-    inferVersion06Choices(algorithmicVariables, postFontRefs, choiceRefs, choiceLabels, type),
-    body,
-    displayRegionTexts,
-    variableMap,
-    graphDefinitions,
-  );
+  const normalizedChoices = slotBasedChoices?.choices
+    ?? normalizeVersion06Choices(
+      inferVersion06Choices(algorithmicVariables, postFontRefs, choiceRefs, choiceLabels, type),
+      body,
+      displayRegionTexts,
+      variableMap,
+      graphDefinitions,
+    );
   let choices = normalizedChoices?.map(classifyChoiceInlineObjectPlaceholders);
   body = stripVisibleChoiceRunFromBody(body, choices);
   body = classifyBodyInlineObjectPlaceholders(body);
@@ -1800,7 +1808,7 @@ function normalizeGraphExpression(
 }
 
 function extractExpressionVariables(expression: string): string[] {
-  const builtIns = new Set(['x', 'y', 'sin', 'cos', 'tan', 'log', 'ln', 'sqrt', 'abs', 'pi']);
+  const builtIns = new Set(['x', 'y', 'sin', 'cos', 'tan', 'log', 'ln', 'sqrt', 'abs', 'pi', 'pow']);
   const names = expression.match(/[A-Za-z_][A-Za-z0-9_]*/g) ?? [];
   return names
     .filter((name) => !builtIns.has(name.toLowerCase()))
@@ -1833,11 +1841,11 @@ function normalizeGraphNumericValue(value: string): string | undefined {
 }
 
 function isGraphBuiltinIdentifier(name: string): boolean {
-  return /^(x|y|sin|cos|tan|log|ln|sqrt|abs|pi)$/i.test(name);
+  return /^(x|y|sin|cos|tan|log|ln|sqrt|abs|pi|pow)$/i.test(name);
 }
 
 function graphExpressionToTypstMath(expression: string): string {
-  return expression
+  return convertPowToExponent(expression)
     .replace(/\*/g, ' dot ')
     .replace(/\bsin\(/g, 'sin(')
     .replace(/\bcos\(/g, 'cos(')
@@ -1847,13 +1855,21 @@ function graphExpressionToTypstMath(expression: string): string {
 }
 
 function graphExpressionToLatex(expression: string): string {
-  return expression
+  return convertPowToExponent(expression)
     .replace(/\*/g, ' \\cdot ')
     .replace(/\bsin\(/g, '\\sin(')
     .replace(/\bcos\(/g, '\\cos(')
     .replace(/\btan\(/g, '\\tan(')
     .replace(/\blog\(/g, '\\log(')
     .replace(/\bln\(/g, '\\ln(');
+}
+
+function convertPowToExponent(expression: string): string {
+  // Handles pow(A, N) → (A)^N for one level of nested parens inside A (the common ExamView pattern).
+  return expression.replace(
+    /\bpow\((\([^()]*(?:\([^()]*\)[^()]*)*\)|[^,()]+),\s*(\d+(?:\.\d+)?)\)/g,
+    (_, base: string, exp: string) => `(${base})^${exp}`,
+  );
 }
 
 function sampleGraphExpression(expression: string): GraphSamplePoint[] | undefined {
@@ -1875,6 +1891,7 @@ function compileGraphEvaluator(expression: string): ((x: number) => number) | un
   const jsExpression = expression
     .replace(/\^/g, '**')
     .replace(/\bpi\b/gi, 'Math.PI')
+    .replace(/\bpow\(/gi, 'Math.pow(')
     .replace(/\bsin\(/gi, 'Math.sin(')
     .replace(/\bcos\(/gi, 'Math.cos(')
     .replace(/\btan\(/gi, 'Math.tan(')
@@ -1883,11 +1900,10 @@ function compileGraphEvaluator(expression: string): ((x: number) => number) | un
     .replace(/\blog\(/gi, 'Math.log10(')
     .replace(/\bln\(/gi, 'Math.log(');
 
-  const remainingIdentifiers = jsExpression
-    .replace(/Math\.[A-Za-z0-9_]+/g, '')
-    .match(/[A-Za-z_][A-Za-z0-9_]*/g) ?? [];
+  const strippedExpression = jsExpression.replace(/Math\.[A-Za-z0-9_]+/g, '');
+  const remainingIdentifiers = strippedExpression.match(/[A-Za-z_][A-Za-z0-9_]*/g) ?? [];
   if (remainingIdentifiers.some((name) => name.toLowerCase() !== 'x')) return undefined;
-  if (!/^[0-9xX+\-*/().,\sMathPIlogsincotaqr]+$/.test(jsExpression)) return undefined;
+  if (!/^[0-9x+\-*/().,\s]+$/i.test(strippedExpression)) return undefined;
 
   try {
     const fn = new Function('x', `"use strict"; return (${jsExpression});`) as (x: number) => number;
@@ -1918,7 +1934,7 @@ function isLikelyGraphExpression(text: string): boolean {
   if (/[=+\-*/^(]$/.test(text)) return false;
   if (/^[)]/.test(text)) return false;
   if (!hasBalancedParentheses(text)) return false;
-  if (!/(^|[^A-Za-z])x([^A-Za-z]|$)|sin\(|cos\(|tan\(|log\(|ln\(/i.test(text)) return false;
+  if (!/(^|[^A-Za-z0-9_])x([^A-Za-z0-9_]|$)|sin\(|cos\(|tan\(|log\(|ln\(|pow\(/i.test(text)) return false;
   return /^[A-Za-z0-9_+\-*/^().,= <>{}\[\]]+$/.test(text);
 }
 
@@ -2020,6 +2036,61 @@ function inferVersion06Choices(
       text: convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name),
     },
   }));
+}
+
+function inferSlotBasedChoices(
+  displayRegions: Version06DisplayRegions,
+  postFontRefs: string[],
+  variableMap: Map<string, AlgorithmicVariable>,
+): { choices: Choice[] } | undefined {
+  if (displayRegions.choiceRegions.length < 2) return undefined;
+
+  // Count slots per choice region — all must be equal and ≥ 2.
+  // Single-slot choices (a bare value per choice) are handled well by the ANS/DIS inference path.
+  const slotsPerChoice = displayRegions.choiceRegions[0].texts.reduce(
+    (sum, text) => sum + countInlineSlots(text), 0,
+  );
+  if (slotsPerChoice < 2) return undefined;
+  const allSame = displayRegions.choiceRegions.every(
+    (region) => region.texts.reduce((sum, text) => sum + countInlineSlots(text), 0) === slotsPerChoice,
+  );
+  if (!allSame) return undefined;
+
+  // Post-font refs filtered to variable map, in order — these map sequentially to display slots.
+  const mappedRefs = postFontRefs.filter((ref) => variableMap.has(ref.toLowerCase()));
+
+  // Body slots consume the first N refs.
+  const bodySlotCount = displayRegions.bodyTexts.reduce((sum, text) => sum + countInlineSlots(text), 0);
+  const requiredRefs = bodySlotCount + slotsPerChoice * displayRegions.choiceRegions.length;
+  if (mappedRefs.length < requiredRefs - 2) return undefined;
+
+  // Build each choice by filling its template slots with the assigned refs.
+  const choices: Choice[] = [];
+  let refIndex = bodySlotCount;
+
+  for (const region of displayRegions.choiceRegions) {
+    const regionRefs = mappedRefs.slice(refIndex, refIndex + slotsPerChoice);
+    refIndex += slotsPerChoice;
+
+    // Only use texts that carry slot markers — trailing binary noise strings have none.
+    const slotTexts = region.texts.filter((t) => !isFontString(t) && t.includes(INLINE_OBJECT_SLOT));
+    let text = stitchQuestionText(slotTexts.length ? slotTexts : region.texts.filter((t) => !isFontString(t)));
+    for (const ref of regionRefs) {
+      const value = variableValueForDisplay(ref, variableMap);
+      text = text.replace(INLINE_OBJECT_SLOT, value ?? '[embedded value]');
+    }
+    text = text.replace(new RegExp(escapeRegExp(INLINE_OBJECT_SLOT), 'g'), '[embedded value]');
+
+    if (text.trim()) {
+      choices.push({ id: region.id, body: { format: 'typst', text: text.trim() } });
+    }
+  }
+
+  if (choices.length < 2) return undefined;
+
+  // Sort A→B→C→D to undo the column-major binary ordering.
+  choices.sort((a, b) => a.id.localeCompare(b.id));
+  return { choices };
 }
 
 function normalizeVersion06Choices(
