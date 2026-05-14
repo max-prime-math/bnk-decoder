@@ -18,12 +18,29 @@ Detailed binary format research lives in `format-notes.md`.
   - The 242-byte end-of-record binary gap
   - First 438+ bytes of choice block binary section (identical across all records — fixed RTF template)
 
+**Disassembly findings (2026-05-14):**
+- `GetAnswerIndex` function found at `0x61029c4e` in `evengine2.dll`
+- It reads `[question_object + 0x214]` as a DWORD — this IS the answer field
+- It returns 0=A, 1=B, 2=C, 3=D (print-order 0-indexed)
+- `GetAnswerChar` at `0x61029c96` maps: `"ABCDEFGH"[index]` for MCQ, `"TF"[index]` for T/F
+- The struct field is confirmed: **CQuestion offset 0x214 = the answer index DWORD**
+- Called from display code at `0x61027429`: `push edi; call 0x61029c96; movsx eax, al; push eax; push "Answer: %c"; call sprintf`
+
+**What was ruled out as locations for the answer byte in the BNK binary:**
+- Every byte position 0..4627 from each record start (print-order and col-major encodings)
+- Every byte in the 242-byte end-of-record gap
+- Every byte in the first 438 bytes of the binary section from the `[01 00 03 00]` header
+- The global file header (0-4628 bytes, no answer key table)
+- Per-choice isCorrect flag at stride N=80..200 within the binary section
+- 2-byte and 4-byte LE scans at all positions
+
+**Conclusion:** The answer index (0-3 DWORD at `CQuestion+0x214`) is embedded within the RTF-binary encoding of the choice blocks at a **variable position** determined by the question's exact binary structure. It requires full parsing of ExamView's RTF binary format to locate.
+
 **Next approaches (in order):**
-1. Disassemble `evengine2.dll` using Ghidra or similar — find `CQuestion::Serialize()` and trace the exact archive offset where the answer char is written
-2. Search `evplay.exe` strings — simpler "player" binary may have more readable format parsing code
-3. Look for a per-choice `isCorrect` flag within each choice's RTF binary sub-record (the 4 sub-blocks between TNR pairs 144 bytes apart)
-4. Get an ExamView XML export of any Ch03 bank — `<CORRECTANSWER>` element maps directly to a binary position
-5. Compare bytes WITHIN each choice's binary sub-block across records where different choices are correct
+1. **Disassemble `evfbb.dll` export functions** — specifically trace `fn 0x61023950` which is the core BNK write function; find where it writes the answer field to the archive
+2. **Dynamic analysis**: run ExamView in Wine with strace/ltrace or WinDbg to observe the archive Write calls
+3. **Modify a known-answer bank**: use a hex editor to change the answer byte value, load in ExamView, and observe which byte position changed the displayed answer
+4. **Search `evplay.exe`** for similar `GetAnswerIndex` pattern — might have simpler format parsing
 
 **Ground truth available:** Ch03 Q1–Q13 confirmed answers from ExamView UI screenshots (see `CURRENT_STATE.md`)
 
