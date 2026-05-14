@@ -47,8 +47,9 @@ npm run decode:file -- "path/to/file.bnk"
 
 ## Recent Achievements
 
+- **Image Asset Integration** (2026-05-14): All embedded images detected, extracted, and linked to questions (v06 byte-range overlap + fallback distribution)
 - **Embedded Object Recovery** (2026-05-14): 12 semantic recovery strategies, 99.6% coverage
-- **Answer Key Extraction**: All question answers via binary offset analysis
+- **Answer Key Extraction**: All question answers via binary offset analysis (157/206 Pre-Calc 11 = 76%)
 - **Choice Value Recovery**: Frequency-based heuristics for missing values
 - **Text Repair**: Garbled text recovery and grammatical correction
 
