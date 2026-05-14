@@ -603,7 +603,7 @@ function decodeVersion06QuestionChunk(
       text: makeUnresolvedPlaceholdersHumanReadable(choice.body.text),
     },
   }));
-  const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs, bytes, index);
+  const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs, bytes, chunk.start.offset);
   const questionAssets = assets
     .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset)
     .map((asset) => asset.id);
@@ -2610,16 +2610,16 @@ function orderVariablesByReferences(variables: AlgorithmicVariable[], refs: stri
   return ordered;
 }
 
-function tryReadAnswerByteFromBinary(inflatedBytes: Uint8Array): number | undefined {
-  // Answer byte is located at offset 0x1018 in v06 format
-  // Encodes as: 0=A, 1=B, 2=C, 3=D
-  const ANSWER_BYTE_OFFSET = 0x1018;
+// Answer byte precedes the string cluster by a fixed 508 bytes in v06 records
+const ANSWER_BYTE_REL_OFFSET = 508;
 
-  if (inflatedBytes.length <= ANSWER_BYTE_OFFSET) {
+function tryReadAnswerByteFromBinary(inflatedBytes: Uint8Array, sourceOffset: number): number | undefined {
+  const offset = sourceOffset - ANSWER_BYTE_REL_OFFSET;
+  if (offset < 0 || offset >= inflatedBytes.length) {
     return undefined;
   }
 
-  const answerByte = inflatedBytes[ANSWER_BYTE_OFFSET];
+  const answerByte = inflatedBytes[offset];
 
   // Valid answer values are 0-3 (representing A-D)
   if (answerByte >= 0 && answerByte <= 3) {
@@ -2634,11 +2634,11 @@ function inferVersion06Answer(
   choices?: Choice[],
   choiceRefs: string[] = [],
   inflatedBytes?: Uint8Array,
-  questionIndex?: number,
+  sourceOffset?: number,
 ): DecodedAnswer | undefined {
   // Try to read answer from binary if available
-  if (inflatedBytes && questionIndex === 0) {
-    const answerByte = tryReadAnswerByteFromBinary(inflatedBytes);
+  if (inflatedBytes && sourceOffset !== undefined) {
+    const answerByte = tryReadAnswerByteFromBinary(inflatedBytes, sourceOffset);
     if (answerByte !== undefined && choices?.length) {
       const answerChoice = choices[answerByte];
       if (answerChoice) {
