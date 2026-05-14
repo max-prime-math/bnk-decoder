@@ -633,6 +633,7 @@ function decodeVersion06QuestionChunk(
   const inlineObjects = extractDecodedInlineObjects(body, choices);
   body = makeUnresolvedPlaceholdersHumanReadable(body);
   body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions, choices);
+  body = wrapBodyInlineMath(body);
   choices = choices?.map((choice) => ({
     ...choice,
     body: {
@@ -1351,7 +1352,7 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
 
   const r = variableValueForDisplay('r', variableMap);
   if (t1 && r && /What is the sum of the infinite geometric series/i.test(body)) {
-    return `What is the sum of the infinite geometric series ${t1} + ${t1}(${r}) + ${t1}(${r})^2 + ${t1}(${r})^3 + ...?`;
+    return `What is the sum of the infinite geometric series $${t1} + ${t1}(${r}) + ${t1}(${r})^2 + ${t1}(${r})^3 + ...$?`;
   }
 
   const num = variableValueForDisplay('NUM', variableMap);
@@ -3241,6 +3242,33 @@ function contentText(content: RichContent): string {
  * math expression. Used for values derived from algorithmic variables, which are often
  * formulas or fractions but are sometimes plain numbers or plain-text words.
  */
+/**
+ * Post-process body text to wrap inline math notation in $...$. Handles content
+ * that comes from raw display strings rather than from the hardcoded recovery
+ * templates (which already emit $...$). Splits on existing $...$ blocks first to
+ * avoid double-wrapping.
+ */
+/**
+ * Post-process body text to wrap inline math notation in $...$. Handles content
+ * that comes from raw display strings rather than from the hardcoded recovery
+ * templates (which already emit $...$). Splits on existing $...$ blocks first to
+ * avoid double-wrapping.
+ */
+function wrapBodyInlineMath(body: string): string {
+  const parts = body.split(/(\$[^$]+\$)/);
+  return parts.map((part, i) => {
+    if (i % 2 === 1) return part; // already inside $...$
+    // Subscript notation: a SINGLE letter (not the tail of a word) followed by underscore.
+    // Lookbehind ensures we don't match mid-word like "sign_p2" at the "n_p2" position.
+    // Optionally captures a trailing "= expression" up to the next punctuation boundary.
+    // e.g. t_n = 3n + 1  →  $t_n = 3n + 1$    S_9  →  $S_9$
+    return part.replace(
+      /(?<![A-Za-z])([A-Za-z])_([A-Za-z0-9]+)(?:\s*=\s*[^,;.!?\n]+)?/g,
+      (match) => `$${match.trim()}$`,
+    );
+  }).join('');
+}
+
 function wrapTypstMathIfNeeded(text: string): string {
   const trimmed = text.trim();
   if (!trimmed || trimmed.startsWith('$') || /^\[/.test(trimmed)) return text;
