@@ -562,13 +562,46 @@ All of the following fixed-position searches returned ZERO perfect groupings (po
 
 5. **Position 2 in the 242-byte gap shows a near-monotonic pattern with answer order** (A tends toward smaller values, D toward larger), but the ranges overlap significantly between answer groups, so it doesn't encode the answer cleanly.
 
+### DLL Analysis findings (2026-05-14)
+
+The ExamView software binaries are available at `ignore/ExamView/`. Key strings found:
+
+**From `evengine2.dll`:**
+- `EVGetCorrectAnswer` — COM method to retrieve the correct answer from a loaded question
+- `Answer: %c` — the answer is formatted as a single character for display
+- `<answer>%c` — XML export format: `<answer>A</answer>` (or lowercase letter)
+- `CorrectAnswerWWW` — COM property name for the correct answer
+- `CQuestion` class (`.?AVCQuestion@@`) — the MFC class that holds question data
+- `IQuestion`, `IQuestion2` — COM interfaces with `get_CorrectAnswer`/`EVGetCorrectAnswer` methods
+
+**From `evfbb.dll` (bank file binary handler):**
+- `choice-a` through `choice-z` — XML choice identifiers (lowercase letters)
+- `<CORRECTANSWER` / `CORRECTANSWER` — XML element that stores the correct answer
+- `AnswerChoice`, `AnswerChoiceSequence` — answer-related properties
+
+**From `evpro.exe` (main application):**
+- `FSCBNK1`, `FSCBNK3`, `FSCBNK#` — three format version identifiers (1, 3, 6+)
+- `FSCBNK#W#06#00#` — the version 06 header we work with
+
+**Conclusion:** The answer IS stored in the BNK binary as a single character byte (`%c` = 'A', 'B', 'C', 'D' or lowercase equivalent). The `EVGetCorrectAnswer` COM method reads it from the `CQuestion` serialized object.
+
+### Choice block binary structure (2026-05-14)
+
+The binary section after the readable choice content (after the last `[0x0011][0x0011]` double separator) has a consistent structure:
+- All records begin with 20 bytes of zeros from the true binary start
+- At offset 20 from the true binary start: `01 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 01 00 00 00 ...` — this IDENTICAL PATTERN appears in all 13 known-answer records regardless of which answer is correct
+- This means the first ~438 bytes from this header are a FIXED RTF TEMPLATE, not containing the answer
+
 ### Next steps for finding the answer
 
-The answer byte is at a position that varies with the question's content length — it requires parsing the RTF-like binary structure of the choice block. Most promising approaches not yet tried:
+The answer byte is at a **variable position** within the binary section that is NOT in the first 438+ bytes of the fixed RTF header region. Most likely approaches:
 
-1. **Parse the 144-byte binary sub-records** between each choice's TNR pair — one of the 4 sub-records may have a flag byte indicating correctness.
-2. **Find the pattern in the 242-byte gap** by correlating the position-2 byte with both content length AND answer (the two variables aren't independent).
-3. **Get an RTF export for a Ch03 bank** and use `evaluate:rtf` to cross-reference answers with binary positions.
+1. **Disassemble evengine2.dll or evfbb.dll** to find the CQuestion::Serialize() method and trace the exact byte offset at which the answer char is written to the CArchive
+2. **Get an ExamView XML export** of any bank — the `<CORRECTANSWER>` element will map directly to a position in the binary
+3. **The `evplay.exe` or `evimport.exe`** may have more readable import parsing code that reveals the answer field structure
+4. **Look for the answer WITHIN EACH CHOICE'S binary sub-record** (the 4 sub-blocks between TNR pairs) — each choice may carry an `isCorrect` flag byte
+
+Ground truth data for differential analysis: Ch03 Q1=A, Q2=C, Q3=B, Q4=C, Q5=B, Q6=B, Q7=B, Q8=A, Q9=B, Q10=B, Q11=B, Q12=C, Q13=D (from ExamView UI screenshots, 2026-05-13).
 
 ## Known Bugs (as of 2026-05-13)
 
