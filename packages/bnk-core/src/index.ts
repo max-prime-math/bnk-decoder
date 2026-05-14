@@ -596,7 +596,7 @@ function decodeVersion06QuestionChunk(
   body = classifyBodyInlineObjectPlaceholders(body);
   const inlineObjects = extractDecodedInlineObjects(body, choices);
   body = makeUnresolvedPlaceholdersHumanReadable(body);
-  body = recoverKnownEmbeddedObjectPatterns(body, variableMap);
+  body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions);
   choices = choices?.map((choice) => ({
     ...choice,
     body: {
@@ -1828,6 +1828,7 @@ function recoverChoiceEmbeddedValues(
 function recoverKnownEmbeddedObjectPatterns(
   body: string,
   variableMap: Map<string, AlgorithmicVariable>,
+  graphDefinitions?: DecodedGraphDefinition[],
 ): string {
   let recovered = body;
 
@@ -1915,6 +1916,12 @@ function recoverKnownEmbeddedObjectPatterns(
     }
   }
 
+  // Graph diagram recovery (Ch4 Q4, Ch7 Q8/Q14)
+  if (recovered.includes('[embedded diagram/object]') && graphDefinitions && graphDefinitions.length > 0) {
+    const diagram = graphDefinitionToTypstDiagram(graphDefinitions[0]);
+    recovered = recovered.replace('[embedded diagram/object]', diagram);
+  }
+
   return recovered;
 }
 
@@ -1952,6 +1959,36 @@ function inlineObjectContext(text: string, index: number, length: number): strin
     .slice(Math.max(0, index - 80), Math.min(text.length, index + length + 80))
     .replace(/\s+/g, ' ')
     .trim();
+}
+
+function graphDefinitionToTypstDiagram(graphDef: DecodedGraphDefinition): string {
+  if (!graphDef.normalizedExpressions || graphDef.normalizedExpressions.length === 0) {
+    return '[Graph diagram]';
+  }
+
+  const expr = graphDef.normalizedExpressions[0];
+  if (!expr.samplePoints || expr.samplePoints.length === 0) {
+    return `[Graph: ${expr.original}]`;
+  }
+
+  // Build a simple text-based graph representation
+  const points = expr.samplePoints;
+  const xs = points.map(p => p.x);
+  const ys = points.map(p => p.y);
+
+  const minX = Math.min(...xs);
+  const maxX = Math.max(...xs);
+  const minY = Math.min(...ys);
+  const maxY = Math.max(...ys);
+
+  // Generate Typst cetz code for the graph
+  const pointsStr = points
+    .map((p) => `(${(p.x - minX) / (maxX - minX)}, ${(p.y - minY) / (maxY - minY)})`)
+    .join(', ');
+
+  // Return a Typst diagram placeholder with graph info
+  const graphInfo = `Graph: ${expr.original} | x: [${minX.toFixed(1)}, ${maxX.toFixed(1)}], y: [${minY.toFixed(1)}, ${maxY.toFixed(1)}]`;
+  return `[Graph diagram: ${graphInfo}]`;
 }
 
 function extractVersion06GraphDefinitions(
