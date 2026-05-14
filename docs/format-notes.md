@@ -355,3 +355,134 @@ npm run evaluate:rtf -- 'ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk' '
 
 This writes an ignored report under `reports/evaluation/`. The current parser
 uses this for feedback only; it does not depend on RTF files at decode time.
+
+## ExamView UI Reference
+
+Observations from live ExamView screenshots of Pre-Calculus 11, Chapter 01 banks.
+These describe what the software shows, independent of the binary format.
+
+### Question Types Observed
+
+- **Multiple Choice (Bimodal)**: a question that has both a regular MCQ form and a
+  true/false form. The title bar shows `Multiple Choice (Bimodal) - N of Total`.
+  The `question-model` already includes `bimodal` as a `QuestionType`.
+
+### Question Editor Layout
+
+The editor shows:
+- A toolbar (font, size, bold/italic/underline, alignment).
+- A body pane (top) with the question prompt. Variable names appear as inline blue
+  tokens that can be double-clicked to open the Format Variable dialog.
+- Choice rows labelled A/B/C/D with radio buttons. The selected radio is the correct
+  answer but in edit mode it does not change appearance — the answer is tracked in a
+  separate "Answer" dropdown at the bottom of the window.
+- A bottom status bar with: `Narrative… (None)`, `Record | Info… | Close`, then on
+  the right: `Answer: [letter]`, `Choices: [n]`, `Scramble: [All/None/…]`, `Columns: [n]`.
+
+### The □ Character in Edit View
+
+Every choice row ends with a `□` symbol in ExamView's edit view. This appears on
+ALL choices — including plain-text choices with no variables. It is ExamView's
+end-of-field inline object marker and maps to the UTF-16 codepoint `0x000f` in the
+binary stream. It is not a user-visible math or diagram object; it is purely a
+formatting artifact of the choice text field. The decoder already ignores it cleanly
+(the trailing `[[slot]]` at the end of each choice is not rendered in output).
+
+### Algorithmic Variable Edit View
+
+Variable tokens in the body and choices are shown as blue highlighted text. The
+variable name (e.g. `ANS`) appears literally in the edit view; sample values are
+shown only in print preview.
+
+### Format Variable Dialog (observed fields)
+
+Opened by double-clicking a variable token:
+
+| Field | Observed value / notes |
+|---|---|
+| Type | "Variable Type" (label only, not editable here) |
+| Variable name | e.g. `ANS` |
+| Definition | The rule expression, e.g. `fracs(t1*10,10-q)` |
+| Format | Dropdown, e.g. `Metric (## ###)` |
+| Decimal places | Integer, e.g. `5` |
+| Fixed | Checkbox |
+| Hide leading zero | Checkbox |
+| Make only this variable value unique across questions | Checkbox |
+
+The `Definition` field is exactly what appears in the binary string stream as the
+variable's rule. The `Format` dropdown controls how the computed value is displayed
+(e.g. Metric uses spaces as thousands separators).
+
+### Print Preview vs. Edit View
+
+- Edit view: variable names (`t1`, `ANS`, etc.) appear literally; choices show
+  `ANS.□` style tokens.
+- Print preview: all variables are substituted with computed sample values;
+  fractions are typeset (e.g. `−81/2` renders as a proper fraction); the `□` is
+  gone; choice letters are printed without radio buttons.
+
+Confirmed for q-29 (convergent series, Pre-Calculus 11 Ch01): the decoder's body
+text and choice text match the print preview exactly after variable interpolation.
+
+### Answer Key Storage
+
+ExamView stores the correct answer as a choice letter (e.g. `A`) in an explicit
+field visible in the editor's "Answer" dropdown. This field is stored in the binary
+but has not yet been located in the inflated payload. It is likely in the
+**unread region between the end of the choice text block and the start of the next
+question's difficulty label** — approximately 2600 bytes per record in Ch01 that the
+decoder currently ignores.
+
+Finding and reading the answer key byte is the highest-value next binary format task.
+
+### Question Count Discrepancy (Ch01)
+
+ExamView reports **30 questions** in Pre-Calculus 11 Chapter 01
+(`Multiple Choice (Bimodal) - 29 of 30` is question 29 of 30 total).
+The decoder finds **76 string clusters** — a 2.5× overcount.
+
+The excess clusters come from:
+- Matching question answer items (q-36 to q-40 in current decoded output: bare
+  definitions like "a geometric series that has no last term").
+- Sub-parts of multi-part problem questions (q-42 to q-76 in current output:
+  bare sequences, explanations, "Since the terms have a common ratio of…" fragments).
+
+The decoder's difficulty-label heuristic triggers on sub-records because these
+sub-records also begin with a difficulty string in the binary. The fix requires
+identifying a question-type or record-kind byte in the binary header that
+distinguishes top-level questions from sub-records.
+
+## Confirmed Binary Choice Block Structure (v06)
+
+From `inspect:records` hex output on Pre-Calculus 11 Ch01, record 29:
+
+After the body text ends (last `?` or `.` in the question prompt):
+
+```
+[body text] [0x0010] A [0x0011] [choice A text] [0x0011][0x0011] B [0x0011] [choice B text] [0x0011][0x0011] C [0x0011] [choice C text] [0x0011][0x0011] D [0x0011] [choice D text]
+```
+
+Codepoints:
+- `0x0010` = **start-of-choice-block marker** — appears exactly once after the body.
+- `0x0011` = **choice field separator** — appears after the choice letter (`A[0x11]`) and
+  as a double (`[0x11][0x11]`) between choices.
+- `0x000f` = **inline variable/object slot** — appears inside choice text where a
+  variable value is to be substituted. At the end of each choice (the `□`), this
+  appears as a trailing slot before the final period and choice separator.
+
+Example hex for choice A ending and choice B starting (record 29):
+```
+...sum of [0f 00] 2e 00 [11 00 11 00] 42 00 [11 00] The series...
+         [[slot]] '.'   [end/sep]    'B'    [sep]
+```
+
+This confirmed structure can be used to parse choice blocks directly from the
+binary instead of relying on the visible-string heuristic.
+
+## Known Bugs (as of 2026-05-13)
+
+| Bug | Affected questions | Status |
+|---|---|---|
+| Answer is raw ANS sample value instead of choice letter | q-29 and others where ANS embeds in a sentence choice | Partially fixed: substring-match fallback added; true fix needs answer key byte |
+| Correct-answer choice missing from choice list | q-18 ("How many terms…") — n=11 is the answer but no choice contains 11 | Open — inference recovers distractors but misses ANS choice in some patterns |
+| 76 clusters decoded instead of 30 actual questions | All Ch01 records | Open — needs question-type/record-kind byte in binary header |

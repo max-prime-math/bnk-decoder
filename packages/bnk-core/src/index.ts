@@ -2572,10 +2572,16 @@ function inferVersion06Answer(
 
   if (answerVariable) {
     const answerText = convertExamViewExpressionToTypst(answerVariable.sampleValue ?? answerVariable.rule ?? answerVariable.name);
-    const matchingChoice = choices?.find((choice) => choice.body.text === answerText);
+    const exactMatch = choices?.find((choice) => choice.body.text === answerText);
+    if (exactMatch) return { value: exactMatch.id, format: 'choice' };
+    // If no exact match, try to find a choice whose text contains the answer value.
+    // This handles convergence-style questions where ANS appears embedded in sentence choices.
+    const substringMatch = answerText.length >= 2
+      ? choices?.find((choice) => choice.body.text.includes(answerText))
+      : undefined;
     return {
-      value: matchingChoice?.id ?? answerText,
-      format: matchingChoice ? 'choice' : 'text',
+      value: substringMatch?.id ?? answerText,
+      format: substringMatch ? 'choice' : 'text',
     };
   }
 
