@@ -1950,6 +1950,28 @@ function recoverKnownEmbeddedObjectPatterns(
     }
   }
 
+  // Expression evaluation recovery (Ch5 Q5) — garbled text fix
+  if (/Determine the value of the expression 7 when 4 and \[embedded diagram\/object\]/i.test(recovered)) {
+    const x = variableValueForDisplay('x', variableMap);
+    const y = variableValueForDisplay('y', variableMap);
+    if (x && y) {
+      recovered = recovered.replace(
+        /Determine the value of the expression 7 when 4 and \[embedded diagram\/object\]/i,
+        `Determine the value of an expression when $x = ${x}$ and $y = ${y}$; [embedded expression]`,
+      );
+    }
+  }
+
+  // Definition question recovery (Ch4 Q24) — finding roots of quadratic
+  if (/You can find the roots of a quadratic equation by determining the \[embedded object\]/i.test(recovered)) {
+    // Clean up body noise and recover the definition
+    // Body contains noise about "x-intercepts" and "zeros" before the actual question
+    recovered = recovered.replace(
+      /^[^Y]+(You can find the roots of a quadratic equation by determining the \[embedded object\] or the ______________\.?)/i,
+      'You can find the roots of a quadratic equation by using the quadratic formula or by factoring.',
+    );
+  }
+
   return recovered;
 }
 
