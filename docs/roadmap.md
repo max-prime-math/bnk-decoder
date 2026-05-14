@@ -37,10 +37,18 @@ Detailed binary format research lives in `format-notes.md`.
 **Conclusion:** The answer index (0-3 DWORD at `CQuestion+0x214`) is embedded within the RTF-binary encoding of the choice blocks at a **variable position** determined by the question's exact binary structure. It requires full parsing of ExamView's RTF binary format to locate.
 
 **Next approaches (in order):**
-1. **Disassemble `evfbb.dll` export functions** — specifically trace `fn 0x61023950` which is the core BNK write function; find where it writes the answer field to the archive
-2. **Dynamic analysis**: run ExamView in Wine with strace/ltrace or WinDbg to observe the archive Write calls
-3. **Modify a known-answer bank**: use a hex editor to change the answer byte value, load in ExamView, and observe which byte position changed the displayed answer
-4. **Search `evplay.exe`** for similar `GetAnswerIndex` pattern — might have simpler format parsing
+**evfbb.dll deep analysis (2026-05-14):**
+- evfbb.dll question struct: answer pointer at **offset 0x6c** (pointer to char string "A"/"B"/"C"/"D")
+- In-memory field tag for answer: **0x70** — retrieved with `fn_a680(ctx, 0x70)` at `0x6102a680`
+- Chain: `fn_a680 → fn_7620 (0x61027620) → fn_262b0 → fn_25360 (strcpy of answer char)`
+- The True/False answer check: `cmp byte ptr [buffer], 0x54` (='T') at `0x61027663`
+- evfbb.dll is **NOT imported** by evpro.exe or any other exe — loaded via unknown plugin mechanism
+- evpro.exe DOES contain FSCBNK strings in `.rdata` at RVA 0x208531 — BNK parser is IN evpro.exe
+
+1. **Dynamic analysis with Wine+display**: `sudo pacman -S xorg-server-xvfb`, then run ExamView under Xvfb; set breakpoint on `fn_a680` (evfbb.dll+0x1a80) and trace what called it; the call stack will reveal the BNK parsing function
+2. **Find fn_897a's caller at runtime**: fn_897a at `0x6102897a` in evfbb.dll has 0 direct callers (called via function pointer); dynamic analysis reveals the vtable
+3. **Search evpro.exe for BNK binary reading**: evpro.exe has `FSCBNK#W#06#00#` at RVA 0x208531 — find code near `cmp ..., 0x1a` (BNK magic byte) comparisons and trace the full parser
+4. **Byte-flip approach**: flip each byte in a record's binary section one at a time, run ExamView (Wine), observe which flip changes the displayed answer
 
 **Ground truth available:** Ch03 Q1–Q13 confirmed answers from ExamView UI screenshots (see `CURRENT_STATE.md`)
 
