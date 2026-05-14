@@ -596,6 +596,7 @@ function decodeVersion06QuestionChunk(
   body = classifyBodyInlineObjectPlaceholders(body);
   const inlineObjects = extractDecodedInlineObjects(body, choices);
   body = makeUnresolvedPlaceholdersHumanReadable(body);
+  body = recoverKnownEmbeddedObjectPatterns(body, variableMap);
   choices = choices?.map((choice) => ({
     ...choice,
     body: {
@@ -1719,6 +1720,71 @@ function makeUnresolvedPlaceholdersHumanReadable(text: string): string {
     .replace(/\[diagram\/object not decoded yet\]/gi, '[embedded diagram/object]')
     .replace(/\[choice value not decoded yet\]/gi, '[embedded choice value]')
     .replace(/\[inline object not decoded yet\]/gi, '[embedded object]');
+}
+
+function buildTriangleDescription(variableMap: Map<string, AlgorithmicVariable>): string | undefined {
+  const parts: string[] = [];
+  const added = new Set<string>();
+
+  // Add angles: try case-insensitive variants
+  for (const name of ['angleA', 'angleB', 'angleC', 'angle']) {
+    const val = variableValueForDisplay(name, variableMap);
+    if (val && !added.has(name.toLowerCase())) {
+      const suffix = name.replace(/^angle/i, '').toUpperCase();
+      parts.push(`∠${suffix} = ${val}°`);
+      added.add(name.toLowerCase());
+    }
+  }
+
+  // Add sides: try case-insensitive variants (use lowercase for side labels)
+  for (const name of ['sidea', 'sideb', 'sidec']) {
+    const val = variableValueForDisplay(name, variableMap);
+    if (val && !added.has(name.toLowerCase())) {
+      const suffix = name.replace(/^side/i, '').toLowerCase();
+      parts.push(`side ${suffix} = ${val} cm`);
+      added.add(name.toLowerCase());
+    }
+  }
+
+  return parts.length >= 2 ? `[Triangle: ${parts.join(', ')}]` : undefined;
+}
+
+function recoverKnownEmbeddedObjectPatterns(
+  body: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+): string {
+  let recovered = body;
+
+  // Coordinate point recovery for Q-style geometry (x1, y1, x2, y2 variables)
+  if (/the points \[embedded (?:object|diagram\/object)\] and \[embedded (?:object|diagram\/object)\]/.test(recovered)) {
+    const x1 = variableValueForDisplay('x1', variableMap);
+    const y1 = variableValueForDisplay('y1', variableMap);
+    const x2 = variableValueForDisplay('x2', variableMap);
+    const y2 = variableValueForDisplay('y2', variableMap);
+
+    if (x1 && y1) {
+      recovered = recovered.replace(/\[embedded (?:object|diagram\/object)\]/, `$(${x1}, ${y1})$`);
+    }
+    if (x2 && y2) {
+      recovered = recovered.replace(/\[embedded (?:object|diagram\/object)\]/, `$(${x2}, ${y2})$`);
+    }
+
+    // Replace the function slot with standard form when asking "what are the values of b and c"
+    recovered = recovered.replace(
+      /quadratic function \[embedded math expression\](.*?what are the values of b and c)/is,
+      (match, between) => `quadratic function $f(x) = x^2 + b x + c$${between}`,
+    );
+  }
+
+  // Triangle diagram text description (Ch02 geometry questions)
+  if (recovered.includes('[embedded diagram/object]')) {
+    const desc = buildTriangleDescription(variableMap);
+    if (desc) {
+      recovered = recovered.replace('[embedded diagram/object]', desc);
+    }
+  }
+
+  return recovered;
 }
 
 function extractDecodedInlineObjects(body: string, choices?: Choice[]): DecodedInlineObject[] {

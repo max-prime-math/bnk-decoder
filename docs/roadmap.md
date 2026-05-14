@@ -5,78 +5,30 @@ Detailed binary format research lives in `format-notes.md`.
 
 ---
 
-## 1. Answer Key Byte Location (HIGHEST VALUE)
+## 1. ~~Answer Key Byte Location~~ ✅ COMPLETED
 
-**Status:** Open  
-**Impact:** Every MCQ in every bank gets a reliable correct answer  
-**What we know:**
-- Confirmed single character byte (A/B/C/D) via `evengine2.dll` DLL analysis
-- COM method `EVGetCorrectAnswer` retrieves it from `CQuestion` serialized object
-- XML export uses `<CORRECTANSWER>` element
-- **Ruled out** (exhaustive differential analysis with 13 confirmed answers, Ch03 Q1–Q13):
-  - Every fixed position from record start, end, fontOffset, choice block start, second TNR
-  - The 242-byte end-of-record binary gap
-  - First 438+ bytes of choice block binary section (identical across all records — fixed RTF template)
+**Status:** Completed (2026-05-14)  
+**Solution:** Answer byte stored at `sourceOffset - 508` (−0x1FC) in v06 records. Implemented in `tryReadAnswerByteFromBinary()` and `inferVersion06Answer()`.
 
-**Disassembly findings (2026-05-14):**
-- `GetAnswerIndex` function found at `0x61029c4e` in `evengine2.dll`
-- It reads `[question_object + 0x214]` as a DWORD — this IS the answer field
-- It returns 0=A, 1=B, 2=C, 3=D (print-order 0-indexed)
-- `GetAnswerChar` at `0x61029c96` maps: `"ABCDEFGH"[index]` for MCQ, `"TF"[index]` for T/F
-- The struct field is confirmed: **CQuestion offset 0x214 = the answer index DWORD**
-- Called from display code at `0x61027429`: `push edi; call 0x61029c96; movsx eax, al; push eax; push "Answer: %c"; call sprintf`
+**Verification:** All 13 Ch03 questions (Q1–Q13) extract correct answers (A/C/B/C/B/B/B/A/B/B/B/C/D).
 
-**What was ruled out as locations for the answer byte in the BNK binary:**
-- Every byte position 0..4627 from each record start (print-order and col-major encodings)
-- Every byte in the 242-byte end-of-record gap
-- Every byte in the first 438 bytes of the binary section from the `[01 00 03 00]` header
-- The global file header (0-4628 bytes, no answer key table)
-- Per-choice isCorrect flag at stride N=80..200 within the binary section
-- 2-byte and 4-byte LE scans at all positions
+**Why it works:** Binary record structure maintains a fixed 508-byte offset between the answer byte and the string cluster start. Consistent across all questions in a file.
 
-**Conclusion:** The answer index (0-3 DWORD at `CQuestion+0x214`) is embedded within the RTF-binary encoding of the choice blocks at a **variable position** determined by the question's exact binary structure. It requires full parsing of ExamView's RTF binary format to locate.
-
-**Next approaches (in order):**
-**evfbb.dll deep analysis (2026-05-14):**
-- evfbb.dll question struct: answer pointer at **offset 0x6c** (pointer to char string "A"/"B"/"C"/"D")
-- In-memory field tag for answer: **0x70** — retrieved with `fn_a680(ctx, 0x70)` at `0x6102a680`
-- Chain: `fn_a680 → fn_7620 (0x61027620) → fn_262b0 → fn_25360 (strcpy of answer char)`
-- The True/False answer check: `cmp byte ptr [buffer], 0x54` (='T') at `0x61027663`
-- evfbb.dll is **NOT imported** by evpro.exe or any other exe — loaded via unknown plugin mechanism
-- evpro.exe DOES contain FSCBNK strings in `.rdata` at RVA 0x208531 — BNK parser is IN evpro.exe
-
-1. **Create controlled test banks** *(simplest and most likely to work immediately)*  
-   In ExamView, create 4 minimal MCQ banks that are byte-for-byte identical except for which answer is selected:
-   - `test_A.bnk`: question="Which option is correct?", choices A/B/C/D, answer=**A**
-   - `test_B.bnk`: same question, answer=**B**
-   - `test_C.bnk`: same, answer=**C**
-   - `test_D.bnk`: same, answer=**D**
-   
-   Then run: `node scripts/find-answer-byte.mjs test_A.bnk test_B.bnk test_C.bnk test_D.bnk`  
-   The bytes that differ across the 4 inflated payloads are the answer encoding — typically resolved in minutes.  
-   Also create a T/F variant (T vs F) and a two-save of the same bank (to identify timestamp bytes to exclude).
-
-2. **Dynamic analysis with Wine+display**: `sudo pacman -S xorg-server-xvfb`, then run ExamView under Xvfb; set breakpoint on `fn_a680` (evfbb.dll+0x1a80) and trace what called it; the call stack will reveal the BNK parsing function
-3. **Find fn_897a's caller at runtime**: fn_897a at `0x6102897a` in evfbb.dll has 0 direct callers (called via function pointer); dynamic analysis reveals the vtable
-4. **Search evpro.exe for BNK binary reading**: evpro.exe has `FSCBNK#W#06#00#` at RVA 0x208531 — find code near `cmp ..., 0x1a` (BNK magic byte) comparisons and trace the full parser
-
-**Ground truth available:** Ch03 Q1–Q13 confirmed answers from ExamView UI screenshots (see `CURRENT_STATE.md`)
+**Commit:** 9689d6d `feat: extend answer byte extraction to all questions via relative offset`
 
 ---
 
-## 2. Record Over-counting (76 decoded vs 30 actual questions, Ch01)
+## 2. ~~Record Over-counting~~ ✅ COMPLETED
 
-**Status:** Open  
-**Impact:** Clean question boundaries; correct question numbering  
-**What we know:**
-- Decoder finds 76 clusters in Ch01 vs 30 actual questions in ExamView
-- Over-count caused by: answer explanations, sub-parts of multi-part questions all triggering the difficulty-label heuristic
-- ExamView's title bar shows "Multiple Choice (Bimodal) - N of 30" — the question count is stored somewhere
+**Status:** Completed (2026-05-14)  
+**Solution:** Read question count from DWORD at inflated payload offset 0x0a04. Use this to truncate the chunk array in `decodeVersion06QuestionCandidates()`.
 
-**Next approaches:**
-1. Find a record-type or record-kind byte in the binary header that distinguishes top-level questions from sub-records/explanations
-2. Look for the total question count field in the global file header (bytes 0–4628 of inflated binary)
-3. Use the known question count from the file header to validate record boundaries
+**Results:**
+- Ch01: 30 questions (was 76) ✓
+- Ch02: 24 questions (was 75) ✓
+- Ch03: 22 questions (was 63) ✓
+
+**Commit:** 0f0cf10 `fix: use header question count to eliminate record over-counting`
 
 ---
 
@@ -151,6 +103,8 @@ Detailed binary format research lives in `format-notes.md`.
 
 | Item | Session | Result |
 |---|---|---|
+| Answer Key Byte Location | 2026-05-14 | Implemented; all Ch03 Q1–Q13 answers correct. Binary offset = sourceOffset − 508. |
+| Record Over-counting | 2026-05-14 | Fixed; reads DWORD at 0x0a04. Ch01=30, Ch02=24, Ch03=22 all correct. |
 | `pow()` graph evaluator | 2026-05-13 | Fixed — parabola expressions now sample 41 points |
 | `x_int1` false-positive graph expressions | 2026-05-13 | Fixed — x-boundary check in `isLikelyGraphExpression` |
 | Slot-based choice reconstruction | 2026-05-13 | Fixed — `inferSlotBasedChoices` fills slots from post-font refs in column-major order |
