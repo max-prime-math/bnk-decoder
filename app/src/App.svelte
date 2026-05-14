@@ -3,6 +3,7 @@
     decodeBnkFile,
     toLatex,
     toPortableJson,
+    toTestGeneratorQuestions,
     toTypst,
     type DecodeResult,
     type DecodedGraphDefinition,
@@ -133,6 +134,11 @@
     download(exportName('json'), JSON.stringify(toPortableJson(result), null, 2), 'application/json');
   }
 
+  function exportTestGenerator() {
+    if (!result) return;
+    download(exportName('test-gen.json'), JSON.stringify(toTestGeneratorQuestions(result), null, 2), 'application/json');
+  }
+
   function exportName(ext: string) {
     const base = fileName.replace(/\.[^.]+$/, '') || 'decoded-bank';
     return `${base}.${ext}`;
@@ -246,6 +252,7 @@
           <button class="primary" onclick={exportLatex}>Export LaTeX</button>
           <button onclick={exportTypst}>Export Typst</button>
           <button onclick={exportJson}>Export JSON</button>
+          <button onclick={exportTestGenerator}>Export for test-generator</button>
         </div>
 
         <div class="question-list" aria-label="Decoded questions">

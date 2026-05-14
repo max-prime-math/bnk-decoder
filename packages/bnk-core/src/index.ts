@@ -301,6 +301,8 @@ export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
   }));
 }
 
+export { toTestGeneratorQuestions, toTestGeneratorQuestion } from './test-gen-adapter.ts';
+
 function detectExamViewContainer(bytes: Uint8Array): ExamViewContainerMetadata | undefined {
   if (bytes.byteLength < EXAMVIEW_HEADER_LENGTH) return undefined;
   if (bytes[0] !== 0x1a) return undefined;
