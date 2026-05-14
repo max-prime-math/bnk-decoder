@@ -601,8 +601,13 @@ function decodeVersion06QuestionChunk(
     : stitchQuestionText(preDisplayStrings.slice(-4));
   const visibleChoiceSlotCount = countVisibleChoiceSlots(displayRegionTexts);
   const bodyWithoutChoiceSlots = stripTrailingInlineChoiceSlots(bodyBase, visibleChoiceSlotCount);
-  const prioritizedBodyVariableRefs = prioritizeBodyVariableRefs(bodyWithoutChoiceSlots, bodyVariableRefs, variableMap);
-  const interpolatedBody = interpolateBodyVariableValues(bodyWithoutChoiceSlots, prioritizedBodyVariableRefs, variableMap);
+  // Apply binary format runs (subscripts, symbol-font chars) before variable interpolation
+  // so that slot markers are still intact for pattern matching.
+  const displayStartByte = strings[displayStart]?.offset ?? 0;
+  const formatRuns = extractFormatRunTable(bytes, chunk.start.offset, chunk.endOffset);
+  const bodyFormatted = applyBinaryFormatting(bodyWithoutChoiceSlots, bytes, displayStartByte, formatRuns);
+  const prioritizedBodyVariableRefs = prioritizeBodyVariableRefs(bodyFormatted, bodyVariableRefs, variableMap);
+  const interpolatedBody = interpolateBodyVariableValues(bodyFormatted, prioritizedBodyVariableRefs, variableMap);
   const appendedBody = appendBodyVariableValues(interpolatedBody.text, prioritizedBodyVariableRefs, variableMap, interpolatedBody.usedRefs);
   const refinedBody = refineKnownQuestionBodyPatterns(
     stripLeadingMetadataTags(appendedBody, title),
@@ -2305,6 +2310,186 @@ function escapeRegExp(text: string): string {
   return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
+// ─── Binary format run extraction ────────────────────────────────────────────
+// Each v06 question record contains a per-character attribute table stored in
+// its binary section. Entries are 12-byte records: [uint32 charPos][uint32 attr][uint32 pad=0].
+// Positions are character indices (0-based) into the display text stream.
+// Attributes: 0=normal, 1=italic, 2=subscript, 3=bold, 4=symbol-font.
+// This table is the ground-truth for math mode — subscripts, symbol chars, etc.
+
+interface FormatRun {
+  pos: number;
+  attr: number;
+}
+
+const FORMAT_ATTR_SUBSCRIPT = 2;
+const FORMAT_ATTR_SYMBOL = 4;
+
+// Mapping of Windows Symbol/FSC-Symbol PUA codepoints (0xF0xx) to Unicode math chars.
+const SYMBOL_FONT_MAP: Record<number, string> = {
+  0xF0B4: '×', // × multiplication sign
+  0xF0B7: '•', // • bullet
+  0xF0B1: '±', // ± plus-minus
+  0xF0B3: '≥', // ≥ greater-than-or-equal
+  0xF0A3: '≤', // ≤ less-than-or-equal
+  0xF0AB: '←', // ← left arrow
+  0xF0AE: '→', // → right arrow
+  0xF0D0: '÷', // ÷ division sign
+  0xF0B0: '°', // ° degree sign
+  0xF0BC: '√', // √ square root
+  0xF0A5: '∞', // ∞ infinity
+};
+
+function mapSymbolFontChar(cp: number): string {
+  return SYMBOL_FONT_MAP[cp] ?? `[U+${cp.toString(16).toUpperCase()}]`;
+}
+
+/**
+ * Scan the binary region of a v06 record for the format run table.
+ * Uses the confirmed 12-byte entry structure: (charPos:u32, attr:u32, pad:u32=0).
+ * Returns the longest monotonically-increasing run of valid entries found.
+ */
+function extractFormatRunTable(
+  bytes: Uint8Array,
+  chunkStartByte: number,
+  chunkEndByte: number,
+): FormatRun[] {
+  const windowEnd = Math.min(chunkEndByte, bytes.length);
+  let bestRun: FormatRun[] = [];
+
+  for (let i = chunkStartByte; i < windowEnd - 24; i++) {
+    const pos = (bytes[i] | (bytes[i + 1] << 8) | (bytes[i + 2] << 16) | (bytes[i + 3] << 24)) >>> 0;
+    const attr = (bytes[i + 4] | (bytes[i + 5] << 8) | (bytes[i + 6] << 16) | (bytes[i + 7] << 24)) >>> 0;
+    const pad = (bytes[i + 8] | (bytes[i + 9] << 8) | (bytes[i + 10] << 16) | (bytes[i + 11] << 24)) >>> 0;
+
+    if (pos < 1 || pos > 1000 || attr > 10 || pad !== 0) continue;
+
+    const run: FormatRun[] = [{ pos, attr }];
+    let j = i + 12;
+    let lastPos = pos;
+
+    while (j < windowEnd - 12) {
+      const p2 = (bytes[j] | (bytes[j + 1] << 8) | (bytes[j + 2] << 16) | (bytes[j + 3] << 24)) >>> 0;
+      const a2 = (bytes[j + 4] | (bytes[j + 5] << 8) | (bytes[j + 6] << 16) | (bytes[j + 7] << 24)) >>> 0;
+      const pad2 = (bytes[j + 8] | (bytes[j + 9] << 8) | (bytes[j + 10] << 16) | (bytes[j + 11] << 24)) >>> 0;
+      if (p2 > lastPos && p2 <= 1000 && a2 <= 10 && pad2 === 0) {
+        run.push({ pos: p2, attr: a2 });
+        lastPos = p2;
+        j += 12;
+      } else break;
+    }
+
+    if (run.length > bestRun.length) {
+      bestRun = run;
+      i = j - 1;
+    }
+  }
+
+  return bestRun;
+}
+
+/**
+ * Read the raw display text character at a given character position.
+ * displayStartByte is the byte offset of char position 0 in the inflated payload.
+ */
+function readDisplayChar(bytes: Uint8Array, displayStartByte: number, charPos: number): number {
+  const byteOff = displayStartByte + charPos * 2;
+  if (byteOff + 1 >= bytes.length) return 0;
+  return bytes[byteOff] | (bytes[byteOff + 1] << 8);
+}
+
+/**
+ * Use the format run table to generate text-level substitutions that apply
+ * subscripts and symbol-font conversions to the assembled body text.
+ * Must be applied BEFORE variable interpolation so slot markers are preserved.
+ *
+ * For each subscript group: base character + subscript character(s) →
+ * "$base_sub$" (Typst inline math). Works for both literal chars ("tn" → "$t_n$")
+ * and slot-containing patterns ("S[[slot]]" → "$S_[[slot]]$").
+ */
+function applyBinaryFormatting(
+  body: string,
+  bytes: Uint8Array,
+  displayStartByte: number,
+  formatRuns: FormatRun[],
+): string {
+  if (formatRuns.length === 0) return body;
+
+  const hasMath = formatRuns.some(r => r.attr === FORMAT_ATTR_SUBSCRIPT || r.attr === FORMAT_ATTR_SYMBOL);
+  if (!hasMath) return body;
+
+  // Build position→attribute map
+  const attrAt = new Map<number, number>();
+  for (const run of formatRuns) attrAt.set(run.pos, run.attr);
+
+  // Walk the raw character stream, tracking attributes and building substitutions
+  let result = body;
+  let currentAttr = 0;
+  const MAX_POS = 800;
+
+  for (let charPos = 0; charPos < MAX_POS; charPos++) {
+    const cp = readDisplayChar(bytes, displayStartByte, charPos);
+    if (cp === 0 || cp === 0x0010) break; // end of body
+
+    if (attrAt.has(charPos)) currentAttr = attrAt.get(charPos)!;
+
+    // Symbol font: replace in body text where the character is a gap (extractor skips PUA chars)
+    if (currentAttr === FORMAT_ATTR_SYMBOL && cp >= 0xF000 && cp <= 0xF0FF) {
+      const unicode = mapSymbolFontChar(cp);
+      // The symbol char is not in the extracted text, but it creates a gap.
+      // Widen the context window and try to patch it between adjacent text fragments.
+      // Find what character comes before (pos charPos-1) and after (pos charPos+1)
+      const before = charPos > 0 ? readDisplayChar(bytes, displayStartByte, charPos - 1) : 0;
+      const after = readDisplayChar(bytes, displayStartByte, charPos + 1);
+      if (before >= 0x20 && before <= 0x7E && after >= 0x20 && after <= 0x7E) {
+        const beforeChar = String.fromCharCode(before);
+        const afterChar = String.fromCharCode(after);
+        // Stitch: "X Y" (gap where symbol was) → "X × Y"
+        // The body might have "X Y" or "X  Y" at this position
+        const gapPattern = new RegExp(`${escapeRegExp(beforeChar)}(\\s*)${escapeRegExp(afterChar)}`, 'g');
+        result = result.replace(gapPattern, (_, spaces) => {
+          if (spaces.length > 1) return `${beforeChar}${unicode}${afterChar}`;
+          return _;
+        });
+      }
+    }
+
+    // Subscript: detect base + subscript(s) and emit "$base_sub$"
+    if (currentAttr === FORMAT_ATTR_SUBSCRIPT) {
+      // Base is the character immediately before subscript start
+      const baseCharPos = charPos - 1;
+      const baseCp = baseCharPos >= 0 ? readDisplayChar(bytes, displayStartByte, baseCharPos) : 0;
+      if (baseCp >= 0x20 && baseCp <= 0x7E) {
+        const base = String.fromCharCode(baseCp);
+
+        // Collect consecutive subscript chars
+        let subText = '';
+        let j = charPos;
+        let subAttr = FORMAT_ATTR_SUBSCRIPT;
+        while (j < MAX_POS && subAttr === FORMAT_ATTR_SUBSCRIPT) {
+          const subCp = readDisplayChar(bytes, displayStartByte, j);
+          if (subCp === 0 || subCp === 0x0010) break;
+          const rawChar = subCp === 0x000F ? INLINE_OBJECT_SLOT
+            : subCp >= 0x20 && subCp <= 0x7E ? String.fromCharCode(subCp)
+            : '';
+          subText += rawChar;
+          j++;
+          subAttr = attrAt.has(j) ? attrAt.get(j)! : subAttr;
+        }
+
+        if (subText) {
+          const pattern = base + subText;
+          const replacement = `$${base}_${subText}$`;
+          result = result.replace(new RegExp(escapeRegExp(pattern), 'g'), replacement);
+        }
+        charPos = j - 1; // skip past subscript chars
+      }
+    }
+  }
+
+  return result;
+}
+
 function inferVersion06Choices(
   variables: AlgorithmicVariable[],
   postFontRefs: string[],
@@ -3258,12 +3443,15 @@ function wrapBodyInlineMath(body: string): string {
   const parts = body.split(/(\$[^$]+\$)/);
   return parts.map((part, i) => {
     if (i % 2 === 1) return part; // already inside $...$
-    // Subscript notation: a SINGLE letter (not the tail of a word) followed by underscore.
-    // Lookbehind ensures we don't match mid-word like "sign_p2" at the "n_p2" position.
+    // Subscript notation: a SINGLE letter (not the tail of a word) followed by underscore
+    // and a SHORT subscript (1–2 chars). Short constraint avoids false positives on
+    // compound variable names like "y_axis", "k_value" stored with literal underscores.
     // Optionally captures a trailing "= expression" up to the next punctuation boundary.
     // e.g. t_n = 3n + 1  →  $t_n = 3n + 1$    S_9  →  $S_9$
+    // Single-letter subscript must NOT be followed by alphanumeric (avoids matching
+    // mid-word like "y_ax" inside "y_axis"). Multi-digit subscripts (S_9, x_12) are fine.
     return part.replace(
-      /(?<![A-Za-z])([A-Za-z])_([A-Za-z0-9]+)(?:\s*=\s*[^,;.!?\n]+)?/g,
+      /(?<![A-Za-z])([A-Za-z])_([A-Za-z](?![A-Za-z0-9])|\d+)(?:\s*=\s*[^,;.!?\n]+)?/g,
       (match) => `$${match.trim()}$`,
     );
   }).join('');
