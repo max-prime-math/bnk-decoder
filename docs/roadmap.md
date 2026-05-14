@@ -45,10 +45,20 @@ Detailed binary format research lives in `format-notes.md`.
 - evfbb.dll is **NOT imported** by evpro.exe or any other exe — loaded via unknown plugin mechanism
 - evpro.exe DOES contain FSCBNK strings in `.rdata` at RVA 0x208531 — BNK parser is IN evpro.exe
 
-1. **Dynamic analysis with Wine+display**: `sudo pacman -S xorg-server-xvfb`, then run ExamView under Xvfb; set breakpoint on `fn_a680` (evfbb.dll+0x1a80) and trace what called it; the call stack will reveal the BNK parsing function
-2. **Find fn_897a's caller at runtime**: fn_897a at `0x6102897a` in evfbb.dll has 0 direct callers (called via function pointer); dynamic analysis reveals the vtable
-3. **Search evpro.exe for BNK binary reading**: evpro.exe has `FSCBNK#W#06#00#` at RVA 0x208531 — find code near `cmp ..., 0x1a` (BNK magic byte) comparisons and trace the full parser
-4. **Byte-flip approach**: flip each byte in a record's binary section one at a time, run ExamView (Wine), observe which flip changes the displayed answer
+1. **Create controlled test banks** *(simplest and most likely to work immediately)*  
+   In ExamView, create 4 minimal MCQ banks that are byte-for-byte identical except for which answer is selected:
+   - `test_A.bnk`: question="Which option is correct?", choices A/B/C/D, answer=**A**
+   - `test_B.bnk`: same question, answer=**B**
+   - `test_C.bnk`: same, answer=**C**
+   - `test_D.bnk`: same, answer=**D**
+   
+   Then run: `node scripts/find-answer-byte.mjs test_A.bnk test_B.bnk test_C.bnk test_D.bnk`  
+   The bytes that differ across the 4 inflated payloads are the answer encoding — typically resolved in minutes.  
+   Also create a T/F variant (T vs F) and a two-save of the same bank (to identify timestamp bytes to exclude).
+
+2. **Dynamic analysis with Wine+display**: `sudo pacman -S xorg-server-xvfb`, then run ExamView under Xvfb; set breakpoint on `fn_a680` (evfbb.dll+0x1a80) and trace what called it; the call stack will reveal the BNK parsing function
+3. **Find fn_897a's caller at runtime**: fn_897a at `0x6102897a` in evfbb.dll has 0 direct callers (called via function pointer); dynamic analysis reveals the vtable
+4. **Search evpro.exe for BNK binary reading**: evpro.exe has `FSCBNK#W#06#00#` at RVA 0x208531 — find code near `cmp ..., 0x1a` (BNK magic byte) comparisons and trace the full parser
 
 **Ground truth available:** Ch03 Q1–Q13 confirmed answers from ExamView UI screenshots (see `CURRENT_STATE.md`)
 
