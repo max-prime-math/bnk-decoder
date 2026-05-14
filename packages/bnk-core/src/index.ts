@@ -1258,7 +1258,7 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   const d = variableValueForDisplay('d', variableMap);
 
   if (t1 && d && /formula for the general term of an arithmetic sequence/i.test(body) && /common difference/i.test(body)) {
-    return `In the formula for the general term of an arithmetic sequence t_n = ${t1} + (n - 1)(${d}), the common difference is`;
+    return `In the formula for the general term of an arithmetic sequence $t_n = ${t1} + (n - 1)(${d})$, the common difference is`;
   }
 
   if (t1 && t2 && t3 && t4 && t5) {
@@ -1310,7 +1310,7 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   }
 
   if (n && t1 && t2 && t3 && t4 && /What is the value of S/i.test(body)) {
-    return `What is the value of S_${n} for the series ${t1} - ${t2} + ${t3} - ${t4} + ...?`;
+    return `What is the value of $S_${n}$ for the series ${t1} - ${t2} + ${t3} - ${t4} + ...?`;
   }
 
   if (t1 && t2 && t3 && t4 && /Which of the following best describes the series/i.test(body)) {
@@ -1360,11 +1360,11 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   }
 
   if (/formula for the general term of an arithmetic sequence/i.test(body) && /represents the ____________________/.test(body)) {
-    return 'In the formula for the general term of an arithmetic sequence t_n = a + (n - 1)d, a represents the ____________________ and n represents the ____________________.';
+    return 'In the formula for the general term of an arithmetic sequence $t_n = a + (n - 1)d$, a represents the ____________________ and n represents the ____________________.';
   }
 
   if (/The first three terms of the sequence defined by/i.test(body) && /\[inline object not decoded yet\]/i.test(body)) {
-    return 'The first three terms of the sequence defined by t_n = -0.3n + 0.5 are';
+    return 'The first three terms of the sequence defined by $t_n = -0.3n + 0.5$ are';
   }
 
   if (/^a\) t1 = –8, d = 3/i.test(body)) {
@@ -1555,16 +1555,16 @@ function recoverKnownHiddenMathExpressions(body: string, variableMap: Map<string
 
   if (linearFunction) {
     recovered = recovered
-      .replace(/function f\(x\)\s*=\s*\[math expression not decoded yet\]/i, `function f(x) = ${linearFunction}`)
-      .replace(/function f\(x\)\s*=\s*(?=$|\()/i, `function f(x) = ${linearFunction} `)
-      .replace(/correct inverse for the function(\s*$|\s*\()/i, (_match, suffix: string) => `correct inverse for the function f(x) = ${linearFunction}${suffix}`);
+      .replace(/function f\(x\)\s*=\s*\[math expression not decoded yet\]/i, `function $f(x) = ${linearFunction}$`)
+      .replace(/function f\(x\)\s*=\s*(?=$|\()/i, `function $f(x) = ${linearFunction}$ `)
+      .replace(/correct inverse for the function(\s*$|\s*\()/i, (_match, suffix: string) => `correct inverse for the function $f(x) = ${linearFunction}$${suffix}`);
   }
 
   if (inverseLinearFunction) {
     recovered = recovered
       .replace(/The inverse of the function f\(x\)\s*=\s*([^\s]+)?\s*is ____________________\./i, (_match, existing: string | undefined) => {
-        const original = existing ? `f(x) = ${existing}` : linearFunction ? `f(x) = ${linearFunction}` : 'the function';
-        return `The inverse of ${original} is ${inverseLinearFunction}.`;
+        const original = existing ? `$f(x) = ${existing}$` : linearFunction ? `$f(x) = ${linearFunction}$` : 'the function';
+        return `The inverse of ${original} is $${inverseLinearFunction}$.`;
       });
   }
 
@@ -2335,7 +2335,7 @@ function inferVersion06Choices(
       id: String.fromCharCode(65 + index),
       body: {
         format: 'typst',
-        text: convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name),
+        text: wrapTypstMathIfNeeded(convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name)),
       },
     }));
   }
@@ -2349,7 +2349,7 @@ function inferVersion06Choices(
         id,
         body: {
           format: 'typst',
-          text: convertExamViewExpressionToTypst(resolveChoiceRefValue(ref, variableMap)),
+          text: wrapTypstMathIfNeeded(convertExamViewExpressionToTypst(resolveChoiceRefValue(ref, variableMap))),
         },
       };
     });
@@ -2368,7 +2368,7 @@ function inferVersion06Choices(
     id: String.fromCharCode(65 + index),
     body: {
       format: 'typst',
-      text: convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name),
+      text: wrapTypstMathIfNeeded(convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name)),
     },
   }));
 }
@@ -2612,7 +2612,7 @@ function arithmeticFormulaChoice(id: string, slope: string, sign: string, consta
     id,
     body: {
       format: 'typst',
-      text: `t_n = ${slope}n ${normalizeSeriesSign(sign)} ${constant}`,
+      text: `$t_n = ${slope}n ${normalizeSeriesSign(sign)} ${constant}$`,
     },
   };
 }
@@ -2640,7 +2640,7 @@ function inferInverseFunctionChoices(variableMap: Map<string, AlgorithmicVariabl
     id: String.fromCharCode(65 + index),
     body: {
       format: 'typst',
-      text: `f^(-1)(x) = ${expression}`,
+      text: `$f^(-1)(x) = ${expression}$`,
     },
   }));
 }
@@ -2883,7 +2883,7 @@ function inferRadicalRestrictionChoices(variableMap: Map<string, AlgorithmicVari
   const h = variableValueForDisplay('h', variableMap);
   const b = variableValueForDisplay('b', variableMap);
   if (!k || !h || !b) return undefined;
-  return [`x >= ${k}`, `x >= ${h}`, `x >= ${b}`, `x <= ${k}`]
+  return [`$x >= ${k}$`, `$x >= ${h}$`, `$x >= ${b}$`, `$x <= ${k}$`]
     .map((text, index) => ({ id: String.fromCharCode(65 + index), body: { format: 'typst', text } }));
 }
 
@@ -3234,6 +3234,31 @@ function makeRawFragment(bytes: Uint8Array, offset: number, length: number, text
 
 function contentText(content: RichContent): string {
   return content.text;
+}
+
+/**
+ * Wrap a Typst text fragment in inline math delimiters ($...$) when it looks like a
+ * math expression. Used for values derived from algorithmic variables, which are often
+ * formulas or fractions but are sometimes plain numbers or plain-text words.
+ */
+function wrapTypstMathIfNeeded(text: string): string {
+  const trimmed = text.trim();
+  if (!trimmed || trimmed.startsWith('$') || /^\[/.test(trimmed)) return text;
+  // ExamView unresolved conditionals / char functions — not valid math
+  if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return text;
+  // Subscript notation: t_n, S_8, x_1
+  if (/[A-Za-z]_[A-Za-z0-9({]/.test(trimmed)) return `$${trimmed}$`;
+  // Superscript: f^(-1), x^2
+  if (/\^/.test(trimmed)) return `$${trimmed}$`;
+  // Already-converted Typst math function e.g. #math.frac(...)
+  if (/#math\./.test(trimmed)) return `$${trimmed}$`;
+  // Equation or inequality: letter(s) = / < / > expression
+  if (/^[A-Za-z_][A-Za-z0-9_(){}]*\s*[=<>]/.test(trimmed)) return `$${trimmed}$`;
+  // Bare fraction: ±digits/digits
+  if (/^-?\d+\/\d+$/.test(trimmed)) return `$${trimmed}$`;
+  // sqrt(...) expression
+  if (/sqrt\(/.test(trimmed)) return `$${trimmed}$`;
+  return text;
 }
 
 function emptyStats(): DecodeStats {
