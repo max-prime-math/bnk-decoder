@@ -53,6 +53,7 @@ function validateAnswers(jsonFile) {
     }
 
     // Handle multiple choice answers
+    let answerChoice;
     if (q.answer.format === 'choice') {
       if (!q.choices) {
         results.validation.invalidAnswers++;
@@ -60,7 +61,7 @@ function validateAnswers(jsonFile) {
         return;
       }
 
-      const answerChoice = q.choices.find(c => c.id === q.answer.value);
+      answerChoice = q.choices.find(c => c.id === q.answer.value);
       if (!answerChoice) {
         results.validation.invalidAnswers++;
         results.validation.issues.push(`Q${qNum}: Answer '${q.answer.value}' not in choices ${q.choices.map(c => c.id).join(',')}`);
@@ -94,13 +95,15 @@ function validateAnswers(jsonFile) {
     // Confidence assessment
     let confidence = 'perfect';
 
-    // Questionable patterns
-    if (answerChoice.body.text.includes('[embedded') || answerChoice.body.text.includes('[inline')) {
-      confidence = 'questionable';
-      results.validation.issues.push(`Q${qNum}: Answer choice has unrecovered placeholders`);
+    // Questionable patterns (only for choice answers)
+    if (answerChoice) {
+      if (answerChoice.body.text.includes('[embedded') || answerChoice.body.text.includes('[inline')) {
+        confidence = 'questionable';
+        results.validation.issues.push(`Q${qNum}: Answer choice has unrecovered placeholders`);
+      }
     }
-    // Multiple answers (duplicate values in choices)
-    if (q.choices.filter(c => c.id === q.answer.value).length > 1) {
+    // Multiple answers (duplicate values in choices) - only for choice format
+    if (q.answer.format === 'choice' && q.choices.filter(c => c.id === q.answer.value).length > 1) {
       confidence = 'questionable';
       results.validation.issues.push(`Q${qNum}: Duplicate answer choice ID`);
     }
