@@ -1852,11 +1852,21 @@ function recoverKnownEmbeddedObjectPatterns(
     );
   }
 
-  // Triangle diagram text description (Ch02 geometry questions)
+  // Triangle diagram text description (Ch02/Ch05 geometry questions)
   if (recovered.includes('[embedded diagram/object]')) {
     const desc = buildTriangleDescription(variableMap);
     if (desc) {
       recovered = recovered.replace('[embedded diagram/object]', desc);
+    }
+
+    // Equilateral triangle description (Ch05 Q14/Q15 style)
+    if (!recovered.includes('[embedded diagram/object]')) {
+      // Already replaced by buildTriangleDescription
+    } else if (recovered.includes('equilateral triangle')) {
+      const s = variableValueForDisplay('s', variableMap);
+      if (s) {
+        recovered = recovered.replace('[embedded diagram/object]', `[Equilateral Triangle: side = ${s} cm]`);
+      }
     }
   }
 
@@ -1882,6 +1892,28 @@ function recoverKnownEmbeddedObjectPatterns(
 
   // Strip trailing ", label = [embedded diagram/object]" fragments (Q23 Ch02)
   recovered = recovered.replace(/(,\s*[a-zA-Z∠]+\s*=\s*\[embedded diagram\/object\])+\s*$/gi, '').trim();
+
+  // Triangle area recovery (Q15 Ch05)
+  if (/equilateral triangle has an area of \[embedded value\]/.test(recovered)) {
+    const area = variableValueForDisplay('Area', variableMap) ?? variableValueForDisplay('Area_dis', variableMap);
+    if (area) {
+      recovered = recovered.replace(/equilateral triangle has an area of \[embedded value\]/, `equilateral triangle has an area of ${area}`);
+    }
+  }
+
+  // Quadratic equation recovery (Q25 Ch05)
+  if (/if the solution to the equation \[embedded math expression\] involves real numbers/i.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    const c = variableValueForDisplay('c', variableMap);
+    if (a && b && c) {
+      // Construct standard form: ax² + bx + c = 0
+      recovered = recovered.replace(
+        /if the solution to the equation \[embedded math expression\] involves real numbers/i,
+        `if the solution to the equation ${a}$x^2 + ${b}$x + ${c} = 0 involves real numbers`,
+      );
+    }
+  }
 
   return recovered;
 }
