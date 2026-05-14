@@ -1942,6 +1942,14 @@ function recoverKnownEmbeddedObjectPatterns(
     }
   }
 
+  // Quadratic function analysis recovery (Ch4 Q4)
+  if (/What is the x-intercept of the quadratic function graphed here/i.test(recovered)) {
+    const x1 = variableValueForDisplay('x1', variableMap);
+    if (x1) {
+      recovered = recovered.replace('[embedded diagram/object]', `[Parabola with x-intercept at $${x1}$]`);
+    }
+  }
+
   return recovered;
 }
 
