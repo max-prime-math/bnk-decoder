@@ -34,10 +34,11 @@ Detailed binary format research lives in `format-notes.md`.
 
 ## 3. Embedded Math Objects (`[embedded math expression]`) ✅ COMPLETED
 
-**Status:** Completed (2026-05-14) — 94% of all corpus placeholders resolved  
+**Status:** Completed (2026-05-14) — 97% of all corpus placeholders resolved  
 **Final Progress:**
 - **Ch01-03 (Primary focus):** 1 remaining (95% fixed — only OLE object in Q2 Ch03 deferred)
-- **Overall corpus (Ch01-09):** 11 remaining of 228 questions (95% fully decoded)
+- **Ch05 (Secondary focus):** 1 remaining of 5 (80% fixed — garbled text extraction)
+- **Overall corpus (Ch01-09):** 7 remaining of 228 questions (97% fully decoded)
 
 **Solutions implemented:**
 1. **Coordinate point recovery** — detects "points [slot] and [slot] on graph of quadratic..." pattern; substitutes (x1,y1), (x2,y2), f(x) = x^2 + bx + c
@@ -109,11 +110,26 @@ Detailed binary format research lives in `format-notes.md`.
 
 ---
 
+## Remaining (7 of 228 questions — 97% Complete)
+
+**By Category:**
+- **OLE Binary Objects (2):** Ch3 Q2 (axis of symmetry), Ch6 Q14 (simplified expression) — need MathType/OLE parsing
+- **Graph Diagram Rendering (3):** Ch4 Q4, Ch7 Q8/Q14 — expressions recovered, need Typst/Graphviz output
+- **Fundamentally Garbled Text (1):** Ch5 Q5 — text extraction failure at deeper level
+- **Definition/Conceptual (1):** Ch4 Q24 — no algorithmic variables to infer missing term
+
+**What's Needed to Reach 100%:**
+1. **OLE binary parsing** — deserialize MathType/OLE equation objects from binary blobs
+2. **Graph rendering** — convert expressions to visual graphs (Typst commands or SVG)
+3. **Enhanced text extraction** — recover corrupted UTF-16LE text streams for edge cases
+4. **Semantic inference** — infer definition answers from question structure alone
+
 ## Completed
 
 | Item | Session | Result |
 |---|---|---|
-| Embedded Math Objects (completion) | 2026-05-14 | Resolved all 3 major challenges. Q14/Q15: choice value recovery. Q17: angle label recovery. Q23: diagram label stripping. Total: 1 remaining in Ch01-03, 11 in all chapters (95% decoded). |
+| Embedded Math Objects (final) | 2026-05-14 | Ch05 secondary focus: recovered 4 of 5 (Q15 area value, Q25 quadratic equation, Q14/Q15 diagram descriptions). Corpus: 7 of 228 remaining (97% decoded). |
+| Embedded Math Objects (completion) | 2026-05-14 | Resolved all 3 major challenges in Ch01-03. Q14/Q15: choice value recovery. Q17: angle label recovery. Q23: diagram label stripping. |
 | Embedded Math Objects (initial) | 2026-05-14 | Recovered 9 of 18 placeholders (67%). Ch02: 14→5, Ch03: 4→1. Coordinate points and triangle diagrams now readable. |
 | Answer Key Byte Location | 2026-05-14 | Implemented; all Ch03 Q1–Q13 answers correct. Binary offset = sourceOffset − 508. |
 | Record Over-counting | 2026-05-14 | Fixed; reads DWORD at 0x0a04. Ch01=30, Ch02=24, Ch03=22 all correct. |
