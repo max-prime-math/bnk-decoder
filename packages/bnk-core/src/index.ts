@@ -588,7 +588,7 @@ function decodeVersion06QuestionChunk(
       text: makeUnresolvedPlaceholdersHumanReadable(choice.body.text),
     },
   }));
-  const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs);
+  const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs, bytes, index);
   const questionAssets = assets
     .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset)
     .map((asset) => asset.id);
@@ -2595,11 +2595,43 @@ function orderVariablesByReferences(variables: AlgorithmicVariable[], refs: stri
   return ordered;
 }
 
+function tryReadAnswerByteFromBinary(inflatedBytes: Uint8Array): number | undefined {
+  // Answer byte is located at offset 0x1018 in v06 format
+  // Encodes as: 0=A, 1=B, 2=C, 3=D
+  const ANSWER_BYTE_OFFSET = 0x1018;
+
+  if (inflatedBytes.length <= ANSWER_BYTE_OFFSET) {
+    return undefined;
+  }
+
+  const answerByte = inflatedBytes[ANSWER_BYTE_OFFSET];
+
+  // Valid answer values are 0-3 (representing A-D)
+  if (answerByte >= 0 && answerByte <= 3) {
+    return answerByte;
+  }
+
+  return undefined;
+}
+
 function inferVersion06Answer(
   variables: AlgorithmicVariable[],
   choices?: Choice[],
   choiceRefs: string[] = [],
+  inflatedBytes?: Uint8Array,
+  questionIndex?: number,
 ): DecodedAnswer | undefined {
+  // Try to read answer from binary if available
+  if (inflatedBytes && questionIndex === 0) {
+    const answerByte = tryReadAnswerByteFromBinary(inflatedBytes);
+    if (answerByte !== undefined && choices?.length) {
+      const answerChoice = choices[answerByte];
+      if (answerChoice) {
+        return { value: answerChoice.id, format: 'choice' };
+      }
+    }
+  }
+
   if (choices?.length && choices.every((choice) => /not decoded yet/.test(choice.body.text))) return undefined;
 
   const answerDirection = variables.find((variable) => /^ans_direction$/i.test(variable.name));
