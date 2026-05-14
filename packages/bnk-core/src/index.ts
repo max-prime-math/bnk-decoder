@@ -604,6 +604,7 @@ function decodeVersion06QuestionChunk(
       text: makeUnresolvedPlaceholdersHumanReadable(choice.body.text),
     },
   }));
+  choices = recoverChoiceEmbeddedValues(choices, variableMap);
   const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs, bytes, chunk.start.offset);
   const questionAssets = assets
     .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset)
@@ -1749,6 +1750,81 @@ function buildTriangleDescription(variableMap: Map<string, AlgorithmicVariable>)
   return parts.length >= 2 ? `[Triangle: ${parts.join(', ')}]` : undefined;
 }
 
+function recoverChoiceEmbeddedValues(
+  choices: Choice[] | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+): Choice[] | undefined {
+  if (!choices?.some((c) => c.body.text.includes('[embedded value]'))) return choices;
+
+  // Extract all numeric values from a choice text
+  const extractNums = (text: string): number[] =>
+    [...text.matchAll(/([\d.]+)/g)].map((m) => parseFloat(m[1])).filter((n) => !isNaN(n));
+
+  return choices.map((choice) => {
+    if (!choice.body.text.includes('[embedded value]')) return choice;
+
+    // Count how many [embedded value] slots exist in this choice
+    const embeddedCount = (choice.body.text.match(/\[embedded value\]/g) ?? []).length;
+    if (embeddedCount !== 1) return choice;
+
+    const currentNums = new Set(extractNums(choice.body.text));
+
+    // Collect all numeric values from OTHER choices (without embedded values) and their frequencies
+    const valueFrequency = new Map<string, number>();
+    for (const other of choices) {
+      if (other.id === choice.id || other.body.text.includes('[embedded value]')) continue;
+      for (const val of extractNums(other.body.text)) {
+        const key = String(val);
+        valueFrequency.set(key, (valueFrequency.get(key) ?? 0) + 1);
+      }
+    }
+
+    // Find numeric variables from variableMap that appear in other choices
+    const candidatesFromOtherChoices: string[] = [];
+    for (const [name, variable] of variableMap) {
+      const val = variable.sampleValue ?? '';
+      const parsed = parseFloat(val);
+      if (!isNaN(parsed) && !currentNums.has(parsed) && valueFrequency.has(val)) {
+        candidatesFromOtherChoices.push(val);
+      }
+    }
+
+    // Remove duplicates
+    const uniqueCandidates = [...new Set(candidatesFromOtherChoices)];
+
+    if (uniqueCandidates.length === 0) {
+      return choice;
+    }
+
+    if (uniqueCandidates.length === 1) {
+      // Exactly one candidate — use it
+      return {
+        ...choice,
+        body: {
+          ...choice.body,
+          text: choice.body.text.replace('[embedded value]', uniqueCandidates[0]),
+        },
+      };
+    }
+
+    // Multiple candidates: pick the one with the lowest frequency in other choices
+    // Rationale: values that appear less frequently are more likely to be the missing one
+    const selected = uniqueCandidates.reduce((min, candidate) => {
+      const freqMin = valueFrequency.get(min) ?? 0;
+      const freqCand = valueFrequency.get(candidate) ?? 0;
+      return freqCand < freqMin ? candidate : min;
+    });
+
+    return {
+      ...choice,
+      body: {
+        ...choice.body,
+        text: choice.body.text.replace('[embedded value]', selected),
+      },
+    };
+  });
+}
+
 function recoverKnownEmbeddedObjectPatterns(
   body: string,
   variableMap: Map<string, AlgorithmicVariable>,
@@ -1783,6 +1859,29 @@ function recoverKnownEmbeddedObjectPatterns(
       recovered = recovered.replace('[embedded diagram/object]', desc);
     }
   }
+
+  // Fix garbled "If N," body start where "∠B = " prefix is missing (Q17 Ch02)
+  const angleBVal = variableValueForDisplay('angleB', variableMap);
+  if (angleBVal && new RegExp(`^If ${escapeRegExp(angleBVal)},`).test(recovered)) {
+    recovered = recovered.replace(new RegExp(`^If ${escapeRegExp(angleBVal)},`), `If ∠B = ${angleBVal}°,`);
+  }
+
+  // Recover angle label in "what is the measure of [embedded object]" questions (Q17 Ch02)
+  if (/what is the measure of \[embedded object\]/i.test(recovered)) {
+    const givenAngles = new Set<string>();
+    if (variableValueForDisplay('angleA', variableMap)) givenAngles.add('A');
+    if (variableValueForDisplay('angleB', variableMap)) givenAngles.add('B');
+    if (variableValueForDisplay('angleC', variableMap)) givenAngles.add('C');
+    const allAngles = ['A', 'B', 'C'];
+    const missing = allAngles.filter((a) => !givenAngles.has(a));
+    // If exactly one angle is missing, use it. If multiple missing, pick the first alphabetically.
+    if (missing.length >= 1) {
+      recovered = recovered.replace(/what is the measure of \[embedded object\]/i, `what is the measure of ∠${missing[0]}`);
+    }
+  }
+
+  // Strip trailing ", label = [embedded diagram/object]" fragments (Q23 Ch02)
+  recovered = recovered.replace(/(,\s*[a-zA-Z∠]+\s*=\s*\[embedded diagram\/object\])+\s*$/gi, '').trim();
 
   return recovered;
 }
