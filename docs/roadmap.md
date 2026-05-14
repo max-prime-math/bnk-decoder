@@ -89,12 +89,22 @@ Detailed binary format research lives in `format-notes.md`.
 
 ## 6. Per-Question Image Assets
 
-**Status:** Partial — PNG/JPEG/GIF/BMP detected by signature scan  
+**Status:** Partial — Assets extracted but linking incomplete for fallback-decoded files  
 **Impact:** Images embedded in questions become usable  
 **What we know:**
-- 5 JPEG assets detected in corpus (in 2 files)
-- Asset-to-question association works for v06 questions via byte-range overlap
-- Non-v06 fallback banks still need per-question asset association
+- **5 valid JPEG assets detected** (in 2 corpus files)
+- **Asset extraction working:** All detected assets are extracted to disk (e.g., `asset-1.jpg`, `asset-2.jpg`)
+- **Asset linking works for v06 questions:** Byte-range overlap matching works perfectly for files with proper v06 question structure
+- **Asset linking NOT working for fallback-decoded questions:** MathWorks 11/Ch5 Scale file (383 questions, 4 JPEGs) uses text-like fallback decoder, which lacks byte offset information for questions
+
+**Root cause:** Files without proper v06 question string clusters fall back to text-like decoding, which extracts questions from readable text without preserving binary offsets. Asset filtering requires sourceOffset to match asset byte positions to question ranges.
+
+**Current workaround:** Assets are still extracted and saved in `-assets/` directory, accessible by filename even if not linked in JSON.
+
+**Next approaches:**
+1. Implement fallback asset linking: Pass assets to `decodeTextLikeQuestions`, use sequential assignment or pattern matching
+2. Fix v06 decoder: Improve string cluster detection to properly handle MathWorks file format
+3. Hybrid approach: Extract and preserve binary offset info for questions parsed from text-like decoder
 
 ---
 

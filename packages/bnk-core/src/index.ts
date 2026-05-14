@@ -197,7 +197,7 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
   const text = extractReadableText(parserBytes);
   const fallbackQuestions = questions.length
     ? []
-    : decodeTextLikeQuestions(text, parserBytes, options.preserveRaw !== false);
+    : decodeTextLikeQuestions(text, parserBytes, options.preserveRaw !== false, assets);
   const decodedQuestions = questions.length ? questions : fallbackQuestions;
 
   if (decodedQuestions.length === 0) {
@@ -362,13 +362,20 @@ function detectSourceFormat(bytes: Uint8Array, container?: ExamViewContainerMeta
   return text.length > Math.max(32, bytes.byteLength / 8) ? 'text-like' : 'unknown-binary';
 }
 
-function decodeTextLikeQuestions(text: string, bytes: Uint8Array, preserveRaw: boolean): DecodedQuestion[] {
+function decodeTextLikeQuestions(text: string, bytes: Uint8Array, preserveRaw: boolean, assets: DecodedAsset[] = []): DecodedQuestion[] {
   const normalized = text.replace(/\r\n?/g, '\n').trim();
   if (!normalized) return [];
 
   const chunks = splitQuestionishChunks(normalized);
+
+  // For fallback-decoded questions, distribute assets evenly across questions
+  // This ensures all assets are linked even if the exact question-asset mapping is unknown
+  const assetDistribution = distributeAssetsAcrossQuestions(assets, chunks.length);
+
   return chunks.map((chunk, index) => {
     const { body, choices, answer, solution, type } = parseQuestionishText(chunk);
+    const questionAssets = assetDistribution[index] || [];
+
     return {
       id: `q-${index + 1}`,
       type,
@@ -377,11 +384,38 @@ function decodeTextLikeQuestions(text: string, bytes: Uint8Array, preserveRaw: b
       answer,
       solution: solution ? { format: 'plain', text: solution } : undefined,
       metadata: {},
-      assets: [],
+      assets: questionAssets,
       confidence: choices?.length || answer || solution ? 'medium' : 'low',
       raw: preserveRaw ? [makeRawFragment(bytes, 0, Math.min(bytes.byteLength, 256), chunk)] : undefined,
     };
   });
+}
+
+function distributeAssetsAcrossQuestions(assets: DecodedAsset[], questionCount: number): string[][] {
+  if (assets.length === 0 || questionCount === 0) {
+    return Array(questionCount).fill([]);
+  }
+
+  // Distribute assets across questions: each question gets 0 or more assets
+  // Strategy: spread assets across the first N questions where assets are needed
+  const distribution: string[][] = Array(questionCount).fill(null).map(() => []);
+
+  // For files with fewer assets than questions (common case): spread assets evenly
+  if (assets.length < questionCount) {
+    const step = Math.floor(questionCount / assets.length);
+    assets.forEach((asset, idx) => {
+      const questionIndex = Math.min(idx * step, questionCount - 1);
+      distribution[questionIndex].push(asset.id);
+    });
+  } else {
+    // More assets than questions: distribute via round-robin
+    assets.forEach((asset, idx) => {
+      const questionIndex = idx % questionCount;
+      distribution[questionIndex].push(asset.id);
+    });
+  }
+
+  return distribution;
 }
 
 function splitQuestionishChunks(text: string): string[] {
