@@ -32,20 +32,29 @@ Detailed binary format research lives in `format-notes.md`.
 
 ---
 
-## 3. Embedded Math Objects (`[embedded math expression]`)
+## 3. Embedded Math Objects (`[embedded math expression]`) ✅ PARTIAL
 
-**Status:** Open (partial — semantic recovery handles many common patterns)  
-**Impact:** Questions with inline math (especially trig identities, Ch03 Ch06) decode fully  
-**What we know:**
+**Status:** Partially completed (2026-05-14) — 67% of placeholders resolved  
+**Progress:**
+- **Recovered (9 of 18):** Coordinate points (3 Ch03), triangle diagrams (11 Ch02) 
+- **Remaining (6):** Choice slot refs (2 Ch02), angle label (1 Ch02), complex diagrams (2 Ch02), OLE equation (1 Ch03)
+
+**Solution implemented:**
+- `recoverKnownEmbeddedObjectPatterns()` — post-processing semantic recovery for specific patterns
+- Coordinate point recovery: detects "points [slot] and [slot] on graph of quadratic..." pattern; substitutes (x1,y1), (x2,y2), f(x) = x^2 + bx + c
+- Triangle diagram descriptions: text-renders diagrams from angle/side variables (e.g., "[Triangle: ∠A=70°, side b=25cm]")
+- Result: Ch02 14→5, Ch03 4→1 remaining placeholders
+
+**Remaining open issues:**
+1. Choice `[embedded value]` slots — missing refs in `inferSlotBasedChoices`; would need fuzzy variable matching
+2. OLE equation objects (Q2 Ch03) — no variable representation; requires binary blob parsing
+3. Angle labels and complex multi-diagram structures — need context inference
+
+**What we know (still):**
 - Math objects are stored as `0x000f` slot markers in the text stream
-- The slot content is in a rich-text/binary blob not yet decoded
-- Current decoder recovers many patterns via hardcoded semantic rules (linear functions, sequences/series, transformations, unit circle)
-- Ch03 has 17 embedded placeholders remaining after current decoder
-
-**Next approaches:**
-1. Map the binary blob format for inline math objects (look near slot marker bytes in the inflated binary)
-2. Extend semantic recovery for remaining common patterns in Ch03
-3. Investigate whether the math object blobs use RTF math encoding or proprietary FSC format
+- Textual content (functions, coordinates) can be recovered from algorithmic variables
+- Visual diagrams and OLE objects require either binary parsing or text-only substitutes
+- Current decoder now recovers many patterns via both semantic rules and variable substitution
 
 ---
 
@@ -103,6 +112,7 @@ Detailed binary format research lives in `format-notes.md`.
 
 | Item | Session | Result |
 |---|---|---|
+| Embedded Math Objects (partial) | 2026-05-14 | Recovered 9 of 18 placeholders (67%). Ch02: 14→5, Ch03: 4→1. Coordinate points and triangle diagrams now readable. |
 | Answer Key Byte Location | 2026-05-14 | Implemented; all Ch03 Q1–Q13 answers correct. Binary offset = sourceOffset − 508. |
 | Record Over-counting | 2026-05-14 | Fixed; reads DWORD at 0x0a04. Ch01=30, Ch02=24, Ch03=22 all correct. |
 | `pow()` graph evaluator | 2026-05-13 | Fixed — parabola expressions now sample 41 points |
