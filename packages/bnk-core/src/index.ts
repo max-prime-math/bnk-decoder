@@ -478,6 +478,15 @@ interface Version06DisplayRegions {
   choiceRegions: Array<{ id: string; texts: string[] }>;
 }
 
+const V06_QUESTION_COUNT_OFFSET = 0x0a04;
+
+function readVersion06QuestionCount(bytes: Uint8Array): number | undefined {
+  if (bytes.length < V06_QUESTION_COUNT_OFFSET + 4) return undefined;
+  const count = readUint32Le(bytes, V06_QUESTION_COUNT_OFFSET);
+  if (count < 1 || count > 2000) return undefined;
+  return count;
+}
+
 function decodeVersion06QuestionCandidates(
   bytes: Uint8Array,
   options: DecodeOptions,
@@ -485,12 +494,18 @@ function decodeVersion06QuestionCandidates(
   assets: DecodedAsset[] = [],
 ): DecodedQuestion[] {
   const strings = extractUtf16LeStrings(bytes, 1);
-  const chunks = findVersion06QuestionChunks(strings, bytes.byteLength);
+  const allChunks = findVersion06QuestionChunks(strings, bytes.byteLength);
+  const questionCount = readVersion06QuestionCount(bytes);
+  const chunks = questionCount !== undefined && questionCount < allChunks.length
+    ? allChunks.slice(0, questionCount)
+    : allChunks;
 
   diagnostics.push({
     level: chunks.length ? 'info' : 'warning',
     code: 'V06_STRING_CLUSTER_SCAN',
-    message: `Found ${chunks.length} candidate v06 question string cluster${chunks.length === 1 ? '' : 's'}.`,
+    message: questionCount !== undefined && questionCount < allChunks.length
+      ? `Found ${allChunks.length} candidate string clusters; using header count ${questionCount}.`
+      : `Found ${chunks.length} candidate v06 question string cluster${chunks.length === 1 ? '' : 's'}.`,
   });
 
   if (!chunks.length) return [];
