@@ -176,6 +176,74 @@ export type PortableBnkJson = Omit<DecodeResult, 'assets'> & {
   assets: Array<Omit<DecodedAsset, 'bytes'> & { byteLength: number }>;
 };
 
+export interface PortableQuestionPackage {
+  format: 'portable-question-package';
+  version: '1.0';
+  producer: {
+    app: 'bnk-decoder';
+    appVersion: string;
+    exportedAt: string;
+  };
+  source: {
+    kind: 'bnk';
+    label: string;
+    originFiles: string[];
+  };
+  questions: Array<{
+    id: string;
+    kind: 'mcq' | 'frq' | 'true_false' | 'matching' | 'multiple_response' | 'numeric' | 'essay' | 'unknown';
+    content: {
+      stem: RichContent;
+      solution?: RichContent;
+      choices?: Array<{ id: string; body: RichContent }>;
+    };
+    answer?: {
+      type: 'choice' | 'boolean' | 'text' | 'numeric' | 'unknown';
+      value: string;
+    };
+    scoring: {
+      points: number;
+    };
+    classification: {
+      questionType?: QuestionType;
+      tags: string[];
+      classId?: string;
+      unitId?: string;
+      sectionId?: string;
+    };
+    assets?: string[];
+    provenance: {
+      sourceApp: 'bnk-decoder';
+      sourceLabel: string;
+      sourceQuestionNumber: string;
+      confidence: DecodeConfidence;
+      originFiles: string[];
+    };
+    extensions: Record<string, unknown>;
+  }>;
+  assets: Array<{
+    id: string;
+    kind: AssetKind;
+    filename?: string;
+    mimeType?: string;
+    storage: {
+      mode: 'inline-base64';
+      base64: string;
+    };
+    source: {
+      originalPath?: string;
+    };
+    extensions: Record<string, unknown>;
+  }>;
+  diagnostics: Array<{
+    level: DiagnosticLevel;
+    code: string;
+    message: string;
+    questionId?: string;
+  }>;
+  extensions: Record<string, unknown>;
+}
+
 const TEXT_DECODER = new TextDecoder('utf-8', { fatal: false });
 const UTF16LE_DECODER = new TextDecoder('utf-16le', { fatal: false });
 const EXAMVIEW_HEADER_LENGTH = 16;
@@ -294,6 +362,123 @@ export function toPortableJson(result: DecodeResult): PortableBnkJson {
       ...asset,
       byteLength: bytes.byteLength,
     })),
+  };
+}
+
+function encodeBase64(bytes: Uint8Array): string {
+  let binary = '';
+  const chunk = 8192;
+  for (let i = 0; i < bytes.length; i += chunk) {
+    const slice = bytes.subarray(i, Math.min(i + chunk, bytes.length));
+    binary += String.fromCharCode(...slice);
+  }
+  return btoa(binary);
+}
+
+function portableKind(type: QuestionType): PortableQuestionPackage['questions'][number]['kind'] {
+  switch (type) {
+    case 'mcq':
+    case 'true_false':
+    case 'matching':
+    case 'multiple_response':
+    case 'numeric':
+    case 'essay':
+      return type;
+    case 'bimodal':
+    case 'completion':
+    case 'fill_blank':
+    case 'short_answer':
+    case 'problem':
+    case 'case':
+    case 'algorithmic':
+      return 'frq';
+    default:
+      return 'unknown';
+  }
+}
+
+function portableAnswerType(question: DecodedQuestion): 'choice' | 'boolean' | 'text' | 'numeric' | 'unknown' {
+  switch (question.answer?.format) {
+    case 'choice':
+    case 'boolean':
+    case 'text':
+    case 'numeric':
+      return question.answer.format;
+    default:
+      return 'unknown';
+  }
+}
+
+export function toPortableQuestionPackage(result: DecodeResult): PortableQuestionPackage {
+  const sourceLabel = result.source.filename?.split('/').at(-1) ?? 'decoded-bank.bnk';
+  const originFiles = result.source.filename ? [result.source.filename] : [];
+
+  return {
+    format: 'portable-question-package',
+    version: '1.0',
+    producer: {
+      app: 'bnk-decoder',
+      appVersion: '0.1.0',
+      exportedAt: new Date().toISOString(),
+    },
+    source: {
+      kind: 'bnk',
+      label: sourceLabel,
+      originFiles,
+    },
+    questions: result.questions.map((question) => ({
+      id: question.id,
+      kind: portableKind(question.type),
+      content: {
+        stem: question.body,
+        solution: question.solution,
+        choices: question.choices?.map((choice) => ({
+          id: choice.id,
+          body: choice.body,
+        })),
+      },
+      answer: question.answer ? {
+        type: portableAnswerType(question),
+        value: question.answer.value,
+      } : undefined,
+      scoring: {
+        points: question.type === 'mcq' || question.type === 'true_false' ? 1 : 5,
+      },
+      classification: {
+        questionType: question.type,
+        tags: ['bnk', question.type].filter(Boolean),
+      },
+      assets: question.assets.length > 0 ? question.assets : undefined,
+      provenance: {
+        sourceApp: 'bnk-decoder',
+        sourceLabel,
+        sourceQuestionNumber: question.id,
+        confidence: question.confidence,
+        originFiles,
+      },
+      extensions: {},
+    })),
+    assets: result.assets.map((asset) => ({
+      id: asset.id,
+      kind: asset.kind,
+      filename: asset.filename,
+      mimeType: asset.mimeType,
+      storage: {
+        mode: 'inline-base64',
+        base64: encodeBase64(asset.bytes),
+      },
+      source: {
+        originalPath: asset.filename,
+      },
+      extensions: {},
+    })),
+    diagnostics: result.diagnostics.map((diagnostic) => ({
+      level: diagnostic.level,
+      code: diagnostic.code,
+      message: diagnostic.message,
+      questionId: diagnostic.questionId,
+    })),
+    extensions: {},
   };
 }
 

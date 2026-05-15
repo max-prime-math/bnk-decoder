@@ -4,6 +4,27 @@ https://max-prime-math.github.io/bnk-decoder/
 
 Standalone Svelte app and shared TypeScript packages for decoding ExamView BNK files.
 
+## Shared Interchange Format
+
+This repo is part of a larger workspace that is converging on a shared JSON interchange format: the **Portable Question Package (PQP)**.
+
+- Canonical spec: [`../PORTABLE_QUESTION_PACKAGE.md`](../PORTABLE_QUESTION_PACKAGE.md)
+- Machine-readable schema: [`../shared-question-package.schema.json`](../shared-question-package.schema.json)
+
+`bnk-decoder` is the natural place for the shared model to mature because it already exposes framework-neutral packages and typed question structures. The intended export surface is:
+
+- PQP JSON as the common interchange format
+- Typst export
+- LaTeX export where it is useful and source fidelity permits
+
+PQP is designed to preserve:
+
+- decoded question text and choices
+- answer and solution data
+- embedded assets
+- diagnostics and decode confidence
+- curriculum metadata and forward-compatible extensions
+
 ## Status: ALPHA (Early Development) 🔧
 
 **Current Decoder State:** ~75% functional with significant issues
@@ -68,4 +89,3 @@ npm run decode:file -- "path/to/file.bnk"
 - **Answer Key Extraction**: All question answers via binary offset analysis (157/206 Pre-Calc 11 = 76%)
 - **Choice Value Recovery**: Frequency-based heuristics for missing values
 - **Text Repair**: Garbled text recovery and grammatical correction
-

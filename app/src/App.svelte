@@ -1,11 +1,9 @@
 <script lang="ts">
-  declare const __APP_VERSION__: string;
-  declare const __BUILD_HASH__: string;
-
   import {
     decodeBnkFile,
     toLatex,
     toPortableJson,
+    toPortableQuestionPackage,
     toTestGeneratorQuestions,
     toTypst,
     type DecodeResult,
@@ -137,6 +135,11 @@
     download(exportName('json'), JSON.stringify(toPortableJson(result), null, 2), 'application/json');
   }
 
+  function exportPqp() {
+    if (!result) return;
+    download(exportName('pqp.json'), JSON.stringify(toPortableQuestionPackage(result), null, 2), 'application/json');
+  }
+
   function exportTestGenerator() {
     if (!result) return;
     download(exportName('test-gen.json'), JSON.stringify(toTestGeneratorQuestions(result), null, 2), 'application/json');
@@ -255,6 +258,7 @@
           <button class="primary" onclick={exportLatex}>Export LaTeX</button>
           <button onclick={exportTypst}>Export Typst</button>
           <button onclick={exportJson}>Export JSON</button>
+          <button onclick={exportPqp}>Export PQP</button>
           <button onclick={exportTestGenerator}>Export for test-generator</button>
         </div>
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
-import { decodeBnkFile, toPortableJson, toTypst } from '../packages/bnk-core/src/index.ts';
+import { decodeBnkFile, toPortableJson, toPortableQuestionPackage, toTypst } from '../packages/bnk-core/src/index.ts';
 
 const inputPath = process.argv[2];
 const outDir = process.argv[3] ?? 'reports/decoded';
@@ -18,6 +18,7 @@ const baseName = basename(inputPath).replace(/\.[^.]+$/, '');
 
 mkdirSync(outDir, { recursive: true });
 writeFileSync(join(outDir, `${baseName}.json`), `${JSON.stringify(toPortableJson(result), null, 2)}\n`);
+writeFileSync(join(outDir, `${baseName}.pqp.json`), `${JSON.stringify(toPortableQuestionPackage(result), null, 2)}\n`);
 writeFileSync(join(outDir, `${baseName}.typ`), toTypst(result, { includeDiagnostics: true }));
 
 if (result.assets.length) {
@@ -34,6 +35,7 @@ console.log(`Assets: ${result.stats.assetCount}`);
 console.log(`Diagnostics: ${result.stats.diagnosticCount}`);
 console.log(`Unsupported fragments: ${result.stats.unsupportedFragmentCount}`);
 console.log(`Wrote ${join(outDir, `${baseName}.json`)}`);
+console.log(`Wrote ${join(outDir, `${baseName}.pqp.json`)}`);
 console.log(`Wrote ${join(outDir, `${baseName}.typ`)}`);
 if (result.assets.length) console.log(`Wrote assets to ${join(outDir, `${baseName}-assets`)}`);
 
