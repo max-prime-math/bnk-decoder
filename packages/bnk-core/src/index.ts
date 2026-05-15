@@ -644,6 +644,7 @@ function decodeVersion06QuestionChunk(
   const bodyBase = bodyStrings.length
     ? stitchQuestionText(bodyStrings)
     : stitchQuestionText(preDisplayStrings.slice(-4));
+
   const visibleChoiceSlotCount = countVisibleChoiceSlots(displayRegionTexts);
   const bodyWithoutChoiceSlots = stripTrailingInlineChoiceSlots(bodyBase, visibleChoiceSlotCount);
   // Apply binary format runs (subscripts, symbol-font chars) before variable interpolation
@@ -2802,23 +2803,32 @@ function extractFormatRunTable(
     const pad = (bytes[i + 8] | (bytes[i + 9] << 8) | (bytes[i + 10] << 16) | (bytes[i + 11] << 24)) >>> 0;
 
     if (pos < 1 || pos > 1000 || attr > 10 || pad !== 0) continue;
+    // Validate: attribute must be either SUBSCRIPT (2), SYMBOL (4), or 0 (no formatting)
+    // Skip tables with other attributes - they're likely spurious matches
+    if (attr !== 0 && attr !== FORMAT_ATTR_SUBSCRIPT && attr !== FORMAT_ATTR_SYMBOL) continue;
 
     const run: FormatRun[] = [{ pos, attr }];
     let j = i + 12;
     let lastPos = pos;
+    let isValidTable = true;
 
     while (j < windowEnd - 12) {
       const p2 = (bytes[j] | (bytes[j + 1] << 8) | (bytes[j + 2] << 16) | (bytes[j + 3] << 24)) >>> 0;
       const a2 = (bytes[j + 4] | (bytes[j + 5] << 8) | (bytes[j + 6] << 16) | (bytes[j + 7] << 24)) >>> 0;
       const pad2 = (bytes[j + 8] | (bytes[j + 9] << 8) | (bytes[j + 10] << 16) | (bytes[j + 11] << 24)) >>> 0;
       if (p2 > lastPos && p2 <= 1000 && a2 <= 10 && pad2 === 0) {
+        // Validate attribute in continuation
+        if (a2 !== 0 && a2 !== FORMAT_ATTR_SUBSCRIPT && a2 !== FORMAT_ATTR_SYMBOL) {
+          isValidTable = false;
+          break;
+        }
         run.push({ pos: p2, attr: a2 });
         lastPos = p2;
         j += 12;
       } else break;
     }
 
-    if (run.length > bestRun.length) {
+    if (isValidTable && run.length > bestRun.length) {
       bestRun = run;
       i = j - 1;
     }
