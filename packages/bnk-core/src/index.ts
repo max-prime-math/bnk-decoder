@@ -2898,7 +2898,12 @@ function applyBinaryFormatting(
       // Base is the character immediately before subscript start
       const baseCharPos = charPos - 1;
       const baseCp = baseCharPos >= 0 ? readDisplayChar(bytes, displayStartByte, baseCharPos) : 0;
-      if (baseCp >= 0x20 && baseCp <= 0x7E) {
+      // Require base to be alphanumeric or underscore, not whitespace
+      const isValidBase = (baseCp >= 0x30 && baseCp <= 0x39) || // 0-9
+                         (baseCp >= 0x41 && baseCp <= 0x5A) || // A-Z
+                         (baseCp >= 0x61 && baseCp <= 0x7A) || // a-z
+                         baseCp === 0x5F; // _
+      if (isValidBase) {
         const base = String.fromCharCode(baseCp);
 
         // Collect consecutive subscript chars
