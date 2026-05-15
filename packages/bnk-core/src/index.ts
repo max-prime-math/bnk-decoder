@@ -1264,7 +1264,19 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   const d = variableValueForDisplay('d', variableMap);
 
   if (t1 && d && /formula for the general term of an arithmetic sequence/i.test(body) && /common difference/i.test(body)) {
-    return `In the formula for the general term of an arithmetic sequence $t_n = ${t1} + (n - 1)(${d})$, the common difference is`;
+    return `In the formula for the general term of an arithmetic sequence $t_n = ${mn(t1)} + (n - 1)(${mn(d)})$, the common difference is`;
+  }
+
+  if (t1 && t2 && t3 && t4) {
+    if (/The common difference in the arithmetic sequence/i.test(body)) {
+      const terms = [t1, t2, t3, t4, t5].filter((v): v is string => Boolean(v));
+      return `The common difference in the arithmetic sequence ${joinMathList(terms)},... is`;
+    }
+
+    if (/The common ratio for the geometric sequence/i.test(body)) {
+      const terms = [t1, t2, t3, t4, t5].filter((v): v is string => Boolean(v));
+      return `The common ratio for the geometric sequence ${joinMathList(terms)},... is`;
+    }
   }
 
   if (t1 && t2 && t3 && t4 && t5) {
@@ -1286,15 +1298,15 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   }
 
   if (t1 && t2 && t3 && tn && /\bsum of the series\b/i.test(body)) {
-    return `The sum of the series (${t1}) + (${t2}) + (${t3}) + ... + (${tn}) is`;
+    return `The sum of the series $(${mn(t1)}) + (${mn(t2)}) + (${mn(t3)}) + ... + (${mn(tn)})$ is`;
   }
 
   if (t1 && t2 && t3 && tn && /\bFor the arithmetic series\b/i.test(body)) {
-    return `For the arithmetic series (${t1}) + (${t2}) + (${t3}) + ... + (${tn}), the values of t1, d, and n are`;
+    return `For the arithmetic series $(${mn(t1)}) + (${mn(t2)}) + (${mn(t3)}) + ... + (${mn(tn)})$, the values of t1, d, and n are`;
   }
 
   if (t1 && t2 && t3 && t4 && tn && /How many terms are in the sequence/i.test(body)) {
-    return `How many terms are in the sequence ${joinMathList([t1, t2, t3, t4, t5].filter((term): term is string => Boolean(term)))}, ..., ${tn}?`;
+    return `How many terms are in the sequence ${joinMathList([t1, t2, t3, t4, t5].filter((term): term is string => Boolean(term)))}, ..., $${mn(tn)}$?`;
   }
 
   if (t1 && t2 && t3 && t4 && /The eighth term in the sequence/i.test(body)) {
@@ -1302,29 +1314,29 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   }
 
   if (n && t1 && t2 && t3 && /\bterm of the geometric series\b/i.test(body)) {
-    return `The ${n}th term of the geometric series ${t1} + ${t2} + ${t3} + ... is`;
+    return `The ${n}th term of the geometric series $${mn(t1)} + ${mn(t2)} + ${mn(t3)} + ...$ is`;
   }
 
   if (t1 && t2 && t3 && tn && /The sum of the geometric series/i.test(body)) {
-    return `The sum of the geometric series ${t1} + ${t2} + ${t3} + ... + ${tn} is`;
+    return `The sum of the geometric series $${mn(t1)} + ${mn(t2)} + ${mn(t3)} + ... + ${mn(tn)}$ is`;
   }
 
   const adenom = variableValueForDisplay('adenom', variableMap);
   const ratio = variableValueForDisplay('r', variableMap);
   if (adenom && ratio && n && /The sum of a geometric series where/i.test(body)) {
-    return `The sum of a geometric series where t1 = 1/${adenom}, r = ${ratio}, and n = ${n} is approximately`;
+    return `The sum of a geometric series where $t_1 = 1/${mn(adenom)}$, $r = ${mn(ratio)}$, and $n = ${mn(n)}$ is approximately`;
   }
 
   if (n && t1 && t2 && t3 && t4 && /What is the value of S/i.test(body)) {
-    return `What is the value of $S_${n}$ for the series ${t1} - ${t2} + ${t3} - ${t4} + ...?`;
+    return `What is the value of $S_${n}$ for the series $${mn(t1)} - ${mn(t2)} + ${mn(t3)} - ${mn(t4)} + ...$?`;
   }
 
   if (t1 && t2 && t3 && t4 && /Which of the following best describes the series/i.test(body)) {
-    return `Which of the following best describes the series ${t1} + (${t2}) + (${t3}) + (${t4}) + ...?`;
+    return `Which of the following best describes the series $${mn(t1)} + (${mn(t2)}) + (${mn(t3)}) + (${mn(t4)}) + ...$?`;
   }
 
   if (n && t1 && t2 && t3 && t4 && tn && /^The geometric sequence/i.test(body)) {
-    return `The geometric sequence ${joinMathList([t1, t2, t3, t4])}, ..., ${tn} has ____________________ terms.`;
+    return `The geometric sequence ${joinMathList([t1, t2, t3, t4])}, ..., $${mn(tn)}$ has ____________________ terms.`;
   }
 
   const firstSign = variableValueForDisplay('first', variableMap);
@@ -1334,11 +1346,11 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   const t3Used = variableValueForDisplay('t3used', variableMap);
   const t4Used = variableValueForDisplay('t4used', variableMap);
   if (n && t1 && firstSign && t2Used && secondSign && t3Used && thirdSign && t4Used && /The sum of the first .* terms of the geometric series/i.test(body)) {
-    return `The sum of the first ${n} terms of the geometric series ${formatSignedSeries(t1, [
+    return `The sum of the first ${n} terms of the geometric series $${formatSignedSeries(t1, [
       [firstSign, t2Used],
       [secondSign, t3Used],
       [thirdSign, t4Used],
-    ])} + ... is ____________________.`;
+    ])} + ...$ is ____________________.`;
   }
 
   const sign2 = variableValueForDisplay('sgn2', variableMap);
@@ -1348,21 +1360,21 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   const t3d = variableValueForDisplay('t3d', variableMap);
   const t4d = variableValueForDisplay('t4d', variableMap);
   if (t1 && sign2 && t2d && sign3 && t3d && sign4 && t4d && /ratio used to generate the infinite geometric series/i.test(body)) {
-    return `The ratio used to generate the infinite geometric series ${formatSignedSeries(t1, [
+    return `The ratio used to generate the infinite geometric series $${formatSignedSeries(t1, [
       [sign2, t2d],
       [sign3, t3d],
       [sign4, t4d],
-    ])} + ... is ____________________.`;
+    ])} + ...$ is ____________________.`;
   }
 
   const r = variableValueForDisplay('r', variableMap);
   if (t1 && r && /What is the sum of the infinite geometric series/i.test(body)) {
-    return `What is the sum of the infinite geometric series $${t1} + ${t1}(${r}) + ${t1}(${r})^2 + ${t1}(${r})^3 + ...$?`;
+    return `What is the sum of the infinite geometric series $${mn(t1)} + ${mn(t1)}(${mn(r)}) + ${mn(t1)}(${mn(r)})^2 + ${mn(t1)}(${mn(r)})^3 + ...$?`;
   }
 
   const num = variableValueForDisplay('NUM', variableMap);
   if (num && d && n && /The sum of an arithmetic series where/i.test(body) && !/\bt1\s*=/.test(body)) {
-    return `The sum of an arithmetic series where t1 = 1/${num}, d = ${d}, and n = ${n} is`;
+    return `The sum of an arithmetic series where $t_1 = 1/${mn(num)}$, $d = ${mn(d)}$, and $n = ${mn(n)}$ is`;
   }
 
   if (/formula for the general term of an arithmetic sequence/i.test(body) && /represents the ____________________/.test(body)) {
@@ -1446,12 +1458,17 @@ function recoverKnownSequenceSeriesPrompts(body: string, variableMap: Map<string
   return body;
 }
 
+/** Normalize a numeric value from ExamView for use inside Typst math mode: en-dash/minus-sign → ASCII minus. */
+function mn(value: string): string {
+  return value.replace(/[–−]/g, '-');
+}
+
 function joinMathList(values: string[]): string {
-  return values.join(', ');
+  return `$${values.map(mn).join(', ')}$`;
 }
 
 function formatSignedSeries(firstTerm: string, rest: Array<[string, string]>): string {
-  return rest.reduce((text, [sign, value]) => `${text} ${normalizeSeriesSign(sign)} ${value}`, firstTerm);
+  return rest.reduce((text, [sign, value]) => `${text} ${normalizeSeriesSign(sign)} ${mn(value)}`, mn(firstTerm));
 }
 
 function normalizeSeriesSign(sign: string): string {
@@ -2798,7 +2815,7 @@ function arithmeticFormulaChoice(id: string, slope: string, sign: string, consta
     id,
     body: {
       format: 'typst',
-      text: `$t_n = ${slope}n ${normalizeSeriesSign(sign)} ${constant}$`,
+      text: `$t_n = ${mn(slope)}n ${normalizeSeriesSign(sign)} ${mn(constant)}$`,
     },
   };
 }
@@ -3470,8 +3487,12 @@ function wrapTypstMathIfNeeded(text: string): string {
   if (/#math\./.test(trimmed)) return `$${trimmed}$`;
   // Equation or inequality: letter(s) = / < / > expression
   if (/^[A-Za-z_][A-Za-z0-9_(){}]*\s*[=<>]/.test(trimmed)) return `$${trimmed}$`;
-  // Bare fraction: ±digits/digits
-  if (/^-?\d+\/\d+$/.test(trimmed)) return `$${trimmed}$`;
+  // Bare fraction: ±digits/digits (including en-dash negative)
+  if (/^[–−-]?\d+\/\d+$/.test(trimmed)) return `$${trimmed.replace(/[–−]/g, '-')}$`;
+  // Negative number with en-dash (e.g. –12, –3.5) — en-dash becomes minus in math mode
+  if (/^[–−]\d/.test(trimmed) && /^[–−]\d+(\.\d+)?$/.test(trimmed)) {
+    return `$${trimmed.replace(/[–−]/g, '-')}$`;
+  }
   // sqrt(...) expression
   if (/sqrt\(/.test(trimmed)) return `$${trimmed}$`;
   return text;
