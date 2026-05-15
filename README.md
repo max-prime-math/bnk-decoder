@@ -4,24 +4,38 @@ https://max-prime-math.github.io/bnk-decoder/
 
 Standalone Svelte app and shared TypeScript packages for decoding ExamView BNK files.
 
-## Status: Production Ready ✅
+## Status: ALPHA (Early Development) 🔧
 
-**Decoder Completeness:** 99.6% (227 of 228 questions fully decoded)
+**Current Decoder State:** ~75% functional with significant issues
 
-### Supported Features
-- ✅ ExamView v06 BNK format (full support)
-- ✅ Question text extraction and recovery (99.6% complete)
-- ✅ Multiple choice answer reconstruction
+### Working Features
+- ✅ ExamView v06 BNK format detection
+- ✅ Basic question extraction (77/81 for Chapter 01)
+- ✅ Multiple choice parsing
+- ✅ Matching question composite structure (Chapter 01 working)
 - ✅ Algorithmic variable extraction
-- ✅ Graph expression detection and sampling
-- ✅ Image asset detection and association
-- ✅ 12 embedded object recovery strategies
-- ✅ Typst/LaTeX output formatting
+- ✅ Metadata filtering (variables assignments as fake questions)
+- ✅ JSON and Typst export formats
+
+### Critical Issues (Blocking Release)
+- ❌ **Binary Format Runs:** Widespread subscript/underline corruption (~40% of questions affected)
+  - Patterns like "geo$m_etric" (should be "geometric"), "compu$t_e$r" (should be "computer")
+  - Root cause: Format run positions or attributes incorrectly interpreted from binary
+  - Impact: Makes ~60+ questions difficult to read
+
+- ❌ **Embedded Objects:** 16 unresolved placeholders across chapters
+  - [embedded object], [DIAGRAM NEEDED], [embedded value]
+  - Impact: Incomplete question text
+
+- ❌ **Malformed Fragments:** Questions like "a) Since t1 = 3 and r = P, P b) P"
+  - Likely due to incorrect chunk boundaries in non-metadata section
+  - Impact: 5-10 questions per chapter are unusable
 
 ### Known Limitations
-- ExamView v05 format: Detected but not decoded (1 known file)
-- OLE equation objects: Binary parsing not implemented (affects 1 question)
-- Graph visual rendering: Expressions recovered, text descriptions provided
+- Type classification off (MCQ +1, Short Answer -13, Problem +8 for Ch01)
+- Only Chapter 01 tested thoroughly; Ch02-Ch09 not yet validated
+- ExamView v05 format: Not supported
+- OLE equation objects: Not implemented
 
 ## Packages
 
