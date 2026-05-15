@@ -2855,6 +2855,13 @@ function readDisplayChar(bytes: Uint8Array, displayStartByte: number, charPos: n
  * For each subscript group: base character + subscript character(s) →
  * "$base_sub$" (Typst inline math). Works for both literal chars ("tn" → "$t_n$")
  * and slot-containing patterns ("S[[slot]]" → "$S_[[slot]]$").
+ *
+ * DISABLED: The format run positions refer to the original binary layout, but the
+ * body text has been stitched from multiple extracted strings and normalized
+ * (whitespace, punctuation adjusted). Position mapping is unreliable and causes
+ * widespread corruption like "anti$q_u$e" instead of "antique".
+ * TODO: Either reconstruct the exact original text layout or extract format runs
+ * from the binary differently.
  */
 function applyBinaryFormatting(
   body: string,
@@ -2862,10 +2869,9 @@ function applyBinaryFormatting(
   displayStartByte: number,
   formatRuns: FormatRun[],
 ): string {
-  if (formatRuns.length === 0) return body;
-
-  const hasMath = formatRuns.some(r => r.attr === FORMAT_ATTR_SUBSCRIPT || r.attr === FORMAT_ATTR_SYMBOL);
-  if (!hasMath) return body;
+  // Format runs currently cause corruption due to position misalignment.
+  // Returning unmodified body until we can properly map positions.
+  return body;
 
   // Build position→attribute map
   const attrAt = new Map<number, number>();
