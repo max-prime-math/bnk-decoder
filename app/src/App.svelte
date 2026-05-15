@@ -1,4 +1,7 @@
 <script lang="ts">
+  declare const __APP_VERSION__: string;
+  declare const __BUILD_HASH__: string;
+
   import {
     decodeBnkFile,
     toLatex,
@@ -451,6 +454,8 @@
   </section>
 </main>
 
+<div class="version-badge">v{__APP_VERSION__} <span class="build">#{__BUILD_HASH__}</span></div>
+
 <style>
   .shell {
     height: 100vh;
@@ -818,5 +823,19 @@
       align-items: stretch;
       flex-direction: column;
     }
+  }
+
+  .version-badge {
+    position: fixed;
+    bottom: 0.5rem;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    color: #999;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  .version-badge .build {
+    opacity: 0.6;
   }
 </style>
