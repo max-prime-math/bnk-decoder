@@ -694,6 +694,28 @@ function inferVersion06ChunkLayout(strings: ExtractedString[]): Version06ChunkLa
     };
   }
 
+  // FoM/Nelson format: [grade] [lesson] [long_descriptor] [topic] [keywords]
+  if (strings[1]?.text?.startsWith('Lesson ')) {
+    return {
+      sectionName: strings[1].text,
+      topic: strings[3]?.text,
+      metadataEndIndex: 5,
+      variableStartIndex: 5,
+    };
+  }
+
+  // MathWorks format: [section_number] [subject] [curriculum_code] [topic] [subtopic]
+  if (isBareSection(strings[1]?.text)) {
+    return {
+      sectionName: strings[1].text,
+      reference: strings[3]?.text,
+      topic: strings[4]?.text,
+      title: strings[5]?.text,
+      metadataEndIndex: 6,
+      variableStartIndex: 6,
+    };
+  }
+
   if (isCompactCurriculumCode(strings[2]?.text) && strings[3]?.text && strings[4]?.text) {
     return {
       sectionName: strings[1]?.text,
@@ -795,7 +817,7 @@ function findVersion06QuestionChunks(strings: ExtractedString[], byteLength: num
   for (let index = 0; index < strings.length; index++) {
     const current = strings[index];
     const next = strings[index + 1];
-    if (!isDifficultyLabel(current.text)) continue;
+    if (!isDifficultyLabel(current.text) && !isGradeLabel(current.text)) continue;
     if (!next) continue;
     if (next.offset - current.offset > 256) continue;
     if (!isVersion06QuestionMetadataStart(strings, index)) continue;
@@ -817,12 +839,22 @@ function isDifficultyLabel(text: string): boolean {
   return /^(easy|average|medium|moderate|difficult|hard)$/i.test(text);
 }
 
+function isGradeLabel(text: string): boolean {
+  return /^Grade \d+$/i.test(text);
+}
+
 function isVersion06QuestionMetadataStart(strings: ExtractedString[], index: number): boolean {
   const next = strings[index + 1]?.text;
   if (next?.startsWith('Section ')) return true;
+  if (next?.startsWith('Lesson ')) return true;
+  if (isBareSection(next)) return true;
   return isCompactCurriculumCode(strings[index + 2]?.text)
     && isCompactMetadataText(strings[index + 3]?.text)
     && isCompactMetadataText(strings[index + 4]?.text);
+}
+
+function isBareSection(text?: string): boolean {
+  return Boolean(text && /^\d+\.\d+$/.test(text));
 }
 
 function isCompactCurriculumCode(text?: string): boolean {
