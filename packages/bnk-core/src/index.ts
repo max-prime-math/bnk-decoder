@@ -569,7 +569,8 @@ function decodeVersion06QuestionCandidates(
     const bodyText = question.body.text.trim();
     // Detect if body is just variable assignments: starts with variable_name = value
     // Pattern: "name = value" or "$name$ = value" with optional commas and more assignments
-    const isVariableAssignment = /^[\$]?[a-z_][a-z0-9_]*[\$]?\s*=/.test(bodyText);
+    // Match both lowercase and uppercase variable names
+    const isVariableAssignment = /^[\$]?[a-zA-Z_][a-zA-Z0-9_]*[\$]?\s*=/.test(bodyText);
     return !isVariableAssignment;
   });
 
