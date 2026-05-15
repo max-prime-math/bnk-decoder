@@ -3879,7 +3879,41 @@ function makeRawFragment(bytes: Uint8Array, offset: number, length: number, text
 }
 
 function contentText(content: RichContent): string {
-  return content.text;
+  // For Typst output, escape dollar signs that look like currency.
+  // Only trust $...$ pairs as math if they contain clear math indicators (underscore, ^, or =).
+  // Everything else is assumed to be literal/currency and gets escaped.
+  let result = content.text;
+  const mathPairs = new Set<number>();
+
+  // Find valid $...$ math pairs: must contain underscore, ^, or = to be considered math
+  // These are the clearest indicators that the content is mathematical, not currency
+  for (let i = 0; i < result.length; i++) {
+    if (result[i] === '$') {
+      const nextDollar = result.indexOf('$', i + 1);
+      if (nextDollar !== -1 && nextDollar - i < 100) {
+        const between = result.slice(i + 1, nextDollar);
+        // Math pairs must have underscore (subscript) or ^ (superscript) or = (equation)
+        // This avoids false positives from currency like $14 000
+        const isMath = /[_^=]/.test(between);
+        if (isMath) {
+          mathPairs.add(i);
+          mathPairs.add(nextDollar);
+          i = nextDollar;
+        }
+      }
+    }
+  }
+
+  // Escape $ that are not part of math pairs
+  let escaped = '';
+  for (let i = 0; i < result.length; i++) {
+    if (result[i] === '$' && !mathPairs.has(i)) {
+      escaped += '\\$';
+    } else {
+      escaped += result[i];
+    }
+  }
+  return escaped;
 }
 
 /**
