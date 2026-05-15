@@ -1989,10 +1989,10 @@ function recoverKnownEmbeddedObjectPatterns(
   recovered = recovered.replace(/(,\s*[a-zA-Z∠]+\s*=\s*\[embedded diagram\/object\])+\s*$/gi, '').trim();
 
   // Triangle area recovery (Q15 Ch05)
-  if (/equilateral triangle has an area of \[embedded value\]/.test(recovered)) {
+  if (/equilateral triangle has an area of \[embedded (?:value|object)\]/.test(recovered)) {
     const area = variableValueForDisplay('Area', variableMap) ?? variableValueForDisplay('Area_dis', variableMap);
     if (area) {
-      recovered = recovered.replace(/equilateral triangle has an area of \[embedded value\]/, `equilateral triangle has an area of ${area}`);
+      recovered = recovered.replace(/equilateral triangle has an area of \[embedded (?:value|object)\]/, `equilateral triangle has an area of ${area}`);
     }
   }
 
