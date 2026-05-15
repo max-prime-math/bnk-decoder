@@ -531,16 +531,17 @@ function decodeVersion06QuestionCandidates(
 ): DecodedQuestion[] {
   const strings = extractUtf16LeStrings(bytes, 1);
   const allChunks = findVersion06QuestionChunks(strings, bytes.byteLength);
-  const questionCount = readVersion06QuestionCount(bytes);
-  const chunks = questionCount !== undefined && questionCount < allChunks.length
-    ? allChunks.slice(0, questionCount)
-    : allChunks;
+  const mcqCount = readVersion06QuestionCount(bytes);
+  // 0xa04 stores only the MCQ section count; banks also contain T/F, completion,
+  // short-answer and essay sections stored after the MCQ block. Use all found
+  // clusters so non-MCQ question types are not silently dropped.
+  const chunks = allChunks;
 
   diagnostics.push({
     level: chunks.length ? 'info' : 'warning',
     code: 'V06_STRING_CLUSTER_SCAN',
-    message: questionCount !== undefined && questionCount < allChunks.length
-      ? `Found ${allChunks.length} candidate string clusters; using header count ${questionCount}.`
+    message: mcqCount !== undefined
+      ? `Found ${chunks.length} candidate string clusters (${mcqCount} MCQ + ${chunks.length - mcqCount} other types).`
       : `Found ${chunks.length} candidate v06 question string cluster${chunks.length === 1 ? '' : 's'}.`,
   });
 
@@ -1006,7 +1007,8 @@ function inferVersion06QuestionType(
   if (lower.some((text) => text.includes('true') || text.includes('false'))) return 'true_false';
   if (algorithmicVariables.some((variable) => /^(ans|answer)$/i.test(variable.name))) return 'short_answer';
   if (strings.some((entry) => entry.text.includes('____________________'))) return 'completion';
-  return 'unknown';
+  // No MCQ markers (choices, scramble, distractors) and no blanks → written response.
+  return 'short_answer';
 }
 
 function hasVisibleChoiceLabelRun(texts: string[]): boolean {
