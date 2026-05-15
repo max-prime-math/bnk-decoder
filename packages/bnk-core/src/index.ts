@@ -547,7 +547,33 @@ function decodeVersion06QuestionCandidates(
 
   if (!chunks.length) return [];
 
-  return chunks.map((chunk, index) => decodeVersion06QuestionChunk(chunk, bytes, index, options, assets));
+  const decodedQuestions = chunks.map((chunk, index) => decodeVersion06QuestionChunk(chunk, bytes, index, options, assets));
+
+  // Filter out fake questions that are just variable assignments (e.g., "t1 = 3, r = 2")
+  // These are solution metadata, not actual questions
+  const realQuestions = decodedQuestions.filter((question) => {
+    const bodyText = question.body.text.trim();
+    // Detect if body is just variable assignments: starts with variable_name = value
+    // Pattern: "name = value" or "$name$ = value" with optional commas and more assignments
+    const isVariableAssignment = /^[\$]?[a-z_][a-z0-9_]*[\$]?\s*=/.test(bodyText);
+    return !isVariableAssignment;
+  });
+
+  if (realQuestions.length < decodedQuestions.length) {
+    diagnostics.push({
+      level: 'info',
+      code: 'V06_FAKE_QUESTIONS_FILTERED',
+      message: `Filtered out ${decodedQuestions.length - realQuestions.length} metadata entries that were incorrectly classified as questions.`,
+    });
+  }
+
+  // Parse matching questions from non-metadata section (if present)
+  const matchingQuestions = decodeNonMetadataQuestions(bytes, allChunks.length, diagnostics);
+
+  // Combine standard questions with matching questions
+  const allQuestions = [...realQuestions, ...matchingQuestions];
+
+  return allQuestions;
 }
 
 function decodeVersion06QuestionChunk(
@@ -681,6 +707,144 @@ function decodeVersion06QuestionChunk(
       ? undefined
       : [makeRawFragment(bytes, chunk.start.offset, Math.min(chunk.endOffset - chunk.start.offset, 512), strings.slice(0, 30).map((s) => s.text).join('\n'))],
   };
+}
+
+function decodeNonMetadataQuestions(
+  bytes: Uint8Array,
+  standardQuestionCount: number,
+  diagnostics: DecodeDiagnostic[],
+): DecodedQuestion[] {
+  // Parse matching questions from the non-metadata section of v06 binaries
+  // This section starts after standard difficulty+section questions
+  // and contains questions without standard metadata headers
+  // Use UTF-16LE directly since this section may not score well in extractReadableText
+
+  const UTF16LE_DECODER = new TextDecoder('utf-16le');
+  const text = UTF16LE_DECODER.decode(bytes);
+
+  if (!text.includes('Match the correct')) {
+    return [];
+  }
+
+  const questions: DecodedQuestion[] = [];
+  let matchIdx = text.indexOf('Match the correct');
+
+  if (matchIdx === -1) {
+    return [];
+  }
+
+  // Find all matching questions (look for "Match" prompts)
+  const matchPatterns = [];
+  while ((matchIdx = text.indexOf('Match the correct', matchIdx)) !== -1) {
+    matchPatterns.push(matchIdx);
+    matchIdx += 'Match the correct'.length;
+  }
+
+  diagnostics.push({
+    level: 'info',
+    code: 'V06_MATCHING_QUESTIONS_DETECTED',
+    message: `Found ${matchPatterns.length} matching question${matchPatterns.length === 1 ? '' : 's'} in non-metadata section.`,
+  });
+
+  // Parse each matching question
+  for (let i = 0; i < matchPatterns.length; i++) {
+    const start = matchPatterns[i];
+    const end = matchPatterns[i + 1] ?? text.length;
+
+    // Extract question text (from "Match" to the first choice block)
+    const questionText = extractMatchingQuestionText(text, start, end);
+    if (!questionText) continue;
+
+    // Extract choices (typically A-F format with matching pairs)
+    const choices = extractMatchingChoices(text, start, end);
+    if (!choices || choices.length < 2) continue;
+
+    // Create the question object
+    questions.push({
+      id: `q-${standardQuestionCount + i + 1}`,
+      type: 'matching',
+      body: {
+        format: 'typst',
+        text: questionText,
+      },
+      choices,
+      metadata: {
+        className: 'Unknown',
+        unitName: 'Chapter (Unknown)',
+        sectionName: 'Non-Standard Section',
+        difficulty: 'Unknown',
+      },
+      assets: [],
+      confidence: 'low',
+    });
+  }
+
+  if (questions.length > 0) {
+    diagnostics.push({
+      level: 'info',
+      code: 'V06_MATCHING_QUESTIONS_DECODED',
+      message: `Successfully decoded ${questions.length} matching question${questions.length === 1 ? '' : 's'} from non-metadata section.`,
+    });
+  }
+
+  return questions;
+}
+
+function extractMatchingQuestionText(text: string, start: number, end: number): string | undefined {
+  const segment = text.substring(start, Math.min(start + 500, end));
+
+  // Look for the pattern "Match the correct ... below"
+  const match = /Match the correct [^.]*\./i.exec(segment);
+  if (!match) return undefined;
+
+  return match[0];
+}
+
+function extractMatchingChoices(text: string, start: number, end: number): Choice[] | undefined {
+  const segment = text.substring(start, Math.min(start + 1000, end));
+
+  // Matching questions have choices separated by 0x11 (decimal 17) character
+  // Format contains: letter[0x11]text[0x11]letter[0x11]text[0x11]...
+  // We need to find pairs where first element is a single letter A-F
+
+  const parts = segment.split('\x11');
+  const choices: Choice[] = [];
+
+  // Process all parts, looking for letter+text pairs
+  // Sometimes structure varies, so we need to be flexible
+  let i = 0;
+  while (i < parts.length) {
+    const trimmed = parts[i]?.trim() ?? '';
+
+    // Check if this part ends with or is a single letter A-F
+    const letterMatch = trimmed.match(/([A-F])$/);
+    const letter = letterMatch ? letterMatch[1] : null;
+
+    if (letter && i + 1 < parts.length) {
+      // Found a letter, check next part for choice text
+      const nextPart = parts[i + 1]?.trim() ?? '';
+
+      // Next part should be the choice text (multiple words/letters)
+      if (nextPart && /^[A-Za-z]/.test(nextPart) && nextPart.length > 1 && !/^[A-F]$/.test(nextPart)) {
+        choices.push({
+          id: letter,
+          body: {
+            format: 'typst',
+            text: nextPart.replace(/\s+/g, ' '),
+          },
+        });
+        i += 2;
+        continue;
+      }
+    }
+
+    i++;
+  }
+
+  // For matching questions, expect at least 2 choices
+  if (choices.length < 2) return undefined;
+
+  return choices;
 }
 
 function inferVersion06ChunkLayout(strings: ExtractedString[]): Version06ChunkLayout {
@@ -837,7 +1001,7 @@ function findVersion06QuestionChunks(strings: ExtractedString[], byteLength: num
 }
 
 function isDifficultyLabel(text: string): boolean {
-  return /^(easy|average|medium|moderate|difficult|hard)$/i.test(text);
+  return /^(easy|average|medium|moderate|difficult|hard)(\s*\+)?$/i.test(text);
 }
 
 function isGradeLabel(text: string): boolean {
@@ -1002,13 +1166,41 @@ function inferVersion06QuestionType(
   algorithmicVariables: AlgorithmicVariable[],
 ): QuestionType {
   const lower = strings.map((entry) => entry.text.toLowerCase());
+  const bodyText = strings.map((entry) => entry.text).join(' ');
+
   if (variableStrings.some((text) => /^scramble$/i.test(text)) || hasAnswerDistractorVariables(algorithmicVariables)) return 'mcq';
   if (hasVisibleChoiceLabelRun(strings.map((entry) => entry.text))) return 'mcq';
   if (lower.some((text) => text.includes('true') || text.includes('false'))) return 'true_false';
-  if (algorithmicVariables.some((variable) => /^(ans|answer)$/i.test(variable.name))) return 'short_answer';
   if (strings.some((entry) => entry.text.includes('____________________'))) return 'completion';
+
+  // Distinguish problem type: has multiple variables (not just ans/answer) or multi-part structure
+  if (isProblemQuestion(bodyText, algorithmicVariables)) return 'problem';
+
+  // Any question with ans/answer variable is short_answer
+  if (algorithmicVariables.some((variable) => /^(ans|answer)$/i.test(variable.name))) return 'short_answer';
+
   // No MCQ markers (choices, scramble, distractors) and no blanks → written response.
   return 'short_answer';
+}
+
+function isProblemQuestion(bodyText: string, algorithmicVariables: AlgorithmicVariable[]): boolean {
+  // Problem questions typically have:
+  // 1. Multiple algorithmic variables (not just answer variables)
+  const nonAnswerVars = algorithmicVariables.filter((v) => !/^(ans|answer)/i.test(v.name));
+  if (nonAnswerVars.length >= 3) return true;
+
+  // 2. Multi-part structure (a), b), c), d))
+  if (/a\)\s+|b\)\s+|c\)\s+/.test(bodyText)) return true;
+
+  // 3. Long body text (>300 chars) with variable references
+  if (bodyText.length > 300 && nonAnswerVars.length > 0) return true;
+
+  // 4. Specific problem-solving prompts
+  if (/^(Determine|Solve|Find|Prove|Show|Write|Make|Calculate|Evaluate|Demonstrate)/i.test(bodyText)) {
+    if (nonAnswerVars.length > 0) return true;
+  }
+
+  return false;
 }
 
 function hasVisibleChoiceLabelRun(texts: string[]): boolean {
