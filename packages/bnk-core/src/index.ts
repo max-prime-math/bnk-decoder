@@ -2065,6 +2065,84 @@ function recoverKnownEmbeddedObjectPatterns(
     );
   }
 
+  // Quadratic function recovery: "points on graph of quadratic function [embedded math expression]"
+  if (/points.*on the graph of.*quadratic function \[embedded math expression\]/i.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    const c = variableValueForDisplay('c', variableMap);
+    const x1 = variableValueForDisplay('x1', variableMap);
+    const y1 = variableValueForDisplay('y1', variableMap);
+
+    if (a && b && c && x1 && y1) {
+      // Recover the standard form f(x) = ax² + bx + c
+      const sign_b = parseFloat(b) >= 0 ? '+ ' : '';
+      const sign_c = parseFloat(c) >= 0 ? '+ ' : '';
+      const expr = `$f(x) = ${a}x^2 ${sign_b}${b}x ${sign_c}${c}$`;
+      recovered = recovered.replace('[embedded math expression]', expr);
+    }
+  }
+
+  // Expression evaluation recovery with parameters (e.g., "Determine value when x=7, y=4")
+  if (/\[embedded expression\]/.test(recovered)) {
+    const x = variableValueForDisplay('x', variableMap);
+    const y = variableValueForDisplay('y', variableMap);
+    const ans = variableValueForDisplay('ANS', variableMap);
+    if ((x || y) && ans) {
+      let params = [];
+      if (x) params.push(`x=${x}`);
+      if (y) params.push(`y=${y}`);
+      recovered = recovered.replace('[embedded expression]', `[Algebraic expression; evaluate when ${params.join(', ')} → answer: ${ans}]`);
+    }
+  }
+
+  // Axis of symmetry question (Q2 style - "What is the axis of symmetry of [embedded object]")
+  if (/axis of symmetry/i.test(recovered) && /\[embedded object\]/.test(recovered)) {
+    const var3 = variableValueForDisplay('VAR3', variableMap);
+    const axis = variableValueForDisplay('axis', variableMap);
+    const axisVal = axis || var3;
+    if (axisVal) {
+      recovered = recovered.replace('[embedded object]', `a quadratic function with axis of symmetry $x = ${axisVal}$`);
+    }
+  }
+
+  // Function coefficient recovery (Q40 style - "h(d) = [embedded object](d - 12)²+ 2")
+  if (/h\(d\)\s*=\s*\[embedded object\]/.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    if (a) {
+      recovered = recovered.replace('[embedded object]', a);
+    }
+  }
+
+  // Parabola/quadratic function questions asking for specific features
+  if (/parabola|quadratic function graphed/.test(recovered) && /\[embedded diagram\/object\]/.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const vertex_h = variableValueForDisplay('h', variableMap);
+    const vertex_k = variableValueForDisplay('k', variableMap);
+    const axis = variableValueForDisplay('axis', variableMap) || variableValueForDisplay('VAR3', variableMap);
+    const x_int = variableValueForDisplay('x_int', variableMap) || variableValueForDisplay('x_int1', variableMap);
+
+    if (axis || x_int || (a && vertex_h && vertex_k)) {
+      const desc = [];
+      if (axis) desc.push(`axis of symmetry: x = ${axis}`);
+      if (x_int) desc.push(`x-intercept: ${x_int}`);
+      if (a) desc.push(`leading coefficient: ${a}`);
+      if (desc.length > 0) {
+        recovered = recovered.replace('[embedded diagram/object]', `[Parabola: ${desc.join('; ')}]`);
+      }
+    }
+  }
+
+  // Generic diagram/object placeholder — add minimal metadata
+  if (/\[embedded diagram\/object\]|\[embedded object\]/.test(recovered)) {
+    // For standalone diagrams with no other context, just replace with a clear placeholder
+    const varNames = Array.from(variableMap.keys()).slice(0, 3).join(', ');
+    const placeholder = varNames
+      ? `[DIAGRAM: variables (${varNames})]`
+      : `[DIAGRAM NEEDED]`;
+    recovered = recovered.replace(/\[embedded diagram\/object\]/g, placeholder);
+    recovered = recovered.replace(/\[embedded object\]$/m, placeholder);
+  }
+
   return recovered;
 }
 
