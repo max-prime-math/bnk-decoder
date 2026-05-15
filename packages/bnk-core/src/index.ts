@@ -63,6 +63,16 @@ export interface UnknownBnkFragment {
   textPreview?: string;
 }
 
+export interface MatchingItem {
+  id: string;
+  body: RichContent;
+}
+
+export interface MatchingAnswer {
+  itemId: string;
+  choiceId: string;
+}
+
 export interface DecodedQuestion {
   id: string;
   type: QuestionType;
@@ -77,6 +87,10 @@ export interface DecodedQuestion {
   assets: string[];
   confidence: DecodeConfidence;
   raw?: UnknownBnkFragment[];
+  // Matching question specific fields
+  items?: MatchingItem[];
+  answerKey?: MatchingAnswer[];
+  linkedQuestionIds?: string[];
 }
 
 export type DecodedInlineObjectKind = 'value' | 'diagram' | 'math' | 'choice-value' | 'unknown';
@@ -573,7 +587,10 @@ function decodeVersion06QuestionCandidates(
   // Combine standard questions with matching questions
   const allQuestions = [...realQuestions, ...matchingQuestions];
 
-  return allQuestions;
+  // Link matching questions with their items and filter out orphaned items
+  const linkedQuestions = linkMatchingQuestionsWithItems(allQuestions, diagnostics);
+
+  return linkedQuestions;
 }
 
 function decodeVersion06QuestionChunk(
@@ -845,6 +862,106 @@ function extractMatchingChoices(text: string, start: number, end: number): Choic
   if (choices.length < 2) return undefined;
 
   return choices;
+}
+
+function linkMatchingQuestionsWithItems(
+  questions: DecodedQuestion[],
+  diagnostics: DecodeDiagnostic[],
+): DecodedQuestion[] {
+  // Find matching questions (type === 'matching') and their corresponding items
+  // Matching items are typically short_answer questions with purely descriptive text
+  // that appear in sequence before or after the matching question
+
+  const matchingQuestions = questions.filter((q) => q.type === 'matching');
+  if (matchingQuestions.length === 0) {
+    return questions; // No matching questions to link
+  }
+
+  const result: DecodedQuestion[] = [];
+  const linkedItemIds = new Set<string>();
+
+  // Extract numeric ID from question IDs (e.g., "q-82" -> 82)
+  const parseQNumber = (qId: string): number => {
+    const match = qId.match(/q-(\d+)/);
+    return match ? parseInt(match[1], 10) : 0;
+  };
+
+  for (const matchingQ of matchingQuestions) {
+    const matchingQNum = parseQNumber(matchingQ.id);
+
+    // Find all short_answer questions that could be matching items
+    // Matching items have: no variables, no formulas, descriptive text
+    const allShortAnswers = questions.filter(
+      (q) =>
+        q.type === 'short_answer' &&
+        !linkedItemIds.has(q.id) &&
+        !q.algorithmicVariables?.some((v) => !/^(ans|answer)/i.test(v.name)) &&
+        !q.body.text.includes('='),
+    );
+
+    // Find consecutive groups of short_answer questions near the matching question
+    // Matching items typically form a consecutive block of 2-6 questions
+    const candidates = allShortAnswers
+      .map((q) => ({ q, qNum: parseQNumber(q.id) }))
+      .filter(({ qNum }) => Math.abs(qNum - matchingQNum) > 0)
+      .sort((a, b) => a.qNum - b.qNum);
+
+    // Find the longest consecutive sequence of short_answer questions
+    let bestSequence: DecodedQuestion[] = [];
+    let currentSequence: DecodedQuestion[] = [];
+    let lastQNum = -999;
+
+    for (const { q, qNum } of candidates) {
+      // If questions are consecutive or nearly consecutive (gap <= 1)
+      if (qNum - lastQNum <= 2) {
+        currentSequence.push(q);
+      } else {
+        // Gap found - save current sequence if it's good
+        if (currentSequence.length >= 2 && currentSequence.length > bestSequence.length) {
+          bestSequence = currentSequence;
+        }
+        currentSequence = [q];
+      }
+      lastQNum = qNum;
+    }
+
+    // Don't forget the last sequence
+    if (currentSequence.length >= 2 && currentSequence.length > bestSequence.length) {
+      bestSequence = currentSequence;
+    }
+
+    // Limit to reasonable number of items (2-6 is typical)
+    const items = bestSequence.slice(0, 6);
+
+    if (items.length > 0) {
+      matchingQ.items = items.map((item) => ({
+        id: item.id,
+        body: item.body,
+      }));
+
+      matchingQ.linkedQuestionIds = items.map((item) => item.id);
+
+      // Mark items as linked so they won't be included as independent questions
+      items.forEach((item) => linkedItemIds.add(item.id));
+
+      diagnostics.push({
+        level: 'info',
+        code: 'V06_MATCHING_ITEMS_LINKED',
+        message: `Linked ${items.length} matching items to matching question ${matchingQ.id}.`,
+      });
+    }
+
+    result.push(matchingQ);
+  }
+
+  // Add all non-matching, non-linked questions
+  for (const q of questions) {
+    if (q.type !== 'matching' && !linkedItemIds.has(q.id)) {
+      result.push(q);
+    }
+  }
+
+  return result;
 }
 
 function inferVersion06ChunkLayout(strings: ExtractedString[]): Version06ChunkLayout {
