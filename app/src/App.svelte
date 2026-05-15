@@ -831,6 +831,9 @@
     left: 0.75rem;
     font-size: 0.7rem;
     color: #999;
+    background: var(--paper, #fff);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
     pointer-events: none;
     user-select: none;
   }
