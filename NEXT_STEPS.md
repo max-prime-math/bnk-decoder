@@ -26,6 +26,7 @@
    - ✓ Embedded objects resolved or marked clearly
    - ✓ Asset extraction (if present)
    - ✓ Format detection (v06 vs v05 vs text-like)
+   - ✓ Narrative preambles preserved as shared prompt text when present
 
 3. Document findings in a validation report
 
@@ -154,7 +155,7 @@
 
 **For the next LLM:**
 
-1. **Start with Priority 1** — decode 5 diverse BNK files and generate validation report:
+1. **Start with Priority 1** — decode 5 diverse BNK files and generate validation report, with special attention to narrative-bearing runs:
    ```bash
    npm run decode:file -- "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk"
    npm run decode:file -- "ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk"
@@ -167,6 +168,7 @@
    - ⚠ Files with issues (embedded objects, unknown format, etc.)
    - ✗ Files that failed
    - Format distribution (v06, v05, text-like)
+   - Narrative coverage and any mismatched narrative selectors
 
 3. **Based on findings**, prioritize the next improvement (likely v05 support or column count detection)
 
@@ -177,4 +179,3 @@
 - `ROADMAP.md` — update with findings from validation
 - `MEMORY.md` — record any new format discoveries or patterns
 - `NEXT_STEPS.md` — update after each session
-

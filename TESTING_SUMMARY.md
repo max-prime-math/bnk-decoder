@@ -29,6 +29,7 @@ The decoder has demonstrated:
 - Consistent high coverage (99%)
 - Handling of multiple BNK versions
 - Reliable extraction of core question data
+- Correct preservation of shared narrative preambles when they are encoded in the BNK binary
 
 ## Deployment Checklist
 
@@ -38,5 +39,6 @@ The decoder has demonstrated:
 - [x] Cross-curriculum testing (10-12, Calculus, Apprenticeship)
 - [x] Edge case handling documented
 - [x] Recovery strategies validated
+- [x] Narrative catalog recovery validated on Pre-Calculus 11 Chapter 01
 
 **Status: READY FOR PRODUCTION** 🚀

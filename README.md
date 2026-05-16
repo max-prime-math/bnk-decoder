@@ -34,6 +34,7 @@ PQP is designed to preserve:
 - ✅ Basic question extraction (77/81 for Chapter 01)
 - ✅ Multiple choice parsing
 - ✅ Matching question composite structure (Chapter 01 working)
+- ✅ Binary-backed narrative recovery (`narr1`..`narr6`) with per-question attachment
 - ✅ Algorithmic variable extraction
 - ✅ Metadata filtering (variables assignments as fake questions)
 - ✅ JSON and Typst export formats
@@ -54,7 +55,7 @@ PQP is designed to preserve:
 
 ### Known Limitations
 - Type classification off (MCQ +1, Short Answer -13, Problem +8 for Ch01)
-- Only Chapter 01 tested thoroughly; Ch02-Ch09 not yet validated
+- Only Chapter 01 narrative linkage verified end-to-end; Ch02-Ch09 not yet validated for narrative coverage
 - ExamView v05 format: Not supported
 - OLE equation objects: Not implemented
 
@@ -86,6 +87,7 @@ npm run decode:file -- "path/to/file.bnk"
 
 - **Image Asset Integration** (2026-05-14): All embedded images detected, extracted, and linked to questions (v06 byte-range overlap + fallback distribution)
 - **Embedded Object Recovery** (2026-05-14): 12 semantic recovery strategies, 99.6% coverage
+- **Narrative Recovery** (2026-05-15): Binary narrative catalog discovered in Chapter 01; question records now attach the correct shared preamble from the `narr1`..`narr6` table instead of guessing from body text
 - **Answer Key Extraction**: All question answers via binary offset analysis (157/206 Pre-Calc 11 = 76%)
 - **Choice Value Recovery**: Frequency-based heuristics for missing values
 - **Text Repair**: Garbled text recovery and grammatical correction

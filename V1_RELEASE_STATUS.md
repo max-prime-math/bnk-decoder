@@ -29,6 +29,7 @@
 - Math mode wrapping ($...$)
 - Version/build badge in web app
 - test-generator export format (with algorithmic variables)
+- Binary-backed narrative recovery for shared question preambles (`narr1`..`narr6`)
 
 ---
 
@@ -121,6 +122,7 @@
 - Only Pre-Calc 11 thoroughly tested
 - Version 05 format (Calculus) not supported
 - Column-count detection hardcoded
+- Narrative linkage now verified on Pre-Calculus 11 Chapter 01 and no longer needs heuristic guessing
 
 **Effort:** 1–2 sessions to scan corpus + identify patterns
 
@@ -188,4 +190,3 @@
 - `packages/bnk-core/src/index.ts` — `recoverKnownEmbeddedObjectPatterns()` (extend for diagrams)
 - `reports/decoded/Chapter *.json` — Input data (algorithmic variables)
 - Test files: Ch03, Ch05, Ch06, Ch08 (highest diagram density)
-

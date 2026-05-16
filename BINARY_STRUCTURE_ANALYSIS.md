@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-15  
 **File Under Analysis:** Chapter 01.bnk (Pre-Calculus 11)  
-**Status:** Dual-section structure identified; matching/problem section not yet decoded
+**Status:** Dual-section structure identified; narrative catalog and question linkage decoded; matching/problem section remains separate
 
 ---
 
@@ -16,6 +16,12 @@ The ExamView v06 binary format contains **two completely separate question secti
 | **Non-Metadata** | No difficulty/section prefix | 24 | ❌ Not decoded | "Match the correct term..." |
 
 Current decoder finds **77/81 questions** (95% — missing 24 matching/problem questions)
+
+The narrative layer is now also understood:
+- The payload contains a dedicated `narr1`..`narr6` narrative catalog
+- Each catalog entry is stored as a binary object preceded by the shared tag `0xfff3c370`
+- Each question record carries a 32-bit ordinal immediately before its second `0xfff3c370` tag
+- Ordinals `1..6` map to `narr1..narr6`; `-1` means no narrative
 
 ---
 
@@ -116,6 +122,53 @@ C. arithmetic sequence
 [0x11 separator]
 F. infinite geometric series"
 ```
+
+---
+
+## Section 3: Narrative Catalog and Question Linkage
+
+### Discovery Details
+
+The shared prompt text for some question runs is not inferred from body text or parts. It is stored separately in the BNK payload and linked by ordinal.
+
+### Binary Structure
+
+In the inflated v06 payload, the narrative catalog appears as a sequence of narrative objects:
+
+- `narr1` -> arithmetic sequence prompt
+- `narr2` -> geometric/arithmetic/neither prompt
+- `narr3` -> geometric sequence prompt
+- `narr4` -> arithmetic series prompt
+- `narr5` -> sum of arithmetic series prompt
+- `narr6` -> recursion formula prompt
+
+Each narrative object is stored as a text span associated with the same binary tag used by other v06 objects: `0xfff3c370`.
+
+### Question Linkage
+
+For narrative-bearing records, the question chunk contains:
+
+1. A 32-bit ordinal selector
+2. The second `0xfff3c370` tag
+3. The ordinary question body stream
+
+Observed mapping:
+
+- `1` -> `narr1`
+- `2` -> `narr2`
+- `3` -> `narr3`
+- `4` -> `narr4`
+- `5` -> `narr5`
+- `6` -> `narr6`
+- `-1` -> no narrative
+
+### Verified Behavior
+
+- Questions `q-45` through `q-48` share the same geometric/arithmetic/neither narrative
+- Questions `q-49` through `q-52` share the geometric-sequence narrative
+- Questions `q-53` through `q-55` share the arithmetic-series narrative
+- Question `q-56` gets the standalone sum-of-arithmetic-series narrative
+- Standalone questions such as `q-59`, `q-67`, and `q-68` remain narrative-free
 
 ---
 

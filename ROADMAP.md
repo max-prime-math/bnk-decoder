@@ -3,6 +3,8 @@
 Priority-ordered list of open problems and planned improvements. Update after each session.
 Detailed binary format research lives in `format-notes.md`.
 
+Shared narrative preambles are now recovered from the binary catalog and attached directly to decoded questions, so they are no longer part of the active roadmap.
+
 ---
 
 ## 1. ~~Answer Key Byte Location~~ ✅ COMPLETED

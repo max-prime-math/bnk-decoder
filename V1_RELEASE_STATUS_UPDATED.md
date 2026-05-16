@@ -1,7 +1,7 @@
 # v1 Release Status — Updated After Binary Analysis
 
 **Date:** 2026-05-15  
-**Session Focus:** Understanding ExamView v06 binary structure, implementing matching question parsing
+**Session Focus:** Understanding ExamView v06 binary structure, implementing matching question parsing, and recovering narrative linkage
 
 ---
 
@@ -42,6 +42,16 @@ Successfully implemented matching question decoder that:
 4. Creates properly formatted question objects
 
 Result: 1 matching question fully decoded with 6 choices (A-F)
+
+### Narrative Catalog Recovery
+
+Successfully identified the shared narrative layer that sits above some question runs:
+1. The BNK payload contains a dedicated `narr1`..`narr6` narrative catalog
+2. Each narrative object is tagged with the same `0xfff3c370` marker used by other v06 objects
+3. Each question record stores a 32-bit ordinal selector immediately before the second `0xfff3c370` tag
+4. Ordinals `1..6` map directly to `narr1..narr6`; `-1` means no shared narrative
+
+Result: Narrative-bearing questions now attach the correct preamble from binary instead of relying on heuristics
 
 ---
 
@@ -125,6 +135,11 @@ function extractMatchingChoices()
 - Parses matching questions from non-metadata section
 - Handles 0x11 byte separators in choice extraction
 - Result: 1 matching question fully decoded
+
+**5. Added Narrative Catalog Decoder**
+- Reads the `narr1`..`narr6` catalog from the inflated payload
+- Reads the per-record narrative ordinal selector
+- Attaches shared narrative text directly to each decoded question
 
 ---
 

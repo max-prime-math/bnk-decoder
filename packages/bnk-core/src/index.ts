@@ -331,11 +331,9 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
   const decodedQuestions = questions.length ? questions : fallbackQuestions;
   const structuredQuestions = decodedQuestions.map((question) => {
     const parts = inferQuestionParts(question);
-    const narrative = inferQuestionNarrative(question, parts);
     return {
       ...question,
       ...(parts ? { parts } : {}),
-      ...(narrative ? { narrative } : {}),
     };
   });
   const quality = inspectQuestionQuality(structuredQuestions);
@@ -612,17 +610,68 @@ function toDraftQuestionParts(parts: DecodedQuestionParts): DraftQuestionLike['p
   };
 }
 
-function inferQuestionNarrative(
-  question: DecodedQuestion,
-  parts: DecodedQuestionParts | undefined,
-): RichContent | undefined {
-  if (!parts?.stem.text.trim()) return undefined;
-  if (parts.items.length < 1) return undefined;
+function extractVersion06NarrativeCatalog(strings: ExtractedString[]): Map<number, RichContent> {
+  const catalog = new Map<number, RichContent>();
+  const handles = strings.flatMap((entry, index) => {
+    const match = /^narr(\d+)$/i.exec(entry.text);
+    return match ? [{ index, ordinal: Number(match[1]) }] : [];
+  });
 
-  return {
-    format: question.body.format,
-    text: parts.stem.text.trim(),
-  };
+  for (let index = 0; index < handles.length; index++) {
+    const current = handles[index];
+    const next = handles[index + 1];
+    const candidates = strings
+      .slice(current.index + 1, next?.index ?? strings.length)
+      .map((entry) => entry.text)
+      .filter((text) => isUsefulPayloadString(text) && !isFontString(text) && !/^narr\d+$/i.test(text));
+    const text = candidates
+      .sort((left, right) => narrativeTextScore(right) - narrativeTextScore(left))[0]
+      ?.trim();
+
+    if (text) {
+      catalog.set(current.ordinal, {
+        format: 'typst',
+        text,
+      });
+    }
+  }
+
+  return catalog;
+}
+
+function narrativeTextScore(text: string): number {
+  const words = text.match(/[A-Za-z]{2,}/g)?.length ?? 0;
+  const punctuation = /[.?!]$/.test(text.trim()) ? 2 : 0;
+  const letters = (text.match(/[A-Za-z]/g)?.length ?? 0) / 8;
+  return words * 10 + punctuation + letters;
+}
+
+function inferVersion06NarrativeOrdinal(
+  chunk: Version06CandidateChunk,
+  bytes: Uint8Array,
+): number | undefined {
+  if (chunk.strings.some((entry) => /^narr\d+$/i.test(entry.text))) return undefined;
+
+  const limit = Math.min(chunk.endOffset, chunk.start.offset + 8192);
+  let tagCount = 0;
+  for (let offset = chunk.start.offset; offset + 4 <= limit; offset++) {
+    if (
+      bytes[offset] !== 0x70
+      || bytes[offset + 1] !== 0xc3
+      || bytes[offset + 2] !== 0xf3
+      || bytes[offset + 3] !== 0xff
+    ) {
+      continue;
+    }
+
+    tagCount++;
+    if (tagCount === 2) {
+      const ordinal = readInt32Le(bytes, offset - 4);
+      return ordinal > 0 ? ordinal : undefined;
+    }
+  }
+
+  return undefined;
 }
 
 function detectExamViewContainer(bytes: Uint8Array): ExamViewContainerMetadata | undefined {
@@ -886,6 +935,7 @@ function decodeVersion06QuestionCandidates(
   assets: DecodedAsset[] = [],
 ): DecodedQuestion[] {
   const strings = extractUtf16LeStrings(bytes, 1);
+  const narrativeCatalog = extractVersion06NarrativeCatalog(strings);
   const allChunks = findVersion06QuestionChunks(strings, bytes.byteLength);
   const mcqCount = readVersion06QuestionCount(bytes);
   // 0xa04 stores only the MCQ section count; banks also contain T/F, completion,
@@ -903,7 +953,9 @@ function decodeVersion06QuestionCandidates(
 
   if (!chunks.length) return [];
 
-  const decodedQuestions = chunks.map((chunk, index) => decodeVersion06QuestionChunk(chunk, bytes, index, options, assets));
+  const decodedQuestions = chunks.map((chunk, index) => (
+    decodeVersion06QuestionChunk(chunk, bytes, index, options, assets, narrativeCatalog)
+  ));
 
   // Filter out fake questions that are just variable assignments (e.g., "t1 = 3, r = 2")
   // These are solution metadata, not actual questions
@@ -942,6 +994,7 @@ function decodeVersion06QuestionChunk(
   index: number,
   options: DecodeOptions,
   assets: DecodedAsset[] = [],
+  narrativeCatalog: Map<number, RichContent> = new Map(),
 ): DecodedQuestion {
   const strings = chunk.strings;
   const layout = inferVersion06ChunkLayout(strings);
@@ -1012,6 +1065,8 @@ function decodeVersion06QuestionChunk(
   const graphDefinitions = extractVersion06GraphDefinitions(strings, algorithmicVariables, body, title);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   const type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
+  const narrativeOrdinal = inferVersion06NarrativeOrdinal(chunk, bytes);
+  const narrative = narrativeOrdinal !== undefined ? narrativeCatalog.get(narrativeOrdinal) : undefined;
   const normalizedChoices = slotBasedChoices?.choices
     ?? normalizeVersion06Choices(
       inferVersion06Choices(algorithmicVariables, postFontRefs, choiceRefs, choiceLabels, type),
@@ -1049,6 +1104,7 @@ function decodeVersion06QuestionChunk(
     },
     choices,
     answer,
+    ...(narrative ? { narrative } : {}),
     metadata: {
       className: inferClassNameFromFilename(options.filename),
       unitName: inferUnitNameFromFilename(options.filename),
