@@ -76,6 +76,7 @@ export interface MatchingAnswer {
 export interface DecodedQuestion {
   id: string;
   type: QuestionType;
+  narrative?: RichContent;
   body: RichContent;
   parts?: DecodedQuestionParts;
   choices?: Choice[];
@@ -235,6 +236,7 @@ export interface PortableQuestionPackage {
     id: string;
     kind: 'mcq' | 'frq' | 'true_false' | 'matching' | 'multiple_response' | 'numeric' | 'essay' | 'unknown';
     content: {
+      narrative?: RichContent;
       stem: RichContent;
       parts?: {
         stem: RichContent;
@@ -329,7 +331,12 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
   const decodedQuestions = questions.length ? questions : fallbackQuestions;
   const structuredQuestions = decodedQuestions.map((question) => {
     const parts = inferQuestionParts(question);
-    return parts ? { ...question, parts } : question;
+    const narrative = inferQuestionNarrative(question);
+    return {
+      ...question,
+      ...(parts ? { parts } : {}),
+      ...(narrative ? { narrative } : {}),
+    };
   });
   const quality = inspectQuestionQuality(structuredQuestions);
   const questionsWithQuality = structuredQuestions.map((question, index) => ({
@@ -381,7 +388,12 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
 
 export function toLatex(result: DecodeResult, options: LatexExportOptions = {}): string {
   const parts = result.questions.map((question, index) => {
-    const lines = [`\\question ${contentText(question.parts?.stem ?? question.body)}`];
+    const lines = [];
+    if (question.narrative) {
+      lines.push(contentText(question.narrative));
+      lines.push('');
+    }
+    lines.push(`\\question ${contentText(question.parts?.stem ?? question.body)}`);
     if (question.parts?.items.length) {
       lines.push('\\begin{parts}');
       for (const part of question.parts.items) {
@@ -502,6 +514,7 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
       id: question.id,
       kind: portableKind(question.type),
       content: {
+        narrative: question.narrative,
         stem: question.parts?.stem ?? question.body,
         parts: question.parts ? toPortableQuestionParts(question.parts) : undefined,
         solution: question.solution,
@@ -557,6 +570,7 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
 
 export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
   return result.questions.map((question) => ({
+    narrative: question.narrative ? contentText(question.narrative).trim() : undefined,
     body: contentText(question.body).trim(),
     parts: question.parts ? toDraftQuestionParts(question.parts) : undefined,
     answer: question.answer?.value ?? '',
@@ -596,6 +610,52 @@ function toDraftQuestionParts(parts: DecodedQuestionParts): DraftQuestionLike['p
       parts: part.parts ? toDraftQuestionParts(part.parts) : undefined,
     })),
   };
+}
+
+function inferQuestionNarrative(question: DecodedQuestion): RichContent | undefined {
+  const body = question.body.text.trim();
+  const title = `${question.metadata.title ?? ''} ${question.metadata.topic ?? ''}`.toLowerCase();
+  if (!body) return undefined;
+
+  if (isLikelySharedPromptSeed(body)) {
+    if (/\bgeometric sequence\b/i.test(title)) {
+      return { format: question.body.format, text: 'For each geometric sequence, determine' };
+    }
+
+    if (/\barithmetic sequence\b/i.test(title)) {
+      return { format: question.body.format, text: 'For each arithmetic sequence, determine' };
+    }
+
+    if (/\bgeometric series\b/i.test(title)) {
+      return { format: question.body.format, text: 'For each geometric series, determine' };
+    }
+
+    if (/\barithmetic series\b/i.test(title)) {
+      return { format: question.body.format, text: 'For each arithmetic series, determine' };
+    }
+  }
+
+  if (/repeating decimal/i.test(title) || /repeating decimal/i.test(body)) {
+    return {
+      format: question.body.format,
+      text: 'Write each repeating decimal number as an equivalent fraction in lowest terms.',
+    };
+  }
+
+  return undefined;
+}
+
+function isLikelySharedPromptSeed(body: string): boolean {
+  const trimmed = body.trim();
+  if (trimmed.length > 120) return false;
+  if (/[?]/.test(trimmed)) return false;
+  if (/^(?:a|b|c|d|e|i|ii|iii)\)/i.test(trimmed)) return false;
+  if (/^(?:for each|determine|write|use|find|calculate|evaluate)\b/i.test(trimmed)) return false;
+  return (
+    /^\s*(?:t\d+|r|d|n|x\d*|y\d*|[A-Za-z]\s*=|\d|[–−-]\d|[\d\s,./()+\-^]+)\s*$/i.test(trimmed)
+    || /\b(?:t1|r|d|n)\b/i.test(trimmed)
+    || /,\s*\.\s*\.\s*\./.test(trimmed)
+  );
 }
 
 function detectExamViewContainer(bytes: Uint8Array): ExamViewContainerMetadata | undefined {
@@ -4523,9 +4583,18 @@ function contentText(content: RichContent): string {
 }
 
 function renderTypstQuestionBody(question: DecodedQuestion): string {
-  if (!question.parts?.items.length) return contentText(question.body);
+  const lines: string[] = [];
+  if (question.narrative) {
+    lines.push(contentText(question.narrative));
+    lines.push('');
+  }
 
-  const lines = [contentText(question.parts.stem)];
+  if (!question.parts?.items.length) {
+    lines.push(contentText(question.body));
+    return lines.join('\n').trim();
+  }
+
+  lines.push(contentText(question.parts.stem));
   lines.push('', '#block[');
   lines.push('  #set enum(numbering: "(a)", indent: 0pt, body-indent: 0.8em)');
   for (const part of question.parts.items) {

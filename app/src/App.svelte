@@ -334,6 +334,13 @@
               </section>
             {/if}
 
+            {#if selectedQuestion.narrative}
+              <div class="notice">
+                <strong>Narrative</strong>
+                <span>{selectedQuestion.narrative.text}</span>
+              </div>
+            {/if}
+
             <h3>Body</h3>
             <pre>{selectedQuestion.body.text}</pre>
 

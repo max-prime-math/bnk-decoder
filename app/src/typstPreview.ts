@@ -8,15 +8,24 @@ import type { DecodedQuestion } from '@bnk-decoder/core';
 let configuredTypst = false;
 
 export function questionToTypstDocument(question: DecodedQuestion): string {
-  return [
+  const parts = [
     '#set page(width: 6.4in, height: auto, margin: 0.28in)',
     '#set text(font: "Libertinus Serif", size: 11pt)',
     '#set par(leading: 0.65em)',
     '',
     `#text(weight: "bold")[Question ${question.id.replace(/^q-/, '')}]`,
     '',
+  ];
+
+  if (question.narrative) {
+    parts.push(contentToTypst(question.narrative.text));
+    parts.push('');
+  }
+
+  parts.push(
     renderQuestionBody(question),
-  ].join('\n');
+  );
+  return parts.join('\n');
 }
 
 export async function renderQuestionTypstSvg(question: DecodedQuestion): Promise<string> {

@@ -33,6 +33,7 @@ export interface Class {
 
 export interface Question {
   id: string;
+  narrative?: string;
   body: string;
   parts?: QuestionParts;
   answer?: string;
@@ -50,6 +51,7 @@ export interface Question {
 
 /** A question being staged for import before it becomes a full Question. */
 export interface DraftQuestion {
+  narrative?: string;
   body: string;
   parts?: QuestionParts;
   answer: string;

@@ -12,6 +12,7 @@ export function toTestGeneratorQuestions(result: DecodeResult): Question[] {
 export function toTestGeneratorQuestion(q: DecodedQuestion, index: number): Question {
   const question: Question = {
     id: q.id,
+    narrative: q.narrative?.text,
     body: q.body.text,
     parts: q.parts ? toQuestionParts(q.parts) : undefined,
     choices: q.choices?.reduce(
