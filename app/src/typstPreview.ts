@@ -120,13 +120,57 @@ function contentToTypst(text: string): string {
   let match: RegExpExecArray | null;
 
   while ((match = pattern.exec(normalized))) {
-    parts.push(escapeTypstText(normalized.slice(cursor, match.index)));
+    parts.push(renderTextWithMath(normalized.slice(cursor, match.index)));
     parts.push(`$ frac(${escapeMath(match[1])}, ${escapeMath(match[2])}) $`);
     cursor = match.index + match[0].length;
   }
 
-  parts.push(escapeTypstText(normalized.slice(cursor)));
+  parts.push(renderTextWithMath(normalized.slice(cursor)));
   return parts.join('');
+}
+
+function renderTextWithMath(text: string): string {
+  const parts: string[] = [];
+  let cursor = 0;
+
+  while (cursor < text.length) {
+    const start = text.indexOf('$', cursor);
+    if (start === -1) {
+      parts.push(escapeTypstText(text.slice(cursor)));
+      break;
+    }
+
+    const end = text.indexOf('$', start + 1);
+    if (end === -1) {
+      parts.push(escapeTypstText(text.slice(cursor)));
+      break;
+    }
+
+    parts.push(escapeTypstText(text.slice(cursor, start)));
+    const span = text.slice(start + 1, end).trim();
+    if (isLikelyMathSpan(span)) {
+      parts.push(`$ ${escapeMath(span)} $`);
+    } else {
+      parts.push(escapeTypstText(text.slice(start, end + 1)));
+    }
+    cursor = end + 1;
+  }
+
+  return parts.join('');
+}
+
+function isLikelyMathSpan(text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed) return false;
+  if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return false;
+  if (/[A-Za-z]_[A-Za-z0-9({]/.test(trimmed)) return true;
+  if (/\^/.test(trimmed)) return true;
+  if (/#math\./.test(trimmed)) return true;
+  if (/^[A-Za-z_][A-Za-z0-9_(){}]*\s*[=<>]/.test(trimmed)) return true;
+  if (/^[–−-]?\d+\/\d+$/.test(trimmed)) return true;
+  if (/^[–−]\d/.test(trimmed) && /^[–−]\d+(\.\d+)?$/.test(trimmed)) return true;
+  if (/\\[A-Za-z]+/.test(trimmed)) return true;
+  return false;
 }
 
 function escapeTypstText(text: string): string {
