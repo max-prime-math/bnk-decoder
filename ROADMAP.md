@@ -5,6 +5,26 @@ Detailed binary format research lives in `format-notes.md`.
 
 Shared narrative preambles are now recovered from the binary catalog and attached directly to decoded questions, so they are no longer part of the active roadmap.
 
+Corpus-wide variation is the next research axis. See `BANK_VARIATION_AND_COVERAGE_PLAN.md` for the family inventory, version split, and the implementation plan for covering every bank in `ignore/ExamView/Banks` without regressing the stable banks.
+
+---
+
+## 0. Corpus Variation and Bank Dialects
+
+**Status:** Open  
+**Why it matters:** The corpus contains multiple question-layout families and at least two container versions. Fixes that help one family can break another if they are applied globally.
+
+**Research target:** Explain the practical differences between:
+- `Pre-Calculus` vs `MathWorks` vs `Foundations` vs `Math Makes Sense` vs `Math Apprenticeship`
+- standard banks vs `Mickelson` banks
+- `W 06.00` vs `W 05.00`
+
+**Implementation target:** Add a family/dialect layer to the decoder so math recovery, narrative handling, choice reconstruction, and embedded-object recovery can vary safely by corpus segment.
+
+**Deferred outlier:** `Calculus/GQ-Calculus.bnk` is the only `W 05.00` bank in the corpus. It should stay out of the first broad compatibility pass until the v06 family matrix is known, because it is likely to require a version-specific path rather than a shared dialect fix. It is still part of the regression harness because current decoding is materially useful.
+
+**First implementation step:** `npm run report:corpus -- "ignore/ExamView/Banks" reports/corpus-dialects`
+
 ---
 
 ## 1. ~~Answer Key Byte Location~~ ✅ COMPLETED

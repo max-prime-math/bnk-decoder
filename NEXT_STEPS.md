@@ -6,6 +6,26 @@
 
 ---
 
+## Corpus Variation Research
+
+Before broadening the decoder further, establish why the other banks differ and which differences are structural versus cosmetic.
+
+**Immediate goal:** fingerprint every bank under `ignore/ExamView/Banks`, then cluster them into decoder dialects.
+
+**First deliverables:**
+1. corpus fingerprint report
+2. family/version matrix
+3. stable golden corpus for regression testing
+4. list of bank families that need special handling
+5. deferment notes for any outlier bank that is not worth attacking yet
+
+**Primary reference:** [`BANK_VARIATION_AND_COVERAGE_PLAN.md`](./BANK_VARIATION_AND_COVERAGE_PLAN.md)
+
+**Current tool:** `npm run report:corpus -- "ignore/ExamView/Banks" reports/corpus-dialects`
+**Regression tool:** `npm run regress:dialects -- reports/dialect-regression`
+
+---
+
 ## Priority 1: Validate Decoder Quality Across Corpus
 
 **Why:** Pre-Calculus 11 is well-understood. Before optimizing edge cases, verify decoder handles other textbooks correctly.
@@ -15,7 +35,7 @@
 **Approach:**
 1. Decode representative files from each textbook:
    - `Pre-Calculus 12/Chapter 01.bnk` (v06 format, likely similar to PC11)
-   - `Calculus/GQ-Calculus.bnk` (v05 format — currently unsupported)
+   - `Calculus/GQ-Calculus.bnk` (v05 format — separate profile, keep in regression)
    - `Math Makes Sense 9/Unit 01/MMS9_1.1.bnk` (general math)
    - `Foundations of Math 10/Chapter 01/MMS10_1.1.bnk` (fundamentals)
    - `MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk` (with images)
@@ -36,7 +56,7 @@
 
 ## Priority 2: Support Version 05 Format
 
-**Why:** `GQ-Calculus.bnk` uses v05 and cannot be decoded; understand v05 structure
+**Why:** `GQ-Calculus.bnk` uses v05 and should be treated as its own version-specific path even though current decoding is already materially useful
 
 **What we know:**
 - Version 05 signature in header: `FSCBNK#05#00#...`

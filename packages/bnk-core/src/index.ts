@@ -16,8 +16,25 @@ export interface BnkSourceMetadata {
   byteLength: number;
   detectedFormat: 'examview-container' | 'examview-like' | 'zip-like' | 'unknown-binary' | 'text-like';
   examView?: ExamViewContainerMetadata;
+  dialect?: BankDialectProfile;
   payloadByteLength?: number;
   inflatedByteLength?: number;
+}
+
+export interface BankDialectProfile {
+  version: 'v05' | 'v06' | 'unknown';
+  family: string;
+  profile:
+    | 'v05-calculus'
+    | 'v06-precalculus-standard'
+    | 'v06-precalculus-mickelson'
+    | 'v06-mathworks'
+    | 'v06-foundations'
+    | 'v06-math-apprenticeship'
+    | 'v06-math-makes-sense'
+    | 'v06-calculus'
+    | 'v06-unknown';
+  notes: string[];
 }
 
 export interface ExamViewContainerMetadata {
@@ -325,6 +342,7 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
     ? decodeVersion06QuestionCandidates(parserBytes, options, diagnostics, assets)
     : [];
   const text = extractReadableText(parserBytes);
+  const dialect = inferBankDialect(options.filename, container?.majorVersion);
   const fallbackQuestions = questions.length
     ? []
     : decodeTextLikeQuestions(text, parserBytes, options.preserveRaw !== false, assets);
@@ -374,6 +392,7 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
       byteLength: bytes.byteLength,
       detectedFormat,
       examView: container,
+      dialect,
       payloadByteLength: payload.byteLength,
       inflatedByteLength: inflated?.byteLength,
     },
@@ -4697,6 +4716,60 @@ function emptyStats(): DecodeStats {
       garbage: 0,
       averageScore: 0,
     },
+  };
+}
+
+function inferBankDialect(filename?: string, majorVersion?: string): BankDialectProfile {
+  const family = inferClassNameFromFilename(filename) ?? 'unknown';
+  const normalizedFamily = family.toLowerCase();
+  const version: BankDialectProfile['version'] = majorVersion === '05'
+    ? 'v05'
+    : majorVersion === '06'
+      ? 'v06'
+      : 'unknown';
+
+  if (version === 'v05') {
+    return {
+      version,
+      family,
+      profile: 'v05-calculus',
+      notes: ['Known single-file v05 outlier; defer until a dedicated v05 parser exists.'],
+    };
+  }
+
+  let profile: BankDialectProfile['profile'] = 'v06-unknown';
+  const notes: string[] = [];
+
+  if (normalizedFamily.includes('pre-calculus') && normalizedFamily.includes('mickelson')) {
+    profile = 'v06-precalculus-mickelson';
+    notes.push('Narrative-heavy, structure-rich pre-calculus dialect.');
+  } else if (normalizedFamily.includes('pre-calculus')) {
+    profile = 'v06-precalculus-standard';
+    notes.push('Baseline pre-calculus dialect used for regression control.');
+  } else if (normalizedFamily.includes('mathworks')) {
+    profile = 'v06-mathworks';
+    notes.push('Broader applied-math prompt style; likely more embedded content and varied layouts.');
+  } else if (normalizedFamily.includes('foundations')) {
+    profile = 'v06-foundations';
+    notes.push('Large applied/foundations banks; likely heavier on template text and nontrivial assets.');
+  } else if (normalizedFamily.includes('math apprenticeship')) {
+    profile = 'v06-math-apprenticeship';
+    notes.push('Very large banks with heavy applied wording; good stress test for preservation and performance.');
+  } else if (normalizedFamily.includes('math makes sense')) {
+    profile = 'v06-math-makes-sense';
+    notes.push('School-style unit banks; often language-dense and template-driven.');
+  } else if (normalizedFamily.includes('calculus')) {
+    profile = 'v06-calculus';
+    notes.push('Legacy/edge bank family; isolate before broad heuristics change.');
+  } else {
+    notes.push('Unclassified v06 family; keep behavior conservative until profiled.');
+  }
+
+  return {
+    version,
+    family,
+    profile,
+    notes,
   };
 }
 

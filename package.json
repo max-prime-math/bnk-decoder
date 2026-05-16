@@ -14,10 +14,12 @@
     "build:app": "npm run build -w bnk-decoder",
     "check:app": "npm run check -w bnk-decoder",
     "inspect:corpus": "node scripts/inspect-corpus.mjs",
+    "report:corpus": "node scripts/report-corpus-dialects.mjs",
     "inspect:records": "node scripts/inspect-records.mjs",
     "decode:file": "node --experimental-strip-types scripts/decode-file.mjs",
     "report:quality": "node scripts/report-decode-quality.mjs",
     "audit:precalc": "node --experimental-strip-types scripts/audit-precalc-corpus.mjs",
+    "regress:dialects": "node --experimental-strip-types scripts/run-dialect-regression.mjs",
     "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs"
   },
   "devDependencies": {
