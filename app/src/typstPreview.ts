@@ -122,20 +122,7 @@ function renderPartItem(part: NonNullable<DecodedQuestion['parts']>['items'][num
 }
 
 function contentToTypst(text: string): string {
-  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const parts: string[] = [];
-  const pattern = /#math\.frac\(([^,]+),\s*([^)]+)\)/g;
-  let cursor = 0;
-  let match: RegExpExecArray | null;
-
-  while ((match = pattern.exec(normalized))) {
-    parts.push(renderTextWithMath(normalized.slice(cursor, match.index)));
-    parts.push(`$ frac(${escapeMath(match[1])}, ${escapeMath(match[2])}) $`);
-    cursor = match.index + match[0].length;
-  }
-
-  parts.push(renderTextWithMath(normalized.slice(cursor)));
-  return parts.join('');
+  return renderTextWithMath(markMathInText(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n')));
 }
 
 function renderTextWithMath(text: string): string {
@@ -160,7 +147,12 @@ function renderTextWithMath(text: string): string {
     if (isLikelyMathSpan(span)) {
       parts.push(`$ ${escapeMath(span)} $`);
     } else {
-      parts.push(escapeTypstText(text.slice(start, end + 1)));
+      const recovered = markPlainTextMath(span);
+      if (recovered !== span) {
+        parts.push(recovered);
+      } else {
+        parts.push(escapeTypstText(text.slice(start, end + 1)));
+      }
     }
     cursor = end + 1;
   }
@@ -172,14 +164,150 @@ function isLikelyMathSpan(text: string): boolean {
   const trimmed = text.trim();
   if (!trimmed) return false;
   if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return false;
-  if (/[A-Za-z]_[A-Za-z0-9({]/.test(trimmed)) return true;
-  if (/\^/.test(trimmed)) return true;
-  if (/#math\./.test(trimmed)) return true;
-  if (/^[A-Za-z_][A-Za-z0-9_(){}]*\s*[=<>]/.test(trimmed)) return true;
-  if (/^[–−-]?\d+\/\d+$/.test(trimmed)) return true;
-  if (/^[–−]\d/.test(trimmed) && /^[–−]\d+(\.\d+)?$/.test(trimmed)) return true;
-  if (/\\[A-Za-z]+/.test(trimmed)) return true;
+  if (trimmed.startsWith('#math.')) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?\/\d+$/.test(trimmed)) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?(?:,\d+(?:\.\d+)?)+(?:,?\.{3}|,?…)?$/.test(trimmed)) return true;
+  if (/^\(\s*[–−-]?\d+(?:\.\d+)?\s*,\s*[–−-]?\d+(?:\.\d+)?(?:\s*,\s*[–−-]?\d+(?:\.\d+)?)?\s*\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]{1,8}\([^)]+\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?([=<>]=?|[+\-*/^])/.test(trimmed)) return true;
+  if (/^[+\-*/^=<>≤≥]+$/.test(trimmed)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
   return false;
+}
+
+function markMathInText(text: string): string {
+  const parts: string[] = [];
+  let cursor = 0;
+
+  while (cursor < text.length) {
+    const start = text.indexOf('$', cursor);
+    if (start === -1) {
+      parts.push(markPlainTextMath(text.slice(cursor)));
+      break;
+    }
+
+    parts.push(markPlainTextMath(text.slice(cursor, start)));
+
+    const end = text.indexOf('$', start + 1);
+    if (end === -1) {
+      parts.push(markPlainTextMath(text.slice(start)));
+      break;
+    }
+
+    const span = text.slice(start + 1, end);
+    parts.push(isLikelyMathSpan(span) ? `$${normalizeMathSpan(span)}$` : text.slice(start, end + 1));
+    cursor = end + 1;
+  }
+
+  return parts.join('');
+}
+
+function markPlainTextMath(text: string): string {
+  const tokens = text.match(/\s+|[A-Za-z]_[A-Za-z0-9]+|[A-Za-z]\d+|\d+(?:\.\d+)?|[A-Za-z]+|[^\sA-Za-z0-9]/g);
+  if (!tokens) return text;
+
+  const out: string[] = [];
+  for (let index = 0; index < tokens.length;) {
+    const token = tokens[index];
+    if (/^\s+$/.test(token)) {
+      out.push(token);
+      index++;
+      continue;
+    }
+
+    const run = collectMathRun(tokens, index);
+    if (!run) {
+      out.push(token);
+      index++;
+      continue;
+    }
+
+    out.push(`$${normalizeMathSpan(run.text)}$`);
+    index = run.end;
+  }
+
+  return out.join('');
+}
+
+function collectMathRun(tokens: string[], start: number): { text: string; end: number } | undefined {
+  const first = tokens[start];
+  if (!isMathStartToken(first, tokens[start + 1] ?? '', tokens.slice(start + 1))) return undefined;
+
+  let end = start + 1;
+
+  while (end < tokens.length) {
+    const token = tokens[end];
+    if (/^\s+$/.test(token)) {
+      const next = tokens[end + 1];
+      if (next && isMathContinuationToken(next, tokens[end + 2] ?? '', tokens.slice(end + 1))) {
+        end++;
+        continue;
+      }
+      break;
+    }
+
+    if (isMathContinuationToken(token, tokens[end + 1] ?? '', tokens.slice(end + 1))) {
+      end++;
+      continue;
+    }
+
+    break;
+  }
+
+  return { text: tokens.slice(start, end).join(''), end };
+}
+
+function isMathStartToken(token: string, nextToken = '', rest: string[] = []): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (isStrongMathToken(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed) && /^[(_^=<>+\-*/]$/.test(nextToken)) return true;
+  if (/^\d+(?:\.\d+)?(?:,\s*)?$/.test(trimmed) && rest.some((part) => /^\s*$/.test(part) || /^[,\d]/.test(part))) {
+    return true;
+  }
+  return false;
+}
+
+function isMathContinuationToken(token: string, nextToken = '', rest: string[] = []): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (isStrongMathToken(trimmed)) return true;
+  if (/^[,;:+\-*/^=<>≤≥()…]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^\d+(?:\.\d+)?(?:,\s*)?$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed) && /^[(_^=<>+\-*/]$/.test(nextToken)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  return false;
+}
+
+function isStrongMathToken(token: string): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (/^[–−-]?\d+(?:\.\d+)?\/\d+$/.test(trimmed)) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?(?:,\d+(?:\.\d+)?)+(?:,?\.{3}|,?…)?$/.test(trimmed)) return true;
+  if (/^\(\s*[–−-]?\d+(?:\.\d+)?\s*,\s*[–−-]?\d+(?:\.\d+)?(?:\s*,\s*[–−-]?\d+(?:\.\d+)?)?\s*\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]{1,8}\([^)]+\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?([=<>]=?|[+\-*/^])/.test(trimmed)) return true;
+  if (/^[+\-*/^=<>≤≥]+$/.test(trimmed)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  return false;
+}
+
+function normalizeMathSpan(text: string): string {
+  return text
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .replace(/(?<![A-Za-z0-9])([A-Za-z])(\d+)(?![A-Za-z0-9])/g, '$1_$2')
+    .replace(/[–−]/g, '-')
+    .trim();
 }
 
 function escapeTypstText(text: string): string {

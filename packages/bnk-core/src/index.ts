@@ -4587,41 +4587,7 @@ function trimBlankEdges(lines: string[]): string[] {
 }
 
 function contentText(content: RichContent): string {
-  // For Typst output, escape dollar signs that look like currency.
-  // Only trust $...$ pairs as math if they contain clear math indicators (underscore, ^, or =).
-  // Everything else is assumed to be literal/currency and gets escaped.
-  let result = content.text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
-  const mathPairs = new Set<number>();
-
-  // Find valid $...$ math pairs: must contain underscore, ^, or = to be considered math
-  // These are the clearest indicators that the content is mathematical, not currency
-  for (let i = 0; i < result.length; i++) {
-    if (result[i] === '$') {
-      const nextDollar = result.indexOf('$', i + 1);
-      if (nextDollar !== -1 && nextDollar - i < 100) {
-        const between = result.slice(i + 1, nextDollar);
-        // Math pairs must have underscore (subscript) or ^ (superscript) or = (equation)
-        // This avoids false positives from currency like $14 000
-        const isMath = /[_^=]/.test(between);
-        if (isMath) {
-          mathPairs.add(i);
-          mathPairs.add(nextDollar);
-          i = nextDollar;
-        }
-      }
-    }
-  }
-
-  // Escape $ that are not part of math pairs
-  let escaped = '';
-  for (let i = 0; i < result.length; i++) {
-    if (result[i] === '$' && !mathPairs.has(i)) {
-      escaped += '\\$';
-    } else {
-      escaped += result[i];
-    }
-  }
-  return escaped;
+  return renderTypstText(content.text);
 }
 
 function renderTypstQuestionBody(question: DecodedQuestion): string {
@@ -4663,21 +4629,7 @@ function renderTypstQuestionBody(question: DecodedQuestion): string {
  * avoid double-wrapping.
  */
 function wrapBodyInlineMath(body: string): string {
-  const parts = body.split(/(\$[^$]+\$)/);
-  return parts.map((part, i) => {
-    if (i % 2 === 1) return part; // already inside $...$
-    // Subscript notation: a SINGLE letter (not the tail of a word) followed by underscore
-    // and a SHORT subscript (1–2 chars). Short constraint avoids false positives on
-    // compound variable names like "y_axis", "k_value" stored with literal underscores.
-    // Optionally captures a trailing "= expression" up to the next punctuation boundary.
-    // e.g. t_n = 3n + 1  →  $t_n = 3n + 1$    S_9  →  $S_9$
-    // Single-letter subscript must NOT be followed by alphanumeric (avoids matching
-    // mid-word like "y_ax" inside "y_axis"). Multi-digit subscripts (S_9, x_12) are fine.
-    return part.replace(
-      /(?<![A-Za-z])([A-Za-z])_([A-Za-z](?![A-Za-z0-9])|\d+)(?:\s*=\s*[^,;.!?\n]+)?/g,
-      (match) => `$${match.trim()}$`,
-    );
-  }).join('');
+  return markMathInText(body);
 }
 
 function wrapTypstMathIfNeeded(text: string): string {
@@ -4702,6 +4654,214 @@ function wrapTypstMathIfNeeded(text: string): string {
   // sqrt(...) expression
   if (/sqrt\(/.test(trimmed)) return `$${trimmed}$`;
   return text;
+}
+
+function renderTypstText(text: string): string {
+  const marked = markMathInText(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n'));
+  return renderTextWithMath(marked);
+}
+
+function markMathInText(text: string): string {
+  const parts: string[] = [];
+  let cursor = 0;
+
+  while (cursor < text.length) {
+    const start = text.indexOf('$', cursor);
+    if (start === -1) {
+      parts.push(markPlainTextMath(text.slice(cursor)));
+      break;
+    }
+
+    parts.push(markPlainTextMath(text.slice(cursor, start)));
+
+    const end = text.indexOf('$', start + 1);
+    if (end === -1) {
+      parts.push(markPlainTextMath(text.slice(start)));
+      break;
+    }
+
+    const span = text.slice(start + 1, end);
+    parts.push(isLikelyMathSpan(span) ? `$${normalizeMathSpan(span)}$` : text.slice(start, end + 1));
+    cursor = end + 1;
+  }
+
+  return parts.join('');
+}
+
+function markPlainTextMath(text: string): string {
+  const tokens = text.match(/\s+|[A-Za-z]_[A-Za-z0-9]+|[A-Za-z]\d+|\d+(?:\.\d+)?|[A-Za-z]+|[^\sA-Za-z0-9]/g);
+  if (!tokens) return text;
+
+  const out: string[] = [];
+  for (let index = 0; index < tokens.length;) {
+    const token = tokens[index];
+    if (/^\s+$/.test(token)) {
+      out.push(token);
+      index++;
+      continue;
+    }
+
+    const run = collectMathRun(tokens, index);
+    if (!run) {
+      out.push(token);
+      index++;
+      continue;
+    }
+
+    out.push(`$${normalizeMathSpan(run.text)}$`);
+    index = run.end;
+  }
+
+  return out.join('');
+}
+
+function collectMathRun(tokens: string[], start: number): { text: string; end: number } | undefined {
+  const first = tokens[start];
+  if (!isMathStartToken(first, tokens[start + 1] ?? '', tokens.slice(start + 1))) return undefined;
+
+  let end = start + 1;
+  let sawMath = true;
+
+  while (end < tokens.length) {
+    const token = tokens[end];
+    if (/^\s+$/.test(token)) {
+      const next = tokens[end + 1];
+      if (next && isMathContinuationToken(next, tokens[end + 2] ?? '', tokens.slice(end + 1))) {
+        end++;
+        continue;
+      }
+      break;
+    }
+
+    if (isMathContinuationToken(token, tokens[end + 1] ?? '', tokens.slice(end + 1))) {
+      sawMath = true;
+      end++;
+      continue;
+    }
+
+    break;
+  }
+
+  if (!sawMath) return undefined;
+  return { text: tokens.slice(start, end).join(''), end };
+}
+
+function isMathStartToken(token: string, nextToken = '', rest: string[] = []): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (isStrongMathToken(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed) && /^[(_^=<>+\-*/]$/.test(nextToken)) return true;
+  if (/^\d+(?:\.\d+)?(?:,\s*)?$/.test(trimmed) && rest.some((part) => /^\s*$/.test(part) || /^[,\d]/.test(part))) {
+    return true;
+  }
+  return false;
+}
+
+function isMathContinuationToken(token: string, nextToken = '', rest: string[] = []): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (isStrongMathToken(trimmed)) return true;
+  if (/^[,;:+\-*/^=<>≤≥()…]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^\d+(?:\.\d+)?(?:,\s*)?$/.test(trimmed)) return true;
+  if (/^[A-Za-z]$/.test(trimmed) && /^[(_^=<>+\-*/]$/.test(nextToken)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  return false;
+}
+
+function isStrongMathToken(token: string): boolean {
+  const trimmed = token.trim();
+  if (!trimmed) return false;
+  if (trimmed.startsWith('#math.')) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?\/\d+$/.test(trimmed)) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?(?:,\d+(?:\.\d+)?)+(?:,?\.{3}|,?…)?$/.test(trimmed)) return true;
+  if (/^\(\s*[–−-]?\d+(?:\.\d+)?\s*,\s*[–−-]?\d+(?:\.\d+)?(?:\s*,\s*[–−-]?\d+(?:\.\d+)?)?\s*\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]{1,8}\([^)]+\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?([=<>]=?|[+\-*/^])/.test(trimmed)) return true;
+  if (/^[+\-*/^=<>≤≥]+$/.test(trimmed)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  return false;
+}
+
+function normalizeMathSpan(text: string): string {
+  return text
+    .replace(/\r\n/g, '\n')
+    .replace(/\r/g, '\n')
+    .replace(/(?<![A-Za-z0-9])([A-Za-z])(\d+)(?![A-Za-z0-9])/g, '$1_$2')
+    .replace(/[–−]/g, '-')
+    .trim();
+}
+
+function renderTextWithMath(text: string): string {
+  const parts: string[] = [];
+  let cursor = 0;
+
+  while (cursor < text.length) {
+    const start = text.indexOf('$', cursor);
+    if (start === -1) {
+      parts.push(escapeTypstText(text.slice(cursor)));
+      break;
+    }
+
+    parts.push(escapeTypstText(text.slice(cursor, start)));
+
+    const end = text.indexOf('$', start + 1);
+    if (end === -1) {
+      parts.push(escapeTypstText(text.slice(start)));
+      break;
+    }
+
+    const span = text.slice(start + 1, end);
+    if (isLikelyMathSpan(span)) {
+      parts.push(`$ ${escapeMath(normalizeMathSpan(span))} $`);
+    } else {
+      const recovered = markPlainTextMath(span);
+      if (recovered !== span) {
+        parts.push(recovered);
+      } else {
+        parts.push(escapeTypstText(text.slice(start, end + 1)));
+      }
+    }
+    cursor = end + 1;
+  }
+
+  return parts.join('');
+}
+
+function isLikelyMathSpan(text: string): boolean {
+  const trimmed = text.trim();
+  if (!trimmed) return false;
+  if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return false;
+  if (trimmed.startsWith('#math.')) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?\/\d+$/.test(trimmed)) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?(?:,\d+(?:\.\d+)?)+(?:,?\.{3}|,?…)?$/.test(trimmed)) return true;
+  if (/^\(\s*[–−-]?\d+(?:\.\d+)?\s*,\s*[–−-]?\d+(?:\.\d+)?(?:\s*,\s*[–−-]?\d+(?:\.\d+)?)?\s*\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
+  if (/^[A-Za-z]{1,8}\([^)]+\)$/.test(trimmed)) return true;
+  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?([=<>]=?|[+\-*/^])/.test(trimmed)) return true;
+  if (/^[+\-*/^=<>≤≥]+$/.test(trimmed)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  return false;
+}
+
+function escapeTypstText(text: string): string {
+  return text
+    .replace(/\\/g, '\\\\')
+    .replace(/\[/g, '\\[')
+    .replace(/\]/g, '\\]')
+    .replace(/#/g, '\\#')
+    .replace(/\$/g, '\\$');
+}
+
+function escapeMath(text: string): string {
+  return text.replace(/[#$]/g, '');
 }
 
 function emptyStats(): DecodeStats {
