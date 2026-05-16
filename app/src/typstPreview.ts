@@ -83,7 +83,7 @@ function renderQuestionBody(question: DecodedQuestion): string {
             substituted: expression,
           }));
       for (const expression of expressions) {
-        lines.push(`- $ ${escapeMath(expression.typst)} $`);
+        lines.push(`- $${escapeMath(expression.typst)}$`);
         if (expression.original !== expression.substituted) {
           lines.push(`  #text(size: 8pt, fill: gray)[from ${escapeTypstText(expression.original)}]`);
         }
@@ -145,7 +145,7 @@ function renderTextWithMath(text: string): string {
     parts.push(escapeTypstText(text.slice(cursor, start)));
     const span = text.slice(start + 1, end).trim();
     if (isLikelyMathSpan(span)) {
-      parts.push(`$ ${escapeMath(span)} $`);
+      parts.push(`$${escapeMath(span)}$`);
     } else {
       const recovered = markPlainTextMath(span);
       if (recovered !== span) {

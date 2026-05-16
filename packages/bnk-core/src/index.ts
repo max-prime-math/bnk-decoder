@@ -4819,7 +4819,7 @@ function renderTextWithMath(text: string): string {
 
     const span = text.slice(start + 1, end);
     if (isLikelyMathSpan(span)) {
-      parts.push(`$ ${escapeMath(normalizeMathSpan(span))} $`);
+      parts.push(`$${escapeMath(normalizeMathSpan(span))}$`);
     } else {
       const recovered = markPlainTextMath(span);
       if (recovered !== span) {
