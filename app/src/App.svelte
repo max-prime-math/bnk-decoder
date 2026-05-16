@@ -11,12 +11,18 @@
     type GraphSamplePoint,
   } from '@bnk-decoder/core';
   import { questionToTypstDocument, renderQuestionTypstSvg } from './typstPreview';
+  import { deleteStoredBank, getStoredBank, listStoredBanks, putStoredBank, type StoredBankRecord } from './bankStore';
+
+  type StoredBankSummary = Omit<StoredBankRecord, 'bytes'>;
 
   let fileName = $state('');
   let busy = $state(false);
   let error = $state('');
   let result = $state<DecodeResult | null>(null);
   let selectedQuestionId = $state<string | null>(null);
+  let selectedBankId = $state<string | null>(null);
+  let banks = $state<StoredBankSummary[]>([]);
+  let selectedQuestionByBank = $state<Record<string, string | null>>({});
   let renderPreview = $state(false);
   let renderBusy = $state(false);
   let renderError = $state('');
@@ -30,20 +36,19 @@
   $effect(() => {
     const onKeydown = (event: KeyboardEvent) => {
       if (isTypingTarget(event.target)) return;
-      if (!result?.questions.length) return;
 
-      if (event.key === 'ArrowDown' || event.key === 'j') {
+      if ((event.key === 'ArrowDown' || event.key === 'j') && result?.questions.length) {
         event.preventDefault();
         selectRelativeQuestion(1);
-      } else if (event.key === 'ArrowUp' || event.key === 'k') {
+      } else if ((event.key === 'ArrowUp' || event.key === 'k') && result?.questions.length) {
         event.preventDefault();
         selectRelativeQuestion(-1);
       } else if (event.key === 'h') {
         event.preventDefault();
-        selectedQuestionId = result.questions[0]?.id ?? null;
+        selectRelativeBank(-1);
       } else if (event.key === 'l') {
         event.preventDefault();
-        selectedQuestionId = result.questions.at(-1)?.id ?? null;
+        selectRelativeBank(1);
       }
     };
 
@@ -56,6 +61,15 @@
     document.getElementById(`question-${selectedQuestionId}`)?.scrollIntoView({
       block: 'nearest',
     });
+  });
+
+  $effect(() => {
+    loadStoredBanks();
+  });
+
+  $effect(() => {
+    if (!selectedBankId) return;
+    void loadSelectedBank(selectedBankId);
   });
 
   $effect(() => {
@@ -91,17 +105,29 @@
   });
 
   async function handleFiles(files: FileList | null) {
-    const file = files?.[0];
-    if (!file) return;
+    const batch = Array.from(files ?? []);
+    if (!batch.length) return;
     busy = true;
     error = '';
-    fileName = file.name;
-    selectedQuestionId = null;
     renderedTypstSvg = '';
     renderError = '';
 
     try {
-      result = await decodeBnkFile(await file.arrayBuffer(), { filename: file.name });
+      const stored = [];
+      for (const file of batch) {
+        const bytes = await file.arrayBuffer();
+        const record: StoredBankRecord = {
+          id: file.name,
+          filename: file.name,
+          uploadedAt: Date.now(),
+          size: file.size,
+          bytes,
+        };
+        await putStoredBank(record);
+        stored.push(record.id);
+      }
+      await loadStoredBanks();
+      selectedBankId = stored.at(-1) ?? selectedBankId;
     } catch (err) {
       result = null;
       error = err instanceof Error ? err.message : 'Unable to decode this BNK file.';
@@ -157,7 +183,16 @@
       result.questions.findIndex((question) => question.id === selectedQuestion?.id),
     );
     const nextIndex = (currentIndex + delta + result.questions.length) % result.questions.length;
-    selectedQuestionId = result.questions[nextIndex].id;
+    const nextId = result.questions[nextIndex].id;
+    selectedQuestionId = nextId;
+    if (selectedBankId) selectedQuestionByBank = { ...selectedQuestionByBank, [selectedBankId]: nextId };
+  }
+
+  function selectRelativeBank(delta: number) {
+    if (!banks.length) return;
+    const currentIndex = Math.max(0, banks.findIndex((bank) => bank.id === selectedBankId));
+    const nextIndex = (currentIndex + delta + banks.length) % banks.length;
+    selectedBankId = banks[nextIndex]?.id ?? null;
   }
 
   function isTypingTarget(target: EventTarget | null) {
@@ -217,6 +252,65 @@
   function graphColor(index: number) {
     return graphColors[index % graphColors.length];
   }
+
+  async function loadStoredBanks() {
+    try {
+      const stored = await listStoredBanks();
+      banks = stored;
+      if (!selectedBankId && stored.length) selectedBankId = stored[0].id;
+      if (selectedBankId && !stored.some((bank) => bank.id === selectedBankId)) {
+        selectedBankId = stored[0]?.id ?? null;
+      }
+    } catch (err) {
+      error = err instanceof Error ? err.message : 'Unable to load stored banks.';
+    }
+  }
+
+  async function loadSelectedBank(bankId: string) {
+    const bank = await getStoredBank(bankId);
+    if (!bank) {
+      result = null;
+      fileName = '';
+      selectedQuestionId = null;
+      return;
+    }
+
+    busy = true;
+    error = '';
+    fileName = bank.filename;
+    renderedTypstSvg = '';
+    renderError = '';
+
+    try {
+      const decoded = await decodeBnkFile(bank.bytes.slice(0), { filename: bank.filename });
+      result = decoded;
+      const preferredQuestionId = selectedQuestionByBank[bankId]
+        ?? decoded.questions[0]?.id
+        ?? null;
+      selectedQuestionId = decoded.questions.some((question) => question.id === preferredQuestionId)
+        ? preferredQuestionId
+        : decoded.questions[0]?.id ?? null;
+    } catch (err) {
+      result = null;
+      error = err instanceof Error ? err.message : 'Unable to decode this BNK file.';
+    } finally {
+      busy = false;
+    }
+  }
+
+  async function removeBank(bankId: string) {
+    await deleteStoredBank(bankId);
+    selectedQuestionByBank = Object.fromEntries(
+      Object.entries(selectedQuestionByBank).filter(([id]) => id !== bankId),
+    );
+    if (selectedBankId === bankId) {
+      selectedBankId = null;
+      result = null;
+      fileName = '';
+      selectedQuestionId = null;
+    }
+    await loadStoredBanks();
+  }
 </script>
 
 <main class="shell">
@@ -227,8 +321,8 @@
     </div>
 
     <label class="upload">
-      <input type="file" accept=".bnk,.tst,.zip,application/octet-stream" onchange={(event) => handleFiles(event.currentTarget.files)} />
-      Choose BNK File
+      <input type="file" multiple accept=".bnk,.tst,.zip,application/octet-stream" onchange={(event) => handleFiles(event.currentTarget.files)} />
+      Add BNK Files
     </label>
   </section>
 
@@ -239,11 +333,36 @@
   <section class="workspace">
     <aside class="sidebar">
       <div class="summary">
-        <span>{fileName || 'No file loaded'}</span>
+        <span>{fileName || 'No bank selected'}</span>
         {#if busy}
           <strong>Decoding...</strong>
         {:else if result}
           <strong>{result.stats.questionCount} questions</strong>
+        {/if}
+      </div>
+
+      <div class="bank-library" aria-label="Stored banks">
+        <div class="bank-library-header">
+          <strong>Banks</strong>
+          <small>{banks.length}</small>
+        </div>
+        {#if banks.length}
+          <div class="bank-list">
+            {#each banks as bank}
+              <div class="bank-item" class:active={bank.id === selectedBankId}>
+                <button class="bank-select" onclick={() => (selectedBankId = bank.id)}>
+                  <span>{bank.filename}</span>
+                  <small>{Math.max(1, Math.round(bank.size / 1024))} KB</small>
+                </button>
+                <button class="bank-delete" aria-label={`Delete ${bank.filename}`} onclick={() => removeBank(bank.id)}>Delete</button>
+              </div>
+            {/each}
+          </div>
+        {:else}
+          <div class="empty compact">
+            <strong>No stored banks.</strong>
+            <span>Uploads persist in this browser until you delete or overwrite them.</span>
+          </div>
         {/if}
       </div>
 
@@ -267,7 +386,10 @@
             <button
               id={`question-${question.id}`}
               class:active={selectedQuestion?.id === question.id}
-              onclick={() => (selectedQuestionId = question.id)}
+              onclick={() => {
+                selectedQuestionId = question.id;
+                if (selectedBankId) selectedQuestionByBank = { ...selectedQuestionByBank, [selectedBankId]: question.id };
+              }}
             >
               <span>Question {index + 1}</span>
               <small>{question.type} · {question.confidence}</small>
@@ -276,8 +398,8 @@
         </div>
       {:else}
         <div class="empty">
-          <strong>Ready for a bank file.</strong>
-          <span>Decoded questions, assets, and parser diagnostics will appear here.</span>
+          <strong>Ready for bank files.</strong>
+          <span>Uploads persist in this browser. Select a stored bank to decode it again.</span>
         </div>
       {/if}
     </aside>
@@ -590,6 +712,61 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 0.5rem;
     margin: 1rem 0;
+  }
+
+  .bank-library {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .bank-library-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .bank-list {
+    display: grid;
+    gap: 0.45rem;
+    max-height: 13rem;
+    overflow-y: auto;
+    padding-right: 0.2rem;
+  }
+
+  .bank-item {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.45rem;
+    align-items: stretch;
+  }
+
+  .bank-item.active .bank-select {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
+  .bank-select {
+    display: grid;
+    gap: 0.15rem;
+    justify-items: start;
+    text-align: left;
+    min-width: 0;
+  }
+
+  .bank-select span {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bank-delete {
+    padding-inline: 0.7rem;
+    color: var(--danger);
   }
 
   .stats div {
