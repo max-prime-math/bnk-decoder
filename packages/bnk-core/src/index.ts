@@ -331,7 +331,7 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
   const decodedQuestions = questions.length ? questions : fallbackQuestions;
   const structuredQuestions = decodedQuestions.map((question) => {
     const parts = inferQuestionParts(question);
-    const narrative = inferQuestionNarrative(question);
+    const narrative = inferQuestionNarrative(question, parts);
     return {
       ...question,
       ...(parts ? { parts } : {}),
@@ -612,50 +612,17 @@ function toDraftQuestionParts(parts: DecodedQuestionParts): DraftQuestionLike['p
   };
 }
 
-function inferQuestionNarrative(question: DecodedQuestion): RichContent | undefined {
-  const body = question.body.text.trim();
-  const title = `${question.metadata.title ?? ''} ${question.metadata.topic ?? ''}`.toLowerCase();
-  if (!body) return undefined;
+function inferQuestionNarrative(
+  question: DecodedQuestion,
+  parts: DecodedQuestionParts | undefined,
+): RichContent | undefined {
+  if (!parts?.stem.text.trim()) return undefined;
+  if (parts.items.length < 1) return undefined;
 
-  if (isLikelySharedPromptSeed(body)) {
-    if (/\bgeometric sequence\b/i.test(title)) {
-      return { format: question.body.format, text: 'For each geometric sequence, determine' };
-    }
-
-    if (/\barithmetic sequence\b/i.test(title)) {
-      return { format: question.body.format, text: 'For each arithmetic sequence, determine' };
-    }
-
-    if (/\bgeometric series\b/i.test(title)) {
-      return { format: question.body.format, text: 'For each geometric series, determine' };
-    }
-
-    if (/\barithmetic series\b/i.test(title)) {
-      return { format: question.body.format, text: 'For each arithmetic series, determine' };
-    }
-  }
-
-  if (/repeating decimal/i.test(title) || /repeating decimal/i.test(body)) {
-    return {
-      format: question.body.format,
-      text: 'Write each repeating decimal number as an equivalent fraction in lowest terms.',
-    };
-  }
-
-  return undefined;
-}
-
-function isLikelySharedPromptSeed(body: string): boolean {
-  const trimmed = body.trim();
-  if (trimmed.length > 120) return false;
-  if (/[?]/.test(trimmed)) return false;
-  if (/^(?:a|b|c|d|e|i|ii|iii)\)/i.test(trimmed)) return false;
-  if (/^(?:for each|determine|write|use|find|calculate|evaluate)\b/i.test(trimmed)) return false;
-  return (
-    /^\s*(?:t\d+|r|d|n|x\d*|y\d*|[A-Za-z]\s*=|\d|[–−-]\d|[\d\s,./()+\-^]+)\s*$/i.test(trimmed)
-    || /\b(?:t1|r|d|n)\b/i.test(trimmed)
-    || /,\s*\.\s*\.\s*\./.test(trimmed)
-  );
+  return {
+    format: question.body.format,
+    text: parts.stem.text.trim(),
+  };
 }
 
 function detectExamViewContainer(bytes: Uint8Array): ExamViewContainerMetadata | undefined {
@@ -4589,18 +4556,17 @@ function renderTypstQuestionBody(question: DecodedQuestion): string {
     lines.push('');
   }
 
-  if (!question.parts?.items.length) {
-    lines.push(contentText(question.body));
+  if (question.parts?.items.length) {
+    lines.push('', '#block[');
+    lines.push('  #set enum(numbering: "(a)", indent: 0pt, body-indent: 0.8em)');
+    for (const part of question.parts.items) {
+      lines.push(`  + ${contentText(part.body)}`);
+    }
+    lines.push(']');
     return lines.join('\n').trim();
   }
 
-  lines.push(contentText(question.parts.stem));
-  lines.push('', '#block[');
-  lines.push('  #set enum(numbering: "(a)", indent: 0pt, body-indent: 0.8em)');
-  for (const part of question.parts.items) {
-    lines.push(`  + ${contentText(part.body)}`);
-  }
-  lines.push(']');
+  lines.push(contentText(question.body));
   return lines.join('\n').trim();
 }
 
