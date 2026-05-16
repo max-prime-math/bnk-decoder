@@ -34,6 +34,7 @@ export interface Class {
 export interface Question {
   id: string;
   body: string;
+  parts?: QuestionParts;
   answer?: string;
   solution?: string;
   choices?: Record<string, string>;
@@ -50,6 +51,7 @@ export interface Question {
 /** A question being staged for import before it becomes a full Question. */
 export interface DraftQuestion {
   body: string;
+  parts?: QuestionParts;
   answer: string;
   solution: string;
   choices?: Record<string, string>;
@@ -63,6 +65,17 @@ export interface DraftQuestion {
 }
 
 export type DraftQuestionLike = DraftQuestion;
+
+export interface QuestionPart {
+  label?: string;
+  body: string;
+  parts?: QuestionParts;
+}
+
+export interface QuestionParts {
+  stem: string;
+  items: QuestionPart[];
+}
 
 export interface ChoiceOverride {
   choices: Record<string, string>;

@@ -13,6 +13,7 @@ export function toTestGeneratorQuestion(q: DecodedQuestion, index: number): Ques
   const question: Question = {
     id: q.id,
     body: q.body.text,
+    parts: q.parts ? toQuestionParts(q.parts) : undefined,
     choices: q.choices?.reduce(
       (acc, choice) => {
         acc[choice.id] = choice.body.text;
@@ -42,4 +43,15 @@ export function toTestGeneratorQuestion(q: DecodedQuestion, index: number): Ques
   }
 
   return question;
+}
+
+function toQuestionParts(parts: NonNullable<DecodedQuestion['parts']>): Question['parts'] {
+  return {
+    stem: parts.stem.text,
+    items: parts.items.map((part) => ({
+      label: part.label,
+      body: part.body.text,
+      parts: part.parts ? toQuestionParts(part.parts) : undefined,
+    })),
+  };
 }

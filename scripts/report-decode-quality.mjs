@@ -10,7 +10,9 @@ if (!inputDir) {
   process.exit(1);
 }
 
-const files = readdirSync(inputDir).filter((file) => file.endsWith('.json')).sort();
+const files = readdirSync(inputDir)
+  .filter((file) => file.endsWith('.json') && !file.endsWith('.pqp.json'))
+  .sort();
 const chapters = files
   .map((file) => summarizeFile(join(inputDir, file), file))
   .filter((chapter) => chapter !== undefined);
@@ -23,6 +25,14 @@ const report = {
   embeddedBodyCount: chapters.reduce((sum, chapter) => sum + chapter.embeddedBodies, 0),
   inlineObjectCount: chapters.reduce((sum, chapter) => sum + chapter.inlineObjects, 0),
   badChoiceCount: chapters.reduce((sum, chapter) => sum + chapter.badChoices, 0),
+  quality: {
+    clean: chapters.reduce((sum, chapter) => sum + chapter.quality.clean, 0),
+    suspect: chapters.reduce((sum, chapter) => sum + chapter.quality.suspect, 0),
+    garbage: chapters.reduce((sum, chapter) => sum + chapter.quality.garbage, 0),
+    averageScore: chapters.length
+      ? Math.round(chapters.reduce((sum, chapter) => sum + chapter.quality.averageScore, 0) / chapters.length)
+      : 0,
+  },
   chapters,
 };
 
@@ -33,6 +43,10 @@ console.table(chapters.map((chapter) => ({
   embeddedBodies: chapter.embeddedBodies,
   inlineObjects: chapter.inlineObjects,
   badChoices: chapter.badChoices,
+  clean: chapter.quality.clean,
+  suspect: chapter.quality.suspect,
+  garbage: chapter.quality.garbage,
+  avgScore: chapter.quality.averageScore,
 })));
 
 console.log(`Questions: ${report.questionCount}`);
@@ -40,6 +54,9 @@ console.log(`Body "not decoded yet" markers: ${report.notDecodedBodyCount}`);
 console.log(`Bodies with embedded placeholders: ${report.embeddedBodyCount}`);
 console.log(`Inline objects: ${report.inlineObjectCount}`);
 console.log(`Bad choice tokens: ${report.badChoiceCount}`);
+console.log(
+  `Quality: clean ${report.quality.clean}, suspect ${report.quality.suspect}, garbage ${report.quality.garbage}, avg ${report.quality.averageScore}/100`,
+);
 
 if (outPath) {
   writeFileSync(outPath, `${JSON.stringify(report, null, 2)}\n`);
@@ -53,9 +70,20 @@ function summarizeFile(path, file) {
   let badChoices = 0;
   let embeddedBodies = 0;
   let inlineObjects = 0;
+  const quality = {
+    clean: 0,
+    suspect: 0,
+    garbage: 0,
+    averageScore: 0,
+  };
+  let qualityScoreTotal = 0;
 
   decoded.questions.forEach((question, index) => {
     const body = question.body?.text ?? '';
+    const assessment = question.quality ?? legacyQuestionQuality(question);
+    quality[assessment.verdict] += 1;
+    qualityScoreTotal += assessment.score;
+
     if (/\[embedded /.test(body)) embeddedBodies++;
     if (/not decoded yet|\bundefined\b|\bNaN\b|\[object Object\]/i.test(body)) {
       bodyIssues.push({
@@ -73,6 +101,8 @@ function summarizeFile(path, file) {
     }
   });
 
+  quality.averageScore = decoded.questions.length ? Math.round(qualityScoreTotal / decoded.questions.length) : 0;
+
   return {
     file: basename(file),
     questions: decoded.questions.length,
@@ -80,6 +110,29 @@ function summarizeFile(path, file) {
     embeddedBodies,
     inlineObjects,
     badChoices,
+    quality,
     bodyIssues,
+  };
+}
+
+function legacyQuestionQuality(question) {
+  const body = question.body?.text ?? '';
+  const choiceTexts = (question.choices ?? []).map((choice) => choice.body?.text ?? '');
+  const findings = [];
+  let score = 100;
+
+  if (!body.trim()) score -= 70;
+  if (/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/i.test(body)) score -= 30;
+  if (/not decoded yet|\bundefined\b|\bNaN\b|\[object Object\]/i.test(body)) score -= 20;
+  if (choiceTexts.some((text) => /\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/i.test(text))) score -= 15;
+  if (choiceTexts.some((text) => /not decoded yet|\bundefined\b|\bNaN\b/i.test(text))) score -= 10;
+  if ((question.choices?.length ?? 0) < 2 && question.questionType === 'mcq') score -= 25;
+
+  score = Math.max(0, Math.min(100, Math.round(score)));
+
+  return {
+    score,
+    verdict: score >= 75 ? 'clean' : score >= 45 ? 'suspect' : 'garbage',
+    findings,
   };
 }

@@ -41,7 +41,12 @@ function configureTypstRuntime() {
 }
 
 function renderQuestionBody(question: DecodedQuestion): string {
-  const lines = [contentToTypst(question.body.text)];
+  const lines = [contentToTypst(question.parts?.stem.text ?? question.body.text)];
+
+  if (question.parts?.items.length) {
+    lines.push('');
+    lines.push(renderParts(question.parts));
+  }
 
   if (question.choices?.length) {
     lines.push('');
@@ -80,19 +85,47 @@ function renderQuestionBody(question: DecodedQuestion): string {
   return lines.join('\n');
 }
 
+function renderParts(parts: NonNullable<DecodedQuestion['parts']>, depth = 1): string {
+  const numbering = depth === 1 ? '(a)' : depth === 2 ? '(i)' : '(1)';
+  const lines = ['#block['];
+  lines.push(`  #set enum(numbering: "${numbering}", indent: 0pt, body-indent: 0.8em)`);
+  for (const part of parts.items) {
+    lines.push(renderPartItem(part, depth));
+  }
+  lines.push(']');
+  return lines.join('\n');
+}
+
+function renderPartItem(part: NonNullable<DecodedQuestion['parts']>['items'][number], depth: number): string {
+  const body = contentToTypst(part.body.text);
+  const lines = body.trim().split('\n');
+  const [first = '', ...rest] = lines;
+  const out = [`  + ${first.trimEnd()}`];
+  for (const line of rest) {
+    out.push(line.trim().length > 0 ? `    ${line}` : '    ');
+  }
+
+  if (part.parts?.items.length) {
+    out.push(renderParts(part.parts, depth + 1));
+  }
+
+  return out.join('\n');
+}
+
 function contentToTypst(text: string): string {
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const parts: string[] = [];
   const pattern = /#math\.frac\(([^,]+),\s*([^)]+)\)/g;
   let cursor = 0;
   let match: RegExpExecArray | null;
 
-  while ((match = pattern.exec(text))) {
-    parts.push(escapeTypstText(text.slice(cursor, match.index)));
+  while ((match = pattern.exec(normalized))) {
+    parts.push(escapeTypstText(normalized.slice(cursor, match.index)));
     parts.push(`$ frac(${escapeMath(match[1])}, ${escapeMath(match[2])}) $`);
     cursor = match.index + match[0].length;
   }
 
-  parts.push(escapeTypstText(text.slice(cursor)));
+  parts.push(escapeTypstText(normalized.slice(cursor)));
   return parts.join('');
 }
 

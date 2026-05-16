@@ -77,6 +77,7 @@ export interface DecodedQuestion {
   id: string;
   type: QuestionType;
   body: RichContent;
+  parts?: DecodedQuestionParts;
   choices?: Choice[];
   answer?: DecodedAnswer;
   solution?: RichContent;
@@ -86,11 +87,46 @@ export interface DecodedQuestion {
   inlineObjects?: DecodedInlineObject[];
   assets: string[];
   confidence: DecodeConfidence;
+  quality?: QuestionQualityAssessment;
   raw?: UnknownBnkFragment[];
   // Matching question specific fields
   items?: MatchingItem[];
   answerKey?: MatchingAnswer[];
   linkedQuestionIds?: string[];
+}
+
+export interface DecodedQuestionPart {
+  label?: string;
+  body: RichContent;
+  parts?: DecodedQuestionParts;
+}
+
+export interface DecodedQuestionParts {
+  stem: RichContent;
+  items: DecodedQuestionPart[];
+}
+
+export interface QuestionQualityFinding {
+  code: string;
+  level: DiagnosticLevel;
+  message: string;
+  evidence?: string;
+}
+
+export interface QuestionQualityAssessment {
+  score: number;
+  verdict: 'clean' | 'suspect' | 'garbage';
+  findings: QuestionQualityFinding[];
+  metrics: {
+    bodyLength: number;
+    choiceCount: number;
+    placeholderCount: number;
+    unresolvedTokenCount: number;
+    choicePlaceholderCount: number;
+    solutionPlaceholderCount: number;
+    mathLeakCount: number;
+    choiceMathLeakCount: number;
+  };
 }
 
 export type DecodedInlineObjectKind = 'value' | 'diagram' | 'math' | 'choice-value' | 'unknown';
@@ -154,6 +190,12 @@ export interface DecodeStats {
   assetCount: number;
   diagnosticCount: number;
   unsupportedFragmentCount: number;
+  quality?: {
+    clean: number;
+    suspect: number;
+    garbage: number;
+    averageScore: number;
+  };
 }
 
 export interface DecodeResult {
@@ -194,6 +236,10 @@ export interface PortableQuestionPackage {
     kind: 'mcq' | 'frq' | 'true_false' | 'matching' | 'multiple_response' | 'numeric' | 'essay' | 'unknown';
     content: {
       stem: RichContent;
+      parts?: {
+        stem: RichContent;
+        items: Array<{ label?: string; body: RichContent }>;
+      };
       solution?: RichContent;
       choices?: Array<{ id: string; body: RichContent }>;
     };
@@ -281,6 +327,25 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
     ? []
     : decodeTextLikeQuestions(text, parserBytes, options.preserveRaw !== false, assets);
   const decodedQuestions = questions.length ? questions : fallbackQuestions;
+  const structuredQuestions = decodedQuestions.map((question) => {
+    const parts = inferQuestionParts(question);
+    return parts ? { ...question, parts } : question;
+  });
+  const quality = inspectQuestionQuality(structuredQuestions);
+  const questionsWithQuality = structuredQuestions.map((question, index) => ({
+    ...question,
+    quality: quality[index],
+  }));
+
+  for (const question of questionsWithQuality) {
+    if (!question.quality || question.quality.verdict === 'clean') continue;
+    diagnostics.push({
+      level: question.quality.verdict === 'garbage' ? 'error' : 'warning',
+      code: 'QUESTION_QUALITY_FLAGGED',
+      message: `Question ${question.id} scored ${question.quality.score}/100 (${question.quality.verdict}).`,
+      questionId: question.id,
+    });
+  }
 
   if (decodedQuestions.length === 0) {
     diagnostics.push({
@@ -307,7 +372,7 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
       payloadByteLength: payload.byteLength,
       inflatedByteLength: inflated?.byteLength,
     },
-    questions: decodedQuestions,
+    questions: questionsWithQuality,
     assets,
     diagnostics,
     stats: emptyStats(),
@@ -316,7 +381,14 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
 
 export function toLatex(result: DecodeResult, options: LatexExportOptions = {}): string {
   const parts = result.questions.map((question, index) => {
-    const lines = [`\\question ${contentText(question.body)}`];
+    const lines = [`\\question ${contentText(question.parts?.stem ?? question.body)}`];
+    if (question.parts?.items.length) {
+      lines.push('\\begin{parts}');
+      for (const part of question.parts.items) {
+        lines.push(`  \\part ${contentText(part.body)}`);
+      }
+      lines.push('\\end{parts}');
+    }
     if (question.choices?.length) {
       lines.push('\\begin{choices}');
       for (const choice of question.choices) lines.push(`  \\choice ${contentText(choice.body)}`);
@@ -337,7 +409,7 @@ export function toLatex(result: DecodeResult, options: LatexExportOptions = {}):
 
 export function toTypst(result: DecodeResult, options: TypstExportOptions = {}): string {
   const parts = result.questions.map((question, index) => {
-    const lines = [`= Question ${index + 1}`, contentText(question.body)];
+    const lines = [`= Question ${index + 1}`, renderTypstQuestionBody(question)];
     if (question.choices?.length) {
       lines.push('');
       for (const choice of question.choices) lines.push(`- *${choice.id}.* ${contentText(choice.body)}`);
@@ -430,7 +502,8 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
       id: question.id,
       kind: portableKind(question.type),
       content: {
-        stem: question.body,
+        stem: question.parts?.stem ?? question.body,
+        parts: question.parts ? toPortableQuestionParts(question.parts) : undefined,
         solution: question.solution,
         choices: question.choices?.map((choice) => ({
           id: choice.id,
@@ -456,7 +529,7 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
         confidence: question.confidence,
         originFiles,
       },
-      extensions: {},
+      extensions: question.quality ? { quality: question.quality } : {},
     })),
     assets: result.assets.map((asset) => ({
       id: asset.id,
@@ -485,6 +558,7 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
 export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
   return result.questions.map((question) => ({
     body: contentText(question.body).trim(),
+    parts: question.parts ? toDraftQuestionParts(question.parts) : undefined,
     answer: question.answer?.value ?? '',
     solution: question.solution ? contentText(question.solution).trim() : '',
     choices: question.choices?.length
@@ -501,6 +575,28 @@ export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
 }
 
 export { toTestGeneratorQuestions, toTestGeneratorQuestion } from './test-gen-adapter.ts';
+
+function toPortableQuestionParts(parts: DecodedQuestionParts): PortableQuestionPackage['questions'][number]['content']['parts'] {
+  return {
+    stem: parts.stem,
+    items: parts.items.map((part) => ({
+      label: part.label,
+      body: part.body,
+      parts: part.parts ? toPortableQuestionParts(part.parts) : undefined,
+    })),
+  };
+}
+
+function toDraftQuestionParts(parts: DecodedQuestionParts): DraftQuestionLike['parts'] {
+  return {
+    stem: contentText(parts.stem).trim(),
+    items: parts.items.map((part) => ({
+      label: part.label,
+      body: contentText(part.body).trim(),
+      parts: part.parts ? toDraftQuestionParts(part.parts) : undefined,
+    })),
+  };
+}
 
 function detectExamViewContainer(bytes: Uint8Array): ExamViewContainerMetadata | undefined {
   if (bytes.byteLength < EXAMVIEW_HEADER_LENGTH) return undefined;
@@ -576,6 +672,14 @@ function decodeTextLikeQuestions(text: string, bytes: Uint8Array, preserveRaw: b
   return chunks.map((chunk, index) => {
     const { body, choices, answer, solution, type } = parseQuestionishText(chunk);
     const questionAssets = assetDistribution[index] || [];
+    const bodyLength = body.trim().length;
+    const confidence = choices?.length || answer || solution
+      ? 'medium'
+      : bodyLength > 120
+        ? 'medium'
+        : bodyLength > 30
+          ? 'low'
+          : 'low';
 
     return {
       id: `q-${index + 1}`,
@@ -586,7 +690,7 @@ function decodeTextLikeQuestions(text: string, bytes: Uint8Array, preserveRaw: b
       solution: solution ? { format: 'plain', text: solution } : undefined,
       metadata: {},
       assets: questionAssets,
-      confidence: choices?.length || answer || solution ? 'medium' : 'low',
+      confidence,
       raw: preserveRaw ? [makeRawFragment(bytes, 0, Math.min(bytes.byteLength, 256), chunk)] : undefined,
     };
   });
@@ -672,19 +776,45 @@ function parseQuestionishText(chunk: string): {
     bodyLines.push(line);
   }
 
-  const type = choices.length >= 2
-    ? 'mcq'
-    : answer?.format === 'boolean'
-      ? 'true_false'
-      : 'unknown';
+  const body = bodyLines.join('\n');
+  const type = inferFallbackQuestionType(body, choices, answer, solution);
 
   return {
-    body: bodyLines.join('\n'),
+    body,
     choices: choices.length ? choices : undefined,
     answer,
     solution,
     type,
   };
+}
+
+function inferFallbackQuestionType(
+  body: string,
+  choices: Choice[],
+  answer?: DecodedAnswer,
+  solution = '',
+): QuestionType {
+  if (choices.length >= 2) return 'mcq';
+  if (answer?.format === 'boolean') return 'true_false';
+
+  const normalizedBody = body.replace(/\s+/g, ' ').trim();
+  if (/_{3,}|\.{3,}|__+/.test(normalizedBody) && !/graph|diagram|figure/i.test(normalizedBody)) {
+    return 'completion';
+  }
+
+  if (/(?:\ba\)|\bb\)|\bc\)|\bd\)|\b1\)|\b2\)|\b3\))/i.test(normalizedBody) || /(?:first|second|third|fourth|fifth) part/i.test(normalizedBody)) {
+    return 'problem';
+  }
+
+  if (/^(?:match|which of the following|what is the|find|solve|determine|evaluate|simplify|factor|graph|sketch|write|identify|state|describe|calculate|estimate)\b/i.test(normalizedBody)) {
+    return normalizedBody.length > 40 || answer || solution ? 'short_answer' : 'problem';
+  }
+
+  if (answer || solution) return 'short_answer';
+  if (normalizedBody.length > 180) return 'problem';
+  if (normalizedBody.length > 40) return 'short_answer';
+
+  return 'unknown';
 }
 
 interface ExtractedString {
@@ -4063,11 +4193,302 @@ function makeRawFragment(bytes: Uint8Array, offset: number, length: number, text
   };
 }
 
+function inspectQuestionQuality(questions: DecodedQuestion[]): QuestionQualityAssessment[] {
+  return questions.map((question) => assessQuestionQuality(question));
+}
+
+function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssessment {
+  const bodyText = question.body.text.trim();
+  const choiceTexts = (question.choices ?? []).map((choice) => choice.body.text.trim());
+  const solutionText = question.solution?.text.trim() ?? '';
+  const findings: QuestionQualityFinding[] = [];
+  let score = 100;
+  const graphLike = isQualityGraphLikeQuestion(question);
+
+  const placeholderPattern = /\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi;
+  const unresolvedTokenPattern = /\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/i;
+  const suspiciousCodePattern = /\b(?:range|choose|fracs?|if|rand|list|isunique)\s*\(/i;
+  const doubleSpacePattern = / {2,}/;
+  const spaceBeforePunctuationPattern = /\s+[,.!?;:]/;
+  const mathLeakPattern = /\b(?:sin|cos|tan|log|ln|sqrt|abs|pow)\s*\(|\b[A-Za-z]\^[A-Za-z0-9(]/gi;
+
+  const addFinding = (code: string, level: DiagnosticLevel, message: string, evidence?: string, penalty = 0) => {
+    findings.push({ code, level, message, evidence });
+    score -= penalty;
+  };
+
+  const placeholderCount = (bodyText.match(placeholderPattern) ?? []).length;
+  const unresolvedCount = (bodyText.match(unresolvedTokenPattern) ?? []).length;
+  const mathLeakCount = countMathLeaks(bodyText, mathLeakPattern);
+
+  if (!bodyText) {
+    addFinding('BODY_EMPTY', 'error', 'Question body is empty.', undefined, 70);
+  } else {
+    if (bodyText.length < 12) {
+      addFinding('BODY_TOO_SHORT', 'warning', 'Question body is very short.', bodyText, 20);
+    }
+
+    if (!graphLike && placeholderCount > 0) {
+      addFinding('BODY_PLACEHOLDERS', 'warning', 'Question body still contains unresolved embedded-object placeholders.', bodyText, Math.min(35, placeholderCount * 10));
+    }
+
+    if (unresolvedCount > 0) {
+      addFinding('BODY_UNRESOLVED_TOKENS', 'warning', 'Question body still contains unresolved tokens or variables.', bodyText, Math.min(25, unresolvedCount * 4));
+    }
+
+    if (suspiciousCodePattern.test(bodyText)) {
+      addFinding('BODY_SUSPICIOUS_CODE', 'info', 'Question body still looks like generated control code rather than prose.', bodyText, 8);
+    }
+
+    if (doubleSpacePattern.test(bodyText) || spaceBeforePunctuationPattern.test(bodyText)) {
+      addFinding('BODY_FORMATTING_NOISE', 'info', 'Question body has spacing or punctuation artifacts.', bodyText, 4);
+    }
+
+    if (!graphLike && mathLeakCount > 0) {
+      addFinding('BODY_MATH_MODE_LEAK', 'warning', 'Question body appears to contain unwrapped math fragments.', bodyText, Math.min(18, mathLeakCount * 3));
+    }
+
+    const alnum = (bodyText.match(/[A-Za-z0-9]/g) ?? []).length;
+    const punctuation = (bodyText.match(/[^\sA-Za-z0-9]/g) ?? []).length;
+    if (alnum > 0 && punctuation / alnum > 0.9) {
+      addFinding('BODY_PUNCTUATION_HEAVY', 'warning', 'Question body has unusually heavy punctuation relative to text.', bodyText, 10);
+    }
+  }
+
+  const choicePlaceholderCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length), 0);
+  const choiceUnresolvedCount = choiceTexts.reduce((count, text) => count + ((text.match(/\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/gi) ?? []).length), 0);
+  const choiceMathLeakCount = choiceTexts.reduce((count, text) => count + countMathLeaks(text, mathLeakPattern), 0);
+
+  if (question.type === 'mcq' || question.type === 'multiple_response' || question.type === 'matching') {
+    if ((question.choices?.length ?? 0) < 2) {
+      addFinding('CHOICES_MISSING', 'error', 'Structured question is missing choices.', undefined, 45);
+    }
+
+    const duplicateChoiceIds = question.choices
+      ? question.choices.map((choice) => choice.id.toUpperCase())
+      : [];
+    if (new Set(duplicateChoiceIds).size !== duplicateChoiceIds.length) {
+      addFinding('CHOICES_DUPLICATE_ID', 'warning', 'Choices contain duplicate IDs.', duplicateChoiceIds.join(', '), 12);
+    }
+
+    const uniqueChoiceTexts = new Set(choiceTexts.filter(Boolean));
+    if (choiceTexts.length >= 2 && uniqueChoiceTexts.size <= 1) {
+      addFinding('CHOICES_IDENTICAL', 'warning', 'Choices appear to be identical or near-identical.', choiceTexts.join(' | '), 20);
+    }
+
+    if (question.answer?.format === 'choice' && question.choices?.length) {
+      const matchingChoice = question.choices.find((choice) => choice.id === question.answer?.value);
+      if (!matchingChoice) {
+        addFinding('ANSWER_NOT_IN_CHOICES', 'error', 'Choice answer does not match any available choice ID.', question.answer.value, 30);
+      }
+    }
+  }
+
+  if (!graphLike && choicePlaceholderCount > 0) {
+    addFinding('CHOICE_PLACEHOLDERS', 'warning', 'Choices still contain unresolved placeholders.', choiceTexts.join(' | '), Math.min(20, choicePlaceholderCount * 6));
+  }
+
+  if (choiceUnresolvedCount > 0) {
+    addFinding('CHOICE_UNRESOLVED_TOKENS', 'warning', 'Choices still contain unresolved tokens or variables.', choiceTexts.join(' | '), Math.min(18, choiceUnresolvedCount * 3));
+  }
+
+  if (!graphLike && choiceMathLeakCount > 0) {
+    addFinding('CHOICE_MATH_MODE_LEAK', 'warning', 'Choices appear to contain unwrapped math fragments.', choiceTexts.join(' | '), Math.min(14, choiceMathLeakCount * 2));
+  }
+
+  if (solutionText) {
+    const solutionPlaceholderCount = (solutionText.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length;
+    if (solutionPlaceholderCount > 0) {
+      addFinding('SOLUTION_PLACEHOLDERS', 'info', 'Solution still contains unresolved placeholders.', solutionText, Math.min(8, solutionPlaceholderCount * 2));
+    }
+
+    if (doubleSpacePattern.test(solutionText) || spaceBeforePunctuationPattern.test(solutionText)) {
+      addFinding('SOLUTION_FORMATTING_NOISE', 'info', 'Solution has spacing or punctuation artifacts.', solutionText, 2);
+    }
+  }
+
+  if (question.confidence === 'low') {
+    addFinding('LOW_CONFIDENCE', 'info', 'Question was decoded with low confidence.', undefined, 12);
+  }
+
+  if (question.type === 'unknown') {
+    addFinding('UNKNOWN_TYPE', 'warning', 'Question type could not be determined confidently.', undefined, 18);
+  }
+
+  if (question.raw?.length) {
+    const rawText = question.raw.map((fragment) => fragment.textPreview ?? '').join(' ');
+    if (/not decoded yet|undefined|NaN/i.test(rawText)) {
+      addFinding('RAW_FRAGMENT_NOISE', 'info', 'Preserved raw fragments still contain decode noise.', rawText.slice(0, 120), 5);
+    }
+  }
+
+  score = Math.max(0, Math.min(100, Math.round(score)));
+  const verdict = score >= 75 && findings.every((finding) => finding.level !== 'error')
+    ? 'clean'
+    : score >= 45
+      ? 'suspect'
+      : 'garbage';
+
+  return {
+    score,
+    verdict,
+    findings,
+    metrics: {
+      bodyLength: bodyText.length,
+      choiceCount: question.choices?.length ?? 0,
+      placeholderCount,
+      unresolvedTokenCount: unresolvedCount,
+      choicePlaceholderCount,
+      solutionPlaceholderCount: solutionText ? (solutionText.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length : 0,
+      mathLeakCount,
+      choiceMathLeakCount,
+    },
+  };
+}
+
+function isQualityGraphLikeQuestion(question: DecodedQuestion): boolean {
+  if (question.graphDefinitions?.length) return true;
+  const text = `${question.metadata.title ?? ''} ${question.body.text}`.toLowerCase();
+  return /\b(graph|diagram|plot|sketch|unit circle|terminal arm|asymptote|parabola|reciprocal function|combined function)\b/.test(text);
+}
+
+function inferQuestionParts(question: DecodedQuestion): DecodedQuestionParts | undefined {
+  if (question.choices?.length || question.type === 'mcq' || question.type === 'multiple_response') return undefined;
+
+  const parsed = parseStructuredQuestionParts(question.body.text);
+  if (!parsed) return undefined;
+
+  return toDecodedQuestionParts(parsed, question.body.format);
+}
+
+function toDecodedQuestionParts(
+  parts: { stem: string; items: ParsedPart[] },
+  format: RichContent['format'],
+): DecodedQuestionParts {
+  return {
+    stem: {
+      format,
+      text: parts.stem,
+    },
+    items: parts.items.map((item) => ({
+      label: item.label,
+      body: {
+        format,
+        text: item.body,
+      },
+      parts: item.parts ? toDecodedQuestionParts(item.parts, format) : undefined,
+    })),
+  };
+}
+
+type ParsedPart = {
+  label?: string;
+  body: string;
+  parts?: { stem: string; items: ParsedPart[] };
+};
+
+type ParsedNode = {
+  label?: string;
+  level: number;
+  bodyLines: string[];
+  children: ParsedNode[];
+};
+
+type MarkerInfo = { level: number; label?: string; remainder: string } | null;
+
+function parseStructuredQuestionParts(text: string): { stem: string; items: ParsedPart[] } | undefined {
+  const lines = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+  const { stemLines, items } = buildPartTree(lines);
+  if (items.length < 2) return undefined;
+  return {
+    stem: stemLines.join('\n').trim(),
+    items: items.map(toParsedPart).filter((item): item is ParsedPart => Boolean(item)),
+  };
+}
+
+function buildPartTree(lines: string[]): { stemLines: string[]; items: ParsedNode[] } {
+  const root: ParsedNode = { level: 0, bodyLines: [], children: [] };
+  const stack: ParsedNode[] = [root];
+  let seenPart = false;
+
+  for (const line of lines) {
+    const marker = parseMarker(line);
+    if (marker) {
+      seenPart = true;
+      while (stack.length > marker.level) stack.pop();
+      const parent = stack.at(-1) ?? root;
+      const node: ParsedNode = { level: marker.level, label: marker.label, bodyLines: [], children: [] };
+      if (marker.remainder) node.bodyLines.push(marker.remainder);
+      parent.children.push(node);
+      stack.push(node);
+      continue;
+    }
+
+    if (!seenPart) {
+      root.bodyLines.push(line);
+      continue;
+    }
+
+    const current = stack.at(-1);
+    if (current) current.bodyLines.push(line);
+  }
+
+  return {
+    stemLines: trimBlankEdges(root.bodyLines),
+    items: root.children,
+  };
+}
+
+function parseMarker(line: string): MarkerInfo {
+  const trimmed = line.trim();
+  if (!trimmed) return null;
+
+  const explicit = /^\s*\\(part|subpart|subsubpart)\b(?:\s*\[[^\]]*\])?\s*(.*)$/i.exec(line);
+  if (explicit) {
+    const level = explicit[1].toLowerCase() === 'part' ? 1 : explicit[1].toLowerCase() === 'subpart' ? 2 : 3;
+    return { level, remainder: explicit[2]?.trimEnd() ?? '' };
+  }
+
+  const alpha = /^\s*(?:\(([a-z])\)|([a-z]))[.)]\s*(.*)$/i.exec(line);
+  if (alpha) return { level: 1, label: (alpha[1] ?? alpha[2])?.toLowerCase(), remainder: alpha[3]?.trimEnd() ?? '' };
+
+  const roman = /^\s*(?:\(([ivxlcdm]+)\)|([ivxlcdm]+))[.)]\s*(.*)$/i.exec(line);
+  if (roman) return { level: 2, label: (roman[1] ?? roman[2])?.toLowerCase(), remainder: roman[3]?.trimEnd() ?? '' };
+
+  const numeric = /^\s*(?:\((\d+)\)|(\d+))[.)]\s*(.*)$/i.exec(line);
+  if (numeric) return { level: 3, label: numeric[1] ?? numeric[2], remainder: numeric[3]?.trimEnd() ?? '' };
+
+  return null;
+}
+
+function toParsedPart(node: ParsedNode): ParsedPart | null {
+  const body = trimBlankEdges(node.bodyLines).join('\n').trim();
+  if (!body) return null;
+  const parts = node.children.length
+    ? {
+        stem: '',
+        items: node.children.map(toParsedPart).filter((child): child is ParsedPart => Boolean(child)),
+      }
+    : undefined;
+  return {
+    label: node.label,
+    body,
+    parts,
+  };
+}
+
+function trimBlankEdges(lines: string[]): string[] {
+  const out = [...lines];
+  while (out.length && !out[0].trim()) out.shift();
+  while (out.length && !out[out.length - 1].trim()) out.pop();
+  return out;
+}
+
 function contentText(content: RichContent): string {
   // For Typst output, escape dollar signs that look like currency.
   // Only trust $...$ pairs as math if they contain clear math indicators (underscore, ^, or =).
   // Everything else is assumed to be literal/currency and gets escaped.
-  let result = content.text;
+  let result = content.text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const mathPairs = new Set<number>();
 
   // Find valid $...$ math pairs: must contain underscore, ^, or = to be considered math
@@ -4099,6 +4520,19 @@ function contentText(content: RichContent): string {
     }
   }
   return escaped;
+}
+
+function renderTypstQuestionBody(question: DecodedQuestion): string {
+  if (!question.parts?.items.length) return contentText(question.body);
+
+  const lines = [contentText(question.parts.stem)];
+  lines.push('', '#block[');
+  lines.push('  #set enum(numbering: "(a)", indent: 0pt, body-indent: 0.8em)');
+  for (const part of question.parts.items) {
+    lines.push(`  + ${contentText(part.body)}`);
+  }
+  lines.push(']');
+  return lines.join('\n').trim();
 }
 
 /**
@@ -4166,10 +4600,28 @@ function emptyStats(): DecodeStats {
     assetCount: 0,
     diagnosticCount: 0,
     unsupportedFragmentCount: 0,
+    quality: {
+      clean: 0,
+      suspect: 0,
+      garbage: 0,
+      averageScore: 0,
+    },
   };
 }
 
 function withStats(result: DecodeResult): DecodeResult {
+  const quality = result.questions.map((question) => question.quality ?? assessQuestionQuality(question));
+  const qualitySummary = quality.reduce((summary, assessment) => {
+    summary[assessment.verdict] += 1;
+    summary.totalScore += assessment.score;
+    return summary;
+  }, {
+    clean: 0,
+    suspect: 0,
+    garbage: 0,
+    totalScore: 0,
+  });
+
   return {
     ...result,
     stats: {
@@ -4177,6 +4629,32 @@ function withStats(result: DecodeResult): DecodeResult {
       assetCount: result.assets.length,
       diagnosticCount: result.diagnostics.length,
       unsupportedFragmentCount: result.questions.reduce((sum, q) => sum + (q.raw?.length ?? 0), 0),
+      quality: result.questions.length
+        ? {
+            clean: qualitySummary.clean,
+            suspect: qualitySummary.suspect,
+            garbage: qualitySummary.garbage,
+            averageScore: Math.round(qualitySummary.totalScore / result.questions.length),
+          }
+        : {
+            clean: 0,
+            suspect: 0,
+            garbage: 0,
+            averageScore: 0,
+          },
     },
   };
+}
+
+function countMathLeaks(text: string, leakPattern: RegExp): number {
+  const stripped = stripInlineMathBlocks(text);
+  const matches = [...stripped.matchAll(leakPattern)];
+  const bareFractions = stripped.match(/\b\d+\/\d+\b/g) ?? [];
+  const inequalities = stripped.match(/[A-Za-z0-9)]\s*[<>]=?\s*[A-Za-z0-9(]/g) ?? [];
+  const subscripts = stripped.match(/\b[A-Za-z]_[A-Za-z0-9]+\b/g) ?? [];
+  return matches.length + bareFractions.length + inequalities.length + subscripts.length;
+}
+
+function stripInlineMathBlocks(text: string): string {
+  return text.replace(/\$[^$]+\$/g, ' ');
 }

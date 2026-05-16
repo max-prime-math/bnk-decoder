@@ -1,10 +1,16 @@
-import { execSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { defineConfig } from 'vite';
 import { svelte } from '@sveltejs/vite-plugin-svelte';
 
 const appVersion = JSON.parse(readFileSync('./package.json', 'utf8')).version as string;
-const buildHash = execSync('git rev-parse --short HEAD').toString().trim();
+
+function resolveBuildHash(): string {
+  const envHash = process.env.GITHUB_SHA || process.env.VITE_BUILD_HASH || process.env.BUILD_HASH;
+  if (envHash) return envHash.slice(0, 7);
+  return 'dev';
+}
+
+const buildHash = resolveBuildHash();
 
 export default defineConfig({
   base: '/bnk-decoder/',
@@ -14,7 +20,7 @@ export default defineConfig({
     __BUILD_HASH__: JSON.stringify(buildHash),
   },
   build: {
-    outDir: '../docs',
+    outDir: '../dist',
     emptyOutDir: true,
   },
   optimizeDeps: {

@@ -34,10 +34,27 @@ console.log(`Questions: ${result.stats.questionCount}`);
 console.log(`Assets: ${result.stats.assetCount}`);
 console.log(`Diagnostics: ${result.stats.diagnosticCount}`);
 console.log(`Unsupported fragments: ${result.stats.unsupportedFragmentCount}`);
+if (result.stats.quality) {
+  console.log(
+    `Quality: clean ${result.stats.quality.clean}, suspect ${result.stats.quality.suspect}, garbage ${result.stats.quality.garbage}, avg ${result.stats.quality.averageScore}/100`,
+  );
+}
 console.log(`Wrote ${join(outDir, `${baseName}.json`)}`);
 console.log(`Wrote ${join(outDir, `${baseName}.pqp.json`)}`);
 console.log(`Wrote ${join(outDir, `${baseName}.typ`)}`);
 if (result.assets.length) console.log(`Wrote assets to ${join(outDir, `${baseName}-assets`)}`);
+
+const qualityIssues = result.questions
+  .filter((question) => question.quality && question.quality.verdict !== 'clean')
+  .slice(0, 10);
+
+if (qualityIssues.length) {
+  console.log('Quality issues:');
+  for (const question of qualityIssues) {
+    const findings = question.quality?.findings.slice(0, 3).map((finding) => finding.code).join(', ') ?? 'none';
+    console.log(`  - ${question.id}: ${question.quality?.verdict} (${question.quality?.score}/100) [${findings}]`);
+  }
+}
 
 for (const diagnostic of result.diagnostics) {
   console.log(`[${diagnostic.level}] ${diagnostic.code}: ${diagnostic.message}`);
