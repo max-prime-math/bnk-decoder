@@ -511,6 +511,26 @@
               </div>
             {/if}
 
+            {#if selectedQuestion.algorithmModel?.definitions.length}
+              <h3>Algorithm Model</h3>
+              <div class="variable-list">
+                <div>
+                  <strong>scope</strong>
+                  <span>{selectedQuestion.algorithmModel.scope.kind}</span>
+                  <small>{selectedQuestion.algorithmModel.source}</small>
+                </div>
+                {#each selectedQuestion.algorithmModel.definitions as definition}
+                  <div>
+                    <strong>{definition.name} · {definition.kind}</strong>
+                    <span>{definition.rawExpression ?? 'no recovered rule'}</span>
+                    {#if definition.sampleValue}
+                      <small>sample: {definition.sampleValue}</small>
+                    {/if}
+                  </div>
+                {/each}
+              </div>
+            {/if}
+
             {#if selectedQuestion.graphDefinitions?.length}
               <h3>Graph Definitions</h3>
               <div class="variable-list">
@@ -547,6 +567,40 @@
                       </small>
                     {/if}
                     <small>{graph.source}</small>
+                  </div>
+                {/each}
+              </div>
+            {/if}
+
+            {#if selectedQuestion.graphModel?.objects.length}
+              <h3>Graph Model</h3>
+              <div class="variable-list">
+                <div>
+                  <strong>{selectedQuestion.graphModel.family}</strong>
+                  <span>{selectedQuestion.graphModel.rawExpressions.join(', ')}</span>
+                  <small>{selectedQuestion.graphModel.source}</small>
+                </div>
+                {#each selectedQuestion.graphModel.objects as object}
+                  <div>
+                    <strong>{object.id} · {object.kind}</strong>
+                    <span>{object.expression ?? object.typstMath ?? 'no recovered expression'}</span>
+                  </div>
+                {/each}
+              </div>
+            {/if}
+
+            {#if selectedQuestion.graphTypst?.text}
+              <h3>Graph Typst</h3>
+              <pre>{selectedQuestion.graphTypst.text}</pre>
+            {/if}
+
+            {#if selectedQuestion.decodeDiagnostics?.length}
+              <h3>Decode Diagnostics</h3>
+              <div class="variable-list">
+                {#each selectedQuestion.decodeDiagnostics as diagnostic}
+                  <div>
+                    <strong>{diagnostic.level} · {diagnostic.code}</strong>
+                    <span>{diagnostic.message}</span>
                   </div>
                 {/each}
               </div>

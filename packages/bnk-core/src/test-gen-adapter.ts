@@ -15,6 +15,11 @@ export function toTestGeneratorQuestion(q: DecodedQuestion, index: number): Ques
     narrative: q.narrative?.text,
     body: q.body.text,
     parts: q.parts ? toQuestionParts(q.parts) : undefined,
+    algorithmModel: q.algorithmModel,
+    algorithmEvaluation: q.algorithmEvaluation,
+    graphModel: q.graphModel,
+    graphTypst: q.graphTypst?.text,
+    decodeDiagnostics: q.decodeDiagnostics,
     choices: q.choices?.reduce(
       (acc, choice) => {
         acc[choice.id] = choice.body.text;

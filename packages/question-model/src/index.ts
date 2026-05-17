@@ -31,11 +31,80 @@ export interface Class {
   units: Unit[];
 }
 
+export type AlgorithmScopeKind = 'question' | 'narrative' | 'matching-group';
+export type AlgorithmDefinitionKind = 'variable' | 'constant' | 'condition' | 'user-function' | 'unknown';
+export type GraphFamily = 'cartesian' | 'polar' | 'number-line' | 'unknown';
+export type GraphObjectKind = 'function' | 'relation' | 'point' | 'text' | 'unknown';
+export type DiagnosticLevel = 'info' | 'warning' | 'error';
+
+export interface QuestionDecodeDiagnostic {
+  level: DiagnosticLevel;
+  code: string;
+  message: string;
+}
+
+export interface AlgorithmDefinition {
+  id: string;
+  name: string;
+  kind: AlgorithmDefinitionKind;
+  rawExpression?: string;
+  sampleValue?: string;
+  dependencies: string[];
+  source: string;
+}
+
+export interface AlgorithmModel {
+  scope: {
+    kind: AlgorithmScopeKind;
+  };
+  definitions: AlgorithmDefinition[];
+  source: string;
+}
+
+export interface AlgorithmEvaluationEntry {
+  name: string;
+  status: 'resolved' | 'unresolved';
+  value?: string;
+}
+
+export interface AlgorithmEvaluation {
+  entries: AlgorithmEvaluationEntry[];
+  diagnostics: QuestionDecodeDiagnostic[];
+}
+
+export interface GraphPoint {
+  x: number;
+  y: number;
+}
+
+export interface GraphObject {
+  id: string;
+  kind: GraphObjectKind;
+  expression?: string;
+  typstMath?: string;
+  latexMath?: string;
+  variables?: string[];
+  samplePoints?: GraphPoint[];
+}
+
+export interface GraphModel {
+  family: GraphFamily;
+  objects: GraphObject[];
+  variables?: Record<string, string>;
+  rawExpressions: string[];
+  source: string;
+}
+
 export interface Question {
   id: string;
   narrative?: string;
   body: string;
   parts?: QuestionParts;
+  algorithmModel?: AlgorithmModel;
+  algorithmEvaluation?: AlgorithmEvaluation;
+  graphModel?: GraphModel;
+  graphTypst?: string;
+  decodeDiagnostics?: QuestionDecodeDiagnostic[];
   answer?: string;
   solution?: string;
   choices?: Record<string, string>;
@@ -54,6 +123,11 @@ export interface DraftQuestion {
   narrative?: string;
   body: string;
   parts?: QuestionParts;
+  algorithmModel?: AlgorithmModel;
+  algorithmEvaluation?: AlgorithmEvaluation;
+  graphModel?: GraphModel;
+  graphTypst?: string;
+  decodeDiagnostics?: QuestionDecodeDiagnostic[];
   answer: string;
   solution: string;
   choices?: Record<string, string>;

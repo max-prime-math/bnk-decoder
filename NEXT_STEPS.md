@@ -21,9 +21,10 @@ Before broadening the decoder further, establish why the other banks differ and 
 
 **Primary reference:** [`BANK_VARIATION_AND_COVERAGE_PLAN.md`](./BANK_VARIATION_AND_COVERAGE_PLAN.md)
 **Graph/algorithm reference:** [`EXAMVIEW_GRAPHS_AND_ALGORITHMS_REFERENCE.md`](./EXAMVIEW_GRAPHS_AND_ALGORITHMS_REFERENCE.md)
+**Graph/algorithm architecture plan:** [`ALGORITHM_AND_GRAPH_EXTRACTION_PLAN.md`](./ALGORITHM_AND_GRAPH_EXTRACTION_PLAN.md)
 **Graph/algorithm execution plan:** [`EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md`](./EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md)
 
-**LLM onboarding note:** Any future work on narratives, algorithms, equations, graphs, number lines, or dynamic question rendering should start by reading the graph/algorithm reference and implementation checklist before changing parser behavior.
+**LLM onboarding note:** Any future work on narratives, algorithms, equations, graphs, number lines, or dynamic question rendering should start by reading the graph/algorithm reference, the dedicated extraction plan, and the implementation checklist before changing parser behavior.
 
 **Current tool:** `npm run report:corpus -- "ignore/ExamView/Banks" reports/corpus-dialects`
 **Regression tool:** `npm run regress:dialects -- reports/dialect-regression`

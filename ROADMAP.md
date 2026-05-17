@@ -10,9 +10,10 @@ Corpus-wide variation is the next research axis. See `BANK_VARIATION_AND_COVERAG
 Graph and algorithm recovery now has a dedicated research reference and execution checklist:
 
 - `EXAMVIEW_GRAPHS_AND_ALGORITHMS_REFERENCE.md`
+- `ALGORITHM_AND_GRAPH_EXTRACTION_PLAN.md`
 - `EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md`
 
-Any LLM or human continuing parser work in these areas should read those two documents first; they describe both the semantic model and the recommended implementation order.
+Any LLM or human continuing parser work in these areas should read those three documents first; they describe the semantic model, the cross-repo architecture, and the recommended implementation order.
 
 ---
 

@@ -1,4 +1,15 @@
-import type { DraftQuestionLike, QuestionType } from '@bnk-decoder/question-model';
+import type {
+  AlgorithmDefinition,
+  AlgorithmDefinitionKind,
+  AlgorithmEvaluation,
+  AlgorithmModel,
+  DraftQuestionLike,
+  GraphFamily,
+  GraphModel,
+  GraphObject,
+  QuestionDecodeDiagnostic,
+  QuestionType,
+} from '@bnk-decoder/question-model';
 import { unzlibSync } from 'fflate';
 
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
@@ -101,11 +112,16 @@ export interface DecodedQuestion {
   solution?: RichContent;
   metadata: QuestionMetadata;
   algorithmicVariables?: AlgorithmicVariable[];
+  algorithmModel?: AlgorithmModel;
+  algorithmEvaluation?: AlgorithmEvaluation;
   graphDefinitions?: DecodedGraphDefinition[];
+  graphModel?: GraphModel;
+  graphTypst?: RichContent;
   inlineObjects?: DecodedInlineObject[];
   assets: string[];
   confidence: DecodeConfidence;
   quality?: QuestionQualityAssessment;
+  decodeDiagnostics?: QuestionDecodeDiagnostic[];
   raw?: UnknownBnkFragment[];
   // Matching question specific fields
   items?: MatchingItem[];
@@ -183,6 +199,18 @@ export interface AlgorithmicVariable {
   name: string;
   rule?: string;
   sampleValue?: string;
+}
+
+interface AlgorithmArtifacts {
+  algorithmModel?: AlgorithmModel;
+  algorithmEvaluation?: AlgorithmEvaluation;
+  decodeDiagnostics: QuestionDecodeDiagnostic[];
+}
+
+interface GraphArtifacts {
+  graphModel?: GraphModel;
+  graphTypst?: RichContent;
+  decodeDiagnostics: QuestionDecodeDiagnostic[];
 }
 
 export interface DecodedAsset {
@@ -559,7 +587,14 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
         confidence: question.confidence,
         originFiles,
       },
-      extensions: question.quality ? { quality: question.quality } : {},
+      extensions: {
+        ...(question.quality ? { quality: question.quality } : {}),
+        ...(question.algorithmModel ? { algorithmModel: question.algorithmModel } : {}),
+        ...(question.algorithmEvaluation ? { algorithmEvaluation: question.algorithmEvaluation } : {}),
+        ...(question.graphModel ? { graphModel: question.graphModel } : {}),
+        ...(question.graphTypst ? { graphTypst: question.graphTypst } : {}),
+        ...(question.decodeDiagnostics?.length ? { decodeDiagnostics: question.decodeDiagnostics } : {}),
+      },
     })),
     assets: result.assets.map((asset) => ({
       id: asset.id,
@@ -590,6 +625,11 @@ export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
     narrative: question.narrative ? contentText(question.narrative).trim() : undefined,
     body: contentText(question.body).trim(),
     parts: question.parts ? toDraftQuestionParts(question.parts) : undefined,
+    algorithmModel: question.algorithmModel,
+    algorithmEvaluation: question.algorithmEvaluation,
+    graphModel: question.graphModel,
+    graphTypst: question.graphTypst?.text,
+    decodeDiagnostics: question.decodeDiagnostics,
     answer: question.answer?.value ?? '',
     solution: question.solution ? contentText(question.solution).trim() : '',
     choices: question.choices?.length
@@ -996,7 +1036,7 @@ function decodeVersion06QuestionCandidates(
   }
 
   // Parse matching questions from non-metadata section (if present)
-  const matchingQuestions = decodeNonMetadataQuestions(bytes, allChunks.length, diagnostics);
+  const matchingQuestions = decodeNonMetadataQuestions(bytes, strings, allChunks.length, diagnostics);
 
   // Combine standard questions with matching questions
   const allQuestions = [...realQuestions, ...matchingQuestions];
@@ -1044,6 +1084,7 @@ function decodeVersion06QuestionChunk(
     .filter(isVariableName);
   const algorithmicVariables = extractAlgorithmicVariables(preDisplayStrings);
   const variableMap = new Map(algorithmicVariables.map((variable) => [variable.name.toLowerCase(), variable]));
+  const algorithmArtifacts = buildAlgorithmArtifacts(preDisplayStrings, algorithmicVariables);
   const choiceRefs = extractIsUniqueChoiceRefs(preDisplayStrings);
   const choiceLabels = extractChoiceLabels(displaySegment.map((entry) => entry.text), choiceRefs.length);
   const slotBasedChoices = inferSlotBasedChoices(displayRegions, postFontRefs, variableMap);
@@ -1082,6 +1123,7 @@ function decodeVersion06QuestionChunk(
     variableMap,
   );
   const graphDefinitions = extractVersion06GraphDefinitions(strings, algorithmicVariables, body, title);
+  const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   const type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
   const narrativeOrdinal = inferVersion06NarrativeOrdinal(chunk, bytes);
@@ -1135,10 +1177,18 @@ function decodeVersion06QuestionChunk(
       title,
     },
     algorithmicVariables,
+    algorithmModel: algorithmArtifacts.algorithmModel,
+    algorithmEvaluation: algorithmArtifacts.algorithmEvaluation,
     graphDefinitions,
+    graphModel: graphArtifacts.graphModel,
+    graphTypst: graphArtifacts.graphTypst,
     inlineObjects: inlineObjects.length ? inlineObjects : undefined,
     assets: questionAssets,
     confidence: body ? 'medium' : 'low',
+    decodeDiagnostics: [
+      ...algorithmArtifacts.decodeDiagnostics,
+      ...graphArtifacts.decodeDiagnostics,
+    ],
     raw: options.preserveRaw === false
       ? undefined
       : [makeRawFragment(bytes, chunk.start.offset, Math.min(chunk.endOffset - chunk.start.offset, 512), strings.slice(0, 30).map((s) => s.text).join('\n'))],
@@ -1147,6 +1197,7 @@ function decodeVersion06QuestionChunk(
 
 function decodeNonMetadataQuestions(
   bytes: Uint8Array,
+  strings: ExtractedString[],
   standardQuestionCount: number,
   diagnostics: DecodeDiagnostic[],
 ): DecodedQuestion[] {
@@ -1194,6 +1245,7 @@ function decodeNonMetadataQuestions(
     // Extract choices (typically A-F format with matching pairs)
     const choices = extractMatchingChoices(text, start, end);
     if (!choices || choices.length < 2) continue;
+    const promptArtifacts = extractMatchingPromptArtifacts(strings, questionText);
 
     // Create the question object
     questions.push({
@@ -1210,6 +1262,9 @@ function decodeNonMetadataQuestions(
         sectionName: 'Non-Standard Section',
         difficulty: 'Unknown',
       },
+      algorithmModel: promptArtifacts.algorithmModel,
+      algorithmEvaluation: promptArtifacts.algorithmEvaluation,
+      decodeDiagnostics: promptArtifacts.decodeDiagnostics,
       assets: [],
       confidence: 'low',
     });
@@ -1281,6 +1336,65 @@ function extractMatchingChoices(text: string, start: number, end: number): Choic
   if (choices.length < 2) return undefined;
 
   return choices;
+}
+
+function extractMatchingPromptArtifacts(
+  strings: ExtractedString[],
+  questionText: string,
+): AlgorithmArtifacts {
+  const promptIndex = strings.findIndex((entry) => entry.text.includes(questionText));
+  if (promptIndex === -1) return { decodeDiagnostics: [] };
+
+  const preDisplayStrings = collectMatchingPreDisplayStrings(strings, promptIndex);
+  if (!preDisplayStrings.length) return { decodeDiagnostics: [] };
+
+  const variables = extractAlgorithmicVariables(preDisplayStrings);
+  return buildAlgorithmArtifacts(
+    preDisplayStrings,
+    variables,
+    'matching-group',
+    'matching-section-prelude',
+  );
+}
+
+function collectMatchingPreDisplayStrings(strings: ExtractedString[], promptIndex: number): string[] {
+  const prompt = strings[promptIndex];
+  const collected: string[] = [];
+
+  for (let index = promptIndex - 1; index >= 0; index--) {
+    const entry = strings[index];
+    if (prompt.offset - entry.offset > 2200) break;
+    if (isFontString(entry.text)) {
+      if (collected.length >= 6) break;
+      continue;
+    }
+    if (/^narr\d+$/i.test(entry.text) || isDifficultyLabel(entry.text) || /^Section /i.test(entry.text)) break;
+    if (!isUsefulPayloadString(entry.text)) continue;
+    collected.unshift(entry.text);
+  }
+
+  return trimToAlgorithmPrelude(collected);
+}
+
+function trimToAlgorithmPrelude(strings: string[]): string[] {
+  const startIndex = strings.findIndex((text, index) => {
+    const firstRule = strings[index + 1];
+    if (!isVariableName(text) || !firstRule || isVariableName(firstRule)) return false;
+    if (!looksLikeAlgorithmRule(firstRule)) return false;
+    let defs = 0;
+    for (let cursor = index; cursor + 1 < strings.length && cursor < index + 12; cursor++) {
+      if (isVariableName(strings[cursor]) && strings[cursor + 1] && !isVariableName(strings[cursor + 1])) {
+        defs++;
+      }
+      if (defs >= 3) return true;
+    }
+    return false;
+  });
+  return startIndex === -1 ? strings : strings.slice(startIndex);
+}
+
+function looksLikeAlgorithmRule(text: string): boolean {
+  return /[()+\-*/<>=]/.test(text) || /^(?:range|if|choose|list|abs|pow|chr|fracs?)\(/i.test(text);
 }
 
 function linkMatchingQuestionsWithItems(
@@ -1693,7 +1807,17 @@ function isPredicateOrControlRule(text: string): boolean {
   return /^scramble$/i.test(text)
     || /^(true|false)$/i.test(text)
     || /^[A-Za-z_][A-Za-z0-9_]*\s*(<>|=|>|<)/.test(text)
+    || /^[A-Za-z_][A-Za-z0-9_]*\([^)]*\)\s*(<>|=|>|<)/.test(text)
     || /^isunique\(/i.test(text);
+}
+
+function looksLikeAlgorithmSupportToken(text: string): boolean {
+  if (!text || text === INLINE_OBJECT_SLOT) return false;
+  if (isLikelyPromptText(text) || isLikelyQuestionText(text)) return false;
+  if (isVariableName(text)) return false;
+  if (/^(true|false)$/i.test(text)) return false;
+  if (/^\d+$/.test(text)) return false;
+  return text.length <= 4 || /^[^A-Za-z0-9]+$/.test(text);
 }
 
 function inferVersion06QuestionType(
@@ -2985,6 +3109,289 @@ function extractVersion06GraphDefinitions(
     variables: graphVariables,
     source: expressionTokens.length ? 'string-token-heuristic' : 'algorithmic-variable-heuristic',
   }];
+}
+
+function buildAlgorithmArtifacts(
+  preDisplayStrings: string[],
+  variables: AlgorithmicVariable[],
+  scopeKind: AlgorithmModel['scope']['kind'] = 'question',
+  source = 'pre-display-string-sequence',
+): AlgorithmArtifacts {
+  const definitions = extractAlgorithmDefinitions(preDisplayStrings, variables);
+  if (!definitions.length) {
+    return { decodeDiagnostics: [] };
+  }
+
+  const entries = definitions.map((definition) => ({
+    name: definition.name,
+    status: definition.sampleValue ? 'resolved' as const : 'unresolved' as const,
+    value: definition.sampleValue,
+  }));
+
+  const diagnostics: QuestionDecodeDiagnostic[] = definitions
+    .filter((definition) => !definition.rawExpression && !definition.sampleValue)
+    .map((definition) => ({
+      level: 'warning',
+      code: 'ALGORITHM_VARIABLE_INCOMPLETE',
+      message: `Recovered algorithm symbol ${definition.name} without a rule or sample value.`,
+    }));
+
+  diagnostics.push(
+    ...definitions
+      .filter((definition) => definition.kind === 'unknown' && definition.rawExpression)
+      .map((definition) => ({
+        level: 'info' as const,
+        code: 'ALGORITHM_SUPPORT_TOKEN',
+        message: `Recovered an opaque algorithm support token: ${definition.rawExpression}`,
+      })),
+  );
+
+  return {
+    algorithmModel: {
+      scope: { kind: scopeKind },
+      definitions,
+      source,
+    },
+    algorithmEvaluation: {
+      entries,
+      diagnostics,
+    },
+    decodeDiagnostics: diagnostics,
+  };
+}
+
+function extractAlgorithmDefinitions(
+  preDisplayStrings: string[],
+  variables: AlgorithmicVariable[],
+): AlgorithmDefinition[] {
+  const definitions: AlgorithmDefinition[] = [];
+  const variableMap = new Map(variables.map((variable) => [variable.name.toLowerCase(), variable]));
+  let conditionIndex = 0;
+  let unknownIndex = 0;
+
+  for (let index = 0; index < preDisplayStrings.length; index++) {
+    const current = preDisplayStrings[index]?.trim();
+    if (!current || current === INLINE_OBJECT_SLOT) continue;
+
+    if (isVariableName(current)) {
+      const variable = variableMap.get(current.toLowerCase());
+      if (variable) {
+        const rawExpression = variable.rule?.trim() || undefined;
+        definitions.push({
+          id: `alg-${definitions.length + 1}`,
+          name: variable.name,
+          kind: inferAlgorithmDefinitionKind(variable),
+          rawExpression,
+          sampleValue: variable.sampleValue?.trim() || undefined,
+          dependencies: rawExpression ? extractAlgorithmDependencies(rawExpression, variable.name) : [],
+          source: 'pre-display-string-sequence',
+        });
+        if (rawExpression && preDisplayStrings[index + 1]?.trim() === rawExpression) {
+          index += variable.sampleValue && preDisplayStrings[index + 2]?.trim() === variable.sampleValue.trim() ? 2 : 1;
+        }
+        continue;
+      }
+    }
+
+    if (/^isunique\(/i.test(current)) {
+      const dependencies = /^isunique\((.*)\)$/i.exec(current)?.[1]
+        ?.split(',')
+        .map((item) => item.trim())
+        .filter(Boolean) ?? [];
+      definitions.push({
+        id: `alg-${definitions.length + 1}`,
+        name: 'isunique',
+        kind: 'condition',
+        rawExpression: current,
+        dependencies,
+        source: 'pre-display-string-sequence',
+      });
+      continue;
+    }
+
+    if (/^scramble$/i.test(current)) {
+      const rawExpression = preDisplayStrings[index + 1]?.trim();
+      const sampleValue = preDisplayStrings[index + 2]?.trim();
+      definitions.push({
+        id: `alg-${definitions.length + 1}`,
+        name: 'scramble',
+        kind: 'condition',
+        rawExpression,
+        sampleValue: sampleValue && /^\d+$/.test(sampleValue) ? sampleValue : undefined,
+        dependencies: [],
+        source: 'pre-display-string-sequence',
+      });
+      if (rawExpression && /^(true|false)$/i.test(rawExpression)) {
+        index += sampleValue ? 2 : 1;
+      }
+      continue;
+    }
+
+    if (isPredicateOrControlRule(current)) {
+      conditionIndex++;
+      definitions.push({
+        id: `alg-${definitions.length + 1}`,
+        name: `condition_${conditionIndex}`,
+        kind: 'condition',
+        rawExpression: current,
+        dependencies: extractAlgorithmDependencies(current, ''),
+        source: 'pre-display-string-sequence',
+      });
+      continue;
+    }
+
+    if (looksLikeAlgorithmSupportToken(current)) {
+      unknownIndex++;
+      definitions.push({
+        id: `alg-${definitions.length + 1}`,
+        name: `algorithm_token_${unknownIndex}`,
+        kind: 'unknown',
+        rawExpression: current,
+        dependencies: [],
+        source: 'pre-display-string-sequence',
+      });
+    }
+  }
+
+  return dedupeAlgorithmDefinitions(definitions);
+}
+
+function dedupeAlgorithmDefinitions(definitions: AlgorithmDefinition[]): AlgorithmDefinition[] {
+  const seen = new Set<string>();
+  return definitions.filter((definition) => {
+    const key = `${definition.name.toLowerCase()}::${definition.rawExpression ?? ''}::${definition.sampleValue ?? ''}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+function inferAlgorithmDefinitionKind(variable: AlgorithmicVariable): AlgorithmDefinitionKind {
+  const name = variable.name.trim();
+  const rule = variable.rule?.trim() ?? '';
+  if (/^if\b|[<>]=?| and | or /i.test(rule)) return 'condition';
+  if (/^[A-Z][A-Z0-9_]*$/.test(name) && !rule) return 'constant';
+  if (/^[A-Za-z_][A-Za-z0-9_]*\s*\([^)]*\)\s*=/.test(rule) || /^[A-Za-z_][A-Za-z0-9_]*\s*\(/.test(name)) return 'user-function';
+  if (name) return 'variable';
+  return 'unknown';
+}
+
+function extractAlgorithmDependencies(rawExpression: string, selfName: string): string[] {
+  const builtIns = new Set([
+    'abs', 'acos', 'asin', 'atan', 'ceiling', 'chr', 'choose', 'cos', 'decs', 'format', 'fracs', 'gcd', 'if',
+    'int', 'isunique', 'lcm', 'list', 'ln', 'log', 'max', 'min', 'mixfracs', 'pow', 'rads', 'range', 'round',
+    'rfracs', 'sigfig', 'sin', 'sqr', 'sqrs', 'sqrt', 'srand', 'srandom', 'tan', 'symbol', 'unsort',
+    'and', 'or', 'not',
+  ]);
+  const tokens = rawExpression.match(/[A-Za-z_][A-Za-z0-9_]*/g) ?? [];
+  return tokens
+    .filter((token) => token.toLowerCase() !== selfName.toLowerCase())
+    .filter((token) => !builtIns.has(token.toLowerCase()))
+    .filter((token, index, all) => all.findIndex((other) => other.toLowerCase() === token.toLowerCase()) === index);
+}
+
+function buildGraphArtifacts(
+  graphDefinitions: DecodedGraphDefinition[] | undefined,
+  title?: string,
+  body?: string,
+): GraphArtifacts {
+  if (!graphDefinitions?.length) {
+    return { decodeDiagnostics: [] };
+  }
+
+  const objects: GraphObject[] = graphDefinitions.flatMap((graph) => {
+    const expressions = graph.normalizedExpressions?.length
+      ? graph.normalizedExpressions
+      : graph.expressions.map((expression) => ({
+          original: expression,
+          substituted: expression,
+          typst: graphExpressionToTypstMath(expression),
+          latex: graphExpressionToLatex(expression),
+          variables: extractExpressionVariables(expression),
+          samplePoints: sampleGraphExpression(expression),
+        }));
+
+    return expressions.map((expression, index) => ({
+      id: `${graph.id}-obj-${index + 1}`,
+      kind: inferGraphObjectKind(expression.substituted),
+      expression: expression.substituted,
+      typstMath: expression.typst,
+      latexMath: expression.latex,
+      variables: expression.variables,
+      samplePoints: expression.samplePoints,
+    }));
+  });
+
+  const family = inferGraphFamily(graphDefinitions, title, body);
+  const graphModel: GraphModel = {
+    family,
+    objects,
+    variables: graphDefinitions.find((graph) => graph.variables && Object.keys(graph.variables).length)?.variables,
+    rawExpressions: graphDefinitions.flatMap((graph) => graph.expressions),
+    source: graphDefinitions.map((graph) => graph.source).join(','),
+  };
+
+  const graphTypst = {
+    format: 'typst' as const,
+    text: graphModelToTypst(graphModel),
+  };
+
+  const diagnostics: QuestionDecodeDiagnostic[] = objects.length === 0
+    ? [{
+        level: 'warning',
+        code: 'GRAPH_MODEL_EMPTY',
+        message: 'Recovered a graph question but could not materialize any graph objects.',
+      }]
+    : [];
+
+  return {
+    graphModel,
+    graphTypst,
+    decodeDiagnostics: diagnostics,
+  };
+}
+
+function inferGraphFamily(
+  graphDefinitions: DecodedGraphDefinition[],
+  title?: string,
+  body?: string,
+): GraphFamily {
+  const haystack = `${title ?? ''} ${body ?? ''} ${graphDefinitions.flatMap((graph) => graph.expressions).join(' ')}`.toLowerCase();
+  if (haystack.includes('polar') || /theta|\\theta|π/.test(haystack)) return 'polar';
+  if (haystack.includes('number line') || haystack.includes('number-line')) return 'number-line';
+  if (graphDefinitions.some((graph) => graph.normalizedExpressions?.some((expression) => expression.substituted.includes('x')))) return 'cartesian';
+  return 'unknown';
+}
+
+function inferGraphObjectKind(expression: string): GraphObject['kind'] {
+  if (/^\(\s*[-\d.]+\s*,\s*[-\d.]+\s*\)$/.test(expression.trim())) return 'point';
+  if (/[=<>]/.test(expression)) return 'relation';
+  if (expression.trim()) return 'function';
+  return 'unknown';
+}
+
+function graphModelToTypst(graphModel: GraphModel): string {
+  const lines = [
+    '#block(inset: 8pt, fill: rgb("#eef5ff"), radius: 4pt)[',
+    '  #text(weight: "bold")[Recovered graph]',
+  ];
+
+  for (const object of graphModel.objects) {
+    if (object.typstMath) {
+      lines.push(`  - $${escapeMath(object.typstMath)}$`);
+    } else if (object.expression) {
+      lines.push(`  - ${escapeTypstText(object.expression)}`);
+    }
+  }
+
+  if (graphModel.variables && Object.keys(graphModel.variables).length) {
+    lines.push(`  #text(size: 8pt, fill: gray)[variables: ${escapeTypstText(
+      Object.entries(graphModel.variables).map(([name, value]) => `${name}=${value}`).join(', '),
+    )}]`);
+  }
+
+  lines.push(']');
+  return lines.join('\n');
 }
 
 function normalizeGraphExpression(
@@ -4449,7 +4856,7 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
 }
 
 function isQualityGraphLikeQuestion(question: DecodedQuestion): boolean {
-  if (question.graphDefinitions?.length) return true;
+  if (question.graphDefinitions?.length || question.graphModel?.objects.length) return true;
   const text = `${question.metadata.title ?? ''} ${question.body.text}`.toLowerCase();
   return /\b(graph|diagram|plot|sketch|unit circle|terminal arm|asymptote|parabola|reciprocal function|combined function)\b/.test(text);
 }

@@ -72,7 +72,9 @@ function renderQuestionBody(question: DecodedQuestion): string {
     lines.push('', `#text(weight: "bold")[Solution]`, contentToTypst(question.solution.text));
   }
 
-  if (question.graphDefinitions?.length) {
+  if (question.graphTypst?.text.trim() && !/\[Graph(?: diagram)?[:\]]|Recovered graph/i.test(question.body.text)) {
+    lines.push('', question.graphTypst.text.trim());
+  } else if (question.graphDefinitions?.length) {
     lines.push('', '#text(weight: "bold")[Recovered Graph Data]');
     for (const graph of question.graphDefinitions) {
       const expressions = graph.normalizedExpressions?.length

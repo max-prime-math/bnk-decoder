@@ -170,6 +170,52 @@ Observed mapping:
 - Question `q-56` gets the standalone sum-of-arithmetic-series narrative
 - Standalone questions such as `q-59`, `q-67`, and `q-68` remain narrative-free
 
+### Algorithm Scope Status
+
+Current evidence from the v06 corpus:
+
+- The `narr1`..`narr6` objects in `Chapter 01.bnk` appear to be pure shared prompt text.
+- A broader corpus scan did not find `narrN` handles adjacent to obvious algorithm syntax such as `range(`, `isunique(`, `scramble`, or predicate expressions.
+- So narrative-owned algorithms are not yet proven in the available banks, even though the ExamView feature model allows them.
+
+---
+
+## Section 4: Matching-Group Algorithm Prelude
+
+### Discovery Details
+
+Some matching questions in the non-metadata v06 section carry a full algorithm block immediately before the matching prompt.
+
+This is the first confirmed non-question scope for algorithm state in the available corpus.
+
+### Verified Example
+
+In `Pre-Calculus 12/Chapter 03.bnk`, the matching question:
+
+- `Match the correct term with the correct part of the statement.`
+
+is preceded by an ordered algorithm block containing:
+
+- variables `a` through `p`
+- expression rules such as `a+b+c+d`, `f-k*l`, `g-k*m`, `h-k*n`
+- sample values
+- a long predicate condition using `abs(...)` and inequality tests
+- `scramble`
+
+The block sits directly ahead of the matching prompt in the same non-metadata string cluster, which makes `matching-group` the correct scope label for this algorithm state.
+
+### Decoder Implication
+
+- Standard question chunks still use the ordinary pre-display algorithm block.
+- Matching questions need a separate prelude scan in the non-metadata section.
+- The matching question itself should carry the shared algorithm group with scope `matching-group`.
+- Linked item questions should not each get independent copies unless later evidence shows that ExamView materializes them that way.
+
+### Current Status
+
+- `bnk-decoder` now attaches a first-pass `algorithmModel` with `scope.kind = "matching-group"` to matching questions when this prelude is detected.
+- The exact low-level record boundary for the matching prelude is not fully decoded yet; the current implementation uses a conservative extracted-string window ahead of the prompt.
+
 ---
 
 ## Binary Markers & Patterns
