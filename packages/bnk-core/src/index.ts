@@ -1317,11 +1317,15 @@ function extractMatchingPromptArtifacts(
     'matching-group',
     'matching-section-prelude',
   );
-  if (artifacts.algorithmModel?.definitions.length) {
+  const definitions = artifacts.algorithmModel?.definitions ?? [];
+  if (!hasStrongMatchingAlgorithmPrelude(preDisplayStrings, definitions)) {
+    return { decodeDiagnostics: [] };
+  }
+  if (definitions.length) {
     artifacts.decodeDiagnostics.unshift({
       level: 'info',
       code: 'MATCHING_GROUP_ALGORITHM_DETECTED',
-      message: `Recovered ${artifacts.algorithmModel.definitions.length} algorithm definition${artifacts.algorithmModel.definitions.length === 1 ? '' : 's'} from the matching-group prelude.`,
+      message: `Recovered ${definitions.length} algorithm definition${definitions.length === 1 ? '' : 's'} from the matching-group prelude.`,
     });
   }
   return artifacts;
@@ -1363,8 +1367,41 @@ function trimToAlgorithmPrelude(strings: string[]): string[] {
   return startIndex === -1 ? strings : strings.slice(startIndex);
 }
 
+function hasStrongMatchingAlgorithmPrelude(
+  preDisplayStrings: string[],
+  definitions: AlgorithmDefinition[],
+): boolean {
+  if (definitions.length < 2) return false;
+  const strongDefinitionCount = definitions.filter(isStrongAlgorithmDefinition).length;
+  if (strongDefinitionCount === 0) return false;
+  if (!preDisplayStrings.some((text) => looksLikeStrongAlgorithmRule(text))) return false;
+  return true;
+}
+
+function isStrongAlgorithmDefinition(definition: AlgorithmDefinition): boolean {
+  if (definition.name === 'scramble' || definition.name === 'isunique') return true;
+  if (definition.kind === 'condition' && definition.rawExpression && looksLikeStrongAlgorithmRule(definition.rawExpression)) {
+    return true;
+  }
+  if (definition.kind === 'variable' && definition.rawExpression && looksLikeStrongAlgorithmRule(definition.rawExpression)) {
+    return true;
+  }
+  return false;
+}
+
 function looksLikeAlgorithmRule(text: string): boolean {
   return /[()+\-*/<>=]/.test(text) || /^(?:range|if|choose|list|abs|pow|chr|fracs?)\(/i.test(text);
+}
+
+function looksLikeStrongAlgorithmRule(text: string): boolean {
+  if (text === INLINE_OBJECT_SLOT) return false;
+  if (/^\[\[slot\]\]$/i.test(text)) return false;
+  if (/^scramble$/i.test(text) || /^isunique\(/i.test(text)) return true;
+  if (/(?:^|[^A-Za-z])(range|if|choose|list|abs|pow|chr|fracs?|mixfracs?|rfracs?|decs|sqrs?|sigfig)\(/i.test(text)) return true;
+  if (/[A-Za-z_][A-Za-z0-9_]*\s*[<>]=?\s*-?\d/.test(text)) return true;
+  if (/[A-Za-z_][A-Za-z0-9_]*\s*[+\-*/]\s*[A-Za-z0-9_(]/.test(text)) return true;
+  if (/[&|]/.test(text) && /[<>]=?/.test(text)) return true;
+  return false;
 }
 
 function linkMatchingQuestionsWithItems(

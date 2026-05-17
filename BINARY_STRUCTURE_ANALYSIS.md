@@ -221,6 +221,11 @@ The block sits directly ahead of the matching prompt in the same non-metadata st
 
 - `bnk-decoder` now attaches a first-pass `algorithmModel` with `scope.kind = "matching-group"` to matching questions when this prelude is detected.
 - The exact low-level record boundary for the matching prelude is not fully decoded yet; the current implementation uses a conservative extracted-string window ahead of the prompt.
+- The extracted-string boundary is now tightened by a strong-signal gate:
+  - at least two recovered definitions
+  - at least one strong algorithm rule such as `range(...)`, arithmetic dependencies, predicates, `isunique(...)`, or `scramble`
+  - at least one strong rule still visible in the pre-display string sequence itself
+- This rejects weak false positives such as `Pre-Calculus 11/Chapter 01.bnk`, where the pre-prompt window decoded to junk tokens (`T`, `U`, `[[slot]]`) but not a real shared algorithm block.
 
 ---
 
