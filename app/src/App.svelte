@@ -206,6 +206,11 @@
   }
 
   type GraphBounds = { minX: number; maxX: number; minY: number; maxY: number };
+  type GraphSeriesStyle = {
+    strokeWidth: number;
+    dashArray?: string;
+    pointRadius?: number;
+  };
   const graphWidth = 260;
   const graphHeight = 160;
   const graphColors = ['#b54a2f', '#276f7a', '#7761a7', '#6f7c2d', '#a4527c'];
@@ -216,14 +221,7 @@
 
   function graphBounds(graph: DecodedGraphDefinition): GraphBounds {
     const points = graph.normalizedExpressions?.flatMap((expression) => expression.samplePoints ?? []) ?? [];
-    const xs = points.map((point) => point.x);
-    const ys = points.map((point) => point.y);
-    const minX = Math.min(-1, 0, ...xs);
-    const maxX = Math.max(1, 0, ...xs);
-    const minY = Math.min(-1, 0, ...ys);
-    const maxY = Math.max(1, 0, ...ys);
-    const yPadding = Math.max(1, (maxY - minY) * 0.08);
-    return { minX, maxX, minY: minY - yPadding, maxY: maxY + yPadding };
+    return computeGraphBounds(points);
   }
 
   function graphX(x: number, bounds: GraphBounds) {
@@ -234,12 +232,25 @@
     return graphHeight - ((y - bounds.minY) / (bounds.maxY - bounds.minY)) * graphHeight;
   }
 
-  function graphSegments(points: GraphSamplePoint[]) {
+  function graphSegments(points: GraphSamplePoint[], bounds?: GraphBounds) {
     const segments: GraphSamplePoint[][] = [];
     let current: GraphSamplePoint[] = [];
+    const spanY = bounds ? Math.max(1, bounds.maxY - bounds.minY) : 12;
+    const jumpThreshold = Math.max(8, spanY * 0.65);
     for (const point of points) {
+      if (!Number.isFinite(point.x) || !Number.isFinite(point.y)) {
+        if (current.length > 1) segments.push(current);
+        current = [];
+        continue;
+      }
       const previous = current.at(-1);
-      if (previous && Math.abs(point.x - previous.x) > 0.51) {
+      if (
+        previous
+        && (
+          Math.abs(point.x - previous.x) > 0.51
+          || Math.abs(point.y - previous.y) > jumpThreshold
+        )
+      ) {
         if (current.length > 1) segments.push(current);
         current = [];
       }
@@ -324,6 +335,130 @@
       ? question.graphModel.rawExpressions
       : question.graphDefinitions?.flatMap((graph) => graph.expressions) ?? [];
     return expressions.slice(0, 3).join(', ');
+  }
+
+  type GraphSeries = {
+    id: string;
+    label: string;
+    color: string;
+    kind: string;
+    style: GraphSeriesStyle;
+    points: GraphSamplePoint[];
+  };
+
+  function graphSeries(question: NonNullable<DecodeResult['questions']>[number]): GraphSeries[] {
+    const series: GraphSeries[] = [];
+    let colorIndex = 0;
+    const objectKinds = question.graphModel?.objects.map((object) => object.kind) ?? [];
+    for (const graph of question.graphDefinitions ?? []) {
+      const expressions = graph.normalizedExpressions ?? [];
+      expressions.forEach((expression, expressionIndex) => {
+        const points = expression.samplePoints ?? [];
+        if (points.length < 2) return;
+        const kind = objectKinds[series.length] ?? 'unknown';
+        series.push({
+          id: `${graph.id}-${expressionIndex + 1}`,
+          label: expression.substituted || expression.original || graph.id,
+          color: graphColor(colorIndex++),
+          kind,
+          style: graphSeriesStyle(kind),
+          points,
+        });
+      });
+    }
+    return series;
+  }
+
+  function graphOverviewBounds(question: NonNullable<DecodeResult['questions']>[number]): GraphBounds | null {
+    const points = graphSeries(question).flatMap((series) => series.points);
+    if (!points.length) return null;
+    return computeGraphBounds(points);
+  }
+
+  function computeGraphBounds(points: GraphSamplePoint[]): GraphBounds {
+    const finite = points.filter((point) => Number.isFinite(point.x) && Number.isFinite(point.y));
+    if (!finite.length) {
+      return { minX: -1, maxX: 1, minY: -1, maxY: 1 };
+    }
+
+    const xs = finite.map((point) => point.x).sort((a, b) => a - b);
+    const ys = finite.map((point) => point.y).sort((a, b) => a - b);
+    const yTrimCount = ys.length >= 12 ? Math.floor(ys.length * 0.08) : 0;
+    const trimmedYs = ys.slice(yTrimCount, ys.length - yTrimCount || ys.length);
+
+    const minX = Math.min(-1, 0, xs[0]);
+    const maxX = Math.max(1, 0, xs[xs.length - 1]);
+    const minY = Math.min(-1, 0, trimmedYs[0] ?? ys[0]);
+    const maxY = Math.max(1, 0, trimmedYs[trimmedYs.length - 1] ?? ys[ys.length - 1]);
+    const xPadding = Math.max(1, (maxX - minX) * 0.08);
+    const yPadding = Math.max(1, (maxY - minY) * 0.08);
+
+    return {
+      minX: minX - xPadding,
+      maxX: maxX + xPadding,
+      minY: minY - yPadding,
+      maxY: maxY + yPadding,
+    };
+  }
+
+  function graphSeriesStyle(kind: string): GraphSeriesStyle {
+    if (kind === 'relation') return { strokeWidth: 2.2, dashArray: '7 4' };
+    if (kind === 'point') return { strokeWidth: 1.6, pointRadius: 3.8 };
+    if (kind === 'text') return { strokeWidth: 1.4, dashArray: '2 4' };
+    return { strokeWidth: 2.4 };
+  }
+
+  function graphSupportSummary(question: NonNullable<DecodeResult['questions']>[number]) {
+    const items: Array<{ label: string; detail: string; tone: SupportTone }> = [];
+    const objectCount = graphObjectCount(question);
+    const variableCount = graphVariableCount(question);
+    const sampledSeries = graphSeries(question).length;
+
+    if (sampledSeries > 0) {
+      items.push({
+        label: 'Sampled preview ready',
+        detail: `${sampledSeries} sampled expression${sampledSeries === 1 ? '' : 's'} rendered in the overview pane.`,
+        tone: 'good',
+      });
+    }
+
+    if (objectCount > 0) {
+      items.push({
+        label: 'Recovered graph structure',
+        detail: `${objectCount} graph object${objectCount === 1 ? '' : 's'} preserved in the structured model.`,
+        tone: 'good',
+      });
+    }
+
+    if (variableCount > 0) {
+      items.push({
+        label: 'Graph variables linked',
+        detail: `${variableCount} variable${variableCount === 1 ? '' : 's'} available for graph expressions or labels.`,
+        tone: 'info',
+      });
+    }
+
+    if (question.graphTypst?.text.trim()) {
+      items.push({
+        label: 'Typst snapshot present',
+        detail: 'A Typst graph snapshot was generated and can be inspected directly in the GUI.',
+        tone: 'info',
+      });
+    }
+
+    if (!sampledSeries && hasGraphData(question)) {
+      items.push({
+        label: 'Partial graph recovery',
+        detail: 'Graph structure is present, but there were not enough sampled points for an overlaid visual preview yet.',
+        tone: 'warn',
+      });
+    }
+
+    return items;
+  }
+
+  function hasGraphOverview(question: NonNullable<DecodeResult['questions']>[number]) {
+    return graphSeries(question).length > 0 && graphOverviewBounds(question) !== null;
   }
 
   function resolvedAlgorithmPairs(question: NonNullable<DecodeResult['questions']>[number]) {
@@ -833,6 +968,49 @@
                       </div>
                     </div>
 
+                    {#if hasGraphOverview(selectedQuestion)}
+                      <div class="overview-graph-card">
+                        <div class="graph-card-header">
+                          <strong>Overview</strong>
+                          <small>{graphSeries(selectedQuestion).length} sampled layer{graphSeries(selectedQuestion).length === 1 ? '' : 's'}</small>
+                        </div>
+                        <svg class="graph-overview" viewBox={`0 0 ${graphWidth} ${graphHeight}`} role="img" aria-label="Combined graph overview">
+                          <rect x="0" y="0" width={graphWidth} height={graphHeight} />
+                          <line class="graph-axis" x1="0" x2={graphWidth} y1={graphY(0, graphOverviewBounds(selectedQuestion)!)} y2={graphY(0, graphOverviewBounds(selectedQuestion)!)} />
+                          <line class="graph-axis" y1="0" y2={graphHeight} x1={graphX(0, graphOverviewBounds(selectedQuestion)!)} x2={graphX(0, graphOverviewBounds(selectedQuestion)!)} />
+                          {#each graphSeries(selectedQuestion) as series}
+                            {#each graphSegments(series.points, graphOverviewBounds(selectedQuestion)!) as segment}
+                              <polyline
+                                points={graphPolyline(segment, graphOverviewBounds(selectedQuestion)!)}
+                                stroke={series.color}
+                                stroke-width={series.style.strokeWidth}
+                                stroke-dasharray={series.style.dashArray}
+                              />
+                            {/each}
+                            {#if series.style.pointRadius}
+                              {#each series.points as point}
+                                <circle
+                                  cx={graphX(point.x, graphOverviewBounds(selectedQuestion)!)}
+                                  cy={graphY(point.y, graphOverviewBounds(selectedQuestion)!)}
+                                  r={series.style.pointRadius}
+                                  fill={series.color}
+                                />
+                              {/each}
+                            {/if}
+                          {/each}
+                        </svg>
+                        <div class="graph-legend">
+                          {#each graphSeries(selectedQuestion) as series}
+                            <div class="legend-item">
+                              <span class="legend-swatch" style={`background:${series.color}`}></span>
+                              <span>{series.label}</span>
+                              <small>{series.kind}</small>
+                            </div>
+                          {/each}
+                        </div>
+                      </div>
+                    {/if}
+
                     {#if selectedQuestion.graphDefinitions?.length}
                       <div class="graph-gallery">
                         {#each selectedQuestion.graphDefinitions as graph}
@@ -848,7 +1026,7 @@
                                 <line class="graph-axis" x1="0" x2={graphWidth} y1={graphY(0, bounds)} y2={graphY(0, bounds)} />
                                 <line class="graph-axis" y1="0" y2={graphHeight} x1={graphX(0, bounds)} x2={graphX(0, bounds)} />
                                 {#each graph.normalizedExpressions ?? [] as expression, expressionIndex}
-                                  {#each graphSegments(expression.samplePoints ?? []) as segment}
+                                  {#each graphSegments(expression.samplePoints ?? [], bounds) as segment}
                                     <polyline
                                       points={graphPolyline(segment, bounds)}
                                       stroke={graphColor(expressionIndex)}
@@ -867,23 +1045,6 @@
                       </div>
                     {/if}
 
-                    {#if selectedQuestion.graphModel?.objects.length}
-                      <div class="structured-table">
-                        <div class="structured-head">
-                          <span>Object</span>
-                          <span>Kind</span>
-                          <span>Expression</span>
-                        </div>
-                        {#each selectedQuestion.graphModel.objects as object}
-                          <div class="structured-row">
-                            <strong>{object.id}</strong>
-                            <span>{object.kind}</span>
-                            <code>{object.expression ?? object.typstMath ?? '—'}</code>
-                          </div>
-                        {/each}
-                      </div>
-                    {/if}
-
                     {#if selectedQuestion.graphModel?.variables && Object.keys(selectedQuestion.graphModel.variables).length}
                       <div class="status-strip">
                         {#each Object.entries(selectedQuestion.graphModel.variables) as [name, value]}
@@ -893,6 +1054,37 @@
                           </div>
                         {/each}
                       </div>
+                    {/if}
+
+                    {#if graphSupportSummary(selectedQuestion).length}
+                      <div class="support-list">
+                        {#each graphSupportSummary(selectedQuestion) as item}
+                          <div class={`support-card ${item.tone}`}>
+                            <strong>{item.label}</strong>
+                            <span>{item.detail}</span>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if selectedQuestion.graphModel?.objects.length}
+                      <details class="pane-details">
+                        <summary>Recovered graph objects</summary>
+                        <div class="structured-table">
+                          <div class="structured-head structured-head-3">
+                            <span>Object</span>
+                            <span>Kind</span>
+                            <span>Expression</span>
+                          </div>
+                          {#each selectedQuestion.graphModel.objects as object}
+                            <div class="structured-row structured-row-3">
+                              <strong>{object.id}</strong>
+                              <span>{object.kind}</span>
+                              <code>{object.expression ?? object.typstMath ?? '—'}</code>
+                            </div>
+                          {/each}
+                        </div>
+                      </details>
                     {/if}
 
                     {#if selectedQuestion.graphTypst?.text}
@@ -1465,6 +1657,11 @@
     background: rgba(255, 255, 255, 0.82);
   }
 
+  .structured-head-3,
+  .structured-row-3 {
+    grid-template-columns: minmax(72px, 0.8fr) minmax(72px, 0.7fr) minmax(0, 2.3fr);
+  }
+
   .structured-row code,
   .sequence-item code {
     overflow-wrap: anywhere;
@@ -1549,6 +1746,59 @@
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
     gap: 0.75rem;
+  }
+
+  .overview-graph-card {
+    display: grid;
+    gap: 0.6rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.84);
+  }
+
+  .graph-overview {
+    width: min(100%, 520px);
+    height: auto;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: #fffdf7;
+  }
+
+  .graph-overview rect {
+    fill: #fffdf7;
+  }
+
+  .graph-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem 0.7rem;
+  }
+
+  .legend-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-width: 0;
+    padding: 0.25rem 0.45rem;
+    border-radius: 999px;
+    background: #f6f2e8;
+    font-size: 0.82rem;
+  }
+
+  .legend-item span:last-child {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .legend-swatch {
+    width: 0.78rem;
+    height: 0.78rem;
+    border-radius: 999px;
+    box-shadow: inset 0 0 0 1px rgb(0 0 0 / 10%);
+    flex: 0 0 auto;
   }
 
   .graph-card {
