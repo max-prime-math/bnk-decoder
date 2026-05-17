@@ -7,7 +7,15 @@ import type { DecodedQuestion } from '@bnk-decoder/core';
 
 let configuredTypst = false;
 
-export function questionToTypstDocument(question: DecodedQuestion): string {
+interface TypstRenderOptions {
+  preferGraphSnapshot?: boolean;
+}
+
+export function questionToTypstDocument(
+  question: DecodedQuestion,
+  options: TypstRenderOptions = {},
+): string {
+  const preferGraphSnapshot = options.preferGraphSnapshot ?? true;
   const parts = [
     '#set page(width: 6.4in, height: auto, margin: 0.28in)',
     '#set text(font: "Libertinus Serif", size: 11pt)',
@@ -23,16 +31,26 @@ export function questionToTypstDocument(question: DecodedQuestion): string {
   }
 
   parts.push(
-    renderQuestionBody(question),
+    renderQuestionBody(question, preferGraphSnapshot),
   );
   return parts.join('\n');
 }
 
 export async function renderQuestionTypstSvg(question: DecodedQuestion): Promise<string> {
   configureTypstRuntime();
-  return $typst.svg({
-    mainContent: questionToTypstDocument(question),
-  });
+  try {
+    return await $typst.svg({
+      mainContent: questionToTypstDocument(question, { preferGraphSnapshot: true }),
+    });
+  } catch (primaryError) {
+    try {
+      return await $typst.svg({
+        mainContent: questionToTypstDocument(question, { preferGraphSnapshot: false }),
+      });
+    } catch (fallbackError) {
+      throw new Error(describeTypstFailure(primaryError, fallbackError));
+    }
+  }
 }
 
 function configureTypstRuntime() {
@@ -49,7 +67,7 @@ function configureTypstRuntime() {
   });
 }
 
-function renderQuestionBody(question: DecodedQuestion): string {
+function renderQuestionBody(question: DecodedQuestion, preferGraphSnapshot: boolean): string {
   const lines = [contentToTypst(question.parts?.stem.text ?? question.body.text)];
 
   if (question.parts?.items.length) {
@@ -72,7 +90,11 @@ function renderQuestionBody(question: DecodedQuestion): string {
     lines.push('', `#text(weight: "bold")[Solution]`, contentToTypst(question.solution.text));
   }
 
-  if (question.graphTypst?.text.trim() && !/\[Graph(?: diagram)?[:\]]|Recovered graph/i.test(question.body.text)) {
+  if (
+    preferGraphSnapshot
+    && question.graphTypst?.text.trim()
+    && !/\[Graph(?: diagram)?[:\]]|Recovered graph/i.test(question.body.text)
+  ) {
     lines.push('', question.graphTypst.text.trim());
   } else if (question.graphDefinitions?.length) {
     lines.push('', '#text(weight: "bold")[Recovered Graph Data]');
@@ -94,6 +116,23 @@ function renderQuestionBody(question: DecodedQuestion): string {
   }
 
   return lines.join('\n');
+}
+
+function describeTypstFailure(primaryError: unknown, fallbackError: unknown): string {
+  const primary = errorMessage(primaryError);
+  const fallback = errorMessage(fallbackError);
+  if (primary === fallback) return primary;
+  return `Primary render failed: ${primary}\nFallback render failed: ${fallback}`;
+}
+
+function errorMessage(error: unknown): string {
+  if (error instanceof Error && error.message.trim()) return error.message.trim();
+  if (typeof error === 'string' && error.trim()) return error.trim();
+  try {
+    return JSON.stringify(error);
+  } catch {
+    return 'Typst could not render this question.';
+  }
 }
 
 function renderParts(parts: NonNullable<DecodedQuestion['parts']>, depth = 1): string {
