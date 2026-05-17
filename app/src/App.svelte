@@ -23,13 +23,17 @@
   let selectedBankId = $state<string | null>(null);
   let banks = $state<StoredBankSummary[]>([]);
   let selectedQuestionByBank = $state<Record<string, string | null>>({});
+  let questionFilter = $state<'all' | 'algorithmic' | 'graphical' | 'hybrid'>('all');
   let renderPreview = $state(false);
   let renderBusy = $state(false);
   let renderError = $state('');
   let renderedTypstSvg = $state('');
 
+  let filteredQuestions = $derived(
+    (result?.questions ?? []).filter((question) => matchesQuestionFilter(question, questionFilter)),
+  );
   let selectedQuestion = $derived(
-    result?.questions.find((question) => question.id === selectedQuestionId) ?? result?.questions[0] ?? null,
+    filteredQuestions.find((question) => question.id === selectedQuestionId) ?? filteredQuestions[0] ?? null,
   );
   let selectedQuestionTypst = $derived(selectedQuestion ? questionToTypstDocument(selectedQuestion) : '');
 
@@ -37,10 +41,10 @@
     const onKeydown = (event: KeyboardEvent) => {
       if (isTypingTarget(event.target)) return;
 
-      if ((event.key === 'ArrowDown' || event.key === 'j') && result?.questions.length) {
+      if ((event.key === 'ArrowDown' || event.key === 'j') && filteredQuestions.length) {
         event.preventDefault();
         selectRelativeQuestion(1);
-      } else if ((event.key === 'ArrowUp' || event.key === 'k') && result?.questions.length) {
+      } else if ((event.key === 'ArrowUp' || event.key === 'k') && filteredQuestions.length) {
         event.preventDefault();
         selectRelativeQuestion(-1);
       } else if (event.key === 'h') {
@@ -177,13 +181,13 @@
   }
 
   function selectRelativeQuestion(delta: number) {
-    if (!result?.questions.length) return;
+    if (!filteredQuestions.length) return;
     const currentIndex = Math.max(
       0,
-      result.questions.findIndex((question) => question.id === selectedQuestion?.id),
+      filteredQuestions.findIndex((question) => question.id === selectedQuestion?.id),
     );
-    const nextIndex = (currentIndex + delta + result.questions.length) % result.questions.length;
-    const nextId = result.questions[nextIndex].id;
+    const nextIndex = (currentIndex + delta + filteredQuestions.length) % filteredQuestions.length;
+    const nextId = filteredQuestions[nextIndex].id;
     selectedQuestionId = nextId;
     if (selectedBankId) selectedQuestionByBank = { ...selectedQuestionByBank, [selectedBankId]: nextId };
   }
@@ -251,6 +255,48 @@
 
   function graphColor(index: number) {
     return graphColors[index % graphColors.length];
+  }
+
+  function hasAlgorithmData(question: NonNullable<DecodeResult['questions']>[number]) {
+    return Boolean(
+      question.algorithmicVariables?.length
+      || question.algorithmModel?.definitions.length
+      || question.algorithmEvaluation?.entries.length,
+    );
+  }
+
+  function hasGraphData(question: NonNullable<DecodeResult['questions']>[number]) {
+    return Boolean(
+      question.graphDefinitions?.length
+      || question.graphModel?.objects.length
+      || question.graphTypst?.text.trim(),
+    );
+  }
+
+  function hasNarrativeData(question: NonNullable<DecodeResult['questions']>[number]) {
+    return Boolean(question.narrative?.text.trim());
+  }
+
+  function questionFeatureLabels(question: NonNullable<DecodeResult['questions']>[number]) {
+    return [
+      ...(hasNarrativeData(question) ? ['narrative'] : []),
+      ...(hasAlgorithmData(question) ? ['algorithm'] : []),
+      ...(hasGraphData(question) ? ['graph'] : []),
+    ];
+  }
+
+  function matchesQuestionFilter(
+    question: NonNullable<DecodeResult['questions']>[number],
+    filter: typeof questionFilter,
+  ) {
+    if (filter === 'algorithmic') return hasAlgorithmData(question);
+    if (filter === 'graphical') return hasGraphData(question);
+    if (filter === 'hybrid') return hasAlgorithmData(question) || hasGraphData(question);
+    return true;
+  }
+
+  function questionCountForFilter(filter: typeof questionFilter) {
+    return (result?.questions ?? []).filter((question) => matchesQuestionFilter(question, filter)).length;
   }
 
   async function loadStoredBanks() {
@@ -373,6 +419,31 @@
           <div><span>Raw fragments</span><strong>{result.stats.unsupportedFragmentCount}</strong></div>
         </div>
 
+        <div class="filters">
+          <div class="filters-header">
+            <strong>Question filter</strong>
+            <small>{filteredQuestions.length} shown</small>
+          </div>
+          <div class="filter-grid">
+            <button class:active={questionFilter === 'all'} onclick={() => (questionFilter = 'all')}>
+              All
+              <small>{questionCountForFilter('all')}</small>
+            </button>
+            <button class:active={questionFilter === 'algorithmic'} onclick={() => (questionFilter = 'algorithmic')}>
+              Algorithm
+              <small>{questionCountForFilter('algorithmic')}</small>
+            </button>
+            <button class:active={questionFilter === 'graphical'} onclick={() => (questionFilter = 'graphical')}>
+              Graph
+              <small>{questionCountForFilter('graphical')}</small>
+            </button>
+            <button class:active={questionFilter === 'hybrid'} onclick={() => (questionFilter = 'hybrid')}>
+              Either
+              <small>{questionCountForFilter('hybrid')}</small>
+            </button>
+          </div>
+        </div>
+
         <div class="actions">
           <button class="primary" onclick={exportLatex}>Export LaTeX</button>
           <button onclick={exportTypst}>Export Typst</button>
@@ -382,19 +453,33 @@
         </div>
 
         <div class="question-list" aria-label="Decoded questions">
-          {#each result.questions as question, index}
+          {#if filteredQuestions.length}
+            {#each filteredQuestions as question, index}
+              <button
+                id={`question-${question.id}`}
+                class:active={selectedQuestion?.id === question.id}
+                onclick={() => {
+                  selectedQuestionId = question.id;
+                  if (selectedBankId) selectedQuestionByBank = { ...selectedQuestionByBank, [selectedBankId]: question.id };
+                }}
+              >
+                <span>
+                  Question {index + 1}
+                  {#if questionFeatureLabels(question).length}
+                    <small class="feature-line">{questionFeatureLabels(question).join(' · ')}</small>
+                  {/if}
+                </span>
+                <small>{question.type} · {question.confidence}</small>
+              </button>
+            {/each}
+          {:else}
             <button
-              id={`question-${question.id}`}
-              class:active={selectedQuestion?.id === question.id}
-              onclick={() => {
-                selectedQuestionId = question.id;
-                if (selectedBankId) selectedQuestionByBank = { ...selectedQuestionByBank, [selectedBankId]: question.id };
-              }}
+              disabled
+              class="empty-filter"
             >
-              <span>Question {index + 1}</span>
-              <small>{question.type} · {question.confidence}</small>
+              <span>No questions match this filter.</span>
             </button>
-          {/each}
+          {/if}
         </div>
       {:else}
         <div class="empty">
@@ -411,6 +496,13 @@
             {#if selectedQuestion}
               <p class="eyebrow">{selectedQuestion.type} · {selectedQuestion.confidence} confidence</p>
               <h2>{selectedQuestion.id}</h2>
+              {#if questionFeatureLabels(selectedQuestion).length}
+                <div class="feature-chips">
+                  {#each questionFeatureLabels(selectedQuestion) as label}
+                    <span class="feature-chip">{label}</span>
+                  {/each}
+                </div>
+              {/if}
             {:else}
               <p class="eyebrow">Decoded bank</p>
               <h2>{fileName || 'Decoded bank'}</h2>
@@ -538,6 +630,28 @@
               </div>
             {/if}
 
+            {#if selectedQuestion.algorithmEvaluation?.entries.length || selectedQuestion.algorithmEvaluation?.diagnostics.length}
+              <h3>Algorithm Evaluation</h3>
+              <div class="variable-list">
+                {#if selectedQuestion.algorithmEvaluation?.entries.length}
+                  {#each selectedQuestion.algorithmEvaluation.entries as entry}
+                    <div>
+                      <strong>{entry.name} · {entry.status}</strong>
+                      <span>{entry.value ?? 'no resolved sample value'}</span>
+                    </div>
+                  {/each}
+                {/if}
+                {#if selectedQuestion.algorithmEvaluation?.diagnostics.length}
+                  {#each selectedQuestion.algorithmEvaluation.diagnostics as diagnostic}
+                    <div>
+                      <strong>{diagnostic.level} · {diagnostic.code}</strong>
+                      <span>{diagnostic.message}</span>
+                    </div>
+                  {/each}
+                {/if}
+              </div>
+            {/if}
+
             {#if selectedQuestion.graphDefinitions?.length}
               <h3>Graph Definitions</h3>
               <div class="variable-list">
@@ -593,6 +707,12 @@
                     <span>{object.expression ?? object.typstMath ?? 'no recovered expression'}</span>
                   </div>
                 {/each}
+                {#if selectedQuestion.graphModel.variables && Object.keys(selectedQuestion.graphModel.variables).length}
+                  <div>
+                    <strong>graph variables</strong>
+                    <span>{Object.entries(selectedQuestion.graphModel.variables).map(([name, value]) => `${name}=${value}`).join(', ')}</span>
+                  </div>
+                {/if}
               </div>
             {/if}
 
@@ -775,6 +895,37 @@
     margin: 1rem 0;
   }
 
+  .filters {
+    display: grid;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .filters-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .filter-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.45rem;
+  }
+
+  .filter-grid button {
+    display: grid;
+    gap: 0.1rem;
+    justify-items: start;
+    text-align: left;
+  }
+
+  .filter-grid button.active {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
+  }
+
   .bank-library {
     display: grid;
     gap: 0.6rem;
@@ -871,13 +1022,49 @@
     text-align: left;
   }
 
+  .question-list button span {
+    display: grid;
+    gap: 0.15rem;
+  }
+
   .question-list button.active {
     border-color: var(--accent);
     box-shadow: 0 0 0 2px color-mix(in srgb, var(--accent) 18%, transparent);
   }
 
+  .feature-line {
+    color: var(--accent-strong);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+
+  .empty-filter {
+    opacity: 0.7;
+    cursor: default;
+  }
+
   small {
     color: var(--muted);
+  }
+
+  .feature-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.45rem;
+  }
+
+  .feature-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.18rem 0.5rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 14%, white);
+    color: var(--accent-strong);
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
   }
 
   .preview {
