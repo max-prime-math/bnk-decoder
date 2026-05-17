@@ -226,6 +226,9 @@ The block sits directly ahead of the matching prompt in the same non-metadata st
   - at least one strong algorithm rule such as `range(...)`, arithmetic dependencies, predicates, `isunique(...)`, or `scramble`
   - at least one strong rule still visible in the pre-display string sequence itself
 - This rejects weak false positives such as `Pre-Calculus 11/Chapter 01.bnk`, where the pre-prompt window decoded to junk tokens (`T`, `U`, `[[slot]]`) but not a real shared algorithm block.
+- The decoder now preserves both:
+  - a normalized `definitions[]` projection for evaluation/rendering work
+  - an ordered raw `sequence[]` projection so the original pre-display algorithm block layout can be inspected later without re-parsing the binary again
 
 ---
 

@@ -33,6 +33,14 @@ export interface Class {
 
 export type AlgorithmScopeKind = 'question' | 'narrative' | 'matching-group';
 export type AlgorithmDefinitionKind = 'variable' | 'constant' | 'condition' | 'user-function' | 'unknown';
+export type AlgorithmSequenceEntryKind =
+  | 'variable-name'
+  | 'rule'
+  | 'sample-value'
+  | 'condition'
+  | 'support-token'
+  | 'control'
+  | 'unknown';
 export type GraphFamily = 'cartesian' | 'polar' | 'number-line' | 'unknown';
 export type GraphObjectKind = 'function' | 'relation' | 'point' | 'text' | 'unknown';
 export type DiagnosticLevel = 'info' | 'warning' | 'error';
@@ -53,11 +61,22 @@ export interface AlgorithmDefinition {
   source: string;
 }
 
+export interface AlgorithmSequenceEntry {
+  id: string;
+  order: number;
+  text: string;
+  kind: AlgorithmSequenceEntryKind;
+  ownerKind: AlgorithmScopeKind;
+  definitionName?: string;
+  source: string;
+}
+
 export interface AlgorithmModel {
   scope: {
     kind: AlgorithmScopeKind;
   };
   definitions: AlgorithmDefinition[];
+  sequence: AlgorithmSequenceEntry[];
   source: string;
 }
 

@@ -528,6 +528,13 @@
                     {/if}
                   </div>
                 {/each}
+                {#each selectedQuestion.algorithmModel.sequence as entry}
+                  <div>
+                    <strong>{entry.order} · {entry.kind}{entry.definitionName ? ` · ${entry.definitionName}` : ''}</strong>
+                    <span>{entry.text}</span>
+                    <small>{entry.ownerKind} · {entry.source}</small>
+                  </div>
+                {/each}
               </div>
             {/if}
 

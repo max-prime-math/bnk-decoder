@@ -3,6 +3,7 @@ import type {
   AlgorithmDefinitionKind,
   AlgorithmEvaluation,
   AlgorithmModel,
+  AlgorithmSequenceEntry,
   DraftQuestionLike,
   GraphFamily,
   GraphModel,
@@ -3124,7 +3125,7 @@ function buildAlgorithmArtifacts(
   scopeKind: AlgorithmModel['scope']['kind'] = 'question',
   source = 'pre-display-string-sequence',
 ): AlgorithmArtifacts {
-  const definitions = extractAlgorithmDefinitions(preDisplayStrings, variables);
+  const { definitions, sequence } = extractAlgorithmStructure(preDisplayStrings, variables, scopeKind);
   if (!definitions.length) {
     return { decodeDiagnostics: [] };
   }
@@ -3157,6 +3158,7 @@ function buildAlgorithmArtifacts(
     algorithmModel: {
       scope: { kind: scopeKind },
       definitions,
+      sequence,
       source,
     },
     algorithmEvaluation: {
@@ -3167,14 +3169,32 @@ function buildAlgorithmArtifacts(
   };
 }
 
-function extractAlgorithmDefinitions(
+function extractAlgorithmStructure(
   preDisplayStrings: string[],
   variables: AlgorithmicVariable[],
-): AlgorithmDefinition[] {
+  scopeKind: AlgorithmModel['scope']['kind'],
+): { definitions: AlgorithmDefinition[]; sequence: AlgorithmSequenceEntry[] } {
   const definitions: AlgorithmDefinition[] = [];
+  const sequence: AlgorithmSequenceEntry[] = [];
   const variableMap = new Map(variables.map((variable) => [variable.name.toLowerCase(), variable]));
   let conditionIndex = 0;
   let unknownIndex = 0;
+  let sequenceIndex = 0;
+  const pushSequence = (
+    text: string,
+    kind: AlgorithmSequenceEntry['kind'],
+    definitionName?: string,
+  ) => {
+    sequence.push({
+      id: `alg-seq-${sequence.length + 1}`,
+      order: ++sequenceIndex,
+      text,
+      kind,
+      ownerKind: scopeKind,
+      definitionName,
+      source: 'pre-display-string-sequence',
+    });
+  };
 
   for (let index = 0; index < preDisplayStrings.length; index++) {
     const current = preDisplayStrings[index]?.trim();
@@ -3184,17 +3204,21 @@ function extractAlgorithmDefinitions(
       const variable = variableMap.get(current.toLowerCase());
       if (variable) {
         const rawExpression = variable.rule?.trim() || undefined;
+        const sampleValue = variable.sampleValue?.trim() || undefined;
         definitions.push({
           id: `alg-${definitions.length + 1}`,
           name: variable.name,
           kind: inferAlgorithmDefinitionKind(variable),
           rawExpression,
-          sampleValue: variable.sampleValue?.trim() || undefined,
+          sampleValue,
           dependencies: rawExpression ? extractAlgorithmDependencies(rawExpression, variable.name) : [],
           source: 'pre-display-string-sequence',
         });
+        pushSequence(variable.name, 'variable-name', variable.name);
+        if (rawExpression) pushSequence(rawExpression, 'rule', variable.name);
+        if (sampleValue) pushSequence(sampleValue, 'sample-value', variable.name);
         if (rawExpression && preDisplayStrings[index + 1]?.trim() === rawExpression) {
-          index += variable.sampleValue && preDisplayStrings[index + 2]?.trim() === variable.sampleValue.trim() ? 2 : 1;
+          index += sampleValue && preDisplayStrings[index + 2]?.trim() === sampleValue ? 2 : 1;
         }
         continue;
       }
@@ -3213,6 +3237,7 @@ function extractAlgorithmDefinitions(
         dependencies,
         source: 'pre-display-string-sequence',
       });
+      pushSequence(current, 'condition', 'isunique');
       continue;
     }
 
@@ -3228,6 +3253,9 @@ function extractAlgorithmDefinitions(
         dependencies: [],
         source: 'pre-display-string-sequence',
       });
+      pushSequence(current, 'control', 'scramble');
+      if (rawExpression) pushSequence(rawExpression, 'rule', 'scramble');
+      if (sampleValue && /^\d+$/.test(sampleValue)) pushSequence(sampleValue, 'sample-value', 'scramble');
       if (rawExpression && /^(true|false)$/i.test(rawExpression)) {
         index += sampleValue ? 2 : 1;
       }
@@ -3244,6 +3272,7 @@ function extractAlgorithmDefinitions(
         dependencies: extractAlgorithmDependencies(current, ''),
         source: 'pre-display-string-sequence',
       });
+      pushSequence(current, 'condition', `condition_${conditionIndex}`);
       continue;
     }
 
@@ -3257,10 +3286,17 @@ function extractAlgorithmDefinitions(
         dependencies: [],
         source: 'pre-display-string-sequence',
       });
+      pushSequence(current, 'support-token');
+      continue;
     }
+
+    pushSequence(current, 'unknown');
   }
 
-  return dedupeAlgorithmDefinitions(definitions);
+  return {
+    definitions: dedupeAlgorithmDefinitions(definitions),
+    sequence,
+  };
 }
 
 function dedupeAlgorithmDefinitions(definitions: AlgorithmDefinition[]): AlgorithmDefinition[] {
