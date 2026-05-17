@@ -1201,53 +1201,28 @@ function decodeNonMetadataQuestions(
   standardQuestionCount: number,
   diagnostics: DecodeDiagnostic[],
 ): DecodedQuestion[] {
-  // Parse matching questions from the non-metadata section of v06 binaries
-  // This section starts after standard difficulty+section questions
-  // and contains questions without standard metadata headers
-  // Use UTF-16LE directly since this section may not score well in extractReadableText
-
-  const UTF16LE_DECODER = new TextDecoder('utf-16le');
-  const text = UTF16LE_DECODER.decode(bytes);
-
-  if (!text.includes('Match the correct')) {
+  const promptEntries = findMatchingPromptEntries(strings);
+  if (!promptEntries.length) {
     return [];
   }
 
   const questions: DecodedQuestion[] = [];
-  let matchIdx = text.indexOf('Match the correct');
-
-  if (matchIdx === -1) {
-    return [];
-  }
-
-  // Find all matching questions (look for "Match" prompts)
-  const matchPatterns = [];
-  while ((matchIdx = text.indexOf('Match the correct', matchIdx)) !== -1) {
-    matchPatterns.push(matchIdx);
-    matchIdx += 'Match the correct'.length;
-  }
 
   diagnostics.push({
     level: 'info',
     code: 'V06_MATCHING_QUESTIONS_DETECTED',
-    message: `Found ${matchPatterns.length} matching question${matchPatterns.length === 1 ? '' : 's'} in non-metadata section.`,
+    message: `Found ${promptEntries.length} matching question${promptEntries.length === 1 ? '' : 's'} in non-metadata section.`,
   });
 
-  // Parse each matching question
-  for (let i = 0; i < matchPatterns.length; i++) {
-    const start = matchPatterns[i];
-    const end = matchPatterns[i + 1] ?? text.length;
-
-    // Extract question text (from "Match" to the first choice block)
-    const questionText = extractMatchingQuestionText(text, start, end);
+  for (let i = 0; i < promptEntries.length; i++) {
+    const promptEntry = promptEntries[i];
+    const questionText = normalizeMatchingPromptText(promptEntry.text);
     if (!questionText) continue;
 
-    // Extract choices (typically A-F format with matching pairs)
-    const choices = extractMatchingChoices(text, start, end);
+    const choices = extractMatchingChoicesFromStrings(strings, promptEntry.index);
     if (!choices || choices.length < 2) continue;
     const promptArtifacts = extractMatchingPromptArtifacts(strings, questionText);
 
-    // Create the question object
     questions.push({
       id: `q-${standardQuestionCount + i + 1}`,
       type: 'matching',
@@ -1261,6 +1236,7 @@ function decodeNonMetadataQuestions(
         unitName: 'Chapter (Unknown)',
         sectionName: 'Non-Standard Section',
         difficulty: 'Unknown',
+        sourceOffset: promptEntry.offset,
       },
       algorithmModel: promptArtifacts.algorithmModel,
       algorithmEvaluation: promptArtifacts.algorithmEvaluation,
@@ -1281,42 +1257,35 @@ function decodeNonMetadataQuestions(
   return questions;
 }
 
-function extractMatchingQuestionText(text: string, start: number, end: number): string | undefined {
-  const segment = text.substring(start, Math.min(start + 500, end));
-
-  // Look for the pattern "Match the correct ... below"
-  const match = /Match the correct [^.]*\./i.exec(segment);
-  if (!match) return undefined;
-
-  return match[0];
+function findMatchingPromptEntries(strings: ExtractedString[]): Array<ExtractedString & { index: number }> {
+  return strings.flatMap((entry, index) => (
+    /Match the correct/i.test(entry.text)
+      ? [{ ...entry, index }]
+      : []
+  ));
 }
 
-function extractMatchingChoices(text: string, start: number, end: number): Choice[] | undefined {
-  const segment = text.substring(start, Math.min(start + 1000, end));
+function normalizeMatchingPromptText(text: string): string | undefined {
+  const normalized = text
+    .replace(/\[\[slot\]\]/g, '')
+    .replace(/\r+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+  const match = /Match the correct [^.]*\./i.exec(normalized);
+  return match?.[0];
+}
 
-  // Matching questions have choices separated by 0x11 (decimal 17) character
-  // Format contains: letter[0x11]text[0x11]letter[0x11]text[0x11]...
-  // We need to find pairs where first element is a single letter A-F
-
-  const parts = segment.split('\x11');
+function extractMatchingChoicesFromStrings(strings: ExtractedString[], promptIndex: number): Choice[] | undefined {
   const choices: Choice[] = [];
-
-  // Process all parts, looking for letter+text pairs
-  // Sometimes structure varies, so we need to be flexible
-  let i = 0;
-  while (i < parts.length) {
-    const trimmed = parts[i]?.trim() ?? '';
-
-    // Check if this part ends with or is a single letter A-F
-    const letterMatch = trimmed.match(/([A-F])$/);
-    const letter = letterMatch ? letterMatch[1] : null;
-
-    if (letter && i + 1 < parts.length) {
-      // Found a letter, check next part for choice text
-      const nextPart = parts[i + 1]?.trim() ?? '';
-
-      // Next part should be the choice text (multiple words/letters)
-      if (nextPart && /^[A-Za-z]/.test(nextPart) && nextPart.length > 1 && !/^[A-F]$/.test(nextPart)) {
+  for (let index = promptIndex + 1; index < Math.min(strings.length, promptIndex + 40); index++) {
+    const letter = strings[index]?.text?.trim();
+    const nextPart = strings[index + 1]?.text?.trim() ?? '';
+    if (!/^[A-F]$/.test(letter ?? '')) {
+      if (choices.length >= 2 && isFontString(letter ?? '')) break;
+      continue;
+    }
+    if (nextPart && /^[A-Za-z]/.test(nextPart) && nextPart.length > 1 && !/^[A-F]$/.test(nextPart)) {
+      if (!choices.some((choice) => choice.id === letter)) {
         choices.push({
           id: letter,
           body: {
@@ -1324,17 +1293,10 @@ function extractMatchingChoices(text: string, start: number, end: number): Choic
             text: nextPart.replace(/\s+/g, ' '),
           },
         });
-        i += 2;
-        continue;
       }
     }
-
-    i++;
   }
-
-  // For matching questions, expect at least 2 choices
   if (choices.length < 2) return undefined;
-
   return choices;
 }
 
@@ -1349,12 +1311,20 @@ function extractMatchingPromptArtifacts(
   if (!preDisplayStrings.length) return { decodeDiagnostics: [] };
 
   const variables = extractAlgorithmicVariables(preDisplayStrings);
-  return buildAlgorithmArtifacts(
+  const artifacts = buildAlgorithmArtifacts(
     preDisplayStrings,
     variables,
     'matching-group',
     'matching-section-prelude',
   );
+  if (artifacts.algorithmModel?.definitions.length) {
+    artifacts.decodeDiagnostics.unshift({
+      level: 'info',
+      code: 'MATCHING_GROUP_ALGORITHM_DETECTED',
+      message: `Recovered ${artifacts.algorithmModel.definitions.length} algorithm definition${artifacts.algorithmModel.definitions.length === 1 ? '' : 's'} from the matching-group prelude.`,
+    });
+  }
+  return artifacts;
 }
 
 function collectMatchingPreDisplayStrings(strings: ExtractedString[], promptIndex: number): string[] {
