@@ -299,6 +299,139 @@
     return (result?.questions ?? []).filter((question) => matchesQuestionFilter(question, filter)).length;
   }
 
+  function algorithmDefinitionCount(question: NonNullable<DecodeResult['questions']>[number]) {
+    return question.algorithmModel?.definitions.length ?? 0;
+  }
+
+  function algorithmResolvedCount(question: NonNullable<DecodeResult['questions']>[number]) {
+    return question.algorithmEvaluation?.entries.filter((entry) => entry.status === 'resolved').length ?? 0;
+  }
+
+  function algorithmSequenceCount(question: NonNullable<DecodeResult['questions']>[number]) {
+    return question.algorithmModel?.sequence.length ?? 0;
+  }
+
+  function graphObjectCount(question: NonNullable<DecodeResult['questions']>[number]) {
+    return question.graphModel?.objects.length ?? question.graphDefinitions?.length ?? 0;
+  }
+
+  function graphVariableCount(question: NonNullable<DecodeResult['questions']>[number]) {
+    return question.graphModel?.variables ? Object.keys(question.graphModel.variables).length : 0;
+  }
+
+  function graphExpressionSummary(question: NonNullable<DecodeResult['questions']>[number]) {
+    const expressions = question.graphModel?.rawExpressions?.length
+      ? question.graphModel.rawExpressions
+      : question.graphDefinitions?.flatMap((graph) => graph.expressions) ?? [];
+    return expressions.slice(0, 3).join(', ');
+  }
+
+  function resolvedAlgorithmPairs(question: NonNullable<DecodeResult['questions']>[number]) {
+    const values = new Map<string, string>();
+
+    for (const entry of question.algorithmEvaluation?.entries ?? []) {
+      if (entry.status === 'resolved' && entry.name && entry.value) {
+        values.set(entry.name, entry.value);
+      }
+    }
+
+    for (const definition of question.algorithmModel?.definitions ?? []) {
+      if (!values.has(definition.name) && definition.name && definition.sampleValue) {
+        values.set(definition.name, definition.sampleValue);
+      }
+    }
+
+    return [...values.entries()]
+      .filter(([name, value]) => /^[A-Za-z_][A-Za-z0-9_]*$/.test(name) && value.trim().length > 0)
+      .sort((a, b) => b[0].length - a[0].length);
+  }
+
+  function escapeRegex(text: string) {
+    return text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function materializeAlgorithmText(text: string, question: NonNullable<DecodeResult['questions']>[number]) {
+    let output = text;
+    for (const [name, value] of resolvedAlgorithmPairs(question)) {
+      output = output.replace(
+        new RegExp(`(?<![A-Za-z0-9_])${escapeRegex(name)}(?![A-Za-z0-9_])`, 'g'),
+        value,
+      );
+    }
+    return output;
+  }
+
+  function algorithmMaterializationSections(question: NonNullable<DecodeResult['questions']>[number]) {
+    const sections: Array<{ label: string; text: string }> = [];
+    const body = materializeAlgorithmText(question.body.text, question);
+    if (body.trim()) sections.push({ label: 'Body', text: body });
+
+    for (const choice of question.choices ?? []) {
+      const text = materializeAlgorithmText(choice.body.text, question).trim();
+      if (text) sections.push({ label: `Choice ${choice.id}`, text });
+    }
+
+    if (question.solution?.text.trim()) {
+      sections.push({
+        label: 'Solution',
+        text: materializeAlgorithmText(question.solution.text, question),
+      });
+    }
+
+    return sections;
+  }
+
+  type SupportTone = 'good' | 'info' | 'warn';
+
+  function algorithmSupportSummary(question: NonNullable<DecodeResult['questions']>[number]) {
+    const items: Array<{ label: string; detail: string; tone: SupportTone }> = [];
+    const scope = question.algorithmModel?.scope.kind;
+    if (scope === 'question') {
+      items.push({ label: 'Question scope', detail: 'Recovered from the local question pre-display block.', tone: 'good' });
+    } else if (scope === 'matching-group') {
+      items.push({ label: 'Matching-group scope', detail: 'Recovered from the shared matching prelude. This path is first-pass but binary-backed.', tone: 'info' });
+    } else if (scope === 'narrative') {
+      items.push({ label: 'Narrative scope', detail: 'Narrative algorithm scope is modeled, but not yet broadly evidenced in the local corpus.', tone: 'warn' });
+    }
+
+    const unresolved = question.algorithmEvaluation?.entries.filter((entry) => entry.status === 'unresolved').length ?? 0;
+    if (unresolved > 0) {
+      items.push({ label: 'Unresolved values', detail: `${unresolved} sample value${unresolved === 1 ? '' : 's'} could not be resolved.`, tone: 'warn' });
+    } else if (algorithmResolvedCount(question) > 0) {
+      items.push({ label: 'Sample values ready', detail: `${algorithmResolvedCount(question)} resolved value${algorithmResolvedCount(question) === 1 ? '' : 's'} available for inspection.`, tone: 'good' });
+    }
+
+    const unknownDefinitions = question.algorithmModel?.definitions.filter((definition) => definition.kind === 'unknown').length ?? 0;
+    if (unknownDefinitions > 0 || question.decodeDiagnostics?.some((diagnostic) => diagnostic.code === 'ALGORITHM_SUPPORT_TOKEN')) {
+      items.push({ label: 'Opaque support tokens', detail: 'Some recovered algorithm tokens are preserved but not fully interpreted yet.', tone: 'warn' });
+    }
+
+    const userFunctions = question.algorithmModel?.definitions.filter((definition) => definition.kind === 'user-function').length ?? 0;
+    if (userFunctions > 0) {
+      items.push({ label: 'User-defined functions', detail: `${userFunctions} function-style definition${userFunctions === 1 ? '' : 's'} recovered; full execution is not implemented yet.`, tone: 'warn' });
+    }
+
+    if (algorithmSequenceCount(question) > 0) {
+      items.push({ label: 'Raw sequence preserved', detail: `${algorithmSequenceCount(question)} ordered pre-display token${algorithmSequenceCount(question) === 1 ? '' : 's'} preserved for debugging.`, tone: 'info' });
+    }
+
+    if (!items.length && hasAlgorithmData(question)) {
+      items.push({ label: 'Algorithm data present', detail: 'Recovered algorithm artifacts are available, but this question has little evaluable structure yet.', tone: 'info' });
+    }
+
+    return items;
+  }
+
+  function algorithmStatusTone(status: 'resolved' | 'unresolved') {
+    return status === 'resolved' ? 'good' : 'muted';
+  }
+
+  function diagnosticTone(level: 'info' | 'warning' | 'error') {
+    if (level === 'error') return 'error';
+    if (level === 'warning') return 'warn';
+    return 'info';
+  }
+
   async function loadStoredBanks() {
     try {
       const stored = await listStoredBanks();
@@ -575,6 +708,211 @@
               <pre>{selectedQuestion.solution.text}</pre>
             {/if}
 
+            {#if hasAlgorithmData(selectedQuestion) || hasGraphData(selectedQuestion)}
+              <section class="insight-grid">
+                {#if hasAlgorithmData(selectedQuestion)}
+                  <section class="insight-pane">
+                    <div class="pane-header">
+                      <div>
+                        <p class="pane-eyebrow">Algorithm</p>
+                        <h3>Algorithm Pane</h3>
+                      </div>
+                      <div class="metric-row">
+                        <div class="metric-card">
+                          <span>Scope</span>
+                          <strong>{selectedQuestion.algorithmModel?.scope.kind ?? 'question'}</strong>
+                        </div>
+                        <div class="metric-card">
+                          <span>Defs</span>
+                          <strong>{algorithmDefinitionCount(selectedQuestion)}</strong>
+                        </div>
+                        <div class="metric-card">
+                          <span>Resolved</span>
+                          <strong>{algorithmResolvedCount(selectedQuestion)}</strong>
+                        </div>
+                        <div class="metric-card">
+                          <span>Raw Seq</span>
+                          <strong>{algorithmSequenceCount(selectedQuestion)}</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    {#if selectedQuestion.algorithmModel?.definitions.length}
+                      <div class="structured-table">
+                        <div class="structured-head">
+                          <span>Name</span>
+                          <span>Kind</span>
+                          <span>Rule</span>
+                          <span>Sample</span>
+                        </div>
+                        {#each selectedQuestion.algorithmModel.definitions as definition}
+                          <div class="structured-row">
+                            <strong>{definition.name}</strong>
+                            <span>{definition.kind}</span>
+                            <code>{definition.rawExpression ?? '—'}</code>
+                            <span>{definition.sampleValue ?? '—'}</span>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if selectedQuestion.algorithmEvaluation?.entries.length}
+                      <div class="status-strip">
+                        {#each selectedQuestion.algorithmEvaluation.entries as entry}
+                          <div class={`status-pill ${algorithmStatusTone(entry.status)}`}>
+                            <strong>{entry.name}</strong>
+                            <span>{entry.value ?? entry.status}</span>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if algorithmSupportSummary(selectedQuestion).length}
+                      <div class="support-list">
+                        {#each algorithmSupportSummary(selectedQuestion) as item}
+                          <div class={`support-card ${item.tone}`}>
+                            <strong>{item.label}</strong>
+                            <span>{item.detail}</span>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if algorithmMaterializationSections(selectedQuestion).length}
+                      <details class="pane-details" open>
+                        <summary>Sample materialization</summary>
+                        <div class="materialization-list">
+                          {#each algorithmMaterializationSections(selectedQuestion) as section}
+                            <div class="materialization-card">
+                              <strong>{section.label}</strong>
+                              <pre>{section.text}</pre>
+                            </div>
+                          {/each}
+                        </div>
+                      </details>
+                    {/if}
+
+                    {#if selectedQuestion.algorithmModel?.sequence.length}
+                      <details class="pane-details">
+                        <summary>Raw sequence</summary>
+                        <div class="sequence-list">
+                          {#each selectedQuestion.algorithmModel.sequence as entry}
+                            <div class="sequence-item">
+                              <strong>{entry.order}</strong>
+                              <span>{entry.kind}</span>
+                              <code>{entry.text}</code>
+                              <small>{entry.definitionName ?? entry.ownerKind}</small>
+                            </div>
+                          {/each}
+                        </div>
+                      </details>
+                    {/if}
+                  </section>
+                {/if}
+
+                {#if hasGraphData(selectedQuestion)}
+                  <section class="insight-pane">
+                    <div class="pane-header">
+                      <div>
+                        <p class="pane-eyebrow">Graph</p>
+                        <h3>Graph Pane</h3>
+                      </div>
+                      <div class="metric-row">
+                        <div class="metric-card">
+                          <span>Family</span>
+                          <strong>{selectedQuestion.graphModel?.family ?? 'unknown'}</strong>
+                        </div>
+                        <div class="metric-card">
+                          <span>Objects</span>
+                          <strong>{graphObjectCount(selectedQuestion)}</strong>
+                        </div>
+                        <div class="metric-card">
+                          <span>Vars</span>
+                          <strong>{graphVariableCount(selectedQuestion)}</strong>
+                        </div>
+                      </div>
+                    </div>
+
+                    {#if selectedQuestion.graphDefinitions?.length}
+                      <div class="graph-gallery">
+                        {#each selectedQuestion.graphDefinitions as graph}
+                          <div class="graph-card">
+                            <div class="graph-card-header">
+                              <strong>{graph.id}</strong>
+                              <small>{graph.source}</small>
+                            </div>
+                            {#if graphHasSamples(graph)}
+                              {@const bounds = graphBounds(graph)}
+                              <svg class="graph-preview" viewBox={`0 0 ${graphWidth} ${graphHeight}`} role="img" aria-label={`Preview of ${graph.id}`}>
+                                <rect x="0" y="0" width={graphWidth} height={graphHeight} />
+                                <line class="graph-axis" x1="0" x2={graphWidth} y1={graphY(0, bounds)} y2={graphY(0, bounds)} />
+                                <line class="graph-axis" y1="0" y2={graphHeight} x1={graphX(0, bounds)} x2={graphX(0, bounds)} />
+                                {#each graph.normalizedExpressions ?? [] as expression, expressionIndex}
+                                  {#each graphSegments(expression.samplePoints ?? []) as segment}
+                                    <polyline
+                                      points={graphPolyline(segment, bounds)}
+                                      stroke={graphColor(expressionIndex)}
+                                    />
+                                  {/each}
+                                {/each}
+                              </svg>
+                            {/if}
+                            <p class="graph-summary">
+                              {(graph.normalizedExpressions ?? []).length
+                                ? graph.normalizedExpressions?.map((expression) => expression.substituted).join(', ')
+                                : graph.expressions.join(', ')}
+                            </p>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if selectedQuestion.graphModel?.objects.length}
+                      <div class="structured-table">
+                        <div class="structured-head">
+                          <span>Object</span>
+                          <span>Kind</span>
+                          <span>Expression</span>
+                        </div>
+                        {#each selectedQuestion.graphModel.objects as object}
+                          <div class="structured-row">
+                            <strong>{object.id}</strong>
+                            <span>{object.kind}</span>
+                            <code>{object.expression ?? object.typstMath ?? '—'}</code>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if selectedQuestion.graphModel?.variables && Object.keys(selectedQuestion.graphModel.variables).length}
+                      <div class="status-strip">
+                        {#each Object.entries(selectedQuestion.graphModel.variables) as [name, value]}
+                          <div class="status-pill info">
+                            <strong>{name}</strong>
+                            <span>{value}</span>
+                          </div>
+                        {/each}
+                      </div>
+                    {/if}
+
+                    {#if selectedQuestion.graphTypst?.text}
+                      <details class="pane-details">
+                        <summary>Graph Typst snapshot</summary>
+                        <pre>{selectedQuestion.graphTypst.text}</pre>
+                      </details>
+                    {/if}
+
+                    {#if graphExpressionSummary(selectedQuestion)}
+                      <div class="pane-note">
+                        <strong>Expressions</strong>
+                        <span>{graphExpressionSummary(selectedQuestion)}</span>
+                      </div>
+                    {/if}
+                  </section>
+                {/if}
+              </section>
+            {/if}
+
             {#if selectedQuestion.inlineObjects?.length}
               <h3>Inline Objects</h3>
               <div class="variable-list inline-object-list">
@@ -588,144 +926,11 @@
               </div>
             {/if}
 
-            {#if selectedQuestion.algorithmicVariables?.length}
-              <h3>Algorithmic Variables</h3>
-              <div class="variable-list">
-                {#each selectedQuestion.algorithmicVariables as variable}
-                  <div>
-                    <strong>{variable.name}</strong>
-                    <span>{variable.rule ?? 'unknown rule'}</span>
-                    {#if variable.sampleValue}
-                      <small>sample: {variable.sampleValue}</small>
-                    {/if}
-                  </div>
-                {/each}
-              </div>
-            {/if}
-
-            {#if selectedQuestion.algorithmModel?.definitions.length}
-              <h3>Algorithm Model</h3>
-              <div class="variable-list">
-                <div>
-                  <strong>scope</strong>
-                  <span>{selectedQuestion.algorithmModel.scope.kind}</span>
-                  <small>{selectedQuestion.algorithmModel.source}</small>
-                </div>
-                {#each selectedQuestion.algorithmModel.definitions as definition}
-                  <div>
-                    <strong>{definition.name} · {definition.kind}</strong>
-                    <span>{definition.rawExpression ?? 'no recovered rule'}</span>
-                    {#if definition.sampleValue}
-                      <small>sample: {definition.sampleValue}</small>
-                    {/if}
-                  </div>
-                {/each}
-                {#each selectedQuestion.algorithmModel.sequence as entry}
-                  <div>
-                    <strong>{entry.order} · {entry.kind}{entry.definitionName ? ` · ${entry.definitionName}` : ''}</strong>
-                    <span>{entry.text}</span>
-                    <small>{entry.ownerKind} · {entry.source}</small>
-                  </div>
-                {/each}
-              </div>
-            {/if}
-
-            {#if selectedQuestion.algorithmEvaluation?.entries.length || selectedQuestion.algorithmEvaluation?.diagnostics.length}
-              <h3>Algorithm Evaluation</h3>
-              <div class="variable-list">
-                {#if selectedQuestion.algorithmEvaluation?.entries.length}
-                  {#each selectedQuestion.algorithmEvaluation.entries as entry}
-                    <div>
-                      <strong>{entry.name} · {entry.status}</strong>
-                      <span>{entry.value ?? 'no resolved sample value'}</span>
-                    </div>
-                  {/each}
-                {/if}
-                {#if selectedQuestion.algorithmEvaluation?.diagnostics.length}
-                  {#each selectedQuestion.algorithmEvaluation.diagnostics as diagnostic}
-                    <div>
-                      <strong>{diagnostic.level} · {diagnostic.code}</strong>
-                      <span>{diagnostic.message}</span>
-                    </div>
-                  {/each}
-                {/if}
-              </div>
-            {/if}
-
-            {#if selectedQuestion.graphDefinitions?.length}
-              <h3>Graph Definitions</h3>
-              <div class="variable-list">
-                {#each selectedQuestion.graphDefinitions as graph}
-                  <div>
-                    <strong>{graph.id}</strong>
-                    {#if graphHasSamples(graph)}
-                      {@const bounds = graphBounds(graph)}
-                      <svg class="graph-preview" viewBox={`0 0 ${graphWidth} ${graphHeight}`} role="img" aria-label={`Preview of ${graph.id}`}>
-                        <rect x="0" y="0" width={graphWidth} height={graphHeight} />
-                        <line class="graph-axis" x1="0" x2={graphWidth} y1={graphY(0, bounds)} y2={graphY(0, bounds)} />
-                        <line class="graph-axis" y1="0" y2={graphHeight} x1={graphX(0, bounds)} x2={graphX(0, bounds)} />
-                        {#each graph.normalizedExpressions ?? [] as expression, expressionIndex}
-                          {#each graphSegments(expression.samplePoints ?? []) as segment}
-                            <polyline
-                              points={graphPolyline(segment, bounds)}
-                              stroke={graphColor(expressionIndex)}
-                            />
-                          {/each}
-                        {/each}
-                      </svg>
-                    {/if}
-                    <span>
-                      {(graph.normalizedExpressions ?? []).length
-                        ? graph.normalizedExpressions?.map((expression) => {
-                            const count = expression.samplePoints?.length ?? 0;
-                            return count ? `${expression.substituted} (${count} sampled points)` : expression.substituted;
-                          }).join(', ')
-                        : graph.expressions.join(', ')}
-                    </span>
-                    {#if graph.variables && Object.keys(graph.variables).length}
-                      <small>
-                        variables: {Object.entries(graph.variables).map(([name, value]) => `${name}=${value}`).join(', ')}
-                      </small>
-                    {/if}
-                    <small>{graph.source}</small>
-                  </div>
-                {/each}
-              </div>
-            {/if}
-
-            {#if selectedQuestion.graphModel?.objects.length}
-              <h3>Graph Model</h3>
-              <div class="variable-list">
-                <div>
-                  <strong>{selectedQuestion.graphModel.family}</strong>
-                  <span>{selectedQuestion.graphModel.rawExpressions.join(', ')}</span>
-                  <small>{selectedQuestion.graphModel.source}</small>
-                </div>
-                {#each selectedQuestion.graphModel.objects as object}
-                  <div>
-                    <strong>{object.id} · {object.kind}</strong>
-                    <span>{object.expression ?? object.typstMath ?? 'no recovered expression'}</span>
-                  </div>
-                {/each}
-                {#if selectedQuestion.graphModel.variables && Object.keys(selectedQuestion.graphModel.variables).length}
-                  <div>
-                    <strong>graph variables</strong>
-                    <span>{Object.entries(selectedQuestion.graphModel.variables).map(([name, value]) => `${name}=${value}`).join(', ')}</span>
-                  </div>
-                {/if}
-              </div>
-            {/if}
-
-            {#if selectedQuestion.graphTypst?.text}
-              <h3>Graph Typst</h3>
-              <pre>{selectedQuestion.graphTypst.text}</pre>
-            {/if}
-
             {#if selectedQuestion.decodeDiagnostics?.length}
               <h3>Decode Diagnostics</h3>
-              <div class="variable-list">
+              <div class="diagnostic-list">
                 {#each selectedQuestion.decodeDiagnostics as diagnostic}
-                  <div>
+                  <div class={`diagnostic-card ${diagnosticTone(diagnostic.level)}`}>
                     <strong>{diagnostic.level} · {diagnostic.code}</strong>
                     <span>{diagnostic.message}</span>
                   </div>
@@ -1127,6 +1332,33 @@
     color: #8a3f19;
   }
 
+  .diagnostic-list {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .diagnostic-card {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+  }
+
+  .diagnostic-card.info {
+    background: #f8f6ef;
+  }
+
+  .diagnostic-card.warn {
+    background: #fff6df;
+    border-color: #e2c06b;
+  }
+
+  .diagnostic-card.error {
+    background: #fff0ee;
+    border-color: #db8d82;
+  }
+
   .graph-preview {
     width: min(100%, 420px);
     height: auto;
@@ -1149,6 +1381,232 @@
     stroke-width: 2;
     stroke-linecap: round;
     stroke-linejoin: round;
+  }
+
+  .insight-grid {
+    display: grid;
+    gap: 1rem;
+    margin: 1rem 0 1.5rem;
+  }
+
+  .insight-pane {
+    display: grid;
+    gap: 0.85rem;
+    padding: 0.95rem;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: linear-gradient(180deg, #fffdf8 0%, #f7f3e8 100%);
+  }
+
+  .pane-header {
+    display: grid;
+    gap: 0.7rem;
+  }
+
+  .pane-eyebrow {
+    color: var(--accent-strong);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .metric-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+    gap: 0.5rem;
+  }
+
+  .metric-card {
+    display: grid;
+    gap: 0.12rem;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .metric-card span {
+    color: var(--muted);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .metric-card strong {
+    font-size: 0.95rem;
+  }
+
+  .structured-table {
+    display: grid;
+    gap: 0.35rem;
+  }
+
+  .structured-head,
+  .structured-row {
+    display: grid;
+    grid-template-columns: minmax(72px, 0.8fr) minmax(72px, 0.7fr) minmax(0, 2fr) minmax(0, 1fr);
+    gap: 0.5rem;
+    align-items: start;
+  }
+
+  .structured-head {
+    padding: 0 0.2rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .structured-row {
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.82);
+  }
+
+  .structured-row code,
+  .sequence-item code {
+    overflow-wrap: anywhere;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    color: #7c3718;
+  }
+
+  .status-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+  }
+
+  .support-list {
+    display: grid;
+    gap: 0.45rem;
+  }
+
+  .support-card {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.6rem 0.7rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .support-card.good {
+    border-color: #86ba8d;
+    background: #eef9ef;
+  }
+
+  .support-card.info {
+    border-color: #c9c0aa;
+    background: #faf7ef;
+  }
+
+  .support-card.warn {
+    border-color: #d8b061;
+    background: #fff6df;
+  }
+
+  .status-pill {
+    display: grid;
+    gap: 0.1rem;
+    min-width: 110px;
+    padding: 0.5rem 0.65rem;
+    border-radius: 8px;
+    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.78);
+  }
+
+  .status-pill.good {
+    border-color: #86ba8d;
+    background: #eef9ef;
+  }
+
+  .status-pill.muted,
+  .status-pill.info {
+    border-color: #c9c0aa;
+    background: #faf7ef;
+  }
+
+  .sequence-list {
+    display: grid;
+    gap: 0.35rem;
+    margin-top: 0.6rem;
+  }
+
+  .sequence-item {
+    display: grid;
+    grid-template-columns: 36px minmax(90px, 0.8fr) minmax(0, 2fr) minmax(90px, 0.8fr);
+    gap: 0.5rem;
+    align-items: start;
+    padding: 0.55rem 0.65rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.72);
+  }
+
+  .graph-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+  }
+
+  .graph-card {
+    display: grid;
+    gap: 0.45rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.8);
+  }
+
+  .graph-card-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .graph-summary {
+    color: var(--ink);
+    font-size: 0.92rem;
+    line-height: 1.35;
+  }
+
+  .pane-details {
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.64);
+    padding: 0.65rem 0.75rem;
+  }
+
+  .pane-details summary {
+    cursor: pointer;
+    font-weight: 600;
+  }
+
+  .pane-note {
+    display: grid;
+    gap: 0.15rem;
+    padding: 0.65rem 0.75rem;
+    border-left: 3px solid var(--accent);
+    background: rgba(255, 255, 255, 0.64);
+  }
+
+  .materialization-list {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
+  }
+
+  .materialization-card {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .materialization-card pre {
+    margin: 0;
+    background: rgba(255, 255, 255, 0.78);
   }
 
   .rendered-preview {
