@@ -178,6 +178,12 @@ Current evidence from the v06 corpus:
 - A broader corpus scan did not find `narrN` handles adjacent to obvious algorithm syntax such as `range(`, `isunique(`, `scramble`, or predicate expressions.
 - So narrative-owned algorithms are not yet proven in the available banks, even though the ExamView feature model allows them.
 
+Additional verification:
+
+- A full targeted scan across the available `FSCBNK#W#06#00` corpus searched extracted-string windows around every `narrN` handle.
+- That scan found `0` cases where a narrative handle sat near recognizable algorithm syntax.
+- Current working conclusion: treat narrative-owned algorithms as supported by the ExamView feature model but not yet evidenced in the local corpus.
+
 ---
 
 ## Section 4: Matching-Group Algorithm Prelude
