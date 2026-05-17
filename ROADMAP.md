@@ -7,6 +7,13 @@ Shared narrative preambles are now recovered from the binary catalog and attache
 
 Corpus-wide variation is the next research axis. See `BANK_VARIATION_AND_COVERAGE_PLAN.md` for the family inventory, version split, and the implementation plan for covering every bank in `ignore/ExamView/Banks` without regressing the stable banks.
 
+Graph and algorithm recovery now has a dedicated research reference and execution checklist:
+
+- `EXAMVIEW_GRAPHS_AND_ALGORITHMS_REFERENCE.md`
+- `EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md`
+
+Any LLM or human continuing parser work in these areas should read those two documents first; they describe both the semantic model and the recommended implementation order.
+
 ---
 
 ## 0. Corpus Variation and Bank Dialects
