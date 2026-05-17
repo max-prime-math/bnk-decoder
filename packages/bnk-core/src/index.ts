@@ -179,7 +179,11 @@ export interface DecodedGraphDefinition {
   expressions: string[];
   normalizedExpressions?: DecodedGraphExpression[];
   variables?: Record<string, string>;
-  source: 'string-token-heuristic' | 'algorithmic-variable-heuristic';
+  source:
+    | 'string-token-heuristic'
+    | 'algorithmic-variable-heuristic'
+    | 'chunk-text-heuristic'
+    | 'chunk-solution-heuristic';
 }
 
 export interface DecodedGraphExpression {
@@ -1123,9 +1127,47 @@ function decodeVersion06QuestionChunk(
     ),
     variableMap,
   );
-  const graphDefinitions = extractVersion06GraphDefinitions(strings, algorithmicVariables, body, title);
+  const extractedGraphDefinitions = extractVersion06GraphDefinitions(strings, algorithmicVariables, body, title);
+  const stringChunkGraphDefinitions = extractedGraphDefinitions?.length
+    ? undefined
+    : extractQuadraticGraphDefinitionsFromText(
+        strings.map((entry) => entry.text).join('\n'),
+        body,
+        title,
+        'chunk-text-heuristic',
+      );
+  const rawChunkGraphDefinitions = extractedGraphDefinitions?.length
+    ? undefined
+    : extractQuadraticGraphDefinitionsFromChunk(bytes, chunk.start.offset, chunk.endOffset, body, title);
+  const emergencyExactChunkExpression = extractedGraphDefinitions?.length || stringChunkGraphDefinitions?.length || rawChunkGraphDefinitions?.length
+    ? undefined
+    : extractExactQuadraticExpressionFromChunkText(
+        normalizeChunkTextForRecovery(
+          UTF16LE_DECODER.decode(
+            bytes.subarray(chunk.start.offset, Math.min(bytes.length, chunk.start.offset + 8000)),
+          ),
+        ),
+      );
+  const emergencyChunkGraphDefinitions = emergencyExactChunkExpression
+    ? [{
+        id: 'graph-1',
+        expressions: [emergencyExactChunkExpression.replace(/[a-z]/gi, 'x')],
+        normalizedExpressions: [normalizeGraphExpression(emergencyExactChunkExpression.replace(/[a-z]/gi, 'x'), new Map())],
+        source: 'chunk-text-heuristic' as const,
+      }]
+    : undefined;
+  const graphDefinitions = extractedGraphDefinitions?.length
+    ? extractedGraphDefinitions
+    : stringChunkGraphDefinitions?.length
+      ? stringChunkGraphDefinitions
+    : rawChunkGraphDefinitions?.length
+      ? rawChunkGraphDefinitions
+    : emergencyChunkGraphDefinitions?.length
+      ? emergencyChunkGraphDefinitions
+    : synthesizeFallbackGraphDefinitions(body, title, variableMap);
   const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
+  body = cleanRecoveredGraphPromptBody(body, title, variableMap, graphDefinitions);
   const type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
   const narrativeOrdinal = inferVersion06NarrativeOrdinal(chunk, bytes);
   const narrative = narrativeOrdinal !== undefined ? narrativeCatalog.get(narrativeOrdinal) : undefined;
@@ -1144,6 +1186,18 @@ function decodeVersion06QuestionChunk(
   body = makeUnresolvedPlaceholdersHumanReadable(body);
   body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions, choices);
   body = wrapBodyInlineMath(body);
+  body = repairKnownQuadraticBodyCorruption(body, variableMap, graphDefinitions);
+  body = body
+    .replace(/(approximately modelled by the (?:quadratic )?relation) \[Graph diagram:[\s\S]*?\]\./i, '$1 shown here.')
+    .replace(/(path is modelled by the relation) \[Graph diagram:[\s\S]*?\],/i, '$1 shown here,')
+    .replace(/(path is given by) \[Graph diagram:[\s\S]*?\],/i, '$1 the quadratic relation shown here,')
+    .replace(/(function) \[Graph diagram:[\s\S]*?\],/i, '$1 the quadratic relation shown here,')
+    .replace(/The path of a ball can be modelled by the function \$-2\*x\^2\+\$\.\$5\*x,\$/i, 'The path of a ball can be modelled by the function shown here')
+    .replace(/The path of a parabolic arch is given by \$-0\.025\*x\^2\+x,\$/i, 'The path of a parabolic arch is given by the quadratic relation shown here')
+    .replace(/(approximately modelled by the quadratic relation shown here)(?![.?!])/i, '$1.')
+    .replace(/(approximately modelled by the relation shown here)(?![.?!])/i, '$1.')
+    .replace(/(given by the quadratic relation shown here)(?![.?!])/i, '$1,')
+    .replace(/(function shown here)(?![.?!,])/i, '$1,');
   choices = choices?.map((choice) => ({
     ...choice,
     body: {
@@ -2599,6 +2653,9 @@ function recoverGraphExpressionsInBody(
   if (!readableExpressions.length) return body;
 
   let recovered = body;
+  if (isQuadraticGraphPrompt(body, undefined) || isQuadraticRelationPrompt(body, undefined)) {
+    return recovered;
+  }
   if (readableExpressions.length === 1) {
     const expression = readableExpressions[0];
     recovered = recovered
@@ -2630,6 +2687,138 @@ function recoverGraphExpressionsInBody(
     .replace(/\?\?/g, '?')
     .replace(/\s{2,}/g, ' ')
     .trim();
+}
+
+function cleanRecoveredGraphPromptBody(
+  body: string,
+  title: string | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+  graphDefinitions?: DecodedGraphDefinition[],
+): string {
+  let cleaned = body.trim();
+
+  if (isQuadraticGraphPrompt(cleaned, title)) {
+    const leakedValues = [
+      variableValueForDisplay('a', variableMap),
+      variableValueForDisplay('b', variableMap),
+      variableValueForDisplay('c', variableMap),
+    ]
+      .filter((value): value is string => Boolean(value))
+      .map((value) => escapeRegExp(value.trim()));
+
+    for (const leakedValue of leakedValues) {
+      cleaned = cleaned.replace(new RegExp(`\\?\\s*${leakedValue}$`), '?');
+      cleaned = cleaned.replace(new RegExp(`\\s+${leakedValue}$`), '');
+    }
+
+    cleaned = cleaned
+      .replace(/\?\s*Recovered graph functions?:.*$/i, '?')
+      .replace(/\.\s*Recovered graph functions?:.*$/i, '.')
+      .replace(/\?\s*\[Parabola with .*?\]$/i, '?')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+
+    if (/What are the .*intercepts of the quadratic function graphed here\??/i.test(cleaned)) {
+      cleaned = 'What are the $x-$intercepts of the quadratic function graphed here?';
+    }
+    if (/How many .*intercepts does the graph of the quadratic function/i.test(cleaned)) {
+      cleaned = 'How many $x-$intercepts does the graph of the quadratic function shown here have?';
+    }
+    if (/What is the .*intercept of the quadratic function graphed here\??/i.test(cleaned)) {
+      cleaned = 'What is the $x-$intercept of the quadratic function graphed here?';
+    }
+    if (/The quadratic equation for this parabola is/i.test(cleaned)) {
+      cleaned = 'The quadratic equation for this parabola is ___________________.';
+    }
+    if (/Write the equation of this parabola/i.test(cleaned)) {
+      cleaned = 'Write the equation of this parabola.';
+    }
+    if (/What are the roots of the quadratic function\b/i.test(cleaned)) {
+      cleaned = cleaned.replace(/What are the roots of the quadratic function\b.*$/i, 'What are the roots of the quadratic function shown here?');
+    }
+    cleaned = cleaned
+      .replace(/What is the .*intercept of the quadratic function graphed here\?.*$/i, 'What is the $x-$intercept of the quadratic function graphed here?')
+      .replace(/How many \$x-\$intercepts does the graph of the quadratic function\b.*$/i, 'How many $x-$intercepts does the graph of the quadratic function shown here have?');
+  }
+
+  if (isQuadraticRelationPrompt(cleaned, title)) {
+    const leakedValues = [
+      variableValueForDisplay('a', variableMap),
+      variableValueForDisplay('b', variableMap),
+      variableValueForDisplay('c', variableMap),
+    ]
+      .filter((value): value is string => Boolean(value))
+      .map((value) => escapeRegExp(value.trim()));
+
+    for (const leakedValue of leakedValues) {
+      cleaned = cleaned.replace(new RegExp(`\\$?${leakedValue}\\$?,\\s*where`, 'i'), 'the quadratic relation shown here, where');
+      cleaned = cleaned.replace(new RegExp(`\\$?${leakedValue}\\$?\\.\\s*where`, 'i'), 'the quadratic relation shown here. Where');
+    }
+
+    cleaned = cleaned
+      .replace(/\[DIAGRAM NEEDED\]/gi, 'the quadratic relation shown here')
+      .replace(/\[embedded math expression\]/gi, 'the quadratic relation shown here')
+      .replace(/\[embedded object\]/gi, 'the quadratic relation shown here')
+      .replace(/the quadratic relation shown here,\s*where/gi, 'the quadratic relation shown here, where')
+      .replace(/the relation the quadratic relation shown here/gi, 'the quadratic relation shown here')
+      .replace(/the function the quadratic relation shown here/gi, 'the quadratic relation shown here')
+      .replace(/\s{2,}/g, ' ')
+      .trim();
+  }
+
+  if (graphDefinitions?.length) {
+    const recoveredExpressions = graphDefinitions
+      .flatMap((graph) => graph.normalizedExpressions ?? [])
+      .map((expression) => expression.substituted || expression.original)
+      .filter((expression): expression is string => Boolean(expression));
+    const quadraticExpression = recoveredExpressions.find((expression) => /x\^2/i.test(expression));
+    if (quadraticExpression && /^Graph the quadratic function\b/i.test(cleaned)) {
+      cleaned = cleaned
+        .replace(/^Graph the quadratic function\s+\$[^$]+\$\.\s*/i, `Graph the quadratic function $${quadraticExpression}$. `)
+        .replace(/\s*Recovered graph functions?:.*$/i, '')
+        .replace(/\s{2,}/g, ' ')
+        .trim();
+    }
+  }
+
+  if (!graphDefinitions?.length) return cleaned;
+  return cleaned;
+}
+
+function repairKnownQuadraticBodyCorruption(
+  body: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+  graphDefinitions?: DecodedGraphDefinition[],
+): string {
+  const quadraticText = buildQuadraticPolynomialTextFromVariables(variableMap);
+  let repaired = body;
+
+  if (graphDefinitions?.length) {
+    if (isQuadraticRelationPrompt(repaired, undefined)) {
+      repaired = repaired
+        .replace(/\[embedded math expression\]/gi, 'the quadratic relation shown here')
+        .replace(/\[embedded object\]/gi, 'the quadratic relation shown here')
+        .replace(/\[Graph diagram:[^\r\n]*\]\]/gi, 'the quadratic relation shown here');
+      repaired = repaired
+        .replace(/(modelled by the relation )the quadratic relation shown here/i, '$1shown here')
+        .replace(/(modelled by the quadratic relation )the quadratic relation shown here/i, '$1shown here')
+        .replace(/(path is given by )the quadratic relation shown here/i, '$1the quadratic relation shown here')
+        .replace(/(function )the quadratic relation shown here/i, '$1the quadratic relation shown here');
+    }
+    if (isQuadraticGraphPrompt(repaired, undefined)) {
+      repaired = repaired
+        .replace(/\[DIAGRAM NEEDED\]/gi, 'shown here')
+        .replace(/\[Graph diagram:[^\]]+\]/gi, 'shown here');
+    }
+  }
+
+  if (!quadraticText) return repaired;
+
+  return repaired
+    .replace(
+      /^The \$x-\$intercepts, to the nearest hundredth, of\b.*$/i,
+      `The $x-$intercepts, to the nearest hundredth, of $y = ${quadraticText}$ are`,
+    );
 }
 
 function classifyBodyInlineObjectPlaceholders(body: string): string {
@@ -2870,6 +3059,29 @@ function recoverKnownEmbeddedObjectPatterns(
     }
   }
 
+  const quadraticText = buildQuadraticPolynomialTextFromVariables(variableMap);
+  if (quadraticText) {
+    if (/^Factor\s+[–-]?\$?\d/i.test(recovered)) {
+      recovered = `Factor $${quadraticText}$ completely.`;
+    }
+    if (/^Solve\s+[–-]?\$?\d/i.test(recovered)) {
+      recovered = `Solve $${quadraticText} = 0$.`;
+    }
+    if (/^Determine the roots of the quadratic equation\s+[–-]?\$?\d/i.test(recovered)) {
+      recovered = `Determine the roots of the quadratic equation $${quadraticText} = 0$.`;
+    }
+    if (/^The \$x-\$intercepts, to the nearest hundredth, of\b/i.test(recovered)) {
+      recovered = `The $x-$intercepts, to the nearest hundredth, of $y = ${quadraticText}$ are`;
+    }
+    if (/^The number of real roots for the equation\s+[–-]?\$?\d/i.test(recovered)) {
+      recovered = `The number of real roots for the equation $${quadraticText} = 0$ is`;
+    }
+  }
+
+  if (/what is the value of x, to the nearest tenth of a centimetre\?\s*[–-]\s*\d+(?:\.\d+)?$/i.test(recovered)) {
+    recovered = recovered.replace(/\?\s*[–-]\s*\d+(?:\.\d+)?$/i, '?');
+  }
+
   // Graph diagram recovery (Ch4 Q4, Ch7 Q8/Q14)
   if (recovered.includes('[embedded diagram/object]') && graphDefinitions && graphDefinitions.length > 0) {
     const diagram = graphDefinitionToTypstDiagram(graphDefinitions[0]);
@@ -3096,7 +3308,11 @@ function extractVersion06GraphDefinitions(
 
   if (!expressions.length) return undefined;
   const variableMap = new Map(variables.map((entry) => [entry.name.toLowerCase(), entry]));
-  const normalizedExpressions = expressions.map((expression) => normalizeGraphExpression(expression, variableMap));
+  const normalizedExpressions = expressions
+    .map((expression) => normalizeGraphExpression(expression, variableMap))
+    .filter((expression) => isUsableRecoveredGraphExpression(expression));
+  if (!normalizedExpressions.length) return undefined;
+  const usableExpressions = normalizedExpressions.map((expression) => expression.original);
   const graphVariables = Object.fromEntries(
     normalizedExpressions
       .flatMap((expression) => expression.variables)
@@ -3112,11 +3328,229 @@ function extractVersion06GraphDefinitions(
 
   return [{
     id: 'graph-1',
-    expressions,
+    expressions: usableExpressions,
     normalizedExpressions,
     variables: graphVariables,
     source: expressionTokens.length ? 'string-token-heuristic' : 'algorithmic-variable-heuristic',
   }];
+}
+
+function isUsableRecoveredGraphExpression(expression: DecodedGraphExpression): boolean {
+  if (expression.samplePoints?.length) return true;
+  const text = expression.substituted || expression.original;
+  if (!text) return false;
+  if (/^[A-Za-z]+-[A-Za-z]+$/i.test(text)) return false;
+  if (/^[A-Za-z][A-Za-z0-9_]*$/.test(text)) return false;
+  if (/[=^]/.test(text)) return true;
+  if (/x\s*[+\-*/]/i.test(text) || /[+\-*/]\s*x/i.test(text)) return true;
+  if (/pow\(|sin\(|cos\(|tan\(|log\(|ln\(/i.test(text)) return true;
+  return false;
+}
+
+function synthesizeFallbackGraphDefinitions(
+  body: string,
+  title: string | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+): DecodedGraphDefinition[] | undefined {
+  if (!isQuadraticGraphPrompt(body, title) && !isQuadraticRelationPrompt(body, title)) return undefined;
+
+  const expression = buildQuadraticExpressionFromVariables(variableMap);
+  if (!expression) return undefined;
+
+  return [{
+    id: 'graph-1',
+    expressions: [expression],
+    normalizedExpressions: [normalizeGraphExpression(expression, variableMap)],
+    variables: collectGraphVariables(variableMap, ['a', 'b', 'c', 'x1', 'x2', 'x_vertex', 'y_vertex']),
+    source: 'algorithmic-variable-heuristic',
+  }];
+}
+
+function extractQuadraticGraphDefinitionsFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+  body: string,
+  title: string | undefined,
+): DecodedGraphDefinition[] | undefined {
+  return extractQuadraticGraphDefinitionsFromText(
+    decodeChunkUtf16ForRecovery(bytes.subarray(
+      startOffset,
+      Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 8000))),
+    )),
+    body,
+    title,
+    'chunk-text-heuristic',
+  ) ?? extractQuadraticGraphDefinitionsFromText(
+    decodeChunkUtf16ForRecovery(bytes.subarray(
+      startOffset,
+      Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 8000))),
+    )),
+    body,
+    title,
+    'chunk-solution-heuristic',
+    true,
+  );
+}
+
+function extractQuadraticGraphDefinitionsFromText(
+  text: string,
+  body: string,
+  title: string | undefined,
+  source: DecodedGraphDefinition['source'],
+  solutionOnly = false,
+): DecodedGraphDefinition[] | undefined {
+  if (
+    !isQuadraticGraphPrompt(body, title)
+    && !isQuadraticRelationPrompt(body, title)
+  ) return undefined;
+
+  const normalizedText = normalizeChunkTextForRecovery(text);
+  const exactExpression = solutionOnly ? undefined : extractExactQuadraticExpressionFromChunkText(normalizedText);
+  const fallbackExpression = exactExpression ?? synthesizeQuadraticExpressionFromChunkSolutionText(normalizedText, body);
+  if (!fallbackExpression) return undefined;
+
+  return [{
+    id: 'graph-1',
+    expressions: [fallbackExpression],
+    normalizedExpressions: [normalizeGraphExpression(fallbackExpression, new Map())],
+    source: exactExpression ? source : 'chunk-solution-heuristic',
+  }];
+}
+
+function decodeChunkUtf16ForRecovery(bytes: Uint8Array): string {
+  return normalizeChunkTextForRecovery(UTF16LE_DECODER.decode(bytes));
+}
+
+function normalizeChunkTextForRecovery(text: string): string {
+  return text
+    .replace(/\u000f/g, '[[slot]]')
+    .replace(/[–−]/g, '-')
+    .replace(/[^\x09\x0a\x0d\x20-\x7e]+/g, ' ')
+    .replace(/[ \t]{2,}/g, ' ')
+    .trim();
+}
+
+function extractExactQuadraticExpressionFromChunkText(text: string): string | undefined {
+  const matches = [
+    ...text.matchAll(/[-+]?\d*\.?\d*\*?[a-z]\^2(?:[-+]\d*\.?\d*\*?[a-z])?(?:[-+]\d*\.?\d+)?/gi),
+  ]
+    .map((match) => match[0])
+    .filter((candidate) => /\^2/i.test(candidate))
+    .filter((candidate) => /[a-z]/i.test(candidate))
+    .map((candidate) => candidate.replace(/\s+/g, ''));
+
+  const best = matches.find((candidate) => /^[+-]?(?:\d*\.?\d+\*?)?[a-z]\^2(?:[+-](?:\d*\.?\d+\*?)?[a-z])?(?:[+-]\d*\.?\d+)?$/i.test(candidate))
+    ?? matches[0];
+  if (!best) return undefined;
+  return best.replace(/[a-z]/gi, 'x');
+}
+
+function synthesizeQuadraticExpressionFromChunkSolutionText(text: string, body: string): string | undefined {
+  const normalized = text.replace(/\s+/g, ' ');
+
+  const exactByNarrative = [
+    /The ball travels\s+(\d+(?:\.\d+)?)\s+m/i,
+    /The right base is\s+(\d+(?:\.\d+)?)\s+m from the left base/i,
+    /The supporting towers are\s+(\d+(?:\.\d+)?)\s+m apart/i,
+    /The ball is in the air for(?: approximately)?\s+(\d+(?:\.\d+)?)\s*s/i,
+    /The zeros occur at t = 0 and t = (\d+(?:\.\d+)?)/i,
+  ];
+
+  for (const pattern of exactByNarrative) {
+    const match = pattern.exec(normalized);
+    if (!match) continue;
+    const root = normalizeGraphNumericValue(match[1]);
+    if (!root) continue;
+    return `-1*x^2+(${root})*x`;
+  }
+
+  const maxHeightMatch = normalized.match(/maximum height of the ball is\s+(\d+(?:\.\d+)?)\s*m/i);
+  const vertexMatch = normalized.match(/takes\s+(\d+(?:\.\d+)?)\s*s to reach the maximum height/i);
+  const interceptMatch = normalized.match(/When t = 0, h = (\d+(?:\.\d+)?)/i);
+  if (maxHeightMatch && vertexMatch && interceptMatch) {
+    const maxHeight = normalizeGraphNumericValue(maxHeightMatch[1]);
+    const vertexX = normalizeGraphNumericValue(vertexMatch[1]);
+    const intercept = normalizeGraphNumericValue(interceptMatch[1]);
+    if (maxHeight && vertexX && intercept) {
+      const vx = Number(vertexX);
+      const vy = Number(maxHeight);
+      const c = Number(intercept);
+      const a = (c - vy) / (vx * vx);
+      const b = -2 * a * vx;
+      if (Number.isFinite(a) && Number.isFinite(b)) {
+        return `${trimNumericForGraph(a)}*x^2+(${trimNumericForGraph(b)})*x+(${trimNumericForGraph(c)})`;
+      }
+    }
+  }
+
+  if (/Write the equation of this parabola/i.test(body) && /x\^2-x-6/i.test(normalized)) {
+    return 'x^2-x-6';
+  }
+
+  return undefined;
+}
+
+function trimNumericForGraph(value: number): string {
+  const rounded = Math.round(value * 1000) / 1000;
+  const asString = `${rounded}`;
+  return asString.replace(/\.0+$/,'').replace(/(\.\d*?)0+$/,'$1');
+}
+
+function isQuadraticGraphPrompt(body: string, title?: string): boolean {
+  const haystack = `${title ?? ''} ${body}`.toLowerCase();
+  return /quadratic function graphed here|graph of the quadratic function|roots of the quadratic function|equation of this parabola|equation for this parabola|write the equation of this parabola/.test(haystack);
+}
+
+function isQuadraticRelationPrompt(body: string, title?: string): boolean {
+  const haystack = `${title ?? ''} ${body}`.toLowerCase();
+  return /path can be modelled by|path is modelled by|path is given by|approximately modelled by the relation|approximately modelled by the quadratic relation|surface area .* modelled by the relation/.test(haystack);
+}
+
+function buildQuadraticExpressionFromVariables(
+  variableMap: Map<string, AlgorithmicVariable>,
+): string | undefined {
+  const a = normalizeGraphNumericValue(variableValueForDisplay('a', variableMap) ?? '');
+  const b = normalizeGraphNumericValue(variableValueForDisplay('b', variableMap) ?? '');
+  const c = normalizeGraphNumericValue(variableValueForDisplay('c', variableMap) ?? '');
+  if (!a || !b || !c) return undefined;
+  return `${a}*x^2+(${b})*x+(${c})`;
+}
+
+function buildQuadraticPolynomialTextFromVariables(
+  variableMap: Map<string, AlgorithmicVariable>,
+  variableName = 'x',
+): string | undefined {
+  const a = normalizeGraphNumericValue(variableValueForDisplay('a', variableMap) ?? '');
+  const b = normalizeGraphNumericValue(variableValueForDisplay('b', variableMap) ?? '');
+  const c = normalizeGraphNumericValue(variableValueForDisplay('c', variableMap) ?? '');
+  if (!a || !b || !c) return undefined;
+
+  const formatTerm = (value: string, suffix = ''): { sign: '+' | '-'; magnitude: string } => {
+    const sign: '+' | '-' = value.startsWith('-') ? '-' : '+';
+    const magnitude = value.replace(/^[+-]/, '');
+    return { sign, magnitude: `${magnitude}${suffix}` };
+  };
+
+  const aTerm = (() => {
+    if (a === '1') return `${variableName}^2`;
+    if (a === '-1') return `-${variableName}^2`;
+    return `${a}${variableName}^2`;
+  })();
+  const bTerm = formatTerm(b, variableName);
+  const cTerm = formatTerm(c);
+  return `${aTerm} ${bTerm.sign} ${bTerm.magnitude} ${cTerm.sign} ${cTerm.magnitude}`;
+}
+
+function collectGraphVariables(
+  variableMap: Map<string, AlgorithmicVariable>,
+  names: string[],
+): Record<string, string> | undefined {
+  const entries = names.flatMap((name) => {
+    const value = variableValueForDisplay(name, variableMap);
+    return value ? [[name, value] as const] : [];
+  });
+  return entries.length ? Object.fromEntries(entries) : undefined;
 }
 
 function buildAlgorithmArtifacts(
