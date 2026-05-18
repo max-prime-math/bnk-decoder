@@ -1192,8 +1192,6 @@ function decodeVersion06QuestionChunk(
     .replace(/(path is modelled by the relation) \[Graph diagram:[\s\S]*?\],/i, '$1 shown here,')
     .replace(/(path is given by) \[Graph diagram:[\s\S]*?\],/i, '$1 the quadratic relation shown here,')
     .replace(/(function) \[Graph diagram:[\s\S]*?\],/i, '$1 the quadratic relation shown here,')
-    .replace(/The path of a ball can be modelled by the function \$-2\*x\^2\+\$\.\$5\*x,\$/i, 'The path of a ball can be modelled by the function shown here')
-    .replace(/The path of a parabolic arch is given by \$-0\.025\*x\^2\+x,\$/i, 'The path of a parabolic arch is given by the quadratic relation shown here')
     .replace(/(approximately modelled by the quadratic relation shown here)(?![.?!])/i, '$1.')
     .replace(/(approximately modelled by the relation shown here)(?![.?!])/i, '$1.')
     .replace(/(given by the quadratic relation shown here)(?![.?!])/i, '$1,')
@@ -2814,11 +2812,13 @@ function repairKnownQuadraticBodyCorruption(
 
   if (!quadraticText) return repaired;
 
-  return repaired
+  repaired = repaired
     .replace(
       /^The \$x-\$intercepts, to the nearest hundredth, of\b.*$/i,
       `The $x-$intercepts, to the nearest hundredth, of $y = ${quadraticText}$ are`,
     );
+
+  return repaired;
 }
 
 function classifyBodyInlineObjectPlaceholders(body: string): string {
@@ -3038,27 +3038,6 @@ function recoverKnownEmbeddedObjectPatterns(
   recovered = recovered.replace(/(,\s*[a-zA-Z∠]+\s*=\s*\[embedded diagram\/object\])+\s*$/gi, '').trim();
 
   // Triangle area recovery (Q15 Ch05)
-  if (/equilateral triangle has an area of \[embedded (?:value|object)\]/.test(recovered)) {
-    const area = variableValueForDisplay('Area', variableMap) ?? variableValueForDisplay('Area_dis', variableMap);
-    if (area) {
-      recovered = recovered.replace(/equilateral triangle has an area of \[embedded (?:value|object)\]/, `equilateral triangle has an area of ${area}`);
-    }
-  }
-
-  // Quadratic equation recovery (Q25 Ch05)
-  if (/if the solution to the equation \[embedded math expression\] involves real numbers/i.test(recovered)) {
-    const a = variableValueForDisplay('a', variableMap);
-    const b = variableValueForDisplay('b', variableMap);
-    const c = variableValueForDisplay('c', variableMap);
-    if (a && b && c) {
-      // Construct standard form: ax² + bx + c = 0
-      recovered = recovered.replace(
-        /if the solution to the equation \[embedded math expression\] involves real numbers/i,
-        `if the solution to the equation ${a}$x^2 + ${b}$x + ${c} = 0 involves real numbers`,
-      );
-    }
-  }
-
   const quadraticText = buildQuadraticPolynomialTextFromVariables(variableMap);
   if (quadraticText) {
     if (/^Factor\s+[–-]?\$?\d/i.test(recovered)) {
@@ -3078,33 +3057,10 @@ function recoverKnownEmbeddedObjectPatterns(
     }
   }
 
-  if (/what is the value of x, to the nearest tenth of a centimetre\?\s*[–-]\s*\d+(?:\.\d+)?$/i.test(recovered)) {
-    recovered = recovered.replace(/\?\s*[–-]\s*\d+(?:\.\d+)?$/i, '?');
-  }
-
   // Graph diagram recovery (Ch4 Q4, Ch7 Q8/Q14)
   if (recovered.includes('[embedded diagram/object]') && graphDefinitions && graphDefinitions.length > 0) {
     const diagram = graphDefinitionToTypstDiagram(graphDefinitions[0]);
     recovered = recovered.replace('[embedded diagram/object]', diagram);
-  }
-
-  // OLE object recovery: axis of symmetry (Ch3 Q2)
-  if (/What is the axis of symmetry of \[embedded object\]/i.test(recovered)) {
-    const var3 = variableValueForDisplay('VAR3', variableMap);
-    if (var3) {
-      recovered = recovered.replace('[embedded object]', `the quadratic $x^2$ expression with axis $${var3}$`);
-    }
-  }
-
-  // OLE object recovery: simplified expression (Ch6 Q14)
-  if (/When fully simplified, \[embedded object\] is equal to/i.test(recovered)) {
-    const cVal = variableValueForDisplay('c', variableMap);
-    if (cVal && choices) {
-      const matchingChoice = choices.find(c => c.body.text.includes(cVal));
-      if (matchingChoice) {
-        recovered = recovered.replace('[embedded object]', `an expression equal to $${cVal}$`);
-      }
-    }
   }
 
   // Quadratic function analysis recovery (Ch4 Q4)
@@ -3125,16 +3081,6 @@ function recoverKnownEmbeddedObjectPatterns(
         `Determine the value of an expression when $x = ${x}$ and $y = ${y}$; [embedded expression]`,
       );
     }
-  }
-
-  // Definition question recovery (Ch4 Q24) — finding roots of quadratic
-  if (/You can find the roots of a quadratic equation by determining the \[embedded object\]/i.test(recovered)) {
-    // Clean up body noise and recover the definition
-    // Body contains noise about "x-intercepts" and "zeros" before the actual question
-    recovered = recovered.replace(
-      /^[^Y]+(You can find the roots of a quadratic equation by determining the \[embedded object\] or the ______________\.?)/i,
-      'You can find the roots of a quadratic equation by using the quadratic formula or by factoring.',
-    );
   }
 
   // Quadratic function recovery: "points on graph of quadratic function [embedded math expression]"
@@ -3164,24 +3110,6 @@ function recoverKnownEmbeddedObjectPatterns(
       if (x) params.push(`x=${x}`);
       if (y) params.push(`y=${y}`);
       recovered = recovered.replace('[embedded expression]', `[Algebraic expression; evaluate when ${params.join(', ')} → answer: ${ans}]`);
-    }
-  }
-
-  // Axis of symmetry question (Q2 style - "What is the axis of symmetry of [embedded object]")
-  if (/axis of symmetry/i.test(recovered) && /\[embedded object\]/.test(recovered)) {
-    const var3 = variableValueForDisplay('VAR3', variableMap);
-    const axis = variableValueForDisplay('axis', variableMap);
-    const axisVal = axis || var3;
-    if (axisVal) {
-      recovered = recovered.replace('[embedded object]', `a quadratic function with axis of symmetry $x = ${axisVal}$`);
-    }
-  }
-
-  // Function coefficient recovery (Q40 style - "h(d) = [embedded object](d - 12)²+ 2")
-  if (/h\(d\)\s*=\s*\[embedded object\]/.test(recovered)) {
-    const a = variableValueForDisplay('a', variableMap);
-    if (a) {
-      recovered = recovered.replace('[embedded object]', a);
     }
   }
 
@@ -3504,7 +3432,7 @@ function isQuadraticGraphPrompt(body: string, title?: string): boolean {
 
 function isQuadraticRelationPrompt(body: string, title?: string): boolean {
   const haystack = `${title ?? ''} ${body}`.toLowerCase();
-  return /path can be modelled by|path is modelled by|path is given by|approximately modelled by the relation|approximately modelled by the quadratic relation|surface area .* modelled by the relation/.test(haystack);
+  return /path can be modelled by|path is modelled by|path is given by|approximately modelled by the relation|approximately modelled by the quadratic relation|surface area .* modelled by the relation|zeros of the quadratic relation|quadratic relation shown here/.test(haystack);
 }
 
 function buildQuadraticExpressionFromVariables(
