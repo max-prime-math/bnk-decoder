@@ -160,6 +160,48 @@ Before broadening the decoder further, establish why the other banks differ and 
 
 ---
 
+## Priority 7: Generic Question-Body Recovery
+
+**Why:** Recent progress shows that some lost readability can be regained from correctly decoded raw preview text without bank-specific rewrites. This should stay structural and generic.
+
+**Scope:**
+1. Use preserved raw preview text as a recovery source when stitched body text is clearly incomplete.
+2. Prefer prompt lines and structural markers over worked-solution lines.
+3. Keep placeholder cleanup generic so internal slot markers do not leak into exported bodies.
+4. Avoid any rewrite that depends on one question’s wording.
+
+**Expected Outcome:** Better question-body fidelity on similar banks, with no hardcoded content patches.
+
+---
+
+## Priority 8: Solution Boundary Extraction
+
+**Why:** Algorithmic questions often contain solution text that reuses the same variables as the question. The decoder should separate prompt and solution more reliably, instead of letting worked steps drift into the body.
+
+**Scope:**
+1. Identify generic solution prelude cues in raw v06 text.
+2. Separate worked-solution lines from the actual question prompt.
+3. Preserve solution variables and formulas when they are genuinely present in the file.
+4. Keep solutions distinct in exports and GUI previews.
+
+**Expected Outcome:** Fewer missing solutions and fewer cases where solution text is mislabelled as question body.
+
+---
+
+## Priority 9: Images and Diagram Recovery
+
+**Why:** The decoder can already extract embedded assets by signature, but many diagram-heavy questions still fall back to placeholders instead of true visual recovery.
+
+**Scope:**
+1. Improve the mapping between embedded assets and their owning questions.
+2. Distinguish actual images from graph/object placeholders.
+3. Make sure `test-generator` can import and serve extracted images consistently.
+4. Track which diagram cases still require binary reconstruction versus simple asset extraction.
+
+**Expected Outcome:** Better image visibility in the GUI and more reliable asset handling across banks.
+
+---
+
 ## Optional (Lower Priority)
 
 ### Graph Rendering
