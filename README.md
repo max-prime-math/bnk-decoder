@@ -25,6 +25,17 @@ PQP is designed to preserve:
 - diagnostics and decode confidence
 - curriculum metadata and forward-compatible extensions
 
+## Decoder Direction
+
+The decoder should stay structural-first. Avoid hardcoded content patches for specific questions unless they are temporary probes that will be removed after the underlying binary structure is understood.
+
+Start here for the working policy:
+
+- [`DECODER_DIRECTION.md`](./DECODER_DIRECTION.md)
+- [`BINARY_STRUCTURE_ANALYSIS.md`](./BINARY_STRUCTURE_ANALYSIS.md)
+- [`ROADMAP.md`](./ROADMAP.md)
+- [`NEXT_STEPS.md`](./NEXT_STEPS.md)
+
 ## Status: ALPHA (Early Development) 🔧
 
 **Current Decoder State:** ~75% functional with significant issues

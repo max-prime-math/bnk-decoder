@@ -15,6 +15,8 @@ Graph and algorithm recovery now has a dedicated research reference and executio
 
 Any LLM or human continuing parser work in these areas should read those three documents first; they describe the semantic model, the cross-repo architecture, and the recommended implementation order.
 
+If you are tempted to add a question-specific body rewrite, stop and read [`DECODER_DIRECTION.md`](./DECODER_DIRECTION.md) first. The long-term direction is structural decoding, not bank-specific content patches.
+
 ---
 
 ## 0. Corpus Variation and Bank Dialects

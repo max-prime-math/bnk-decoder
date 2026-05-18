@@ -26,6 +26,8 @@ Before broadening the decoder further, establish why the other banks differ and 
 
 **LLM onboarding note:** Any future work on narratives, algorithms, equations, graphs, number lines, or dynamic question rendering should start by reading the graph/algorithm reference, the dedicated extraction plan, and the implementation checklist before changing parser behavior.
 
+**Direction note:** Do not add bank-specific content patches as a long-term fix. Read [`DECODER_DIRECTION.md`](./DECODER_DIRECTION.md) before making any rewrite that depends on the wording of one question.
+
 **Current tool:** `npm run report:corpus -- "ignore/ExamView/Banks" reports/corpus-dialects`
 **Regression tool:** `npm run regress:dialects -- reports/dialect-regression`
 
