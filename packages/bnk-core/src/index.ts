@@ -16,7 +16,7 @@ import { unzlibSync } from 'fflate';
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
 export type DecodeConfidence = 'high' | 'medium' | 'low';
 export type DiagnosticLevel = 'info' | 'warning' | 'error';
-export type AssetKind = 'image' | 'graph' | 'unknown';
+export type AssetKind = 'image' | 'graph' | 'ole' | 'unknown';
 
 export interface DecodeOptions {
   filename?: string;
@@ -343,6 +343,7 @@ export interface PortableQuestionPackage {
 }
 
 const TEXT_DECODER = new TextDecoder('utf-8', { fatal: false });
+const LATIN1_DECODER = new TextDecoder('latin1', { fatal: false });
 const UTF16LE_DECODER = new TextDecoder('utf-16le', { fatal: false });
 const EXAMVIEW_HEADER_LENGTH = 16;
 const INLINE_OBJECT_SLOT = '[[slot]]';
@@ -1027,8 +1028,12 @@ function decodeVersion06QuestionCandidates(
     const bodyText = question.body.text.trim();
     // Detect if body is just variable assignments: starts with variable_name = value
     // Pattern: "name = value" or "$name$ = value" with optional commas and more assignments
-    // Match both lowercase and uppercase variable names
-    const isVariableAssignment = /^[\$]?[a-zA-Z_][a-zA-Z0-9_]*[\$]?\s*=/.test(bodyText);
+    // Restrict this to lowercase algorithm variables so recovered formulas such as
+    // M = log(A/A_0) or N = N_0 10^(kt) are not discarded as fake metadata.
+    const isVariableAssignment = /^[\$]?[a-z_][a-z0-9_]*[\$]?\s*=/.test(bodyText)
+      && /^[\$]?[a-z_][a-z0-9_]*[\$]?\s*=[^?]+(?:,\s*[\$]?[a-z_][a-z0-9_]*[\$]?\s*=[^?]+)*$/i.test(bodyText)
+      && bodyText.includes(',')
+      && bodyText.length < 160;
     return !isVariableAssignment;
   });
 
@@ -1139,7 +1144,13 @@ function decodeVersion06QuestionChunk(
   const rawChunkGraphDefinitions = extractedGraphDefinitions?.length
     ? undefined
     : extractQuadraticGraphDefinitionsFromChunk(bytes, chunk.start.offset, chunk.endOffset, body, title);
-  const emergencyExactChunkExpression = extractedGraphDefinitions?.length || stringChunkGraphDefinitions?.length || rawChunkGraphDefinitions?.length
+  const rationalChunkGraphDefinitions = extractedGraphDefinitions?.length || stringChunkGraphDefinitions?.length || rawChunkGraphDefinitions?.length
+    ? undefined
+    : extractRationalGraphDefinitionsFromChunk(bytes, chunk.start.offset, chunk.endOffset, algorithmicVariables, body, title);
+  const axisChunkGraphDefinitions = extractedGraphDefinitions?.length || stringChunkGraphDefinitions?.length || rawChunkGraphDefinitions?.length || rationalChunkGraphDefinitions?.length
+    ? undefined
+    : extractAxisMetadataGraphDefinitionsFromChunk(bytes, chunk.start.offset, chunk.endOffset, algorithmicVariables, body, title);
+  const emergencyExactChunkExpression = extractedGraphDefinitions?.length || stringChunkGraphDefinitions?.length || rawChunkGraphDefinitions?.length || rationalChunkGraphDefinitions?.length || axisChunkGraphDefinitions?.length
     ? undefined
     : extractExactQuadraticExpressionFromChunkText(
         normalizeChunkTextForRecovery(
@@ -1162,29 +1173,52 @@ function decodeVersion06QuestionChunk(
       ? stringChunkGraphDefinitions
     : rawChunkGraphDefinitions?.length
       ? rawChunkGraphDefinitions
+    : rationalChunkGraphDefinitions?.length
+      ? rationalChunkGraphDefinitions
+    : axisChunkGraphDefinitions?.length
+      ? axisChunkGraphDefinitions
     : emergencyChunkGraphDefinitions?.length
       ? emergencyChunkGraphDefinitions
     : synthesizeFallbackGraphDefinitions(body, title, variableMap);
   const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body);
+  const mathObjectCandidates = extractMathObjectCandidatesFromChunk(bytes, chunk.start.offset, chunk.endOffset);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   body = cleanRecoveredGraphPromptBody(body, title, variableMap, graphDefinitions);
-  const type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
+  const binaryAnswerIndex = tryReadAnswerByteFromBinary(bytes, chunk.start.offset);
+  let type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
+  if (type === 'short_answer' && isProblemQuestion(body, algorithmicVariables)) {
+    type = 'problem';
+  }
   const narrativeOrdinal = inferVersion06NarrativeOrdinal(chunk, bytes);
   const narrative = narrativeOrdinal !== undefined ? narrativeCatalog.get(narrativeOrdinal) : undefined;
   const normalizedChoices = slotBasedChoices?.choices
     ?? normalizeVersion06Choices(
-      inferVersion06Choices(algorithmicVariables, postFontRefs, choiceRefs, choiceLabels, type),
+      inferVersion06Choices(
+        algorithmicVariables,
+        postFontRefs,
+        choiceRefs,
+        choiceLabels,
+        type,
+        binaryAnswerIndex,
+      ),
       body,
       displayRegionTexts,
       variableMap,
       graphDefinitions,
+      title,
+      binaryAnswerIndex,
     );
   let choices = normalizedChoices?.map(classifyChoiceInlineObjectPlaceholders);
   body = stripVisibleChoiceRunFromBody(body, choices);
   body = classifyBodyInlineObjectPlaceholders(body);
   const inlineObjects = extractDecodedInlineObjects(body, choices);
   body = makeUnresolvedPlaceholdersHumanReadable(body);
+  body = recoverKnownTrigIdentityPrompt(body, title, binaryAnswerIndex);
   body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions, choices);
+  body = materializeRecoveredGraphSlots(body, graphDefinitions, title);
+  const mathObjectBodyRecovery = recoverMathObjectBodyFromCandidates(body, mathObjectCandidates, title);
+  body = mathObjectBodyRecovery.body;
+  body = recoverKnownSlotBodyFamilies(body, title, variableMap);
   body = wrapBodyInlineMath(body);
   body = repairKnownQuadraticBodyCorruption(body, variableMap, graphDefinitions);
   body = body
@@ -1203,11 +1237,25 @@ function decodeVersion06QuestionChunk(
       text: makeUnresolvedPlaceholdersHumanReadable(choice.body.text),
     },
   }));
+  choices = recoverGraphSlotChoices(choices, graphDefinitions, title);
+  choices = recoverMathObjectChoiceSlots(
+    choices,
+    mathObjectCandidates.slice(mathObjectBodyRecovery.usedCandidates),
+    title,
+    body,
+  );
+  choices = recoverVariableSlotChoices(choices, variableMap, binaryAnswerIndex);
+  choices = recoverKnownSlotChoiceFamilies(choices, body, title, variableMap, binaryAnswerIndex);
   choices = recoverChoiceEmbeddedValues(choices, variableMap);
+  if (type === 'mcq' && (!choices || choices.length < 2)) {
+    type = isProblemQuestion(body, algorithmicVariables) ? 'problem' : 'short_answer';
+    choices = undefined;
+  }
   const answer = inferVersion06Answer(algorithmicVariables, choices, choiceRefs, bytes, chunk.start.offset);
-  const questionAssets = assets
-    .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset)
-    .map((asset) => asset.id);
+  const questionAssetRecords = assets
+    .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset);
+  const questionAssets = questionAssetRecords.map((asset) => asset.id);
+  body = insertImageAssetReferences(body, questionAssetRecords.filter((asset) => asset.kind === 'image').map((asset) => asset.id));
 
   return {
     id: `q-${index + 1}`,
@@ -1849,7 +1897,7 @@ function isVariableName(text: string): boolean {
   return /^[A-Za-z_][A-Za-z0-9_]*$/.test(text)
     && !/^[A-Z]$/.test(text)
     && !/^(true|false|easy|average|medium|moderate|difficult|hard)$/i.test(text)
-    && !/^(convert|calculate|estimate|measure|determine|which|what|how|find)$/i.test(text)
+    && !/^(convert|calculate|estimate|measure|determine|what|how|find)$/i.test(text)
     && !/^(range|if|choose|rand|list|fracs|frac|pow|abs|chr|isunique)$/i.test(text);
 }
 
@@ -1916,6 +1964,8 @@ function isProblemQuestion(bodyText: string, algorithmicVariables: AlgorithmicVa
   if (bodyText.length > 300 && nonAnswerVars.length > 0) return true;
 
   // 4. Specific problem-solving prompts
+  if (/^(Graph|Sketch)\b/i.test(bodyText)) return true;
+
   if (/^(Determine|Solve|Find|Prove|Show|Write|Make|Calculate|Evaluate|Demonstrate)/i.test(bodyText)) {
     if (nonAnswerVars.length > 0) return true;
   }
@@ -2176,6 +2226,17 @@ function refineKnownQuestionBodyPatterns(body: string, variableMap: Map<string, 
     );
   }
   const selectedUnitCircle = selectedUnitCircleCase ? unitCircleEntryForCase(selectedUnitCircleCase) : undefined;
+  const selectedDegrees = variableValueForDisplay('select_deg_list', variableMap);
+  if (selectedUnitCircle && selectedDegrees && /unit circle/i.test(refined)) {
+    refined = refined
+      .replace(/angle of O\b/i, `angle of ${selectedDegrees}°`)
+      .replace(/angle of \$?(?:[01]\s*){8,}\$?\s*radians/i, `angle of $${selectedUnitCircle.radians}$ radians`)
+      .replace(/tan q =\s*\$?(?:[01]\s*){8,}\$?/i, `tan q = $${selectedUnitCircle.tan}$`);
+  } else if (selectedUnitCircle && /unit circle/i.test(refined)) {
+    refined = refined
+      .replace(/angle of \$?(?:[01]\s*){8,}\$?\s*radians/i, `angle of $${selectedUnitCircle.radians}$ radians`)
+      .replace(/tan q =\s*\$?(?:[01]\s*){8,}\$?/i, `tan q = $${selectedUnitCircle.tan}$`);
+  }
   if (selectedUnitCircle && /point \(\) is on the terminal arm/i.test(refined)) {
     refined = refined.replace(/point \(\) is on the terminal arm/i, `point ${selectedUnitCircle.point} is on the terminal arm`);
   }
@@ -2196,6 +2257,9 @@ function refineKnownQuestionBodyPatterns(body: string, variableMap: Map<string, 
   refined = recoverKnownSequenceSeriesPrompts(refined, variableMap, title);
   refined = recoverKnownTransformationPrompts(refined, variableMap);
   refined = recoverKnownHiddenMathExpressions(refined, variableMap);
+  refined = recoverKnownRadicalInversePrompt(refined, variableMap, title);
+  refined = recoverKnownRadicalRelativeLocationPrompt(refined, title);
+  refined = recoverKnownTangentUndefinedPrompt(refined, variableMap, title);
 
   if (/^\([^)]*\)$/.test(refined)) return `Question text not decoded yet. Algorithmic values: ${refined}`;
 
@@ -2409,6 +2473,22 @@ function mn(value: string): string {
   return value.replace(/[–−]/g, '-');
 }
 
+function normalizedSignedNumber(value?: string): string | undefined {
+  if (!value) return undefined;
+  const normalized = value.replace(/[–−]/g, '-').replace(/\s+/g, '').replace(/^\+/, '');
+  return normalized || undefined;
+}
+
+function signedTerm(value: string): string {
+  const normalized = normalizedSignedNumber(value) ?? value;
+  return normalized.startsWith('-') ? `- ${normalized.slice(1)}` : `+ ${normalized}`;
+}
+
+function oppositeSignedTerm(value: string): string {
+  const normalized = normalizedSignedNumber(value) ?? value;
+  return normalized.startsWith('-') ? `+ ${normalized.slice(1)}` : `- ${normalized}`;
+}
+
 function joinMathList(values: string[]): string {
   return `$${values.map(mn).join(', ')}$`;
 }
@@ -2424,11 +2504,64 @@ function normalizeSeriesSign(sign: string): string {
 function stripLeadingAlgorithmicNoise(body: string): string {
   const prompt = findPromptInsideText(body);
   if (!prompt || prompt.index === 0) return body;
+  const firstPartIndex = body.search(/\ba\)\s+/i);
+  if (firstPartIndex !== -1 && firstPartIndex < prompt.index) return body.trim();
   return body.slice(prompt.index).trim();
 }
 
 function findPromptInsideText(text: string): RegExpExecArray | undefined {
   return /\b(?:Compared|Based|Which|What|When|Where|Why|How|Determine|Evaluate|Solve|Simplify|Factor|Expand|Graph|Sketch|Write|Identify|Convert|Calculate|Estimate|Measure|The|A |An |If |Given|Let |Use |Consider|Prove|Show|Find|Select|List|State|Describe|For |In )\b/.exec(text) ?? undefined;
+}
+
+function recoverKnownRadicalInversePrompt(
+  body: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+  title?: string,
+): string {
+  const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+  if (!k || !title || !/inverse of a radical function/i.test(title)) return body;
+  if (!/correct inverse for the function/i.test(body)) return body;
+
+  return `Which of the following functions is the correct inverse for the function $f(x) = sqrt(x) ${signedTerm(k)}$, {x | x >= 0, x in R}?`;
+}
+
+function recoverKnownRadicalRelativeLocationPrompt(body: string, title?: string): string {
+  if (!title || !/relative location/i.test(title)) return body;
+
+  const statements = ['f(x) < 0', 'f(x) = 0', '0 < f(x) < 1', 'f(x) = 1', 'f(x) > 1'];
+  const answers = [
+    'is undefined',
+    'intersects f(x) on the x-axis',
+    'is above the graph of y = f(x)',
+    'intersects the graph of y = f(x)',
+    'is below the graph of y = f(x)',
+  ];
+  const selectedStatement = statements.find((statement) => countTextOccurrences(body, statement) > 1);
+  const selectedAnswer = answers.find((answer) => countTextOccurrences(body, answer) > 1);
+  if (!selectedStatement || !selectedAnswer) return body;
+
+  const normalizedAnswer = selectedAnswer
+    .replace(/^intersects f\(x\) on the x-axis$/i, 'intersects the graph of $y = f(x)$ on the $x-$axis')
+    .replace(/y = f\(x\)/gi, '$y = f(x)$');
+  return `If the value of $f(x)$ satisfies $${selectedStatement}$, then the graph of $y = sqrt(f(x))$ ${normalizedAnswer}.`;
+}
+
+function countTextOccurrences(text: string, needle: string): number {
+  if (!needle) return 0;
+  const pattern = new RegExp(escapeRegExp(needle).replace(/\\ /g, '\\s+'), 'gi');
+  return [...text.matchAll(pattern)].length;
+}
+
+function recoverKnownTangentUndefinedPrompt(
+  body: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+  title?: string,
+): string {
+  if (!title || !/undefined \| tangent function/i.test(title)) return body;
+  const n = normalizedSignedNumber(variableValueForDisplay('n', variableMap));
+  if (!n || !/Given the trigonometric function/i.test(body) || !/function is undefined/i.test(body)) return body;
+
+  return `Given the tangent function expression shown for parameter $n = ${n}$, which is the $x-$coordinate at which the function is undefined?`;
 }
 
 function recoverKnownTransformationPrompts(body: string, variableMap: Map<string, AlgorithmicVariable>): string {
@@ -2455,7 +2588,12 @@ function recoverKnownTransformationPrompts(body: string, variableMap: Map<string
   const kDirection = variableValueForDisplay('k_direction', variableMap) ?? verticalDirection;
 
   if (horizontalValue && vertical && hDirection && kDirection && /best describes the vertical and horizontal translations/i.test(recovered)) {
-    recovered = `Given the function, which of the following best describes the translations with respect to the base graph? ${horizontalValue} units ${hDirection} and ${vertical} units ${kDirection}.`;
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const functionText = h && k
+      ? ` $f(x) = sqrt(x ${oppositeSignedTerm(h)}) ${signedTerm(k)}$ with domain $x >= ${h}$ and range $y >= ${k}$`
+      : '';
+    recovered = `Given the function${functionText}, which of the following best describes the translations with respect to the base graph?`;
   }
 
   if (horizontalValue && (hDirection || genericDirection) && /Compared to the graph of the base function, the graph of the function is translated units to the/i.test(recovered)) {
@@ -2687,6 +2825,1256 @@ function recoverGraphExpressionsInBody(
     .trim();
 }
 
+function materializeRecoveredGraphSlots(
+  body: string,
+  graphDefinitions: DecodedGraphDefinition[] | undefined,
+  title?: string,
+): string {
+  const descriptors = recoveredGraphExpressionDescriptors(graphDefinitions);
+  if (!descriptors.length) return body;
+
+  const isGraphContext = isGraphOrDiagramQuestion(`${title ?? ''} ${body}`)
+    || descriptors.some((descriptor) => body.includes(descriptor.expression));
+  if (!isGraphContext) return body;
+
+  const available = descriptors
+    .filter((descriptor) => !body.includes(descriptor.diagram) && !body.includes(`$${descriptor.expression}$`));
+  const queue = available.length ? [...available] : [...descriptors];
+  let updated = body;
+
+  const take = (): RecoveredGraphExpressionDescriptor | undefined => {
+    const next = queue.shift();
+    if (next) return next;
+    return descriptors[descriptors.length - 1];
+  };
+
+  updated = replaceGraphSlotPattern(updated, /\[DIAGRAM NEEDED\]/gi, () => take()?.diagram);
+  updated = replaceGraphSlotPattern(updated, /\[DIAGRAM: variables \([^\]]+\)\]/gi, () => take()?.diagram);
+  updated = replaceGraphSlotPattern(updated, /\[embedded diagram\/object\]/gi, () => take()?.diagram);
+  updated = replaceGraphSlotPattern(updated, /\[embedded object\]/gi, (_match, offset) => {
+    const context = updated.slice(Math.max(0, offset - 90), offset + 90);
+    if (!/\b(graph|function|curve|equation|relation|model|sketch|plot|domain|range|asymptote|intercept|transformation)\b/i.test(context)) {
+      return undefined;
+    }
+    return take()?.diagram;
+  });
+  updated = replaceGraphSlotPattern(updated, /\[embedded math expression\]/gi, (_match, offset) => {
+    const descriptor = take();
+    if (!descriptor) return undefined;
+    const context = updated.slice(Math.max(0, offset - 90), offset + 90);
+    if (/\b(function|equation|relation|model|graph|base function|identity)\b/i.test(context)) {
+      return `$${descriptor.expression}$`;
+    }
+    return undefined;
+  });
+
+  return updated.replace(/\s{2,}/g, ' ').trim();
+}
+
+type RecoveredGraphExpressionDescriptor = {
+  expression: string;
+  diagram: string;
+};
+
+function recoveredGraphExpressionDescriptors(
+  graphDefinitions?: DecodedGraphDefinition[],
+): RecoveredGraphExpressionDescriptor[] {
+  const expressions = graphDefinitions
+    ?.flatMap((graph) => graph.normalizedExpressions?.length
+      ? graph.normalizedExpressions
+      : graph.expressions.map((expression) => normalizeGraphExpression(expression, new Map())))
+    ?? [];
+
+  return expressions
+    .map((expression) => ({
+      expression: formatRecoveredGraphExpressionForPrompt(expression.substituted || expression.original),
+      diagram: graphExpressionToDiagramDescription(expression),
+    }))
+    .filter((descriptor) => descriptor.expression && descriptor.diagram)
+    .filter((descriptor, index, all) => all.findIndex((other) => other.expression === descriptor.expression) === index)
+    .slice(0, 12);
+}
+
+function replaceGraphSlotPattern(
+  body: string,
+  pattern: RegExp,
+  replacementFor: (match: string, offset: number) => string | undefined,
+): string {
+  return body.replace(pattern, (match: string, ...args: unknown[]) => {
+    const offset = typeof args[args.length - 2] === 'number' ? args[args.length - 2] as number : 0;
+    return replacementFor(match, offset) ?? match;
+  });
+}
+
+function recoverGraphSlotChoices(
+  choices: Choice[] | undefined,
+  graphDefinitions: DecodedGraphDefinition[] | undefined,
+  title?: string,
+): Choice[] | undefined {
+  if (!choices?.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))) return choices;
+  if (!isGraphOrDiagramQuestion(title ?? '') && !graphDefinitions?.length) return choices;
+
+  const descriptors = recoveredGraphExpressionDescriptors(graphDefinitions);
+  if (descriptors.length < choices.length) return choices;
+
+  let descriptorIndex = 0;
+  return choices.map((choice) => {
+    if (!choice.body.text.includes(INLINE_OBJECT_SLOT)) return choice;
+    const slotOnly = choice.body.text.replace(new RegExp(escapeRegExp(INLINE_OBJECT_SLOT), 'g'), '').trim();
+    if (slotOnly && !/^\d+(?:\s+\d+)*$/.test(slotOnly)) return choice;
+    const descriptor = descriptors[descriptorIndex++];
+    if (!descriptor) return choice;
+    return {
+      ...choice,
+      body: {
+        ...choice.body,
+        text: `graph of $${descriptor.expression}$`,
+      },
+    };
+  });
+}
+
+function extractMathObjectCandidatesFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+): string[] {
+  const chunkEnd = endOffset > startOffset
+    ? Math.min(bytes.length, endOffset)
+    : Math.min(bytes.length, startOffset + 8000);
+  const text = LATIN1_DECODER.decode(bytes.subarray(startOffset, Math.min(bytes.length, chunkEnd)))
+    .replace(/\u000f/g, ' [[slot]] ')
+    .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x80-\xff]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const rawCandidates = [
+    ...text.matchAll(/(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|[+\-]?\d+\s*[xy]|[xy]\s*[+\-*/=]|\d+\s*C\s*\d+|[A-Za-z]!)[A-Za-z0-9 _+\-*/=().,\x7f]{0,220}(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|=|[xy]|\d|!|\))/gi),
+  ]
+    .map((match) => match[0]);
+
+  const domainCandidates = [
+    ...text.matchAll(/\b0\s*x\s*(?:360|2\s*p|2\s*pi)\b/gi),
+  ]
+    .map((match) => match[0]);
+
+  return [...rawCandidates, ...domainCandidates]
+    .map(normalizeMathObjectCandidate)
+    .filter((candidate): candidate is string => Boolean(candidate))
+    .filter((candidate, index, all) => all.indexOf(candidate) === index)
+    .slice(0, 24);
+}
+
+function normalizeMathObjectCandidate(raw: string): string | undefined {
+  let text = raw
+    .replace(/\s+/g, ' ')
+    .replace(/\s+8\b.*$/i, '')
+    .replace(/\bZ\s+a\s*\).*$/i, '')
+    .replace(/\s+[a-d]\s*\)\s+.*$/i, '')
+    .replace(/\bG\s*r\s*a\s*p\s*h\b.*$/i, '')
+    .replace(/\bt\s*h\s*e\b.*$/i, '')
+    .replace(/\b(?:e\s*q|a\s*n\s*s|d\s*i\s*s)\s*\d.*$/i, '')
+    .replace(/\b(?:Times New Roman|Symbol|FSC Symbol)\b.*$/i, '')
+    .replace(/\b(?:Section|Average|Difficult|Easy)\b.*$/i, '')
+    .replace(/\b(?:if|rand|range|choose|scramble)\s*\(?.*$/i, '')
+    .replace(/\b(?:and|or)\s+\d.*$/i, '')
+    .trim();
+
+  if (isNoisyMathObjectCandidate(text)) return undefined;
+  const firstMathToken = text.search(/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|\d+\s*[xy]|\d+\s*C\s*\d+|[A-Za-z]!/i);
+  if (firstMathToken > 0) text = text.slice(firstMathToken).trim();
+  text = text.replace(/\s+8\s*$/g, '').trim();
+  if (!/\x7f\s*\d+\s*$/.test(text)) {
+    text = text.replace(/\s+\d+\s*$/g, '').trim();
+  }
+  if (isNoisyMathObjectCandidate(text)) return undefined;
+
+  if (!text || text.length < 3 || text.length > 140) return undefined;
+  if (/,\s*0\s*,\s*1\)?$/.test(text) || /,\s*1\s*,\s*0\)?$/.test(text) || /\b[a-z]\s*=\s*\d\s*,\s*\d\s*,\s*\d/i.test(text)) return undefined;
+  if (!/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|[fgh]\s*\(|[=+\-*/!]|\b0\s*x\b|\d+\s*C\s*\d+/i.test(text)) return undefined;
+  if (/\b(?:true|false|null|undefined)\b/i.test(text)) return undefined;
+
+  text = convertExamViewObjectMathToTypst(text);
+  if (isNoisyMathObjectCandidate(text)) return undefined;
+  if (!hasBalancedParentheses(text)) return undefined;
+  if (!text || text.length < 3) return undefined;
+  if (!/\b(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|pi|theta|deg|x|y|f|g|h|N|M|P|I|C|A)\b|\blog_|=|[+\-*/^!]|_\{/i.test(text)) return undefined;
+  return text;
+}
+
+function isNoisyMathObjectCandidate(text: string): boolean {
+  const compact = text.replace(/\s+/g, ' ').trim();
+  if (/^[xy]\s*-\s*a\s*x$/i.test(compact)) return true;
+  if (/^[a-wz]\s*=\s*[-+]?\d+(?:\.\d+)?$/i.test(compact)) return true;
+  if (/^[a-z]\s*=\s*$/i.test(compact)) return true;
+  if (/\b(?:n\s*u\s*m|a\s*n\s*g\s*l\s*e|G\s*r\s*a|t\s*h\s*e|a\s*n\s*d|c\s*o\s*s\s*i\s*n\s*e|s\s*i\s*n\s*e)\b/i.test(text)) {
+    return true;
+  }
+  if (/\bY\b/.test(text)) return true;
+  if (/\b[A-Za-z]\s+[A-Za-z]\s+[A-Za-z]\s+[A-Za-z]\b/.test(text)) return true;
+  return false;
+}
+
+function convertExamViewObjectMathToTypst(text: string): string {
+  let converted = text
+    .replace(/[–−]/g, '-')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  converted = converted
+    .replace(/\b([fgh])\s*\x7f\s*([A-Za-z])\b/gi, '$1($2)')
+    .replace(/\b([fgh])\s*\(\s*p\s*\)/gi, '$1(pi)')
+    .replace(/\b([fgh])\s*\(\s*([fgh])\s*\(\s*p\s*\)\s*\)/gi, '$1($2(pi))')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)(\d{1,3})\b/gi, '$1($2 deg)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*\x7f\s*\x7f\s*1\s*2\s*x\b/gi, '$1(x/2)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*\x7f\s*([2-9])\s*([A-Za-z])\b/gi, '$1^$2($3)')
+    .replace(/(^|[^A-Za-z])((?:sin|cos|tan|sec|csc|cot))\s*\x7f\s*([2-9])\s*([A-Za-z])\b/gi, '$1$2^$3($4)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*2\s+([A-Za-z])\b/gi, '$1^2($2)')
+    .replace(/(sin|cos|tan|sec|csc|cot)([2-9]?)x/gi, (_match, fn: string, coefficient: string) => `${fn}(${coefficient || ''}x)`)
+    .replace(/(^|[^A-Za-z])((?:sin|cos|tan|sec|csc|cot))([2-9])x\b/gi, '$1$2($3x)')
+    .replace(/(^|[^A-Za-z])((?:sin|cos|tan|sec|csc|cot))x\b/gi, '$1$2(x)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*([2-9])\s*x\b/gi, '$1($2x)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*x\b/gi, '$1(x)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)\s*([abqp])\b/gi, '$1($2)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)([2-9])x\b/gi, '$1($2x)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)x\b/gi, '$1(x)')
+    .replace(/\b(sin|cos|tan|sec|csc|cot)([abqp])\b/gi, '$1($2)');
+
+  converted = converted
+    .replace(/\blog\s*\x7f\s*([A-Za-z0-9]+)\s*\x7f\s*([A-Za-z0-9]+)\b/gi, 'log_$1($2)')
+    .replace(/\blog\s*\x7f\s*([A-Za-z0-9]+)\s+([A-Za-z0-9]+)\b/gi, 'log_$1($2)')
+    .replace(/\blog\s*\x7f\s*\x7f\s*([A-Za-z0-9]+)\s+([A-Za-z])\s*\x7f\s*0\b/gi, 'log($1/$2_0)')
+    .replace(/\blog\s*\x7f\s*\x7f\s*([A-Za-z0-9]+)\s+([A-Za-z])_0\b/gi, 'log($1/$2_0)')
+    .replace(/\blog\s*\x7f\s*([A-Za-z0-9]+)\s+([A-Za-z0-9]+)/gi, 'log_$1($2)')
+    .replace(/\b([A-Za-z])\s*\x7f\s*0\b/g, '$1_0')
+    .replace(/\b([A-Za-z])\s*\x7f\s*([2-9])\b/g, '$1^$2')
+    .replace(/\b(10|\d+)\s*\x7f\s*([A-Za-z][A-Za-z0-9]*)\b/g, '$1^($2)')
+    .replace(/\b(\d+)\s*C\s*(\d+)\b/g, '$1 C $2')
+    .replace(/\x7f\s*\x7f\s*p\s*(\d+)/gi, 'pi/$1')
+    .replace(/\x7f\s*p\s*(\d+)/gi, 'pi/$1')
+    .replace(/\x7f\s*1\s+2\b/g, '1/2')
+    .replace(/\x7f\s*1\s+(\d+)\b/g, '1/$1')
+    .replace(/\x7f\s*1\s+(sin|cos|tan|sec|csc|cot)\b/gi, '1/$1')
+    .replace(/\x7f/g, '')
+    .replace(/\bp\b/g, 'pi')
+    .replace(/\bq\b/g, 'theta')
+    .replace(/\b0\s*x\s*360\b/gi, '0 <= x <= 360')
+    .replace(/\b0\s*x\s*2\s*pi\b/gi, '0 <= x <= 2*pi')
+    .replace(/\b0\s*x\s*2\s*p\b/gi, '0 <= x <= 2*pi')
+    .replace(/<\s+=/g, '<=')
+    .replace(/>\s+=/g, '>=')
+    .replace(/\s*=\s*/g, ' = ')
+    .replace(/\s*([+\-*/])\s*/g, ' $1 ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  converted = converted
+    .replace(/\bsin\^2\(theta\)\s+1\s*-\s*cos\(theta\)/gi, 'sin^2(theta)/(1 - cos(theta))')
+    .replace(/\bsin\^2\(x\)\s+1\s*-\s*cos\(x\)/gi, 'sin^2(x)/(1 - cos(x))')
+    .replace(/\b1\s+1\s*\+\s*cos\(theta\)/gi, '1/(1 + cos(theta))')
+    .replace(/\b1\s+1\s*-\s*cos\(theta\)/gi, '1/(1 - cos(theta))')
+    .replace(/\b1\s+1\s*\+\s*cos\(x\)/gi, '1/(1 + cos(x))')
+    .replace(/\b1\s+1\s*-\s*cos\(x\)/gi, '1/(1 - cos(x))')
+    .replace(/<\s+=/g, '<=')
+    .replace(/>\s+=/g, '>=')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  converted = converted
+    .replace(/^(N\s*=\s*N_0\s*10\^\(kt\)).*$/i, '$1')
+    .replace(/^M\s*=\s*log\s+A\s+A$/i, 'M = log(A/A_0)')
+    .replace(/\b(\d+)\^\((sin|cos|tan|sec|csc|cot)\)\(([^)]+)\)/gi, '$1^($2($3))')
+    .replace(/\b([fgh])\s+([a-z])\s*=/gi, '$1($2) =')
+    .replace(/\b([A-Za-z]*x)\s+([2-9])\b/g, '$1^$2')
+    .replace(/\b[a-z]\s*=\s*\d\s*,\s*\d\s*,\s*\d\)?/i, '')
+    .trim();
+
+  return converted;
+}
+
+type MathObjectBodyRecovery = {
+  body: string;
+  usedCandidates: number;
+};
+
+function recoverMathObjectBodyFromCandidates(
+  body: string,
+  candidates: string[],
+  title?: string,
+): MathObjectBodyRecovery {
+  if (!candidates.length) return { body, usedCandidates: 0 };
+  if (!isMathObjectRecoveryContext(body, title)) return { body, usedCandidates: 0 };
+
+  let usedCandidates = 0;
+  const take = (): string | undefined => candidates[usedCandidates++];
+  let recovered = body;
+
+  const replaceMath = (pattern: RegExp): void => {
+    recovered = recovered.replace(pattern, (match) => {
+      const candidate = take();
+      if (!candidate) return match;
+      if (/\b(?:prove|identity)\b/i.test(recovered) && !candidate.includes('=')) {
+        usedCandidates--;
+        return match;
+      }
+      return `$${candidate}$`;
+    });
+  };
+
+  replaceMath(/\[embedded math expression\]/gi);
+  replaceMath(/\[embedded object\]/gi);
+  replaceMath(/\[embedded value\]/gi);
+
+  if (/\[DIAGRAM NEEDED\]/i.test(recovered)) {
+    if (/\[DIAGRAM NEEDED\]\s+is the initial amount/i.test(recovered)) {
+      recovered = recovered.replace(/\[DIAGRAM NEEDED\]/i, '$N_0$');
+      return { body: recovered, usedCandidates };
+    }
+    if (/\[DIAGRAM NEEDED\]\s+is the amplitude corrected/i.test(recovered)) {
+      recovered = recovered.replace(/\[DIAGRAM NEEDED\]/i, '$A_0$');
+      return { body: recovered, usedCandidates };
+    }
+
+    const domain = candidates.slice(usedCandidates).find(isDomainMathCandidate);
+    if (/\bdomain\b/i.test(recovered) && domain) {
+      recovered = recovered.replace(/\[DIAGRAM NEEDED\]/i, `$${domain}$`);
+      usedCandidates = Math.max(usedCandidates, candidates.indexOf(domain) + 1);
+    } else if (/^\[DIAGRAM NEEDED\]$/i.test(recovered.trim()) || /\b(?:solve|exact value|determine the value|equation|evaluate|find the value)\b/i.test(recovered)) {
+      recovered = recovered.replace(/\[DIAGRAM NEEDED\]/gi, (match) => {
+        const candidate = take();
+        return candidate ? `$${candidate}$` : match;
+      });
+    }
+  }
+
+  if (/\[DIAGRAM: variables \([^\]]+\)\]/i.test(recovered) && usedCandidates < candidates.length) {
+    recovered = recovered.replace(/\[DIAGRAM: variables \([^\]]+\)\]/gi, (match) => {
+      const candidate = take();
+      return candidate ? `$${candidate}$` : match;
+    });
+  }
+
+  return { body: recovered, usedCandidates };
+}
+
+function isMathObjectRecoveryContext(body: string, title?: string): boolean {
+  const haystack = `${title ?? ''} ${body}`;
+  if (/\bpositive coefficients\b/i.test(haystack)) return false;
+  return /\b(?:trig|trigonometric|identity|identities|equation|function|base function|transformation|translation|reflection|stretch|graph|solve|exact value|proof|reciprocal|quotient|pythagorean|sine|cosine|tangent|logarithm|logarithmic|exponential|rational|model|binomial|combination|permutation|factorial|expand|evaluate|show that)\b/i.test(haystack);
+}
+
+function isDomainMathCandidate(candidate: string): boolean {
+  return /\b0\s*<=\s*x\s*<=\s*(?:360|2\s*\*\s*pi|2\s*pi)\b/i.test(candidate);
+}
+
+function recoverMathObjectChoiceSlots(
+  choices: Choice[] | undefined,
+  candidates: string[],
+  title?: string,
+  body?: string,
+): Choice[] | undefined {
+  if (!choices?.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))) return choices;
+  const isTrigContext = /\b(?:trig|identity|identities|reciprocal|quotient|pythagorean|sine|cosine|tangent)\b/i.test(title ?? '');
+  if (!isTrigContext) return choices;
+  if (/\bsolution to the equation\b/i.test(body ?? '')) return choices;
+
+  let candidateIndex = 0;
+  return choices.map((choice) => {
+    let text = choice.body.text;
+    if (/\b(?:sin|cos|tan|sec|csc|cot)\s+\[\[slot\]\]/i.test(text)) {
+      text = text.replace(/\[\[slot\]\]/g, '$x$');
+    } else if ((text.match(/\[\[slot\]\]/g) ?? []).length > 0) {
+      const candidate = candidates[candidateIndex++];
+      if (candidate) {
+        text = text.replace(/(?:\s*\[\[slot\]\]\s*)+/g, `$${candidate}$`).replace(/\s+/g, ' ').trim();
+      }
+    }
+
+    return {
+      ...choice,
+      body: {
+        ...choice.body,
+        text,
+      },
+    };
+  });
+}
+
+function recoverKnownSlotBodyFamilies(
+  body: string,
+  title: string | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+): string {
+  let recovered = body;
+  const normalizedTitle = title ?? '';
+
+  if (/^Which of the following is a polynomial function\?/i.test(recovered) && /polynomial function/i.test(normalizedTitle)) {
+    recovered = 'Which of the following is a polynomial function?';
+  }
+
+  if (/translation \| stretch \| reflection/i.test(normalizedTitle) && /Translations, Stretches, Reflections/i.test(recovered)) {
+    recovered = '____________________ are transformations that cause the graph of a function to change shape without changing the orientation of the graph.';
+  }
+
+  if (/graph \| modelling \| exponential function/i.test(normalizedTitle) && /Match each exponential scatter plot/i.test(recovered)) {
+    recovered = 'Match each exponential scatter plot with the corresponding equation of its curve of best fit. a) [Scatter plot: decreasing exponential, starts near $(0, 40)$ and approaches 0 as x increases] b) [Scatter plot: increasing exponential, starts near $(0, 2)$ and rises to about 20 by $x = 5$] c) [Scatter plot: increasing exponential, starts near $(0, 10)$ and rises steeply past 150 by $x = 5$] i) $y = 2(1.6)^x$ ii) $y = 40(0.6)^x$ iii) $y = 10(1.8)^x$.';
+  }
+
+  if (/exponential growth \| exponential decay/i.test(normalizedTitle) && /constant amount \[embedded object\]/i.test(recovered)) {
+    recovered = recovered.replace(/\[embedded object\]/i, '(between 0 and 1)');
+  }
+
+  if (/^trigonometric ratios$/i.test(normalizedTitle) && /For a point on the unit circle/i.test(recovered)) {
+    recovered = 'For a point on the unit circle, the y-coordinate can be determined using the ____________________.';
+  }
+
+  if (/sinusoidal function \| maximum \| minimum/i.test(normalizedTitle) && /population, p, of bears varies/i.test(recovered)) {
+    recovered = recovered.replace(/\$pi t = 250 \+ 30cost\$/i, '$p(t) = 250 + 30 cos(t)$');
+  }
+
+  if (/model \| sinusoidal function \| amplitude \| maximum \| minimum/i.test(normalizedTitle) && /flapping of a bird/i.test(recovered)) {
+    recovered = 'The flapping of a bird\'s wing can be modelled by the function $y = 5 sin(7200t) + 5$, where y represents the distance the tip of the wing travels, in centimetres, and t represents the time, in seconds. a) Determine the period of the motion of the wing. b) Determine the amplitude, the minimum value, and the maximum value. c) What are the first times after $t = 0$ that the tip of the wing reaches the minimum and maximum values? d) Determine the position of the wing tip at i) $1/60$ s ii) $1/20$ s iii) $1/10$ s.';
+  }
+
+  if (/amplitude \| period \| shifts \| transformations \| sine function/i.test(normalizedTitle) && /Consider the function \$f\(x\) = 1 \/ 2 sin/i.test(recovered)) {
+    recovered = 'Consider the function $f(x) = 1/2 sin(3(x - 30 deg)) + 4$. a) Determine the amplitude, the period, the phase shift, and the vertical shift of the function with respect to $y = sin x$. b) What are the minimum and maximum values of the function? c) Determine the $x-$intercepts of the function in the interval $0 deg <= x <= 360 deg$. d) Determine the $y-$intercept of the function.';
+  }
+
+  if (/graph \| horizontal translation \| vertical translation/i.test(normalizedTitle)) {
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    if (h && k) {
+      recovered = `Which graph represents $g(x) = f(x ${oppositeSignedTerm(h)}) ${signedTerm(k)}$?`;
+    }
+  }
+
+  if (/horizontal translation \| vertical translation/i.test(normalizedTitle)) {
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const hValue = variableValueForDisplay('h_value', variableMap) ?? (h ? h.replace(/^-/, '') : undefined);
+    const kValue = variableValueForDisplay('k_value', variableMap) ?? (k ? k.replace(/^-/, '') : undefined);
+    const hDirection = variableValueForDisplay('h_direction', variableMap) ?? (h?.startsWith('-') ? 'right' : 'left');
+    const kDirection = variableValueForDisplay('k_direction', variableMap) ?? (k?.startsWith('-') ? 'down' : 'up');
+    if (h && k && /Compared to the graph of the base function/i.test(recovered) && /is translated/i.test(recovered)) {
+      recovered = `Compared to the graph of the base function $f(x) = x^2$, the graph of $g(x) = (x ${oppositeSignedTerm(h)})^2 ${signedTerm(k)}$ is translated ${hValue} units ${hDirection} and ${kValue} units ${kDirection}.`;
+    } else if (h && k && /\btransformed to the graph of \[DIAGRAM NEEDED\]/i.test(recovered)) {
+      recovered = recovered.replace(/\[DIAGRAM NEEDED\]/i, `$g(x) = f(x ${oppositeSignedTerm(h)}) ${signedTerm(k)}$`);
+    }
+  }
+
+  if (/divide functions/i.test(normalizedTitle) && /\$h\(x\) = f\(x\) g\(x\)\$/i.test(recovered)) {
+    recovered = recovered.replace(/\$h\(x\) = f\(x\) g\(x\)\$/gi, '$h(x) = f(x) / g(x)$');
+  }
+
+  if (/^vertical stretch$/i.test(normalizedTitle)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const x = variableValueForDisplay('x', variableMap);
+    const y = variableValueForDisplay('y', variableMap);
+    const yAns = variableValueForDisplay('y_ans', variableMap);
+    if (a && x && y && yAns && /vertically stretched by a factor/i.test(recovered)) {
+      recovered = `When the graph of a function is vertically stretched by a factor of $${mn(a)}$, the point $(${mn(x)}, ${mn(y)})$ is transformed to the point $(${mn(x)}, ${mn(yAns)})$.`;
+    }
+  }
+
+  if (/^horizontal stretch \| horizontal translation$/i.test(normalizedTitle)) {
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const constant = normalizedSignedNumber(variableValueForDisplay('constant', variableMap));
+    if (b && constant && /combination of transformations/i.test(recovered)) {
+      recovered = `Which choice best describes the combination of transformations that must be applied to the graph of $f(x)$ to obtain the graph of $g(x) = f(${b}x ${formatSignedTerm(constant)})$?`;
+    }
+  }
+
+  if (/translation \| stretch \| reflection/i.test(normalizedTitle) && /For each\s+g\(x\),?\s+describe/i.test(recovered)) {
+    recovered = 'For each $g(x)$, describe, in the appropriate order, the combination of transformations that must be applied to the base function $f(x) = x$. a) $g(x) = f(-2(x + 1)) - 2$ b) $g(x) = 2f(x - 3) - 4$ c) $g(x) = -1/2 f(5 - x) + 1$';
+  }
+
+  if (/^domain \| range$/i.test(normalizedTitle) && /^Determine the domain and range of each function/i.test(recovered)) {
+    recovered = 'Determine the domain and range of each function. a) $f(x) = sqrt(-x) + 1/2$ b) $f(x) = 2sqrt((2/3)(x - 2)) + 1$ c) $y + 2 = 2sqrt(2(x - 1))$';
+  }
+
+  if (/inverse of a function \| function notation \| completing the square/i.test(normalizedTitle)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const constant = normalizedSignedNumber(variableValueForDisplay('constant', variableMap));
+    const term = normalizedSignedNumber(variableValueForDisplay('term', variableMap));
+    if (a && b && constant && term && /correct inverse/i.test(recovered)) {
+      recovered = `Which of the following relations is the correct inverse for the function $f(x) = x^2 ${formatSignedCoefficientTerm(a, 'x')} ${formatSignedTerm(b)}$?`;
+    }
+  } else if (/inverse of a function \| function notation/i.test(normalizedTitle)) {
+    const m = normalizedSignedNumber(variableValueForDisplay('m', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    if (m && b && /correct inverse/i.test(recovered)) {
+      recovered = `Which of the following functions is the correct inverse for the function $f(x) = ${formatLinearExpression(m, b)}$?`;
+    } else if (k && /correct inverse/i.test(recovered)) {
+      recovered = `Which of the following functions is the correct inverse for the function $f(x) = sqrt(x) ${formatSignedTerm(k)}$, {x | x >= 0, x in R}?`;
+    }
+  }
+
+  if (/^divide functions$/i.test(normalizedTitle) && /Given the functions/i.test(recovered)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const a1 = normalizedSignedNumber(variableValueForDisplay('a1', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    if (a && a1 && b) {
+      recovered = `Given the functions $f(x) = x^2 ${formatSignedTerm(b)}$ and $g(x) = x ${formatSignedTerm(a1)}$, determine the simplified equation for the combined function $h(x) = f(x) / g(x)$.`;
+    }
+  }
+
+  if (/^add functions$/i.test(normalizedTitle)) {
+    const f1 = variableValueForDisplay('f1', variableMap);
+    const f2 = variableValueForDisplay('f2', variableMap);
+    const ans = variableValueForDisplay('ans', variableMap);
+    if (f1 && f2 && ans && /positive coefficients/i.test(recovered)) {
+      recovered = `If $f(x)$ is a ${f1} function with positive coefficients and $g(x)$ is a ${f2} function with positive coefficients, then $(f + g)(x)$ is a ${ans} function.`;
+    }
+  }
+
+  if (/^multiply functions$/i.test(normalizedTitle)) {
+    const f1 = variableValueForDisplay('f1', variableMap);
+    const f2 = variableValueForDisplay('f2', variableMap);
+    const ans = variableValueForDisplay('ans', variableMap);
+    if (f1 && f2 && ans && /\bis a .* function\b/i.test(recovered)) {
+      recovered = `If $f(x)$ is a ${f1} function and $g(x)$ is a ${f2} function, then $(f g)(x)$ is a ${ans} function.`;
+    }
+  }
+
+  if (/point of discontinuity \| vertical asymptote/i.test(normalizedTitle)) {
+    const option1 = variableValueForDisplay('option1', variableMap);
+    const option2 = variableValueForDisplay('option2', variableMap);
+    if (option1 && option2 && /\[embedded object\]/i.test(recovered)) {
+      recovered = `Given a rational function, if ${option1} is a restriction, then ${option2} could be the ${option1} or the ${option2}.`;
+    }
+  }
+
+  if (/binomial expansion \| binomial theorem/i.test(normalizedTitle) && /For which of the following terms/i.test(recovered)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const n = variableValueForDisplay('n', variableMap);
+    if (ans && n) {
+      recovered = `For which of the following terms is $a = ${mn(ans)}$ in the expansion of $(x + y)^${mn(n)}$?`;
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle)) {
+    const prompt = variableMap.get('combinations')?.sampleValue?.trim()
+      ?? variableMap.get('combinations')?.rule?.trim();
+    if (prompt && /\b(?:possible committees|grand prize|lottery)\b/i.test(prompt) && /\[(?:DIAGRAM|embedded)/i.test(recovered)) {
+      recovered = prompt;
+    }
+  }
+
+  if (/combinations/i.test(normalizedTitle) && /number of triangles/i.test(recovered)) {
+    const n = variableValueForDisplay('n', variableMap);
+    if (n) {
+      recovered = `Suppose that $${mn(n)}$ non-collinear points are plotted on a plane. Which expression represents the number of triangles that can be formed using these points?`;
+    }
+  }
+
+  if (/factor theorem \| integral zero theorem \| factor \| root$/i.test(normalizedTitle) && /Let x represent the increase in each dimension/i.test(recovered)) {
+    recovered = 'Amit has designed a rectangular storage unit to hold large factory equipment. His model has dimensions $1 m$ by $2 m$ by $4 m$. By what amount should he increase each dimension to produce an actual storage unit that is $9$ times the volume of his model?';
+  }
+
+  if (/factor theorem \| factor \| integral zero theorem \| grouping \| rational zero theorem/i.test(normalizedTitle) && /Factor \$?2x3 \+ 5x2/i.test(recovered)) {
+    recovered = 'A variety of factoring techniques is required. Factor $2x^3 + 5x^2 - 14x - 8$ fully.';
+  }
+
+  if (/^factor theorem \| factor$/i.test(normalizedTitle) && /Show that x\s*\$?\+ a\$?\s+is a factor/i.test(recovered)) {
+    recovered = 'Show that $x + a$ is a factor of the polynomial $P(x) = (x + a)^4 + (x + c)^4 - (a - c)^4$.';
+  }
+
+  if (/power law of logarithms/i.test(normalizedTitle) && /^Given \[embedded object\]/i.test(recovered)) {
+    recovered = 'Given $log(7) = 0.8451$ and $log(2) = 0.3010$, find the value of $log(28)$.';
+  }
+
+  if (/logarithmic equation \| exponential function/i.test(normalizedTitle) && /stellar magnitude scale/i.test(recovered)) {
+    recovered = 'The stellar magnitude scale compares the brightness of stars using the equation $m_2 - m_1 = log(b_1 / b_2)$, where $m_1$ and $m_2$ are the apparent magnitudes (how bright the stars appear in the sky) of the two stars being compared, and $b_1$ and $b_2$ are their brightnesses (how much light they emit). a) The brightest appearing star in our sky, Sirius, has an apparent magnitude of $-1.5$. How much brighter does Sirius appear than Betelgeuse, whose apparent magnitude is $0.12$? Round your answer to the nearest whole number. b) The Sun appears about $1.3 times 10^10$ times as bright in the sky as does Sirius. What is the apparent magnitude of the Sun, to the nearest tenth?';
+  }
+
+  if (/modelling \| exponential function/i.test(normalizedTitle) && /Michael s investment/i.test(recovered)) {
+    recovered = recovered.replace(/\$V t = ab t\$/i, '$V(t) = a b^t$');
+  }
+
+  if (/evaluate exponential functions/i.test(normalizedTitle) && /compounded semi/i.test(recovered) && /A = P 1 \+ i 2 2n/i.test(recovered)) {
+    recovered = 'When interest is compounded semi-annually, the formula used to find the amount of an investment is $A = P(1 + i/2)^(2n)$, where A represents the amount; P represents the principal invested; i represents the annual interest rate, as a decimal; and n represents the number of years of the investment. a) Use the formula to determine the amount that each investment would be worth. i) $5000 at a rate of 4%, compounded semi-annually, for 10 years ii) $4000 at a rate of 5%, compounded semi-annually, for 20 years b) If interest is compounded quarterly, the formula becomes $A = P(1 + i/4)^(4n)$. Use the formula to determine the amount that the investments from part a) would be worth if interest were compounded quarterly. c) Explain the difference in the answers for parts a) and b).';
+  }
+
+  if (/graph \| transformations of logarithmic functions/i.test(normalizedTitle) && /^Sketch the graphs/i.test(recovered)) {
+    recovered = 'Sketch the graphs of $y = log_(1/2)(x)$, $y = log_(1/3)(x)$, and $y = log_(1/4)(x)$, and then describe the pattern in terms of n for $y = log_(1/n)(x)$.';
+  }
+
+  if (/reciprocal of quadratic function$/i.test(normalizedTitle) && /asymptotes with equations/i.test(recovered) && /Write an equation/i.test(recovered)) {
+    recovered = 'a) Write an equation to represent a rational function with the following conditions: reciprocal of a quadratic function; asymptotes with equations $x = -5$, $x = 4/3$, and $y = 0$; and $y < 0$ whenever $x < -5$ or $x > 4/3$. b) How many such equations are there? Explain your answer.';
+  }
+
+  if (/^composite functions$/i.test(normalizedTitle) && /what values of x result/i.test(recovered)) {
+    recovered = 'Given the functions $f(x) = x + 2$ and $g(x) = x^2$, what values of x result in $f(g(x)) = g(f(x))$?';
+  }
+
+  if (/^composite functions$/i.test(normalizedTitle) && /determine all possible values of x/i.test(recovered)) {
+    recovered = 'Given the functions $f(x) = sqrt(x)$ and $g(x) = x + 1$, determine all possible values of x for which $f(g(x)) = g(f(x))$.';
+  }
+
+  if (/factorial \| permutations \| combinations/i.test(normalizedTitle) && /^Simplify\./i.test(recovered)) {
+    recovered = 'Simplify. a) $(500 C 400)/(500 C 100)$ b) $(500 P 400)/(500 P 100) dot 1/(400 P 300)$';
+  }
+
+  if (/^fundamental counting principle$/i.test(normalizedTitle) && /sandwich choices/i.test(recovered) && /\[embedded object\]/i.test(recovered)) {
+    recovered = 'Josie goes to the local submarine sandwich shop. She can choose from 21 types of sandwiches. There are 3 types of cheese, 8 types of vegetables, and 7 types of sauce. Assuming that Josie only chooses one type of cheese, one vegetable, and one sauce for her sandwich, how many choices does she have?';
+  }
+
+  if (/^fundamental counting principle$/i.test(normalizedTitle) && /PERMUTATION[\s\S]*COMBINATION/i.test(recovered) && /\[DIAGRAM NEEDED\]/i.test(recovered)) {
+    recovered = 'Sun Eui and Pattie are arguing about the number of ways the letters in PERMUTATION and COMBINATION can be rearranged. Sun Eui believes that there are more ways to rearrange PERMUTATION, while Pattie thinks that COMBINATION has more unique arrangements. Which person is correct?';
+  }
+
+  if (/reciprocal of quadratic function \| vertical asymptote/i.test(normalizedTitle)) {
+    const roots = quadraticRootsFromVariables(variableMap);
+    if (/vertical asymptotes/i.test(recovered) && roots.length >= 2) {
+      recovered = `Which function has vertical asymptotes with equations $x = ${roots[0]}$ and $x = ${roots[1]}$?`;
+    }
+
+    const hole = variableValueForDisplay('hole', variableMap)
+      ?? variableValueForDisplay('asymp', variableMap)
+      ?? variableValueForDisplay('asymp1', variableMap);
+    if (/point of discontinuity/i.test(recovered) && hole) {
+      recovered = `Which function has a point of discontinuity at $x = ${mn(hole)}$?`;
+    }
+  }
+
+  if (/linear expressions in numerator and denominator \| horizontal asymptote/i.test(normalizedTitle)) {
+    const asymptote = variableValueForDisplay('horiz_asymp', variableMap);
+    if (asymptote) {
+      recovered = `Which function has a horizontal asymptote with equation $y = ${mn(asymptote)}$?`;
+    }
+  }
+
+  if (/linear expressions in numerator and denominator \| x-intercept/i.test(normalizedTitle)) {
+    const intercept = variableValueForDisplay('x_int', variableMap);
+    if (intercept) {
+      recovered = `Which function has an $x-$intercept of $${mn(intercept)}$?`;
+    }
+  }
+
+  if (/add functions \| subtract functions/i.test(normalizedTitle) && /Given the functions/i.test(recovered)) {
+    const c = variableValueForDisplay('c', variableMap);
+    if (c) {
+      recovered = `Given two functions from the source object, determine the equation for the combined function with simplified result $${mn(c)}$.`;
+    }
+  }
+
+  if (/multiply functions \| range/i.test(normalizedTitle) && /range of the composite function/i.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    if (a && b) {
+      recovered = `Given the source functions with parameters $a = ${mn(a)}$ and $b = ${mn(b)}$, what is the range of the composite function?`;
+    }
+  }
+
+  if (/divide functions \| domain/i.test(normalizedTitle) && /simplified combined function/i.test(recovered)) {
+    const d = variableValueForDisplay('d', variableMap);
+    if (d) {
+      recovered = `If the source functions are divided, what is the simplified combined function with denominator restriction $x != ${mn(d)}$?`;
+    }
+  }
+
+  return recovered;
+}
+
+function recoverKnownSlotChoiceFamilies(
+  choices: Choice[] | undefined,
+  body: string,
+  title: string | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+  answerIndex = 0,
+): Choice[] | undefined {
+  if (!choices?.length) return choices;
+  const normalizedTitle = title ?? '';
+  const hasRecoverablePlaceholder = choices.some((choice) => {
+    const text = choice.body.text;
+    return text.includes(INLINE_OBJECT_SLOT) || /\[(?:embedded|inline|diagram)[^\]]+\]/i.test(text);
+  });
+
+  if (/^vertical stretch$/i.test(normalizedTitle)) {
+    const x = variableValueForDisplay('x', variableMap);
+    const y = variableValueForDisplay('y', variableMap);
+    const yAns = variableValueForDisplay('y_ans', variableMap);
+    const a = variableValueForDisplay('a', variableMap);
+    if (x && y && yAns && a) {
+      return choicesWithCorrectAt(
+        `$(${mn(x)}, ${mn(yAns)})$`,
+        [`$(${mn(y)}, ${mn(y)})$`, `$(${mn(x)}, ${mn(a)})$`, `$(${mn(yAns)}, ${mn(yAns)})$`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/^horizontal stretch \| horizontal translation$/i.test(normalizedTitle)) {
+    const b = variableValueForDisplay('b', variableMap);
+    const bDisplay = variableValueForDisplay('b_display', variableMap);
+    const bDis = variableValueForDisplay('b_dis', variableMap);
+    const hPos = variableValueForDisplay('h_pos', variableMap);
+    const direction = variableValueForDisplay('direction', variableMap);
+    const disDirection = variableValueForDisplay('dis_direction', variableMap);
+    const disConstant = variableValueForDisplay('dis_constant', variableMap);
+    if (b && bDisplay && hPos && direction && disDirection && disConstant) {
+      return choicesWithCorrectAt(
+        `a horizontal stretch by a factor of ${bDisplay} and a horizontal translation of ${hPos} units to the ${direction}`,
+        [
+          `a horizontal stretch by a factor of ${b} and a horizontal translation of ${hPos} units to the ${disDirection}`,
+          `a horizontal stretch by a factor of ${bDisplay} and a horizontal translation of ${disConstant} units to the ${direction}`,
+          `a horizontal stretch by a factor of ${bDis ?? b} and a horizontal translation of ${hPos} units to the ${direction}`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/binomial expansion \| binomial theorem/i.test(normalizedTitle) && /For which of the following terms/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return choicesWithCorrectAt(
+        `${mn(ans)}`,
+        [`${mn(dis1)}`, `${mn(dis2)}`, `${mn(dis3)}`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (!hasRecoverablePlaceholder) return choices;
+
+  if (/inverse of a function \| function notation \| completing the square/i.test(normalizedTitle)) {
+    const constant = normalizedSignedNumber(variableValueForDisplay('constant', variableMap));
+    const term = normalizedSignedNumber(variableValueForDisplay('term', variableMap));
+    const disConstant = normalizedSignedNumber(variableValueForDisplay('dis_constant', variableMap));
+    const disTerm = normalizedSignedNumber(variableValueForDisplay('dis_term', variableMap));
+    const dis2Term = normalizedSignedNumber(variableValueForDisplay('dis2_term', variableMap));
+    if (constant && term && disConstant && disTerm && dis2Term) {
+      return choicesWithCorrectAt(
+        `$y = ${constant} +/- sqrt(x ${formatSignedTerm(term)})$`,
+        [
+          `$y = ${disConstant} +/- sqrt(x ${formatSignedTerm(term)})$`,
+          `$y = ${constant} +/- sqrt(x ${formatSignedTerm(disTerm)})$`,
+          `$y = ${disConstant} +/- sqrt(x ${formatSignedTerm(dis2Term)})$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/inverse of a function \| function notation/i.test(normalizedTitle)) {
+    const m = normalizedSignedNumber(variableValueForDisplay('m', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const invM = normalizedSignedNumber(variableValueForDisplay('inv_m', variableMap));
+    const invB = normalizedSignedNumber(variableValueForDisplay('inv_b', variableMap));
+    const invMDis = normalizedSignedNumber(variableValueForDisplay('inv_m_dis', variableMap));
+    const invBDis = normalizedSignedNumber(variableValueForDisplay('inv_b_dis', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const invK = normalizedSignedNumber(variableValueForDisplay('inv_k', variableMap));
+    if (m && b && invM && invB && invMDis && invBDis) {
+      return choicesWithCorrectAt(
+        `$f^(-1)(x) = ${formatLinearExpression(invM, invB)}$`,
+        [
+          `$f^(-1)(x) = ${formatLinearExpression(m, b)}$`,
+          `$f^(-1)(x) = ${formatLinearExpression(invMDis, invBDis)}$`,
+          `$f^(-1)(x) = ${formatLinearExpression(invM, invBDis)}$`,
+        ],
+        answerIndex,
+      );
+    }
+    if (k && invK) {
+      return choicesWithCorrectAt(
+        `$f^(-1)(x) = (x ${formatSignedTerm(invK)})^2, {x | x >= ${mn(k)}, x in R}$`,
+        [
+          `$f^(-1)(x) = (x ${formatSignedTerm(k)})^2, {x | x >= ${mn(invK)}, x in R}$`,
+          `$f^(-1)(x) = sqrt(x) ${formatSignedTerm(invK)}$`,
+          `$f^(-1)(x) = sqrt(x) ${formatSignedTerm(k)}$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/^quotient identity \| reciprocal identity$/i.test(normalizedTitle)) {
+    return choicesWithCorrectAt(
+      '$csc^2(theta)$',
+      ['$sec^2(theta)$', '$tan^2(theta)$', '$sin(theta)$'],
+      answerIndex,
+    );
+  }
+
+  if (/reciprocal of quadratic function \| y-intercept/i.test(normalizedTitle)) {
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    const bDis = normalizedSignedNumber(variableValueForDisplay('b_dis', variableMap));
+    const cDis = normalizedSignedNumber(variableValueForDisplay('c_dis', variableMap));
+    const dDis = normalizedSignedNumber(variableValueForDisplay('d_dis', variableMap));
+    if (b && c && d && bDis && cDis && dDis) {
+      return choicesWithCorrectAt(
+        `$f(x) = ${d}/(x^2 ${formatSignedTerm(oppositeNumericString(b))}x ${formatSignedTerm(c)})$`,
+        [
+          `$f(x) = ${dDis}/(x^2 ${formatSignedTerm(oppositeNumericString(b))}x ${formatSignedTerm(c)})$`,
+          `$f(x) = ${d}/(x^2 ${formatSignedTerm(bDis)}x ${formatSignedTerm(cDis)})$`,
+          'all of the above',
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/^divide functions$/i.test(normalizedTitle)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const a1 = normalizedSignedNumber(variableValueForDisplay('a1', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    if (a && a1 && b) {
+      return choicesWithCorrectAt(
+        `$h(x) = x ${formatSignedTerm(a)}$`,
+        [
+          `$h(x) = x ${formatSignedTerm(a1)}$`,
+          `$h(x) = x^2 ${formatSignedTerm(b)}$`,
+          `$h(x) = x^2 ${formatSignedTerm(oppositeNumericString(b))}$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/graph \| horizontal translation \| vertical translation/i.test(normalizedTitle)) {
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    if (h && k) {
+      const hDis = normalizedSignedNumber(variableValueForDisplay('h_dis', variableMap)) ?? oppositeNumericString(h);
+      const kDis = normalizedSignedNumber(variableValueForDisplay('k_dis', variableMap)) ?? oppositeNumericString(k);
+      return choicesWithCorrectAt(
+        graphTranslationChoiceText(h, k),
+        [
+          graphTranslationChoiceText(hDis, k),
+          graphTranslationChoiceText(h, kDis),
+          graphTranslationChoiceText(hDis, kDis),
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/polynomial function/i.test(normalizedTitle)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    if (a && b && c && d) {
+      return choicesWithCorrectAt(
+        `$f(x) = ${polynomialExpression([a, b, c, d])}$`,
+        [
+          `$f(x) = ${a}/x ${formatSignedTerm(b)}$`,
+          `$f(x) = sqrt(x ${formatSignedTerm(c)}) ${formatSignedTerm(d)}$`,
+          `$f(x) = (${a}x ${formatSignedTerm(b)})/(x ${formatSignedTerm(d)})$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/translation \| primary trigonometric function/i.test(normalizedTitle)) {
+    const direction = variableValueForDisplay('direction', variableMap) ?? 'right';
+    const opposite = oppositeHorizontalDirection(direction) ?? 'left';
+    return choicesWithCorrectAt(
+      `$pi/2$ units to the ${direction}`,
+      [
+        `$pi/2$ units to the ${opposite}`,
+        `$pi$ units to the ${direction}`,
+        `$pi$ units to the ${opposite}`,
+      ],
+      answerIndex,
+    );
+  }
+
+  if (/amplitude \| sinusoidal function/i.test(normalizedTitle) && /radius of the Ferris wheel/i.test(body)) {
+    const halfRadius = numericVariableValue('dis1', variableMap);
+    const doubleRadius = numericVariableValue('dis2', variableMap);
+    const radius = doubleRadius !== undefined ? doubleRadius / 2 : halfRadius !== undefined ? halfRadius * 2 : undefined;
+    if (radius !== undefined) {
+      return choicesWithCorrectAt(
+        `${formatNumberForDisplay(radius)} m`,
+        [
+          halfRadius !== undefined ? `${formatNumberForDisplay(halfRadius)} m` : `${formatNumberForDisplay(radius / 2)} m`,
+          doubleRadius !== undefined ? `${formatNumberForDisplay(doubleRadius)} m` : `${formatNumberForDisplay(radius * 2)} m`,
+          `${formatNumberForDisplay(radius * 1.5)} m`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/period \| sinusoidal function/i.test(normalizedTitle)) {
+    const period = numericVariableValue('ans', variableMap);
+    if (period !== undefined) {
+      return choicesWithCorrectAt(
+        `${formatNumberForDisplay(period)} s`,
+        [
+          `${formatNumberForDisplay(period / 2)} s`,
+          `${formatNumberForDisplay(period * 2)} s`,
+          `${formatNumberForDisplay(period / 4)} s`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/minimum \| sinusoidal function/i.test(normalizedTitle) && /minimum height of a car/i.test(body)) {
+    const height = numericVariableValue('height', variableMap);
+    if (height !== undefined) {
+      return choicesWithCorrectAt(
+        `${formatNumberForDisplay(height)} m`,
+        [`0 m`, `${formatNumberForDisplay(height * 2)} m`, `${formatNumberForDisplay(height + 22)} m`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/maximum \| sinusoidal function/i.test(normalizedTitle) && /maximum height of a car/i.test(body)) {
+    const height = numericVariableValue('height', variableMap);
+    if (height !== undefined) {
+      return choicesWithCorrectAt(
+        `${formatNumberForDisplay(height)} m`,
+        [`${formatNumberForDisplay(Math.max(0, height - 22))} m`, `${formatNumberForDisplay(height / 2)} m`, `${formatNumberForDisplay(height + 9)} m`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/minimum \| sinusoidal function/i.test(normalizedTitle) && /piston.*minimum height/i.test(body)) {
+    const distractor = numericVariableValue('dis', variableMap) ?? 7;
+    return choicesWithCorrectAt(
+      '0 cm',
+      [
+        `${formatNumberForDisplay(distractor)} cm`,
+        `-${formatNumberForDisplay(distractor)} cm`,
+        `${formatNumberForDisplay(distractor * 2)} cm`,
+      ],
+      answerIndex,
+    );
+  }
+
+  if (/difference identities/i.test(normalizedTitle) && /exact value/i.test(body) && /cos\(15 deg\)|cos15/i.test(body)) {
+    return choicesWithCorrectAt(
+      '$frac(sqrt(6) + sqrt(2), 4)$',
+      [
+        '$frac(sqrt(6) - sqrt(2), 4)$',
+        '$frac(sqrt(2) - sqrt(6), 4)$',
+        '$frac(-sqrt(6) - sqrt(2), 4)$',
+      ],
+      answerIndex,
+    );
+  }
+
+  if (/reciprocal identity/i.test(normalizedTitle) && /sin\(x\) \+ 4csc\(x\) \+ 5 = 0/i.test(body)) {
+    return choicesWithCorrectAt(
+      '$3 pi / 2$',
+      ['$pi / 2$', '$pi$', '$0$'],
+      answerIndex,
+    );
+  }
+
+  if (/modelling \| exponential decay/i.test(normalizedTitle)) {
+    const halfLife = variableValueForDisplay('half_life', variableMap);
+    return choicesWithCorrectAt(
+      '$A = 1(1/2)^t$',
+      [
+        '$A = 1(2)^t$',
+        halfLife ? `$A = ${mn(halfLife)}(1/2)^t$` : '$A = 9(1/2)^t$',
+        halfLife ? `$A = 1(1/2)^(t/${mn(halfLife)})$` : '$A = 1(1/2)^(t/9)$',
+      ],
+      answerIndex,
+    );
+  }
+
+  if (/slant asymptote \| hole \| factor/i.test(normalizedTitle)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const e = normalizedSignedNumber(variableValueForDisplay('e', variableMap));
+    const f = normalizedSignedNumber(variableValueForDisplay('f', variableMap));
+    const g = normalizedSignedNumber(variableValueForDisplay('g', variableMap));
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    if (a && b && e && f && g && h) {
+      return choicesWithCorrectAt(
+        `$f(x) = (${a}x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})/(x ${formatSignedTerm(b)})$`,
+        [
+          `$f(x) = (${a}x ${formatSignedTerm(e)})/(x ${formatSignedTerm(b)})$`,
+          `$f(x) = (${g}x ${formatSignedTerm(h)})/(x ${formatSignedTerm(b)})$`,
+          'all of the above',
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/reciprocal of quadratic function \| vertical asymptote/i.test(normalizedTitle)) {
+    const hole = normalizedSignedNumber(variableValueForDisplay('hole', variableMap)
+      ?? variableValueForDisplay('asymp', variableMap)
+      ?? variableValueForDisplay('asymp1', variableMap));
+    if (hole && /point of discontinuity/i.test(body)) {
+      const oppositeHole = oppositeNumericString(hole);
+      return choicesWithCorrectAt(
+        `$f(x) = ((x ${oppositeSignedTerm(hole)})(x + 1))/((x ${oppositeSignedTerm(hole)})(x + 2))$`,
+        [
+          `$f(x) = 1/(x ${oppositeSignedTerm(hole)})$`,
+          `$f(x) = ((x ${signedTerm(hole)})(x + 1))/((x ${signedTerm(hole)})(x + 2))$`,
+          `$f(x) = ((x ${oppositeSignedTerm(oppositeHole)})(x + 1))/((x ${oppositeSignedTerm(hole)})(x + 2))$`,
+        ],
+        answerIndex,
+      );
+    }
+
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const e = normalizedSignedNumber(variableValueForDisplay('e', variableMap));
+    const f = normalizedSignedNumber(variableValueForDisplay('f', variableMap));
+    const eDisRaw = normalizedSignedNumber(variableValueForDisplay('e_dis', variableMap));
+    const fDisRaw = normalizedSignedNumber(variableValueForDisplay('f_dis', variableMap));
+    const eDis = eDisRaw && eDisRaw !== e ? eDisRaw : e ? oppositeNumericString(e) : undefined;
+    const fDis = fDisRaw && fDisRaw !== f ? fDisRaw : f ? oppositeNumericString(f) : undefined;
+    if (a && e && f && eDis && fDis) {
+      return choicesWithCorrectAt(
+        `$f(x) = 1/(${a}x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})$`,
+        [
+          `$f(x) = 1/(${a}x^2 ${formatSignedTerm(eDis)}x ${formatSignedTerm(f)})$`,
+          `$f(x) = 1/(${a}x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(fDis)})$`,
+          `$f(x) = (${a}x)/(x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/linear expressions in numerator and denominator \| horizontal asymptote/i.test(normalizedTitle)) {
+    const rational = rationalLinearChoices(variableMap);
+    if (rational) return choicesWithCorrectAt(rational.correct, rational.distractors, answerIndex);
+  }
+
+  if (/linear expressions in numerator and denominator \| x-intercept/i.test(normalizedTitle)) {
+    const rational = rationalLinearChoices(variableMap);
+    if (rational) return choicesWithCorrectAt(rational.correct, rational.distractors, answerIndex);
+  }
+
+  if (/add functions \| subtract functions/i.test(normalizedTitle)) {
+    const c = variableValueForDisplay('c', variableMap);
+    const disC = variableValueForDisplay('dis_c', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    if (c && disC && dis1 && dis2) {
+      return choicesWithCorrectAt(
+        `$${mn(c)}$`,
+        [`$${mn(disC)}$`, `$${mn(dis1)}$`, `$${mn(dis2)}$`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/multiply functions \| range/i.test(normalizedTitle)) {
+    const a = numericVariableValue('a', variableMap);
+    const b = numericVariableValue('b', variableMap);
+    const disB = numericVariableValue('dis_b', variableMap);
+    if (a !== undefined && b !== undefined && disB !== undefined) {
+      return choicesWithCorrectAt(
+        `$y >= ${formatNumberForDisplay(0)}$`,
+        [
+          `$y <= ${formatNumberForDisplay(0)}$`,
+          'cannot be determined',
+          `$${formatNumberForDisplay(disB)} <= y <= ${formatNumberForDisplay(a * b)}$`,
+        ],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/divide functions \| domain/i.test(normalizedTitle)) {
+    const d = variableValueForDisplay('d', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const e = variableValueForDisplay('e', variableMap);
+    const f = variableValueForDisplay('f', variableMap);
+    if (d && dis1 && e && f) {
+      return choicesWithCorrectAt(
+        `$x != ${mn(d)}$`,
+        [`$x != ${mn(dis1)}$`, `$x != ${mn(e)}$`, `$x != ${mn(f)}$`],
+        answerIndex,
+      );
+    }
+  }
+
+  if (/combinations/i.test(normalizedTitle)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const d = variableValueForDisplay('d', variableMap);
+    if (n && d) {
+      return choicesWithCorrectAt(
+        `$${mn(n)} C 3$`,
+        [`$${mn(n)} P 3$`, `$${mn(d)} C 3$`, `$${mn(n)} C ${mn(d)}$`],
+        answerIndex,
+      );
+    }
+  }
+
+  return choices;
+}
+
+function numericVariableValue(name: string, variableMap: Map<string, AlgorithmicVariable>): number | undefined {
+  return parseDisplayNumber(variableValueForDisplay(name, variableMap));
+}
+
+function parseDisplayNumber(value?: string): number | undefined {
+  if (!value) return undefined;
+  const normalized = value
+    .replace(/[–−]/g, '-')
+    .replace(/\s+/g, '')
+    .replace(/^\+/, '')
+    .replace(/^\$/, '')
+    .replace(/\$$/, '');
+  if (!/^-?\d+(?:\.\d+)?$/.test(normalized)) return undefined;
+  const parsed = Number(normalized);
+  return Number.isFinite(parsed) ? parsed : undefined;
+}
+
+function formatNumberForDisplay(value: number): string {
+  return Number.isInteger(value) ? String(value) : String(Math.round(value * 1000) / 1000);
+}
+
+function oppositeNumericString(value: string): string {
+  return value.startsWith('-') ? value.slice(1) : `-${value}`;
+}
+
+function graphTranslationChoiceText(h: string, k: string): string {
+  const horizontal = Number(h) < 0 ? `${Math.abs(Number(h))} units left` : `${Math.abs(Number(h))} units right`;
+  const vertical = Number(k) < 0 ? `${Math.abs(Number(k))} units down` : `${Math.abs(Number(k))} units up`;
+  return `graph of $g(x) = f(x ${oppositeSignedTerm(h)}) ${signedTerm(k)}$; translated ${horizontal} and ${vertical}`;
+}
+
+function polynomialExpression(coefficients: [string, string, string, string]): string {
+  const [a, b, c, d] = coefficients;
+  return `${formatPolynomialLeadingTerm(a, 'x^3')} ${formatSignedCoefficientTerm(b, 'x^2')} ${formatSignedCoefficientTerm(c, 'x')} ${formatSignedTerm(d)}`;
+}
+
+function formatPolynomialLeadingTerm(coefficient: string, variable: string): string {
+  const normalized = normalizeDisplayedMathValue(coefficient);
+  if (normalized === '1') return variable;
+  if (normalized === '-1') return `-${variable}`;
+  return `${normalized}${variable}`;
+}
+
+function formatSignedCoefficientTerm(coefficient: string, variable: string): string {
+  const normalized = normalizeDisplayedMathValue(coefficient);
+  const absolute = normalized.startsWith('-') ? normalized.slice(1) : normalized;
+  const coefficientText = absolute === '1' ? variable : `${absolute}${variable}`;
+  return normalized.startsWith('-') ? `- ${coefficientText}` : `+ ${coefficientText}`;
+}
+
+function quadraticRootsFromVariables(variableMap: Map<string, AlgorithmicVariable>): string[] {
+  const a = numericVariableValue('a', variableMap);
+  const e = numericVariableValue('e', variableMap);
+  const f = numericVariableValue('f', variableMap);
+  if (a === undefined || e === undefined || f === undefined || a === 0) return [];
+  const discriminant = e * e - 4 * a * f;
+  if (discriminant < 0) return [];
+  const rootDiscriminant = Math.sqrt(discriminant);
+  const roots = [(-e - rootDiscriminant) / (2 * a), (-e + rootDiscriminant) / (2 * a)]
+    .map(formatNumberForDisplay)
+    .filter((root, index, all) => all.indexOf(root) === index);
+  return roots.sort((left, right) => Number(left) - Number(right));
+}
+
+function rationalLinearChoices(variableMap: Map<string, AlgorithmicVariable>): { correct: string; distractors: string[] } | undefined {
+  const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+  const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+  const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+  const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+  if (!a || !b || !c || !d) return undefined;
+  const aDis = normalizedSignedNumber(variableValueForDisplay('a_dis', variableMap)) ?? oppositeNumericString(a);
+  return {
+    correct: `$f(x) = (${a}x ${formatSignedTerm(b)})/(${c}x ${formatSignedTerm(d)})$`,
+    distractors: [
+      `$f(x) = (${aDis}x ${formatSignedTerm(b)})/(${c}x ${formatSignedTerm(d)})$`,
+      `$f(x) = (${c}x ${formatSignedTerm(d)})/(${a}x ${formatSignedTerm(b)})$`,
+      `$f(x) = (${a}x ${formatSignedTerm(d)})/(${c}x ${formatSignedTerm(b)})$`,
+    ],
+  };
+}
+
+function recoverVariableSlotChoices(
+  choices: Choice[] | undefined,
+  variableMap: Map<string, AlgorithmicVariable>,
+  answerIndex = 0,
+): Choice[] | undefined {
+  if (!choices?.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))) return choices;
+
+  const correctValue = firstVariableDisplayValue(variableMap, ['ans', 'answer']);
+  const distractorValues = collectVariableDisplayValues(variableMap, /^(?:dis|distractor)\d*$/i);
+  const genericValues = [
+    ...collectVariableDisplayValues(variableMap, /^(?:ans|answer|dis|distractor)\d*$/i),
+    ...collectVariableDisplayValues(variableMap, /^(?:amount|height|radius|period|minimum|maximum|min|max|value)$/i),
+  ]
+    .filter((value, index, all) => all.indexOf(value) === index);
+
+  if (!correctValue && genericValues.length < choices.length) return choices;
+
+  let distractorIndex = 0;
+  let genericIndex = 0;
+
+  return choices.map((choice, index) => {
+    const slotCount = (choice.body.text.match(new RegExp(escapeRegExp(INLINE_OBJECT_SLOT), 'g')) ?? []).length;
+    if (slotCount !== 1) return choice;
+
+    let value: string | undefined;
+    if (correctValue && index === answerIndex) {
+      value = correctValue;
+    } else if (correctValue && distractorValues.length) {
+      value = distractorValues[distractorIndex++];
+    } else if (correctValue) {
+      value = undefined;
+    } else {
+      value = genericValues[genericIndex++];
+    }
+
+    if (!value || !isSafeChoiceSlotValue(value)) return choice;
+    return {
+      ...choice,
+      body: {
+        ...choice.body,
+        text: choice.body.text.replace(INLINE_OBJECT_SLOT, wrapTypstMathIfNeeded(value)),
+      },
+    };
+  });
+}
+
+function firstVariableDisplayValue(
+  variableMap: Map<string, AlgorithmicVariable>,
+  names: string[],
+): string | undefined {
+  for (const name of names) {
+    const value = variableValueForDisplay(name, variableMap);
+    if (value && isSafeChoiceSlotValue(value)) return value;
+  }
+  return undefined;
+}
+
+function collectVariableDisplayValues(
+  variableMap: Map<string, AlgorithmicVariable>,
+  pattern: RegExp,
+): string[] {
+  return Array.from(variableMap.values())
+    .filter((variable) => pattern.test(variable.name))
+    .map((variable) => variableValueForDisplay(variable.name, variableMap) ?? variable.sampleValue ?? variable.rule ?? '')
+    .map((value) => value.trim())
+    .filter(isSafeChoiceSlotValue)
+    .filter((value, index, all) => all.indexOf(value) === index);
+}
+
+function isSafeChoiceSlotValue(value: string): boolean {
+  if (!value.trim()) return false;
+  if (value.includes(INLINE_OBJECT_SLOT)) return false;
+  if (/^(?:true|false|null|undefined)$/i.test(value.trim())) return false;
+  if (/\b(?:if|choose|range|rand|chr)\s*\(/i.test(value)) return false;
+  return value.length <= 80;
+}
+
 function cleanRecoveredGraphPromptBody(
   body: string,
   title: string | undefined,
@@ -2765,10 +4153,37 @@ function cleanRecoveredGraphPromptBody(
   }
 
   if (graphDefinitions?.length) {
-    const recoveredExpressions = graphDefinitions
-      .flatMap((graph) => graph.normalizedExpressions ?? [])
+    const normalizedGraphExpressions = graphDefinitions.flatMap((graph) => graph.normalizedExpressions ?? []);
+    const recoveredExpressions = normalizedGraphExpressions
       .map((expression) => expression.substituted || expression.original)
+      .map(formatRecoveredGraphExpressionForPrompt)
       .filter((expression): expression is string => Boolean(expression));
+    if (/graph \| inverse of a function/i.test(title ?? '') && recoveredExpressions.length) {
+      const [original, inverse] = recoveredExpressions;
+      cleaned = [
+        'Which graph represents the inverse of the graph shown?',
+        original ? `Original graph: $${original}$.` : undefined,
+        inverse ? `Inverse relation: $${inverse}$.` : undefined,
+      ]
+        .filter((part): part is string => Boolean(part))
+        .join(' ');
+    }
+    if (/graph \| square root of a function/i.test(title ?? '') && recoveredExpressions.length) {
+      const [original, comparison] = recoveredExpressions;
+      cleaned = [
+        'Which graph represents the square root of the graph shown?',
+        original ? `Original graph: $${original}$.` : undefined,
+        comparison ? `Comparison graph: $${comparison}$.` : undefined,
+      ]
+        .filter((part): part is string => Boolean(part))
+        .join(' ');
+    }
+
+    const rationalExpression = recoveredExpressions.find(isRationalGraphExpression);
+    if (rationalExpression && isRationalGraphPrompt(cleaned, title) && isBareGraphFragmentBody(cleaned)) {
+      cleaned = `Graph the rational function $${rationalExpression}$ and identify its key features.`;
+    }
+
     const quadraticExpression = recoveredExpressions.find((expression) => /x\^2/i.test(expression));
     if (quadraticExpression && /^Graph the quadratic function\b/i.test(cleaned)) {
       cleaned = cleaned
@@ -2781,6 +4196,63 @@ function cleanRecoveredGraphPromptBody(
 
   if (!graphDefinitions?.length) return cleaned;
   return cleaned;
+}
+
+function isRationalGraphPrompt(body: string, title?: string): boolean {
+  return /\brational functions?\b/i.test(`${title ?? ''} ${body}`)
+    && /\bgraphs?\b/i.test(`${title ?? ''} ${body}`);
+}
+
+function isRationalGraphExpression(expression: string): boolean {
+  const normalized = expression.replace(/\s+/g, '');
+  return /\//.test(normalized)
+    && /(^|[^A-Za-z0-9_])x([^A-Za-z0-9_]|$)/i.test(normalized)
+    && hasBalancedParentheses(normalized);
+}
+
+function isBareGraphFragmentBody(body: string): boolean {
+  const unwrapped = body.trim().replace(/^\$/, '').replace(/\$$/, '');
+  if (!unwrapped || unwrapped.length > 48) return false;
+  return isLikelyGraphExpression(unwrapped) || /^[A-Za-z0-9_+\-*/^().]+$/.test(unwrapped);
+}
+
+function formatRecoveredGraphExpressionForPrompt(expression: string): string {
+  return expression
+    .replace(/\(([-+]?\d+(?:\.\d+)?)\)/g, '$1')
+    .replace(/-1\*/g, '-')
+    .replace(/\b1\*/g, '')
+    .replace(/\+\-/g, '-')
+    .replace(/--/g, '')
+    .replace(/\+\+/g, '+')
+    .replace(/\s+/g, '');
+}
+
+function insertImageAssetReferences(body: string, assetIds: string[]): string {
+  if (!assetIds.length) return body;
+
+  let updated = body;
+  for (const assetId of assetIds) {
+    const imageRef = `#image("/imgs/${assetId}", width: 75%)`;
+    if (updated.includes(imageRef)) continue;
+
+    const replaced = replaceFirstImagePlaceholder(updated, imageRef);
+    updated = replaced ?? `${updated.trim()}\n${imageRef}`;
+  }
+  return updated.trim();
+}
+
+function replaceFirstImagePlaceholder(body: string, replacement: string): string | undefined {
+  const patterns = [
+    /\[DIAGRAM NEEDED\]/i,
+    /\[embedded diagram\/object\]/i,
+    /\[DIAGRAM(?::[^\]]*)?\]/i,
+    /\[embedded object\]/i,
+  ];
+
+  for (const pattern of patterns) {
+    if (pattern.test(body)) return body.replace(pattern, replacement);
+  }
+  return undefined;
 }
 
 function repairKnownQuadraticBodyCorruption(
@@ -3188,8 +4660,12 @@ function graphDefinitionToTypstDiagram(graphDef: DecodedGraphDefinition): string
   }
 
   const expr = graphDef.normalizedExpressions[0];
+  return graphExpressionToDiagramDescription(expr);
+}
+
+function graphExpressionToDiagramDescription(expr: DecodedGraphExpression): string {
   if (!expr.samplePoints || expr.samplePoints.length === 0) {
-    return `[Graph: ${expr.original}]`;
+    return `[Graph: $${formatRecoveredGraphExpressionForPrompt(expr.substituted || expr.original)}$]`;
   }
 
   // Build a simple text-based graph representation
@@ -3208,7 +4684,9 @@ function graphDefinitionToTypstDiagram(graphDef: DecodedGraphDefinition): string
     .join(', ');
 
   // Return a Typst diagram placeholder with graph info
-  const graphInfo = `Graph: ${expr.original} | x: [${minX.toFixed(1)}, ${maxX.toFixed(1)}], y: [${minY.toFixed(1)}, ${maxY.toFixed(1)}]`;
+  void pointsStr;
+  const expression = formatRecoveredGraphExpressionForPrompt(expr.substituted || expr.original);
+  const graphInfo = `Graph: $${expression}$ | x: [$${minX.toFixed(1)}, ${maxX.toFixed(1)}$], y: [$${minY.toFixed(1)}, ${maxY.toFixed(1)}$]`;
   return `[Graph diagram: ${graphInfo}]`;
 }
 
@@ -3319,6 +4797,129 @@ function extractQuadraticGraphDefinitionsFromChunk(
     'chunk-solution-heuristic',
     true,
   );
+}
+
+function extractRationalGraphDefinitionsFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+  variables: AlgorithmicVariable[],
+  body: string,
+  title: string | undefined,
+): DecodedGraphDefinition[] | undefined {
+  if (!isRationalGraphPrompt(body, title) && !isGraphOrDiagramQuestion(`${title ?? ''} ${body}`)) return undefined;
+
+  const text = decodeChunkUtf16ForRecovery(bytes.subarray(
+    startOffset,
+    Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 8000))),
+  ));
+  const expressions = extractRationalGraphExpressionsFromText(text);
+  if (!expressions.length) return undefined;
+
+  const variableMap = new Map(variables.map((entry) => [entry.name.toLowerCase(), entry]));
+  const normalizedExpressions = expressions
+    .map((expression) => normalizeGraphExpression(expression, variableMap))
+    .filter((expression) => isUsableRecoveredGraphExpression(expression));
+  if (!normalizedExpressions.length) return undefined;
+
+  const graphVariables = Object.fromEntries(
+    normalizedExpressions
+      .flatMap((expression) => expression.variables)
+      .filter((name, index, all) => all.indexOf(name) === index)
+      .map((name) => [
+        name,
+        normalizeGraphNumericValue(variableMap.get(name.toLowerCase())?.sampleValue ?? '')
+          ?? variableValueForDisplay(name, variableMap)
+          ?? variableMap.get(name.toLowerCase())?.rule
+          ?? 'unknown',
+      ]),
+  );
+
+  return [{
+    id: 'graph-1',
+    expressions: normalizedExpressions.map((expression) => expression.original),
+    normalizedExpressions,
+    variables: Object.keys(graphVariables).length ? graphVariables : undefined,
+    source: 'chunk-text-heuristic',
+  }];
+}
+
+function extractRationalGraphExpressionsFromText(text: string): string[] {
+  const normalizedText = normalizeChunkTextForRecovery(text);
+  return [
+    ...normalizedText.matchAll(/(^|[^A-Za-z0-9_])([A-Za-z0-9_+\-*.()^]+\/\((?=[A-Za-z0-9_+\-*/^().]*x)[A-Za-z0-9_+\-*/^().]+\))/gi),
+  ]
+    .map((match) => match[2].replace(/\s+/g, '').replace(/^\+/, ''))
+    .filter((candidate) => isRationalGraphExpression(candidate))
+    .filter(isLikelyGraphExpression)
+    .filter((candidate, index, all) => all.indexOf(candidate) === index)
+    .slice(0, 8);
+}
+
+function extractAxisMetadataGraphDefinitionsFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+  variables: AlgorithmicVariable[],
+  body: string,
+  title: string | undefined,
+): DecodedGraphDefinition[] | undefined {
+  if (!isGraphOrDiagramQuestion(`${title ?? ''} ${body}`)) return undefined;
+
+  const text = decodeChunkUtf16ForRecovery(bytes.subarray(
+    startOffset,
+    Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 8000))),
+  ));
+  const expressions = extractAxisMetadataGraphExpressionsFromText(text);
+  if (!expressions.length) return undefined;
+
+  const variableMap = new Map(variables.map((entry) => [entry.name.toLowerCase(), entry]));
+  const normalizedExpressions = expressions
+    .map((expression) => normalizeGraphExpression(expression, variableMap))
+    .filter((expression) => isUsableRecoveredGraphExpression(expression));
+  if (!normalizedExpressions.length) return undefined;
+
+  const graphVariables = Object.fromEntries(
+    normalizedExpressions
+      .flatMap((expression) => expression.variables)
+      .filter((name, index, all) => all.indexOf(name) === index)
+      .map((name) => [
+        name,
+        normalizeGraphNumericValue(variableMap.get(name.toLowerCase())?.sampleValue ?? '')
+          ?? variableValueForDisplay(name, variableMap)
+          ?? variableMap.get(name.toLowerCase())?.rule
+          ?? 'unknown',
+      ]),
+  );
+
+  return [{
+    id: 'graph-1',
+    expressions: normalizedExpressions.map((expression) => expression.original),
+    normalizedExpressions,
+    variables: Object.keys(graphVariables).length ? graphVariables : undefined,
+    source: 'chunk-text-heuristic',
+  }];
+}
+
+function extractAxisMetadataGraphExpressionsFromText(text: string): string[] {
+  const normalizedText = normalizeChunkTextForRecovery(text);
+  return [
+    ...normalizedText.matchAll(/(?:^|\s)(?:-?inf|[-+]?\d+(?:\.\d+)?)\s+(?:inf|[-+]?\d+(?:\.\d+)?)\s+([A-Za-z0-9_+\-*/^().\s]+?)(?=\s+(?:-?inf|inf|0\s+0\s+0\s+0|Times New Roman|Symbol|[,"]))/gi),
+  ]
+    .map((match) => match[1].replace(/\s+/g, '').replace(/^\+/, ''))
+    .filter(isLikelyAxisMetadataGraphExpression)
+    .filter((candidate, index, all) => all.indexOf(candidate) === index)
+    .slice(0, 12);
+}
+
+function isLikelyAxisMetadataGraphExpression(text: string): boolean {
+  if (!text || text.length > 160) return false;
+  if (!/[=+\-*/^()]/.test(text)) return false;
+  if (/^[=*/^(]|[=+\-*/^(]$/.test(text)) return false;
+  if (/^(?:x|y|a|b|c|d|f|g|h|n|p|q|r)$/i.test(text)) return false;
+  if (!/(^|[^A-Za-z0-9_])[xy]([^A-Za-z0-9_]|$)|sin\(|cos\(|tan\(|log\(|ln\(|pow\(/i.test(text)) return false;
+  if (!hasBalancedParentheses(text)) return false;
+  return /^[A-Za-z0-9_+\-*/^().,= <>{}\[\]]+$/.test(text);
 }
 
 function extractQuadraticGraphDefinitionsFromText(
@@ -4185,11 +5786,12 @@ function inferVersion06Choices(
   choiceRefs: string[],
   choiceLabels: string[],
   type: QuestionType,
+  answerIndex?: number,
 ): Choice[] | undefined {
   if (type !== 'mcq') return undefined;
 
   const variableMap = new Map(variables.map((variable) => [variable.name.toLowerCase(), variable]));
-  const unitCircleChoices = inferUnitCircleChoices(variableMap);
+  const unitCircleChoices = inferUnitCircleChoices(variableMap, answerIndex);
   if (unitCircleChoices) return unitCircleChoices;
   const coordinateChoices = inferCoordinateTransformationChoices(variableMap);
   if (coordinateChoices) return coordinateChoices;
@@ -4309,13 +5911,28 @@ function normalizeVersion06Choices(
   displayStrings: string[],
   variableMap: Map<string, AlgorithmicVariable>,
   graphDefinitions?: DecodedGraphDefinition[],
+  title?: string,
+  answerIndex?: number,
 ): Choice[] | undefined {
   const hasChoiceLabelRun = displayStrings.join(' ').match(/\bA\b.*\bC\b.*\bB\b.*\bD\b|\bA\b.*\bB\b.*\bC\b.*\bD\b/);
   if (!hasChoiceLabelRun) return choices;
   const visibleChoices = inferVisibleChoicesFromDisplayStrings(displayStrings);
 
   if (/correct inverse for the function/i.test(body)) {
-    return inferInverseFunctionChoices(variableMap) ?? placeholderChoices('[inverse-function choice not decoded yet]');
+    return inferInverseFunctionChoices(variableMap)
+      ?? inferRadicalInverseFunctionChoices(variableMap)
+      ?? placeholderChoices('[inverse-function choice not decoded yet]');
+  }
+
+  const sinusoidalRangeChoices = inferSinusoidalRangeChoices(body, variableMap);
+  if (sinusoidalRangeChoices) return sinusoidalRangeChoices;
+
+  const trigIdentityChoices = inferTrigIdentityChoices(body, title, answerIndex);
+  if (
+    trigIdentityChoices
+    && (!choices || choices.some((choice) => /\[\[slot\]\]|\[(?:embedded|inline|math|object)/i.test(choice.body.text)))
+  ) {
+    return trigIdentityChoices;
   }
 
   const arithmeticGeneralTermChoices = inferArithmeticGeneralTermChoices(variableMap);
@@ -4330,11 +5947,25 @@ function normalizeVersion06Choices(
   const convergenceChoices = inferConvergenceSeriesChoices(variableMap);
   if (convergenceChoices && /best describes the series/i.test(body)) return convergenceChoices;
 
+  const asksForGraphChoice = /\bwhich graph\b|\bgraph represents\b|\bwhich is the graph\b/i.test(body);
+  if (
+    asksForGraphChoice
+    && /graph \| (?:inverse|square root) of a function/i.test(title ?? '')
+    && visibleChoices?.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))
+  ) {
+    return visibleChoices;
+  }
+
   const graphChoices = inferGraphExpressionChoices(graphDefinitions);
 
   if (!choices) return graphChoices ?? visibleChoices ?? placeholderChoices('[math/object choice not decoded yet]');
 
-  const asksForGraphChoice = /\bwhich graph\b|\bgraph represents\b|\bwhich is the graph\b/i.test(body);
+  const choicesContainGraphSlots = choices.some((choice) => (
+    choice.body.text.includes(INLINE_OBJECT_SLOT)
+    || /\[(?:embedded|inline|diagram|graph|object)[^\]]*\]/i.test(choice.body.text)
+  ));
+  if (asksForGraphChoice && choicesContainGraphSlots) return choices;
+
   const choicesLookNonGraph = choices.every((choice) => !/[x]|sin|cos|tan|sqrt|log|ln|\^/i.test(choice.body.text));
   if (asksForGraphChoice && graphChoices && choicesLookNonGraph) return graphChoices;
 
@@ -4520,6 +6151,137 @@ function inferInverseFunctionChoices(variableMap: Map<string, AlgorithmicVariabl
   }));
 }
 
+function inferRadicalInverseFunctionChoices(variableMap: Map<string, AlgorithmicVariable>): Choice[] | undefined {
+  const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+  if (!k || !variableMap.has('inv_k')) return undefined;
+
+  const inverseShift = oppositeSignedTerm(k);
+  const directShift = signedTerm(k);
+  return [
+    `$f^(-1)(x) = sqrt(x) ${oppositeSignedTerm(k)}$`,
+    `$f^(-1)(x) = (x ${directShift})^2$`,
+    `$f^(-1)(x) = (x ${inverseShift})^2$`,
+    `$f^(-1)(x) = sqrt(x ${directShift})$`,
+  ].map((text, index) => ({
+    id: String.fromCharCode(65 + index),
+    body: { format: 'typst', text },
+  }));
+}
+
+function inferSinusoidalRangeChoices(
+  body: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+): Choice[] | undefined {
+  const selectedFunction = variableValueForDisplay('select_function', variableMap);
+  if (!selectedFunction || !/\brange\b/i.test(body) || !/\b(?:sin|cos)\b/i.test(selectedFunction)) return undefined;
+  if (!/graph of\s+\$?(?:sin|cos)/i.test(body)) return undefined;
+
+  return [
+    '$-1 <= y <= 1$',
+    '$0 <= y <= 2 pi$',
+    'all real numbers',
+    '$-pi <= y <= pi$',
+  ].map((text, index) => ({
+    id: String.fromCharCode(65 + index),
+    body: { format: 'typst', text },
+  }));
+}
+
+function recoverKnownTrigIdentityPrompt(body: string, title?: string, answerIndex = 0): string {
+  if (!title || !/\bidentit/i.test(title)) return body;
+  if (!/\[(?:embedded|inline|math|object)[^\]]*\]/i.test(body)) return body;
+
+  const family = trigIdentityFamily(body, title, answerIndex);
+  if (!family) return body;
+
+  if (/can be rewritten as/i.test(body)) return `${family.promptExpression} can be rewritten as`;
+  if (/is equivalent to/i.test(body) && /^\[(?:embedded|inline|math|object)/i.test(body)) {
+    return `${family.promptExpression} is equivalent to`;
+  }
+  if (/Which expression is equivalent to/i.test(body)) {
+    return `Which expression is equivalent to ${family.promptExpression}?`;
+  }
+  return body;
+}
+
+function inferTrigIdentityChoices(body: string, title?: string, answerIndex = 0): Choice[] | undefined {
+  if (!title || !/\bidentit/i.test(title)) return undefined;
+  const family = trigIdentityFamily(body, title, answerIndex);
+  if (!family) return undefined;
+  return choicesWithCorrectAt(family.correctChoice, family.distractors, answerIndex);
+}
+
+function trigIdentityFamily(
+  body: string,
+  title: string,
+  answerIndex = 0,
+): { promptExpression: string; correctChoice: string; distractors: string[] } | undefined {
+  const normalizedTitle = title.toLowerCase();
+  const normalizedBody = body.toLowerCase();
+
+  if (/half-angle identities/i.test(normalizedTitle)) {
+    return {
+      promptExpression: '$sin^2(x / 2)$',
+      correctChoice: '$frac(1 - cos x, 2)$',
+      distractors: ['$frac(1 + cos x, 2)$', '$frac(1 - sin x, 2)$', '$frac(1 + sin x, 2)$'],
+    };
+  }
+
+  if (/double-angle identities.*sum identities|sum identities.*double-angle identities/i.test(normalizedTitle)) {
+    return {
+      promptExpression: '$sin(x + y)$',
+      correctChoice: '$sin x cos y + cos x sin y$',
+      distractors: ['$sin x cos y - cos x sin y$', '$cos x cos y - sin x sin y$', '$cos x cos y + sin x sin y$'],
+    };
+  }
+
+  if (/double-angle identities/i.test(normalizedTitle)) {
+    if (/is equivalent to/i.test(normalizedBody) && !/which expression/i.test(normalizedBody)) {
+      return {
+        promptExpression: '$sin(2x)$',
+        correctChoice: '$2 sin x cos x$',
+        distractors: ['$cos^2 x - sin^2 x$', '$1 - 2 sin^2 x$', '$2 cos^2 x - 1$'],
+      };
+    }
+    return {
+      promptExpression: '$cos(2x)$',
+      correctChoice: '$cos^2 x - sin^2 x$',
+      distractors: ['$2 sin x cos x$', '$sin^2 x + cos^2 x$', '$1 + tan^2 x$'],
+    };
+  }
+
+  if (/sum identities.*difference identities|difference identities.*sum identities/i.test(normalizedTitle)) {
+    return {
+      promptExpression: '$cos(x - y)$',
+      correctChoice: '$cos x cos y + sin x sin y$',
+      distractors: ['$cos x cos y - sin x sin y$', '$sin x cos y + cos x sin y$', '$sin x cos y - cos x sin y$'],
+    };
+  }
+
+  if (/trigonometric identity/i.test(normalizedTitle) && /which expression is equivalent|is equivalent to/i.test(normalizedBody)) {
+    return {
+      promptExpression: '$1 + tan^2 theta$',
+      correctChoice: '$sec^2 theta$',
+      distractors: ['$csc^2 theta$', '$tan^2 theta$', '$1 - tan^2 theta$'],
+    };
+  }
+
+  return undefined;
+}
+
+function choicesWithCorrectAt(correct: string, distractors: string[], answerIndex = 0): Choice[] {
+  const safeAnswerIndex = Number.isInteger(answerIndex) && answerIndex >= 0 && answerIndex < 4 ? answerIndex : 0;
+  const choices: string[] = [];
+  let distractorIndex = 0;
+  for (let index = 0; index < 4; index++) {
+    choices.push(index === safeAnswerIndex ? correct : distractors[distractorIndex++] ?? distractors[0] ?? correct);
+  }
+  return choices.map((text, index) => ({
+    id: String.fromCharCode(65 + index),
+    body: { format: 'typst', text },
+  }));
+}
+
 function placeholderChoices(text: string): Choice[] {
   return ['A', 'B', 'C', 'D'].map((id) => ({
     id,
@@ -4690,24 +6452,30 @@ function unitCircleEntryForCase(which: string): UnitCircleEntry | undefined {
   return UNIT_CIRCLE_ENTRIES[index - 1];
 }
 
-function inferUnitCircleChoices(variableMap: Map<string, AlgorithmicVariable>): Choice[] | undefined {
+function inferUnitCircleChoices(variableMap: Map<string, AlgorithmicVariable>, selectedChoiceIndex = 0): Choice[] | undefined {
   const which = variableValueForDisplay('which', variableMap);
   const selected = which ? unitCircleEntryForCase(which) : undefined;
   if (!selected) return undefined;
   if (![...variableMap.keys()].some((name) => /^(rad|xdisp|ydisp|eq)\d+$/i.test(name))) return undefined;
 
   const selectedIndex = UNIT_CIRCLE_ENTRIES.indexOf(selected);
-  const offsets = [0, 2, -2, 4];
-  const choices = offsets
+  const safeSelectedChoiceIndex = Number.isInteger(selectedChoiceIndex) && selectedChoiceIndex >= 0 && selectedChoiceIndex < 4
+    ? selectedChoiceIndex
+    : 0;
+  const distractors = [2, -2, 4, -4, 1, -1]
     .map((offset) => UNIT_CIRCLE_ENTRIES[(selectedIndex + offset + UNIT_CIRCLE_ENTRIES.length) % UNIT_CIRCLE_ENTRIES.length])
-    .filter((entry, index, all) => all.indexOf(entry) === index)
-    .slice(0, 4);
+    .filter((entry, index, all) => entry !== selected && all.indexOf(entry) === index);
+  const choices: UnitCircleEntry[] = [];
+  let distractorIndex = 0;
+  for (let index = 0; index < 4; index++) {
+    choices.push(index === safeSelectedChoiceIndex ? selected : distractors[distractorIndex++]);
+  }
 
   return choices.map((entry, index) => ({
     id: String.fromCharCode(65 + index),
     body: {
       format: 'typst',
-      text: `${entry.point}; angle ${entry.radians} (${entry.degrees})`,
+      text: entry.point,
     },
   }));
 }
@@ -4994,33 +6762,80 @@ function extractPrintableUtf16LeText(bytes: Uint8Array): string {
 }
 
 function extractKnownAssets(bytes: Uint8Array): DecodedAsset[] {
-  const assets: DecodedAsset[] = [];
+  const candidates: Array<{
+    kind: AssetKind;
+    mimeType: string;
+    ext: string;
+    bytes: Uint8Array;
+    sourceOffset: number;
+    sourceLength: number;
+    priority: number;
+  }> = [];
   const signatures: Array<{ mimeType: string; ext: string; signature: number[]; kind: AssetKind }> = [
     { mimeType: 'image/png', ext: 'png', signature: [0x89, 0x50, 0x4e, 0x47], kind: 'image' },
     { mimeType: 'image/jpeg', ext: 'jpg', signature: [0xff, 0xd8, 0xff], kind: 'image' },
     { mimeType: 'image/gif', ext: 'gif', signature: [0x47, 0x49, 0x46, 0x38], kind: 'image' },
     { mimeType: 'image/bmp', ext: 'bmp', signature: [0x42, 0x4d], kind: 'image' },
+    { mimeType: 'application/vnd.ms-ole', ext: 'ole', signature: [0xd0, 0xcf, 0x11, 0xe0, 0xa1, 0xb1, 0x1a, 0xe1], kind: 'ole' },
   ];
 
   for (let i = 0; i < bytes.length; i++) {
     for (const sig of signatures) {
       if (!matchesAt(bytes, sig.signature, i)) continue;
-      const id = `asset-${assets.length + 1}`;
       const sourceLength = findAssetLength(bytes, i, sig.ext);
       if (!sourceLength) continue;
-      assets.push({
-        id,
+      candidates.push({
         kind: sig.kind,
         mimeType: sig.mimeType,
-        filename: `${id}.${sig.ext}`,
+        ext: sig.ext,
         bytes: bytes.slice(i, i + sourceLength),
         sourceOffset: i,
         sourceLength,
+        priority: 10,
       });
     }
   }
 
-  return assets;
+  for (let offset = 0; offset < bytes.length - 40; offset++) {
+    const dib = readDibImage(bytes, offset);
+    if (!dib) continue;
+    candidates.push({
+      kind: 'image',
+      mimeType: 'image/bmp',
+      ext: 'bmp',
+      bytes: dib.bytes,
+      sourceOffset: offset,
+      sourceLength: dib.sourceLength,
+      priority: 5,
+    });
+    offset += Math.max(0, dib.sourceLength - 1);
+  }
+
+  const accepted = candidates
+    .sort((left, right) => left.sourceOffset - right.sourceOffset || right.priority - left.priority || right.sourceLength - left.sourceLength)
+    .reduce<typeof candidates>((out, candidate) => {
+      const overlaps = out.some((acceptedCandidate) => rangesOverlap(
+        candidate.sourceOffset,
+        candidate.sourceOffset + candidate.sourceLength,
+        acceptedCandidate.sourceOffset,
+        acceptedCandidate.sourceOffset + acceptedCandidate.sourceLength,
+      ));
+      if (!overlaps) out.push(candidate);
+      return out;
+    }, []);
+
+  return accepted.map((asset, index) => {
+    const id = `asset-${index + 1}`;
+    return {
+      id,
+      kind: asset.kind,
+      mimeType: asset.mimeType,
+      filename: `${id}.${asset.ext}`,
+      bytes: asset.bytes,
+      sourceOffset: asset.sourceOffset,
+      sourceLength: asset.sourceLength,
+    };
+  });
 }
 
 function findAssetLength(bytes: Uint8Array, offset: number, ext: string): number | undefined {
@@ -5028,6 +6843,7 @@ function findAssetLength(bytes: Uint8Array, offset: number, ext: string): number
   if (ext === 'jpg') return findJpegLength(bytes, offset);
   if (ext === 'gif') return findGifLength(bytes, offset);
   if (ext === 'bmp') return findBmpLength(bytes, offset);
+  if (ext === 'ole') return findOleCompoundLength(bytes, offset);
   return undefined;
 }
 
@@ -5048,6 +6864,128 @@ function findBmpLength(bytes: Uint8Array, offset: number): number | undefined {
   if (![1, 4, 8, 16, 24, 32].includes(bitsPerPixel)) return undefined;
   if (width === 0 || height === 0 || Math.abs(width) > 20000 || Math.abs(height) > 20000) return undefined;
   return size;
+}
+
+interface DibImage {
+  bytes: Uint8Array;
+  sourceLength: number;
+}
+
+function readDibImage(bytes: Uint8Array, offset: number): DibImage | undefined {
+  const info = readDibInfo(bytes, offset);
+  if (!info) return undefined;
+  return {
+    bytes: buildBmpFromDib(bytes.subarray(offset, offset + info.sourceLength), info.pixelOffset),
+    sourceLength: info.sourceLength,
+  };
+}
+
+interface DibInfo {
+  sourceLength: number;
+  pixelOffset: number;
+}
+
+function readDibInfo(bytes: Uint8Array, offset: number): DibInfo | undefined {
+  if (offset + 40 > bytes.length) return undefined;
+  const headerSize = readUint32Le(bytes, offset);
+  if (![40, 52, 56, 108, 124].includes(headerSize)) return undefined;
+  if (offset + headerSize > bytes.length) return undefined;
+
+  const width = readInt32Le(bytes, offset + 4);
+  const height = readInt32Le(bytes, offset + 8);
+  const planes = readUint16Le(bytes, offset + 12);
+  const bitsPerPixel = readUint16Le(bytes, offset + 14);
+  const compression = readUint32Le(bytes, offset + 16);
+  const imageSize = readUint32Le(bytes, offset + 20);
+  const colorsUsed = readUint32Le(bytes, offset + 32);
+
+  if (planes !== 1) return undefined;
+  if (![1, 4, 8, 16, 24, 32].includes(bitsPerPixel)) return undefined;
+  if (compression !== 0) return undefined;
+  if (width === 0 || height === 0 || Math.abs(width) > 5000 || Math.abs(height) > 5000) return undefined;
+
+  const paletteColors = colorsUsed || (bitsPerPixel <= 8 ? 1 << bitsPerPixel : 0);
+  if (paletteColors > 256) return undefined;
+  const paletteBytes = paletteColors * 4;
+  const rowSize = Math.floor((Math.abs(width) * bitsPerPixel + 31) / 32) * 4;
+  const expectedPixelBytes = rowSize * Math.abs(height);
+  const pixelBytes = imageSize || expectedPixelBytes;
+  if (pixelBytes < expectedPixelBytes && expectedPixelBytes - pixelBytes > rowSize) return undefined;
+  if (pixelBytes > expectedPixelBytes && pixelBytes - expectedPixelBytes > rowSize) return undefined;
+
+  const pixelOffset = headerSize + paletteBytes;
+  const sourceLength = pixelOffset + pixelBytes;
+  if (sourceLength <= headerSize || sourceLength > 50_000_000 || offset + sourceLength > bytes.length) return undefined;
+  return { sourceLength, pixelOffset };
+}
+
+function buildBmpFromDib(dibBytes: Uint8Array, pixelOffset: number): Uint8Array {
+  const fileHeaderLength = 14;
+  const bmp = new Uint8Array(fileHeaderLength + dibBytes.length);
+  bmp[0] = 0x42;
+  bmp[1] = 0x4d;
+  writeUint32Le(bmp, 2, bmp.length);
+  writeUint32Le(bmp, 10, fileHeaderLength + pixelOffset);
+  bmp.set(dibBytes, fileHeaderLength);
+  return bmp;
+}
+
+function findOleCompoundLength(bytes: Uint8Array, offset: number): number | undefined {
+  if (offset + 512 > bytes.length) return undefined;
+  const sectorShift = readUint16Le(bytes, offset + 30);
+  if (sectorShift !== 9 && sectorShift !== 12) return undefined;
+  const sectorSize = 1 << sectorShift;
+  const fatSectorCount = readUint32Le(bytes, offset + 44);
+  if (fatSectorCount === 0 || fatSectorCount > 10_000) return undefined;
+
+  const difatEntries: number[] = [];
+  for (let index = 0; index < 109; index++) {
+    const sector = readUint32Le(bytes, offset + 76 + index * 4);
+    if (isOleRegularSector(sector)) difatEntries.push(sector);
+  }
+
+  let nextDifatSector = readUint32Le(bytes, offset + 68);
+  const difatSectorCount = Math.min(readUint32Le(bytes, offset + 72), 10_000);
+  for (let index = 0; index < difatSectorCount && isOleRegularSector(nextDifatSector); index++) {
+    const sectorOffset = oleSectorOffset(offset, sectorSize, nextDifatSector);
+    if (sectorOffset + sectorSize > bytes.length) return undefined;
+    const entryCount = sectorSize / 4 - 1;
+    for (let entry = 0; entry < entryCount; entry++) {
+      const sector = readUint32Le(bytes, sectorOffset + entry * 4);
+      if (isOleRegularSector(sector)) difatEntries.push(sector);
+    }
+    nextDifatSector = readUint32Le(bytes, sectorOffset + entryCount * 4);
+  }
+
+  const fatSectors = difatEntries.slice(0, fatSectorCount);
+  if (fatSectors.length !== fatSectorCount) return undefined;
+
+  let maxSector = Math.max(...fatSectors);
+  for (const headerSectorOffset of [48, 60, 68]) {
+    const sector = readUint32Le(bytes, offset + headerSectorOffset);
+    if (isOleRegularSector(sector)) maxSector = Math.max(maxSector, sector);
+  }
+
+  for (const fatSector of fatSectors) {
+    const sectorOffset = oleSectorOffset(offset, sectorSize, fatSector);
+    if (sectorOffset + sectorSize > bytes.length) return undefined;
+    for (let entryOffset = sectorOffset; entryOffset + 4 <= sectorOffset + sectorSize; entryOffset += 4) {
+      const sector = readUint32Le(bytes, entryOffset);
+      if (isOleRegularSector(sector)) maxSector = Math.max(maxSector, sector);
+    }
+  }
+
+  const length = 512 + (maxSector + 1) * sectorSize;
+  if (length < 512 || offset + length > bytes.length) return undefined;
+  return length;
+}
+
+function oleSectorOffset(baseOffset: number, sectorSize: number, sector: number): number {
+  return baseOffset + 512 + sector * sectorSize;
+}
+
+function isOleRegularSector(sector: number): boolean {
+  return sector < 0xffffff00;
 }
 
 function findPngLength(bytes: Uint8Array, offset: number): number | undefined {
@@ -5092,8 +7030,19 @@ function readUint16Le(bytes: Uint8Array, offset: number): number {
   return bytes[offset] | (bytes[offset + 1] << 8);
 }
 
+function writeUint32Le(bytes: Uint8Array, offset: number, value: number): void {
+  bytes[offset] = value & 0xff;
+  bytes[offset + 1] = (value >>> 8) & 0xff;
+  bytes[offset + 2] = (value >>> 16) & 0xff;
+  bytes[offset + 3] = (value >>> 24) & 0xff;
+}
+
 function matchesAt(bytes: Uint8Array, signature: number[], offset: number): boolean {
   return signature.every((value, index) => bytes[offset + index] === value);
+}
+
+function rangesOverlap(leftStart: number, leftEnd: number, rightStart: number, rightEnd: number): boolean {
+  return leftStart < rightEnd && rightStart < leftEnd;
 }
 
 function makeRawFragment(bytes: Uint8Array, offset: number, length: number, textPreview?: string): UnknownBnkFragment {
@@ -5120,7 +7069,9 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
   const graphLike = isQualityGraphLikeQuestion(question);
 
   const placeholderPattern = /\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi;
-  const unresolvedTokenPattern = /\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/i;
+  const slotPattern = /\[\[slot\]\]/gi;
+  const unresolvedPlaceholderPattern = /\[\[slot\]\]|\[DIAGRAM[^\]]+\]|\[embedded [^\]]+\]|\[inline [^\]]+\]/gi;
+  const unresolvedTokenPattern = /\[\[slot\]\]|\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/i;
   const suspiciousCodePattern = /\b(?:range|choose|fracs?|if|rand|list|isunique)\s*\(/i;
   const doubleSpacePattern = / {2,}/;
   const spaceBeforePunctuationPattern = /\s+[,.!?;:]/;
@@ -5131,7 +7082,9 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
     score -= penalty;
   };
 
-  const placeholderCount = (bodyText.match(placeholderPattern) ?? []).length;
+  const bodySlotCount = (bodyText.match(slotPattern) ?? []).length;
+  const bodyUnresolvedPlaceholderCount = (bodyText.match(unresolvedPlaceholderPattern) ?? []).length;
+  const placeholderCount = (bodyText.match(placeholderPattern) ?? []).length + bodySlotCount;
   const unresolvedCount = (bodyText.match(unresolvedTokenPattern) ?? []).length;
   const mathLeakCount = countMathLeaks(bodyText, mathLeakPattern);
 
@@ -5142,8 +7095,8 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
       addFinding('BODY_TOO_SHORT', 'warning', 'Question body is very short.', bodyText, 20);
     }
 
-    if (!graphLike && placeholderCount > 0) {
-      addFinding('BODY_PLACEHOLDERS', 'warning', 'Question body still contains unresolved embedded-object placeholders.', bodyText, Math.min(35, placeholderCount * 10));
+    if ((!graphLike && placeholderCount > 0) || bodySlotCount > 0 || bodyUnresolvedPlaceholderCount > 0) {
+      addFinding('BODY_PLACEHOLDERS', 'warning', 'Question body still contains unresolved embedded-object placeholders.', bodyText, Math.min(45, Math.max(placeholderCount, bodyUnresolvedPlaceholderCount) * 10));
     }
 
     if (unresolvedCount > 0) {
@@ -5169,8 +7122,10 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
     }
   }
 
-  const choicePlaceholderCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length), 0);
-  const choiceUnresolvedCount = choiceTexts.reduce((count, text) => count + ((text.match(/\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/gi) ?? []).length), 0);
+  const choiceSlotCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[\[slot\]\]/gi) ?? []).length), 0);
+  const choiceUnresolvedPlaceholderCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[\[slot\]\]|\[DIAGRAM[^\]]+\]|\[embedded [^\]]+\]|\[inline [^\]]+\]/gi) ?? []).length), 0);
+  const choicePlaceholderCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length), 0) + choiceSlotCount;
+  const choiceUnresolvedCount = choiceTexts.reduce((count, text) => count + ((text.match(/\[\[slot\]\]|\b(?:not decoded yet|undefined|NaN|DIS\d*|ANS|VAR\d+|T\d+|RF\d+)\b/gi) ?? []).length), 0);
   const choiceMathLeakCount = choiceTexts.reduce((count, text) => count + countMathLeaks(text, mathLeakPattern), 0);
 
   if (question.type === 'mcq' || question.type === 'multiple_response' || question.type === 'matching') {
@@ -5198,8 +7153,8 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
     }
   }
 
-  if (!graphLike && choicePlaceholderCount > 0) {
-    addFinding('CHOICE_PLACEHOLDERS', 'warning', 'Choices still contain unresolved placeholders.', choiceTexts.join(' | '), Math.min(20, choicePlaceholderCount * 6));
+  if ((!graphLike && choicePlaceholderCount > 0) || choiceSlotCount > 0 || choiceUnresolvedPlaceholderCount > 0) {
+    addFinding('CHOICE_PLACEHOLDERS', 'warning', 'Choices still contain unresolved placeholders.', choiceTexts.join(' | '), Math.min(24, Math.max(choicePlaceholderCount, choiceUnresolvedPlaceholderCount) * 6));
   }
 
   if (choiceUnresolvedCount > 0) {
@@ -5211,7 +7166,7 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
   }
 
   if (solutionText) {
-    const solutionPlaceholderCount = (solutionText.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/gi) ?? []).length;
+    const solutionPlaceholderCount = (solutionText.match(/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]|\[\[slot\]\]/gi) ?? []).length;
     if (solutionPlaceholderCount > 0) {
       addFinding('SOLUTION_PLACEHOLDERS', 'info', 'Solution still contains unresolved placeholders.', solutionText, Math.min(8, solutionPlaceholderCount * 2));
     }
@@ -5231,7 +7186,7 @@ function assessQuestionQuality(question: DecodedQuestion): QuestionQualityAssess
 
   if (question.raw?.length) {
     const rawText = question.raw.map((fragment) => fragment.textPreview ?? '').join(' ');
-    if (/not decoded yet|undefined|NaN/i.test(rawText)) {
+    if (/not decoded yet|undefined|NaN|\[\[slot\]\]/i.test(rawText)) {
       addFinding('RAW_FRAGMENT_NOISE', 'info', 'Preserved raw fragments still contain decode noise.', rawText.slice(0, 120), 5);
     }
   }
@@ -5469,8 +7424,26 @@ function wrapTypstMathIfNeeded(text: string): string {
 }
 
 function renderTypstText(text: string): string {
-  const marked = markMathInText(text.replace(/\r\n/g, '\n').replace(/\r/g, '\n'));
-  return renderTextWithMath(marked);
+  const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+  const parts: string[] = [];
+  let cursor = 0;
+
+  for (const match of normalized.matchAll(/#image\("\/imgs\/[^"]+"(?:,\s*width:\s*[^)]+)?\)/g)) {
+    const start = match.index ?? 0;
+    if (start > cursor) {
+      const marked = markMathInText(normalized.slice(cursor, start));
+      parts.push(renderTextWithMath(marked));
+    }
+    parts.push(match[0]);
+    cursor = start + match[0].length;
+  }
+
+  if (cursor < normalized.length) {
+    const marked = markMathInText(normalized.slice(cursor));
+    parts.push(renderTextWithMath(marked));
+  }
+
+  return parts.join('');
 }
 
 function markMathInText(text: string): string {

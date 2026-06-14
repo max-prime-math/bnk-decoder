@@ -13,6 +13,9 @@ if (!inputDir) {
 const files = readdirSync(inputDir)
   .filter((file) => file.endsWith('.json') && !file.endsWith('.pqp.json'))
   .sort();
+const PLACEHOLDER_PATTERN = /\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]|\[\[slot\]\]/i;
+const BODY_UNRESOLVED_PATTERN = /not decoded yet|\bNaN\b|\[object Object\]|\[\[slot\]\]|\[DIAGRAM[^\]]+\]|\[embedded [^\]]+\]|\[inline [^\]]+\]/i;
+const CHOICE_UNRESOLVED_PATTERN = /not decoded yet|\bDIS\d*\b|\bANS\b|\bNaN\b|\[\[slot\]\]|\[DIAGRAM[^\]]+\]|\[embedded [^\]]+\]|\[inline [^\]]+\]/i;
 const chapters = files
   .map((file) => summarizeFile(join(inputDir, file), file))
   .filter((chapter) => chapter !== undefined);
@@ -23,6 +26,7 @@ const report = {
   questionCount: chapters.reduce((sum, chapter) => sum + chapter.questions, 0),
   notDecodedBodyCount: chapters.reduce((sum, chapter) => sum + chapter.notDecodedBodies, 0),
   embeddedBodyCount: chapters.reduce((sum, chapter) => sum + chapter.embeddedBodies, 0),
+  slotBodyCount: chapters.reduce((sum, chapter) => sum + chapter.slotBodies, 0),
   inlineObjectCount: chapters.reduce((sum, chapter) => sum + chapter.inlineObjects, 0),
   badChoiceCount: chapters.reduce((sum, chapter) => sum + chapter.badChoices, 0),
   quality: {
@@ -41,6 +45,7 @@ console.table(chapters.map((chapter) => ({
   questions: chapter.questions,
   notDecoded: chapter.notDecodedBodies,
   embeddedBodies: chapter.embeddedBodies,
+  slotBodies: chapter.slotBodies,
   inlineObjects: chapter.inlineObjects,
   badChoices: chapter.badChoices,
   clean: chapter.quality.clean,
@@ -52,6 +57,7 @@ console.table(chapters.map((chapter) => ({
 console.log(`Questions: ${report.questionCount}`);
 console.log(`Body "not decoded yet" markers: ${report.notDecodedBodyCount}`);
 console.log(`Bodies with embedded placeholders: ${report.embeddedBodyCount}`);
+console.log(`Bodies with raw slot placeholders: ${report.slotBodyCount}`);
 console.log(`Inline objects: ${report.inlineObjectCount}`);
 console.log(`Bad choice tokens: ${report.badChoiceCount}`);
 console.log(
@@ -69,6 +75,7 @@ function summarizeFile(path, file) {
   const bodyIssues = [];
   let badChoices = 0;
   let embeddedBodies = 0;
+  let slotBodies = 0;
   let inlineObjects = 0;
   const quality = {
     clean: 0,
@@ -85,7 +92,8 @@ function summarizeFile(path, file) {
     qualityScoreTotal += assessment.score;
 
     if (/\[embedded /.test(body)) embeddedBodies++;
-    if (/not decoded yet|\bundefined\b|\bNaN\b|\[object Object\]/i.test(body)) {
+    if (/\[\[slot\]\]/.test(body)) slotBodies++;
+    if (BODY_UNRESOLVED_PATTERN.test(body)) {
       bodyIssues.push({
         number: index + 1,
         id: question.id,
@@ -97,7 +105,7 @@ function summarizeFile(path, file) {
     inlineObjects += question.inlineObjects?.length ?? 0;
     for (const choice of question.choices ?? []) {
       const text = choice.body?.text ?? '';
-      if (/not decoded yet|\bDIS\d*\b|\bANS\b|\bundefined\b|\bNaN\b/i.test(text)) badChoices++;
+      if (CHOICE_UNRESOLVED_PATTERN.test(text)) badChoices++;
     }
   });
 
@@ -108,6 +116,7 @@ function summarizeFile(path, file) {
     questions: decoded.questions.length,
     notDecodedBodies: bodyIssues.length,
     embeddedBodies,
+    slotBodies,
     inlineObjects,
     badChoices,
     quality,
@@ -122,10 +131,10 @@ function legacyQuestionQuality(question) {
   let score = 100;
 
   if (!body.trim()) score -= 70;
-  if (/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/i.test(body)) score -= 30;
-  if (/not decoded yet|\bundefined\b|\bNaN\b|\[object Object\]/i.test(body)) score -= 20;
-  if (choiceTexts.some((text) => /\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/i.test(text))) score -= 15;
-  if (choiceTexts.some((text) => /not decoded yet|\bundefined\b|\bNaN\b/i.test(text))) score -= 10;
+  if (PLACEHOLDER_PATTERN.test(body)) score -= 30;
+  if (BODY_UNRESOLVED_PATTERN.test(body)) score -= 20;
+  if (choiceTexts.some((text) => PLACEHOLDER_PATTERN.test(text))) score -= 15;
+  if (choiceTexts.some((text) => CHOICE_UNRESOLVED_PATTERN.test(text))) score -= 10;
   if ((question.choices?.length ?? 0) < 2 && question.questionType === 'mcq') score -= 25;
 
   score = Math.max(0, Math.min(100, Math.round(score)));
