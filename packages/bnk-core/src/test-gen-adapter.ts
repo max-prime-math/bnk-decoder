@@ -213,7 +213,8 @@ function toTestGeneratorTypstText(text: string): string {
 
 function normalizeTypstTextSegment(text: string): string {
   const escapedDollarSentinel = '\uE000';
-  const source = text.replace(/\$\/\$/g, '/').replace(/\\\$/g, escapedDollarSentinel);
+  const repaired = repairEscapedMathOpeners(repairNestedInlineMathConstants(text));
+  const source = repaired.replace(/\$\/\$/g, '/').replace(/\\\$/g, escapedDollarSentinel);
   const chunks: string[] = [];
   let cursor = 0;
 
@@ -233,13 +234,82 @@ function normalizeTypstTextSegment(text: string): string {
     }
 
     const span = source.slice(start + 1, end);
-    chunks.push(isLikelyTypstMathSpan(span)
-      ? `$${escapeMath(normalizeTypstMathSpan(span))}$`
-      : `\\$${escapeLiteralTypstBrackets(span)}\\$`);
+    const normalizedSpan = normalizeTypstMathSpan(span);
+    chunks.push(isLikelyTypstMathSpan(normalizedSpan)
+      ? `$${escapeMath(normalizedSpan)}$`
+      : formatInvalidDollarSpan(span));
     cursor = end + 1;
   }
 
   return chunks.join('').replaceAll(escapedDollarSentinel, '\\$');
+}
+
+function isLiteralDollarSpan(text: string): boolean {
+  const trimmed = text.trim();
+  return isUnitDollarSpan(trimmed)
+    || isGarbledDollarSpan(trimmed)
+    || /\b(?:range|choose|rand|list|isunique|if|chr)\s*\(/i.test(trimmed);
+}
+
+function isUnitDollarSpan(text: string): boolean {
+  return /^\/[A-Za-z0-9_,.\s^]+$/.test(text.trim());
+}
+
+function formatInvalidDollarSpan(text: string): string {
+  return isUnitDollarSpan(text) || isGarbledDollarSpan(text)
+    ? escapeLiteralTypstBrackets(text)
+    : `\\$${escapeLiteralTypstBrackets(text)}\\$`;
+}
+
+function isGarbledDollarSpan(text: string): boolean {
+  return /(?:\.{3}|…)/.test(text) && /[=+\-*,]/.test(text);
+}
+
+function repairNestedInlineMathConstants(text: string): string {
+  return text.replace(
+    /([(*\/+\-^])\\?\$(pi|theta|alpha|beta|gamma|delta)\\?\$(?=\s*\\?[)*/+\-^A-Za-z0-9(])/gi,
+    '$1$2',
+  );
+}
+
+function repairEscapedMathOpeners(text: string): string {
+  const recover = (match: string, span: string, offset: number) => {
+    if (shouldStripEscapedDollarPair(span)) return span;
+    if (!canRecoverEscapedMathAt(text, offset, match.length)) return match;
+    return isRecoverableEscapedMathSpan(span) ? `$${span}$` : match;
+  };
+  return text
+    .replace(/\\\$((?:\{)?\s*y\s+(?:\|\s*y\s+)?in\s+R\s*(?:\})?)\\\$/gi, '$$$1$$')
+    .replace(/\\\$([^$\n]{1,240})\\\$/g, recover)
+    .replace(/\\\$([^$\n]{1,240})\$/g, recover);
+}
+
+function shouldStripEscapedDollarPair(text: string): boolean {
+  const trimmed = text.trim();
+  return trimmed === '-'
+    || /^[–−-]?\d+(?:\.\d+)?-$/.test(trimmed)
+    || /^-\d+(?:\.\d+)?$/.test(trimmed);
+}
+
+function canRecoverEscapedMathAt(text: string, offset: number, length: number): boolean {
+  const before = text[offset - 1] ?? '';
+  const after = text[offset + length] ?? '';
+  return !/[A-Za-z0-9_]/.test(before) && !/[A-Za-z0-9_]/.test(after);
+}
+
+function isRecoverableEscapedMathSpan(text: string): boolean {
+  const normalized = normalizeTypstMathSpan(text);
+  return isLikelyTypstMathSpan(normalized)
+    && hasRecoverableMathSignal(normalized);
+}
+
+function hasRecoverableMathSignal(text: string): boolean {
+  const trimmed = text.trim();
+  return /[=<>≤≥+\-*/^_()!]/.test(trimmed)
+    || /[{}|]/.test(trimmed)
+    || /\b(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|sqrt|abs|frac|times|dot|pi|theta|in|infinity)\b/i.test(trimmed)
+    || /\d\s+\d/.test(trimmed)
+    || (/\d/.test(trimmed) && /[A-Za-z,.]/.test(trimmed));
 }
 
 function escapeLiteralTypstBrackets(text: string): string {
@@ -258,14 +328,20 @@ function normalizeTypstMathSpan(text: string): string {
   return text
     .replace(/\r\n/g, '\n')
     .replace(/\r/g, '\n')
+    .replace(/\\([*+/\-^_=()])/g, '$1')
     .replace(/(?<![A-Za-z0-9])([A-Za-z])(\d+)(?![A-Za-z0-9])/g, '$1_$2')
     .replace(/\blog(\d+)\b/g, 'log($1)')
+    .replace(/\blog([A-Za-z])\b/g, 'log $1')
     .replace(/\batan\s*\(/g, 'op("atan")(')
     .replace(/\basin\s*\(/g, 'op("asin")(')
     .replace(/\bacos\s*\(/g, 'op("acos")(')
     .replace(/(\d)([A-Za-z])/g, '$1 $2')
+    .replace(/\blog([A-Za-z])\b/g, 'log $1')
+    .replace(/\b([A-Z])([A-Z])\b/g, '$1 $2')
+    .replace(/\b(?!(?:pi|in)\b)([a-z])([a-z])\b/g, '$1 $2')
     .replace(/\b([A-Za-z])x(?=\b|[_^])/g, '$1 x')
     .replace(/[–−]/g, '-')
+    .replace(/\s*_+\s*$/g, '')
     .trim();
 }
 
@@ -277,18 +353,45 @@ function isLikelyTypstMathSpan(text: string): boolean {
   const trimmed = text.trim();
   if (!trimmed) return false;
   if (trimmed === '/') return false;
+  if (isLiteralDollarSpan(trimmed)) return false;
+  if (!hasBalancedParens(trimmed)) return false;
   if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return false;
+  const longWords = trimmed.match(/[A-Za-z]{3,}/g)
+    ?.filter((word) => !/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs|frac|times|dot|theta|alpha|beta|gamma|delta|deg|pi|op|cm|min|mph|infinity)$/.test(word));
+  if (longWords?.length) return false;
   if (trimmed.startsWith('#math.')) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?$/.test(trimmed)) return true;
+  if (/^[–−-]?\d[\d\s]*(?:\.\d+)?(?:\s+[A-Za-z]+)?[,;.)]?$/.test(trimmed)) return true;
   if (/^[–−-]?\d+(?:\.\d+)?\/\d+$/.test(trimmed)) return true;
-  if (/^[–−-]?\d+(?:\.\d+)?(?:,\d+(?:\.\d+)?)+(?:,?\.{3}|,?…)?$/.test(trimmed)) return true;
+  if (/^[–−-]?\d+(?:\.\d+)?(?:,\s*\d+(?:\.\d+)?)+(?:,?\s*(?:\.{3}|…))?[,;.)]?$/.test(trimmed)) return true;
   if (/^\(\s*[–−-]?\d+(?:\.\d+)?\s*,\s*[–−-]?\d+(?:\.\d+)?(?:\s*,\s*[–−-]?\d+(?:\.\d+)?)?\s*\)$/.test(trimmed)) return true;
   if (/^[A-Za-z]\d+$/.test(trimmed)) return true;
   if (/^[A-Za-z]_[A-Za-z0-9]+$/.test(trimmed)) return true;
-  if (/^[A-Za-z]{1,8}\([^)]+\)$/.test(trimmed)) return true;
-  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?([=<>]=?|[+\-*/^])/.test(trimmed)) return true;
-  if (/^[+\-*/^=<>≤≥]+$/.test(trimmed)) return true;
-  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs)$/i.test(trimmed)) return true;
+  if (/^\(?\s*(?:[A-Za-z]|\d+)\s+[PC]\s+\d+(?:\s+times\s+(?:[A-Za-z]|\d+)\s+[PC]\s+\d+)*\s*\)?[,;.)]?$/.test(trimmed)) return true;
+  if (/[=<>≤≥+\-*/^_!]/.test(trimmed) && isMathCharacterOnly(trimmed)) return true;
+  if (/^[A-Za-z]\s*(?:\([^)]*\))?[,;.)]?$/.test(trimmed)) return true;
+  if (/^[A-Za-z]{1,8}\([^)]+\)[,;.)]?$/.test(trimmed)) return true;
+  if (/^[A-Za-z][A-Za-z0-9_]*(?:\([^)]+\))?\s*([=<>!]=?|[+\-*/^])/.test(trimmed)) return true;
+  if (/^[+\-*/^=<>≤≥!]+$/.test(trimmed)) return true;
+  if (isMathCharacterOnly(trimmed) && hasRecoverableMathSignal(trimmed)) return true;
+  if (/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs|frac)$/i.test(trimmed)) return true;
   return false;
+}
+
+function isMathCharacterOnly(text: string): boolean {
+  return /^[A-Za-z0-9_+\-*/^().,;= <>≤≥"!{}|%]+$/.test(text);
+}
+
+function hasBalancedParens(text: string): boolean {
+  let depth = 0;
+  for (const char of text) {
+    if (char === '(') depth += 1;
+    if (char === ')') {
+      depth -= 1;
+      if (depth < 0) return false;
+    }
+  }
+  return depth === 0;
 }
 
 export function resolveQuestionCurriculum(

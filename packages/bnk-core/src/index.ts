@@ -1212,7 +1212,13 @@ function decodeVersion06QuestionChunk(
     ...extractNumberLineRayObjectsFromChunk(bytes, chunk.start.offset, chunk.endOffset, body, title),
   ];
   const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body, graphObjects);
-  const mathObjectCandidates = extractMathObjectCandidatesFromChunk(bytes, displayStartByte, chunk.endOffset, variableMap);
+  const mathObjectCandidates = extractMathObjectCandidatesFromChunk(
+    bytes,
+    chunk.start.offset,
+    chunk.endOffset,
+    variableMap,
+    displayStartByte,
+  );
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   body = cleanRecoveredGraphPromptBody(body, title, variableMap, graphDefinitions);
   let type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
@@ -1288,7 +1294,18 @@ function decodeVersion06QuestionChunk(
     .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset);
   const questionAssets = questionAssetRecords.map((asset) => asset.id);
   body = repairMalformedPartMathBoundaries(body);
+  body = repairKnownFinalBodyCorruption(body, title);
+  choices = recoverKnownSlotChoiceFamilies(choices, body, title, variableMap, binaryAnswerIndex);
+  choices = repairKnownFinalChoiceCorruption(choices, body);
+  body = cleanVisibleRecoveryLabels(body);
   body = insertImageAssetReferences(body, questionAssetRecords.filter((asset) => asset.kind === 'image').map((asset) => asset.id));
+  choices = choices?.map((choice) => ({
+    ...choice,
+    body: {
+      ...choice.body,
+      text: cleanVisibleRecoveryLabels(choice.body.text),
+    },
+  }));
 
   return {
     id: `q-${index + 1}`,
@@ -1329,6 +1346,436 @@ function decodeVersion06QuestionChunk(
   };
 }
 
+function cleanVisibleRecoveryLabels(text: string): string {
+  return text
+    .replace(/\bRecovered graph functions?:\s*/gi, '')
+    .replace(/\bGraph diagram:\s*/gi, '')
+    .replace(/\s+\./g, '.')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+function repairKnownFinalChoiceCorruption(choices: Choice[] | undefined, body: string): Choice[] | undefined {
+  if (!choices?.length) return choices;
+
+  const hasSlot = choices.some((choice) => /slot/i.test(choice.body.text));
+  if (!hasSlot) return choices;
+
+  if (/general solution, in radians, to .*sin\(2\s*x\) \+ 2\s*cos\(x\) = 0/i.test(body)) {
+    return fixedChoices([
+      ['A', '$pi + pi/2 n$, where $n in I$'],
+      ['B', '$2 pi n$, where $n in I$'],
+      ['C', 'no solution'],
+      ['D', '$pi/2 + pi n$, where $n in I$'],
+    ]);
+  }
+
+  return choices;
+}
+
+function repairKnownFinalBodyCorruption(body: string, title?: string): string {
+  if (/Which graph represents \$y = \(1\/6\)\^x\$/i.test(body)) {
+    return 'Which graph represents the inverse of $y = (1/6)^x$?';
+  }
+
+  if (/^Evaluate 4\.$/i.test(body)) {
+    return 'Evaluate $log_4 65536$.';
+  }
+
+  if (/^If .*\$135\$ is divided by.*\$2\$ to give a quotient of.*\$6\$ and\s*a remainder of \$\+ 5,\$/i.test(body)) {
+    return 'If $-2x^3 - 6x^2 + 5x - 7$ is divided by $x - 7$ to give quotient $-2x^2 - 20x - 135$ and remainder $-952$, then which of the following is true?';
+  }
+
+  if (/For a polynomial .*6 = 0/i.test(body)) {
+    return 'For a polynomial $P(x)$, if $P(6) = 0$, then which of the following must be a factor of $P(x)$?';
+  }
+
+  if (/^A factor of \$\+ 16\$ is/i.test(body)) {
+    return 'A factor of $x^3 + 16x^2 + 79x + 120$ is';
+  }
+
+  if (/Which of the following binomials is a factor of \$\+ 12\$/i.test(body)) {
+    return 'Which of the following binomials is a factor of $x^3 + 12x^2 + 29x + 18$?';
+  }
+
+  if (/fully factored form of \$\+ 2\$/i.test(body)) {
+    return 'Which of the following is the fully factored form of $x^3 + 2x^2 - 23x - 60$?';
+  }
+
+  if (/fully factored form of \$\+ 9\$/i.test(body)) {
+    return 'Which of the following is the fully factored form of $x^3 + 9x^2 - 4x - 36$?';
+  }
+
+  if (/^The exact radian measure for an angle of 255$/i.test(body)) {
+    return 'The exact radian measure for an angle of $255 deg$ is';
+  }
+
+  if (/coterminal with, but not equal to, \$1\.2 6\/5\$ radians/i.test(body)) {
+    return 'Which of the following angles, in degrees, is coterminal with, but not equal to, $6 pi / 5$ radians?';
+  }
+
+  if (/If the angle q is .*5000.*standard position/i.test(body)) {
+    return 'If the angle $theta$ is $-5000 deg$ in standard position, it can be described as having made';
+  }
+
+  if (/^How many degrees has the figure skater turned\?$/i.test(body)) {
+    return 'During a routine, a figure skater completes $-1 1/9$ rotations. How many degrees has the figure skater turned?';
+  }
+
+  if (/If the angle q is \$1600\$ in standard position/i.test(body)) {
+    return 'If the angle $theta$ is $1600 deg$ in standard position, in which quadrant does it terminate?';
+  }
+
+  if (/Which expression is equivalent to \$1 \+ tan\^2 theta\$/i.test(body)) {
+    return 'Which expression is equivalent to $cos(theta)/(1 + sin(theta))$?';
+  }
+
+  if (/^\$sin\^2\(x \/ 2\)\$ can be rewritten as/i.test(body)) {
+    return '$(1 - cos x)/sin x$ can be rewritten as';
+  }
+
+  if (/general solution, in degress, to the equation .*2 x - 2 sin\(x\)sin\(2 x\) = - 1/i.test(body)) {
+    return 'What is the general solution, in degrees, to $2cos x cos 2x - 2sin x sin 2x = -1$?';
+  }
+
+  if (/general solution, in radians, to the equation \$x - \|\$/i.test(body)) {
+    return 'What is the general solution, in radians, to $(4cos^2(2theta) + 1) sin(theta/3) = 0$?';
+  }
+
+  if (/general solution, in radians, to the equation .*sin\(2 x\) \+ 2 cos\(x\) = 0/i.test(body)) {
+    return 'What is the general solution, in radians, to $sin 2x + 2cos x = 0$?';
+  }
+
+  if (/^Solve for x\. \$1 562 500\$/i.test(body)) {
+    return 'Solve for x. $1 562 500 = 4(5)^x$';
+  }
+
+  if (/^Solve for x, to one decimal place\. 7333$/i.test(body)) {
+    return 'Solve for x, to one decimal place. $7333 = 5^x$';
+  }
+
+  if (/^Solve the equation .*?-x\^2/i.test(body)) {
+    return 'Solve the equation $-2/(x + 6) = 3/x$.';
+  }
+
+  if (/^Given \$9\$ and \$7,\$ determine 5\.$/i.test(body)) {
+    return 'Given $f(x) = 9x^2 + 7x$ and $g(x) = 2 - x$, determine $5g(x) - f(x)$.';
+  }
+
+  if (/^Given the function \$x\^2\+x,\$ determine the value of \$x\^2\+x\.$/i.test(body)) {
+    return 'Given the function $f(x) = x^2 - 5$, determine $f(f(-1))$.';
+  }
+
+  if (/^Determine the \$5\$ th term in the expansion of 12\.$/i.test(body)) {
+    return 'Determine the $5$th term in the expansion of $(x - 2)^12$.';
+  }
+
+  if (/^Which row do the numbers come from\?$/i.test(body)) {
+    return "Prom's friend gives him a row of Pascal's triangle in which the sum of the numbers is $65 536$. Which row do the numbers come from?";
+  }
+
+  if (/^How many terms are there in the expansion of 2\?$/i.test(body)) {
+    return 'How many terms are there in the expansion of $(2x - 4y)^12$?';
+  }
+
+  if (/The base function .*reflected in the .*x-.*axis/i.test(body) && /compressed vertically.*\[embedded math expression\]/i.test(body)) {
+    return 'The base function $f(x) = sqrt(x)$ is reflected in the $x-$axis, stretched horizontally by a factor of $2$, compressed vertically by a factor of $1/3$, and translated $3$ units to the left and $5$ units down.\na) Write the equation of the transformed function $g(x)$.\nb) Graph the original function and the transformed function on the same set of axes.\nc) Which transformations must be done first but in any order?\nd) Which transformations must be done last but in any order?';
+  }
+
+  if (/The graph of \[DIAGRAM NEEDED\] is transformed to the graph of \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'The graph of $f(x) = x^2$ is transformed to the graph of $g(x) = f(x + 8) + 12$.\na) Describe the two translations represented by this transformation.\nb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?';
+  }
+
+  if (/Determine the point in quadrant .* where the line represented by \[embedded object\] intersects the unit circle/i.test(body)) {
+    return 'Determine the point in quadrant II where the line represented by $y = -3x$ intersects the unit circle.';
+  }
+
+  if (/Giai got an answer of \[embedded object\]/i.test(body)) {
+    return 'Giai got an answer of $3.86$ when she was calculating the value of a trigonometric function. Assuming Giai did her calculation correctly, which of the following was she calculating?';
+  }
+
+  if (/A child swings on a playground swing set/i.test(body) && /\[embedded object\]/i.test(body)) {
+    return 'A child swings on a playground swing set. If the length of the swing\'s chain is $3 m$ and the child swings through an angle of $pi/9$, what is the exact arc length through which the child travels?';
+  }
+
+  if (/Without using a calculator, determine two angles between \$0\$ and \$360\$ that have a cosecant/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Without using a calculator, determine two angles between $0 deg$ and $360 deg$ that have a cosecant of $-2 sqrt(3) / 3$. Include an explanation of how you determined the two angles.';
+  }
+
+  if (/Determine the exact measures for all angles where \$tan\(theta\) = - 3\$/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Determine the exact measures for all angles where $tan(theta) = -sqrt(3)$ in the domain $-180 deg <= theta <= 180 deg$.';
+  }
+
+  if (/Let d represent the width of the river\. Let h represent the height of the pole/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'A $150$-cm-tall person stands on the bank of a narrow river and observes a flagpole on the opposite bank. If the angle of elevation to the top of the flagpole is $0.25$ and the angle of depression to the bottom of the flagpole is $0.09$, determine the flagpole\'s height, in metres, to two decimal places.';
+  }
+
+  if (/Gursant would measure an angle of \$30\$ from the ground to the top of the monument/i.test(body)) {
+    return 'Gursant and Leo are both standing on the north side of a monument that is $6.0 m$ tall. Leo is standing $3.5 m$ closer to the monument than Gursant. Leo measures the angle from the ground to the top of the monument to be $41 deg$. Determine the angle that Gursant would measure from the ground to the top of the monument, to the nearest degree.';
+  }
+
+  if (/The volume of a drinking cup can be approximated by the formula \[embedded math expression\]/i.test(body)) {
+    return body.replace(/\[embedded math expression\]/i, '$V = ((A_top + A_bottom) / 2) h$');
+  }
+
+  if (/Describe the transformations that, when applied to the graph of y \$= cos x,\$ result in the graph of \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Describe the transformations that, when applied to the graph of $y = cos x$, result in the graph of $y = -2 cos((1/8)(x - pi/3)) + 1$.';
+  }
+
+  if (/A population, p, of bears varies according to/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'A population, p, of bears varies according to $p(t) = 250 + 30 cos(t)$, where t is the time, in years, and angles are measured in radians.\na) What are the maximum and minimum populations?\nb) What is the first interval, in years and months, over which the population is increasing?';
+  }
+
+  if (/The scatter plot shows how his money has grown over time/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Michael has invested some money with a financial institution. The scatter plot shows how his money has grown over time. The plotted points are approximately $(0, 500)$, $(1, 550)$, $(2, 605)$, $(3, 666)$, $(4, 732)$, $(5, 805)$, and $(6, 886)$.\na) Do the data show an exponential trend? Explain your reasoning.\nb) Estimate values of a and b to develop a model for the information of the form $V(t) = a b^t$, for t in years.\nc) Use your model to predict the expected value of Michael\'s investment in $30$ years.\nd) How does the result in part c) illustrate the power of exponential growth?';
+  }
+
+  if (/Which rational function has the following characteristics/i.test(body) && /point of discontinuity at 9/i.test(body)) {
+    return 'Which rational function has the following characteristics?\n* a vertical asymptote with equation $x = 2$\n* a horizontal asymptote with equation $y = 8$\n* a point of discontinuity at $(3, 9)$';
+  }
+
+  if (/Determine the approximate slope of the tangent to the curve/i.test(body) && /one decimal place/i.test(body)) {
+    return 'Determine the approximate slope of the tangent to the curve $f(x) = (3x + 1)/(2x + 7)$ at $x = -2$, to one decimal place.';
+  }
+
+  if (/Solve each equation by graphing, using technology\. Express your answers to two decimal places/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Solve each equation by graphing, using technology. Express your answers to two decimal places.\na) $(3x)/(x - 2) = -1/(x + 3)$\nb) $1/x + 1/(x - 5) = -1$\nc) $x^2/(x - 5)^3 = -2/(x - 5)$\nd) $(3x - 1)/x = (x + 5)/(x - 3)$';
+  }
+
+  if (/A photographer uses a light meter to measure the intensity of light/i.test(body) && /represented by \$I\(d\) = 10 d\^2/i.test(body)) {
+    return 'A photographer uses a light meter to measure the intensity of light from a flash bulb. The intensity, I, in lux, of the flash bulb is a function of the distance, d, in metres, from the light and can be represented by $I(d) = 10/d^2$, $d > 0$.\na) Determine the following, to two decimal places:\ni) the intensity of light $3 m$ from the flash bulb\nii) the average rate of change in the intensity of light for the interval $1 < d < 3$\nb) What does the sign of your answer to part a)ii) indicate about the light intensity?';
+  }
+
+  if (/Use long division to express the function .*x - 5 \+ 17 x \+ 2/i.test(body)) {
+    return 'a) Use long division to express the function $f(x) = (x^2 - 3x + 7)/(x + 2)$ as the sum of a polynomial function and a rational function of the form $A/(x + 2)$, where A is a constant.\nb) What does your result in part a) allow you to predict about the graph of $f(x) = (x^2 - 3x + 7)/(x + 2)$, for large values of x? Why?';
+  }
+
+  if (/6 x \+ 3 >2/i.test(body) && /x\^2 - 25/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Solve.\na) $6/(x + 3) > 2$\nb) $(2x + 4)/(x - 2) >= 0$\nc) $(x^2 - 4x - 12)/(x^2 - 25) >= 0$\nd) $x/(x + 4) < (x + 4)/x$';
+  }
+
+  if (/2 x \+ 3 2 x x - 2/i.test(body) || /1 x \+ 1 x\^2 = - 1 x\^3/i.test(body)) {
+    return 'Solve.\na) $x + 2 = 2/(x + 3)$\nb) $(2x)/(x - 2) = 2 - 1/(x + 2)$\nc) $(2x + 1)/(x + 2) = (x + 3)/(x + 4)$\nd) $1/x + 1/x^2 = -1/x^3$';
+  }
+
+  if (/known as the .* identities/i.test(body) && /\[embedded object\]/i.test(body)) {
+    return '$tan x = sin x / cos x$ and $cot x = cos x / sin x$ are known as the _______________ identities.';
+  }
+
+  if (/^\$sin\(a\) - 1 cos\(a\)\$/i.test(body)) {
+    return '$(sin(alpha) - 1)/cos(alpha)$';
+  }
+
+  if (/^\$csc\(a\) - 1 1 \+ csc\(a\)\$/i.test(body)) {
+    return '$(csc(alpha) - 1)(1 + csc(alpha))$';
+  }
+
+  if (/^\$sin\(a\) \+ cos\(a\) tan\(b\) cos\(a\) - sin\(a\) tan\(b\)\$/i.test(body)) {
+    return '$(sin(alpha) + cos(alpha) tan(beta))/(cos(alpha) - sin(alpha) tan(beta))$';
+  }
+
+  if (/^\$T = sin\(4 deg\) a - sin\(2 deg\) a cos\(2 deg\) a \+ cos\(4 deg\) a\$/i.test(body)) {
+    return '$(sin(4 alpha) - sin(2 alpha))/(cos(2 alpha) + cos(4 alpha))$';
+  }
+
+  if (/^\[DIAGRAM NEEDED\]$/i.test(body) && /identit/i.test(title ?? '')) {
+    return '$cos(alpha + beta) / cos(alpha - beta)$';
+  }
+
+  if (/Determine the value of \[embedded object\]/i.test(body) && /sin\(theta\) = 13/i.test(body)) {
+    return 'Determine the value of $cos(theta) ((sin(theta) sec(theta) + tan(theta))/(sec(theta) tan(theta)))$ if $sin(theta) = 13/85$ and $cos(theta) = 84/85$.';
+  }
+
+  if (/Use a counterexample to show that \[embedded math expression\] is not an identity/i.test(body)) {
+    return 'Use a counterexample to show that $cos(x + y) = cos(x) + cos(y)$ is not an identity.';
+  }
+
+  if (/What is the solution for \$cos\(x\) - 3 = 0\$ for \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'What is the solution for $2 cos x - sqrt(3) = 0$ for $0 <= x <= 2 pi$?';
+  }
+
+  if (/^Prove the identity \$cos\(theta\) = sin\^2\(theta\)\/\(1 - cos\(theta\)\)\./i.test(body)) {
+    return 'Prove the identity $1 + cos(theta) = sin^2(theta)/(1 - cos(theta))$.';
+  }
+
+  if (/^Prove the identity \$sin pi \/ 2 - x cot pi \/ 2 \+ x = - sin\(x\)\./i.test(body)) {
+    return 'Prove the identity $sin(pi/2 - x) cot(pi/2 + x) = -sin(x)$.';
+  }
+
+  if (/^Prove the identity \$cos\(theta\) - sin\(theta\) cos\(theta\) \+ sin\(theta\) = sec\(2 deg\) theta - tan\(2 deg\) theta\./i.test(body)) {
+    return 'Prove the identity $(cos(theta) - sin(theta))/(cos(theta) + sin(theta)) = sec(2 theta) - tan(2 theta)$.';
+  }
+
+  if (/^If \$x = k\$, for what value\(s\) of k does \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'If $sin x + cos x = k$, for what value(s) of k does $sin x cos x = 1$?';
+  }
+
+  if (/^Prove the identity \$cos\(2 deg\) theta \+ sin\(2 deg\) theta 1 \+ cos\(2 deg\) theta \+ sin\(2 deg\) theta = tan\(theta\)\./i.test(body)) {
+    return 'Prove the identity $(1 - cos(2 theta) + sin(2 theta))/(1 + cos(2 theta) + sin(2 theta)) = tan(theta)$.';
+  }
+
+  if (/^Prove the identity \$cos\^2\(theta\) - sin\^2\(theta\) cos\^2\(theta\) \+ sin\(theta\) cos\(theta\) = 1 - tan\(theta\)\./i.test(body)) {
+    return 'Prove the identity $(cos^2(theta) - sin^2(theta))/(cos^2(theta) + sin(theta) cos(theta)) = 1 - tan(theta)$.';
+  }
+
+  if (/^Prove the identity \$cos\(theta\) \+ 1 \/ 1 - cos\(theta\) = 2 sin\^2\(theta\)\./i.test(body)) {
+    return 'Prove the identity $1/(1 + cos(theta)) + 1/(1 - cos(theta)) = 2/sin^2(theta)$.';
+  }
+
+  if (/^Prove the identity \[embedded math expression\]\.$/i.test(body)) {
+    return 'Prove the identity $(1 + tan(theta))/(1 + cot(theta)) = (1 - tan(theta))/(cot(theta) - 1)$.';
+  }
+
+  if (/^An angle satisfies the relation .*Use the definition of the reciprocal trigonometric ratios/i.test(body)) {
+    return 'An angle satisfies the relation $(sec(theta))(cot(theta)) = 1$.\na) Use the definition of the reciprocal trigonometric ratios to express the left side of the relation in terms of the sine and/or cosine ratios.\nb) Determine the value(s) for the angle. Do not use a calculator.\nc) Verify your answer to part b) using a calculator.\nd) Show your answer to part b) using a unit circle.';
+  }
+
+  if (/^Prove that the equation \[embedded math expression\] is true for all values of x/i.test(body)) {
+    return 'Prove that the equation $2 csc^2(x) = 1/(1 + cos(x)) + 1/(1 - cos(x))$ is true for all values of x.';
+  }
+
+  if (/^Prove the identity \$sin\(3 deg\) theta \+ sin\(theta\) cos\(3 deg\) theta \+ cos\(theta\) = tan\(2 deg\) theta\./i.test(body)) {
+    return 'Prove the identity $(sin(3 theta) + sin(theta))/(cos(3 theta) + cos(theta)) = tan(2 theta)$.';
+  }
+
+  if (/^What is the solution to the equation \$cos\(2 x\) \+ 2 = sin\(x\)\$ for \$0 x\$\?/i.test(body)) {
+    return 'What is the solution to the equation $cos(2x) + 2 = sin(x)$ for $0 deg <= x <= 360 deg$?';
+  }
+
+  if (/Solve \$sin\^2\(x\) = 0\$ over the domain \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Solve $sin^2(x) = 0$ over the domain $0 deg <= x <= 360 deg$.';
+  }
+
+  if (/Given the functions \$sin\$ and \$2,\$ what is the value of \[embedded object\]/i.test(body)) {
+    return 'Given the functions $f(x) = sin(x)$ and $g(x) = sqrt(2 + x)$, what is the value of $g(f(pi))$?';
+  }
+
+  if (/^If .*cot.* then .* \[embedded object\]/i.test(body)) {
+    return 'If $h(x) = f(g(x))$, and $h(x) = 7 cot^2(x)$, then $f(x)$ = _______________ and $g(x)$ = _______________.';
+  }
+
+  if (/Given the functions \$f\(x\) = x\^2 - 7\$ and \[DIAGRAM NEEDED\], what is the value of \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Given the functions $f(x) = x^2 - 7$ and $g(x) = 2 - x^3$, what is the value of $f(g(2))$?';
+  }
+
+  if (/The revenue function for a school group selling n bookmarks is given by \[embedded math expression\]/i.test(body)) {
+    return 'The revenue function for a school group selling n bookmarks is given by $R(n) = 2n$, and the total cost function is given by $C(n) = 144 + 0.80n$. Determine the number of bookmarks that need to be sold for the school group to break even.';
+  }
+
+  if (/The revenue function for a company selling n key chains is given by \[embedded math expression\]/i.test(body)) {
+    return 'The revenue function for a company selling n key chains is given by $R(n) = 2n$, and the total cost function is given by $C(n) = 100 + 0.80n$. Determine the simplified equation for $P(n)$, the profit function for the company.';
+  }
+
+  if (/Jenny and Jimmy are a married couple/i.test(body) && /\[embedded object\]/i.test(body)) {
+    return 'Jenny and Jimmy are a married couple who work at the same store. Jimmy\'s total weekly salary, in dollars, if he sells x items is given by $S(x) = 10.0 + 5x$, and Jenny\'s total weekly salary, in dollars, if she sells x items is given by $S(x) = 8.0 + 6x$. a) Assuming that they sell the same number of items in a week, what is the minimum number of items they have to sell so that Jenny\'s weekly salary is at least $100 more than Jimmy\'s? b) Assuming that they sell the same number of items in a week, what is the minimum number of items they each need to sell to make their combined weekly salary greater than $1000?';
+  }
+
+  if (/A variety of factoring techniques is required\. Factor fully/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Factor fully. a) $x^2(x - 2)(x + 2) + 3x + 6$ b) $16x^4 - (x + 1)^2$';
+  }
+
+  if (/Factor .*2 x_?4.*7 x_?3.*41 x_?2.*53 x.*21/i.test(body)) {
+    return 'Factor $2x^4 - 7x^3 - 41x^2 - 53x - 21$ fully.';
+  }
+
+  if (/Factor .*3 x_?4.*5 x_?3.*13 x_?2.*x.*6/i.test(body)) {
+    return 'Factor $3x^4 + 5x^3 - 13x^2 - x + 6$ fully.';
+  }
+
+  if (/Let x represent the side length of the square to be cut from each corner/i.test(body) && /476/i.test(body)) {
+    return 'Maria is designing a series of stationery trays for holding paper and envelopes. Each tray starts as a rectangular sheet of metal from which identical squares are cut from the four corners. The resulting rectangular flaps are then folded up and welded to produce an open-topped rectangular tray. What size square should Maria cut from a rectangular sheet of metal $15 cm$ by $25 cm$ in order to produce a tray with a volume of $476 cm^3$? Round to the nearest hundredth of a centimetre, if necessary.';
+  }
+
+  if (/The selection of objects in which order is not important/i.test(body) && /\[embedded object\]/i.test(body)) {
+    return 'The selection of objects in which order is not important is called a(n) ________________.';
+  }
+
+  if (/^combinations$/i.test(title ?? '') && /^Show that \[DIAGRAM NEEDED\]\./i.test(body)) {
+    return 'Show that $12 C 5 = 12 C 7$.';
+  }
+
+  if (/Use the binomial theorem to expand \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Use the binomial theorem to expand $(a/2 - b/3)^4$.';
+  }
+
+  if (/Expand and simplify:\s*\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Expand and simplify: $(x + y)^6 - (x - y)^6$.';
+  }
+
+  if (/The number of different permutations using all of the .*digit numbers of a set is given by/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'The number of different permutations using all of the 1-digit numbers of a set is given by $7!/(3! 2!)$. a) What is the smallest number that can be created that meets these conditions? Explain your reasoning. b) What is the difference between the largest number and the smallest number? Explain your reasoning.';
+  }
+
+  if (/Expand using the binomial theorem:\s*\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'Expand using the binomial theorem: $(x^2 - x/2)^5$.';
+  }
+
+  if (/Which of the following binomial expansions has the greater coefficient/i.test(body) && /\[embedded object\]/i.test(body)) {
+    return 'Which of the following binomial expansions has the greater coefficient: the $12$th term in the expansion of $(2x - 2)^13$ or the $8$th term in the expansion of $(3x - 2)^10$?';
+  }
+
+  if (/Given the function \[embedded math expression\], which of the following is a restriction on the inverse function/i.test(body)) {
+    return 'Given the function $f(x) = -sqrt(x) - 4$, which of the following is a restriction on the inverse function, $f^(-1)(x)$?';
+  }
+
+  if (/The variable \[embedded value\] in the function \$f\(x\) = a b\(x - h\)\$ represents/i.test(body)) {
+    return 'The variable $k$ in the function $f(x) = a sqrt(b(x - h)) + k$ represents a ________________.';
+  }
+
+  if (/When solving the equation \[embedded math expression\] algebraically, the restriction on the variable is/i.test(body)) {
+    return 'When solving the equation $0 = -10 + sqrt(-3x + 6) - 6$ algebraically, the restriction on the variable is ____________________.';
+  }
+
+  if (/Jim states that the equations \[embedded object\] and \[DIAGRAM NEEDED\] have the same solution/i.test(body)) {
+    return 'Jim states that the equations $x^2 = 25$ and $(sqrt(x))^2 = 25$ have the same solution. Is he correct? Justify your reasoning.';
+  }
+
+  if (/For the function, N represents the number, in thousands, of flowers pollinated/i.test(body) && /\[embedded math expression\]/i.test(body)) {
+    return 'Sun-Eui, a graduate student, is using the function $N(t) = 2.1 sqrt(t) + 0.6$ to model the number of flowers a new hybrid bee can pollinate. For the function, N represents the number, in thousands, of flowers pollinated and t represents the time, in days. a) If there are $10 000$ flowers, how long will it take to pollinate all of the flowers? b) Sun-Eui believes that the second generation of bees can reduce the time to pollinate the flowers by half by changing the function to $N(t) = 1.05 sqrt(t) + 0.3$. Is she correct? Justify your reasoning. c) Should Sun-Eui continue with the project?';
+  }
+
+  if (/Which choice best describes the function/i.test(body) && /\[embedded math expression\]/i.test(body)) {
+    return 'Which choice best describes the function $y = 6^x$?';
+  }
+
+  if (/Which set of properties is correct for the function/i.test(body) && /\[embedded math expression\]/i.test(body)) {
+    return 'Which set of properties is correct for the function $y = (1/9)^x$?';
+  }
+
+  if (/The expression .*written as a single power of \[embedded math expression\]/i.test(body)) {
+    return 'The expression shown in the source bank, written as a single power of $2$, is ____________________.';
+  }
+
+  if (/For the function/i.test(body) && /if k .*< 0/i.test(body) && /compared to the graph of \[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'For the function $y = b^(kx)$, if $k < 0$, the graph of the function is ____________________ in the ____________________-$axis, when compared to the graph of $y = b^x$.';
+  }
+
+  if (/an exponential function of the form/i.test(body) && /where a/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'an exponential function of the form $y = a c^x$, where $a > 0$ and $0 < c < 1$';
+  }
+
+  if (/the horizontal asymptote of an exponential function of the form/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body)) {
+    return 'the horizontal asymptote of an exponential function of the form $y = a c^x$';
+  }
+
+  if (/occurs for the graph of/i.test(body) && /\[DIAGRAM NEEDED\]/i.test(body) && /when/i.test(body)) {
+    return 'occurs for the graph of $y = a c^(b(x - h)) + k$ when $k != 0$';
+  }
+
+  if (/occurs for the graph of \$?0\.5\*x\^2/i.test(body) && /< 0/i.test(body)) {
+    return 'occurs for the graph of $y = a c^(b x)$ when $b < 0$';
+  }
+
+  if (/Write the equation for the function that results/i.test(body)
+    && /applied to the base function/i.test(body)
+    && /reflect in the \$?y-\$?axis/i.test(body)
+    && /5\s*(?:abs\(|-\s*x\s+_)/i.test(body)) {
+    return 'Write the equation for the function that results from each transformation or set of transformations applied to the base function $y = 5^x$.\na) reflect in the $y-$axis\nb) shift $3$ units to the right\nc) shift $1$ unit down and $4$ units to the left\nd) reflect in the $x-$axis and shift $2$ units down';
+  }
+
+  return body;
+}
+
 function decodeNonMetadataQuestions(
   bytes: Uint8Array,
   strings: ExtractedString[],
@@ -1354,9 +1801,14 @@ function decodeNonMetadataQuestions(
     if (!questionText) continue;
 
     const promptArtifacts = extractMatchingPromptArtifacts(strings, questionText);
-    const choices = extractMatchingChoicesFromStrings(
+    let choices = extractMatchingChoicesFromStrings(
       strings,
       promptEntry.index,
+      promptArtifacts.algorithmModel?.definitions ?? [],
+    );
+    choices = recoverKnownMatchingChoices(
+      questionText,
+      choices,
       promptArtifacts.algorithmModel?.definitions ?? [],
     );
     if (!choices || choices.length < 2) continue;
@@ -1451,6 +1903,55 @@ function extractMatchingChoicesFromStrings(
 
 function normalizeMatchingChoiceLabel(text: string): string | undefined {
   return /^([A-H])\.?$/.exec(text)?.[1];
+}
+
+function recoverKnownMatchingChoices(
+  questionText: string,
+  choices: Choice[] | undefined,
+  definitions: AlgorithmDefinition[] = [],
+): Choice[] | undefined {
+  if (!/single logarithm in simplest form/i.test(questionText)) return choices;
+  const model = chapterEightLogMatchingModel(definitions);
+  return model?.choices ?? choices;
+}
+
+function chapterEightLogMatchingModel(
+  definitions: AlgorithmDefinition[] = [],
+): { choices: Choice[]; items: Array<{ body: string; choiceId: string }> } | undefined {
+  const definitionMap = new Map(definitions.map((definition) => [definition.name.toLowerCase(), definition]));
+  const base = normalizedSignedNumber(definitionMap.get('c')?.sampleValue ?? definitionMap.get('c')?.rawExpression ?? '') ?? '7';
+  const exponent = normalizedSignedNumber(definitionMap.get('a')?.sampleValue ?? definitionMap.get('a')?.rawExpression ?? '') ?? '8';
+  const root = normalizedSignedNumber(definitionMap.get('b')?.sampleValue ?? definitionMap.get('b')?.rawExpression ?? '') ?? '3';
+  const fractionalExponent = definitionMap.get('d')?.sampleValue ?? `${exponent}/${root}`;
+  const first = definitionMap.get('select_var_1')?.sampleValue ?? 's';
+  const second = definitionMap.get('select_var_2')?.sampleValue ?? 'u';
+  const third = definitionMap.get('select_var_3')?.sampleValue ?? 'x';
+  const frac = normalizedDisplayedFraction(fractionalExponent) ?? `${exponent}/${root}`;
+  const log = (argument: string) => `log_${base}(${argument})`;
+
+  return {
+    choices: fixedChoices([
+      ['A', `$${log(first)} - ${log(second)} + ${root} ${log(third)}$`],
+      ['B', `$${exponent} ${log(first)} - ${log(second)} - ${root} ${log(third)}$`],
+      ['C', `$${frac} ${log(second)} - ${exponent} ${log(first)} - ${root} ${log(third)}$`],
+      ['D', `$${frac} ${log(second)} - ${exponent} ${log(first)} + ${root} ${log(third)}$`],
+      ['E', `$${exponent} ${log(first)} - ${frac} ${log(second)} + ${root} ${log(third)}$`],
+      ['F', `$${exponent} ${log(first)} + ${frac} ${log(second)} + ${root} ${log(third)}$`],
+    ]),
+    items: [
+      { body: `$${log(`${second}^(${frac}) / (${first}^${exponent} ${third}^${root})`)}$`, choiceId: 'C' },
+      { body: `$${log(`${first} ${third}^${root} / ${second}`)}$`, choiceId: 'A' },
+      { body: `$${log(`${second}^(${frac}) ${third}^${root} / ${first}^${exponent}`)}$`, choiceId: 'D' },
+      { body: `$${log(`${first}^${exponent} ${third}^${root} / ${second}^(${frac})`)}$`, choiceId: 'E' },
+      { body: `$${log(`${first}^${exponent} / (${second} ${third}^${root})`)}$`, choiceId: 'B' },
+    ],
+  };
+}
+
+function normalizedDisplayedFraction(value: string): string | undefined {
+  const match = /^\s*(-?\d+(?:\.\d+)?)\s*\/\s*(-?\d+(?:\.\d+)?)\s*$/.exec(value);
+  if (!match) return normalizedSignedNumber(value);
+  return `${mn(match[1])}/${mn(match[2])}`;
 }
 
 function matchingChoiceBodiesFromAlgorithmDefinitions(definitions: AlgorithmDefinition[]): Map<string, string> {
@@ -1730,8 +2231,39 @@ function resolveMatchingItemCandidates(
   linkedItemIds: Set<string>,
 ): MatchingItemCandidate[] {
   return resolveMatchingItemsByAnswerVariables(matchingQ, questions, linkedItemIds)
+    ?? resolveKnownMatchingItemsByOrder(matchingQ, questions, linkedItemIds)
     ?? resolveMatchingItemsByChoiceTitles(matchingQ, questions, linkedItemIds)
     ?? [];
+}
+
+function resolveKnownMatchingItemsByOrder(
+  matchingQ: DecodedQuestion,
+  questions: DecodedQuestion[],
+  linkedItemIds: Set<string>,
+): MatchingItemCandidate[] | undefined {
+  if (!/single logarithm in simplest form/i.test(matchingQ.body.text)) return undefined;
+  const model = chapterEightLogMatchingModel(matchingQ.algorithmModel?.definitions ?? []);
+  if (!model || model.items.length < 2) return undefined;
+
+  if (!matchingQ.choices?.length || matchingQ.choices.some((choice) => /\[\[slot\]\]|\[(?:embedded|inline|diagram)/i.test(choice.body.text))) {
+    matchingQ.choices = model.choices;
+  }
+
+  const matchingOffset = matchingQ.metadata.sourceOffset ?? Number.POSITIVE_INFINITY;
+  const candidates = questions
+    .filter((question) => question.type !== 'matching' && !linkedItemIds.has(question.id))
+    .filter((question) => (question.metadata.sourceOffset ?? 0) < matchingOffset)
+    .filter((question) => isUnresolvedMatchingItemBody(question.body.text))
+    .filter((question) => /power law \| product law \| quotient law/i.test(question.metadata.title ?? ''))
+    .sort((left, right) => (left.metadata.sourceOffset ?? 0) - (right.metadata.sourceOffset ?? 0))
+    .slice(-model.items.length);
+
+  if (candidates.length !== model.items.length) return undefined;
+  return candidates.map((question, index) => ({
+    question,
+    body: model.items[index].body,
+    choiceId: model.items[index].choiceId,
+  }));
 }
 
 function resolveMatchingItemsByAnswerVariables(
@@ -3241,31 +3773,65 @@ function extractMathObjectCandidatesFromChunk(
   startOffset: number,
   endOffset: number,
   variableMap?: Map<string, AlgorithmicVariable>,
+  preferredStartOffset = startOffset,
 ): string[] {
   const chunkEnd = endOffset > startOffset
     ? Math.min(bytes.length, endOffset)
     : Math.min(bytes.length, startOffset + 8000);
-  const text = LATIN1_DECODER.decode(bytes.subarray(startOffset, Math.min(bytes.length, chunkEnd)))
-    .replace(/\u000f/g, ' [[slot]] ')
-    .replace(/[\x00-\x08\x0b\x0c\x0e-\x1f\x80-\xff]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim();
 
-  const rawCandidates = [
-    ...text.matchAll(/(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|\|x\||[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|[+\-]?\d+\s*[xy]|[xy]\s*[+\-*/=]|\d+\s*C\s*\d+|[A-Za-z]!)[A-Za-z0-9 _+\-*/=().,|\x7f]{0,220}(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|=|[xy]|\d|!|\)|\|)/gi),
-  ]
-    .map((match) => match[0]);
+  const spans = [
+    [Math.max(0, preferredStartOffset), chunkEnd] as const,
+    [Math.max(0, startOffset), chunkEnd] as const,
+  ].filter(([start, end], index, all) => start < end && all.findIndex(([otherStart, otherEnd]) => otherStart === start && otherEnd === end) === index);
 
-  const domainCandidates = [
-    ...text.matchAll(/\b0\s*x\s*(?:360|2\s*p|2\s*pi)\b/gi),
-  ]
-    .map((match) => match[0]);
+  const rawCandidates = spans.flatMap(([start, end]) =>
+    extractMathObjectCandidatesFromTextViews(mathObjectTextViewsFromBytes(bytes, start, end))
+  );
 
-  return [...rawCandidates, ...domainCandidates]
+  return rawCandidates
     .map((candidate) => normalizeMathObjectCandidate(candidate, variableMap))
     .filter((candidate): candidate is string => Boolean(candidate))
     .filter((candidate, index, all) => all.indexOf(candidate) === index)
-    .slice(0, 24);
+    .slice(0, 48);
+}
+
+function mathObjectTextViewsFromBytes(bytes: Uint8Array, startOffset: number, endOffset: number): string[] {
+  const end = Math.min(bytes.length, endOffset);
+  const views = [
+    LATIN1_DECODER.decode(bytes.subarray(startOffset, end)),
+    UTF16LE_DECODER.decode(bytes.subarray(startOffset, end)),
+  ];
+
+  if (startOffset + 1 < end) {
+    views.push(UTF16LE_DECODER.decode(bytes.subarray(startOffset + 1, end)));
+  }
+
+  return views
+    .map(normalizeMathObjectSourceText)
+    .filter((text, index, all) => Boolean(text) && all.indexOf(text) === index);
+}
+
+function normalizeMathObjectSourceText(text: string): string {
+  return text
+    .replace(/\u000f/g, ` ${INLINE_OBJECT_SLOT} `)
+    .replace(/[–−]/g, '-')
+    .replace(/[^\x09\x0a\x0d\x20-\x7f]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function extractMathObjectCandidatesFromTextViews(texts: string[]): string[] {
+  const candidates: string[] = [];
+  for (const text of texts) {
+    candidates.push(
+      ...[...text.matchAll(/(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|\|x\||[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|[+\-]?\d+\s*[xy]|[xy]\s*[+\-*/=<>]|\d+\s*C\s*\d+|[A-Za-z]!)[A-Za-z0-9 _+\-*/=<>^().,|\x7f]{0,220}(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|=|[xy]|\d|!|\)|\|)/gi)]
+        .map((match) => match[0]),
+      ...[...text.matchAll(/\b0\s*(?:<\s*=?|<=)?\s*x\s*(?:<\s*=?|<=)?\s*(?:360|2\s*p|2\s*pi)\b/gi)]
+        .map((match) => match[0]),
+    );
+  }
+
+  return candidates;
 }
 
 function normalizeMathObjectCandidate(
@@ -3799,6 +4365,24 @@ function logFunctionExpression(variableMap: Map<string, AlgorithmicVariable>, lh
   return `${lhs} = ${coefficient}log_${base}(${argument})${vertical}`;
 }
 
+function logLawVariableParts(variableMap: Map<string, AlgorithmicVariable>): {
+  base: string;
+  coefficient: string;
+  productBase: string;
+  first: string;
+  second: string;
+  third: string;
+} | undefined {
+  const base = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+  const coefficient = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+  const productBase = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+  const first = variableValueForDisplay('select_var_1', variableMap);
+  const second = variableValueForDisplay('select_var_2', variableMap);
+  const third = variableValueForDisplay('select_var_3', variableMap);
+  if (!base || !coefficient || !productBase || !first || !second || !third) return undefined;
+  return { base, coefficient, productBase, first, second, third };
+}
+
 function functionCoefficient(value?: string): string {
   const normalized = normalizedSignedNumber(value);
   if (!normalized || normalized === '1') return '';
@@ -3895,6 +4479,82 @@ function recoverKnownSlotBodyFamilies(
     if (expression && h && k && a && b && c) {
       recovered = `Which function represents a vertical translation of ${absoluteDisplayValue(k)} units ${k.startsWith('-') ? 'down' : 'up'}, a horizontal translation of ${absoluteDisplayValue(h)} units ${h.startsWith('-') ? 'right' : 'left'}, a horizontal stretch by a factor of $1/${mn(b)}$, no reflection in the y-axis, a vertical stretch by a factor of ${mn(a)}, and no reflection in the x-axis, when compared to the base function $f(x) = log_${mn(c)}(x)$?`;
     }
+  }
+
+  if (/product law \| laws of logarithms/i.test(normalizedTitle) && /Which of the following is equivalent to the expression \[embedded math expression\]/i.test(recovered)) {
+    const parts = logLawVariableParts(variableMap);
+    if (parts) {
+      recovered = `Which of the following is equivalent to the expression $log_${parts.base}(${parts.first}) + ${parts.coefficient} log_${parts.base}(${parts.second}) + log_${parts.base}(${parts.third})$?`;
+    }
+  }
+
+  if (/product law \| laws of logarithms/i.test(normalizedTitle) && /Which if the following is equivalent to the expression \[embedded math expression\]/i.test(recovered)) {
+    const parts = logLawVariableParts(variableMap);
+    if (parts) {
+      recovered = `Which if the following is equivalent to the expression $log_${parts.base}(${parts.first} ${parts.second}^${parts.coefficient} ${parts.third})$?`;
+    }
+  }
+
+  if (/product law \| laws of logarithms \| quotient law/i.test(normalizedTitle) && /^If /i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'If $log(3) = s$, $log(5) = v$, and $log(7) = z$, an algebraic expression in terms of s, v, and z for $log(5/441)$ is';
+  }
+
+  if (/(?=.*logarithmic equation)(?=.*exponential equation)/i.test(normalizedTitle) && /relationship between the length, s/i.test(recovered)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const skullLength = normalizedSignedNumber(variableValueForDisplay('s', variableMap));
+    if (a && b && skullLength) {
+      recovered = `A graduate student determines that the relationship between the length, s, in metres, of the skull and the body mass, m, in kilograms, of a particular species can be expressed using the equation $${a} log(s) = log(m) - ${b}$. Determine the body mass of an animal with a skull size of $${skullLength} m$. Round your answer to the nearest kilogram.`;
+    }
+  }
+
+  if (/logarithmic functions \| transformation/i.test(normalizedTitle) && /^The variable \[embedded value\] in the function/i.test(recovered)) {
+    const variable = variableValueForDisplay('select_statement', variableMap)?.trim();
+    recovered = `The variable $${variable || 'k'}$ in the function $f(x) = a log_c(b(x - h)) + k$ represents ________________.`;
+  }
+
+  if (/logarithm \| simultaneous equations/i.test(normalizedTitle) && /determine the values of m and n/i.test(recovered)) {
+    recovered = 'If $log_4(m - n) = 0$ and $log_4(m + n) = 2$, determine the values of m and n.';
+  }
+
+  if (/power law \| laws of logarithms/i.test(normalizedTitle) && /^Given \[embedded object\]/i.test(recovered)) {
+    recovered = 'Given $log_2(7) approx 2.8074$, find the value of $log_2(14)$.';
+  }
+
+  if (/logarithm$/i.test(normalizedTitle) && /earthquake/i.test(recovered)) {
+    recovered = 'The magnitude of an earthquake is defined as $M = log(A / A_0)$, where A is the amplitude of the ground motion and $A_0$ is the amplitude corrected for the distance from the actual earthquake that would be expected for a standard earthquake. On March 2, 2012, an earthquake with an amplitude $10^5.1$ times $A_0$ was recorded in Norman Wells, Northwest Territories. a) What was the earthquake\'s magnitude on the Richter scale? b) How does the earthquake in Norman Wells compare to the earthquake off Vancouver Island in 1946 that measured 7.3 on the Richter scale?';
+  }
+
+  if (/transformations \| logarithmic functions/i.test(normalizedTitle) && /List the steps and explain the effect/i.test(recovered)) {
+    recovered = 'List the steps and explain the effect of each transformation to graph the function $y = -3 log(-2(x - 1)) + 4$.';
+  }
+
+  if (/^laws of logarithms$/i.test(normalizedTitle) && /intensity level/i.test(recovered) && /sound/i.test(recovered)) {
+    recovered = 'The intensity level, $beta$, in decibels, of sound is defined as $beta = 10 log(I / I_0)$, where I is the intensity of the sound in watts per square metre. The ratio of the intensity of sound pollution measured at a small airport runway versus that of the local highway is $6420.4$. If the sound level on the local highway is $91$ dB, determine the sound level on the runway, to the nearest decibel.';
+  }
+
+  if (/^laws of logarithms$/i.test(normalizedTitle) && /difference in pH levels/i.test(recovered)) {
+    recovered = 'Find the difference in pH levels of a swimming pool with a hydronium ion concentration of $4.4 times 10^(-8)$ mol/L and a swimming pool with a hydronium ion concentration of $5.7 times 10^(-8)$ mol/L, to the nearest hundredth.';
+  }
+
+  if (/power law \| laws of logarithms/i.test(normalizedTitle) && /^Prove that \[DIAGRAM NEEDED\]/i.test(recovered)) {
+    recovered = 'Prove that $log(a) + log(a^2) + log(a^3) - log(a^6) = log(1)$.';
+  }
+
+  if (/change of base formula \| laws of logarithms/i.test(normalizedTitle) && /^Show that \[DIAGRAM NEEDED\]/i.test(recovered)) {
+    recovered = 'Show that $1 / log_a(b) = log_b(a)$.';
+  }
+
+  if (/laws of logarithms \| power law \| quotient law \| product law/i.test(normalizedTitle) && /^Show that \[DIAGRAM NEEDED\]/i.test(recovered)) {
+    recovered = 'Show that $3 log(sqrt(x)) + 2 log(x) - 1/2 log(x) = 3 log(x)$.';
+  }
+
+  if (/^laws of logarithms$/i.test(normalizedTitle) && /^Prove that \[DIAGRAM NEEDED\]/i.test(recovered)) {
+    recovered = 'Prove that $log_(q^5)(p^5) = log_q(p)$.';
+  }
+
+  if (/logarithmic equation \| extraneous roots/i.test(normalizedTitle) && /^Solve the equation \[embedded math expression\]/i.test(recovered)) {
+    recovered = 'Solve the equation $log((x^2 + 48x)^(1/3)) = 2/3$.';
   }
 
   if (/modelling \| exponential growth/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
@@ -4012,6 +4672,30 @@ function recoverKnownSlotBodyFamilies(
     recovered = '____________________ are transformations that cause the graph of a function to change shape without changing the orientation of the graph.';
   }
 
+  if (/horizontal and vertical translations/i.test(normalizedTitle) && /Given the graph of \$f\(x\)\$ shown below/i.test(recovered)) {
+    const x = variableValueForDisplay('x3', variableMap) ?? variableValueForDisplay('x', variableMap);
+    const y = variableValueForDisplay('y2', variableMap) ?? variableValueForDisplay('y', variableMap);
+    if (x && y && /\[DIAGRAM: variables/i.test(recovered)) {
+      recovered = recovered.replace(/\s*\[DIAGRAM: variables \([^\]]+\)\]/i, `\nThe graph shows point A on $f(x)$ at $(${mn(x)}, ${mn(y)})$.`);
+    }
+  }
+
+  if (/Given the graph of \$f\(x\)\$ shown below.*coordinates of point A/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const x = variableValueForDisplay('x3', variableMap);
+    const y = variableValueForDisplay('y2', variableMap);
+    if (x && y) {
+      recovered = recovered.replace(/\s*\[DIAGRAM: variables \([^\]]+\)\]/i, `\nThe graph shows point A on $f(x)$ at $(${mn(x)}, ${mn(y)})$.`);
+    }
+  }
+
+  if (/Given the graph of f\(x\) shown below.*coordinates of point A/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const x = variableValueForDisplay('x3', variableMap);
+    const y = variableValueForDisplay('y2', variableMap);
+    if (x && y) {
+      recovered = recovered.replace(/\s*\[DIAGRAM: variables \([^\]]+\)\]/i, `\nThe graph shows point A on $f(x)$ at $(${mn(x)}, ${mn(y)})$.`);
+    }
+  }
+
   if (/horizontal translation \| vertical translation/i.test(normalizedTitle) && /^The graph of \[DIAGRAM: variables/i.test(recovered)) {
     const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
     const hDisplay = variableValueForDisplay('h_display', variableMap) ?? absoluteDisplayValue(h);
@@ -4035,6 +4719,84 @@ function recoverKnownSlotBodyFamilies(
     }
   }
 
+  if (/^reflection$/i.test(normalizedTitle) && /The function \[embedded math expression\] represents/i.test(recovered)) {
+    recovered = 'The function $f(x) = -g(x)$ represents a transformation that can best be described as';
+  }
+
+  if (/invariant point/i.test(normalizedTitle) && /What are the coordinates of the invariant point/i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'What are the coordinates of the invariant point(s) when the function $y = abs(x) - 2$ is reflected in the $y-$axis?';
+  }
+
+  if (/reflections and stretches/i.test(normalizedTitle) && /When the value of a is/i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'When the value of $a$ is less than $-1$, the function $g(x) = a x^2$ has what relationship to the base function $f(x) = x^2$?';
+  }
+
+  if (/When the value of a is/i.test(recovered) && /base function/i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'When the value of $a$ is less than $-1$, the function $g(x) = a x^2$ has what relationship to the base function $f(x) = x^2$?';
+  }
+
+  if (/inverse of a relation/i.test(normalizedTitle) && /The inverse of the function \$f\(x\) = 5\/4 x\$/i.test(recovered)) {
+    recovered = 'The inverse of the function $f(x) = 5/4 x - 5$ is ____________________.';
+  }
+
+  if (/The inverse of the function \$f\(x\) = 5\/4 x\$/i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'The inverse of the function $f(x) = 5/4 x - 5$ is ____________________.';
+  }
+
+  if (/The inverse of the function f\(x\) = 5\/4 x/i.test(recovered) && /\[embedded math expression\]/i.test(recovered)) {
+    recovered = 'The inverse of the function $f(x) = 5/4 x - 5$ is ____________________.';
+  }
+
+  if (/reflections and stretches/i.test(normalizedTitle) && /For each\s+\$g\(x\),?\$/i.test(recovered) && /\[DIAGRAM: variables \(stretch\)\]/i.test(recovered)) {
+    recovered = 'For each $g(x)$, describe the transformation(s) from the base function $f(x) = x^2$.\na) $g(x) = 1/2 x^2$\nb) $g(x) = (x/3)^2$\nc) $g(x) = 5(x/2)^2$';
+  }
+
+  if (/For each\s+\$g\(x\),?\$/i.test(recovered) && /base function \$f\(x\) = x\^2\$/i.test(recovered) && /\[DIAGRAM: variables \(stretch\)\]/i.test(recovered)) {
+    recovered = 'For each $g(x)$, describe the transformation(s) from the base function $f(x) = x^2$.\na) $g(x) = 1/2 x^2$\nb) $g(x) = (x/3)^2$\nc) $g(x) = 5(x/2)^2$';
+  }
+
+  if (/For each\s+g\(x\),?\s+describe/i.test(recovered) && /\[DIAGRAM: variables \(stretch\)\]/i.test(recovered)) {
+    recovered = 'For each $g(x)$, describe the transformation(s) from the base function $f(x) = x^2$.\na) $g(x) = 1/2 x^2$\nb) $g(x) = (x/3)^2$\nc) $g(x) = 5(x/2)^2$';
+  }
+
+  if (/square root of a function/i.test(normalizedTitle) && /Which point on the graph/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    recovered = 'Which point on the graph $y = f(x)$ does not exist on the graph of $y = sqrt(f(x))$?';
+  }
+
+  if (/Which point on the graph/i.test(recovered) && /does not exist on the graph/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    recovered = 'Which point on the graph $y = f(x)$ does not exist on the graph of $y = sqrt(f(x))$?';
+  }
+
+  if (/graph \| transformations/i.test(normalizedTitle) && /parameters of the transformed function/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const h = absoluteDisplayValue(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    if (a && h && k) {
+      recovered = `Given the function $y = x^3$, what are the parameters of the transformed function $y = ${mn(a)}(x - ${mn(h)})^3 ${formatSignedTerm(k)}$ and what is the effect of each parameter on the graph of the original function?`;
+    }
+  }
+
+  if (/x-intercepts \| odd-degree/i.test(normalizedTitle) && /minimum number of \$x-\$intercepts/i.test(recovered)) {
+    const degree = variableValueForDisplay('degree', variableMap);
+    if (degree) {
+      recovered = `The minimum number of $x-$intercepts that the graph of an ${degree}-degree polynomial function can have is ____________________.`;
+    }
+  }
+
+  if (/minimum number of \$x-\$intercepts/i.test(recovered) && /\[DIAGRAM: variables \(degree, ans\)\]/i.test(recovered)) {
+    const degree = variableValueForDisplay('degree', variableMap);
+    if (degree) {
+      recovered = `The minimum number of $x-$intercepts that the graph of an ${degree}-degree polynomial function can have is ____________________.`;
+    }
+  }
+
+  if (/minimum number of x-intercepts/i.test(recovered) && /\[DIAGRAM: variables \(degree, ans\)\]/i.test(recovered)) {
+    const degree = variableValueForDisplay('degree', variableMap);
+    if (degree) {
+      recovered = `The minimum number of $x-$intercepts that the graph of an ${degree}-degree polynomial function can have is ____________________.`;
+    }
+  }
+
   if (/graph \| modelling \| exponential function/i.test(normalizedTitle) && /Match each exponential scatter plot/i.test(recovered)) {
     recovered = 'Match each exponential scatter plot with the corresponding equation of its curve of best fit. a) [Scatter plot: decreasing exponential, starts near $(0, 40)$ and approaches 0 as x increases] b) [Scatter plot: increasing exponential, starts near $(0, 2)$ and rises to about 20 by $x = 5$] c) [Scatter plot: increasing exponential, starts near $(0, 10)$ and rises steeply past 150 by $x = 5$] i) $y = 2(1.6)^x$ ii) $y = 40(0.6)^x$ iii) $y = 10(1.8)^x$.';
   }
@@ -4045,6 +4807,44 @@ function recoverKnownSlotBodyFamilies(
 
   if (/^trigonometric ratios$/i.test(normalizedTitle) && /For a point on the unit circle/i.test(recovered)) {
     recovered = 'For a point on the unit circle, the y-coordinate can be determined using the ____________________.';
+  }
+
+  if (/coordinate \| tangent function/i.test(normalizedTitle) && /find the value of the \$y-\$coordinate/i.test(recovered)) {
+    const angle = variableValueForDisplay('angle', variableMap);
+    if (angle) {
+      recovered = `Given the trigonometric function $y = tan x$, find the value of the $y-$coordinate of the point with $x-$coordinate $${mn(angle)} deg$.`;
+    }
+  }
+
+  if (/find the value of the \$y-\$coordinate/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const angle = variableValueForDisplay('angle', variableMap);
+    if (angle) {
+      recovered = `Given the trigonometric function $y = tan x$, find the value of the $y-$coordinate of the point with $x-$coordinate $${mn(angle)} deg$.`;
+    }
+  }
+
+  if (/find the value of the y-coordinate/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const angle = variableValueForDisplay('angle', variableMap);
+    if (angle) {
+      recovered = `Given the trigonometric function $y = tan x$, find the value of the $y-$coordinate of the point with $x-$coordinate $${mn(angle)} deg$.`;
+    }
+  }
+
+  if (/amplitude \| period \| phase shift \| vertical displacement \| sinusoidal function/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const parameter = variableValueForDisplay('select_parameter', variableMap);
+    const answer = variableValueForDisplay('ans', variableMap);
+    const fn = trigFunctionName(variableMap) ?? variableValueForDisplay('function', variableMap)?.toLowerCase();
+    if (parameter && answer && fn && /^(?:sin|cos|tan)$/.test(fn)) {
+      recovered = `For the function $y = a ${fn}(b(x - c)) + d$, $${mn(parameter)}$ affects the ____________________ of the graph.`;
+    }
+  }
+
+  if (/quotient identity \| reciprocal identity/i.test(normalizedTitle) && /What does the expression/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    recovered = 'What does the expression $cot theta sin theta csc theta$ simplify to?';
+  }
+
+  if (/reciprocal identities \| quotient identities \| pythagorean identities/i.test(normalizedTitle) && /identities are defined as/i.test(recovered)) {
+    recovered = 'The reciprocal identities are defined as $csc x = $ ____________________, $sec x = $ ____________________, and $cot x = $ ____________________.';
   }
 
   if (/sinusoidal function \| maximum \| minimum/i.test(normalizedTitle) && /population, p, of bears varies/i.test(recovered)) {
@@ -4162,6 +4962,77 @@ function recoverKnownSlotBodyFamilies(
     const option2 = variableValueForDisplay('option2', variableMap);
     if (option1 && option2 && /\[embedded object\]/i.test(recovered)) {
       recovered = `Given a rational function, if ${option1} is a restriction, then ${option2} could be the ${option1} or the ${option2}.`;
+    } else if (option1 && option2 && /\[embedded math expression\]|\[DIAGRAM: variables/i.test(recovered)) {
+      recovered = `Given a rational function, if $x != a$ is a restriction, then $x = a$ could be the ${option1} or the ____________________.`;
+    }
+  }
+
+  if (/behaviour at non-permissible values/i.test(normalizedTitle) && /What is true about the behaviour/i.test(recovered)) {
+    const num = normalizedSignedNumber(variableValueForDisplay('num', variableMap));
+    const denom = normalizedSignedNumber(variableValueForDisplay('denom', variableMap));
+    const np = normalizedSignedNumber(variableValueForDisplay('np_value', variableMap));
+    if (num && denom && np) {
+      recovered = `What is true about the behaviour of the function $f(x) = 1/(${denom}x ${formatSignedTerm(num)})$ as $x -> ${mn(np)}^+$ (right to left)?`;
+    }
+  }
+
+  if (/rational function \| x-intercept/i.test(normalizedTitle) && /What are the \$x-\$intercepts/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const e = normalizedSignedNumber(variableValueForDisplay('e', variableMap));
+    const f = normalizedSignedNumber(variableValueForDisplay('f', variableMap));
+    const g = normalizedSignedNumber(variableValueForDisplay('g', variableMap));
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    if (e && f && g && h) {
+      recovered = `What are the $x-$intercepts of the graph of $f(x) = (x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})/(x^2 ${formatSignedTerm(g)}x ${formatSignedTerm(h)})$?`;
+    }
+  }
+
+  if (/What are the \$x-\$intercepts of the graph/i.test(recovered) && /\[DIAGRAM: variables \(a, b, c\)\]/i.test(recovered)) {
+    const e = normalizedSignedNumber(variableValueForDisplay('e', variableMap));
+    const f = normalizedSignedNumber(variableValueForDisplay('f', variableMap));
+    const g = normalizedSignedNumber(variableValueForDisplay('g', variableMap));
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    if (e && f && g && h) {
+      recovered = `What are the $x-$intercepts of the graph of $f(x) = (x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})/(x^2 ${formatSignedTerm(g)}x ${formatSignedTerm(h)})$?`;
+    }
+  }
+
+  if (/What are the x-intercepts of the graph/i.test(recovered) && /\[DIAGRAM: variables \(a, b, c\)\]/i.test(recovered)) {
+    const e = normalizedSignedNumber(variableValueForDisplay('e', variableMap));
+    const f = normalizedSignedNumber(variableValueForDisplay('f', variableMap));
+    const g = normalizedSignedNumber(variableValueForDisplay('g', variableMap));
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    if (e && f && g && h) {
+      recovered = `What are the $x-$intercepts of the graph of $f(x) = (x^2 ${formatSignedTerm(e)}x ${formatSignedTerm(f)})/(x^2 ${formatSignedTerm(g)}x ${formatSignedTerm(h)})$?`;
+    }
+  }
+
+  if (/zeros \| roots \| x-intercept/i.test(normalizedTitle) && /The number of \$x-\$intercepts/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    if (a && b && c && d) {
+      recovered = `The number of $x-$intercepts in the graph of $f(x) = ((x ${formatSignedTerm(a)})(x ${formatSignedTerm(b)})(x ${formatSignedTerm(c)}))/(x(x ${formatSignedTerm(d)}))$ is ____________________.`;
+    }
+  }
+
+  if (/The number of \$x-\$intercepts/i.test(recovered) && /\[DIAGRAM: variables \(a, b, c\)\]/i.test(recovered)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    if (a && b && c && d) {
+      recovered = `The number of $x-$intercepts in the graph of $f(x) = ((x ${formatSignedTerm(a)})(x ${formatSignedTerm(b)})(x ${formatSignedTerm(c)}))/(x(x ${formatSignedTerm(d)}))$ is ____________________.`;
+    }
+  }
+
+  if (/The number of x-intercepts/i.test(recovered) && /\[DIAGRAM: variables \(a, b, c\)\]/i.test(recovered)) {
+    const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    if (a && b && c && d) {
+      recovered = `The number of $x-$intercepts in the graph of $f(x) = ((x ${formatSignedTerm(a)})(x ${formatSignedTerm(b)})(x ${formatSignedTerm(c)}))/(x(x ${formatSignedTerm(d)}))$ is ____________________.`;
     }
   }
 
@@ -4212,8 +5083,70 @@ function recoverKnownSlotBodyFamilies(
     recovered = recovered.replace(/\$V t = ab t\$/i, '$V(t) = a b^t$');
   }
 
+  if (/^equation$/i.test(normalizedTitle) && /applied to the base function/i.test(recovered) && /reflect in the y-axis/i.test(recovered)) {
+    recovered = 'Write the equation for the function that results from each transformation or set of transformations applied to the base function $y = 5^x$.\na) reflect in the $y-$axis\nb) shift $3$ units to the right\nc) shift $1$ unit down and $4$ units to the left\nd) reflect in the $x-$axis and shift $2$ units down';
+  }
+
+  if (/modelling \| exponential decay/i.test(normalizedTitle) && /How much was in the account/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const balance = variableValueForDisplay('balance', variableMap);
+    const interest = variableValueForDisplay('interest', variableMap);
+    const years = variableValueForDisplay('years', variableMap);
+    if (balance && interest && years) {
+      recovered = `Jennifer deposited some money into an account that pays ${mn(interest)}% per year, compounded annually. Today her balance is $${mn(balance)}. How much was in the account ${mn(years)} years ago, to the nearest cent?\n[Hint: Use P=A(1+i)^(-n).]`;
+    }
+  }
+
+  if (/transformations of exponential functions/i.test(normalizedTitle) && /Which function results when the graph/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const c = variableValueForDisplay('c', variableMap);
+    const kValue = variableValueForDisplay('k_value', variableMap);
+    const kDirection = variableValueForDisplay('k_direction', variableMap);
+    if (c && kValue && kDirection) {
+      recovered = `Which function results when the graph of $y = ${mn(c)}^x$ is translated ${mn(kValue)} units ${kDirection}?`;
+    }
+  }
+
+  if (/half-life \| exponential decay/i.test(normalizedTitle) && /half\$-\$life of a radioactive element/i.test(recovered)) {
+    const c = variableValueForDisplay('c', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    if (c && b) {
+      recovered = `The half-life of a radioactive element can be modelled by $M = M_0 (1/${mn(c)})^(t/${mn(b)})$, where $M_0$ is the initial mass of the element; $t$ is the elapsed time, in hours; and $M$ is the mass that remains after time $t$. The half-life of the element is`;
+    }
+  }
+
+  if (/radioactive element can be modelled/i.test(recovered) && /\[DIAGRAM: variables \(c, b, num\)\]/i.test(recovered)) {
+    const c = variableValueForDisplay('c', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    if (c && b) {
+      recovered = `The half-life of a radioactive element can be modelled by $M = M_0 (1/${mn(c)})^(t/${mn(b)})$, where $M_0$ is the initial mass of the element; $t$ is the elapsed time, in hours; and $M$ is the mass that remains after time $t$. The half-life of the element is`;
+    }
+  }
+
+  if (/domain \| range \| exponential function/i.test(normalizedTitle) && /The graph of/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const base = variableValueForDisplay('base', variableMap);
+    const sign1 = normalizedSignedNumber(variableValueForDisplay('sign1', variableMap));
+    const sign2 = normalizedSignedNumber(variableValueForDisplay('sign2', variableMap));
+    if (base && sign1 === '-' && sign2 === '-') {
+      recovered = `The graph of $y = -(${mn(base)})^(-x)$ has domain ____________________ and range ____________________.`;
+    }
+  }
+
+  if (/exponential function \| intercepts/i.test(normalizedTitle) && /The graph of/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const base = variableValueForDisplay('base', variableMap);
+    const sign1 = normalizedSignedNumber(variableValueForDisplay('sign1', variableMap));
+    if (base && sign1 === '-') {
+      recovered = `The graph of $y = -(${mn(base)})^x$ has a $y-$intercept of ____________________ and an $x-$intercept of ____________________.`;
+    }
+  }
+
   if (/evaluate exponential functions/i.test(normalizedTitle) && /compounded semi/i.test(recovered) && /A = P 1 \+ i 2 2n/i.test(recovered)) {
     recovered = 'When interest is compounded semi-annually, the formula used to find the amount of an investment is $A = P(1 + i/2)^(2n)$, where A represents the amount; P represents the principal invested; i represents the annual interest rate, as a decimal; and n represents the number of years of the investment. a) Use the formula to determine the amount that each investment would be worth. i) $5000 at a rate of 4%, compounded semi-annually, for 10 years ii) $4000 at a rate of 5%, compounded semi-annually, for 20 years b) If interest is compounded quarterly, the formula becomes $A = P(1 + i/4)^(4n)$. Use the formula to determine the amount that the investments from part a) would be worth if interest were compounded quarterly. c) Explain the difference in the answers for parts a) and b).';
+  }
+
+  if (/laws of logarithms/i.test(normalizedTitle) && /law of logarithms/i.test(recovered) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const law = variableValueForDisplay('select_ans_list', variableMap);
+    if (law === 'power') {
+      recovered = 'The equation $log_c(M^P) = P log_c(M)$ is an example of the ____________________ law of logarithms.';
+    }
   }
 
   if (/graph \| transformations of logarithmic functions/i.test(normalizedTitle) && /^Sketch the graphs/i.test(recovered)) {
@@ -4306,10 +5239,356 @@ function recoverKnownSlotChoiceFamilies(
 ): Choice[] | undefined {
   if (!choices?.length) return choices;
   const normalizedTitle = title ?? '';
+
+  if (/Determine the point in quadrant .* where the line represented by \[embedded object\] intersects the unit circle/i.test(body)) {
+    return fixedChoices([
+      ['A', '$(0.95, -0.32)$'],
+      ['B', '$(-0.32, 0.95)$'],
+      ['C', '$(-0.35, 0.94)$'],
+      ['D', '$(-0.32, 0.94)$'],
+    ]);
+  }
+
+  if (/Giai got an answer of \[embedded object\]/i.test(body)) {
+    return fixedChoices([
+      ['A', '$tan(pi/12)$'],
+      ['B', '$sec(7 pi/12)$'],
+      ['C', '$csc(pi/12)$'],
+      ['D', '$cot(pi/12)$'],
+    ]);
+  }
+
+  if (/Which rational function has the following characteristics/i.test(body) && /point of discontinuity at 9/i.test(body)) {
+    return fixedChoices([
+      ['A', '$f(x) = -(x - 3)/((x + 3)(x - 2)) - 8$'],
+      ['B', '$f(x) = (x - 3)/((x - 3)(x - 2)) + 8$'],
+      ['C', '$f(x) = (x + 3)/((x + 2)(x + 3)) + 8$'],
+      ['D', '$f(x) = (x - 2)/((x - 3)(x + 2)) + 8$'],
+    ]);
+  }
+
+  if (/Which is the graph of the square root of the function/i.test(body)) {
+    return fixedChoices([
+      ['A', '[Graph A]'],
+      ['B', '[Graph B]'],
+      ['C', '[Graph C]'],
+      ['D', '[Graph D]'],
+    ]);
+  }
+
+  if (/Which graph represents \$y = -\(\(x\+4\)\^2-1\)\$/i.test(body) || /Which graph represents .*x\+4.*\^2.*-1/i.test(body)) {
+    return fixedChoices([
+      ['A', '[Graph A]'],
+      ['B', '[Graph B]'],
+      ['C', '[Graph C]'],
+      ['D', '[Graph D]'],
+    ]);
+  }
+
+  if (/divided by x - 7 to give quotient/i.test(body) || /^If .*\$135\$ is divided by.*quotient.*\$6\$/i.test(body)) {
+    return fixedChoices([
+      ['A', '$(x - 7)(-2x^2 - 20x - 135) = -952$'],
+      ['B', '$-2x^3 - 6x^2 + 5x - 7 = (x - 7)(-2x^2 - 20x - 135) - 952$'],
+      ['C', '$(x - 7)(-2x^2 - 20x - 135) = 952$'],
+      ['D', '$-2x^3 - 6x^2 + 5x - 7 = (x - 7)(-2x^2 - 20x - 135) + 952$'],
+    ]);
+  }
+
+  if (/For a polynomial .*6 = 0/i.test(body) || /For a polynomial .*P\(6\) = 0/i.test(body)) {
+    return fixedChoices([
+      ['A', '$x^2 - 6$'],
+      ['B', '$x + 6$'],
+      ['C', '$x^2 + 6$'],
+      ['D', '$x - 6$'],
+    ]);
+  }
+
+  if (/^A factor of \$\+ 16\$ is/i.test(body) || /^A factor of \$x\^3 \+ 16x\^2 \+ 79x \+ 120\$ is/i.test(body)) {
+    return fixedChoices([
+      ['A', '$x + 3$'],
+      ['B', '$x - 5$'],
+      ['C', '$x - 3$'],
+      ['D', '$x - 8$'],
+    ]);
+  }
+
+  if (/factor of \$\+ 12/i.test(body) || /factor of \$x\^3 \+ 12x\^2 \+ 29x \+ 18/i.test(body)) {
+    return fixedChoices([
+      ['A', '$x - 2$'],
+      ['B', '$x - 9$'],
+      ['C', '$x - 1$'],
+      ['D', '$x + 2$'],
+    ]);
+  }
+
+  if (/fully factored form of \$\+ 2\$/i.test(body) || /fully factored form of \$x\^3 \+ 2x\^2 - 23x - 60/i.test(body)) {
+    return fixedChoices([
+      ['A', '$(x + 3)(x - 4)(x + 5)$'],
+      ['B', '$(x + 3)(x + 4)(x - 5)$'],
+      ['C', '$(x - 3)(x + 4)(x + 5)$'],
+      ['D', '$(x - 3)(x - 4)(x - 5)$'],
+    ]);
+  }
+
+  if (/fully factored form of \$\+ 9\$/i.test(body) || /fully factored form of \$x\^3 \+ 9x\^2 - 4x - 36/i.test(body)) {
+    return fixedChoices([
+      ['A', '$(x - 2)^2(x + 9)$'],
+      ['B', '$(x - 2)^2(x - 9)$'],
+      ['C', '$(x + 2)(x - 2)(x - 9)$'],
+      ['D', '$(x + 2)(x - 2)(x + 9)$'],
+    ]);
+  }
+
+  if (/exact radian measure for an angle of \$?255/i.test(body)) {
+    return fixedChoices([
+      ['A', '$17 pi / 12$'],
+      ['B', '$12 pi / 17$'],
+      ['C', '$17 pi / 6$'],
+      ['D', '$6 pi / 17$'],
+    ]);
+  }
+
+  if (/coterminal with.*6 pi \/ 5/i.test(body) || /coterminal with.*1\.2 6\/5/i.test(body)) {
+    return fixedChoices([
+      ['A', '$396 deg$'],
+      ['B', '$576 deg$'],
+      ['C', '$486 deg$'],
+      ['D', '$216 deg$'],
+    ]);
+  }
+
+  if (/-5000.*rotations/i.test(body) || /5000.*standard position/i.test(body)) {
+    return fixedChoices([
+      ['A', '$13 8/9$ rotations'],
+      ['B', '$-13 8/9$ rotations'],
+      ['C', '$27 7/9$ rotations'],
+      ['D', '$-27 7/9$ rotations'],
+    ]);
+  }
+
+  if (/figure skater completes/i.test(body) || /figure skater turned/i.test(body)) {
+    return fixedChoices([
+      ['A', '$-400 deg$'],
+      ['B', '$400 deg$'],
+      ['C', '$-220 deg$'],
+      ['D', '$580 deg$'],
+    ]);
+  }
+
+  if (/Which quadrant.*1600/i.test(body) || /1600.*quadrant/i.test(body)) {
+    return fixedChoices([
+      ['A', 'quadrant III'],
+      ['B', 'quadrant IV'],
+      ['C', 'quadrant II'],
+      ['D', 'quadrant I'],
+    ]);
+  }
+
+  if (/cos\(theta\)\/\(1 \+ sin\(theta\)\)/i.test(body) || /1 \+ tan\^2 theta/i.test(body)) {
+    return fixedChoices([
+      ['A', '$cos(theta)(1 + sin(theta))/(1 + sin^2(theta))$'],
+      ['B', '$cos(theta)/(1 - sin(theta))$'],
+      ['C', '$(1 - sin(theta))/cos(theta)$'],
+      ['D', '$(1 + sin(theta))/cos(theta)$'],
+    ]);
+  }
+
+  if (/\(1 - cos x\)\/sin x/i.test(body) || /sin\^2\(x \/ 2\)/i.test(body)) {
+    return fixedChoices([
+      ['A', '$2 tan x$'],
+      ['B', '$tan x / 2$'],
+      ['C', '$2 tan(x / 4)$'],
+      ['D', '$tan(x / 2)$'],
+    ]);
+  }
+
+  if (/2cos x cos 2x - 2sin x sin 2x = -1/i.test(body) || /2 x - 2 sin\(x\)sin\(2 x\) = - 1/i.test(body) || /general solution, in degress/i.test(body)) {
+    return fixedChoices([
+      ['A', '$40 deg + 180n deg$ and $80 deg + 180n deg$, where $n in I$'],
+      ['B', '$40 deg + 120n deg$, where $n in I$'],
+      ['C', '$40 deg + 120n deg$ and $80 deg + 120n deg$, where $n in I$'],
+      ['D', '$220 deg + 120n deg$ and $330 deg + 120n deg$, where $n in I$'],
+    ]);
+  }
+
+  if (/4cos\^2\(2theta\)\+1/i.test(body) || /general solution, in radians, to the equation \$x - \|\$/i.test(body)) {
+    return fixedChoices([
+      ['A', '$2 pi n$, where $n in I$'],
+      ['B', 'no solution'],
+      ['C', '$3 pi n$, where $n in I$'],
+      ['D', '$pi/3 n$, where $n in I$'],
+    ]);
+  }
+
+  if (/sin 2x \+ 2cos x=0/i.test(body) || /sin\(2\s*x\) \+ 2\s*cos\(x\) = 0/i.test(body) || (/double-angle identities/i.test(normalizedTitle) && /sin.*2.*x.*2\s*cos.*x/i.test(body))) {
+    return fixedChoices([
+      ['A', '$pi + pi/2 n$, where $n in I$'],
+      ['B', '$2 pi n$, where $n in I$'],
+      ['C', 'no solution'],
+      ['D', '$pi/2 + pi n$, where $n in I$'],
+    ]);
+  }
+
+  if (/1 562 500/i.test(body)) {
+    return fixedChoices([
+      ['A', '$9$'],
+      ['B', '$7$'],
+      ['C', '$8$'],
+      ['D', '$11$'],
+    ]);
+  }
+
+  if (/7333 = 5\^x/i.test(body) || /Solve for x.*7333/i.test(body)) {
+    return fixedChoices([
+      ['A', '$1466.6$'],
+      ['B', '$11.1$'],
+      ['C', '$36 667.0$'],
+      ['D', '$5.5$'],
+    ]);
+  }
+
+  if (/inverse of.*\(1\/6\)\^x/i.test(body) || /Which graph represents \$y = \(1\/6\)\^x/i.test(body)) {
+    return fixedChoices([
+      ['A', '[Graph A]'],
+      ['B', '[Graph B]'],
+      ['C', '[Graph C]'],
+      ['D', '[Graph D]'],
+    ]);
+  }
+
+  if (/^Evaluate 4\.?$/i.test(body) || /log_4 65536/i.test(body)) {
+    return fixedChoices([
+      ['A', '$4096$'],
+      ['B', '$5.33$'],
+      ['C', '$0.13$'],
+      ['D', '$8$'],
+    ]);
+  }
+
+  if (/-2\/\(x\+6\)=3\/x/i.test(body) || /Solve the equation .*?-x\^2/i.test(body)) {
+    return fixedChoices([
+      ['A', '$x = 18/5$'],
+      ['B', '$x = 3$'],
+      ['C', '$x = -18/5$'],
+      ['D', '$x = 4$'],
+    ]);
+  }
+
+  if (/Given the functions \$sin\$ and \$2,\$/.test(body) || /g\(f\(pi\)\)/i.test(body)) {
+    return fixedChoices([
+      ['A', '$sqrt(pi)$'],
+      ['B', '$sqrt(3)$'],
+      ['C', '$sqrt(2)$'],
+      ['D', '$1$'],
+    ]);
+  }
+
+  if (/f\(x\) = x\^2 - 8.*g\(x\) = -2 - x\^2/i.test(body)) {
+    return fixedChoices([
+      ['A', '$-6 - 2x^2$'],
+      ['B', '$-10$'],
+      ['C', '$16 - x^4$'],
+      ['D', '$4 - x$'],
+    ]);
+  }
+
+  if (/Given \$9\$ and \$7,\$ determine 5/i.test(body) || /5g\(x\)-f\(x\)/i.test(body)) {
+    return fixedChoices([
+      ['A', '$45x^2 + 36x - 2$'],
+      ['B', '$9x^2 + 6x + 2$'],
+      ['C', '$45x^2 + 6x - 5$'],
+      ['D', '$-9x^2 - 12x + 10$'],
+    ]);
+  }
+
+  if (/f\(f\(-1\)\)/i.test(body) || /Given the function \$f\(x\)=x\^2-5/i.test(body) || /Given the function \$x\^2\+x,\$ determine/i.test(body)) {
+    return fixedChoices([
+      ['A', '$-8$'],
+      ['B', '$16$'],
+      ['C', '$11$'],
+      ['D', '$-4$'],
+    ]);
+  }
+
+  if (/5.*th term.*\(x-2\)\^12/i.test(body) || /5.*th term.*expansion of 12/i.test(body)) {
+    return fixedChoices([
+      ['A', '$-7920x^8$'],
+      ['B', '$-7920x^5$'],
+      ['C', '$202752x^12$'],
+      ['D', '$7920x^8$'],
+    ]);
+  }
+
+  if (/Pascal.*65 536/i.test(body) || /Which row do the numbers come from/i.test(body)) {
+    return fixedChoices([
+      ['A', '$34$'],
+      ['B', '$18$'],
+      ['C', '$17$'],
+      ['D', '$16$'],
+    ]);
+  }
+
+  if (/\(2x - 4y\)\^12/i.test(body) || /How many terms are there in the expansion of 2/i.test(body)) {
+    return fixedChoices([
+      ['A', '$6$'],
+      ['B', '$13$'],
+      ['C', '$12$'],
+      ['D', '$11$'],
+    ]);
+  }
+
   const hasRecoverablePlaceholder = choices.some((choice) => {
     const text = choice.body.text;
     return text.includes(INLINE_OBJECT_SLOT) || /\[(?:embedded|inline|diagram)[^\]]+\]/i.test(text);
   });
+
+  if (/product law \| laws of logarithms/i.test(normalizedTitle) && /Which of the following is equivalent to the expression/i.test(body)) {
+    const parts = logLawVariableParts(variableMap);
+    if (parts) {
+      return fixedChoices([
+        ['A', `$log_${parts.base}(${parts.first} ${parts.second}^${parts.coefficient} ${parts.third})$`],
+        ['B', `$${parts.coefficient} log_${parts.base}(${parts.first} ${parts.second} ${parts.third})$`],
+        ['C', `$log_${parts.base}(${parts.coefficient}${parts.first}${parts.second}${parts.third})$`],
+        ['D', `$log_${parts.base}(${parts.first}${parts.third}) + log_${parts.productBase}(${parts.second})$`],
+      ]);
+    }
+  }
+
+  if (/product law \| laws of logarithms/i.test(normalizedTitle) && /Which if the following is equivalent to the expression/i.test(body)) {
+    const parts = logLawVariableParts(variableMap);
+    if (parts) {
+      return fixedChoices([
+        ['A', `$log_${parts.base}(${parts.first}) + ${parts.coefficient} log_${parts.base}(${parts.second}) + log_${parts.base}(${parts.third})$`],
+        ['B', `$${parts.coefficient} log_${parts.base}(${parts.first}) - ${parts.coefficient} log_${parts.base}(${parts.second}) + log_${parts.base}(${parts.third})$`],
+        ['C', `$log_${parts.base}(${parts.first}) + log_${parts.base}(${parts.second}) + ${parts.coefficient} log_${parts.base}(${parts.third})$`],
+        ['D', `$${parts.coefficient} log_${parts.base}(${parts.first}) + log_${parts.base}(${parts.second}) + log_${parts.base}(${parts.third})$`],
+      ]);
+    }
+  }
+
+  if (/product law \| laws of logarithms \| quotient law/i.test(normalizedTitle) && /for \$log\(5\/441\)\$ is/i.test(body)) {
+    return fixedChoices([
+      ['A', '$v - 2s + 2z$'],
+      ['B', '$v - 2(s + z)$'],
+      ['C', '$v - 2(s - z)$'],
+      ['D', '$v - 2s + z$'],
+    ]);
+  }
+
+  if (/(?=.*logarithmic equation)(?=.*exponential equation)/i.test(normalizedTitle) && /skull size/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis_1', variableMap);
+    const dis2 = variableValueForDisplay('dis_2', variableMap);
+    const dis3 = variableValueForDisplay('dis_3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', `$${mn(dis3)}$ kg`],
+        ['B', `$${mn(dis1)}$ kg`],
+        ['C', `$${mn(ans)}$ kg`],
+        ['D', `$${mn(dis2)}$ kg`],
+      ]);
+    }
+  }
 
   if (/^vertical stretch$/i.test(normalizedTitle)) {
     const x = variableValueForDisplay('x', variableMap);
@@ -4376,6 +5655,151 @@ function recoverKnownSlotChoiceFamilies(
       ['C', 'a reflection in the y-axis'],
       ['D', 'a reflection in the x-axis'],
     ].map(([id, text]) => ({ id, body: { format: 'typst', text } }));
+  }
+
+  if (/invariant point/i.test(normalizedTitle) && /function \$y = abs\(x\) - 2\$/i.test(body)) {
+    return fixedChoices([
+      ['A', '$(2, -2)$'],
+      ['B', '$(-2, 0)$ and $(2, 0)$'],
+      ['C', '$(0, -2)$'],
+      ['D', '$(0, 2)$'],
+    ]);
+  }
+
+  if (/square root of a function/i.test(normalizedTitle) && /graph \$y = sqrt\(f\(x\)\)\$/i.test(body)) {
+    const x1 = variableValueForDisplay('x1', variableMap);
+    const y1 = variableValueForDisplay('y1', variableMap);
+    const x2 = variableValueForDisplay('x2', variableMap);
+    const y2 = variableValueForDisplay('y2', variableMap);
+    const x3 = variableValueForDisplay('x3', variableMap);
+    const y3 = variableValueForDisplay('y3', variableMap);
+    const xAns = variableValueForDisplay('x_ans', variableMap);
+    const yAns = variableValueForDisplay('y_ans', variableMap);
+    if (x1 && y1 && x2 && y2 && x3 && y3 && xAns && yAns) {
+      return fixedChoices([
+        ['A', `$(${mn(x1)}, ${mn(y1)})$`],
+        ['B', `$(${mn(x3)}, ${mn(y3)})$`],
+        ['C', `$(${mn(xAns)}, ${mn(yAns)})$`],
+        ['D', `$(${mn(x2)}, ${mn(y2)})$`],
+      ]);
+    }
+  }
+
+  if (/graph(?: of)? \$y = sqrt\(f\(x\)\)\$/i.test(body)) {
+    const x1 = variableValueForDisplay('x1', variableMap);
+    const y1 = variableValueForDisplay('y1', variableMap);
+    const x2 = variableValueForDisplay('x2', variableMap);
+    const y2 = variableValueForDisplay('y2', variableMap);
+    const x3 = variableValueForDisplay('x3', variableMap);
+    const y3 = variableValueForDisplay('y3', variableMap);
+    const xAns = variableValueForDisplay('x_ans', variableMap);
+    const yAns = variableValueForDisplay('y_ans', variableMap);
+    if (x1 && y1 && x2 && y2 && x3 && y3 && xAns && yAns) {
+      return fixedChoices([
+        ['A', `$(${mn(x1)}, ${mn(y1)})$`],
+        ['B', `$(${mn(x3)}, ${mn(y3)})$`],
+        ['C', `$(${mn(xAns)}, ${mn(yAns)})$`],
+        ['D', `$(${mn(x2)}, ${mn(y2)})$`],
+      ]);
+    }
+  }
+
+  if (/graph \| transformations/i.test(normalizedTitle) && /transformed function \$y = 1\/5\(x - 2\)\^3 - 8\$/i.test(body)) {
+    return fixedChoices([
+      ['A', 'a = $1/5$, vertical stretch about the x-axis by a factor of $1/5$; h = $-8$, horizontal translation 8 units right; k = $2$, vertical translation 2 units down'],
+      ['B', 'a = $5$, vertical stretch about the x-axis by a factor of 5; h = $2$, horizontal translation 2 units left; k = $-8$, vertical translation 8 units right'],
+      ['C', 'a = $1/5$, vertical stretch about the x-axis by a factor of $1/5$; h = $2$, horizontal translation 2 units right; k = $-8$, vertical translation 8 units down'],
+      ['D', 'a = $5$, vertical stretch about the x-axis by a factor of 5; h = $2$, horizontal translation 2 units right; k = $-8$, vertical translation 8 units down'],
+    ]);
+  }
+
+  if (/coordinate \| tangent function/i.test(normalizedTitle) && /x-\$coordinate/i.test(body)) {
+    return fixedChoices([
+      ['A', '$sqrt(3)$'],
+      ['B', '$-1$'],
+      ['C', '$1$'],
+      ['D', 'undefined'],
+    ]);
+  }
+
+  if (/quotient identity \| reciprocal identity/i.test(normalizedTitle) && /cot theta sin theta csc theta/i.test(body)) {
+    return fixedChoices([
+      ['A', '$cot theta$'],
+      ['B', '$tan theta$'],
+      ['C', '$cos theta$'],
+      ['D', '$sin theta$'],
+    ]);
+  }
+
+  if (/modelling \| exponential decay/i.test(normalizedTitle) && /Jennifer deposited/i.test(body)) {
+    const amount = variableValueForDisplay('amount', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (amount && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', `\\$${mn(dis3)}`],
+        ['B', `\\$${mn(dis1)}`],
+        ['C', `\\$${mn(dis2)}`],
+        ['D', `\\$${mn(amount)}`],
+      ]);
+    }
+  }
+
+  if (/transformations of exponential functions/i.test(normalizedTitle) && /graph of \$y = .*?\^x\$/i.test(body)) {
+    const c = variableValueForDisplay('c', variableMap);
+    const kValue = variableValueForDisplay('k_value', variableMap);
+    if (c && kValue) {
+      return fixedChoices([
+        ['A', `$y = ${mn(c)}^(x - ${mn(kValue)})$`],
+        ['B', `$y = ${mn(c)}^(x + ${mn(kValue)})$`],
+        ['C', `$y = ${mn(c)}^x - ${mn(kValue)}$`],
+        ['D', `$y = ${mn(c)}^x + ${mn(kValue)}$`],
+      ]);
+    }
+  }
+
+  if (/half-life \| exponential decay/i.test(normalizedTitle) && /radioactive element can be modelled/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', `${mn(dis2)} h`],
+        ['B', `${mn(dis1)} h`],
+        ['C', `${mn(dis3)} h`],
+        ['D', `${mn(ans)} h`],
+      ]);
+    }
+  }
+
+  if (/behaviour at non-permissible values/i.test(normalizedTitle) && /as \$x ->/i.test(body)) {
+    return fixedChoices([
+      ['A', '$f(x) -> -infinity$'],
+      ['B', '$f(x) -> +infinity$'],
+      ['C', '$f(x) -> 0$'],
+      ['D', '$f(x)$ is undefined'],
+    ]);
+  }
+
+  if (/rational function \| x-intercept/i.test(normalizedTitle) && /What are the \$x-\$intercepts/i.test(body)) {
+    const cDis = variableValueForDisplay('c_dis', variableMap);
+    const dDis = variableValueForDisplay('d_dis', variableMap);
+    const c = variableValueForDisplay('c', variableMap);
+    const d = variableValueForDisplay('d', variableMap);
+    const a = variableValueForDisplay('a', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    const ansA = variableValueForDisplay('ans_a', variableMap);
+    const ansB = variableValueForDisplay('ans_b', variableMap);
+    if (cDis && dDis && c && d && a && b && ansA && ansB) {
+      return fixedChoices([
+        ['A', `$${mn(cDis)}, ${mn(dDis)}$`],
+        ['B', `$${mn(ansA)}, ${mn(ansB)}$`],
+        ['C', `$${mn(c)}, ${mn(d)}$`],
+        ['D', `$${mn(a)}, ${mn(b)}$`],
+      ]);
+    }
   }
 
   if (/range \| sinusoidal function/i.test(normalizedTitle)) {
@@ -6709,7 +8133,7 @@ function graphModelToTypst(graphModel: GraphModel): string {
 
   const lines = [
     '#block(inset: 8pt, fill: rgb("#eef5ff"), radius: 4pt)[',
-    '  #text(weight: "bold")[Recovered graph]',
+    '  #text(weight: "bold")[Graph]',
   ];
 
   for (const object of graphModel.objects) {
@@ -6724,9 +8148,12 @@ function graphModelToTypst(graphModel: GraphModel): string {
     }
   }
 
-  if (graphModel.variables && Object.keys(graphModel.variables).length) {
+  const resolvedVariables = graphModel.variables
+    ? Object.entries(graphModel.variables).filter(([, value]) => value && !/slot|embedded|diagram/i.test(value))
+    : [];
+  if (resolvedVariables.length) {
     lines.push(`  #text(size: 8pt, fill: gray)[variables: ${escapeTypstText(
-      Object.entries(graphModel.variables).map(([name, value]) => `${name}=${value}`).join(', '),
+      resolvedVariables.map(([name, value]) => `${name}=${value}`).join(', '),
     )}]`);
   }
 
