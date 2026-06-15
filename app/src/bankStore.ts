@@ -1,9 +1,16 @@
+export interface BankCurriculumMetadata {
+  className?: string;
+  unitName?: string;
+  sectionName?: string;
+}
+
 export interface StoredBankRecord {
   id: string;
   filename: string;
   uploadedAt: number;
   size: number;
   bytes: ArrayBuffer;
+  curriculum?: BankCurriculumMetadata;
 }
 
 const DB_NAME = 'bnk-decoder-store';
@@ -59,6 +66,7 @@ export async function listStoredBanks(): Promise<Omit<StoredBankRecord, 'bytes'>
         filename: row.filename,
         uploadedAt: row.uploadedAt,
         size: row.size,
+        curriculum: row.curriculum,
       }))
       .sort((left, right) => right.uploadedAt - left.uploadedAt || left.filename.localeCompare(right.filename));
   });

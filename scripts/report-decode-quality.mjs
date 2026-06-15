@@ -72,6 +72,10 @@ if (outPath) {
 function summarizeFile(path, file) {
   const decoded = JSON.parse(readFileSync(path, 'utf8'));
   if (!Array.isArray(decoded.questions)) return undefined;
+  if (typeof decoded.format === 'string') return undefined;
+  if (!decoded.questions.every((question) => question?.body && typeof question.body === 'object' && 'text' in question.body)) {
+    return undefined;
+  }
   const bodyIssues = [];
   let badChoices = 0;
   let embeddedBodies = 0;
@@ -103,7 +107,7 @@ function summarizeFile(path, file) {
     }
 
     inlineObjects += question.inlineObjects?.length ?? 0;
-    for (const choice of question.choices ?? []) {
+    for (const choice of choiceList(question)) {
       const text = choice.body?.text ?? '';
       if (CHOICE_UNRESOLVED_PATTERN.test(text)) badChoices++;
     }
@@ -126,7 +130,8 @@ function summarizeFile(path, file) {
 
 function legacyQuestionQuality(question) {
   const body = question.body?.text ?? '';
-  const choiceTexts = (question.choices ?? []).map((choice) => choice.body?.text ?? '');
+  const choices = choiceList(question);
+  const choiceTexts = choices.map((choice) => choice.body?.text ?? '');
   const findings = [];
   let score = 100;
 
@@ -135,7 +140,7 @@ function legacyQuestionQuality(question) {
   if (BODY_UNRESOLVED_PATTERN.test(body)) score -= 20;
   if (choiceTexts.some((text) => PLACEHOLDER_PATTERN.test(text))) score -= 15;
   if (choiceTexts.some((text) => CHOICE_UNRESOLVED_PATTERN.test(text))) score -= 10;
-  if ((question.choices?.length ?? 0) < 2 && question.questionType === 'mcq') score -= 25;
+  if (choices.length < 2 && question.questionType === 'mcq') score -= 25;
 
   score = Math.max(0, Math.min(100, Math.round(score)));
 
@@ -144,4 +149,8 @@ function legacyQuestionQuality(question) {
     verdict: score >= 75 ? 'clean' : score >= 45 ? 'suspect' : 'garbage',
     findings,
   };
+}
+
+function choiceList(question) {
+  return Array.isArray(question.choices) ? question.choices : [];
 }

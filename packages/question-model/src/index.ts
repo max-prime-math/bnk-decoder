@@ -173,8 +173,11 @@ export interface Question {
   tags: string[];
   images?: string[];
   questionType?: QuestionType;
+  className?: string;
   classId?: string;
+  unitName?: string;
   unitId?: string;
+  sectionName?: string;
   sectionId?: string;
   createdAt: number;
 }
@@ -194,8 +197,11 @@ export interface DraftQuestion {
   choices?: Record<string, string>;
   points: number;
   tagInput: string;
+  className?: string;
   classId: string;
+  unitName?: string;
   unitId: string;
+  sectionName?: string;
   sectionId: string;
   images?: string[];
   questionType?: QuestionType;

@@ -1,8 +1,50 @@
 # BNK Decoder — Next Steps Roadmap
 
-**Current Status:** 227 of 228 Pre-Calculus 11 questions decoded (99.6%)  
-**Latest Feature:** test-generator JSON export format added (2026-05-14)  
+**Current Status:** 227 of 228 Pre-Calculus 11 questions decoded (99.6%); Grade 12 Pre-Calculus structural decode materially improved
+**Latest Feature:** Grade 12 BNK-only object-math recovery pass (2026-06-14)
 **Corpus:** 400+ BNK files available across multiple textbooks
+
+---
+
+## Latest Grade 12 Pre-Calculus Status (2026-06-14)
+
+Fresh BNK-only object-math reports live in `reports/math-object-pass-20260614e`.
+
+- 732 decoded questions across Chapters 01-11.
+- Internal quality report: 721 clean, 10 suspect, 1 garbage, 4 bad choice tokens, 93/100 average.
+- Body embedded-placeholder count is 58, with 123 total body "not decoded yet" markers. This is intentionally conservative after rejecting unsafe equation candidates in scalar-value and diagram slots.
+- Chapter 01 transformation prompts now recover compact BNK object equations for the first transformation items, including `f(x) = x^2`, `g(x) = x^2 - 9`, and shifted function calls such as `g(x) = f(x - 2)`.
+- Chapter 10 function-combination prompts now recover mixed-encoding object equations such as `f(x) = x^2 - 3`, `g(x) = -9 - x`, and `y = f(x) + g(x)`.
+- Structural finding: these early inline math expressions are not standard OLE/MathType streams in the inflated BNK. They are compact object-math runs near the display text, using byte `0x7f` as an overloaded exponent/function/absolute-value marker and using stored algorithm sample values for terms and operators.
+
+Follow-up low-hanging-fruit pass in `reports/spot-all-20260614-metadata-graphs-currency`:
+
+- Internal quality report improved to 724 clean, 7 suspect, 1 garbage, 4 bad choice tokens, 94/100 average.
+- Body embedded-placeholder count is 57, with 120 total body "not decoded yet" markers.
+- TestGen export now carries decoded curriculum metadata: `className`, chapter-derived `unitId`/`unitName`, section-derived `sectionId`, topic-derived `sectionName`, and tags for ExamView, topic, difficulty, reference, and title keywords.
+- Chapter 01 transformation/reflection placeholder families now materialize from recovered algorithm variables instead of emitting repeated `[DIAGRAM: variables (...)]` text, e.g. horizontal translation and reflection/translation completion stems.
+- Graph-choice stems with repeated `Recovered graph functions` dumps are reduced to readable prompts while retaining the full structured `graphModel`.
+- Literal currency values such as `$150`, `$0.12`, `$600`, and `$775` are escaped for Typst without changing closed numeric math spans such as `$2$` and `$15$ kg.
+
+The previous audited PDF-reference reports remain in `reports/precalc12-pdf-audit-20260614`.
+
+- 732 decoded questions across Chapters 01-11, versus 733 parsed PDF question blocks.
+- Matching groups recovered for Chapter 03 and Chapter 11 with 9 linked items and 9 answer mappings.
+- Graph object extraction currently preserves 510 graph objects, including 77 points and 2 number-line rays.
+- Algorithm preservation currently reports 460 algorithm-bearing questions and 3815 definitions.
+- Internal quality report: 720 clean, 11 suspect, 1 garbage, 4 bad choice tokens, 93/100 average.
+- PDF audit report: 717 question-order comparisons, 385 low-similarity stems, 180 decoded questions with placeholders, 271/305 answer matches, and 153/402 choice matches.
+- The Chapter 01 transformation-answer rewrite bug is removed: decoded bodies no longer replace stems with answer sentences such as "translated 9 units down." Visible translation choices now follow the PDF choice templates.
+- TestGen bridge now exports `test-generator-question-bank` JSON with embedded image bytes; Chapter 04 smoke test produced 67 stored-bank-shaped questions and 15 importable images with no missing refs.
+
+Known remaining blockers:
+
+- Several `V06_MATCHING_ITEM_COUNT_UNKNOWN` diagnostics are candidate matching prompts whose owned item records are not yet recoverable. The decoder now drops these candidates instead of linking unrelated questions.
+- OLE/MathType and WMF picture objects are still not semantically parsed. The decoder now rejects unsafe partial MathType recoveries that leak hidden variables such as `h`/`k`, leaving explicit embedded-math placeholders instead.
+- PDF comparison is now required for readiness. The internal "clean" score is not a semantic correctness guarantee.
+- TestGen preserves graph model metadata on import, but does not yet render graph models natively.
+- TestGen direct bank JSON import preserves packaged questions and image bytes, but it does not yet create a custom class from decoder `className`. The bulk ingest review path remains the better workflow when class/unit/section creation needs human approval.
+- TestGen owns seeded algorithm recalculation. The decoder should preserve algorithm definitions, sample values, and diagnostics; TestGen should continue improving expression evaluation and materialization for per-question variants.
 
 ---
 
@@ -131,14 +173,15 @@ Before broadening the decoder further, establish why the other banks differ and 
 - Assets extracted and linked to questions
 - Fallback distribution for text-like questions
 - Images stored as asset IDs in question JSON
+- BNK workspace bridge emits first-class `test-generator-question-bank` JSON with embedded image bytes for direct TestGen import
+- TestGen PQP and JSON import normalizers preserve algorithm models, graph models, diagnostics, point/ray graph objects, and BMP image assets
 
 **Next steps:**
-1. Verify test-generator can import and serve images from the export format
-2. Test import workflow: decode → export JSON → import into test-generator → view in browser
-3. If images don't load:
-   - Check asset encoding (base64 vs filename reference)
-   - Implement asset bundle export if needed (ZIP with JSON + images)
-4. Document expected directory structure for test-generator import
+1. Browser-test a full Grade 12 chapter import and Typst preview with extracted images.
+2. Add a stable automated TestGen import fixture for `test-generator-question-bank` JSON with embedded images.
+3. Decide whether decoder exports should include `customClasses` for recovered `className`/chapter/section metadata, or whether TestGen direct import should route these packages through the bulk-ingest curriculum review path.
+4. Continue mapping non-signature WMF/OLE math pictures to structured inline assets or reference crops.
+5. Document remaining image formats that Typst cannot render directly, even when bytes are preserved.
 
 **Expected Outcome:** Full end-to-end workflow (BNK → test-generator web app with images)
 

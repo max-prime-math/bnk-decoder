@@ -18,6 +18,7 @@
     "inspect:records": "node scripts/inspect-records.mjs",
     "decode:file": "node --experimental-strip-types scripts/decode-file.mjs",
     "report:quality": "node scripts/report-decode-quality.mjs",
+    "audit:pdf": "node scripts/audit-pdf-reference.mjs",
     "audit:precalc": "node --experimental-strip-types scripts/audit-precalc-corpus.mjs",
     "augment:rtf": "node scripts/augment-with-rtf-reference.mjs",
     "regress:dialects": "node --experimental-strip-types scripts/run-dialect-regression.mjs",

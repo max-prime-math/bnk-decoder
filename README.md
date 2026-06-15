@@ -36,6 +36,24 @@ Start here for the working policy:
 - [`ROADMAP.md`](./ROADMAP.md)
 - [`NEXT_STEPS.md`](./NEXT_STEPS.md)
 
+## Current Grade 12 / TestGen Bridge Snapshot
+
+The active Grade 12 Pre-Calculus work is tracked in [`NEXT_STEPS.md`](./NEXT_STEPS.md), [`ALGORITHM_AND_GRAPH_EXTRACTION_PLAN.md`](./ALGORITHM_AND_GRAPH_EXTRACTION_PLAN.md), and [`EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md`](./EXAMVIEW_GRAPHS_AND_ALGORITHMS_IMPLEMENTATION_CHECKLIST.md).
+
+As of the 2026-06-14 Grade 12 pass:
+
+- The decoder emits `test-generator-question-bank` v2 JSON for the TestGen app instead of only a raw draft-question array.
+- TestGen exports include stored-question-shaped records, decoder diagnostics, `customClasses` built from recovered or user-entered curriculum, and embedded image bytes encoded as base64 package assets.
+- Questions carry curriculum metadata where recoverable: stable `classId`, chapter-derived `unitId`/`unitName`, section-derived `sectionId`, topic-derived `sectionName`, and tags for ExamView, topic, difficulty, reference, and title keywords.
+- Graph models preserve function/relation objects plus point and number-line ray objects. TestGen can import and retain this structure, but native graph rendering is still pending.
+- Algorithm models are preserved for TestGen. TestGen owns per-question variant calculation through its seeded `Calculate values` UI; the decoder's job is to preserve definitions, sample values, diagnostics, and source expressions.
+- The PDF audit path is available through `npm run audit:pdf -- <decoded-json-dir> <pdf-dir> [out-json]` and should be used as the readiness gate because internal "clean" quality scores are not semantic parity checks.
+
+Known readiness gaps:
+
+- Graph objects are imported as data, not yet rendered as ExamView-style graph visuals.
+- OLE/MathType and WMF-style embedded math/picture objects still need deeper structural decoding or a clearly documented fallback.
+
 ## Status: ALPHA (Early Development) 🔧
 
 **Current Decoder State:** ~75% functional with significant issues

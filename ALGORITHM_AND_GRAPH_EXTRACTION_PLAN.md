@@ -2,6 +2,21 @@
 
 This plan turns the observed ExamView UI model into decoder work. It intentionally avoids question-specific content rewrites.
 
+## Progress Snapshot (2026-06-14)
+
+The Grade 12 Pre-Calculus pass in `reports/precalc12-pdf-audit-20260614` implemented the first structural layer of this plan and added a PDF audit gate:
+
+- Matching proximity linking was replaced with evidence-based item recovery from answer-variable references and unresolved owned item records.
+- Chapter 03 and Chapter 11 matching groups now nest 9 total items and 9 answer mappings instead of exporting those rows as standalone questions.
+- Scatter/table point objects, rational-hole hollow points, and Chapter 03 number-line rays are now emitted in `graphModel.objects`.
+- Matching-choice formula slots can be materialized from stored algorithm sample values, including suffixed variable variants such as `n!/r!` -> `n1!/r1!`.
+- TestGen import paths preserve graph models, algorithm models, diagnostics, point/ray fields, and embedded image bytes.
+- `scripts/audit-pdf-reference.mjs` compares decoded output against `pdftotext -layout` references from `ignore/examples`.
+- The first audited run shows the decoder is not Grade 12 ready: 717 question-order comparisons, 385 low-similarity stems, 180 decoded placeholder-bearing questions, 271/305 answer matches, and 153/402 choice matches.
+- The Chapter 01 transformation body bug is fixed structurally: visible translation choices are recovered from printed templates and function/equation slots no longer consume answer variables as the prompt.
+
+Still open: semantic OLE/MathType parsing, missing/misaligned question boundaries, native graph rendering, conditional graph object recovery, axis/view metadata, robust picture crop metadata, and PDF parity for stems/choices.
+
 ## Architecture
 
 1. Decode question, narrative, and matching-group boundaries.

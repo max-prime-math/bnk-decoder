@@ -12,6 +12,7 @@ import type {
   QuestionType,
 } from '@bnk-decoder/question-model';
 import { unzlibSync } from 'fflate';
+import { resolveQuestionCurriculum, type TestGeneratorCurriculumOptions } from './test-gen-adapter.ts';
 
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
 export type DecodeConfidence = 'high' | 'medium' | 'low';
@@ -305,8 +306,11 @@ export interface PortableQuestionPackage {
     classification: {
       questionType?: QuestionType;
       tags: string[];
+      className?: string;
       classId?: string;
+      unitName?: string;
       unitId?: string;
+      sectionName?: string;
       sectionId?: string;
     };
     assets?: string[];
@@ -544,7 +548,10 @@ function portableAnswerType(question: DecodedQuestion): 'choice' | 'boolean' | '
   }
 }
 
-export function toPortableQuestionPackage(result: DecodeResult): PortableQuestionPackage {
+export function toPortableQuestionPackage(
+  result: DecodeResult,
+  curriculum: TestGeneratorCurriculumOptions = {},
+): PortableQuestionPackage {
   const sourceLabel = result.source.filename?.split('/').at(-1) ?? 'decoded-bank.bnk';
   const originFiles = result.source.filename ? [result.source.filename] : [];
 
@@ -561,47 +568,56 @@ export function toPortableQuestionPackage(result: DecodeResult): PortableQuestio
       label: sourceLabel,
       originFiles,
     },
-    questions: result.questions.map((question) => ({
-      id: question.id,
-      kind: portableKind(question.type),
-      content: {
-        narrative: question.narrative,
-        stem: question.parts?.stem ?? question.body,
-        parts: question.parts ? toPortableQuestionParts(question.parts) : undefined,
-        solution: question.solution,
-        choices: question.choices?.map((choice) => ({
-          id: choice.id,
-          body: choice.body,
-        })),
-      },
-      answer: question.answer ? {
-        type: portableAnswerType(question),
-        value: question.answer.value,
-      } : undefined,
-      scoring: {
-        points: question.type === 'mcq' || question.type === 'true_false' ? 1 : 5,
-      },
-      classification: {
-        questionType: question.type,
-        tags: ['bnk', question.type].filter(Boolean),
-      },
-      assets: question.assets.length > 0 ? question.assets : undefined,
-      provenance: {
-        sourceApp: 'bnk-decoder',
-        sourceLabel,
-        sourceQuestionNumber: question.id,
-        confidence: question.confidence,
-        originFiles,
-      },
-      extensions: {
-        ...(question.quality ? { quality: question.quality } : {}),
-        ...(question.algorithmModel ? { algorithmModel: question.algorithmModel } : {}),
-        ...(question.algorithmEvaluation ? { algorithmEvaluation: question.algorithmEvaluation } : {}),
-        ...(question.graphModel ? { graphModel: question.graphModel } : {}),
-        ...(question.graphTypst ? { graphTypst: question.graphTypst } : {}),
-        ...(question.decodeDiagnostics?.length ? { decodeDiagnostics: question.decodeDiagnostics } : {}),
-      },
-    })),
+    questions: result.questions.map((question) => {
+      const resolved = resolveQuestionCurriculum(question, curriculum);
+      return {
+        id: question.id,
+        kind: portableKind(question.type),
+        content: {
+          narrative: question.narrative,
+          stem: question.parts?.stem ?? question.body,
+          parts: question.parts ? toPortableQuestionParts(question.parts) : undefined,
+          solution: question.solution,
+          choices: question.choices?.map((choice) => ({
+            id: choice.id,
+            body: choice.body,
+          })),
+        },
+        answer: question.answer ? {
+          type: portableAnswerType(question),
+          value: question.answer.value,
+        } : undefined,
+        scoring: {
+          points: question.type === 'mcq' || question.type === 'true_false' ? 1 : 5,
+        },
+        classification: {
+          questionType: question.type,
+          tags: ['bnk', question.type].filter(Boolean),
+          className: resolved.className,
+          classId: resolved.classId,
+          unitName: resolved.unitName,
+          unitId: resolved.unitId,
+          sectionName: resolved.sectionName,
+          sectionId: resolved.sectionId,
+        },
+        assets: question.assets.length > 0 ? question.assets : undefined,
+        provenance: {
+          sourceApp: 'bnk-decoder',
+          sourceLabel,
+          sourceQuestionNumber: question.id,
+          confidence: question.confidence,
+          originFiles,
+        },
+        extensions: {
+          ...(question.quality ? { quality: question.quality } : {}),
+          ...(question.algorithmModel ? { algorithmModel: question.algorithmModel } : {}),
+          ...(question.algorithmEvaluation ? { algorithmEvaluation: question.algorithmEvaluation } : {}),
+          ...(question.graphModel ? { graphModel: question.graphModel } : {}),
+          ...(question.graphTypst ? { graphTypst: question.graphTypst } : {}),
+          ...(question.decodeDiagnostics?.length ? { decodeDiagnostics: question.decodeDiagnostics } : {}),
+        },
+      };
+    }),
     assets: result.assets.map((asset) => ({
       id: asset.id,
       kind: asset.kind,
@@ -651,7 +667,12 @@ export function toDraftQuestions(result: DecodeResult): DraftQuestionLike[] {
   }));
 }
 
-export { toTestGeneratorQuestions, toTestGeneratorQuestion } from './test-gen-adapter.ts';
+export {
+  toTestGeneratorCustomClasses,
+  toTestGeneratorQuestions,
+  toTestGeneratorQuestion,
+  type TestGeneratorCurriculumOptions,
+} from './test-gen-adapter.ts';
 
 function toPortableQuestionParts(parts: DecodedQuestionParts): PortableQuestionPackage['questions'][number]['content']['parts'] {
   return {
@@ -1096,8 +1117,13 @@ function decodeVersion06QuestionChunk(
   const variableMap = new Map(algorithmicVariables.map((variable) => [variable.name.toLowerCase(), variable]));
   const algorithmArtifacts = buildAlgorithmArtifacts(preDisplayStrings, algorithmicVariables);
   const choiceRefs = extractIsUniqueChoiceRefs(preDisplayStrings);
-  const choiceLabels = extractChoiceLabels(displaySegment.map((entry) => entry.text), choiceRefs.length);
-  const slotBasedChoices = inferSlotBasedChoices(displayRegions, postFontRefs, variableMap);
+  const choiceLabels = extractChoiceLabels(
+    displaySegment.map((entry) => entry.text),
+    Math.max(choiceRefs.length, displayRegions.choiceRegions.length),
+  );
+  const binaryAnswerIndex = tryReadAnswerByteFromBinary(bytes, chunk.start.offset);
+  const slotBasedChoices = inferTranslationTemplateChoices(displayRegions, variableMap, binaryAnswerIndex)
+    ?? inferSlotBasedChoices(displayRegions, postFontRefs, variableMap);
   const bodyStringsForCheck = displayRegions.bodyTexts.join(' ');
   const bodyHasGraphSlot = slotBasedChoices !== undefined
     && isGraphOrDiagramQuestion(bodyStringsForCheck)
@@ -1180,11 +1206,15 @@ function decodeVersion06QuestionChunk(
     : emergencyChunkGraphDefinitions?.length
       ? emergencyChunkGraphDefinitions
     : synthesizeFallbackGraphDefinitions(body, title, variableMap);
-  const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body);
-  const mathObjectCandidates = extractMathObjectCandidatesFromChunk(bytes, chunk.start.offset, chunk.endOffset);
+  const graphObjects = [
+    ...extractGraphPointObjectsFromChunk(bytes, chunk.start.offset, chunk.endOffset, body, title),
+    ...extractRationalHolePointObjects(variableMap, title, body),
+    ...extractNumberLineRayObjectsFromChunk(bytes, chunk.start.offset, chunk.endOffset, body, title),
+  ];
+  const graphArtifacts = buildGraphArtifacts(graphDefinitions, title, body, graphObjects);
+  const mathObjectCandidates = extractMathObjectCandidatesFromChunk(bytes, displayStartByte, chunk.endOffset, variableMap);
   body = recoverGraphExpressionsInBody(body, graphDefinitions);
   body = cleanRecoveredGraphPromptBody(body, title, variableMap, graphDefinitions);
-  const binaryAnswerIndex = tryReadAnswerByteFromBinary(bytes, chunk.start.offset);
   let type = inferVersion06QuestionType(strings, preDisplayStrings, algorithmicVariables);
   if (type === 'short_answer' && isProblemQuestion(body, algorithmicVariables)) {
     type = 'problem';
@@ -1216,10 +1246,11 @@ function decodeVersion06QuestionChunk(
   body = recoverKnownTrigIdentityPrompt(body, title, binaryAnswerIndex);
   body = recoverKnownEmbeddedObjectPatterns(body, variableMap, graphDefinitions, choices);
   body = materializeRecoveredGraphSlots(body, graphDefinitions, title);
-  const mathObjectBodyRecovery = recoverMathObjectBodyFromCandidates(body, mathObjectCandidates, title);
+  const mathObjectBodyRecovery = recoverMathObjectBodyFromCandidates(body, mathObjectCandidates, title, variableMap);
   body = mathObjectBodyRecovery.body;
   body = recoverKnownSlotBodyFamilies(body, title, variableMap);
   body = wrapBodyInlineMath(body);
+  body = escapeCurrencyDollarSigns(body);
   body = repairKnownQuadraticBodyCorruption(body, variableMap, graphDefinitions);
   body = body
     .replace(/(approximately modelled by the (?:quadratic )?relation) \[Graph diagram:[\s\S]*?\]\./i, '$1 shown here.')
@@ -1243,6 +1274,7 @@ function decodeVersion06QuestionChunk(
     mathObjectCandidates.slice(mathObjectBodyRecovery.usedCandidates),
     title,
     body,
+    choiceLabels,
   );
   choices = recoverVariableSlotChoices(choices, variableMap, binaryAnswerIndex);
   choices = recoverKnownSlotChoiceFamilies(choices, body, title, variableMap, binaryAnswerIndex);
@@ -1255,6 +1287,7 @@ function decodeVersion06QuestionChunk(
   const questionAssetRecords = assets
     .filter((asset) => asset.sourceOffset !== undefined && asset.sourceOffset >= chunk.start.offset && asset.sourceOffset < chunk.endOffset);
   const questionAssets = questionAssetRecords.map((asset) => asset.id);
+  body = repairMalformedPartMathBoundaries(body);
   body = insertImageAssetReferences(body, questionAssetRecords.filter((asset) => asset.kind === 'image').map((asset) => asset.id));
 
   return {
@@ -1320,9 +1353,13 @@ function decodeNonMetadataQuestions(
     const questionText = normalizeMatchingPromptText(promptEntry.text);
     if (!questionText) continue;
 
-    const choices = extractMatchingChoicesFromStrings(strings, promptEntry.index);
-    if (!choices || choices.length < 2) continue;
     const promptArtifacts = extractMatchingPromptArtifacts(strings, questionText);
+    const choices = extractMatchingChoicesFromStrings(
+      strings,
+      promptEntry.index,
+      promptArtifacts.algorithmModel?.definitions ?? [],
+    );
+    if (!choices || choices.length < 2) continue;
 
     questions.push({
       id: `q-${standardQuestionCount + i + 1}`,
@@ -1360,7 +1397,7 @@ function decodeNonMetadataQuestions(
 
 function findMatchingPromptEntries(strings: ExtractedString[]): Array<ExtractedString & { index: number }> {
   return strings.flatMap((entry, index) => (
-    /Match the correct/i.test(entry.text)
+    /^Match\b/i.test(entry.text.trim())
       ? [{ ...entry, index }]
       : []
   ));
@@ -1372,33 +1409,137 @@ function normalizeMatchingPromptText(text: string): string | undefined {
     .replace(/\r+/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
-  const match = /Match the correct [^.]*\./i.exec(normalized);
+  const match = /\bMatch\b[^.?!]*(?:[.?!]|$)/i.exec(normalized);
   return match?.[0];
 }
 
-function extractMatchingChoicesFromStrings(strings: ExtractedString[], promptIndex: number): Choice[] | undefined {
+function extractMatchingChoicesFromStrings(
+  strings: ExtractedString[],
+  promptIndex: number,
+  definitions: AlgorithmDefinition[] = [],
+): Choice[] | undefined {
   const choices: Choice[] = [];
+  const algorithmChoiceBodies = matchingChoiceBodiesFromAlgorithmDefinitions(definitions);
+  const algorithmDistractorBodies = matchingDistractorBodiesFromAlgorithmDefinitions(definitions, algorithmChoiceBodies);
   for (let index = promptIndex + 1; index < Math.min(strings.length, promptIndex + 40); index++) {
-    const letter = strings[index]?.text?.trim();
+    const letter = normalizeMatchingChoiceLabel(strings[index]?.text?.trim() ?? '');
     const nextPart = strings[index + 1]?.text?.trim() ?? '';
-    if (!/^[A-F]$/.test(letter ?? '')) {
-      if (choices.length >= 2 && isFontString(letter ?? '')) break;
+    if (!letter) {
+      if (choices.length >= 2 && isFontString(strings[index]?.text?.trim() ?? '')) break;
+      if (choices.length >= 2) break;
       continue;
     }
-    if (nextPart && /^[A-Za-z]/.test(nextPart) && nextPart.length > 1 && !/^[A-F]$/.test(nextPart)) {
+    if (nextPart && !normalizeMatchingChoiceLabel(nextPart)) {
       if (!choices.some((choice) => choice.id === letter)) {
+        const algorithmBody = nextPart === INLINE_OBJECT_SLOT
+          ? algorithmChoiceBodies.get(letter) ?? algorithmDistractorBodies.shift()
+          : undefined;
         choices.push({
           id: letter,
           body: {
             format: 'typst',
-            text: nextPart.replace(/\s+/g, ' '),
+            text: algorithmBody ?? nextPart.replace(/\s+/g, ' '),
           },
         });
       }
+      index++;
     }
   }
   if (choices.length < 2) return undefined;
   return choices;
+}
+
+function normalizeMatchingChoiceLabel(text: string): string | undefined {
+  return /^([A-H])\.?$/.exec(text)?.[1];
+}
+
+function matchingChoiceBodiesFromAlgorithmDefinitions(definitions: AlgorithmDefinition[]): Map<string, string> {
+  const variableDefinitions = new Map(definitions.map((definition) => [definition.name.toLowerCase(), definition]));
+  const bodies = new Map<string, string>();
+  const answerDefinitions = definitions
+    .map((definition) => {
+      const match = /^ans(\d+)$/i.exec(definition.name);
+      return match ? { ordinal: Number(match[1]), definition } : undefined;
+    })
+    .filter((entry): entry is { ordinal: number; definition: AlgorithmDefinition } => Boolean(entry))
+    .sort((left, right) => left.ordinal - right.ordinal);
+
+  for (const { ordinal, definition } of answerDefinitions) {
+    if (ordinal < 1 || ordinal > 26) continue;
+    const label = String.fromCharCode(64 + ordinal);
+    const expression = definition.rawExpression
+      ? materializeAlgorithmExpression(definition.rawExpression, variableDefinitions)
+      : definition.sampleValue;
+    if (expression) bodies.set(label, `$${expression}$`);
+  }
+
+  return bodies;
+}
+
+function matchingDistractorBodiesFromAlgorithmDefinitions(
+  definitions: AlgorithmDefinition[],
+  knownBodies: Map<string, string>,
+): string[] {
+  const variableDefinitions = new Map(definitions.map((definition) => [definition.name.toLowerCase(), definition]));
+  const usedExpressions = new Set([...knownBodies.values()].map(normalizeMatchingChoiceExpressionKey));
+  const suffixes = [...new Set(
+    definitions
+      .map((definition) => /^[A-Za-z_]+(\d+)$/i.exec(definition.name)?.[1])
+      .filter((suffix): suffix is string => Boolean(suffix)),
+  )];
+  if (!suffixes.length) return [];
+
+  const generated: string[] = [];
+  const answerExpressions = definitions
+    .filter((definition) => /^ans\d+$/i.test(definition.name) && definition.rawExpression)
+    .map((definition) => definition.rawExpression as string);
+
+  for (const expression of answerExpressions) {
+    for (const suffix of suffixes) {
+      let changed = false;
+      const variant = expression.replace(/\b[A-Za-z_][A-Za-z0-9_]*\b/g, (name) => {
+        if (/^(comb|perm|range|rand|choose|list|if|abs|pow|sin|cos|tan|sqrt|log|ln|pi)$/i.test(name)) return name;
+        if (/\d$/.test(name)) return name;
+        const suffixedName = `${name}${suffix}`;
+        if (!variableDefinitions.has(suffixedName.toLowerCase())) return name;
+        changed = true;
+        return suffixedName;
+      });
+      if (!changed || variant === expression) continue;
+      const body = `$${materializeAlgorithmExpression(variant, variableDefinitions)}$`;
+      const key = normalizeMatchingChoiceExpressionKey(body);
+      if (!key || usedExpressions.has(key)) continue;
+      usedExpressions.add(key);
+      generated.push(body);
+    }
+  }
+
+  return generated;
+}
+
+function normalizeMatchingChoiceExpressionKey(text: string): string {
+  return text
+    .replace(/\$/g, '')
+    .replace(/\s+/g, '')
+    .toLowerCase();
+}
+
+function materializeAlgorithmExpression(
+  expression: string,
+  definitions: Map<string, AlgorithmDefinition>,
+): string {
+  const substituted = expression.replace(/\b[A-Za-z_][A-Za-z0-9_]*\b/g, (name) => {
+    if (/^(comb|perm|range|rand|choose|list|if|abs|pow|sin|cos|tan|sqrt|log|ln|pi)$/i.test(name)) return name;
+    const value = definitions.get(name.toLowerCase())?.sampleValue;
+    return value ? normalizeDisplayedMathValue(value).replace(/\s+/g, '') : name;
+  });
+
+  return substituted
+    .replace(/\bcomb\(([^,()]+),([^()]+)\)/gi, (_match, n: string, r: string) => `${n.trim()} C ${r.trim()}`)
+    .replace(/\bperm\(([^,()]+),([^()]+)\)/gi, (_match, n: string, r: string) => `${n.trim()} P ${r.trim()}`)
+    .replace(/\s*\/\s*/g, ' / ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
 
 function extractMatchingPromptArtifacts(
@@ -1509,100 +1650,206 @@ function linkMatchingQuestionsWithItems(
   questions: DecodedQuestion[],
   diagnostics: DecodeDiagnostic[],
 ): DecodedQuestion[] {
-  // Find matching questions (type === 'matching') and their corresponding items
-  // Matching items are typically short_answer questions with purely descriptive text
-  // that appear in sequence before or after the matching question
-
   const matchingQuestions = questions.filter((q) => q.type === 'matching');
   if (matchingQuestions.length === 0) {
-    return questions; // No matching questions to link
+    return questions;
   }
 
-  const result: DecodedQuestion[] = [];
   const linkedItemIds = new Set<string>();
-
-  // Extract numeric ID from question IDs (e.g., "q-82" -> 82)
-  const parseQNumber = (qId: string): number => {
-    const match = qId.match(/q-(\d+)/);
-    return match ? parseInt(match[1], 10) : 0;
-  };
+  const matchingIds = new Set(matchingQuestions.map((question) => question.id));
+  const originalOrder = new Map(questions.map((question, index) => [question.id, index]));
 
   for (const matchingQ of matchingQuestions) {
-    const matchingQNum = parseQNumber(matchingQ.id);
-
-    // Find all short_answer questions that could be matching items
-    // Matching items have: no variables, no formulas, descriptive text
-    const allShortAnswers = questions.filter(
-      (q) =>
-        q.type === 'short_answer' &&
-        !linkedItemIds.has(q.id) &&
-        !q.algorithmicVariables?.some((v) => !/^(ans|answer)/i.test(v.name)) &&
-        !q.body.text.includes('='),
-    );
-
-    // Find consecutive groups of short_answer questions near the matching question
-    // Matching items typically form a consecutive block of 2-6 questions
-    const candidates = allShortAnswers
-      .map((q) => ({ q, qNum: parseQNumber(q.id) }))
-      .filter(({ qNum }) => Math.abs(qNum - matchingQNum) > 0)
-      .sort((a, b) => a.qNum - b.qNum);
-
-    // Find the longest consecutive sequence of short_answer questions
-    let bestSequence: DecodedQuestion[] = [];
-    let currentSequence: DecodedQuestion[] = [];
-    let lastQNum = -999;
-
-    for (const { q, qNum } of candidates) {
-      // If questions are consecutive or nearly consecutive (gap <= 1)
-      if (qNum - lastQNum <= 2) {
-        currentSequence.push(q);
-      } else {
-        // Gap found - save current sequence if it's good
-        if (currentSequence.length >= 2 && currentSequence.length > bestSequence.length) {
-          bestSequence = currentSequence;
-        }
-        currentSequence = [q];
-      }
-      lastQNum = qNum;
-    }
-
-    // Don't forget the last sequence
-    if (currentSequence.length >= 2 && currentSequence.length > bestSequence.length) {
-      bestSequence = currentSequence;
-    }
-
-    // Limit to reasonable number of items (2-6 is typical)
-    const items = bestSequence.slice(0, 6);
-
-    if (items.length > 0) {
-      matchingQ.items = items.map((item) => ({
-        id: item.id,
-        body: item.body,
-      }));
-
-      matchingQ.linkedQuestionIds = items.map((item) => item.id);
-
-      // Mark items as linked so they won't be included as independent questions
-      items.forEach((item) => linkedItemIds.add(item.id));
-
+    const candidates = resolveMatchingItemCandidates(matchingQ, questions, linkedItemIds);
+    if (!candidates.length) {
       diagnostics.push({
-        level: 'info',
-        code: 'V06_MATCHING_ITEMS_LINKED',
-        message: `Linked ${items.length} matching items to matching question ${matchingQ.id}.`,
+        level: 'warning',
+        code: 'V06_MATCHING_ITEM_COUNT_UNKNOWN',
+        message: `Could not recover matching item records for matching question ${matchingQ.id}.`,
       });
+      continue;
     }
 
-    result.push(matchingQ);
-  }
-
-  // Add all non-matching, non-linked questions
-  for (const q of questions) {
-    if (q.type !== 'matching' && !linkedItemIds.has(q.id)) {
-      result.push(q);
+    const firstLinkedQuestion = candidates[0]?.question;
+    if (firstLinkedQuestion) {
+      matchingQ.metadata = {
+        ...matchingQ.metadata,
+        className: firstLinkedQuestion.metadata.className ?? matchingQ.metadata.className,
+        unitName: firstLinkedQuestion.metadata.unitName ?? matchingQ.metadata.unitName,
+        sectionName: 'Matching',
+        topic: matchingQ.metadata.topic ?? 'Matching',
+        sourceOffset: firstLinkedQuestion.metadata.sourceOffset ?? matchingQ.metadata.sourceOffset,
+      };
     }
+
+    matchingQ.items = candidates.map(({ question, body }) => ({
+      id: question.id,
+      body: {
+        format: 'typst',
+        text: body,
+      },
+    }));
+    matchingQ.answerKey = candidates
+      .map(({ question, choiceId }) => choiceId ? { itemId: question.id, choiceId } : undefined)
+      .filter((entry): entry is MatchingAnswer => Boolean(entry));
+    matchingQ.linkedQuestionIds = candidates.map(({ question }) => question.id);
+
+    for (const { question } of candidates) linkedItemIds.add(question.id);
+
+    const answerKeyMessage = matchingQ.answerKey.length
+      ? ` with ${matchingQ.answerKey.length} answer mapping${matchingQ.answerKey.length === 1 ? '' : 's'}`
+      : '';
+    diagnostics.push({
+      level: 'info',
+      code: 'V06_MATCHING_ITEMS_LINKED',
+      message: `Linked ${candidates.length} matching item${candidates.length === 1 ? '' : 's'} to matching question ${matchingQ.id}${answerKeyMessage}.`,
+    });
   }
 
-  return result;
+  return questions.filter((question) => (
+    matchingIds.has(question.id)
+      ? (question.items?.length ?? 0) > 0
+      : !linkedItemIds.has(question.id)
+  )).sort((left, right) => {
+    const leftOffset = left.metadata.sourceOffset ?? Number.POSITIVE_INFINITY;
+    const rightOffset = right.metadata.sourceOffset ?? Number.POSITIVE_INFINITY;
+    return leftOffset - rightOffset
+      || (originalOrder.get(left.id) ?? 0) - (originalOrder.get(right.id) ?? 0);
+  });
+}
+
+interface MatchingItemCandidate {
+  question: DecodedQuestion;
+  body: string;
+  choiceId?: string;
+}
+
+function resolveMatchingItemCandidates(
+  matchingQ: DecodedQuestion,
+  questions: DecodedQuestion[],
+  linkedItemIds: Set<string>,
+): MatchingItemCandidate[] {
+  return resolveMatchingItemsByAnswerVariables(matchingQ, questions, linkedItemIds)
+    ?? resolveMatchingItemsByChoiceTitles(matchingQ, questions, linkedItemIds)
+    ?? [];
+}
+
+function resolveMatchingItemsByAnswerVariables(
+  matchingQ: DecodedQuestion,
+  questions: DecodedQuestion[],
+  linkedItemIds: Set<string>,
+): MatchingItemCandidate[] | undefined {
+  const definitions = matchingQ.algorithmModel?.definitions ?? [];
+  const definitionMap = new Map(definitions.map((definition) => [definition.name.toLowerCase(), definition]));
+  const answerDefinitions = definitions.filter((definition) => /^ans\d+$/i.test(definition.name));
+  if (answerDefinitions.length < 2) return undefined;
+
+  const candidates = questions
+    .filter((question) => question.type !== 'matching' && !linkedItemIds.has(question.id))
+    .map((question): MatchingItemCandidate | undefined => {
+      const ref = extractMatchingAnswerVariableRef(question);
+      if (!ref) return undefined;
+      const definition = definitionMap.get(ref.toLowerCase());
+      if (!definition) return undefined;
+      const ordinal = /^ans(\d+)$/i.exec(ref)?.[1];
+      const choiceId = ordinal ? String.fromCharCode(64 + Number(ordinal)) : undefined;
+      return {
+        question,
+        body: definition.sampleValue
+          ? convertExamViewExpressionToTypst(definition.sampleValue)
+          : definition.rawExpression
+            ? `$${materializeAlgorithmExpression(definition.rawExpression, definitionMap)}$`
+            : ref,
+        choiceId: choiceId && matchingQ.choices?.some((choice) => choice.id === choiceId) ? choiceId : undefined,
+      };
+    })
+    .filter((candidate): candidate is MatchingItemCandidate => Boolean(candidate))
+    .sort((left, right) => (left.question.metadata.sourceOffset ?? 0) - (right.question.metadata.sourceOffset ?? 0));
+
+  return candidates.length >= 2 ? candidates : undefined;
+}
+
+function extractMatchingAnswerVariableRef(question: DecodedQuestion): string | undefined {
+  const preview = question.raw?.map((fragment) => fragment.textPreview ?? '').join('\n') ?? '';
+  const refs = [...preview.matchAll(/\bans\d+\b/gi)].map((match) => match[0]);
+  return refs[0];
+}
+
+function resolveMatchingItemsByChoiceTitles(
+  matchingQ: DecodedQuestion,
+  questions: DecodedQuestion[],
+  linkedItemIds: Set<string>,
+): MatchingItemCandidate[] | undefined {
+  const choiceByNormalizedBody = new Map(
+    (matchingQ.choices ?? [])
+      .map((choice) => [normalizeMatchingComparableText(choice.body.text), choice] as const)
+      .filter(([text]) => text),
+  );
+  if (choiceByNormalizedBody.size < 2) return undefined;
+
+  const candidates = questions
+    .filter((question) => question.type !== 'matching' && !linkedItemIds.has(question.id))
+    .map((question): MatchingItemCandidate | undefined => {
+      if (!isLikelyMatchingDefinitionItem(question)) return undefined;
+      const choice = matchingChoiceForQuestionMetadata(question, choiceByNormalizedBody);
+      if (!choice) return undefined;
+      const body = isUnresolvedMatchingItemBody(question.body.text)
+        ? question.metadata.title ?? question.body.text
+        : question.body.text;
+      return {
+        question,
+        body,
+        choiceId: choice.id,
+      };
+    })
+    .filter((candidate): candidate is MatchingItemCandidate => Boolean(candidate))
+    .sort((left, right) => (left.question.metadata.sourceOffset ?? 0) - (right.question.metadata.sourceOffset ?? 0));
+
+  return candidates.length >= 2 ? candidates : undefined;
+}
+
+function matchingChoiceForQuestionMetadata(
+  question: DecodedQuestion,
+  choiceByNormalizedBody: Map<string, Choice>,
+): Choice | undefined {
+  const candidateKeys = [
+    question.metadata.title,
+    question.metadata.topic,
+  ]
+    .map((value) => normalizeMatchingComparableText(value ?? ''))
+    .filter(Boolean);
+
+  for (const key of candidateKeys) {
+    const choice = choiceByNormalizedBody.get(key);
+    if (choice) return choice;
+  }
+
+  return undefined;
+}
+
+function isLikelyMatchingDefinitionItem(question: DecodedQuestion): boolean {
+  if (question.choices?.length) return false;
+  if (question.type !== 'short_answer') return false;
+
+  const body = question.body.text.replace(/\s+/g, ' ').trim();
+  if (!body || body.length > 220) return false;
+  if (body.includes('____________________') || body.includes('?')) return false;
+  if (isUnresolvedMatchingItemBody(body)) return true;
+  if (/\$|#image\(|\[DIAGRAM|\[embedded|\[inline/i.test(body)) return false;
+  if (/^(?:Which|What|When|Where|Why|How|Determine|Evaluate|Solve|Simplify|Factor|Expand|Graph|Sketch|Write|Identify|Convert|Calculate|Estimate|Measure|If|Given|Let|Use|Consider|Prove|Show|Find|Select|List|State|Describe|For|In)\b/i.test(body)) return false;
+  return /^(?:a|an|the)\b/i.test(body);
+}
+
+function normalizeMatchingComparableText(text: string): string {
+  return text
+    .replace(/\$|#math\.frac\([^)]*\)/g, '')
+    .replace(/[^A-Za-z0-9]+/g, ' ')
+    .trim()
+    .toLowerCase();
+}
+
+function isUnresolvedMatchingItemBody(text: string): boolean {
+  return !text.trim() || /\[(?:DIAGRAM|embedded|inline|graph|math)[^\]]+\]|not decoded yet/i.test(text);
 }
 
 function inferVersion06ChunkLayout(strings: ExtractedString[]): Version06ChunkLayout {
@@ -1843,7 +2090,8 @@ function isLikelyPromptText(text: string): boolean {
   if (/^(?:range|if|choose|rand|fracs?|isunique|abs)\(/i.test(text)) return false;
   if (/^[A-Za-z_][A-Za-z0-9_]*\s*(?:<>|=|>|<)/.test(text)) return false;
   if (/^[+\-–−]?\d/.test(text)) return false;
-  return /^(?:Which|What|When|Where|Why|How|Determine|Evaluate|Solve|Simplify|Factor|Expand|Graph|Sketch|Write|Identify|Convert|Calculate|Estimate|Measure|The|A |An |If |Given|Let |Use |Consider|Prove|Show|Find|Select|List|State|Describe|For |In )\b/i.test(text);
+  if (/^(?:A|An) [A-Za-z]/.test(text)) return true;
+  return /^(?:Which|What|When|Where|Why|How|Determine|Evaluate|Solve|Simplify|Factor|Expand|Graph|Sketch|Write|Identify|Convert|Calculate|Estimate|Measure|The|If|Given|Let|Use|Consider|Prove|Show|Find|Select|List|State|Describe|For|In)\b/i.test(text);
 }
 
 function isBoilerplateString(text: string): boolean {
@@ -1991,7 +2239,9 @@ function extractIsUniqueChoiceRefs(strings: string[]): string[] {
 
 function extractChoiceLabels(displayStrings: string[], expectedCount: number): string[] {
   if (expectedCount < 3) return [];
-  const labels = displayStrings.filter((text) => /^[A-H]$/.test(text));
+  const labels = displayStrings
+    .map((text) => visibleChoiceLabel(text))
+    .filter((label): label is string => Boolean(label));
   const firstChoiceIndex = labels.findIndex((label) => label === 'A');
   if (firstChoiceIndex === -1) return [];
 
@@ -2118,7 +2368,16 @@ function interpolateBodyVariableValues(
     const ref = bodyVariableRefs[slotIndex++];
     const value = variableValueForDisplay(ref, variableMap);
     if (!value) continue;
-    text = text.replace(INLINE_OBJECT_SLOT, value);
+
+    const slotOffset = text.indexOf(INLINE_OBJECT_SLOT);
+    const placeholder = inlineBodySlotPlaceholderForContext(text, slotOffset);
+    if (placeholder) {
+      text = replaceFirst(text, INLINE_OBJECT_SLOT, placeholder);
+      usedRefs.add(ref.toLowerCase());
+      continue;
+    }
+
+    text = replaceFirst(text, INLINE_OBJECT_SLOT, value);
     usedRefs.add(ref.toLowerCase());
   }
 
@@ -2160,7 +2419,50 @@ function interpolateBodyVariableValues(
     }
   }
 
-  return { text: text.replace(new RegExp(escapeRegExp(INLINE_OBJECT_SLOT), 'g'), '[inline object not decoded yet]'), usedRefs };
+  return { text: replaceRemainingInlineBodySlots(text), usedRefs };
+}
+
+function replaceFirst(text: string, search: string, replacement: string): string {
+  const index = text.indexOf(search);
+  if (index === -1) return text;
+  return `${text.slice(0, index)}${replacement}${text.slice(index + search.length)}`;
+}
+
+function replaceRemainingInlineBodySlots(text: string): string {
+  let replaced = text;
+  while (replaced.includes(INLINE_OBJECT_SLOT)) {
+    const offset = replaced.indexOf(INLINE_OBJECT_SLOT);
+    replaced = replaceFirst(
+      replaced,
+      INLINE_OBJECT_SLOT,
+      inlineBodySlotPlaceholderForContext(replaced, offset) ?? '[inline object not decoded yet]',
+    );
+  }
+  return replaced;
+}
+
+function inlineBodySlotPlaceholderForContext(text: string, offset: number): string | undefined {
+  if (offset < 0) return undefined;
+
+  const before = text.slice(Math.max(0, offset - 90), offset);
+  const after = text.slice(offset + INLINE_OBJECT_SLOT.length, offset + INLINE_OBJECT_SLOT.length + 90);
+  const immediateBefore = before.replace(/\s+/g, ' ').trimEnd();
+  const immediateAfter = after.replace(/\s+/g, ' ').trimStart();
+  const context = `${before} ${after}`;
+
+  if (
+    /(?:\bbase function|\bgraph of the function|\bthe function|\bfunction|\bequation|\bexpression|\brelation|\bformula|\bidentity)\s*$/i.test(immediateBefore)
+    || /^\s*(?:,|is\b|where\b|and\b|that\b|can\b|to\b|\.|\?)/i.test(immediateAfter)
+      && /\b(?:function|equation|expression|relation|formula|identity|model)\b/i.test(context)
+  ) {
+    return '[inline math/object not decoded yet]';
+  }
+
+  if (/\b(?:graph|diagram|figure|sketch|shown below|shown here|plot|table)\b/i.test(context)) {
+    return '[diagram/object not decoded yet]';
+  }
+
+  return undefined;
 }
 
 function appendBodyVariableValues(
@@ -2202,13 +2504,6 @@ function refineKnownQuestionBodyPatterns(body: string, variableMap: Map<string, 
     .replace(/^[A-Za-z_][A-Za-z0-9_]*\s*[<>]=?\s*[A-Za-z_][A-Za-z0-9_]*\s+(?=[A-Z])/u, '')
     .replace(/\s{2,}/g, ' ')
     .trim();
-
-  const units = variableValueForDisplay('ANS_units', variableMap);
-  const direction = variableValueForDisplay('ANS_direction', variableMap);
-  if (units && direction && /Compared to the graph of the base function/i.test(refined) && /is translated/i.test(refined)) {
-    return 'Compared to the graph of the base function, the graph of the function is translated '
-      + `${units} units ${direction}.`;
-  }
 
   const radians = variableValueForDisplay('rads', variableMap);
   if (radians) {
@@ -2489,6 +2784,17 @@ function oppositeSignedTerm(value: string): string {
   return normalized.startsWith('-') ? `+ ${normalized.slice(1)}` : `- ${normalized}`;
 }
 
+function absoluteDisplayValue(value?: string): string | undefined {
+  const normalized = normalizedSignedNumber(value);
+  return normalized?.replace(/^-/, '');
+}
+
+function directionWord(value?: string): string | undefined {
+  const normalized = value?.replace(/\s+/g, ' ').trim().toLowerCase();
+  if (!normalized) return undefined;
+  return normalized.replace(/^to the\s+/, '');
+}
+
 function joinMathList(values: string[]): string {
   return `$${values.map(mn).join(', ')}$`;
 }
@@ -2594,10 +2900,6 @@ function recoverKnownTransformationPrompts(body: string, variableMap: Map<string
       ? ` $f(x) = sqrt(x ${oppositeSignedTerm(h)}) ${signedTerm(k)}$ with domain $x >= ${h}$ and range $y >= ${k}$`
       : '';
     recovered = `Given the function${functionText}, which of the following best describes the translations with respect to the base graph?`;
-  }
-
-  if (horizontalValue && (hDirection || genericDirection) && /Compared to the graph of the base function, the graph of the function is translated units to the/i.test(recovered)) {
-    recovered = `Compared to the graph of the base function, the graph of the function is translated ${horizontalValue} units ${hDirection ?? genericDirection}.`;
   }
 
   if (horizontalValue && (hDirection || genericDirection) && /The graph of .* is the graph of (?:units|translated) _+/i.test(recovered)) {
@@ -2938,6 +3240,7 @@ function extractMathObjectCandidatesFromChunk(
   bytes: Uint8Array,
   startOffset: number,
   endOffset: number,
+  variableMap?: Map<string, AlgorithmicVariable>,
 ): string[] {
   const chunkEnd = endOffset > startOffset
     ? Math.min(bytes.length, endOffset)
@@ -2949,7 +3252,7 @@ function extractMathObjectCandidatesFromChunk(
     .trim();
 
   const rawCandidates = [
-    ...text.matchAll(/(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|[+\-]?\d+\s*[xy]|[xy]\s*[+\-*/=]|\d+\s*C\s*\d+|[A-Za-z]!)[A-Za-z0-9 _+\-*/=().,\x7f]{0,220}(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|=|[xy]|\d|!|\))/gi),
+    ...text.matchAll(/(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|\|x\||[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|[+\-]?\d+\s*[xy]|[xy]\s*[+\-*/=]|\d+\s*C\s*\d+|[A-Za-z]!)[A-Za-z0-9 _+\-*/=().,|\x7f]{0,220}(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|=|[xy]|\d|!|\)|\|)/gi),
   ]
     .map((match) => match[0]);
 
@@ -2959,13 +3262,16 @@ function extractMathObjectCandidatesFromChunk(
     .map((match) => match[0]);
 
   return [...rawCandidates, ...domainCandidates]
-    .map(normalizeMathObjectCandidate)
+    .map((candidate) => normalizeMathObjectCandidate(candidate, variableMap))
     .filter((candidate): candidate is string => Boolean(candidate))
     .filter((candidate, index, all) => all.indexOf(candidate) === index)
     .slice(0, 24);
 }
 
-function normalizeMathObjectCandidate(raw: string): string | undefined {
+function normalizeMathObjectCandidate(
+  raw: string,
+  variableMap?: Map<string, AlgorithmicVariable>,
+): string | undefined {
   let text = raw
     .replace(/\s+/g, ' ')
     .replace(/\s+8\b.*$/i, '')
@@ -2973,15 +3279,16 @@ function normalizeMathObjectCandidate(raw: string): string | undefined {
     .replace(/\s+[a-d]\s*\)\s+.*$/i, '')
     .replace(/\bG\s*r\s*a\s*p\s*h\b.*$/i, '')
     .replace(/\bt\s*h\s*e\b.*$/i, '')
-    .replace(/\b(?:e\s*q|a\s*n\s*s|d\s*i\s*s)\s*\d.*$/i, '')
+    .replace(/\b(?:e\s*q|a\s*n\s*s)\s*\d.*$/i, '')
     .replace(/\b(?:Times New Roman|Symbol|FSC Symbol)\b.*$/i, '')
     .replace(/\b(?:Section|Average|Difficult|Easy)\b.*$/i, '')
     .replace(/\b(?:if|rand|range|choose|scramble)\s*\(?.*$/i, '')
     .replace(/\b(?:and|or)\s+\d.*$/i, '')
     .trim();
+  text = collapseSpacedMathObjectVariableNames(text, variableMap);
 
   if (isNoisyMathObjectCandidate(text)) return undefined;
-  const firstMathToken = text.search(/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|\d+\s*[xy]|\d+\s*C\s*\d+|[A-Za-z]!/i);
+  const firstMathToken = text.search(/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|\|x\||[A-Za-z]\s*\x7f\s*[A-Za-z]\s*=|[A-Za-z]\s*\([^)]{0,24}\)\s*=|[fgh]\s*\([^)]{1,24}\)|[A-Za-z]\s*=|\d+\s*[xy]|\d+\s*C\s*\d+|[A-Za-z]!/i);
   if (firstMathToken > 0) text = text.slice(firstMathToken).trim();
   text = text.replace(/\s+8\s*$/g, '').trim();
   if (!/\x7f\s*\d+\s*$/.test(text)) {
@@ -2991,15 +3298,41 @@ function normalizeMathObjectCandidate(raw: string): string | undefined {
 
   if (!text || text.length < 3 || text.length > 140) return undefined;
   if (/,\s*0\s*,\s*1\)?$/.test(text) || /,\s*1\s*,\s*0\)?$/.test(text) || /\b[a-z]\s*=\s*\d\s*,\s*\d\s*,\s*\d/i.test(text)) return undefined;
-  if (!/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|[fgh]\s*\(|[=+\-*/!]|\b0\s*x\b|\d+\s*C\s*\d+/i.test(text)) return undefined;
+  if (!/\b(?:sin|cos|tan|sec|csc|cot)(?=\b|\d)|\b(?:log|ln|sqrt)\b|\|x\||[fgh]\s*\(|[=+\-*/!]|\b0\s*x\b|\d+\s*C\s*\d+/i.test(text)) return undefined;
   if (/\b(?:true|false|null|undefined)\b/i.test(text)) return undefined;
 
   text = convertExamViewObjectMathToTypst(text);
+  text = materializeMathObjectVariables(text, variableMap);
   if (isNoisyMathObjectCandidate(text)) return undefined;
   if (!hasBalancedParentheses(text)) return undefined;
   if (!text || text.length < 3) return undefined;
   if (!/\b(?:sin|cos|tan|sec|csc|cot|log|ln|sqrt|pi|theta|deg|x|y|f|g|h|N|M|P|I|C|A)\b|\blog_|=|[+\-*/^!]|_\{/i.test(text)) return undefined;
   return text;
+}
+
+function collapseSpacedMathObjectVariableNames(
+  text: string,
+  variableMap?: Map<string, AlgorithmicVariable>,
+): string {
+  if (!variableMap?.size) return text;
+
+  let collapsed = text;
+  const variableNames = [...variableMap.values()]
+    .map((variable) => variable.name.trim())
+    .filter((name) => /^[A-Za-z][A-Za-z0-9_]+$/.test(name))
+    .filter((name, index, all) => all.findIndex((other) => other.toLowerCase() === name.toLowerCase()) === index)
+    .sort((left, right) => right.length - left.length);
+
+  for (const name of variableNames) {
+    const spacedName = name
+      .split('')
+      .map((char) => escapeRegExp(char))
+      .join('\\s+');
+    const pattern = new RegExp(`(^|[^A-Za-z0-9_])${spacedName}(?=$|[^A-Za-z0-9_])`, 'gi');
+    collapsed = collapsed.replace(pattern, (_match: string, prefix: string) => `${prefix}${name}`);
+  }
+
+  return collapsed.replace(/\s+/g, ' ').trim();
 }
 
 function isNoisyMathObjectCandidate(text: string): boolean {
@@ -3022,7 +3355,12 @@ function convertExamViewObjectMathToTypst(text: string): string {
     .trim();
 
   converted = converted
+    .replace(/\|\s*x\s*\|/gi, 'abs(x)')
+    .replace(/\b([fgh])\s*\x7f\s*x\s+([A-Za-z][A-Za-z0-9_]*)\b(?!\s+[fgh]\s*\x7f)/gi, '$1(x $2)')
     .replace(/\b([fgh])\s*\x7f\s*([A-Za-z])\b/gi, '$1($2)')
+    .replace(/\x7f\s*x\s+([A-Za-z][A-Za-z0-9_]*)\s*\x7f\s*([2-9])\b/gi, '(x $1)^$2')
+    .replace(/\x7f\s*x\s+([A-Za-z][A-Za-z0-9_]*)\b/gi, 'abs(x $1)')
+    .replace(/\x7f\s*x\b/gi, 'abs(x)')
     .replace(/\b([fgh])\s*\(\s*p\s*\)/gi, '$1(pi)')
     .replace(/\b([fgh])\s*\(\s*([fgh])\s*\(\s*p\s*\)\s*\)/gi, '$1($2(pi))')
     .replace(/\b(sin|cos|tan|sec|csc|cot)(\d{1,3})\b/gi, '$1($2 deg)')
@@ -3092,6 +3430,90 @@ function convertExamViewObjectMathToTypst(text: string): string {
   return converted;
 }
 
+function materializeMathObjectVariables(
+  text: string,
+  variableMap?: Map<string, AlgorithmicVariable>,
+): string {
+  if (!variableMap?.size) return text;
+
+  let materialized = text;
+  const variableNames = [...variableMap.values()]
+    .map((variable) => variable.name.trim())
+    .filter((name, index, all) => Boolean(name) && all.findIndex((other) => other.toLowerCase() === name.toLowerCase()) === index)
+    .filter((name) => !/^(?:x|y|n|t|theta|pi|sin|cos|tan|sec|csc|cot|log|ln|sqrt|abs)$/i.test(name))
+    .sort((left, right) => right.length - left.length);
+
+  for (const name of variableNames) {
+    const variable = variableMap.get(name.toLowerCase());
+    const displayValue = variableValueForDisplay(name, variableMap) ?? variable?.sampleValue;
+    if (!normalizedMathObjectVariableValue(displayValue) && !normalizedMathObjectOperatorValue(displayValue)) continue;
+
+    const pattern = new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(name)}(?!\\s*\\()(?=$|[^A-Za-z0-9_])`, 'gi');
+    materialized = materialized.replace(pattern, (match: string, prefix: string, offset: number, fullText: string) => {
+      const matchStart = offset + prefix.length;
+      const before = fullText.slice(0, matchStart);
+      const after = fullText.slice(matchStart + name.length);
+      const replacement = mathObjectVariableReplacement(displayValue, before, after);
+      return replacement ? `${prefix}${replacement}` : match;
+    });
+  }
+
+  return normalizeMaterializedMathObjectExpression(materialized);
+}
+
+function normalizedMathObjectVariableValue(displayValue?: string): string | undefined {
+  if (!displayValue) return undefined;
+  if (displayValue.includes('|')) return undefined;
+  if (/\b(?:if|choose|range|rand|list)\s*\(/i.test(displayValue)) return undefined;
+
+  const trimmed = displayValue.trim();
+  const normalized = normalizedSignedNumber(trimmed);
+  if (!normalized || normalized === '-' || normalized === '+') return undefined;
+  return normalized;
+}
+
+function normalizedMathObjectOperatorValue(displayValue?: string): string | undefined {
+  if (!displayValue) return undefined;
+  const normalized = displayValue.replace(/[–−]/g, '-').replace(/\s+/g, '').trim();
+  return normalized === '+' || normalized === '-' ? normalized : undefined;
+}
+
+function mathObjectVariableReplacement(
+  displayValue: string | undefined,
+  before: string,
+  _after: string,
+): string | undefined {
+  const operator = normalizedMathObjectOperatorValue(displayValue);
+  if (operator) return operator;
+  const normalized = normalizedMathObjectVariableValue(displayValue);
+  if (!normalized) return undefined;
+  const trimmed = displayValue?.trim() ?? '';
+  const previous = before.trimEnd().slice(-1);
+  if (/[=+\-*/^(,]/.test(previous)) return mn(normalized);
+  if (/^[+\-–−]/.test(trimmed)) return signedTerm(normalized);
+  return mn(normalized);
+}
+
+function normalizeMaterializedMathObjectExpression(text: string): string {
+  return text
+    .replace(/\s+/g, ' ')
+    .replace(/\(\s+/g, '(')
+    .replace(/\s+\)/g, ')')
+    .replace(/\s+\^/g, '^')
+    .replace(/\^\s+/g, '^')
+    .replace(/\s+([,;])/g, '$1')
+    .replace(/,\s*0\s+0\s+0\s+0\b.*$/i, '')
+    .replace(/\+\s*-\s*/g, '- ')
+    .replace(/-\s*\+\s*/g, '- ')
+    .replace(/-\s*-\s*/g, '+ ')
+    .replace(/\b([fgh])\(x\s*([+\-])\)\s+([fgh]\(x\))/gi, '$1(x) $2 $3')
+    .replace(/([A-Za-z0-9_)\]^])\s+(?:0|1)$/g, '$1')
+    .replace(/\babs\(\s*x\s*([+\-])\s+(\d+(?:\.\d+)?)\s*\)/gi, 'abs(x $1 $2)')
+    .replace(/\b([fgh])\(x\)\s+([+\-])\s+(\d+(?:\.\d+)?)\s+=/gi, '$1(x) $2 $3 =')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
 type MathObjectBodyRecovery = {
   body: string;
   usedCandidates: number;
@@ -3101,17 +3523,34 @@ function recoverMathObjectBodyFromCandidates(
   body: string,
   candidates: string[],
   title?: string,
+  variableMap?: Map<string, AlgorithmicVariable>,
 ): MathObjectBodyRecovery {
   if (!candidates.length) return { body, usedCandidates: 0 };
   if (!isMathObjectRecoveryContext(body, title)) return { body, usedCandidates: 0 };
 
   let usedCandidates = 0;
-  const take = (): string | undefined => candidates[usedCandidates++];
+  const take = (): string | undefined => {
+    const candidate = candidates[usedCandidates++];
+    return candidate ? validatedMathObjectCandidate(candidate, variableMap, `${title ?? ''} ${body}`) : undefined;
+  };
+  const takeForPlaceholder = (before: string, after: string): string | undefined => {
+    const candidate = candidates[usedCandidates];
+    const validated = candidate ? validatedMathObjectCandidate(candidate, variableMap, `${title ?? ''} ${body}`) : undefined;
+    if (!validated) {
+      usedCandidates++;
+      return undefined;
+    }
+    if (!isMathObjectCandidateCompatibleWithPlaceholder(validated, before, after)) return undefined;
+    usedCandidates++;
+    return validated;
+  };
   let recovered = body;
 
   const replaceMath = (pattern: RegExp): void => {
-    recovered = recovered.replace(pattern, (match) => {
-      const candidate = take();
+    recovered = recovered.replace(pattern, (match, offset: number) => {
+      const before = recovered.slice(Math.max(0, offset - 120), offset);
+      const after = recovered.slice(offset + match.length, offset + match.length + 120);
+      const candidate = takeForPlaceholder(before, after);
       if (!candidate) return match;
       if (/\b(?:prove|identity)\b/i.test(recovered) && !candidate.includes('=')) {
         usedCandidates--;
@@ -3148,13 +3587,71 @@ function recoverMathObjectBodyFromCandidates(
   }
 
   if (/\[DIAGRAM: variables \([^\]]+\)\]/i.test(recovered) && usedCandidates < candidates.length) {
-    recovered = recovered.replace(/\[DIAGRAM: variables \([^\]]+\)\]/gi, (match) => {
+    recovered = recovered.replace(/\[DIAGRAM: variables \([^\]]+\)\]/gi, (match, offset: number) => {
+      const before = recovered.slice(Math.max(0, offset - 140), offset);
+      if (/\bshown below\b[\s\S]*\?\s*$/i.test(before)) return match;
+      if (!/\b(?:function|equation|represented by)\s*$/i.test(before.replace(/\s+/g, ' ').trim())) return match;
       const candidate = take();
       return candidate ? `$${candidate}$` : match;
     });
   }
 
   return { body: recovered, usedCandidates };
+}
+
+function isMathObjectCandidateCompatibleWithPlaceholder(
+  candidate: string,
+  before: string,
+  after: string,
+): boolean {
+  const localBefore = before.replace(/\s+/g, ' ').trim();
+  const localAfter = after.replace(/\s+/g, ' ').trim();
+  const hasEquation = candidate.includes('=');
+  const scalarSlot = /\b(?:amplitude|period|phase shift|initial population|population|investment|interest|rate|amount|value|terms?)\s+(?:of|in|for|by)?\s*$/i.test(localBefore)
+    || /\bin terms of\s*$/i.test(localBefore);
+
+  if (scalarSlot && !isScalarMathObjectCandidate(candidate)) return false;
+  if (hasEquation && /^[,;]\s*(?:a|an|and|or)\b/i.test(localAfter) && !/\b(?:function|equation|identity)\s*$/i.test(localBefore)) {
+    return false;
+  }
+
+  return true;
+}
+
+function isScalarMathObjectCandidate(candidate: string): boolean {
+  return /^[+\-]?\d+(?:\.\d+)?(?:\s*(?:pi|deg|%))?$|^pi(?:\s*\/\s*\d+)?$/i.test(candidate.trim());
+}
+
+function validatedMathObjectCandidate(
+  candidate: string,
+  variableMap?: Map<string, AlgorithmicVariable>,
+  context = '',
+): string | undefined {
+  const normalized = candidate.replace(/\s+/g, ' ').trim();
+  if (!normalized || /=\s*$/.test(normalized)) return undefined;
+  if (/\b[fgh]\s*\([^)]*\)\s*=\s*$/i.test(normalized)) return undefined;
+  if (
+    /\b(?:translation|transformation|base function)\b/i.test(context)
+    && /^\$?f\(x\)\s*=\s*x\$?$/i.test(normalized)
+  ) {
+    return undefined;
+  }
+  if (/\b(?:X|v0)\b/.test(normalized)) return undefined;
+  if (/\d+\.\d\s+\d/.test(normalized)) return undefined;
+  const longWords = normalized.match(/\b[A-Za-z]{4,}\b/g)
+    ?.filter((word) => !/^(?:sin|cos|tan|sec|csc|cot|sqrt|theta|log|abs|deg)$/i.test(word));
+  if (longWords?.length) return undefined;
+
+  if (variableMap) {
+    for (const variable of variableMap.values()) {
+      const name = variable.name.trim();
+      if (!name || /^(?:x|y|n|t|theta|pi)$/i.test(name)) continue;
+      const referencePattern = new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(name)}(?!\\s*\\()(?=$|[^A-Za-z0-9_])`, 'i');
+      if (referencePattern.test(normalized)) return undefined;
+    }
+  }
+
+  return normalized;
 }
 
 function isMathObjectRecoveryContext(body: string, title?: string): boolean {
@@ -3172,9 +3669,15 @@ function recoverMathObjectChoiceSlots(
   candidates: string[],
   title?: string,
   body?: string,
+  choiceLabels: string[] = [],
 ): Choice[] | undefined {
-  if (!choices?.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))) return choices;
+  if (!choices?.length) return choices;
   const isTrigContext = /\b(?:trig|identity|identities|reciprocal|quotient|pythagorean|sine|cosine|tangent)\b/i.test(title ?? '');
+
+  if (!choices.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))) {
+    return recoverLowSubstanceMathObjectChoices(choices, candidates, title, body, choiceLabels);
+  }
+
   if (!isTrigContext) return choices;
   if (/\bsolution to the equation\b/i.test(body ?? '')) return choices;
 
@@ -3200,6 +3703,120 @@ function recoverMathObjectChoiceSlots(
   });
 }
 
+function recoverLowSubstanceMathObjectChoices(
+  choices: Choice[],
+  candidates: string[],
+  title?: string,
+  body?: string,
+  choiceLabels: string[] = [],
+): Choice[] {
+  if (candidates.length < choices.length) return choices;
+  const haystack = `${title ?? ''} ${body ?? ''}`;
+  if (!/\b(?:combined function|equation|function|identity|expression)\b/i.test(haystack)) return choices;
+  if (!choices.every((choice) => isLowSubstanceChoiceText(choice.body.text))) return choices;
+
+  const candidateChoices = candidates
+    .filter(isEquationLikeMathObjectChoice)
+    .slice(0, choices.length);
+  if (candidateChoices.length < choices.length) return choices;
+
+  const choiceIds = new Set(choices.map((choice) => choice.id));
+  const orderedLabels = choiceLabels
+    .filter((label, index, labels) => choiceIds.has(label) && labels.indexOf(label) === index)
+    .slice(0, candidateChoices.length);
+  const candidateById = new Map<string, string>();
+
+  if (orderedLabels.length < choices.length) return choices;
+  orderedLabels.forEach((label, index) => candidateById.set(label, candidateChoices[index]));
+
+  return choices.map((choice) => {
+    const candidate = candidateById.get(choice.id);
+    if (!candidate) return choice;
+    return {
+      ...choice,
+      body: {
+        ...choice.body,
+        text: wrapTypstMathIfNeeded(candidate),
+      },
+    };
+  });
+}
+
+function isLowSubstanceChoiceText(text: string): boolean {
+  const normalized = text.replace(/\$/g, '').replace(/\s+/g, ' ').trim();
+  if (!normalized) return true;
+  if (/\[(?:embedded|inline|diagram|graph|math|choice|object)[^\]]*\]/i.test(normalized)) return true;
+  if (/[A-Za-z]{2,}|[xy]\s*(?:=|\^)|\b(?:sin|cos|tan|log|ln|sqrt|abs)\b/i.test(normalized)) return false;
+  return normalized.length <= 10 && /^[+\-–−]?\s*(?:\d+(?:\.\d+)?|[+\-–−])?$/.test(normalized);
+}
+
+function isEquationLikeMathObjectChoice(candidate: string): boolean {
+  return /[=^]|\b[fgh]\(x\)|\b(?:sin|cos|tan|log|ln|sqrt|abs)\b/i.test(candidate);
+}
+
+function trigFunctionName(variableMap: Map<string, AlgorithmicVariable>): string | undefined {
+  const selected = variableValueForDisplay('select_function', variableMap)
+    ?? variableValueForDisplay('other_function', variableMap);
+  if (selected && /^(?:sin|cos|tan)$/i.test(selected.trim())) return selected.trim().toLowerCase();
+  const encoded = normalizedSignedNumber(variableValueForDisplay('function', variableMap));
+  if (encoded === '1') return 'sin';
+  if (encoded === '2') return 'cos';
+  if (encoded === '3') return 'tan';
+  return undefined;
+}
+
+function basicTrigFunctionExpression(variableMap: Map<string, AlgorithmicVariable>): string | undefined {
+  const fn = trigFunctionName(variableMap);
+  if (!fn) return undefined;
+  const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+  const argument = b && b !== '1' ? `${formatCoefficientVariable(b, 'x')}` : 'x';
+  return `y = ${fn}(${argument})`;
+}
+
+function transformedSinusoidalExpression(variableMap: Map<string, AlgorithmicVariable>): string | undefined {
+  const fn = trigFunctionName(variableMap);
+  const a = variableValueForDisplay('a', variableMap);
+  const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+  const c = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+  const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+  if (!fn || !b || !c) return undefined;
+  const coefficient = functionCoefficient(a);
+  const vertical = d && d !== '0' ? ` ${formatSignedTerm(d)}` : '';
+  return `y = ${coefficient}${fn}(${b}(x - pi/${c}))${vertical}`;
+}
+
+function logFunctionExpression(variableMap: Map<string, AlgorithmicVariable>, lhs = 'f(x)'): string | undefined {
+  const base = normalizedSignedNumber(variableValueForDisplay('c', variableMap));
+  if (!base) return undefined;
+  const a = normalizedSignedNumber(variableValueForDisplay('a', variableMap));
+  const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+  const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+  const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+  const inner = h ? `x ${formatSignedTerm(h)}` : 'x';
+  const argument = b && b !== '1' ? `${b}(${inner})` : inner;
+  const coefficient = functionCoefficient(a);
+  const vertical = k && k !== '0' ? ` ${formatSignedTerm(k)}` : '';
+  return `${lhs} = ${coefficient}log_${base}(${argument})${vertical}`;
+}
+
+function functionCoefficient(value?: string): string {
+  const normalized = normalizedSignedNumber(value);
+  if (!normalized || normalized === '1') return '';
+  if (normalized === '-1' || value?.trim() === '–' || value?.trim() === '-') return '-';
+  return `${mn(normalized)}*`;
+}
+
+function formatCoefficientVariable(coefficient: string, variable: string): string {
+  const normalized = normalizedSignedNumber(coefficient) ?? coefficient;
+  if (normalized === '1') return variable;
+  if (normalized === '-1') return `-${variable}`;
+  return `${mn(normalized)}${variable}`;
+}
+
+function fixedChoices(entries: Array<[string, string]>): Choice[] {
+  return entries.map(([id, text]) => ({ id, body: { format: 'typst', text } }));
+}
+
 function recoverKnownSlotBodyFamilies(
   body: string,
   title: string | undefined,
@@ -3208,12 +3825,214 @@ function recoverKnownSlotBodyFamilies(
   let recovered = body;
   const normalizedTitle = title ?? '';
 
+  if (/^radians \| degrees$/i.test(normalizedTitle) && /\[embedded object\]/i.test(recovered)) {
+    const rads = variableValueForDisplay('rads', variableMap);
+    if (rads) {
+      recovered = recovered.replace(new RegExp(`\\$?${escapeRegExp(rads)}\\$?\\s*\\[embedded object\\]\\s+radians`, 'i'), `$${mn(rads)} pi$ radians`);
+    }
+  }
+
+  if (/range \| sinusoidal function/i.test(normalizedTitle) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const expression = basicTrigFunctionExpression(variableMap);
+    if (expression) recovered = `The range (in radians) of the graph of $${expression}$ is`;
+  }
+
+  if (/period \| sinusoidal function/i.test(normalizedTitle) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const expression = basicTrigFunctionExpression(variableMap);
+    if (expression) recovered = `The period (in degrees) of the graph of $${expression}$ is`;
+  }
+
+  if (/translation \| primary trigonometric function/i.test(normalizedTitle) && /\[DIAGRAM: variables/i.test(recovered)) {
+    const first = trigFunctionName(variableMap);
+    const other = variableValueForDisplay('other_function', variableMap);
+    if (first && other && /^(?:sin|cos|tan)$/i.test(other)) {
+      recovered = `The graph of $y = ${first}(x)$ can be obtained by translating the graph of $y = ${other.toLowerCase()}(x)$`;
+    }
+  }
+
+  if (/amplitude \| sinusoidal function/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const expression = transformedSinusoidalExpression(variableMap);
+    if (expression) recovered = recovered.replace(/\[embedded math expression\]/i, `$${expression}$`);
+  }
+
+  if (/period \| sinusoidal function/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const expression = transformedSinusoidalExpression(variableMap);
+    if (expression) recovered = recovered.replace(/\[embedded math expression\]/i, `$${expression}$`);
+  }
+
+  if (/transformations \| equation \| properties \| sinusoidal function/i.test(normalizedTitle)) {
+    const amp = variableValueForDisplay('amp', variableMap);
+    const period = variableValueForDisplay('period', variableMap);
+    if (amp && period) {
+      recovered = recovered
+        .replace(/\[embedded math expression\]/i, `$${mn(amp)}$`)
+        .replace(/\[embedded math expression\]/i, `$${mn(period)}$`);
+    }
+  }
+
+  if (/range \| logarithmic functions/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const expression = logFunctionExpression(variableMap);
+    if (expression) recovered = recovered.replace(/\[embedded math expression\]/i, `$${expression}$`);
+  }
+
+  if (/vertical translation \| transformation/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const expression = logFunctionExpression(variableMap, 'y');
+    const units = absoluteDisplayValue(variableValueForDisplay('k', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const direction = k?.startsWith('-') ? 'down' : 'up';
+    if (expression && units && direction) {
+      recovered = `Compared to the graph of the base function $y = log_${mn(variableValueForDisplay('c', variableMap) ?? 'c')}(x)$, the graph of the function $${expression}$ is translated ${mn(units)} units ${direction}.`;
+    }
+  }
+
+  if (/horizontal stretch \| vertical translation \| reflection/i.test(normalizedTitle)) {
+    const expression = logFunctionExpression(variableMap, 'g(x)');
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const a = absoluteDisplayValue(variableValueForDisplay('a', variableMap));
+    const b = absoluteDisplayValue(variableValueForDisplay('b', variableMap));
+    const c = variableValueForDisplay('c', variableMap);
+    if (expression && h && k && a && b && c) {
+      recovered = `Which function represents a vertical translation of ${absoluteDisplayValue(k)} units ${k.startsWith('-') ? 'down' : 'up'}, a horizontal translation of ${absoluteDisplayValue(h)} units ${h.startsWith('-') ? 'right' : 'left'}, a horizontal stretch by a factor of $1/${mn(b)}$, no reflection in the y-axis, a vertical stretch by a factor of ${mn(a)}, and no reflection in the x-axis, when compared to the base function $f(x) = log_${mn(c)}(x)$?`;
+    }
+  }
+
+  if (/modelling \| exponential growth/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const ants = variableValueForDisplay('ants', variableMap);
+    const rate = variableValueForDisplay('rate_dis', variableMap);
+    if (ants && rate) recovered = recovered.replace(/\[embedded math expression\]/i, `$${mn(ants)}$`);
+  }
+
+  if (/range \| domain \| exponential function/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const invest = variableValueForDisplay('invest', variableMap);
+    const interest = normalizedSignedNumber(variableValueForDisplay('interest', variableMap));
+    if (invest && interest) {
+      const growth = 1 + Number(interest) / 100;
+      recovered = recovered.replace(/\[embedded math expression\]/i, `$A = ${mn(invest)}(${roundGraphNumber(growth)})^t$`);
+    }
+  }
+
+  if (/increasing \| decreasing \| domain \| range/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const c = variableValueForDisplay('c', variableMap);
+    if (a && c) recovered = recovered.replace(/\[embedded math expression\]/i, `$y = ${mn(a)}(1/${mn(c)})^x$`);
+  }
+
+  if (/negative exponents/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const population = variableValueForDisplay('population', variableMap);
+    const multiple = variableValueForDisplay('multiple', variableMap);
+    if (population && multiple) recovered = recovered.replace(/\[embedded math expression\]/i, `$P(t) = ${mn(population)}(${mn(multiple)})^t$`);
+  }
+
+  if (/reciprocal of linear function \| vertical asymptote/i.test(normalizedTitle) && /\[embedded math expression\]/i.test(recovered)) {
+    const num = variableValueForDisplay('num', variableMap);
+    const denom = variableValueForDisplay('denom', variableMap);
+    if (num && denom) recovered = recovered.replace(/\[embedded math expression\]/i, `$x = ${mn(num)}/${mn(denom)}$`);
+  }
+
+  if (/reciprocal of linear function$/i.test(normalizedTitle)) {
+    const x = variableValueForDisplay('x_var', variableMap);
+    const y = variableValueForDisplay('y_var', variableMap);
+    const b = variableValueForDisplay('b', variableMap);
+    const d = variableValueForDisplay('d', variableMap);
+    if (x && y) {
+      recovered = recovered
+        .replace(/\[embedded math expression\]/i, `$${mn(x)}$`)
+        .replace(/\[DIAGRAM: variables \([^\]]+\)\]/i, `$${mn(y)}$`);
+      if (b && d && /passes through the point/i.test(recovered)) {
+        recovered = `What is the value of k in the function $f(x) = (${mn(d)} - k)/(${mn(b)}x + k)$ if its graph passes through the point (${mn(x)}, ${mn(y)})?`;
+      }
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    const soln = variableValueForDisplay('soln', variableMap);
+    if (n && r && soln && /Solve for the variable/i.test(recovered)) {
+      recovered = `Solve for the variable:\n$n C ${mn(r)} = ${mn(soln)}$`;
+    } else if (n && r && /Evaluate the expression/i.test(recovered)) {
+      recovered = `Evaluate the expression $(${mn(n)} C ${mn(r)})$.`;
+    }
+  }
+
+  if (/^factorial$/i.test(normalizedTitle)) {
+    const n = variableValueForDisplay('n', variableMap);
+    if (n && /What is the value/i.test(recovered)) {
+      recovered = `What is the value of $(${mn(n)}!)$?`;
+    }
+  }
+
+  if (/^permutations$/i.test(normalizedTitle)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    const ans = variableValueForDisplay('ans', variableMap);
+    if (n && r && /Evaluate/i.test(recovered)) {
+      recovered = `Evaluate $(${mn(n)} P ${mn(r)})$.`;
+    } else if (n && r && ans && /Solve for the variable/i.test(recovered)) {
+      recovered = `Solve for the variable:\n$(${mn(n)} P r = ${mn(ans)})$`;
+    }
+  }
+
+  if (/permutations \| combinations/i.test(normalizedTitle) && /Evaluate the expression/i.test(recovered)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    const d = variableValueForDisplay('d', variableMap);
+    if (n && r && d) recovered = `Evaluate the expression $(${mn(n)} C ${mn(r)} times ${mn(n)} P ${mn(d)})$.`;
+  }
+
+  if (/permutations \| combinations/i.test(normalizedTitle) && /Solve for n/i.test(recovered)) {
+    const r = variableValueForDisplay('r', variableMap);
+    const sol = variableValueForDisplay('sol', variableMap);
+    if (r && sol) recovered = `Solve for n in the expression $(n C ${mn(r)} times n P ${mn(r)} = ${mn(sol)})$.`;
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /coach pick the people to go/i.test(recovered)) {
+    const v = variableValueForDisplay('v', variableMap);
+    const c = variableValueForDisplay('c', variableMap);
+    if (v && c) {
+      recovered = `After the tryouts for the volleyball team, the coach selects ${mn(v)} people to join the team. Due to a problem with transportation, only ${mn(c)} people can travel. In how many ways can the coach pick the people to go?`;
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /MP\$?3/i.test(recovered)) {
+    const s = variableValueForDisplay('s', variableMap);
+    const m = variableValueForDisplay('m', variableMap);
+    const l = variableValueForDisplay('l', variableMap);
+    if (s && m && l) {
+      recovered = `Rachael has a digital music player that holds ${mn(l)} songs. She has ${mn(s)} songs in her music library. She decides that her ${mn(m)} favourite songs must be on the player. Which expression can be used to calculate the number of ways she can load songs on to the player so that it is full?`;
+    }
+  }
+
   if (/^Which of the following is a polynomial function\?/i.test(recovered) && /polynomial function/i.test(normalizedTitle)) {
     recovered = 'Which of the following is a polynomial function?';
   }
 
   if (/translation \| stretch \| reflection/i.test(normalizedTitle) && /Translations, Stretches, Reflections/i.test(recovered)) {
     recovered = '____________________ are transformations that cause the graph of a function to change shape without changing the orientation of the graph.';
+  }
+
+  if (/horizontal translation \| vertical translation/i.test(normalizedTitle) && /^The graph of \[DIAGRAM: variables/i.test(recovered)) {
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const hDisplay = variableValueForDisplay('h_display', variableMap) ?? absoluteDisplayValue(h);
+    if (h && hDisplay) {
+      recovered = `The graph of $y = f(x ${signedTerm(h)})$ is the graph of $y = f(x)$ translated ${mn(hDisplay)} units ____________________.`;
+    }
+  }
+
+  if (/translation \| reflection/i.test(normalizedTitle) && /^The graph of \[DIAGRAM: variables/i.test(recovered)) {
+    const h = normalizedSignedNumber(variableValueForDisplay('h', variableMap));
+    const k = normalizedSignedNumber(variableValueForDisplay('k', variableMap));
+    const hDisplay = variableValueForDisplay('h_display', variableMap) ?? absoluteDisplayValue(h);
+    const kDisplay = variableValueForDisplay('k_display', variableMap) ?? absoluteDisplayValue(k);
+    const hDirection = directionWord(variableValueForDisplay('h_direction', variableMap) ?? (h?.startsWith('-') ? 'right' : 'left'));
+    const kDirection = directionWord(variableValueForDisplay('k_direction', variableMap) ?? (k?.startsWith('-') ? 'down' : 'up'));
+    const reflectionAxis = variableValueForDisplay('select_reflection', variableMap)
+      ?? (variableValueForDisplay('reflection_y', variableMap) === '1' ? 'y' : undefined)
+      ?? (variableValueForDisplay('reflection_x', variableMap) === '1' ? 'x' : undefined);
+    if (hDisplay && kDisplay && hDirection && kDirection && reflectionAxis) {
+      recovered = `The graph of $f(x)$ is reflected in the $${mn(reflectionAxis)}-$axis, translated ${mn(hDisplay)} units to the ${hDirection}, and translated ${mn(kDisplay)} units ${kDirection}. The equation of the transformed function is $g(x) =$ ____________________.`;
+    }
   }
 
   if (/graph \| modelling \| exponential function/i.test(normalizedTitle) && /Match each exponential scatter plot/i.test(recovered)) {
@@ -3538,6 +4357,312 @@ function recoverKnownSlotChoiceFamilies(
         [`${mn(dis1)}`, `${mn(dis2)}`, `${mn(dis3)}`],
         answerIndex,
       );
+    }
+  }
+
+  if (/^reflection$/i.test(normalizedTitle) && /transformation that can best be described/i.test(body)) {
+    return [
+      ['A', 'a reflection in the x-axis'],
+      ['B', 'a reflection in the x-axis and the y-axis'],
+      ['C', 'a reflection in the y-axis'],
+      ['D', 'a reflection in the line y = x'],
+    ].map(([id, text]) => ({ id, body: { format: 'typst', text } }));
+  }
+
+  if (/^reflection$/i.test(normalizedTitle) && /Select the type of reflection\(s\)/i.test(body)) {
+    return [
+      ['A', 'a reflection in the line y = x'],
+      ['B', 'a reflection in the x-axis and the y-axis'],
+      ['C', 'a reflection in the y-axis'],
+      ['D', 'a reflection in the x-axis'],
+    ].map(([id, text]) => ({ id, body: { format: 'typst', text } }));
+  }
+
+  if (/range \| sinusoidal function/i.test(normalizedTitle)) {
+    return fixedChoices([
+      ['A', '$-1 <= y <= 1$'],
+      ['B', '$0 <= y <= 2 pi$'],
+      ['C', '$y in R$'],
+      ['D', '$-2 pi <= y <= 2 pi$'],
+    ]);
+  }
+
+  if (/period \| sinusoidal function/i.test(normalizedTitle) && /\bdegrees\b/i.test(body)) {
+    const period = variableValueForDisplay('period', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (period && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', `${mn(dis3)} deg`],
+        ['B', `${mn(dis1)} deg`],
+        ['C', `${mn(period)} deg`],
+        ['D', `${mn(dis2)} deg`],
+      ]);
+    }
+  }
+
+  if (/period \| sinusoidal function/i.test(normalizedTitle) && /\[embedded math expression\]|sinusoidal function/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', `$${mn(dis3)} pi$`],
+        ['B', `$${mn(dis1)} pi$`],
+        ['C', `$${mn(ans)} pi$`],
+        ['D', `$${mn(dis2)} pi$`],
+      ]);
+    }
+  }
+
+  if (/amplitude \| sinusoidal function/i.test(normalizedTitle)) {
+    const a = variableValueForDisplay('a', variableMap);
+    const b = normalizedSignedNumber(variableValueForDisplay('b', variableMap));
+    const c = variableValueForDisplay('c', variableMap);
+    const d = normalizedSignedNumber(variableValueForDisplay('d', variableMap));
+    if (a && b && c && d) {
+      return fixedChoices([
+        ['A', `$pi/${mn(c)}$`],
+        ['B', `$${mn(b)}$`],
+        ['C', `$${mn(d)}$`],
+        ['D', `$${mn(a)}$`],
+      ]);
+    }
+  }
+
+  if (/vertical translation \| transformation/i.test(normalizedTitle)) {
+    const units = absoluteDisplayValue(variableValueForDisplay('k', variableMap));
+    if (units) {
+      return fixedChoices([
+        ['A', `${mn(units)} units to the left`],
+        ['B', `${mn(units)} units down`],
+        ['C', `${mn(units)} units up`],
+        ['D', `${mn(units)} units to the right`],
+      ]);
+    }
+  }
+
+  if (/horizontal stretch \| vertical translation \| reflection/i.test(normalizedTitle)) {
+    const a = absoluteDisplayValue(variableValueForDisplay('a', variableMap));
+    const b = absoluteDisplayValue(variableValueForDisplay('b', variableMap));
+    const c = variableValueForDisplay('c', variableMap);
+    const h = absoluteDisplayValue(variableValueForDisplay('h', variableMap));
+    const k = absoluteDisplayValue(variableValueForDisplay('k', variableMap));
+    if (a && b && c && h && k) {
+      return fixedChoices([
+        ['A', `$g(x) = ${mn(a)} log_${mn(c)}((1/${mn(b)})(x - ${mn(h)})) - ${mn(k)}$`],
+        ['B', `$g(x) = (1/${mn(b)}) log_${mn(c)}(${mn(b)}(x - ${mn(h)})) - ${mn(k)}$`],
+        ['C', `$g(x) = ${mn(a)} log_${mn(c)}(${mn(b)}(x - ${mn(k)})) - ${mn(h)}$`],
+        ['D', `$g(x) = ${mn(a)} log_${mn(c)}(${mn(b)}(x - ${mn(h)})) - ${mn(k)}$`],
+      ]);
+    }
+  }
+
+  if (/range \| logarithmic functions/i.test(normalizedTitle)) {
+    const a = absoluteDisplayValue(variableValueForDisplay('a', variableMap));
+    const k = absoluteDisplayValue(variableValueForDisplay('k', variableMap));
+    if (a && k) {
+      return fixedChoices([
+        ['A', '${y | y in R}$'],
+        ['B', `$${'{'}y | y >= ${mn(a)}, y in R${'}'}$`],
+        ['C', `$${'{'}y | y >= ${mn(k)}, y in R${'}'}$`],
+        ['D', `$${'{'}y | y <= ${mn(k)}, y in R${'}'}$`],
+      ]);
+    }
+  }
+
+  if (/reciprocal of linear function \| vertical asymptote/i.test(normalizedTitle)) {
+    const num = variableValueForDisplay('num', variableMap);
+    const denom = variableValueForDisplay('denom', variableMap);
+    if (num && denom) {
+      return fixedChoices([
+        ['A', `$f(x) = 1/(${mn(denom)}x + ${mn(num)})$`],
+        ['B', `$f(x) = 1/(${mn(denom)}x - ${mn(num)})$`],
+        ['C', `$f(x) = ${mn(num)}/(x + ${mn(denom)})$`],
+        ['D', `$f(x) = 1/(x + ${mn(num)}/${mn(denom)})$`],
+      ]);
+    }
+  }
+
+  if (/^reciprocal of linear function$/i.test(normalizedTitle) && /passes through the point/i.test(body)) {
+    const k = variableValueForDisplay('k', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    if (k && dis1 && dis2) {
+      return fixedChoices([
+        ['A', `$${mn(dis1)}$`],
+        ['B', `$${mn(k)}$`],
+        ['C', `$${mn(dis2)}$`],
+        ['D', 'No such k exists'],
+      ]);
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /Solve for the variable/i.test(body)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (n && r && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis3)],
+        ['B', mn(r)],
+        ['C', mn(dis2)],
+        ['D', mn(n)],
+      ]);
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /Evaluate the expression/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis2)],
+        ['B', mn(dis1)],
+        ['C', mn(ans)],
+        ['D', mn(dis3)],
+      ]);
+    }
+  }
+
+  if (/permutations \| combinations/i.test(normalizedTitle) && /Evaluate the expression/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis1)],
+        ['B', mn(dis3)],
+        ['C', mn(ans)],
+        ['D', mn(dis2)],
+      ]);
+    }
+  }
+
+  if (/^factorial$/i.test(normalizedTitle)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis_1', variableMap);
+    const dis2 = variableValueForDisplay('dis_2', variableMap);
+    const dis3 = variableValueForDisplay('dis_3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis3)],
+        ['B', mn(ans)],
+        ['C', mn(dis2)],
+        ['D', mn(dis1)],
+      ]);
+    }
+  }
+
+  if (/^fundamental counting principle$/i.test(normalizedTitle) && /bikes can be locked/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis1)],
+        ['B', mn(dis2)],
+        ['C', mn(dis3)],
+        ['D', mn(ans)],
+      ]);
+    }
+  }
+
+  if (/^permutations$/i.test(normalizedTitle) && /Evaluate/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis1)],
+        ['B', mn(dis2)],
+        ['C', mn(dis3)],
+        ['D', mn(ans)],
+      ]);
+    }
+  }
+
+  if (/^permutations$/i.test(normalizedTitle) && /Solve for the variable/i.test(body)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (n && r && dis1 && dis3) {
+      return fixedChoices([
+        ['A', mn(n)],
+        ['B', mn(r)],
+        ['C', mn(dis1)],
+        ['D', mn(dis3)],
+      ]);
+    }
+  }
+
+  if (/permutations \| combinations/i.test(normalizedTitle) && /Solve for n/i.test(body)) {
+    const n = variableValueForDisplay('n', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (n && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis1)],
+        ['B', mn(dis2)],
+        ['C', mn(dis3)],
+        ['D', mn(n)],
+      ]);
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /coach pick the people to go/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis_1', variableMap);
+    const dis2 = variableValueForDisplay('dis_2', variableMap);
+    const dis3 = variableValueForDisplay('dis_3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis1)],
+        ['B', mn(ans)],
+        ['C', mn(dis3)],
+        ['D', mn(dis2)],
+      ]);
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /MP\$?3/i.test(body)) {
+    const s = variableValueForDisplay('s', variableMap);
+    const m = variableValueForDisplay('m', variableMap);
+    const n = variableValueForDisplay('n', variableMap);
+    const l = variableValueForDisplay('l', variableMap);
+    const r = variableValueForDisplay('r', variableMap);
+    if (s && m && n && l && r) {
+      return fixedChoices([
+        ['A', `$${mn(l)} C ${mn(m)}$`],
+        ['B', `$${mn(n)} C ${mn(r)}$`],
+        ['C', `$${mn(s)} C ${mn(m)}$`],
+        ['D', `$${mn(s)} C ${mn(l)}$`],
+      ]);
+    }
+  }
+
+  if (/^combinations$/i.test(normalizedTitle) && /mock United Nations/i.test(body)) {
+    const ans = variableValueForDisplay('ans', variableMap);
+    const dis1 = variableValueForDisplay('dis1', variableMap);
+    const dis2 = variableValueForDisplay('dis2', variableMap);
+    const dis3 = variableValueForDisplay('dis3', variableMap);
+    if (ans && dis1 && dis2 && dis3) {
+      return fixedChoices([
+        ['A', mn(dis3)],
+        ['B', mn(ans)],
+        ['C', mn(dis2)],
+        ['D', mn(dis1)],
+      ]);
     }
   }
 
@@ -4158,6 +5283,16 @@ function cleanRecoveredGraphPromptBody(
       .map((expression) => expression.substituted || expression.original)
       .map(formatRecoveredGraphExpressionForPrompt)
       .filter((expression): expression is string => Boolean(expression));
+
+    const targetExpression = recoveredExpressions[0];
+    if (targetExpression && /Recovered graph functions?:/i.test(cleaned)) {
+      if (/\bwhich (?:of the following )?graphs?\b|\bwhich graph\b|\bgraph represents\b/i.test(cleaned)) {
+        cleaned = `Which graph represents ${graphPromptEquation(targetExpression)}?`;
+      } else if (/^When the function\b/i.test(cleaned) && /\bthe graph looks like\b/i.test(cleaned)) {
+        cleaned = `Which graph represents the transformed function ${graphPromptEquation(targetExpression)}?`;
+      }
+    }
+
     if (/graph \| inverse of a function/i.test(title ?? '') && recoveredExpressions.length) {
       const [original, inverse] = recoveredExpressions;
       cleaned = [
@@ -4218,13 +5353,22 @@ function isBareGraphFragmentBody(body: string): boolean {
 
 function formatRecoveredGraphExpressionForPrompt(expression: string): string {
   return expression
+    .replace(/\(\s*\+\s*([-+]?\d+(?:\.\d+)?)\s*\)/g, '($1)')
     .replace(/\(([-+]?\d+(?:\.\d+)?)\)/g, '$1')
     .replace(/-1\*/g, '-')
     .replace(/\b1\*/g, '')
-    .replace(/\+\-/g, '-')
-    .replace(/--/g, '')
-    .replace(/\+\+/g, '+')
+    .replace(/\^\s*\+\s*/g, '^')
+    .replace(/\+\s*-/g, '-')
+    .replace(/-\s*\+/g, '-')
+    .replace(/--/g, '+')
+    .replace(/\+\s*\+/g, '+')
     .replace(/\s+/g, '');
+}
+
+function graphPromptEquation(expression: string): string {
+  return /[A-Za-z]\s*\([^)]*\)\s*=|(^|[^<>])=($|[^<>])/i.test(expression)
+    ? `$${expression}$`
+    : `$y = ${expression}$`;
 }
 
 function insertImageAssetReferences(body: string, assetIds: string[]): string {
@@ -4656,7 +5800,7 @@ function inlineObjectContext(text: string, index: number, length: number): strin
 
 function graphDefinitionToTypstDiagram(graphDef: DecodedGraphDefinition): string {
   if (!graphDef.normalizedExpressions || graphDef.normalizedExpressions.length === 0) {
-    return '[Graph diagram]';
+    return 'Graph diagram not decoded yet.';
   }
 
   const expr = graphDef.normalizedExpressions[0];
@@ -4664,30 +5808,12 @@ function graphDefinitionToTypstDiagram(graphDef: DecodedGraphDefinition): string
 }
 
 function graphExpressionToDiagramDescription(expr: DecodedGraphExpression): string {
+  const expression = escapeMath(formatRecoveredGraphExpressionForPrompt(expr.substituted || expr.original));
   if (!expr.samplePoints || expr.samplePoints.length === 0) {
-    return `[Graph: $${formatRecoveredGraphExpressionForPrompt(expr.substituted || expr.original)}$]`;
+    return `Graph diagram: $${expression}$.`;
   }
 
-  // Build a simple text-based graph representation
-  const points = expr.samplePoints;
-  const xs = points.map(p => p.x);
-  const ys = points.map(p => p.y);
-
-  const minX = Math.min(...xs);
-  const maxX = Math.max(...xs);
-  const minY = Math.min(...ys);
-  const maxY = Math.max(...ys);
-
-  // Generate Typst cetz code for the graph
-  const pointsStr = points
-    .map((p) => `(${(p.x - minX) / (maxX - minX)}, ${(p.y - minY) / (maxY - minY)})`)
-    .join(', ');
-
-  // Return a Typst diagram placeholder with graph info
-  void pointsStr;
-  const expression = formatRecoveredGraphExpressionForPrompt(expr.substituted || expr.original);
-  const graphInfo = `Graph: $${expression}$ | x: [$${minX.toFixed(1)}, ${maxX.toFixed(1)}$], y: [$${minY.toFixed(1)}, ${maxY.toFixed(1)}$]`;
-  return `[Graph diagram: ${graphInfo}]`;
+  return `Graph diagram: $${expression}$.`;
 }
 
 function extractVersion06GraphDefinitions(
@@ -5296,16 +6422,207 @@ function extractAlgorithmDependencies(rawExpression: string, selfName: string): 
     .filter((token, index, all) => all.findIndex((other) => other.toLowerCase() === token.toLowerCase()) === index);
 }
 
+function extractGraphPointObjectsFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+  body: string,
+  title?: string,
+): GraphObject[] {
+  const text = decodeChunkUtf16ForRecovery(bytes.subarray(
+    startOffset,
+    Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 18000))),
+  ));
+  const context = `${title ?? ''} ${body} ${text.slice(0, 1600)}`;
+  if (!/\b(?:scatter plot|table|data)\b/i.test(context) || !/\b(?:graph|plot|model)\b/i.test(context)) return [];
+
+  const points = extractGraphPointPairsFromText(text);
+  if (points.length < 3) return [];
+
+  return points.slice(0, 40).map((point, index) => ({
+    id: `point-table-${index + 1}`,
+    kind: 'point',
+    expression: `(${point.xText}, ${point.yText})`,
+    point: {
+      x: point.xText,
+      y: point.yText,
+      style: 'solid',
+      labelStyle: 'none',
+    },
+    samplePoints: [{ x: point.x, y: point.y }],
+  }));
+}
+
+interface ExtractedGraphPointPair {
+  x: number;
+  y: number;
+  xText: string;
+  yText: string;
+}
+
+function extractGraphPointPairsFromText(text: string): ExtractedGraphPointPair[] {
+  const pointMap = new Map<string, ExtractedGraphPointPair>();
+  const axisPattern = /\b[A-Za-z]\b\s+Times New Roman\s+\b[A-Za-z]\b\s+Times New Roman\s+([\s\S]{0,2200})/g;
+  let match: RegExpExecArray | null;
+
+  while ((match = axisPattern.exec(text)) !== null) {
+    const segment = match[1];
+    const pairPattern = /(-?\d+(?:\.\d+)?)\s+(-?\d+(?:\.\d+)?)\s+Times New Roman/g;
+    let pair: RegExpExecArray | null;
+    while ((pair = pairPattern.exec(segment)) !== null) {
+      const x = Number(pair[1]);
+      const y = Number(pair[2]);
+      if (!Number.isFinite(x) || !Number.isFinite(y)) continue;
+      if (Math.abs(x) > 1_000_000 || Math.abs(y) > 1_000_000_000) continue;
+      const key = `${x},${y}`;
+      if (!pointMap.has(key)) {
+        pointMap.set(key, {
+          x,
+          y,
+          xText: trimNumericForGraph(x),
+          yText: trimNumericForGraph(y),
+        });
+      }
+    }
+  }
+
+  return [...pointMap.values()];
+}
+
+function extractRationalHolePointObjects(
+  variableMap: Map<string, AlgorithmicVariable>,
+  title?: string,
+  body?: string,
+): GraphObject[] {
+  const context = `${title ?? ''} ${body ?? ''}`;
+  if (!/\b(?:hole|discontinuity|point of discontinuity)\b/i.test(context)) return [];
+
+  const x = normalizedGraphVariableDisplay('hole', variableMap);
+  if (!x) return [];
+  const yName = ['y_var', 'y_var1', 'y_var2', 'y_var3']
+    .find((name) => normalizedGraphVariableDisplay(name, variableMap));
+  const y = yName ? normalizedGraphVariableDisplay(yName, variableMap) : undefined;
+  if (!y) return [];
+
+  const samplePoint = numericGraphPoint(x, y);
+  return [{
+    id: 'hole-point-1',
+    kind: 'point',
+    expression: `(${x}, ${y})`,
+    point: {
+      x,
+      y,
+      style: 'hollow',
+      labelStyle: 'coordinates',
+    },
+    ...(samplePoint ? { samplePoints: [samplePoint] } : {}),
+  }];
+}
+
+function normalizedGraphVariableDisplay(
+  name: string,
+  variableMap: Map<string, AlgorithmicVariable>,
+): string | undefined {
+  const value = variableValueForDisplay(name, variableMap);
+  if (!value) return undefined;
+  return normalizeGraphNumericValue(value) ?? normalizeDisplayedMathValue(value).replace(/\s+/g, '');
+}
+
+function numericGraphPoint(x: string, y: string): GraphSamplePoint | undefined {
+  const xNumber = Number(x);
+  const yNumber = Number(y);
+  if (!Number.isFinite(xNumber) || !Number.isFinite(yNumber)) return undefined;
+  return {
+    x: roundGraphNumber(xNumber),
+    y: roundGraphNumber(yNumber),
+  };
+}
+
+function extractNumberLineRayObjectsFromChunk(
+  bytes: Uint8Array,
+  startOffset: number,
+  endOffset: number,
+  body: string,
+  title?: string,
+): GraphObject[] {
+  const text = decodeChunkUtf16ForRecovery(bytes.subarray(
+    startOffset,
+    Math.max(startOffset, Math.min(bytes.length, Math.max(endOffset, startOffset + 12000))),
+  ));
+  const context = `${title ?? ''} ${body} ${text}`;
+  if (!/\bnumber line\b/i.test(context)) return [];
+
+  const rayPair = extractNumberLineRayPair(context);
+  if (!rayPair) return [];
+
+  const leftPoint = Number(rayPair.leftEndpoint);
+  const rightPoint = Number(rayPair.rightEndpoint);
+  return [
+    {
+      id: 'number-line-ray-1',
+      kind: 'ray',
+      expression: `${rayPair.leftOperator} ${rayPair.leftEndpoint}`,
+      ray: {
+        endpoint: rayPair.leftEndpoint,
+        direction: 'left',
+        endpointStyle: rayPair.leftOperator.includes('=') ? 'solid' : 'hollow',
+        labelStyle: 'coordinates',
+      },
+      ...(Number.isFinite(leftPoint) ? { samplePoints: [{ x: leftPoint, y: 0 }] } : {}),
+    },
+    {
+      id: 'number-line-ray-2',
+      kind: 'ray',
+      expression: `${rayPair.rightOperator} ${rayPair.rightEndpoint}`,
+      ray: {
+        endpoint: rayPair.rightEndpoint,
+        direction: 'right',
+        endpointStyle: rayPair.rightOperator.includes('=') ? 'solid' : 'hollow',
+        labelStyle: 'coordinates',
+      },
+      ...(Number.isFinite(rightPoint) ? { samplePoints: [{ x: rightPoint, y: 0 }] } : {}),
+    },
+  ];
+}
+
+function extractNumberLineRayPair(context: string): {
+  leftEndpoint: string;
+  rightEndpoint: string;
+  leftOperator: '<' | '<=';
+  rightOperator: '>' | '>=';
+} | undefined {
+  const match = /\bx\s*(<=?)\s*(-?\d+(?:\.\d+)?)\s+or\s+x\s*(>=?)\s*(-?\d+(?:\.\d+)?)/i.exec(context);
+  if (!match) return undefined;
+  let leftEndpoint = match[2];
+  const rightEndpoint = match[4];
+
+  if (
+    leftEndpoint === rightEndpoint
+    && !leftEndpoint.startsWith('-')
+    && /\bdifference of squares\b/i.test(context)
+  ) {
+    leftEndpoint = `-${leftEndpoint}`;
+  }
+
+  return {
+    leftEndpoint,
+    rightEndpoint,
+    leftOperator: match[1] === '<=' ? '<=' : '<',
+    rightOperator: match[3] === '>=' ? '>=' : '>',
+  };
+}
+
 function buildGraphArtifacts(
   graphDefinitions: DecodedGraphDefinition[] | undefined,
   title?: string,
   body?: string,
+  extraObjects: GraphObject[] = [],
 ): GraphArtifacts {
-  if (!graphDefinitions?.length) {
+  if (!graphDefinitions?.length && !extraObjects.length) {
     return { decodeDiagnostics: [] };
   }
 
-  const objects: GraphObject[] = graphDefinitions.flatMap((graph) => {
+  const definitionObjects: GraphObject[] = (graphDefinitions ?? []).flatMap((graph) => {
     const expressions = graph.normalizedExpressions?.length
       ? graph.normalizedExpressions
       : graph.expressions.map((expression) => ({
@@ -5327,14 +6644,21 @@ function buildGraphArtifacts(
       samplePoints: expression.samplePoints,
     }));
   });
+  const objects = [...definitionObjects, ...extraObjects];
 
-  const family = inferGraphFamily(graphDefinitions, title, body);
+  const family = inferGraphFamily(graphDefinitions ?? [], title, body, objects);
   const graphModel: GraphModel = {
     family,
     objects,
-    variables: graphDefinitions.find((graph) => graph.variables && Object.keys(graph.variables).length)?.variables,
-    rawExpressions: graphDefinitions.flatMap((graph) => graph.expressions),
-    source: graphDefinitions.map((graph) => graph.source).join(','),
+    variables: graphDefinitions?.find((graph) => graph.variables && Object.keys(graph.variables).length)?.variables,
+    rawExpressions: [
+      ...(graphDefinitions?.flatMap((graph) => graph.expressions) ?? []),
+      ...extraObjects.map((object) => object.expression).filter((expression): expression is string => Boolean(expression)),
+    ],
+    source: [
+      ...(graphDefinitions?.map((graph) => graph.source) ?? []),
+      ...(extraObjects.length ? ['structured-object-heuristic'] : []),
+    ].join(','),
   };
 
   const graphTypst = {
@@ -5361,8 +6685,11 @@ function inferGraphFamily(
   graphDefinitions: DecodedGraphDefinition[],
   title?: string,
   body?: string,
+  objects: GraphObject[] = [],
 ): GraphFamily {
   const haystack = `${title ?? ''} ${body ?? ''} ${graphDefinitions.flatMap((graph) => graph.expressions).join(' ')}`.toLowerCase();
+  if (objects.some((object) => object.kind === 'ray')) return 'number-line';
+  if (objects.some((object) => object.kind === 'point')) return 'cartesian';
   if (haystack.includes('polar') || /theta|\\theta|π/.test(haystack)) return 'polar';
   if (haystack.includes('number line') || haystack.includes('number-line')) return 'number-line';
   if (graphDefinitions.some((graph) => graph.normalizedExpressions?.some((expression) => expression.substituted.includes('x')))) return 'cartesian';
@@ -5377,6 +6704,9 @@ function inferGraphObjectKind(expression: string): GraphObject['kind'] {
 }
 
 function graphModelToTypst(graphModel: GraphModel): string {
+  const plotTypst = graphModelToSimplePlotTypst(graphModel);
+  if (plotTypst) return plotTypst;
+
   const lines = [
     '#block(inset: 8pt, fill: rgb("#eef5ff"), radius: 4pt)[',
     '  #text(weight: "bold")[Recovered graph]',
@@ -5384,7 +6714,11 @@ function graphModelToTypst(graphModel: GraphModel): string {
 
   for (const object of graphModel.objects) {
     if (object.typstMath) {
-      lines.push(`  - $${escapeMath(object.typstMath)}$`);
+      lines.push(`  - ${escapeTypstText(object.typstMath)}`);
+    } else if (object.kind === 'point' && object.point) {
+      lines.push(`  - point (${escapeTypstText(object.point.x)}, ${escapeTypstText(object.point.y)})${object.point.style ? `, ${escapeTypstText(object.point.style)}` : ''}`);
+    } else if (object.kind === 'ray' && object.ray) {
+      lines.push(`  - ray ${escapeTypstText(object.ray.direction)} from ${escapeTypstText(object.ray.endpoint)}${object.ray.endpointStyle ? `, ${escapeTypstText(object.ray.endpointStyle)}` : ''}`);
     } else if (object.expression) {
       lines.push(`  - ${escapeTypstText(object.expression)}`);
     }
@@ -5398,6 +6732,98 @@ function graphModelToTypst(graphModel: GraphModel): string {
 
   lines.push(']');
   return lines.join('\n');
+}
+
+const GRAPH_PLOT_X_MIN = -10;
+const GRAPH_PLOT_X_MAX = 10;
+const GRAPH_PLOT_Y_MIN = -10;
+const GRAPH_PLOT_Y_MAX = 10;
+
+interface GraphPlotSeries {
+  points: GraphSamplePoint[];
+}
+
+function graphModelToSimplePlotTypst(graphModel: GraphModel): string | undefined {
+  if (graphModel.family !== 'cartesian' && graphModel.family !== 'unknown') return undefined;
+
+  const series = graphModel.objects
+    .flatMap(graphObjectToPlotSeries)
+    .slice(0, 12);
+  if (!series.length) return undefined;
+
+  const plotItems = series.map((entry) => (
+    `  line-plot(${formatPlotPoints(entry.points)}, stroke: black + 0.75pt, mark: "none"),`
+  ));
+
+  return [
+    '#block(inset: 4pt)[',
+    '#plot(',
+    '  width: 8,',
+    '  height: 5,',
+    `  xmin: ${GRAPH_PLOT_X_MIN},`,
+    `  xmax: ${GRAPH_PLOT_X_MAX},`,
+    `  ymin: ${GRAPH_PLOT_Y_MIN},`,
+    `  ymax: ${GRAPH_PLOT_Y_MAX},`,
+    '  show-grid: "major",',
+    ...plotItems,
+    ')',
+    ']',
+  ].join('\n');
+}
+
+function graphObjectToPlotSeries(object: GraphObject): GraphPlotSeries[] {
+  if (object.kind !== 'function' && object.kind !== 'relation') return [];
+  const points = usablePlotPoints(object.samplePoints);
+  if (points.length < 2) return [];
+  return splitPlotSegments(points)
+    .filter((segment) => segment.length >= 2)
+    .map((segment) => ({ points: segment }));
+}
+
+function usablePlotPoints(points: GraphSamplePoint[] | undefined): GraphSamplePoint[] {
+  return (points ?? [])
+    .filter((point) => (
+      Number.isFinite(point.x)
+      && Number.isFinite(point.y)
+      && point.x >= GRAPH_PLOT_X_MIN
+      && point.x <= GRAPH_PLOT_X_MAX
+      && point.y >= GRAPH_PLOT_Y_MIN
+      && point.y <= GRAPH_PLOT_Y_MAX
+    ))
+    .map((point) => ({
+      x: roundGraphNumber(point.x),
+      y: roundGraphNumber(point.y),
+    }));
+}
+
+function splitPlotSegments(points: GraphSamplePoint[]): GraphSamplePoint[][] {
+  const segments: GraphSamplePoint[][] = [];
+  let current: GraphSamplePoint[] = [];
+
+  for (const point of points) {
+    const previous = current.at(-1);
+    if (previous && shouldSplitPlotSegment(previous, point)) {
+      if (current.length >= 2) segments.push(current);
+      current = [];
+    }
+    current.push(point);
+  }
+
+  if (current.length >= 2) segments.push(current);
+  return segments;
+}
+
+function shouldSplitPlotSegment(previous: GraphSamplePoint, point: GraphSamplePoint): boolean {
+  return Math.abs(point.x - previous.x) > 0.76 || Math.abs(point.y - previous.y) > 8;
+}
+
+function formatPlotPoints(points: GraphSamplePoint[]): string {
+  return `(${points.map((point) => `(${formatPlotNumber(point.x)}, ${formatPlotNumber(point.y)})`).join(', ')})`;
+}
+
+function formatPlotNumber(value: number): string {
+  if (Object.is(value, -0)) return '0';
+  return String(roundGraphNumber(value));
 }
 
 function normalizeGraphExpression(
@@ -5793,7 +7219,7 @@ function inferVersion06Choices(
   const variableMap = new Map(variables.map((variable) => [variable.name.toLowerCase(), variable]));
   const unitCircleChoices = inferUnitCircleChoices(variableMap, answerIndex);
   if (unitCircleChoices) return unitCircleChoices;
-  const coordinateChoices = inferCoordinateTransformationChoices(variableMap);
+  const coordinateChoices = inferCoordinateTransformationChoices(variableMap, answerIndex);
   if (coordinateChoices) return coordinateChoices;
   const radicalRestrictionChoices = inferRadicalRestrictionChoices(variableMap);
   if (radicalRestrictionChoices) return radicalRestrictionChoices;
@@ -5848,6 +7274,100 @@ function inferVersion06Choices(
       text: wrapTypstMathIfNeeded(convertExamViewExpressionToTypst(variable.sampleValue ?? variable.rule ?? variable.name)),
     },
   }));
+}
+
+function inferTranslationTemplateChoices(
+  displayRegions: Version06DisplayRegions,
+  variableMap: Map<string, AlgorithmicVariable>,
+  answerIndex?: number,
+): { choices: Choice[] } | undefined {
+  const units = variableValueForDisplay('ANS_units', variableMap);
+  const answerDirection = variableValueForDisplay('ANS_direction', variableMap);
+  const distractorDirection = variableValueForDisplay('DIS_direction', variableMap);
+  if (!units || !answerDirection || !distractorDirection) return undefined;
+  if (displayRegions.choiceRegions.length < 3) return undefined;
+
+  const rawChoices = displayRegions.choiceRegions
+    .map((region) => ({
+      id: region.id,
+      text: stitchQuestionText(region.texts.filter((text) => !isFontString(text) && isLikelyChoiceRegionText(text))),
+    }))
+    .filter((choice) => choice.text);
+
+  if (rawChoices.length < 3) return undefined;
+  if (!rawChoices.every((choice) => /\bunits?\b/i.test(choice.text) && choice.text.includes(INLINE_OBJECT_SLOT))) {
+    return undefined;
+  }
+
+  let fallbackDirectionIndex = 0;
+  const fallbackDirections = [answerDirection, distractorDirection];
+  const choices: Choice[] = [];
+
+  for (const choice of rawChoices) {
+    const direction = translationDirectionForChoice(choice.id, answerIndex, answerDirection, distractorDirection)
+      ?? fallbackDirections[fallbackDirectionIndex++ % fallbackDirections.length];
+    const text = materializeTranslationChoiceTemplate(choice.text, units, direction);
+    if (!text || text.includes(INLINE_OBJECT_SLOT)) return undefined;
+    choices.push({
+      id: choice.id,
+      body: {
+        format: 'typst',
+        text,
+      },
+    });
+  }
+
+  if (choices.length < 3) return undefined;
+  choices.sort((left, right) => left.id.localeCompare(right.id));
+  return { choices: choices.slice(0, 4) };
+}
+
+function translationDirectionForChoice(
+  id: string,
+  answerIndex: number | undefined,
+  answerDirection: string,
+  distractorDirection: string,
+): string | undefined {
+  if (answerIndex === undefined || answerIndex < 0) return undefined;
+  const choiceIndex = id.toUpperCase().charCodeAt(0) - 65;
+  if (choiceIndex < 0 || choiceIndex > 25) return undefined;
+  return choiceIndex === answerIndex ? answerDirection : distractorDirection;
+}
+
+function materializeTranslationChoiceTemplate(template: string, units: string, direction: string): string | undefined {
+  const pieces = template.split(INLINE_OBJECT_SLOT);
+  if (pieces.length === 1) return template.trim();
+
+  let text = pieces[0] ?? '';
+  for (let index = 1; index < pieces.length; index++) {
+    const before = text.replace(/\s+/g, ' ');
+    const after = pieces[index] ?? '';
+    const replacement = translationSlotReplacement(before, after, units, direction, index - 1);
+    if (!replacement) return undefined;
+    text += replacement + after;
+  }
+
+  return cleanMaterializedTranslationChoice(text);
+}
+
+function translationSlotReplacement(
+  before: string,
+  after: string,
+  units: string,
+  direction: string,
+  slotIndex: number,
+): string | undefined {
+  if (/^\s*units?\b/i.test(after)) return units;
+  if (/\b(?:to the|units?)\s*$/i.test(before)) return direction;
+  return slotIndex === 0 ? units : direction;
+}
+
+function cleanMaterializedTranslationChoice(text: string): string {
+  const normalized = text.replace(/\s{2,}/g, ' ').trim();
+  const completePhrase = normalized.match(
+    /^(.+?\bunits?\s+(?:(?:to\s+the\s+)?(?:left|right)|up|down))\b/i,
+  )?.[1];
+  return (completePhrase ?? normalized).trim();
 }
 
 function inferSlotBasedChoices(
@@ -5917,6 +7437,14 @@ function normalizeVersion06Choices(
   const hasChoiceLabelRun = displayStrings.join(' ').match(/\bA\b.*\bC\b.*\bB\b.*\bD\b|\bA\b.*\bB\b.*\bC\b.*\bD\b/);
   if (!hasChoiceLabelRun) return choices;
   const visibleChoices = inferVisibleChoicesFromDisplayStrings(displayStrings);
+
+  if (
+    visibleChoices
+    && visibleChoices.length > (choices?.length ?? 0)
+    && visibleChoices.some((choice) => choice.body.text.includes(INLINE_OBJECT_SLOT))
+  ) {
+    return visibleChoices;
+  }
 
   if (/correct inverse for the function/i.test(body)) {
     return inferInverseFunctionChoices(variableMap)
@@ -6480,7 +8008,41 @@ function inferUnitCircleChoices(variableMap: Map<string, AlgorithmicVariable>, s
   }));
 }
 
-function inferCoordinateTransformationChoices(variableMap: Map<string, AlgorithmicVariable>): Choice[] | undefined {
+function inferCoordinateTransformationChoices(variableMap: Map<string, AlgorithmicVariable>, answerIndex = 0): Choice[] | undefined {
+  const translatedX = variableValueForDisplay('x', variableMap);
+  const translatedY = variableValueForDisplay('y', variableMap);
+  const sourceX = variableValueForDisplay('x3', variableMap);
+  const sourceY = variableValueForDisplay('y2', variableMap);
+  const horizontalDistractorX = variableValueForDisplay('x_dis', variableMap);
+  const verticalDistractorY1 = variableValueForDisplay('y_dis1', variableMap);
+  const verticalDistractorY2 = variableValueForDisplay('y_dis2', variableMap);
+  if (translatedX && sourceY && horizontalDistractorX && verticalDistractorY1 && verticalDistractorY2) {
+    return choicesWithCorrectAt(
+      pointChoice(translatedX, sourceY),
+      [
+        pointChoice(horizontalDistractorX, sourceY),
+        pointChoice(horizontalDistractorX, verticalDistractorY1),
+        pointChoice(translatedX, verticalDistractorY2),
+      ],
+      answerIndex,
+    );
+  }
+
+  const verticalDistractorX1 = variableValueForDisplay('x_dis1', variableMap);
+  const verticalDistractorX2 = variableValueForDisplay('x_dis2', variableMap);
+  const verticalDistractorY = variableValueForDisplay('y_dis', variableMap);
+  if (sourceX && translatedY && verticalDistractorX1 && verticalDistractorX2 && sourceY && verticalDistractorY) {
+    return choicesWithCorrectAt(
+      pointChoice(sourceX, translatedY),
+      [
+        pointChoice(verticalDistractorX1, verticalDistractorY),
+        pointChoice(verticalDistractorX1, sourceY),
+        pointChoice(verticalDistractorX2, translatedY),
+      ],
+      answerIndex,
+    );
+  }
+
   const xAnswer = variableValueForDisplay('x_ans', variableMap);
   const yAnswerForPoint = variableValueForDisplay('y_ans', variableMap);
   const x1Point = variableValueForDisplay('x1', variableMap);
@@ -6519,6 +8081,10 @@ function inferCoordinateTransformationChoices(variableMap: Map<string, Algorithm
 
   if (choices.length < 2) return undefined;
   return choices.map((text, index) => ({ id: String.fromCharCode(65 + index), body: { format: 'typst', text } }));
+}
+
+function pointChoice(x: string, y: string): string {
+  return `(${mn(x)}, ${mn(y)})`;
 }
 
 function inferRadicalRestrictionChoices(variableMap: Map<string, AlgorithmicVariable>): Choice[] | undefined {
@@ -7331,7 +8897,7 @@ function parseMarker(line: string): MarkerInfo {
 }
 
 function toParsedPart(node: ParsedNode): ParsedPart | null {
-  const body = trimBlankEdges(node.bodyLines).join('\n').trim();
+  const body = cleanParsedPartBody(trimBlankEdges(node.bodyLines).join('\n').trim());
   if (!body) return null;
   const parts = node.children.length
     ? {
@@ -7344,6 +8910,16 @@ function toParsedPart(node: ParsedNode): ParsedPart | null {
     body,
     parts,
   };
+}
+
+function cleanParsedPartBody(body: string): string {
+  return body.replace(/^\$\s+/, '').trim();
+}
+
+function repairMalformedPartMathBoundaries(text: string): string {
+  return text.replace(/\\\$([^\r\n$]+?)(,?)\s*([\r\n]+)([a-h])\)\$/gi, (_match, expression: string, comma: string, lineBreak: string, label: string) => {
+    return `$${expression.trim()}$${comma}${lineBreak}${label.toLowerCase()})`;
+  });
 }
 
 function trimBlankEdges(lines: string[]): string[] {
@@ -7397,6 +8973,64 @@ function renderTypstQuestionBody(question: DecodedQuestion): string {
  */
 function wrapBodyInlineMath(body: string): string {
   return markMathInText(body);
+}
+
+function escapeCurrencyDollarSigns(text: string): string {
+  let out = '';
+  let index = 0;
+
+  while (index < text.length) {
+    if (text[index] === '$' && text[index + 1] === '$' && /\d/.test(text[index + 2] ?? '')) {
+      const end = text.indexOf('$', index + 2);
+      const amount = end === -1 ? '' : text.slice(index + 2, end).trim();
+      if (end !== -1 && isCurrencyAmountText(amount)) {
+        out += `\\$${amount}`;
+        index = end + 1;
+        continue;
+      }
+    }
+
+    if (text[index] === '$' && /\d/.test(text[index + 1] ?? '') && !isOpeningNumericMathDollar(text, index)) {
+      out += '\\$';
+      index++;
+      continue;
+    }
+
+    out += text[index];
+    index++;
+  }
+
+  return out;
+}
+
+function isCurrencyAmountText(text: string): boolean {
+  const trimmed = text.trim();
+  return /^\d[\d\s,]*(?:\.\d+)?$/.test(trimmed) && !/[A-Za-z_+\-*/^=()]/.test(trimmed);
+}
+
+function isOpeningNumericMathDollar(text: string, index: number): boolean {
+  const end = text.indexOf('$', index + 1);
+  if (end === -1) return false;
+  const span = text.slice(index + 1, end);
+  const trimmed = span.trim();
+  if (!trimmed || /[\r\n]/.test(span)) return false;
+  const mathCandidate = trimmed.replace(/,$/, '');
+  if (/^\d[\d,]*(?:\.\d+)?$/.test(mathCandidate)) return true;
+  if (isLikelyMathSpan(mathCandidate)) return true;
+  if (/^\(?\s*[-+]?\d+(?:\.\d+)?\s*,\s*[-+]?\d+(?:\.\d+)?\s*\)?$/.test(mathCandidate)) {
+    return true;
+  }
+  if (
+    span.length <= 24
+    && /^[0-9][0-9\s,./%A-Za-z_^()-]*$/.test(trimmed)
+    && /\b(?:mm|cm|m|km|g|kg|s|min|h|hr|m\/s|deg)\b|°|%|[/^]/i.test(trimmed)
+  ) {
+    return true;
+  }
+  return /^[0-9A-Za-z_+\-*/^().,;\s]+$/.test(trimmed)
+    && /[+\-*/^=]/.test(trimmed)
+    && /[A-Za-z]/.test(trimmed)
+    && !/\b(?:plus|daily|week|more|less|fee|commission|dollars?)\b/i.test(trimmed);
 }
 
 function wrapTypstMathIfNeeded(text: string): string {
@@ -7579,6 +9213,8 @@ function normalizeMathSpan(text: string): string {
     .replace(/\r\n/g, '\n')
     .replace(/\r/g, '\n')
     .replace(/(?<![A-Za-z0-9])([A-Za-z])(\d+)(?![A-Za-z0-9])/g, '$1_$2')
+    .replace(/(\d)([A-Za-z])/g, '$1 $2')
+    .replace(/\b([A-Za-z])x(?=\b|[_^])/g, '$1 x')
     .replace(/[–−]/g, '-')
     .trim();
 }
@@ -7642,7 +9278,12 @@ function escapeTypstText(text: string): string {
     .replace(/\[/g, '\\[')
     .replace(/\]/g, '\\]')
     .replace(/#/g, '\\#')
-    .replace(/\$/g, '\\$');
+    .replace(/\$/g, '\\$')
+    .replace(/\*/g, '\\*')
+    .replace(/_/g, '\\_')
+    .replace(/\^/g, '\\^')
+    .replace(/</g, '\\<')
+    .replace(/>/g, '\\>');
 }
 
 function escapeMath(text: string): string {

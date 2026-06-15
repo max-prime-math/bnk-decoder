@@ -4,16 +4,31 @@
     toLatex,
     toPortableJson,
     toPortableQuestionPackage,
+    toTestGeneratorCustomClasses,
     toTestGeneratorQuestions,
     toTypst,
     type DecodeResult,
     type DecodedGraphDefinition,
     type GraphSamplePoint,
+    type TestGeneratorCurriculumOptions,
   } from '@bnk-decoder/core';
   import { questionToTypstDocument, renderQuestionTypstSvg } from './typstPreview';
-  import { deleteStoredBank, getStoredBank, listStoredBanks, putStoredBank, type StoredBankRecord } from './bankStore';
+  import {
+    deleteStoredBank,
+    getStoredBank,
+    listStoredBanks,
+    putStoredBank,
+    type BankCurriculumMetadata,
+    type StoredBankRecord,
+  } from './bankStore';
 
   type StoredBankSummary = Omit<StoredBankRecord, 'bytes'>;
+  type BankCurriculumForm = {
+    className: string;
+    unitName: string;
+    sectionName: string;
+  };
+  type CurriculumField = keyof BankCurriculumForm;
 
   let fileName = $state('');
   let busy = $state(false);
@@ -28,6 +43,7 @@
   let renderBusy = $state(false);
   let renderError = $state('');
   let renderedTypstSvg = $state('');
+  let bankCurriculum = $state<BankCurriculumForm>(emptyBankCurriculum());
 
   let filteredQuestions = $derived(
     (result?.questions ?? []).filter((question) => matchesQuestionFilter(question, questionFilter)),
@@ -167,17 +183,158 @@
 
   function exportPqp() {
     if (!result) return;
-    download(exportName('pqp.json'), JSON.stringify(toPortableQuestionPackage(result), null, 2), 'application/json');
+    download(
+      exportName('pqp.json'),
+      JSON.stringify(toPortableQuestionPackage(result, testGeneratorCurriculumOptions()), null, 2),
+      'application/json',
+    );
   }
 
   function exportTestGenerator() {
     if (!result) return;
-    download(exportName('test-gen.json'), JSON.stringify(toTestGeneratorQuestions(result), null, 2), 'application/json');
+    download(
+      exportName('test-generator-import.json'),
+      JSON.stringify(toTestGeneratorPackage(result), null, 2),
+      'application/json',
+    );
   }
 
   function exportName(ext: string) {
     const base = fileName.replace(/\.[^.]+$/, '') || 'decoded-bank';
     return `${base}.${ext}`;
+  }
+
+  function toTestGeneratorPackage(decoded: DecodeResult) {
+    const curriculum = testGeneratorCurriculumOptions();
+    return {
+      format: 'test-generator-question-bank',
+      version: 2,
+      exportedAt: new Date().toISOString(),
+      source: {
+        kind: 'bnk',
+        label: fileName || decoded.source.filename || 'decoded-bank.bnk',
+        originFiles: decoded.source.filename ? [decoded.source.filename] : [],
+      },
+      producer: {
+        app: 'bnk-decoder',
+        exportedAt: new Date().toISOString(),
+      },
+      diagnostics: decoded.diagnostics,
+      questions: toTestGeneratorQuestions(decoded, curriculum),
+      customClasses: toTestGeneratorCustomClasses(decoded, curriculum),
+      images: decoded.assets
+        .filter((asset) => asset.kind === 'image')
+        .map((asset) => {
+          const filename = asset.filename ?? `${asset.id}.${imageExtension(asset.mimeType) || 'bin'}`;
+          const { stem, ext } = splitFilename(filename);
+          return {
+            name: stem || asset.id,
+            ext: ext || imageExtension(asset.mimeType),
+            mime: asset.mimeType,
+            size: asset.bytes.byteLength,
+            data: bytesToBase64(asset.bytes),
+          };
+        })
+        .filter((image) => image.name && image.ext && image.data),
+    };
+  }
+
+  function splitFilename(name: string) {
+    const last = name.split(/[/\\]/).pop() ?? name;
+    const index = last.lastIndexOf('.');
+    if (index <= 0) return { stem: last, ext: '' };
+    return { stem: last.slice(0, index), ext: last.slice(index + 1).toLowerCase() };
+  }
+
+  function imageExtension(mimeType?: string) {
+    switch (mimeType) {
+      case 'image/png': return 'png';
+      case 'image/jpeg': return 'jpg';
+      case 'image/gif': return 'gif';
+      case 'image/bmp': return 'bmp';
+      case 'image/svg+xml': return 'svg';
+      case 'image/webp': return 'webp';
+      default: return '';
+    }
+  }
+
+  function bytesToBase64(bytes: Uint8Array) {
+    let binary = '';
+    const chunkSize = 8192;
+    for (let index = 0; index < bytes.length; index += chunkSize) {
+      const chunk = bytes.subarray(index, Math.min(index + chunkSize, bytes.length));
+      binary += String.fromCharCode(...chunk);
+    }
+    return btoa(binary);
+  }
+
+  function emptyBankCurriculum(): BankCurriculumForm {
+    return {
+      className: '',
+      unitName: '',
+      sectionName: '',
+    };
+  }
+
+  function normalizeBankCurriculum(curriculum?: BankCurriculumMetadata): BankCurriculumForm {
+    return {
+      className: curriculum?.className?.trim() ?? '',
+      unitName: curriculum?.unitName?.trim() ?? '',
+      sectionName: curriculum?.sectionName?.trim() ?? '',
+    };
+  }
+
+  function inferredBankCurriculum(decoded: DecodeResult): BankCurriculumForm {
+    return {
+      className: commonMetadataText(decoded.questions.map((question) => question.metadata.className)) ?? '',
+      unitName: commonMetadataText(decoded.questions.map((question) => question.metadata.unitName)) ?? '',
+      sectionName: commonMetadataText(decoded.questions.map((question) => question.metadata.topic))
+        ?? commonMetadataText(decoded.questions.map((question) => question.metadata.sectionName))
+        ?? '',
+    };
+  }
+
+  function commonMetadataText(values: Array<string | undefined>): string | undefined {
+    const normalized = values
+      .map((value) => value?.replace(/\s+/g, ' ').trim())
+      .filter((value): value is string => Boolean(value));
+    const unique = [...new Set(normalized.map((value) => value.toLowerCase()))];
+    return unique.length === 1 ? normalized[0] : undefined;
+  }
+
+  function testGeneratorCurriculumOptions(): TestGeneratorCurriculumOptions {
+    const curriculum: TestGeneratorCurriculumOptions = {};
+    const className = bankCurriculum.className.trim();
+    const unitName = bankCurriculum.unitName.trim();
+    const sectionName = bankCurriculum.sectionName.trim();
+    if (className) curriculum.className = className;
+    if (unitName) curriculum.unitName = unitName;
+    if (sectionName) curriculum.sectionName = sectionName;
+    return curriculum;
+  }
+
+  function updateBankCurriculum(field: CurriculumField, value: string) {
+    const next = {
+      ...bankCurriculum,
+      [field]: value,
+    };
+    bankCurriculum = next;
+    void persistBankCurriculum(next);
+  }
+
+  async function persistBankCurriculum(curriculum: BankCurriculumForm) {
+    if (!selectedBankId) return;
+    const bank = await getStoredBank(selectedBankId);
+    if (!bank) return;
+    await putStoredBank({
+      ...bank,
+      curriculum,
+    });
+    banks = banks.map((item) => (
+      item.id === bank.id
+        ? { ...item, curriculum }
+        : item
+    ));
   }
 
   function selectRelativeQuestion(delta: number) {
@@ -586,6 +743,7 @@
       result = null;
       fileName = '';
       selectedQuestionId = null;
+      bankCurriculum = emptyBankCurriculum();
       return;
     }
 
@@ -598,6 +756,9 @@
     try {
       const decoded = await decodeBnkFile(bank.bytes.slice(0), { filename: bank.filename });
       result = decoded;
+      bankCurriculum = bank.curriculum
+        ? normalizeBankCurriculum(bank.curriculum)
+        : inferredBankCurriculum(decoded);
       const preferredQuestionId = selectedQuestionByBank[bankId]
         ?? decoded.questions[0]?.id
         ?? null;
@@ -622,6 +783,7 @@
       result = null;
       fileName = '';
       selectedQuestionId = null;
+      bankCurriculum = emptyBankCurriculum();
     }
     await loadStoredBanks();
   }
@@ -685,6 +847,37 @@
           <div><span>Assets</span><strong>{result.stats.assetCount}</strong></div>
           <div><span>Diagnostics</span><strong>{result.stats.diagnosticCount}</strong></div>
           <div><span>Raw fragments</span><strong>{result.stats.unsupportedFragmentCount}</strong></div>
+        </div>
+
+        <div class="curriculum-editor">
+          <div class="curriculum-editor-header">
+            <strong>Test Generator curriculum</strong>
+            <small>Export fields</small>
+          </div>
+          <label>
+            <span>Class</span>
+            <input
+              value={bankCurriculum.className}
+              placeholder="Grade 12 Pre-Calculus"
+              oninput={(event) => updateBankCurriculum('className', event.currentTarget.value)}
+            />
+          </label>
+          <label>
+            <span>Unit</span>
+            <input
+              value={bankCurriculum.unitName}
+              placeholder="Unit 1: Functions"
+              oninput={(event) => updateBankCurriculum('unitName', event.currentTarget.value)}
+            />
+          </label>
+          <label>
+            <span>Section</span>
+            <input
+              value={bankCurriculum.sectionName}
+              placeholder="Section 1.1: Transformations"
+              oninput={(event) => updateBankCurriculum('sectionName', event.currentTarget.value)}
+            />
+          </label>
         </div>
 
         <div class="filters">
@@ -1392,6 +1585,50 @@
   .stats span {
     color: var(--muted);
     font-size: 0.72rem;
+  }
+
+  .curriculum-editor {
+    display: grid;
+    gap: 0.55rem;
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: #f8f6ef;
+  }
+
+  .curriculum-editor-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .curriculum-editor label {
+    display: grid;
+    gap: 0.25rem;
+  }
+
+  .curriculum-editor label span {
+    color: var(--muted);
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .curriculum-editor input {
+    width: 100%;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--paper);
+    color: var(--ink);
+    padding: 0.5rem 0.6rem;
+  }
+
+  .curriculum-editor input:focus {
+    outline: 2px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    border-color: var(--accent);
   }
 
   .actions {

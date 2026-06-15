@@ -45,6 +45,65 @@ Assets should be written with stable IDs and referenced from rich content.
 Unknown binary spans should be preserved with offsets and warnings while the
 format is still being mapped.
 
+## Current TestGen Package Bridge
+
+The BNK decoder UI now exports TestGen-ready packages as:
+
+```ts
+{
+  format: 'test-generator-question-bank',
+  version: 2,
+  exportedAt,
+  source,
+  producer,
+  diagnostics,
+  questions,
+  customClasses,
+  images
+}
+```
+
+`questions` use the TestGen stored-question shape, not the older draft-only
+shape. Embedded image assets are bundled in `images` as base64 records with
+`name`, `ext`, optional `mime`, optional `size`, and `data`.
+
+Question records can carry decoder-owned extensions directly on the question:
+
+- `algorithmModel` and `algorithmEvaluation`
+- `graphModel` and `graphTypst`
+- `decodeDiagnostics`
+- `parts`
+- `className`, `unitName`, `unitId`, `sectionName`, and `sectionId`
+
+The bridge intentionally preserves graph and algorithm data even when TestGen
+does not yet render or evaluate every ExamView construct natively.
+
+## Grade 12 v06 Structural Findings (2026-06-14)
+
+The current Grade 12 Pre-Calculus pass added these structural recoveries:
+
+- Matching groups should be linked by evidence from answer-variable references
+  or unresolved owned item records, not by broad proximity to nearby short-answer
+  questions.
+- Matching choices can be materialized from algorithm definitions. This includes
+  `comb`, `perm`, factorial-style expressions, and suffixed distractor variants
+  such as `n!/r!` -> `n1!/r1!`.
+- Compact object-math runs in v06 are not necessarily OLE/MathType streams.
+  Several use byte `0x7f` as an overloaded marker for exponent, function-call,
+  absolute-value-like grouping, and grouped operands.
+- Algorithm sample values can safely materialize some compact object-math
+  variables, but scalar slots and diagram slots must reject equation-like
+  candidates unless the local prompt context asks for a function, equation,
+  identity, or expression.
+- Scatter/table data, rational-function holes, and Chapter 03 number-line rays
+  can be emitted as `graphModel.objects` using point and ray object fields.
+- Currency values must be escaped conservatively after math wrapping. Literal
+  money such as `\$150` should not trigger broad escaping of closed math spans
+  such as `$2$`, `$15$ kg`, or equation spans.
+- PDF comparison is now a required verification path. The internal quality
+  report catches obvious placeholders and bad choice tokens, but it is not a
+  semantic correctness guarantee.
+
 ## File Headers
 
 Observed files begin with a 16-byte ASCII-ish header. The first byte is `0x1a`.
