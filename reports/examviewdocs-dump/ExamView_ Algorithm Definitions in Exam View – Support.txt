@@ -1,0 +1,1008 @@
+Chat with us, powered by LiveChat Skip to main content
+Support Help Center home page
+Echo360 Status: 
+
+  • What's New?
+  • Echosystem Roadmap
+  • Feature Requests
+  • Contact Support
+  • Sign in
+
+(Toggle navigation menu)
+
+  • Sign in
+  • 
+  • What's New
+  • Echosystem Roadmap
+  • Feature Requests
+  • Contact Support
+
+ 1. Support
+ 2. ExamView
+ 3. ExamView Test Generator
+
+ExamView: Algorithm Definitions in Exam View
+
+[6f54bac614]
+Echo360
+
+  • March 13, 2024 18:21
+  • Updated
+
+Sections in Article
+
+Related articles
+
+  • ExamView: Algorithmic Syntax in Test Generator
+  • ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator
+  • ExamView: Inserting a Variable
+  • EchoVideo: API and SDK Documentation
+  • EchoVideo: Media Details Page for Administrators
+
+NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT
+
+As of June 30, 2024, ExamView will officially reach its end of life.
+
+Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no longer be providing updates,
+security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView
+will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security
+vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure
+uninterrupted service, we encourage migrating to EchoExam, which is designed to offer superior security, compatibility,
+and a range of advanced features that align with current technological standards. For questions click here.
+
+Special Functions
+
+ExamView Test Generator provides you with numerous special functions to use when defining variables, conditions, and
+user-defined functions.
+
+           expression choose(int which, expression arg1, expression arg2, ...)
+
+           - or -
+
+           expression choose(int which, list dataList)
+
+           This function will select the argument at the which location in the list of arguments. The expression will
+           be evaluated and returned. All of the arguments must be of the same type (string or numeric). If which is
+           greater than the number of arguments, the function will use the remainder part of which to choose an
+           argument.
+
+choose     EXAMPLE
+
+           which = rand(5)
+
+           choose(which, 1, 14, 3.2, 6, 9) will return 3.2 when which = 3
+
+           - or -
+
+           which = rand(5)
+
+           listOfData = list(1, 14, 3.2, 6, 9)
+
+           choose(which, listOfData) will return 9 when which = 5
+
+           string decs(double x)
+
+           This function returns a string representation of the decimal number. If the function determines that the
+           number, x, has an infinitely repeating decimal part, the repeating part will be displayed with an overbar.
+
+decs*      EXAMPLE
+
+           decs(18.333333333333) will return [1850808630]
+
+           decs(0.0142857142857) will return [1850809994]
+
+           decs(4.25) will return 4.25
+
+           string format(string format, double x)
+
+           Writes formatted output to a string. For a complete description of formatting specifiers, look in any C
+           programming manual.
+format
+           EXAMPLE
+
+           format("$%1.2f", 13.4) will return "$13.40"
+
+           format("%d feet", 17) will return "17 feet"
+
+           int gcf(int x, int y)
+gcf
+           Returns the greatest common factor of the arguments, x and y.
+
+           expression if (int condition, expression arg1, expression arg2)
+if
+           Use to implement a conditional expression. If condition evaluates to non-zero, arg1 will be returned, else
+           arg2 will be returned. Both of the arguments must be of the same type (string or numeric).
+
+           int isalpha(string x)
+isalpha
+           If the first character of the string argument, x, is in the range "A" to "Z" or "a" to "z", the function
+           will return TRUE (1), otherwise it will return FALSE (0).
+
+           int isdigit(string x)
+isdigit
+           If the first character of the string argument, x, is in the range "0" to "9", the function will return TRUE
+           (1), otherwise it will return FALSE (0).
+
+           int isprime(int x)
+isprime
+           Evaluates the number to see if it is prime. If the number is prime, the function will return TRUE (1),
+           otherwise it returns FALSE (0). NOTE: Values must be in the range 2 to 1,000,000.
+
+           int isrelprime(int x, int y)
+isrelprime
+           Evaluates the two numbers to see if they are relatively prime. If the greatest common factor of x and y is
+           1, the function will return TRUE (1), otherwise it returns FALSE (0).
+
+           int isunique(expression arg1, expression arg2, ...)
+
+           Compares the arguments to see if there are any duplicates. If there are duplicate arguments, the function
+           will return FALSE (0), otherwise it returns TRUE (1). All of the arguments must be of the same type (string
+isunique   or numeric). This function is useful as a "condition" in evaluating multiple choice answer choices.
+
+           EXAMPLE
+
+           (condition) isunique(answerA, answerB, answerC, answerD)
+
+           int lcd(int x, int y)
+lcd
+           Returns the least common denominator of the arguments, x and y.
+
+           list(expression arg1, expression arg2, ...)
+
+           Use this function as a container to hold a group of similar expressions. The expressions must all be of the
+           same type--either numeric or string. If you create a list of strings, you must make sure that no string
+           element contains a comma, since the comma is used to delimit the list. A variable defined as a "list" can be
+           used as an argument for the "choose" function.
+
+           EXAMPLE
+
+           fruitList = list("apple", "pear", "peach", "tangerine")
+list
+           whichFruit = rand(4)
+
+           fruit = choose(whichFruit, fruitList)
+
+            
+
+           weightList = list(110, 142, 153, 180, 212)
+
+           whichWeight = rand(5)
+
+           weight = choose(whichWeight, weightList)
+
+           int prime(int x, int y)
+prime
+           Returns a pseudo-random prime number in the range x to y, inclusive. NOTE: Values must be in the range 2 to
+           1,000.
+
+           double range(double x, double y, double increment {optional})
+
+           Returns a pseudo-random number in the range x to y, inclusive. If the optional argument, increment, is
+           included, the function will only select values in the given range that are offset from the lower limit by
+           increment.
+range
+           NOTE
+
+           If increment is in the form .1, .01, .001, etc., then the result will always have the same number of decimal
+           places as the increment. Also, if x is less than zero, and y is greater than zero, and an increment is
+           provided, then the value 0 will never be returned by the function.
+
+           double round(double x, int precision)
+
+           Rounds the argument, x, to have precision decimal places.
+
+           NOTE
+
+           If precision is greater than or equal to 10, this function rounds the argument, x, to the nearest precision.
+round
+
+           EXAMPLE
+
+           round(3.14159265, 4) will return 3.1416
+
+           round(1492.14, 10) will return 1490
+
+           round(1492.14, 100) will return 1500
+
+           string sciens(double x)
+
+           Function returns a string representation of the argument, x, in scientific notation.
+
+           NOTE
+
+sciens*    You must be sure to also change the format to Scientific Notation and select the number of decimal places
+           when formatting the variable.
+
+
+           EXAMPLE
+
+           sciens(143948.123) will return [1850766872] when using 2 decimal places.
+
+           string sgns(double x)
+sgns
+           If the argument, x, is less than zero, this function returns "-". Otherwise it returns "+".
+
+           string sigfig(double x, int numSigFigs, Boolean forceNumSigFigs)
+
+           Creates a string version of the argument, x, that has numSigFigs significant digits. If forceNumSigFigs is
+           TRUE, then the string returned will have exactly numSigFigs significant digits (even if the function has to
+           randomly create some digits). If forceNumSigFigs is FALSE, then the function will return a string that has
+           numSigFigs significant digits or less.
+sigfig
+           EXAMPLE
+
+           sigfig(12362, 3, FALSE) will return 12400
+
+           sigfig(2.14, 5, TRUE) will return 2.1400
+
+           sigfig(1400, 4, TRUE) might return 1427
+
+           string sqrs(double x)
+
+           After reducing the argument, x, to a multiple of a whole number and a radical, it returns a string
+           representation in the form whole (square root) radical. When displayed, this function will draw a radical if
+           necessary.
+
+           EXAMPLE
+sqrs*
+           sqrs(18) will return [1850807055]
+
+           sqrs(16) will return 4
+
+           sqrs(-8) will return [1850803722]
+
+           sqrs(3.14159) will return [1850806829]
+
+           string symbol(string x)
+
+           Converts the string argument, x, to the appropriate Symbol character.
+
+           NOTE
+
+           Once the variable is inserted into a question or narrative, you need to highlight the variable and change it
+           to Symbol font for it to display properly.
+
+           The following list shows valid arguments to this function. For all other Symbol characters, use the chr
+           function.
+symbol*
+           symbol ("<=") will="will" return="return" ≤="≤"></=")>
+
+           symbol ("=") will return "≥"
+
+           symbol ("<>") will return "≠"<></></>
+
+           symbol ("x") will return "×"
+
+           symbol (".") will return "▪"
+
+           symbol ("/") will return "÷"
+
+           list unsort(list dataList)
+
+           This function will "unsort" or scramble the list of arguments. The list passed in as an argument must have
+           been composed of only numeric data. Function will return a list that can be used as an argument for choose(
+unsort     )
+
+           listofData = list (1, 2, 3, 4)
+
+           unsort(ListofData) might return "2, 4, 3, 1"
+
+
+* Keywords marked with an asterisk are for display only and cannot be used as parts of an expression.
+
+ 
+
+Fraction Functions
+
+ExamView Test Generator provides you with numerous fraction functions to use when defining variables, conditions, and
+user-defined functions.
+
+           string fracs(double numer, double denom)
+
+           After reducing the fraction numer / denom, this function will return a string as either a whole number, or a
+           fraction in the form "numer/denom". When displayed, this function will draw a stacked fraction if necessary.
+           If denom is 0, the function will return "0".
+fracs*
+           EXAMPLE
+
+           fracs(22, 6) will return [1850745928]
+
+           fracs(22, 11) will return 2
+
+           string mixfracs(double numer, double denom)
+
+           After reducing the fraction numer/denom, this function will return a string as either a whole number, or a
+           fraction in the form "whole numer/denom". When displayed, this function will draw a stacked fraction if
+           necessary. If denom is 0, the function will return "0".
+mixfracs*
+           EXAMPLE
+
+           mixfracs(22, 6) will return [1850804628]
+
+           mixfracs(2, 6) will return [1850799491]
+
+           string rfracs(double numer, double denom)
+
+           Reduces the fraction numer / denom. When displayed, this function will always draw a ratio in stacked
+           fraction form. If denom is 0, the function will return "0".
+rfracs*
+           EXAMPLE
+
+           rfracs(22, 6) will return [1850745928]
+
+           rfracs(22, 11) will return [1850801688]
+
+           string sfracs(double numer, double denom)
+
+           After reducing the fraction numer / denom, this function will return a string as either a whole number, or a
+           fraction in the form "numer/denom". When displayed, this function will draw a small stacked fraction if
+           necessary. If denom is 0, the function will return "0".
+sfracs*
+           EXAMPLE
+
+           sfracs(22, 6) will return [1850798694]
+
+           sfracs(22, 11) will return 2
+
+           string smixfracs(double numer, double denom)
+
+           After reducing the fraction numer/denom, this function will return a string as either a whole number, or a
+           fraction in the form "whole numer/denom". When displayed, this function will draw a small stacked fraction
+           if necessary. If denom is 0, the function will return "0".
+smixfracs*
+           EXAMPLE
+
+           smixfracs(22, 6) will return [1850804588]
+
+           smixfracs(2, 6) will return [1850799491]
+
+           string srfracs(double numer, double denom)
+
+           Reduces the fraction numer / denom. When displayed, this function will always draw a small ratio in stacked
+           fraction form. If denom is 0, the function will return "0".
+srfracs*
+           EXAMPLE
+
+           srfracs(22, 6) will return [1850798666]
+
+           srfracs(22, 11) will return [1850798502]
+
+
+* Keywords marked with an asterisk are for display only and cannot be used as parts of an expression.
+
+
+Logical Operators
+
+ExamView Test Generator provides you with numerous pre-defined logical operators to use when defining variables,
+conditions, and user-defined functions.
+
+    expression AND expression
+AND
+    Returns TRUE (1) only if both expressions evaluate to non-zero, otherwise returns FALSE (0). If the first
+    expression evaluates to FALSE, the second expression is not evaluated.
+
+    expression EQV expression
+EQV
+    Returns TRUE (1) if both expressions evaluate to non-zero or if both expressions evaluate to zero, otherwise
+    returns FALSE (0).
+
+    expression IMP expression
+IMP
+    Returns TRUE (1) if the first expression evaluates to non-zero and the second expression evaluates to zero,
+    otherwise returns FALSE (0).
+
+    expression MOD expression
+
+    Divides the first expression by the second expression and returns the remainder. If the second expression is equal
+    to zero, the function will return zero. Integer division may return a negative value to satisfy the identity: (-A)/
+MOD B = -(A/B) = A/(-B)
+
+    EXAMPLE
+
+    -34 MOD 6 will return -4
+
+    NOT expression
+NOT
+    If expression evaluates to non-zero, this will return FALSE (0), otherwise it will return TRUE (1).
+
+    expression OR expression
+OR
+    Returns TRUE (1) if either expression evaluates to non-zero, otherwise returns FALSE (0). If the first expression
+    evaluates to TRUE, the second expression is not evaluated.
+
+    expression XOR expression
+XOR
+    Returns the bitwise exclusive-OR of the two expressions.
+
+
+Statistical Functions
+
+ExamView Test Generator provides you with numerous pre-defined statistical functions to use when defining variables,
+conditions, and user-defined functions.
+
+         int comb(int m, int n)
+
+comb     Returns the number of possible combinations. If we have a group of m objects, how many ways can they be
+         grouped as n objects when position does not matter. The actual function is:
+
+         [1850799646]
+
+         list makelist(int numValues, double lowerExtreme,
+
+         double lowerQuartile, double median,
+
+         double upperQuartile, double upperExtreme,
+
+         Boolean sortData)
+
+makelist Use this function to create a "list" container to hold a group of data with numValues data, and the range,
+         median, and interquartile ranges assigned. Pass TRUE if you want the data elements to be arranged in ascending
+         order. Pass -1 for either extreme, either quartile, or the median if you do not require them to be specific
+         values.
+
+         EXAMPLE
+
+         makelist(3, 5, -1, 8, -1, 9, TRUE) will return "5, 8, 9"
+
+         Both quartile values must be supplied to the makelist() function. If either one is not, they are both ignored.
+
+         double mean(list data)
+mean
+         Returns the arithmetic mean (or average) of the data in the list.
+
+         double median(list data)
+median
+         Returns the middle value of the data in the list if the number of elements in the list is odd, or the average
+         of the two middle terms if the number of elements is even.
+
+         double mode(list data)
+mode
+         Returns the most common value for the data in the list. If the data is multimodal, this function returns zero.
+
+         int perm(int m, int n)
+
+perm     Returns the number of possible permutations. Given that position is important, if one has m objects, how many
+         unique ways can they be placed in n positions. The actual function is:
+
+         [1850796098]
+
+         double quartile(list data, int whichQuartile)
+
+         Returns one of the divisions of observations of the data in the list.
+
+         EXAMPLE
+
+         theList = list(30, 25, 19, 26, 31, 29, 23)
+
+quartile quartile(theList, 0) will return "19", the lower extreme
+
+         quartile(theList, 1) will return "23", the lower quartile
+
+         quartile(theList, 2) will return "26", the median
+
+         quartile(theList, 3) will return "30", the upper quartile
+
+         quartile(theList, 4) will return "31", the upper extreme
+
+         double sdev(list data)
+sdev
+         Returns the standard deviation of the data values in the list. Data values are assumed to be the entire
+         population (not a sample). Result is the square root of the population variance.
+
+         list sort(Boolean sortAscending, double arg1, double arg2, ...)
+
+         - or -
+
+         list sort(Boolean sortAscending, list dataList)
+
+         This function will sort the list of arguments. All of the arguments must be numeric (or the list must have
+         been composed of only numeric data). Function will return a list that can be used as an argument for choose(
+sort     ).
+
+         sort(TRUE, 1, 14, 3.2, 6, 9) will return 1, 3.2, 6, 9, 14
+
+         - or -
+
+         listOfData = list(12, -3, 5)
+
+         sort(FALSE, listOfData) will return "12, 5, -3"
+
+         double sum(list data)
+sum
+         Returns the sum of the data values in the list.
+
+         double variance(list data)
+
+variance Returns the variance of the data values in the list. Data values are assumed to be the entire population (not
+         a sample). Actual formula used is:
+
+         [1850757615]
+
+
+
+String Functions
+
+ExamView Test Generator provides you with numerous pre-defined string functions to use when defining variables,
+conditions, and user-defined functions.
+
+         int asc(string x)
+asc
+         Computes the ascii value of the first character in the string. If the string is empty, it returns 0.
+
+         string chr(int x)
+
+chr      Returns a string character with the ASCII value of the argument, x. If x is less than 32 or greater than 255,
+         the function will return a question mark. You should use this function to generate characters found only in
+         the Symbol font. Once the variable is inserted into a question or narrative, you need to highlight the
+         variable and change it to Symbol font for it to display properly.
+
+         int instr(string x, string y)
+
+instr    Searches in the string, x, for the sub-string, y. If it finds it, the function will return the position in the
+         string, x, where the first occurrence of y was found (between 1 and the length of string, x). If the substring
+         is not found, the function returns FALSE (0).
+
+         string lcase(string x)
+
+         Converts the string argument, x, to lower case.
+lcase
+         EXAMPLE
+
+         lcase("ExamView") will return "examview"
+
+         string left(string x, int y)
+
+         Returns the first y characters of the string argument, x.
+left
+         EXAMPLE
+
+         left("ExamView", 3) will return "Exa"
+
+         int len(string x)
+len
+         Returns the number of characters in the string argument, x, not counting the null-terminating character.
+
+         string ltrim(string x)
+
+         Trims spaces from the left side of the string argument, x.
+ltrim
+         EXAMPLE
+
+         ltrim(" ExamView ") will return "ExamView "
+
+         string mid(string x, int start, int y)
+
+         Returns y characters starting at the start position in the string argument, x.
+mid
+         EXAMPLE
+
+         mid("ExamView", 2, 4) will return "xamV"
+
+         string right(string x, int y)
+
+         Returns the last y characters of the string argument, x.
+right
+         EXAMPLE
+
+         right("ExamView", 3) will return "iew"
+
+         string rtrim(string x)
+
+         Trims spaces from the right side of the string argument, x.
+rtrim
+         EXAMPLE
+
+         rtrim(" ExamView ") will return " ExamView"
+
+         string sentence(string x)
+
+         Changes string argument, x, into a sentence that can be subdivided using the choose function. This allows us
+         to create a sentence that can word wrap.
+sentence
+         EXAMPLE
+
+         sentence("This is a long sentence that might need to wrap.")
+
+         choose(3, mySentence) to access the 3rd tenth of the variable mySentence.
+
+         string str(double x)
+
+         Returns a string representation of the argument, x.
+str
+         EXAMPLE
+
+         str(18) will return "18"
+
+         string strdup(string x, int numTimes)
+
+         Returns a string by combining the string argument, x, a variable number of times.
+strdup
+         EXAMPLE
+
+         strdup("(2)", 5) will return "(2)(2)(2)(2)(2)"
+
+         string trim(string x)
+
+         Trims spaces from both the left and the right side of the string argument, x.
+trim
+         EXAMPLE
+
+         trim(" ExamView ") will return "ExamView"
+
+         string ucase(string x)
+
+         Converts the string argument, x, to upper case.
+ucase
+         EXAMPLE
+
+         ucase("ExamView") will return "EXAMVIEW"
+
+         double val(string x)
+
+         Returns a numeric representation of the string argument, x.
+
+val      EXAMPLE
+
+         val("18") will return 18
+
+         val("-4") will return -4
+
+
+ 
+
+Trigonometric Functions
+
+ExamView Test Generator provides you with numerous pre-defined trigonometric functions to use when defining variables,
+conditions, and user-defined functions.
+
+        double acos(double x)
+acos
+        Computes the arc cosine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are
+        returned in the range 0 to pi inclusive.
+
+        double acosh(double x)
+acosh
+        Computes the hyperbolic arc cosine of the argument, x. Arguments to the function must be greater than 1.
+
+        double acot(double x)
+acot
+        Computes the arc cotangent of the argument, x.Arguments to the function must not be equal to zero. Values are
+        returned in the range -pi/2 to pi/2 non-inclusive
+
+        double acoth(double x)
+acoth
+        Computes the hyperbolic arc cotangent of the argument, x. Arguments to the function must be less than -1 or
+        greater than 1.
+
+        double acsc(double x)
+acsc
+        Computes the arc cosecant of the argument, x. Arguments to the function must be less than or equal to -1 or
+        greater than or equal to 1. Values are returned in the range -pi/2 to pi/2 non-inclusive
+
+        double acsch(double x)
+acsch
+        Computes the hyperbolic arc cosecant of the argument, x. Arguments to the function must not be equal to zero.
+
+        double arccos(double x)
+arccos
+        Computes the arc cosine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are
+        returned in the range 0 to pi inclusive.
+
+        double arccosh(double x)
+arccosh
+        Computes the hyperbolic arc cosine of the argument, x. Arguments to the function must be greater than 1.
+
+        double arccot(double x)
+arccot
+        Computes the arc cotangent of the argument, x. Arguments to the function must not be equal to zero. Values are
+        returned in the range -pi/2 to pi/2 non-inclusive
+
+        double arccoth(double x)
+arccoth
+        Computes the hyperbolic arc cotangent of the argument, x. Arguments to the function must be less than -1 or
+        greater than 1.
+
+        double arccsc(double x)
+arccsc
+        Computes the arc cosecant of the argument, x. Arguments to the function must be less than or equal to -1 or
+        greater than or equal to 1. Values are returned in the range -pi/2 to pi/2 non-inclusive
+
+        double arccsch(double x)
+arccsch
+        Computes the hyperbolic arc cosecant of the argument, x. Arguments to the function must not be equal to zero.
+
+        double arcsec(double x)
+arcsec
+        Computes the arc secant of the argument, x. Arguments to the function must be less than or equal to -1 or
+        greater than or equal to 1. Values are returned in the range 0 to pi inclusive.
+
+        double arcsech(double x)
+arcsech
+        Computes the hyperbolic arc secant of the argument, x. Arguments to the function must be greater than 0 and
+        less than or equal to 1.
+
+        double arcsin(double x)
+arcsin
+        Computes the arc sine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are
+        returned in the range -pi/2 to pi/2 inclusive.
+
+        double arcsinh(double x)
+arcsinh
+        Computes the hyperbolic arc sine of the argument, x.
+
+        double arctan(double x)
+arctan
+        Computes the arc tangent of the argument, x. Values are returned in the range -pi/2 to pi/2 non-inclusive
+
+        double arctan2(double y, double x)
+arctan2
+        Computes the arc tangent of y / x. This function produces correct results even when the resulting angle is near
+        -pi/2 or pi/2. Values are returned in the range -pi/2 to pi/2 non-inclusive
+
+        double arctanh(double x)
+arctanh
+        Computes the hyperbolic arc tangent of the argument, x. Arguments to the function must be in the range -1 to 1
+        non-inclusive.
+
+        double asec(double x)
+asec
+        Computes the arc secant of the argument, x. Arguments to the function must be less than or equal to -1 or
+        greater than or equal to 1. Values are returned in the range 0 to pi inclusive.
+
+        double asech(double x)
+asech
+        Computes the hyperbolic arc secant of the argument, x. Arguments to the function must be greater than 0 and
+        less than or equal to 1.
+
+        double asin(double x)
+asin
+        Computes the arc sine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are
+        returned in the range -pi/2 to pi/2 inclusive.
+
+        double asinh(double x)
+asinh
+        Computes the hyperbolic arc sine of the argument, x.
+
+        double atan(double x)
+atan
+        Computes the arc tangent of the argument, x. Values are returned in the range -pi/2 to pi/2 inclusive.
+
+        double atan2(double y, double x)
+atan2
+        Computes the arc tangent of y / x. It produces correct results even when the resulting angle is near -pi/2 or
+        pi/2. Values are returned in the range -pi/2 to pi/2 non-inclusive
+
+        double atanh(double x)
+atanh
+        Computes the hyperbolic arc tangent of the argument, x. Arguments to the function must be in the range -1 to 1
+        non-inclusive.
+
+        double cos(double x)
+cos
+        Computes the cosine of the argument, x. The angle is specified in radians. Values are returned in the range -1
+        to 1 inclusive.
+
+        double cosh(double x)
+
+cosh    Computes the hyperbolic cosine of the argument, x. The actual function is:
+
+        [1850774066]
+
+        double cot(double x)
+cot
+        Computes the cotangent of the argument, x. The angle is specified in radians. Arguments to the function must
+        not be equal to zero.
+
+        double coth(double x)
+coth
+        Computes the hyperbolic cotangent of the argument, x. This evaluates to cosh(x) / sinh(x). Arguments to the
+        function must not be equal to zero.
+
+        double csc(double x)
+csc
+        Computes the cosecant of the argument, x. The angle is specified in radians. Arguments to the function must not
+        be equal to zero.
+
+        double csch(double x)
+csch
+        Computes the hyperbolic cosecant of the argument, x. This evaluates to 1 / sinh(x). Arguments to the function
+        must not be equal to zero.
+
+        double deg(double x)
+deg
+        Converts an argument, x, in radians to degrees.
+
+        double rad(double x)
+rad
+        Converts an argument, x, in degrees to radians.
+
+        double sec(double x)
+sec
+        Computes the secant of the argument, x. The angle is specified in radians.
+
+        double sech(double x)
+sech
+        Computes the hyperbolic secant of the argument, x. This evaluates to 1 / cosh(x).
+
+        double sin(double x)
+sin
+        Computes the sine of the argument, x. The angle is specified in radians. Values are returned in the range -1 to
+        1 inclusive.
+
+        double sinh(double x)
+sinh
+        Computes the hyperbolic sine of the argument, x.
+
+        double tan(double x)
+tan
+        Computes the tangent of the argument, x. The angle is specified in radians.
+
+        double tanh(double x)
+tanh
+        Computes the hyperbolic tangent of the argument, x. This evaluates to sinh(x) / cosh(x).
+
+
+Constants
+
+ExamView Test Generator provides you with numerous pre-defined constants to use when defining variables, conditions,
+and user-defined functions.
+
+            [Constant] 2.71828..., used in problems involving growth or decay (or compound interest). Usually defined
+e           by the following equation:
+
+            [1850786721]
+
+false       [Constant] 0.
+
+inf         [Constant] ∞. Can be used to represent positive or negative infinity (INF).
+
+no          [Constant] 0.
+
+pi          [Constant] 3.1415926.... By definition, PI is the ratio of the circumference of a circle to its diameter.
+
+testversion [pseudo constant] Represents the current test version ("A", "B", "C", etc.).
+
+true        [Constant] 1.
+
+yes         [Constant] 1.
+
+
+Math Functions
+
+ExamView Test Generator provides you with numerous pre-defined math functions to use when defining variables,
+conditions, and user-defined functions.
+
+      double abs(double x)
+abs
+      Computes the absolute value of the argument, x.
+
+      double ceil(double x)
+ceil
+      Rounds up. The function finds the smallest integer not less than the argument, x.
+
+      double floor(double x)
+floor
+      Rounds down. The function finds the largest integer not greater than the argument, x.
+
+      double frac(double x)
+frac
+      Returns the fractional part of the argument, x. The return value will always be greater than or equal to 0 and
+      less than 1.
+
+      int int(double x)
+int
+      Returns the integer portion of the argument, x. If x is positive, it rounds down. If x is negative, it rounds up.
+
+      double inv(double x)
+inv
+      Returns the inverse of the argument, x. Actual function is 1 / x. Arguments to the function must not be equal to
+      zero.
+
+      double max(double x, double y)
+max
+      Returns the larger of two values.
+
+      double min(double x, double y)
+min
+      Returns the smaller of two values.
+
+      int rand(int x)
+rand
+      Returns a pseudo-random number in the range 1 to the argument, x, inclusive.
+
+      int sgn(double x)
+sgn
+      If the argument, x, is less than zero, this function returns -1. If the argument, x, is greater than zero, this
+      function returns 1. Otherwise it returns zero.
+
+      double sqr(double x)
+sqr
+      Computes the positive square root of the argument, x. The argument must be greater than or equal to zero.
+
+      double sqrt(double x)
+sqrt
+      Computes the positive square root of the argument, x. The argument must be greater than or equal to zero.
+
+
+Exponential and Logarithmic Functions
+
+ExamView Test Generator provides you with numerous pre-defined exponential and logarithmic functions to use when
+defining variables, conditions, and user-defined functions.
+
+Exponential and Logarithmic Functions
+
+ExamView Test Generator provides you with numerous pre-defined exponential and logarithmic functions to use when
+defining variables, conditions, and user-defined functions.
+
+      double exp(double x)
+exp
+      Calculates the exponential e to the x.
+
+      double ln(double x)
+ln
+      Calculates the natural log of the argument, x. Arguments to the function must be greater than zero.
+
+      double log(double x)
+log
+      Calculates the natural log of the argument, x. Arguments to the function must be greater than zero.
+
+      double log10(double x)
+log10
+      Calculates the base 10 logarithm of the argument, x. Arguments to the function must be greater than or equal to
+      zero.
+
+      double logb(double x, double b)
+
+logb  Calculates the base b logarithm of the argument, x. Arguments to the function must be greater than zero. Actual
+      function is:
+
+      [1850787190]
+
+      double pow(double x, double y)
+pow
+      Calculates x to the power of y.
+
+
+  •  
+  •  
+  •  
+
+Was this article helpful?
+(This article was helpful)Yes (This article was not helpful)No
+2 out of 2 found this helpful
+Return to top
+Main Echo360 Home
+
+Support
+
+  • EchoAuthor
+  • EchoExam
+  • EchoInk
+  • EchoPoll
+  • EchoVideo
+  • PointSolutions
+
+Company
+
+  • The Echosystem
+  • Education
+  • Business
+  • Government
+  • Resources
+  • Company
+  • Downloads
+
+  • Privacy Policy
+  • |
+  • Terms & Conditions
+  • |
+  • Support Policy
+  • |
+  • Feedback Policy
+  • |
+  • Contact
+
+ 
+ 
+ 
+ 

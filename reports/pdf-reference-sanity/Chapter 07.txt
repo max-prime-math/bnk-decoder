@@ -1,0 +1,65 @@
+       Chapter 7: Exponential Functions
+
+
+       MULTIPLE CHOICE
+
+          1. Which set of properties does the function y  2x have?
+             A no x-intercept, no y-intercept                C no x-intercept, y-intercept is 1
+             B x-intercept is 1, no y-intercept              D x-intercept is 0, y-intercept is 0
+              ANS: C               DIF: Easy            OBJ: Section 7.1            NAT: RF9
+              TOP: Characteristics of Exponential Functions
+              KEY: intercepts | exponential function
+
+          2. Which choice best describes the function y  6x ?
+             A both increasing and decreasing               C          increasing
+             B decreasing                                   D          neither increasing nor decreasing
+              ANS: C              DIF: Easy             OBJ: Section 7.1            NAT: RF9
+              TOP: Characteristics of Exponential Functions                         KEY: increasing | decreasing
+
+                                                                         1  x
+          3. Which set of properties is correct for the function y    ?
+                                                                          9
+              A    domain {x| x  R}, range                       C    domain {x| x  R}, range
+                   {y| y  0, y  R}                                   {y| y  0, y  R}
+              B    domain {x| x  R}, range                       D    domain {x| x  R}, range
+                   {y| y  0, y  R}                                   {y| y  0, y  R}
+              ANS: A              DIF: Average          OBJ: Section 7.1            NAT: RF9
+              TOP: Characteristics of Exponential Functions                         KEY: domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           1
+          4. Which exponential equation matches the graph shown?
+
+
+
+
+                          1  x                                          1  x
+              A   y                                  C    y   
+                           8                                               8
+              B   y  8x                                      D    y  8x
+              ANS: A              DIF: Average           OBJ: Section 7.1              NAT: RF9
+              TOP: Characteristics of Exponential Functions
+              KEY: equation | graph | exponential function
+
+          5. A radioactive sample with an initial mass of 1 mg has a half-life of 9 days. What is the equation that
+             models the exponential decay, A, for time, t, in 9-day intervals?
+                       1  t
+             A A                                     C A  29t
+                        2
+                                 9
+                                                                            9
+                          1  t
+              B   A                                  D    A2      t
+
+                           2
+              ANS: A              DIF: Average          OBJ: Section 7.1               NAT: RF9
+              TOP: Characteristics of Exponential Functions
+              KEY: modelling | exponential decay
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              2
+

@@ -1,0 +1,216 @@
+{
+  "generatedAt": "2026-06-13T04:53:17.132Z",
+  "inputDir": "reports/precalc12-decoded-current",
+  "chapterCount": 11,
+  "questionCount": 736,
+  "notDecodedBodyCount": 5,
+  "embeddedBodyCount": 182,
+  "inlineObjectCount": 536,
+  "badChoiceCount": 16,
+  "quality": {
+    "clean": 717,
+    "suspect": 19,
+    "garbage": 0,
+    "averageScore": 97
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 18,
+      "inlineObjects": 50,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "bodyIssues": [
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "graph | inverse of a function",
+          "body": "Which graph represents the inverse of the graph shown? [DIAGRAM: variables (p, q, a)] [graph not decoded yet]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 3,
+      "embeddedBodies": 13,
+      "inlineObjects": 43,
+      "badChoices": 4,
+      "quality": {
+        "clean": 64,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "bodyIssues": [
+        {
+          "number": 8,
+          "id": "q-8",
+          "title": "horizontal translation | vertical translation",
+          "body": "Given the function [math expression not decoded yet], which of the following best describes the translations with respect to the base graph? $5$ units left and $8$ units up."
+        },
+        {
+          "number": 22,
+          "id": "q-22",
+          "title": "graph | square root of a function",
+          "body": "Which graph represents the square root of the graph shown? [DIAGRAM: variables (p, q, a)] [graph not decoded yet]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "relative location",
+          "body": "$f(x) < 0, f(x) = 0, 0 < f(x) < 1, f(x) = 1, f(x) > 1 f(x) > 1$ is undefined, intersects $f(x)$ on the $x-$axis, is above the graph of y $= f(x),$ intersects the graph of y $= f(x),$ is below the graph of y $= f(x)$ is below the graph of y $= f(x)$"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 64,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 5,
+      "inlineObjects": 30,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 12,
+      "inlineObjects": 28,
+      "badChoices": 12,
+      "quality": {
+        "clean": 63,
+        "suspect": 4,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 14,
+      "inlineObjects": 37,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "bodyIssues": [
+        {
+          "number": 19,
+          "id": "q-19",
+          "title": "undefined | tangent function",
+          "body": "Given the trigonometric function $+ 9,$ which is the $x-$coordinate at which the function is undefined?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 40,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 6,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 15,
+      "inlineObjects": 49,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 17,
+      "inlineObjects": 52,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 11,
+      "inlineObjects": 61,
+      "badChoices": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 29,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 8,
+      "inlineObjects": 34,
+      "badChoices": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "bodyIssues": []
+    }
+  ]
+}

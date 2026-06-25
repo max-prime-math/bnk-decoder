@@ -1,0 +1,1147 @@
+       Chapter 11: Permutations, Combinations, and the Binomial Theorem
+
+
+       MULTIPLE CHOICE
+
+          1. What is the value of 6!?
+             A. 46 656                                        C. 21
+             B. 720                                           D. 36
+              ANS: B            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: factorial
+
+          2. The number of different ways that 9 bikes can be locked in a bike rack is
+             A. 3 628 800                                   C. 40 320
+             B. 20 160                                      D. 362 880
+              ANS: D            DIF:       Easy            OBJ: Section 11.1 NAT: PC1
+              TOP: Permutations                            KEY: fundamental counting principle
+
+          3. Evaluate 15 P8 .
+             A. 32 432 400                                    C. 6435
+             B. 163 459 296 000                               D. 259 459 200
+              ANS: D            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: permutations
+
+          4. Solve for the variable:
+             5 P r  20
+             A. 5                                             C. 60
+             B. 2                                             D. 7
+              ANS: B            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: permutations
+
+          5. Solve for the variable:
+             n C 5 = 252
+             A. 15                                            C. 6
+             B. 5                                             D. 10
+              ANS: D            DIF:       Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+          6. An orchestra has 2 violinists, 3 cellists, and 4 harpists. Assume that the players of each instrument
+             have to sit together, but they can sit in any position in their own group. In how many ways can the
+             conductor seat the members of the orchestra in a line?
+             A. 144                                             C. 24
+             B. 72                                              D. 1728
+              ANS: D            DIF:       Average         OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: fundamental counting principle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          7. Evaluate the expression 14 C9 .
+             A. 726 485 760                                   C. 2002
+             B. 240 240                                       D. 126
+              ANS: C            DIF:       Easy            OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+          8. Evaluate the expression 14 C11 14 P3 .
+             A. 2184                                          C. 794 976
+             B. 87 178 291 200                                D. 239 500 800
+              ANS: C                DIF: Average        OBJ: Section 11.1 | Section 11.2
+              NAT: PC2 | PC3        TOP: Permutations | Combinations         KEY: permutations | combinations
+
+          9. Solve for n in the expression n C4 n P4  117 600.
+             A. 8                                             C. 9
+             B. 16                                            D. 8
+              ANS: D                DIF: Average        OBJ: Section 11.1 | Section 11.2
+              NAT: PC2 | PC3        TOP: Permutations | Combinations         KEY: permutations | combinations
+
+         10. After the tryouts for the volleyball team, the coach selects 14 people to join the team. Due to a
+             problem with transportation, only 9 people can travel. In how many ways can the coach pick the
+             people to go?
+             A. 726 485 760                                    C. 630
+             B. 2002                                           D. 126
+              ANS: B            DIF:       Average         OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+         11. Rachael has a digital music player that holds 800 songs. She has 1500 songs in her music library. She
+             decides that her 50 favourite songs must be on the player. Which expression can be used to calculate
+             the number of ways can she load songs on to the MP3 player so that it is full?
+             A. 800 C 50                                     C. 1500 C 50
+             B. 1450 C750                                    D. 1500 C800
+
+              ANS: B            DIF:       Average         OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+         12. For a mock United Nations, 6 boys and 7 girls are to be chosen. If there are 12 boys and 9 girls to
+             choose from, how many groups are possible?
+             A. 846 720                                     C. 960
+             B. 33 264                                      D. 120 708 403 200
+              ANS: B            DIF:       Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             2
+         13. Jenni and Hari go to a local Chinese restaurant for dim sum. If there are 20 items on the menu, and
+             Jenni orders 7 items and Hari orders 11 items, which expression represents the total number of
+             choices between them?
+             A. (11! )(7! )                                   C. 20 P7 20 P11
+                                                                    20!
+             B. 20 C7 20 C11                                 D.
+                                                                   9!13!
+              ANS: B            DIF:         Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                              KEY: combinations
+
+         14. Determine the coefficient, a, for the term ax 5 y 7 of the binomial expansion of (x  y) 12 .
+             A. 35                                              C. 792
+             B. 60                                              D. 3 991 680
+              ANS: C            DIF: Average                 OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem                      KEY: binomial expansion | binomial theorem
+
+         15. For which of the following terms is a = 55 in the expansion of (x + y)11?
+             A. ax 3 y 8                                     C. ax 2 y 9
+              B. ax 8 y 3                                       D. ax 11
+
+              ANS: C            DIF: Average                 OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem                      KEY: binomial expansion | binomial theorem
+
+         16. Determine the 5th term in the expansion of (x  2) 12 .
+              A. 7920x 8                                       C. 202 752x 12
+              B. 7920x 5                                       D. 7920x 8
+              ANS: D            DIF: Difficult               OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem                      KEY: binomial expansion | binomial theorem
+
+         17. Prom’s friend gives him a row of Pascal’s triangle and asks which row it comes from. Prom adds the
+             numbers and obtains a sum of 65 536. Which row do the numbers come from?
+             A. 34                                           C. 17
+             B. 18                                           D. 16
+              ANS: C            DIF: Difficult               OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem                      KEY: Pascal's triangle
+
+         18. How many terms are there in the expansion of (2x  4y) 12 ?
+             A. 6                                          C. 12
+             B. 13                                         D. 11
+              ANS: B               DIF: Average          OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem
+              KEY: Pascal's triangle | binomial expansion | binomial theorem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           3
+         19. Which of the following has 30 terms in its binomial expansion?
+             A. (2y) 29                                    C. (4x  2y) 30
+              B. (4x  2y) 29                                D. (4x  2y) 31
+
+              ANS: B               DIF: Average          OBJ: Section 11.3 NAT: PC4
+              TOP: The Binomial Theorem
+              KEY: Pascal's triangle | binomial expansion | binomial theorem
+
+         20. A scout troop is arranged in a circle for an opening ceremony. If there are 9 scouts, in how many
+             unique ways can they stand around the circle?
+             A. 5040                                          C. 81
+             B. 40 320                                        D. 362 880
+              ANS: B            DIF:       Difficult       OBJ: Section 11.1 NAT: PC1
+              TOP: Permutations                            KEY: factorial | fundamental counting principle
+
+         21. A scout troop is arranged in a circle for an opening ceremony with its leaders. Assuming there are 7
+             troop leaders who stand together for the ceremony and 39 scouts in total, including the troop leaders,
+             in how many unique ways can they be arranged around the circle?
+             A. (32! )(7! )                                   C. (39! )(32! )
+             B. 39 C 32                                       D. 39 C7
+
+              ANS: A            DIF:       Difficult +     OBJ: Section 11.1 NAT: PC1
+              TOP: Permutations                            KEY: factorial | fundamental counting principle
+
+         22. Suppose that 10 non-collinear points are plotted on a plane. Which expression represents the number
+             of triangles that can be formed using these points?
+             A. 10 P7                                         C. 10 C3
+                   10!                                               10!
+             B.                                               D.
+                    3!                                             (10  3)!
+
+              ANS: C            DIF:       Average         OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+         23. The leadership committee at a high school has 4 grade 10 students, 2 grade 11 students, and 6 grade
+             12 students. This year, 12 grade 10, 8 grade 11, and 10 grade 12 students applied for the committee.
+             How many ways are there to select the committee?
+             A. 2 910 600                                     C. 733
+             B. 100 590 336 000                               D. 163 136
+              ANS: A            DIF:       Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations | fundamental counting principle
+
+         24. After a sports, tournament every player shakes hands with every other player once. If there are 36
+             handshakes in total, how many players are at the tournament?
+             A. 18                                           C. 8
+             B. 10                                           D. 9
+              ANS: D            DIF:       Difficult +     OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              4
+         25. While at the dollar store, Peter finds 19 items at $1 each that he wants, but he only has $3. The
+             number of ways he could select which items to buy is
+             A. 19 C0 19 C1 19 C2  19 C 3                   C. ( 19 P0 )( 19 P1 )( 19 P 2 )( 19 P3 )
+             B. ( 19 C0 )( 19 C1 )( 19 C2 )( 19 C3 )           D. 19 P0 19 P1 19 P2 19 P3
+
+               ANS: A            DIF:          Difficult      OBJ: Section 11.2 NAT: PC3
+               TOP: Combinations                              KEY: combinations
+
+
+       COMPLETION
+
+          1. The selection of objects in which order is not important is called a(n) ________________.
+
+               ANS: combination
+
+               DIF: Easy           OBJ: Section 11.1 | Section 11.2 | Section 11.3
+               NAT: PC1 | PC2 | PC3 | PC4
+               TOP: Permutations | Combinations | The Binomial Theorem
+               KEY: combinations | factorial | permutations | Pascal's triangle
+
+          2.   14   P9 can be written in factorial notation as ___________.
+
+                           14!
+               ANS:
+                         (14  9)!
+
+               DIF: Easy           OBJ: Section 11.1 NAT: PC2                      TOP: Permutations
+               KEY: permutations | factorial
+
+          3.   20   C 14 can be written in factorial notation as ______________.
+
+                              20!
+               ANS:
+                         (20  14)!14!
+
+               DIF: Easy           OBJ: Section 11.2 NAT: PC3                      TOP: Combinations
+               KEY: combinations | factorial
+
+          4. The expansion of the binomial (x  y) 10 includes the coefficients in row _____ of Pascal’s triangle.
+
+               ANS: 11
+
+               DIF: Easy          OBJ: Section 11.3 NAT: PC4                       TOP: The Binomial Theorem
+               KEY: binomial expansion | binomial theorem | coefficient
+
+          5. The sum of the numbers in the 13th row in Pascal’s triangle is _________.
+
+               ANS: 4096
+
+               DIF: Average         OBJ: Section 11.3 NAT: PC4                     TOP: The Binomial Theorem
+               KEY: Pascal's triangle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             5
+       MATCHING
+
+               Match each value with the correct expression.
+               A. 7 C4                                       D.     11P7
+                                                                    7!
+               B.        C7                                   E.
+                    11
+                                                                    4!
+                                                                    11!
+               C.       P4                                    F.
+                    7
+                                                                    7!
+          1.   330
+          2.   840
+          3.   1 663 200
+          4.   210
+          5.   35
+
+          1. ANS: B              DIF: Average           OBJ:       Section 11.1 | Section 11.2 | Section 11.3
+             NAT: PC1 | PC2 | PC3                       TOP:       Permutations | Combinations
+             KEY: permutations | combinations | factorial
+          2. ANS: C              DIF: Average           OBJ:       Section 11.1 | Section 11.2 | Section 11.3
+             NAT: PC1 | PC2 | PC3                       TOP:       Permutations | Combinations
+             KEY: permutations | combinations | factorial
+          3. ANS: D              DIF: Average           OBJ:       Section 11.1 | Section 11.2 | Section 11.3
+             NAT: PC1 | PC2 | PC3                       TOP:       Permutations | Combinations
+             KEY: permutations | combinations | factorial
+          4. ANS: E              DIF: Average           OBJ:       Section 11.1 | Section 11.2 | Section 11.3
+             NAT: PC1 | PC2 | PC3                       TOP:       Permutations | Combinations
+             KEY: permutations | combinations | factorial
+          5. ANS: A              DIF: Average           OBJ:       Section 11.1 | Section 11.2 | Section 11.3
+             NAT: PC1 | PC2 | PC3                       TOP:       Permutations | Combinations
+             KEY: permutations | combinations | factorial
+
+
+       SHORT ANSWER
+
+          1. Josie goes to the local submarine sandwich shop. She can choose from 21 types of sandwiches. There
+             are 3 types of cheese, 8 types of vegetables, and 7 types of sauce. Assuming that Josie only chooses
+             one type of cheese, one vegetable, and one sauce for her sandwich, how many choices does she have?
+
+               ANS:
+               Let s represent the number of sandwich choices, c the number of cheese choices, v the number of
+               vegetable choices, and a the number of sauce choices. Let T represent the total number of choices.
+               T  (s)(c)(v)(a)
+                  (21)(3)(8)(7)
+                 3528
+               There are 3528 different choices.
+
+               DIF: Average       OBJ: Section 11.1 NAT: PC1                      TOP: Permutations
+               KEY: fundamental counting principle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            6
+          2. Sun Eui and Pattie are arguing about the number of ways the letters in PERMUTATION and
+             COMBINATION can be rearranged. Sun Eui believes that there are more ways to rearrange
+             PERMUTATION, while Pattie thinks that COMBINATION has more unique arrangements. Which
+             person is correct?
+
+              ANS:
+              Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number
+              of ways the letters in COMBINATION can be arranged.
+                  11!
+              P
+                   2!
+                19 958 400
+                  11!
+              C
+                 2!2!2!
+                 4 989 600
+              There are more arrangements for PERMUTATION, so Sun Eui is correct.
+
+              DIF: Average       OBJ: Section 11.1 NAT: PC1                    TOP: Permutations
+              KEY: fundamental counting principle
+
+          3. Joe wants to travel from his home to school. The school is 6 blocks east and 6 blocks north. How
+             many routes can Joe take from his house to school if he only moves east and north.
+
+
+
+
+              ANS:
+              The number of different routes can be calculated using the following permutation:
+               12!
+                    924
+              6!6!
+              Joe can take one of 924 different routes to travel from home to school.
+
+              DIF: Average      OBJ: Section 11.1 NAT: PC1                     TOP: Permutations
+              KEY: permutations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                        7
+          4. Show that 12 C5 12 C7 .
+
+              ANS:
+                            12!                                                  12!
+              L. S.                                               R. S. 
+                        (12  5)!5!                                          (12  7)!7!
+                        12!                                                  12!
+                                                                        
+                        7!5!                                                 5!7!
+                                                                             12!
+                                                                         
+                                                                             7!5!
+                                                   L.S. = R.S.
+
+              DIF: Average      OBJ: Section 11.2 NAT: PC2                                          TOP: Combinations
+              KEY: combinations
+
+                                                    a b  4
+          5. Use the binomial theorem to expand    .
+                                                    2 3
+
+              ANS:
+               a b  4       4 0                 3 1                   2 2                   1 3                   0 4
+                   C  a    b   C  a    b   C  a    b   C  a    b   C  a    b 
+                 2 3  4 0  2   3  4 1  2   3  4 2  2   3  4 3  2   3  4 4  2   3 
+                                                                                                                      
+                                 a  4  b  0  a  3  b  1  a  2  b  2  a  1  b  3  a  0  b  4
+                                 
+                                     
+                                          
+                                               
+                                                    
+                                                         
+                                                              
+                                                                   
+                                                                        
+                                                                             
+                                                                                  
+                                                                                       
+                                                                                            
+                                                                                                 
+                                                                                                      
+                                                                                                           
+                             1      4      6      4      1    
+                                                                                                            
+                                 2  3            2  3            2  3            2  3            2  3
+                                a 4 a 3 b a 2 b 2 2ab 3 b 4
+                                                   
+                                16   6      6      27    81
+
+              DIF: Average       OBJ: Section 11.3 NAT: PC4                                         TOP: The Binomial Theorem
+              KEY: binomial expansion | binomial theorem
+
+          6. There are 5 men and 8 women available for a 5-person committee. If the committee must have at least
+             one man and one woman, how many possible committees are there?
+
+              ANS:
+              The total number of possible committees is 13 C5  1287.
+              The total number of committees with no men is 8 C5  56. The total number of committees with no
+              women is 5 C5  1.
+              The total number of committees with at least one man and one woman is 1287  56  1 or 1230.
+
+              DIF: Average      OBJ: Section 11.2 NAT: PC3                                          TOP: Combinations
+              KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                                            8
+                                         (2n  2)!
+          7. Simplify the expression                .
+                                        (2n  2)!0!
+
+              ANS:
+               (2n  2)!    1  2  3   (2n  2)(2n  1)(2n)(2n  1)(2n  2)
+                          
+              (2n  1)!0!               1  2  3   (2n  2)(2n  1)  1
+                           (2n)(2n  1)(2n  2)
+                           2n(4n 2  6n  2)
+                           8n 3  12n 2  4n
+
+              DIF: Average           OBJ: Section 11.1 NAT: PC1                      TOP: Permutations
+              KEY: factorial
+
+          8. A neon sign with the words “Espresso Coffee” on it has 5 letters burnt out. In how many ways can you
+             select 3 good letters and 2 burnt-out letters?
+
+              ANS:
+              There are 14 letters in total. 5 of these are burnt out.
+              ( 9 C3 )( 5 C2 )  84  10
+                           840
+              There are 840 ways to select 3 good letters and 2 burnt-out letters.
+
+              DIF: Average      OBJ: Section 11.1 NAT: PC3                           TOP: Combinations
+              KEY: combinations
+
+          9. A math teacher is preparing a quiz for all of the students in grade 12. She wants to give each student
+             the same questions, but have each student’s questions appear in a different order. If there are 128
+             students in the grade 12 class, what is the least number of questions the quiz must contain so everyone
+             gets a test with the questions in a different order.
+
+              ANS:
+              Assume there are two questions on the test. They could appear in 2! possible ways. This can be
+              carried on for additional questions.
+              For 3 questions, there are 3! = 6 possible orders.
+              For 4 questions, there are 4! = 24 possible orders.
+              For 5 questions, there are 5! = 120 possible orders.
+              For 6 questions, there are 6! = 720 possible orders.
+
+              There must be 6 questions for everyone to get a test with the questions in a different order.
+
+              DIF: Average       OBJ: Section 11.1 NAT: PC1                          TOP: Permutations
+              KEY: fundamental counting principle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               9
+         10. Solve for n: n( 10 P2 ) 10 C 8 .
+
+              ANS:
+               n 10 P2 10 C8
+                    10!  10!
+              n         
+                             2!8!
+                     8!     
+                              10!8!
+                       n
+                             10!2!8!
+                             1
+                       n
+                             2!
+                             1
+                       n
+                             2
+
+              DIF: Average        OBJ: Section 11.1 | Section 11.2          NAT: PC1 | PC2 | PC3
+              TOP: Permutations | Combinations         KEY: factorial | permutations | combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                              10
+       PROBLEM
+
+          1. A bingo card has 5 columns. The tops of the columns are labelled with the letters B, I, N, G, and O.
+             Each column contains exactly five numbers, except for the N column, which has a free space in the
+             centre. No numbers repeat on the card. The B column contains numbers from 1 to 15, the I column
+             from 16 to 30, the N column from 31 to 45, the G column from 46 to 60, and the O column from 61 to
+             75.
+             a) How many unique bingo cards can be printed?
+             b) If every Canadian were able to count one card per second, how many years would it take to count
+             all of the cards? Assume the Canadian population is about 34 000 000.
+             c) Suppose the cards are printed on card stock 0.3 mm thick. How many kilometres high would a stack
+             of all of the possible cards be?
+
+              ANS:
+              a) For columns B, I, G, and O, there are 15(14)(13)(12)(11) or 360 360 possible choices. For the N
+              column, there are 15(14)(13)(12) or 32 760 choices.
+              The total number of choices is (360 360) 4 (32 760) or about 5.52  1026.
+                  5.52  1026 cards
+              b)                     1.62  1019 s
+                 34 000 000 cards/s
+                                                          1 h   1 day   1 year 
+                                     (1.62  1019 s)           
+                                                                      24 h   365 days 
+                                                           3600 s                               
+                                       5.14  1011 years
+              It would take about 5.14  1011 years to count all of the cards.
+              c) (5.52  1026 cards)(0.3 mm/card)  1.66  1026 mm
+                                                                      1 km        
+                                                   1.66  1026 mm         6 mm 
+                                                                                     
+                                                                       1  10        
+                                                                                      
+                                                 1.66  1020 km
+              The stack would be 1.66  1020 km high.
+
+              DIF: Average       OBJ: Section 11.1 NAT: PC1                          TOP: Permutations
+              KEY: fundamental counting principle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            11
+          2. A standard deck of playing cards contains 4 suits (spades, clubs, diamonds, and hearts), each with 13
+             cards.
+             a) How many different 5-card hands are possible?
+             b) How many different 5-card hands with only black cards are possible?
+             c) How many different 5-card hands are possible containing at least 3 black cards?
+
+              ANS:
+              a) 52 C5  2 598 960
+              b) There are 26 black cards (spades and clubs), so there are 26 C5 or 65 780 possible hands with only
+              black cards.
+              c) There are 3 possible situations:
+              Case 1: all 5 cards are black:
+                       26 C 5  65 780
+              Case 2: 4 black cards, 1 red card
+                       P(black)  P(red)  ( 26 C4 )( 26 C1 )
+                                          388 700
+              Case 3: 3 black cards, 2 red card
+                      P(black)  P(red)  ( 26 C3 )( 26 C2 )
+                                         845 000
+              The total number of different 5-card hands containing at least 3 black cards is
+              65 780 + 388 700 + 845 000 or 1 299 480.
+
+              DIF: Difficult    OBJ: Section 11.2 NAT: PC3                                         TOP: Combinations
+              KEY: combinations
+
+          3. Expand and simplify: (x  y) 6  (x  y) 6 .
+
+              ANS:
+              (x  y) 6  (x  y) 6
+               x 6  6x 5 y 1  15x 4 y 2  20x 3 y 3  15x 2 y 4  6x 1 y 5  y 6  (x 6  6x 5 y 1  15x 4 y 2  20x 3 y 3  15x 2 y 4  6x 1 y 5  y 6 )
+               12x 5 y  40x 3 y 3  12xy 5
+              or
+               (x  y) 6  (x  y) 6
+               [(x  y) 3  (x  y) 3 ][(x  y) 3  (x  y) 3 ]
+               (x 3  3x 2 y  3xy 2  y 3  x 3  3x 2 y  3xy 2  y 3 )[x 3  3x 2 y  3xy 2  y 3  (x 3  3x 2 y  3xy 2  y 3 )]
+               (2x 3  6xy 2 )(6x 2 y  2y 3 )
+               12x 5 y  4x 3 y 3  36x 3 y 3  12xy 5
+               12x 5 y  40x 3 y 3  12xy 5
+
+              DIF: Average       OBJ: Section 11.3 NAT: PC4                                        TOP: The Binomial Theorem
+              KEY: binomial expansion | binomial theorem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                                          12
+                                                                                                         7!
+          4. The number of different permutations using all of the 1-digit numbers of a set is given by      .
+                                                                                                        3!2!
+              a) What is the smallest number that can be created that meets these conditions? Explain your
+              reasoning.
+              b) What is the difference between the largest number and the smallest number? Explain your
+              reasoning.
+
+              ANS:
+              a) The single digits range from 0 to 9. One digit is used 3 times, one digit is used twice, and the rest
+              are used only once. Since there are seven digits in total, the smallest digits make the smallest number.
+              Therefore, the number is 1 000 123.
+              b) The largest number can be found in a similar way using the largest possible digits. The largest
+              number is 9 998 876. The difference between the numbers is 9 998 876  1 000 123 or 8 998 753.
+
+              DIF: Difficult    OBJ: Section 11.1 NAT: PC2                        TOP: Permutations
+              KEY: permutations
+
+          5. Arrange the following provincial capitals from the least to the greatest number of arrangements of
+             letters: Fredericton, Charlottetown, Edmonton, Victoria, and Winnipeg.
+
+              ANS:
+              Winnipeg and Edmonton have the same number of combinations:
+                           8!
+              Winnipeg:          10 080
+                         2!2!
+                            8!
+              Edmonton:           10 080
+                           2!2!
+                        8!
+              Victoria:      20 160
+                        2!
+                            11!
+              Fredericton:        9 979 200
+                           2!2!
+                                13!
+              Charlottetown:          518 918 400
+                               3!2!
+
+              DIF: Average         OBJ: Section 11.1 NAT: PC1                     TOP: Permutations
+              KEY: factorial | permutations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 13
+          6. Matthew buys a combination lock that uses letters instead of numbers. There are five tumblers on the
+             lock, with the letters from A to T on each tumbler.
+             a) What is the probability that Matthew chooses WATER as the combination?
+             b) How many possible combinations are there if the letters can be repeated?
+             c) If it takes 12 s to test one combination, how long will it take to check all of the combinations in part
+             b) if Matthew forgets his combination? Express your answer in years and months.
+
+              ANS:
+              a) Since W is not one of the letters on the tumblers, the probability is 0.
+              b) 205  3 200 000
+              c) It will take (3 200 000)(12) or 38 400 000 s to check all of the combinations. This is about 1 year
+              and 2.6 months.
+
+              DIF: Difficult    OBJ: Section 11.1 NAT: PC1                        TOP: Permutations
+              KEY: permutations
+
+          7. The chorus of a play has 17 females and 13 males. The director wishes to meet with 6 of them to
+             discuss the upcoming production.
+             a) How many selections are possible?
+             b) How many selections are possible if the group consists of three females and three males?
+             c) One of the male students is named Ajay. How many six-member selections consisting of Ajay, two
+             other males, and three females are possible?
+
+              ANS:
+                               30!
+              a) 30 C6 
+                           (30  6)!6!
+                            30!
+                      
+                           24!6!
+                         593 775
+              There are 593 775 possible ways of selecting 6 members of the chorus.
+                                              17!           13!      
+              b) ( 17 C3 )( 13 C3 )                  
+                                                          
+                                                            (13  3)!3! 
+                                                             
+                                                                            
+                                           (17  3)!3!                    
+                                    680(286)
+                                     194 480
+              There are 194 480 possible ways of selecting three females and three males.
+              c) There is only one way of selecting Ajay. This leaves 12 males left to choose the other two males.
+              (1)( 12 C2 )( 17 C3 )  66(680)
+                               44 880
+              There are 44 880 possible ways to select the group that includes Ajay.
+
+              DIF: Difficult    OBJ: Section 11.2 NAT: PC3                        TOP: Combinations
+              KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   14
+          8. A group of police officers are planning a bike ride in Alberta to raise money for cancer research. They
+             are planning to go to three areas of the province. They want to minimize their travel between areas
+             with possible visits to each of the following communities:
+             Edmonton Area                      Calgary Area                  Lethbridge Area
+             Edmonton                           Calgary                        Lethbridge
+             St. Albert                         Cochrane                       Coalhurst
+             Spruce Grove                       Cranston                       Coaldale
+             Stony Plain                        Chestermere
+             Sherwood Park
+             a) If the group goes to 7 communities in total, how many different schedules can be created if there
+             are no restrictions on which communities they visit in each area?
+             b) If the group must visit all of the communities in the Edmonton Area, 3 in the Calgary area, and 2 in
+             the Lethbridge area, how many different schedules can be created?
+             c) If the group decides that Sherwood Park and Coaldale should not be on the schedule due to
+             distance, how many different schedules can be created if the group visits all of the communities in the
+             Edmonton area, 2 in the Calgary area, and 2 in the Lethbridge area?
+
+              ANS:
+              a) Order will be important in the schedule due to the distances involved. There are 12 possible places
+              to visit:
+                          12!
+              12 P 7 
+                        (12  7)!
+                       3 991 680
+              There are 3 991 680 possible ways to organize the schedule.
+              b) The communities can be organized in the following ways:
+              Edmonton area: 5 P5  120 ways
+              Calgary area: 4 P3  24 ways
+              Lethbridge: 3 P2  6 ways
+              The total number of schedules is 120  24  6 or 17 280.
+              c) Removing Sherwood Park and Coaldale from the schedule changes the number of possible
+              schedules:
+              ( 4 P4 )( 4 P2 )( 2 P2 )  (24)(12)(2)
+                               576
+              There are 576 possible schedules.
+
+              DIF: Average      OBJ: Section 11.2 NAT: PC3                      TOP: Permutations
+              KEY: permutations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               15
+          9. To win the grand prize in lottery A, a player must select all six of the winning numbers drawn from
+             the numbers 1 to 49. To win in lottery B, a player must select all seven of the winning numbers drawn
+             from 1 to 49. Bernadette argues that the chances of randomly selecting the winning number for lottery
+             A are seven times as good as winning for lottery B. Create an argument to agree or disagree with this
+             statement.
+
+              ANS:
+              The total number of possible tickets for lottery A is 49 C6 or 13 983 816.
+              Therefore, the probability of randomly selecting the winning numbers is
+                           1
+              P(A) 
+                      13 983 816
+              The total number of possible tickets for lottery B is 49 C7 or 85 900 584.
+              Therefore, the probability of randomly selecting the winning numbers is
+                           1
+              P(B) 
+                      85 900 584
+              Compare the probabilities:
+                            1
+              P(A)      13 983 816
+                    
+              P(B)          1
+                        85 900 584
+                        85 900 584
+                    
+                        13 983 816
+                     6.14
+              Bernadette is not correct. The probability of winning lottery A is only 6.14 times as great.
+
+              DIF: Difficult    OBJ: Section 11.2 NAT: PC3                        TOP: Combinations
+              KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             16
+         10. Tanya goes to a fast food stand at the beach. There are 4 types of burgers, 3 sizes of French fries, and
+             either orange pop or root beer to drink.
+             a) Create a tree diagram to show the possible choices of lunch if one of each item can be selected.
+             b) In how many ways can Tanya buy 2 burgers, 2 fries, and 2 drinks for her and her friend?
+             c) If Tanya does not like root beer and her friend does not like orange pop, how many possible choices
+             are there?
+
+              ANS:
+              a)
+
+
+
+
+              There are 24 possible choices for lunch.
+              b) The total numbers of ways is (24)(24) = 576.
+              c) Tanya and her friend will both have half of their choices eliminated. The total number of
+              choices is (12)(12) or 144.
+
+              DIF: Easy         OBJ: Section 11.1 NAT: PC1                      TOP: Permutations
+              KEY: tree diagram
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                17
+         11. On a Saturday, Charlie has to go to the library to study for a few hours, and then to the school to play
+             a volleyball game.
+
+
+
+
+              a) How many routes are there for Charlie to go from home to the library if she only moves south and
+              east?
+              b) How many routes are there for her to go from home to school moving only south and east?
+              c) Assuming Charlie moves south and east going from home to school and north and west going from
+              school to home, how many routes are there for her to complete the round trip?
+              d) If Charlie could walk each route from home to school in 40 min, how long would it take her and her
+              22 classmates to walk all of the routes? Consider only the route from home to school, not the round
+              trip.
+
+              ANS:
+                  7!    5040
+              a)      
+                 3!4!   144
+                           35
+              There are 35 possible routes from home to the library.
+                     7!   15! 
+              b)                   
+                               4!11!   (35)(1365)
+                      3!4!              
+                                   47 775
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                18
+              There are 47 775 possible routes from home to school.
+              c) There are 47 775 possible routes in each direction, so the total number of routes from home to
+              school and back is 47 7752 or 2 282 450 625.
+              d) The total time to walk all of the routes for 1 person is (40)(47 775) or 1 911 000 min.
+              Charlie and her classmates (23 people in all) can walk the routes in 1 911 000 ÷ 23 or about
+              83 087.0 min.
+              Convert to days:
+              83 087.0
+                         57.7
+               (60)(24)
+              It would take about 58 days for the 23 students to walk all of the routes from home to school.
+
+              DIF: Difficult      OBJ: Section 11.1 NAT: PC1 | PC2              TOP: Permutations
+              KEY: permutations | fundamental counting principle
+
+         12. Ms. Jackson’s class of 28 students all submitted projects for a recent math fair. The principal asked
+             Ms. Jackson to prepare a display for the upcoming parent–teacher evening.
+             a) In how many ways can 20 of the projects be chosen?
+             b) The principal asks to set the 4 regional winners out of the 20 selected near the entrance of the
+             room. In how many ways can the projects be displayed? Leave your answer in factorial form.
+
+              ANS:
+                             28!
+              a) 28 C20 
+                            20!8!
+                         3 108 105
+              There are 3 108 105 possible ways to choose the 20 projects.
+              b) There are 4! ways to arrange the 4 regional winners, and 16! ways to arrange the other 16. Thus,
+              there are (4!)(16!) ways to display the projects.
+
+              DIF: Average      OBJ: Section 11.1 NAT: PC2                      TOP: Permutations
+              KEY: permutations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             19
+         13. Mr. Williams gives his class a test as part of their final mark for a course. Mr. Williams believes in
+             choice and offers some options to students. How many different options are possible if
+             a) students must complete three of the six questions in the first part and two of the three questions in
+             the second part?
+             b) students must answer three of the questions in the first part and at least two of the three questions
+             in the second part?
+
+              ANS:
+              a) The number of ways of selecting the questions in the first part is 6 C3 or 20.
+              The number of ways of selecting the questions in the second part is 3 C2 or 3.
+              The number of possible question selections is (20)(3) or 60.
+              b) Since the students must answer at least 2 of the questions in the second part, they can answer two
+              or three questions.
+              Case 1: Answer two questions in the second part
+              ( 6 C3 )( 3 C2 )  20(3)
+                                60
+              Case 2: Answer three questions in the second part
+              ( 6 C3 )( 3 C3 )  20(1)
+                           20
+              The number of ways of choosing three of the questions in the first part and at least two questions in
+              the second part is 60 + 20 or 80.
+
+              DIF: Difficult      OBJ: Section 11.2 NAT: PC3                      TOP: Combinations
+              KEY: combinations | cases
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                20
+         14. Seven students (Catherine, Jim, Jerome, Lucia, Lisa, Melinda, and Zyoji) are entered in a debate
+             contest.
+             a) In how many ways can they give their arguments if the following conditions must be met?
+             i) Lucia must go second.
+             ii) Lisa must go first and Zyoji must go second to last.
+             iii) All of the boys go first followed by the girls.
+             iv) All of the girls go first followed by the boys.
+             v) Females and males alternate with a female going first.
+             b) Are there any generalizations you can make from the solutions to part a)i) to v)?
+
+              ANS:
+              a) i) Assume the order is ____, Lucia, ____, ____, ____, ____, ____, where the only spot taken is the
+              second position by Lucia. The number of choices is determined by the number of students remaining
+              for each position:
+               6, Lucia (1), 5, 4, 3, 2, 1
+              Thus, there are 6(5)(4)(3)(2)(1) or 720 ways to organize the students.
+              ii) Assume the order is Lisa, ____, ____, ____, ____, Zyoji, ____, where the only spots taken are the
+              first position by Lisa and the second-last position by Zyoji. The number of choices is determined by
+              the number of students remaining for each position:
+              Lisa (1), 5, 4, 3, 2, Zyoji (1), 1
+              Thus, there are 120 ways to organize the students.
+              iii) There are (3)(2)(1)(4)(3)(2)(1) or 144 different ways if all the boys go first.
+              iv) There are (4)(3)(2)(1)(3)(2)(1) or 144 different ways if all the girls go first
+              v) There are (4)(3)(3)(2)(2)(1)(1) or 144 different ways if boys and girls alternate.
+              b) When determining order, the fundamental counting principal can be used. Any item that must be in
+              a specific position has only one option. All other position have as many options as there are choices
+              that meet the criteria (e.g., boys, girls).
+
+              DIF: Average       OBJ: Section 11.1 NAT: PC1                    TOP: Permutations
+              KEY: fundamental counting principle | conditions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              21
+         15. Simplify.
+                    500 C 400
+             a)
+                    500 C 100
+                    P  
+                     500 400   1 
+             b)                           
+                     500 P100   400 P300 
+                                
+
+                ANS:
+                                     500!
+                   500 C 400   (500  400)!400!
+                a)           
+                   500 C 100         500!
+                               (500  100)!100!
+                                             500!         (500  100)!100! 
+                                                       
+                                                                                
+                                                                                     
+                                        (500  400)!400!            500!
+                                                                                      
+                                       500!   400!100! 
+                                                       
+                                                     500! 
+                                        100!400!             
+                                 1
+                                                               500!                        
+                                                                                           
+                      P                             
+                                                                                             
+                       500 400   1   (500  400)!  
+                                                                                       1          
+                b)                                                                      
+                        500 P100   400 P300          500!           
+                                                                                   400!          
+                                                                                                      
+                                                                              
+                                                            (500  100)!   (400  300)! 
+                                                                                 
+                                                           500!   400!   100! 
+                                                                                   
+                                                                      500!   400! 
+                                                            100!                         
+                                                     1
+
+                DIF: Difficult      OBJ: Section 11.1 | Section 11.2          NAT: PC2 | PC3
+                TOP: Permutations | Combinations         KEY: factorial | permutations | combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                   22
+         16. You have been asked to determine the probability of prizes for a new lottery. The lottery will be called
+             Lotto 5-45.To win a prize, a player must pick numbers from 1 to 45. The number of correct numbers
+             chosen determines the amount won.
+             Correct Numbers              Prize         Probability of Winning
+             5                     Jackpot
+             4                     $1000
+             3                     $10
+             2                     Free Ticket
+             a) Complete the table.
+             b) To win a lottery jackpot in Lotto Fab, a player must chose six numbers from 1 to 49 without
+             repetition. Are the chances of winning the jackpot in Lotto 5-45 better than in Lotto Fab?
+             c) In Lotto Fab, a player also has to choose two correct numbers to win a free ticket. Which lottery has
+             the better chance of winning a free ticket?
+
+              ANS:
+              a) For each of the prizes the probabilities is calculated using
+              favourable cases ( Winning numbers C number picked)( Non-winning numbers C number picked)
+                                
+                 total cases                                    45 C 5
+
+                                         ( Winning numbers C number picked)( Non-winning numbers C number picked)
+                                     
+                                                                      1 221 759
+                Correct           Prize                                        Probability of Winning
+               Numbers
+              6                Jackpot            ( Winning numbers C number picked)( Non-winning numbers C number picked)       ( 5 C5 )( 40 C0 )
+                                                                                                                             
+                                                                                1 221 759                                          1 221 759
+                                                                                                                                1
+                                                                                                                             
+                                                                                                                            1 221 759
+              4                $1,000             ( Winning numbers C number picked)( Non-winning numbers C number picked) ( 5 C4 )( 40 C1 )
+                                                                                                                          
+                                                                                1 221 759                                    1 221 759
+                                                                                                                                200
+                                                                                                                             
+                                                                                                                            1 221 759
+              3                $10                ( Winning numbers C number picked)( Non-winning numbers C number picked) ( 5 C3 )( 40 C2 )
+                                                                                                                          
+                                                                                1 221 759                                    1 221 759
+                                                                                                                               7800
+                                                                                                                             
+                                                                                                                            1 221 759
+              2                Free               ( Winning numbers C number picked)( Non-winning numbers C number picked) ( 5 C2 )( 40 C3 )
+                               Ticket                                                                                     
+                                                                                1 221 759                                    1 221 759
+                                                                                                                                  98 800
+                                                                                                                             
+                                                                                                                                 1 221 759
+                                                                                              1         1
+              b) The probability of winning the jackpot for Lotto Fab is                         or            .
+                                                                                              C
+                                                                                            49 6    13 983 816
+                                         1
+              Since this is less than          , the probability of winning Lotto 5-45 is greater.
+                                     1 221 759
+              c) The probability of winning a free ticket with Lotto Fab is
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                                             23
+              ( Winning numbers C number picked)( Non-winning numbers C number picked)       ( 6 C2 )( 43 C4 )
+                                                                                         
+                                          13 983 816                                          13 983 816
+                                                                                             1 851 150
+                                                                                         
+                                                                                             13 983 816
+                                                                                       0.13
+              The probability of winning a free ticket with Lotto 5/45 is
+              ( Winning numbers C number picked)( Non-winning numbers C number picked) ( 5 C2 )( 40 C3 )
+                                                                                      
+                                            1 221 759                                     1 221 759
+                                                                                              98 800
+                                                                                         
+                                                                                             1 221 759
+                                                                        0.08
+              The probability of winning a free ticket is better with Lotto Fab.
+
+              DIF: Difficult +  OBJ: Section 11.2 NAT: PC3                                               TOP: Combinations
+              KEY: combinations
+
+                                                               5
+                                                        x 
+         17. Expand using the binomial theorem:  x 2   .
+                                                         2
+
+              ANS:
+               2 x  5
+                x  
+                   2 
+                 
+                            x  0       2 4
+                                                x  1        2 3
+                                                                    x  2        2 2
+                                                                                        x  3        2 1
+                                                                                                            x  4        2 0
+                                                                                                                                  x  5
+              5 C 0 (x )    5 C 1 (x )    5 C 2 (x )    5 C 3 (x )    5 C 4 (x )    5 C 5 (x )   
+                         2 5
+                                
+                                              
+                                                   
+                                                                  
+                                                                       
+                                                                                      
+                                                                                           
+                                                                                                          
+                                                                                                               
+                                                                                                                
+                             2                2                 2                 2                 2                   2
+                         5 9 5 8 5 7 5 6 x5
+               x 10      x  x  x  x 
+                         2    2   4   16   32
+
+              DIF: Average       OBJ: Section 11.3 NAT: PC4                                              TOP: The Binomial Theorem
+              KEY: binomial expansion | binomial theorem
+
+         18. Express 16x 4  96x 3 y  216x 2 y 2  216xy 3  81y 4 in the form (ax  by) n .
+
+              ANS:
+              The first term is of the form n C0 (ax) n , or anxn. Since the first term of the expanded binomial is 16x4, a
+              = 2 and n = 4. The last term is in the form nCn(by)n, or bnyn. Since the last term of the expanded
+              binomial is 81y4, and the signs alternate between + and , b = 3.
+
+              Thus, 16x 4  96x 3 y  216x 2 y 2  216xy 3  81y 4  (2x  3y) 4 .
+
+              DIF: Difficult +   OBJ: Section 11.3 NAT: PC4                                              TOP: The Binomial Theorem
+              KEY: binomial expansion | binomial theorem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                             24
+         19. Which of the following binomial expansions has the greater coefficient: the 12th term in the
+             expansion of (2x  2) 13 or the 8th term in the expansion of (3x  2) 10 ?
+
+              ANS:
+              12th term in expansion of (2x  2) 13 :
+              13   C11 (2x) 13  11 (2) 11  78(2x) 2 (2048)
+
+                                           638 976x 2
+              8th term in expansion of (3x  2) 10 :
+                          10  7
+              10 C 7 (3x)        (2) 7  120(3x) 3 (128)
+
+                                 414 720x 3
+              Since 414 720 > 638 976, the 8th term in the expansion of (3x  2) 10 has the greater coefficient.
+
+              DIF: Difficult     OBJ: Section 11.3 NAT: PC4                      TOP: The Binomial Theorem
+              KEY: binomial expansion | binomial theorem
+
+         20. a) If all of the letters in the word ROCKING are used, how many arrangements can be made with all
+             of the vowels together?
+             b) Which word has the greater number of different arrangements: CATCHPHRASE or MISSISSIPPI?
+             c) Is it possible to create a word whose letters can be arranged with exactly 20 possible different
+             arrangements? If so, explain how.
+
+              ANS:
+              a) There are 2 vowels, so they can be considered a single unit since they must be together. These can
+              be arranged in 2! = 2 distinct ways. Therefore, the total number of arrangements is (6!)(2!) or 1440.
+                                        11!                                        11!
+              b) CATCHPHRASE:                  4 989 600         MISSISSIPPI:             34 650
+                                       2!2!2!                                     4!4!2!
+              c) Yes. Examples may vary. Sample answer:
+              A 5-letter word with 5 unique letters will result in 5! = 120 possible combinations.
+                                                     5!
+              If 1 letter repeats 3 times, there are    or 20 possible arrangements
+                                                     3!
+                                                                      6!
+              A 6-letter word with 2 letters repeating 3 times has         or 20 possible arrangements.
+                                                                     3!3!
+
+              DIF: Average      OBJ: Section 11.1 NAT: PC1                       TOP: Permutations
+              KEY: permutations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              25
+

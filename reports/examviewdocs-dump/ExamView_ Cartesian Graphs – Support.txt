@@ -1,0 +1,537 @@
+Chat with us, powered by LiveChat Skip to main content
+Support Help Center home page
+Echo360 Status: 
+
+  • What's New?
+  • Join the Community
+  • Sign in
+
+(Toggle navigation menu)
+
+  • Sign in
+  • 
+  • What's New
+  • Join the Community
+
+ 1. Support
+ 2. ExamView
+ 3. ExamView Test Generator
+
+ExamView: Cartesian Graphs
+
+[6f54bac614]
+Echo360
+
+  • March 13, 2024 18:31
+  • Updated
+
+Sections in Article
+
+Related articles
+
+  • EchoVideo: Universal Capture Recording Quality
+  • EchoVideo: API and SDK Documentation
+  • EchoVideo: Using Swagger Docs UI for API Calls
+  • ExamView: Technical Specifications for Instructors
+  • Adjusting Your GoReact Tool Installation
+
+NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT
+
+As of June 30, 2024, ExamView will officially reach its end of life.
+
+Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no longer be providing updates,
+security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView
+will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security
+vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure
+uninterrupted service, we encourage migrating to EchoExam, which is designed to offer superior security, compatibility,
+and a range of advanced features that align with current technological standards. For questions click here.
+
+Inserting a Cartesian Graph
+
+The graph pictured is a representation of y = e^x.
+
+ 1. Position the cursor at the location where you want to insert the graph.
+ 2. Click Insert from the menu bar, mouse over Graph and select Cartesian.
+
+    A cartesian graph with default properties is inserted, and the Format Graph – Cartesian window opens.
+
+    The Functions tab lets you add, edit, and delete items from the graph. These items include f(x), f(y), Parabola,
+    Circle, Ellipse, Hyperbola, Point(x, y), Segment, Polynomial, Parametric, Normal Curve, Picture, Shape, Pie Chart,
+    Text Box, and Compound.
+
+    The Axes tab lets you change attributes of the horizontal and vertical axes such as the scale (units per tick),
+    ticks per inch, and line styles.
+
+    The View tab lets you change the size and background of the graph, and whether it is centered on a certain value or
+    anchored at the lower left to a certain value.
+
+ 3. Click the Functions tab, select the type of item you want to add from the drop-down menu and click New.
+ 4. To edit existing items, select the description of the item and click Edit (or double-click the description).
+ 5. To delete an item, select the description of the item and click Delete.
+ 6. To change the order of the items on the graph, click the item you want to reorder and drag it to the correct
+    position.
+ 7. Click the Axes tab, enter labels for the horizontal and vertical axes or choose to leave the labels blank. By
+    default, the labels are x and y. Click Font to set the font characteristics of the labels. The font characteristics
+    used for the axes labels are also used for the tick labels.
+    NOTE
+
+    Variables cannot be used as values for the axes labels, units per tick, ticks per inch, ticks per label, width,
+    height, or baseline. Variables can be used to define most of the attributes for the items added to the graph.
+
+ 8. Set the scale (units per tick) for the each axis. Units per tick must be greater than zero.
+ 9. Set the ticks per inch for each axis. Values must be between 1 and 50.
+10. Set the ticks per label for each axis. Values must be between 1 and 99.
+11. Set each axis width. You can hide the axes altogether, or display each axis with a thin or a thick line.
+12. Set the axis colors. To change the color of the axes labels or the tick mark labels, click Font.
+13. By default, each axis displays tick marks and tick-mark labels. To show or hide these click the Show tick
+    marks and Label tick marks check boxes.
+14. Click Zoom In or Zoom Out to quickly change the units per tick for both axes. Zooming in or out automatically
+    applies changes to the graph.
+15. Click Clear to remove the axes labels, tick marks, tick mark labels, and background. This is useful if you are
+    using the graph to display a picture or shape.
+16. Click the View tab, enter a width, height, and baseline (in inches) for the graph.
+17. Select a background style for the graph. The background can be blank, dotted, or lined. If you select a lined or
+    dotted background, you can also choose a color. By default, the background is blank. Lined or dotted backgrounds
+    help define the coordinate system.
+18. Set the center or the lower left of the graph. Enter x, y coordinate values in the appropriate section.
+19. Click the Web tab to enter alternate text to be displayed when the student points to the graph while taking an
+    internet or LAN-based test.
+20. Click Apply to view your changes in the editing window or click OK to record your changes and close the Format
+    Graph – Cartesian window.
+    TIP
+
+    If you inadvertently apply changes that you do not want to the graph, close the Format Graph – Cartesian window,
+    click Edit from the menu bar and select Undo Graph Change. This will cancel all changes made while the window was
+    displayed, including inserting new items.
+
+f(x) or f(y)
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select f(x) or f(y) from the drop-down menu and click New.
+ 3. Enter a function using x or y as the variable. The example shown above shows the function sin(x). Use the same
+    algorithmic syntax used to define variables.
+ 4. Select a relation from the drop-down menu: equals, less than, less than or equal to, greater than, or greater than
+    or equal to.
+
+    The relation determines the line style for the function as well as whether the area above or below the function is
+    shaded.
+
+ 5. Enter the domain of the function. The default domain for functions of x or y is from -inf(infinity) to inf
+    (infinity).
+ 6. Optionally, to display the function only if a certain condition is met, enter the condition in the field
+    following Display function (only if).
+ 7. To change the drawing style for the function, click the Pattern drop-down menu .
+ 8. To change the color of the function, click the Color drop-down menu .
+ 9. To change the style for the shaded region, click the Shading drop-down menu . If the relation is "=", the shading
+    style is not used.
+10. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Function window.
+    NOTE
+
+    Variables can be used anywhere in the function definition or as values for the domain. Click the Add from List
+    button next to the function definition to display a list of currently defined variables, constants, and keywords.
+
+Parabola
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative. To edit an
+    existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+ 2. Click the Functions tab, select Parabola from the drop-down menu and click New.
+ 3. Select a parabola type. The parabola can be open horizontally or vertically, and have the vertex on the origin or
+    on an arbitrary point.
+ 4. Select a relation from the drop-down menu: equals, less than, less than or equal to, greater than, or greater than
+    or equal to.
+
+    The relation determines the line style for the parabola as well as whether the area above or below the parabola is
+    shaded.
+
+ 5. Enter a value for a (the distance between the vertex and the focus).
+    NOTE
+
+    Variables can be used as values for the distance between the vertex and the focus and the vertex coordinates.
+
+ 6. Enter values for h and k (vertex), if the vertex is not on the origin.
+ 7. Enter the domain of the parabola. By default, the domain is from -inf(infinity) to inf(infinity).
+ 8. Optionally, to display the parabola only if a certain condition is met, enter the condition in the field
+    following Display parabola (only if).
+ 9. To change the drawing style for the parabola, click the Pattern drop-down menu .
+10. To change the color of the parabola, click the Color drop-down menu .
+11. To change the style for the shaded region, click the Shading drop-down menu . If the relation is "=", the shading
+    style is not used.
+12. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Parabola window.
+
+Circle
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Circle from the drop-down menu and click New.
+ 3. Select a circle type. The circle can be centered on the origin or on an arbitrary point.
+ 4. Select a relation from the drop-down menu: equals, less than, less than or equal to, greater than, or greater than
+    or equal to.
+
+    The relation determines the line style for the circle as well as whether the area inside or outside the circle is
+    shaded.
+
+ 5. Enter a value for r (the radius).
+    NOTE
+
+    Variables can be used as values for the radius and the center point.
+
+ 6. Enter values for h and k (the center) if the circle is not centered on the origin.
+ 7. Optionally, to display the circle only if a certain condition is met, enter the condition in the field
+    following Display circle (only if ).
+ 8. To change the drawing style for the circle, click the Pattern drop-down menu .
+ 9. To change the color of the circle, click the Color drop-down menu .
+10. To change the style for the shaded region, click the Shading drop-down menu . If the relation is "=", the shading
+    style is not used.
+11. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Circle window.
+
+Ellipse
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Ellipse from the drop-down menu and click New.
+ 3. Select an ellipse type. The ellipse can be centered on the origin or on an arbitrary point.
+ 4. Select a relation from the drop-down menu: equals, less than, less than or equal to, greater than, or greater than
+    or equal to.
+
+    The relation determines the line style for the ellipse as well as whether the area inside or outside the ellipse is
+    shaded.
+
+ 5. Enter values for a (semi-major axis) and b (semi-minor axis).
+ 6. Enter values for h and k (the center) if the ellipse is not centered on the origin.
+ 7. Optionally, to display the ellipse only if a certain condition is met, enter the condition in the field
+    following Display ellipse (only if ).
+ 8. To change the drawing style for the ellipse, click the Pattern drop-down menu .
+ 9. To change the color of the ellipse, click the Color drop-down menu .
+10. To change the style for the shaded region, click the Shading drop-down menu . If the relation is "=", the shading
+    style is not used.
+11. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Ellipse window.
+
+Hyperbola
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative. To edit an
+    existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+ 2. Click the Functions tab, select Hyperbola from the drop-down menu and click New.
+ 3. Select a hyperbola type. The hyperbola can be open horizontally or vertically, and centered on the origin or on an
+    arbitrary point.
+ 4. Select a relation from the drop-down menu: equals, less than, less than or equal to, greater than, or greater than
+    or equal to.
+
+    The relation determines the line style for the hyperbola as well as whether the area inside or outside the curves
+    is shaded.
+
+ 5. Enter values for a (semi-major axis) and b (semi-minor axis).
+    NOTE
+
+    Variables can be used as values for the semi-major axis, the semi-minor axes, the center point, and the domain.
+
+ 6. Enter values for h and k (the center) if the hyperbola is not centered on the origin.
+ 7. Enter the domain of the hyperbola. By default, the domain is from -inf(infinity) to inf(infinity).
+ 8. Optionally, to display the hyperbola only if a certain condition is met, enter the condition in the field
+    following Display hyperbola (only if ).
+ 9. To change the drawing style for the hyperbola, click the Pattern drop-down menu .
+10. To change the color of the hyperbola, click the Color drop-down menu .
+11. To change the style for the shaded region, click the Shading drop-down menu . If the relation is "=", the shading
+    style is not used.
+12. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Hyperbola window.
+
+Point (x, y)
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Point(x,y) from the drop-down menu and click New.
+ 3. Enter coordinates for the point.
+    NOTE
+
+    Variables can be used as values for the coordinates and the label.
+
+ 4. Select a point style. The point style can be none, solid, or hollow.
+ 5. Select a label style. You can have no label, use the coordinates of the point as the label, or optionally enter a
+    text label. Click Font to set the font characteristics for the label.
+ 6. Select a label position. You can select where the label will appear in relation to the point.
+ 7. To display the point only if a certain condition is met, enter the condition in the field following Display point
+    (only if ).
+ 8. To change the color of the point, click the Color drop-down menu . To change the color of the label, click Font.
+ 9. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Point window.
+
+Segment
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Segment from the drop-down menu and click New.
+ 3. Enter the endpoint coordinates for the line segment.
+    NOTE
+
+    Variables can be used as values for the endpoints and the labels.
+
+ 4. For each endpoint, you can select a point style, label style, and label position.
+ 5. To display the segment only if a certain condition is met, enter the condition in the field following Display
+    segment (only if ).
+ 6. To change the drawing style for the segment, click the Pattern drop-down menu.
+ 7. Click the Color drop-down menu to change the color of the segment and the endpoints.
+ 8. To change the color of the labels, click Font.
+ 9. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Segment window.
+
+Parametric Function
+
+Parametric equations provide a convenient way to represent curves on a cartesian graph. With a parametric equation, x
+and y are both determined as a function of a third independent variable ( t ). The following graph shows x = f(t)= 4 *
+cos(t) and y = g(t) = 4 * sin(t). The domain of the function is from 0 to 2 * pi.
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative. To edit an
+    existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+ 2. Click the Functions tab, select Parametric from the drop-down menu and click New.
+ 3. Enter functions for x = f(t) and y = g(t) using t as the variable. Use the same algorithmic syntax used to define
+    variables.
+ 4. Enter the domain of t. By default, t will range from –20 to +20.
+    NOTE
+
+    Variables can be used anywhere in the function definition or as values for the domain.
+
+    Click the Add from List button next to the function definitions to display a list of currently defined variables,
+    constants, and keywords.
+
+ 5. Optionally, to display the functions only if a certain condition is met, enter the condition in the field
+    following Display function (only if).
+ 6. To change the drawing style for the function, click the Pattern drop-down menu .
+ 7. To change the color of the function, click the Color drop-down menu .
+ 8. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Parametric Function window.
+
+Normal Curve
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative. To edit an
+    existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+ 2. Click the Axes tab, choose to hide the tick marks and the tick-mark labels for both the horizontal and vertical
+    axis. In the example, the label for the vertical axis was changed to P(x) and the font for the horizontal axis was
+    changed to regular.
+ 3. Click the View tab, select Set graph left and change the x coordinate to –5.
+ 4. Click the Functions tab, select Normal Curve from the drop-down menu and click New.
+ 5. Enter the mean and standard deviation for the curve. If you want the vertical axis to go through the mean, leave
+    the mean value set to zero.
+    NOTE
+
+    Variables can be used as values for the mean, standard deviation, shading limits, and scaling factor.
+
+ 6. Optionally, for the shade part of the normal curve, select the option to shade curve from and enter the lower and
+    upper limits as a multiple of the standard deviation. In the example, the standard deviation was set to 1, and the
+    shading was set to –1 s to 1 s.
+ 7. Enter the scaling factor. This is used just for display purposes. The scaling factor in the example was set to 12.
+ 8. Optionally, to display the curve only if a certain condition is met, enter the condition in the field
+    following Display curve (only if ).
+ 9. To change the drawing style for the curve, click the Pattern drop-down menu .
+10. To change the color of the curve, click the Color drop-down menu .
+11. To change the style for the shaded region, click the Shading drop-down menu .
+12. Click Apply to view your changes in the editing window or click OK to record your changes and close the New Normal
+    Curve window.
+
+Picture
+
+Picture files, such as bitmap and jpegs, can be added to a Cartesian graph.
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Picture from the drop-down menu and click New.
+ 3. Click Select, navigate to the location of the picture, select it and click Open.
+
+    The default picture type is bitmap (BMP). Click the Files of type box and choose the type of picture files you want
+    to insert. The program supports the following formats: Windows Bitmap (BMP), Graphics Interchange Format (GIF),
+    JPEG (JPG), Macintosh PICT (PCT), Windows Metafile (WMF).
+
+    NOTE
+
+    Pictures inserted into a graph are required to be monochrome (black and white) or 16 color (default PC palette). If
+    a picture is inserted that requires more colors, it will have its colors reduced to 16. It is recommended that only
+    black and white pictures be added to graphs.
+
+ 4. Name your picture.
+ 5. Enter the left x and top y coordinates for the picture or shape.
+ 6. Enter the width and height of the shape.
+    NOTE
+
+    Variables can be used for the picture name, or as values for left x, top y, width, and height.
+
+ 7. To have the program maintain the original aspect ratio of the picture (ratio between the width of the picture and
+    the height). Check Lock aspect ratio. If you turn this option off, you can size the picture to have any aspect
+    ratio you want.
+ 8. To display the picture only if a certain condition is met, enter the condition in the field following Display
+    picture (only if).
+    NOTE
+
+    Most of the time when you are adding a picture or a shape to a Cartesian graph, you will want to clear the axes,
+    background, and labels after your picture is positioned on the graph. With the Format Graph – Cartesian window
+    open, switch to the Axes tab and click Clear.
+
+ 9. There is a preview to see how the picture or shape will look in the graph. Click Apply to view your changes in the
+    editing window or click OK to record your changes and close the New Picture window.
+
+Shapes
+
+Shapes can be added to a Cartesian graph. Over 20 shapes are available. The following shows a Cartesian graph with the
+axes, background, and labels cleared and with a shape named prism added to the graph.
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+    NOTE
+
+    Most of the time when you are adding a picture or a shape to a Cartesian graph, you will want to clear the axes,
+    background, and labels after your picture is positioned on the graph. With the Format Graph – Cartesian window
+    open, switch to the Axes tab and click Clear.
+
+ 2. Click the Functions tab, select Shape from the drop-down menu and click New.
+ 3. Select a shape from the drop-down menu or enter the name of the shape to display on the graph. The shape will be
+    drawn in the preview window.
+ 4. Enter the left x and top y coordinates for the shape.
+ 5. Enter the width and height of the shape.
+    NOTE
+
+    Variables can be used for the values for shape name, left x, top y, width and height.
+
+ 6. To display the shape only if a certain condition is met, enter the condition in the field following Display shape
+    (only if).
+ 7. Select a pattern, color, and shading style for the shape.
+ 8. There is a preview to see how the shape will look in the graph. Click Apply to view your changes in the editing
+    window or click OK to record your changes and close the New Shape window.
+
+Pie Chart
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative. To edit an
+    existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+ 2. Click the Functions tab, select Pie Chart from the drop-down menu and click New.
+ 3. Enter a value for the left x, top y, width, and height.
+    NOTE
+
+    Variables can be used as values for the left x, top y, width, height, degrees, label, explode distance, starting
+    angle, gap, and pie height.
+
+ 4. For each pie slice, enter a size (in degrees). Any slices beyond 360 degrees are not drawn on the screen.
+ 5. Optionally, enter a label and explode distance for any/all of your pie slices. Labels appear to the right of the
+    pie chart. If you enter labels, be sure to set the pie chart width to an amount wide enough that the labels appear.
+    NOTE
+
+    Invalid entries may cause your pie chart to not display. For example, keep the explode distance to a small number.
+    A large explode distance will cause your pie to be so small that it cannot be seen.
+
+ 6. Optionally, change the line pattern, line color, face shading, and face color. With the default settings, each
+    slice will have a different face color.
+ 7. Optionally, change the starting angle, gap, explode direction, pie height, and label style. Changing the pie height
+    will give the pie a 3D appearance.
+ 8. To display the pie chart only if a certain condition is met, enter the condition in the field following Display pie
+    chart (only if).
+ 9. Click Apply to view your changes in the editing window or click OK to record your changes and close the New Pie
+    Chart window.
+
+Text Box
+
+Text boxes can be added to Cartesian graphs as labels for pictures, as labels for axes, or simply to label portions of
+a graph not linked to a particular point or requiring text rotation.
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Text Box from the drop-down menu and click New.
+ 3. Enter the text to display on the graph. Click Font to set the font characteristics and color for the text.
+    NOTE
+
+    Variables can be used to define the text, as the center x and y coordinates, or as the rotation.
+
+ 4. Enter the center x and y coordinates. The text will be drawn with half the text to the left of this point, half to
+    the right, half above, and half below.
+ 5. Enter the text rotation. Leave the rotation set at zero for horizontal text, or enter the number of degrees to
+    rotate the text (counterclockwise from the x axis). For vertical text, set the text rotation to 90 degrees.
+ 6. To display the text only if a certain condition is met, enter the condition in the field following Display text
+    (only if ).
+ 7. Click Apply to view your changes in the editing window or click OK to record your changes and close the New Text
+    Box window.
+
+Compound
+
+The compound function lets you plot a combination of inequalities. The graph pictured shows the result of combining y
+<= x="x" and="and" y="y">= x^2 – 4.</=>
+
+ 1. Insert a Cartesian graph into a question, answer, matching group, rationale, feedback, or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Compound from the drop-down menu and click New.
+
+    To add a compound function, you must have at least two inequalities (less than, less than or equal to, greater
+    than, or greater than or equal to) functions already added to the graph. In the example, the functions y <= x="x"
+    and="and" y="y">= x^2 – 4 have already been added. (These functions were created with shading of None.)</=>
+
+ 3. A checklist is displayed showing all of the items currently added to the graph that can be combined to create a
+    compound function. Click two or more of the existing functions.
+ 4. Optionally, to display the compound function only if a certain condition is met, enter the condition in the field
+    following Display compound function (only if ).
+ 5. To change the color of the compound region, click the Color drop-down menu .
+ 6. To change the shading style for the compound region, Click the Shading drop-down menu .
+ 7. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Compound Function window.
+
+ 
+
+  •  
+  •  
+  •  
+
+Was this article helpful?
+(This article was helpful)Yes (This article was not helpful)No
+0 out of 0 found this helpful
+Return to top
+Main Echo360 Home
+
+Support
+
+  • EchoAuthor
+  • EchoExam
+  • EchoInk
+  • EchoPoll
+  • EchoVideo
+  • PointSolutions
+
+Company
+
+  • The Echosystem
+  • Education
+  • Business
+  • Government
+  • Resources
+  • Company
+  • Downloads
+
+  • Privacy Policy
+  • |
+  • Terms & Conditions
+  • |
+  • Support Policy
+  • |
+  • Feedback Policy
+  • |
+  • Contact
+
+ 
+ 
+ 
+ 

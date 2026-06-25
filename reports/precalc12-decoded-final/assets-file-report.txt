@@ -1,0 +1,24 @@
+reports/precalc12-decoded-final/Chapter 03-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 82 x 190 x 8, image size 15960, cbSize 16154, bits offset 194
+reports/precalc12-decoded-final/Chapter 03-assets/asset-2.bmp:  PC bitmap, Windows 3.x format, 82 x 136 x 8, image size 11424, cbSize 11618, bits offset 194
+reports/precalc12-decoded-final/Chapter 03-assets/asset-3.bmp:  PC bitmap, Windows 3.x format, 82 x 163 x 8, image size 13692, cbSize 13878, bits offset 186
+reports/precalc12-decoded-final/Chapter 04-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 336 x 195 x 8, image size 65520, cbSize 66034, bits offset 514
+reports/precalc12-decoded-final/Chapter 04-assets/asset-10.bmp: PC bitmap, Windows 3.x format, 336 x 336 x 8, image size 112896, cbSize 113810, bits offset 914
+reports/precalc12-decoded-final/Chapter 04-assets/asset-11.bmp: PC bitmap, Windows 3.x format, 256 x 169 x 8, image size 43264, cbSize 43754, bits offset 490
+reports/precalc12-decoded-final/Chapter 04-assets/asset-12.bmp: PC bitmap, Windows 3.x format, 215 x 169 x 8, image size 36504, cbSize 36970, bits offset 466
+reports/precalc12-decoded-final/Chapter 04-assets/asset-13.bmp: PC bitmap, Windows 3.x format, 336 x 182 x 8, image size 61152, cbSize 61590, bits offset 438
+reports/precalc12-decoded-final/Chapter 04-assets/asset-14.bmp: PC bitmap, Windows 3.x format, 208 x 1025 x 4, image size 106600, cbSize 106666, bits offset 66
+reports/precalc12-decoded-final/Chapter 04-assets/asset-15.bmp: PC bitmap, Windows 3.x format, 224 x 104 x 4, image size 11648, cbSize 11714, bits offset 66
+reports/precalc12-decoded-final/Chapter 04-assets/asset-2.bmp:  PC bitmap, Windows 3.x format, 336 x 195 x 8, image size 65520, cbSize 66034, bits offset 514
+reports/precalc12-decoded-final/Chapter 04-assets/asset-3.bmp:  PC bitmap, Windows 3.x format, 276 x 193 x 8, image size 53268, cbSize 54186, bits offset 918
+reports/precalc12-decoded-final/Chapter 04-assets/asset-4.bmp:  PC bitmap, Windows 3.x format, 142 x 176 x 8, image size 25344, cbSize 25542, bits offset 198
+reports/precalc12-decoded-final/Chapter 04-assets/asset-5.bmp:  PC bitmap, Windows 3.x format, 153 x 119 x 8, image size 18564, cbSize 18754, bits offset 190
+reports/precalc12-decoded-final/Chapter 04-assets/asset-6.bmp:  PC bitmap, Windows 3.x format, 159 x 160 x 8, image size 25600, cbSize 25926, bits offset 326
+reports/precalc12-decoded-final/Chapter 04-assets/asset-7.bmp:  PC bitmap, Windows 3.x format, 285 x 166 x 8, image size 47808, cbSize 48150, bits offset 342
+reports/precalc12-decoded-final/Chapter 04-assets/asset-8.bmp:  PC bitmap, Windows 3.x format, 273 x 160 x 4, image size 22400, cbSize 22466, bits offset 66
+reports/precalc12-decoded-final/Chapter 04-assets/asset-9.bmp:  PC bitmap, Windows 3.x format, 673 x 292 x 8, image size 197392, cbSize 198142, bits offset 750
+reports/precalc12-decoded-final/Chapter 05-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 149 x 196 x 8, image size 29792, cbSize 29990, bits offset 198
+reports/precalc12-decoded-final/Chapter 06-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 180 x 118 x 8, image size 21240, cbSize 22318, bits offset 1078
+reports/precalc12-decoded-final/Chapter 10-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 140 x 284 x 8, image size 39760, resolution 5906 x 5906 px/m, cbSize 40838, bits offset 1078
+reports/precalc12-decoded-final/Chapter 11-assets/asset-1.bmp:  PC bitmap, Windows 3.x format, 383 x 302 x 8, image size 115968, resolution 5906 x 5906 px/m, cbSize 117046, bits offset 1078
+reports/precalc12-decoded-final/Chapter 11-assets/asset-2.bmp:  PC bitmap, Windows 3.x format, 356 x 384 x 8, image size 136704, cbSize 137250, bits offset 546
+reports/precalc12-decoded-final/Chapter 11-assets/asset-3.bmp:  PC bitmap, Windows 3.x format, 382 x 679 x 8, image size 260736, resolution 5906 x 5906 px/m, cbSize 261814, bits offset 1078

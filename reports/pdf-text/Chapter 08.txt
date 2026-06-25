@@ -1,0 +1,1175 @@
+       Chapter 8: Logarithmic Functions
+
+
+       MULTIPLE CHOICE
+
+                                                           1  x
+          1. Which graph represents the inverse of y    ?
+                                                            6
+              A.                                                 C.
+
+
+
+
+              B.                                                 D.
+
+
+
+
+              ANS: D            DIF: Easy                    OBJ: Section 8.1 NAT: RF7
+              TOP: Understanding Logarithms                  KEY: graph | inverse
+
+          2. Another way of writing 55  3125 is
+              A. log5 5  3125                                   C. log3125 5  5
+              B. log5 3125  5                                   D. log5 5  3125
+
+              ANS: B            DIF: Easy                    OBJ: Section 8.1 NAT: RF7
+              TOP: Understanding Logarithms                  KEY: logarithm | exponential function
+              NOT: Draft
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                             1
+          3. Which of the following represents a  log7 343?
+              A. 7343  a                                      C. a 7  343
+              B. 7a  343                                      D. a 343  7
+              ANS: B            DIF: Easy                  OBJ: Section 8.1 NAT: RF7
+              TOP: Understanding Logarithms                KEY: logarithm | exponential function
+              NOT: Draft
+
+                                              1
+          4. Another way of writing 73         is
+                                             343
+                          1                                             1 
+              A. log7    343                         C. log7          3
+                                                                                   
+                           3                                               343   
+                           1                                           1 
+              B. log3     343                        D. log7             3
+                                                                                       
+                            7                                               343      
+              ANS: C            DIF: Easy                  OBJ: Section 8.1 NAT: RF7
+              TOP: Understanding Logarithms                KEY: logarithm | exponential function
+              NOT: Draft
+
+          5. Evaluate log4 65 536.
+              A. 4096                                          C. 0.13
+              B. 5.33                                          D. 8
+              ANS: D            DIF: Average               OBJ: Section 8.1            NAT: RF7
+              TOP: Understanding Logarithms                KEY: logarithm
+
+          6. The range of the function f(x)  8log5 [10(x  8)]  9 is
+             A. {y| y  R}                                    C. {y| y  9, y  R}
+             B. {y| y  8, y  R}                             D. {y| y  9, y  R}
+
+              ANS: A             DIF: Easy           OBJ: Section 8.2                  NAT: RF8
+              TOP: Transformations of Logarithmic Functions                            KEY: range | logarithmic functions
+
+          7. The domain of the function f(x)  8log6 [8(x  8)]  7 is
+             A. {x| x  7, x  R}                            C. {x| x  7, x  R}
+             B. {x| x  8, x  R}                           D. {x| x  8, x  R}
+
+              ANS: D              DIF: Average       OBJ: Section 8.2                  NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: domain | logarithmic functions
+
+          8. Compared to the graph of the base function y  log10 x , the graph of the function y  log10 x  4 is
+             translated
+             A. 4 units to the left                         C. 4 units up
+             B. 4 units down                                D. 4 units to the right
+              ANS: C               DIF: Easy             OBJ: Section 8.2              NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: vertical translation | transformation
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    2
+          9. Compared to the graph of the base function y  log7 x , the graph of the function y  log7 (x  6)  7 is
+             translated
+             A. 6 units to the right and 7 units up         C. 7 units to the right and 6 units up
+             B. 7 units to the left and 6 units down        D. 6 units to the left and 7 units down
+              ANS: A              DIF: Average             OBJ: Section 8.2         NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | vertical translation
+
+         10. Compared to the graph of the base function f(x)  log9 x , the graph of the function
+             g(x)  3log9 [3(x  6)]  10 is
+             A. translated down 10 units and left 6 units, C. translated down 10 units and left 6 units,
+                                                         1                                               1
+                  horizontally stretched by a factor of ,        horizontally stretched by a factor of ,
+                                                         3                                               3
+                  reflected in the y-axis, vertically            not reflected in the y-axis, vertically
+                  stretched by a factor of 3, and                stretched by a factor of 3, and
+                  reflected in the x-axis                        not reflected in the x-axis
+             B. translated down 10 units and right 6        D. translated up 10 units and left 6 units,
+                  units, horizontally stretched by a factor                                              1
+                                                                 horizontally stretched by a factor of ,
+                     1                                                                                   3
+                  of , reflected in the y-axis, vertically
+                     3                                           not reflected in the y-axis, vertically
+                  stretched by a factor of 3, and                stretched by a factor of 3, and
+                  not reflected in the x-axis                    not reflected in the x-axis
+              ANS: C               DIF: Average            OBJ: Section 8.2         NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal stretch | vertical translation | reflection
+
+         11. Which function represents a vertical translation of 7 units down, a horizontal translation of 8 units
+                                                       1
+             right, a horizontal stretch by a factor of , no reflection in the y-axis, a vertical stretch by a factor of
+                                                       6
+             6, and no reflection in the x-axis, when compared to the base function f(x)  log9 x .
+                                           
+                                 1                                                           
+             A. g(x)  6log9  x  8   7             C. g(x)  6log9  6x  7   8
+                                  6         
+                          1                                                                  
+             B. g(x)  log9  6x  8   7             D. g(x)  6log9  6x  8   7
+                          6
+              ANS: D               DIF: Average            OBJ: Section 8.2         NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal stretch | vertical translation | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   3
+         12. Which graph represents the function y  log8 (x  2)  4 ?
+             A.                                              C.
+
+
+
+
+              B.                                               D.
+
+
+
+
+              ANS: B              DIF: Average             OBJ: Section 8.2       NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | vertical translation
+
+         13. What is the equation for the asymptote of the function f(x)   log7 [5(x  2)]  3 ?
+             A. x = 2                                        C. x = –5
+             B. x = –3                                       D. x = –2
+              ANS: D              DIF: Average        OBJ: Section 8.2            NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | asymptote
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                              4
+         14. Which graph represents the function y  3log3 [(x  2)]  3?
+             A.                                             C.
+
+
+
+
+              B.                                                 D.
+
+
+
+
+              ANS: D              DIF: Average             OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | vertical translation | vertical stretch | horizontal stretch
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                   5
+                                                          1
+         15. Which graph represents the function y         log (x  3)  4?
+                                                          3 4
+              A.                                                 C.
+
+
+
+
+              B.                                                 D.
+
+
+
+
+              ANS: B              DIF: Average             OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | vertical translation | vertical stretch
+
+         16. Which of the following is equivalent to the expression log4 s  7log4 v  log4 z ?
+              A. log4 sv 7 z                                     C. log4 7svz
+              B. 7log4 svz                                       D. log4 sz  log28 v
+
+              ANS: A            DIF: Easy                    OBJ: Section 8.3 NAT: RF9
+              TOP: Laws of Logarithms                        KEY: product law | laws of logarithms
+
+                                                                                                                5
+         17. If log3  s , log5  v , and log7  z , an algebraic expression in terms of s, v, and z for log       is
+                                                                                                               441
+              A. v  2s + 2z                                     C. v  2(s  z)
+              B. v  2(s + z)                                    D. v  2s + z
+              ANS: B            DIF: Average                 OBJ: Section 8.3 NAT: RF9
+              TOP: Laws of Logarithms                        KEY: product law | laws of logarithms | quotient law
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                6
+         18. Which if the following is equivalent to the expression log4 sw10 y ?
+             A. log4 s  10log4 w  log4 y                   C. log4 s  log4 w  10log4 y
+             B. 10log4 s  10log4 w  log4 y                 D. 10log4 s  log4 w  log4 y
+
+              ANS: A            DIF: Easy                  OBJ: Section 8.3 NAT: RF9
+              TOP: Laws of Logarithms                      KEY: product law | laws of logarithms
+
+         19. Evaluate the expression 6log8 25  (log8 3  log8 8) to the nearest hundredth.
+             A. 7.76                                            C. 10.82
+             B. 9.76                                            D. 7.01
+              ANS: A            DIF: Easy                  OBJ: Section 8.3 NAT: RF9
+              TOP: Laws of Logarithms                      KEY: product law | laws of logarithms | quotient law
+
+         20. The pH scale is used to measure the acidity or alkalinity of a solution. pH is defined as
+             pH  logH   , where [H  ] is the concentration of hydronium ions, measured in moles per litre.
+             Determine the pH of a solution with a concentration of H    4.3  106 . Round your answer to two
+             decimal places.
+             A. 6.00                                            C. 0.78
+             B. 5.37                                            D. 3.52
+              ANS: B             DIF: Easy         OBJ: Section 8.1 | Section 8.3
+              NAT: RF7 | RF9     TOP: Understanding Logarithms | Laws of Logarithms
+              KEY: logarithmic equation
+
+         21. Solve log3 x  log3 2  log3 3.
+                                                                        2
+              A. x = 6                                         C. x =
+                                                                        3
+                       3
+              B. x =                                           D. x = 729
+                       2
+              ANS: A             DIF: Average         OBJ: Section 8.4            NAT: RF10
+              TOP: Logarithmic and Exponential Equations                          KEY: logarithmic equation
+
+         22. Solve 102x  5  7x  4 . Round your answer to two decimal places.
+             A. 3.06                                           C. 2.95
+             B. 7.26                                           D. –1.40
+              ANS: B             DIF: Average           OBJ: Section 8.4          NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: logarithmic equation | exponential equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             7
+         23. A graduate student determines that the relationship between the length, s, in metres, of the skull and
+             the body mass, m, in kilograms, of a particular species can be expressed using the equation
+             3.6045logs  logm  3.4425. Determine the body mass of an animal with a skull size of 0.56 m. Round
+             your answer to the nearest kilogram.
+             A. 547 kg                                        C. 343 kg
+             B. 376 kg                                        D. 313 kg
+              ANS: C             DIF: Average           OBJ: Section 8.4       NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: exponential equation | logarithmic equation
+
+         24. Solve log(3x  15)  1  log(x  3) to the nearest hundredth.
+             A. –6.43                                          C. 1.15
+             B. 3.46                                           D. –2.14
+              ANS: D             DIF: Average         OBJ: Section 8.4         NAT: RF10
+              TOP: Logarithmic and Exponential Equations                       KEY: logarithmic equation
+
+         25. Solve 8x  486. Round your answer to two decimal places.
+             A. 3.59                                      C. 1.78
+             B. 2.97                                      D. 0.34
+              ANS: B             DIF: Easy            OBJ: Section 8.4         NAT: RF10
+              TOP: Logarithmic and Exponential Equations                       KEY: exponential equation
+
+         26. The eye size of many vertebrates is related to body mass by the logarithmic equation
+             logE  log10.61  0.1964logm, where E is the eye axial length, in millimetres, and m is the body mass,
+             in kilograms. Predict the mass of a vertebrate with an eye axial length of 43 mm. Round your answer
+             to the nearest hundredth of a kilogram.
+             A. 2.66                                          C. 1242.98
+             B. 868.60                                        D. 1.32
+              ANS: C             DIF: Difficult         OBJ: Section 8.1 | Section 8.4
+              NAT: RF10 | RF7 TOP: Understanding Logarithms | Logarithmic and Exponential Equations
+              KEY: exponential equation | logarithmic equation
+
+
+       COMPLETION
+
+          1. The function y  9log6 [10(x  6)]  8 written in exponential form is ________________ .
+
+                              y               
+                                                
+                                   8 / 9 
+                                    9            
+                         6                         
+              ANS: x                                   6
+                                   10
+
+              DIF: Average        OBJ: Section 8.1 NAT: RF7 | RF10             TOP: Understanding Logarithms
+              KEY: logarithmic functions | exponential function                NOT: draft
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              8
+          2. The variable k in the function f(x)  a logc [b(x  h)]  k represents ________________.
+
+              ANS: a vertical translation
+
+              DIF: Easy           OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: logarithmic functions | transformation
+
+          3. The graph of g(x)  logc (x  6) is the graph of f(x) translated ____________________.
+
+              ANS: right 6 units
+
+              DIF: Easy           OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: horizontal translation | vertical translation
+
+          4. The domain of the function f(x)  5log8 [9(x  9)]  4 is ____________________.
+
+              ANS: {x| x  9, x  R}
+
+              DIF: Easy           OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: domain | horizontal translation   NOT: Draft
+
+          5. The equation logc M P  Plogc M is an example of the ____________ law of logarithms.
+
+              ANS: power
+
+              DIF: Easy           OBJ: Section 8.3         NAT: RF9             TOP: Laws of Logarithms
+              KEY: laws of logarithms
+
+
+       MATCHING
+
+              Match the single logarithm in simplest form with the correct equivalent expression.
+              A. log7 s  log7 u  3log7 x                   D. 8 / 3log7 u  8log7 s  3log7 x
+              B. 8log7 s  log7 u  3log7 x                  E. 8log7 s  8 / 3log7 u  3log7 x
+              C. 8 / 3log7 u  8log7 s  3log7 x             F. 8log7 s  8 / 3log7 u  3log7 x
+
+                    u8 / 3
+          1. log7
+                    s8 x 3
+                    sx 3
+          2. log7
+                     u
+                    u8 / 3 x3
+          3. log7
+                      s8
+                    s8 x 3
+          4. log7
+                    u8 / 3
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  9
+                    s8
+          5. log7
+                    ux 3
+
+          1. ANS: C            DIF:              Easy             OBJ: Section 8.3 NAT: RF9
+             TOP: Laws of Logarithms                              KEY: power law | product law | quotient law
+          2. ANS: A            DIF:              Easy             OBJ: Section 8.3 NAT: RF10
+             TOP: Laws of Logarithms                              KEY: power law | product law | quotient law
+          3. ANS: D            DIF:              Easy             OBJ: Section 8.3 NAT: RF9
+             TOP: Laws of Logarithms                              KEY: power law | product law | quotient law
+          4. ANS: E            DIF:              Easy             OBJ: Section 8.3 NAT: RF9
+             TOP: Laws of Logarithms                              KEY: power law | product law | quotient law
+          5. ANS: B            DIF:              Easy             OBJ: Section 8.3 NAT: RF9
+             TOP: Laws of Logarithms                              KEY: power law | product law | quotient law
+
+
+       SHORT ANSWER
+
+          1. Evaluate log2 4 32 .
+
+              ANS:
+              5
+              4
+
+              DIF: Average              OBJ: Section 8.1          NAT: RF7            TOP: Understanding Logarithms
+              KEY: logarithm            NOT: Draft
+
+                                                     1
+          2. Evaluate log2 64  log3 27  log4          .
+                                                    256
+
+              ANS:
+                                           1 
+              log2 64  log3 27  log4         6  3(4)
+                                                  
+                                            256   
+                                                  6  12
+                                                  6
+
+              DIF: Difficult      OBJ: Section 8.1                NAT: RF7            TOP: Understanding Logarithms
+              KEY: logarithm | exponential function               NOT: Draft
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              10
+          3. If log4 (m  n)  0 and log4 (m  n)  2, determine the values of m and n.
+
+              ANS:
+              Solve the system of equations:
+              m  n  40 and m  n  42
+              m n  1
+              m  n  16
+              Add these equations to find m:
+              2m  17
+               m  8.5
+              Subtract the first equation from the second to find n:
+              2n  15
+               n  7.5
+
+              DIF: Difficult      OBJ: Section 8.1 NAT: RF7                          TOP: Understanding Logarithms
+              KEY: logarithm | simultaneous equations
+
+          4. Sketch the graph of the function y  2log(x  4)  1.
+
+              ANS:
+
+
+
+
+              DIF: Average       OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: transformations | vertical translation | horizontal translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             11
+          5. Sketch the graph of the function y  log(3x  9)  2.
+
+              ANS:
+
+
+
+
+              DIF: Difficult     OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: transformation | vertical translation | horizontal translation | horizontal stretch
+
+          6. Graph the function f(x)  log(x  2)  1. Identify the domain, the range, and the equation of the
+             vertical asymptote.
+
+              ANS:
+
+
+
+
+              domain: {x| x  2,x  R}
+              range: {y| y  R}
+              equation of vertical asymptote: x = –2
+
+              DIF: Difficult     OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: transformation | vertical translation | asymptote | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          12
+          7. A certain type of exponential growth can be described by the equation N  N 0 10kt , where N 0 is the
+             initial amount; k is the doubling time, in years; and N is the amount after time, t, in years, has passed.
+             Suppose that the population of a small town doubles every 25 years. How long does it take to triple, to
+             the nearest tenth of a year?
+
+              ANS:
+              First solve for k.
+                 N  N0 10kt
+                                   k(25)
+              2N 0  N0 10
+
+                  2  1025k
+              log2  25k log10
+                     log2
+                  k
+                      25
+              Solve for t when N  3N 0 .
+                                     log 2 
+                                                
+                                                  t
+                                           25 
+              3N 0  N 0 10                         
+
+
+                            log 2 
+                                       
+                                         t
+                                  25 
+                  3  10                   
+
+
+                        log2 
+                                
+              log3            t
+                         25 
+                                 
+                          25 
+                  t           log3
+                                   
+                           log2    
+                  t  39.62
+              It will take 39.6 years for the population to triple.
+
+              DIF: Difficult +    OBJ: Section 8.3 | Section 8.4              NAT: RF9
+              TOP: Laws of Logarithms | Logarithmic and Exponential Equations
+              KEY: power law | law of logarithms | logarithmic equation | exponential equation
+
+          8. Given log2 7  2.8074, find the value of log2 14.
+
+              ANS:
+              log2 14  log2 (2  7)
+                        log2 2  log2 7
+                        1  2.8074
+                        3.8074
+
+              DIF: Difficult      OBJ: Section 8.3           NAT: RF9             TOP: Laws of Logarithms
+              KEY: power law | laws of logarithms
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  13
+          9. Solve the equation 63x  1  22x  3 . Leave your answer in exact form.
+
+              ANS:
+                           63x  1  22x  3
+                     log(63x  1 )  log(22x  3 )
+                   (3x  1) log6  (2x  3) log2
+                 3x log6  log6  2x log2  3log2
+              x(3log6  2log2)  3log2  log6
+                                     (3log2  log6)
+                                x
+                                     3log6  2log2
+
+              DIF: Average       OBJ: Section 8.3 | Section 8.4            NAT: RF9
+              TOP: Laws of Logarithms | Logarithmic and Exponential Equations
+              KEY: exponential equation | laws of logarithms
+
+         10. Solve for x.
+             2log4 (x  4)  log4 (x  12)  1
+
+              ANS:
+              2log4 (x  4)  log4 (x  12)  1
+
+              log4 (x  4) 2  log4 (x  12)  1
+
+                                 (x  4) 2
+                            log4            log4 41
+                                 (x  12)
+
+                                   (x  4) 2
+                                             4
+                                   (x  12)
+
+                                   (x  4) 2  4x  48
+                             x 2  8x  16  4x  48
+                             x 2  4x  32  0
+                            (x  8)(x  4)  0
+                                       x  8, x  4
+              Since x = –8 is an extraneous root, the solution is x = 4.
+
+              DIF: Average       OBJ: Section 8.4 NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: logarithmic equation | laws of logarithms                      NOT: Draft
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                       14
+       PROBLEM
+
+                                                                                                         V 
+          1. Dye spilled in a bucket of water mixes with the water at a rate defined by R  236log  , where R
+                                                                                                          80 
+             is the intensity of the dye and V is the volume of dye spilled, in millilitres. What is the intensity of the
+             mixture if 50 mL of dye was spilled? Round your answer to two decimal places.
+
+              ANS:
+                                                                V 
+              Substitute V = 50 into the formula R  236log  and solve for R.
+                                                                 80 
+              R 48.17
+
+              DIF: Average                  OBJ: Section 8.1    NAT: RF7           TOP: Understanding Logarithms
+              KEY: logarithm                NOT: Draft
+
+                                                                     A 
+          2. The magnitude of an earthquake is defined as M  log        , where A is the amplitude of the ground
+                                                                              
+                                                                      A0 
+             motion and A 0 is the amplitude corrected for the distance from the actual earthquake that would be
+              expected for a “standard earthquake.” On March 2, 2012, an earthquake with an amplitude 105.1 times
+              A0 was recorded in Norman Wells, Northwest Territories.
+              a) What was the earthquake’s magnitude on the Richter scale?
+              b) How does the earthquake in Norman Wells compare to the earthquake off Vancouver Island in
+              1946 that measured 7.3 on the Richter scale?
+
+              ANS:
+                            105.1 A 
+                                    0 
+              a) M  log           
+                                        
+                             A0 
+                                       
+                 M  log105.1
+                M  5.1
+              The earthquake in Norman Wells measured 5.1 on the Richter scale.
+
+                                              7.3
+                 Vancouver Island amplitude 10 A0
+              b)                            5.1
+                  Norman Wells amplitude    10 A0
+
+                                                        107.3
+                                                    
+                                                        105.1
+                                             158
+              The earthquake off Vancouver Island was about 158 times as strong as the earthquake off Norman
+              Wells.
+
+              DIF: Average                  OBJ: Section 8.1    NAT: RF7           TOP: Understanding Logarithms
+              KEY: logarithm                NOT: Draft
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    15
+          3. List the steps and explain the effect of each transformation to graph the function
+                                       
+             y  3log 2x  1   4 .
+
+              ANS:
+              1. vertically stretched by a factor of 3
+                                                          1
+              2. horizontally compressed by a factor of     ,
+                                                          2
+              3. reflected in both the x- and y-axes
+              4. translated 1 unit right and 4 units up
+
+              DIF: Average       OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: transformations | logarithmic functions
+
+          4. Given log7  0.8451 and log2  0.3010, find the value of log28.
+
+              ANS:
+              log28  log(7  22 )
+                     log7  2log2
+                     0.8451  2(0.3010)
+                     1.4471
+
+              DIF: Difficult     OBJ: Section 8.3               NAT: RF9         TOP: Laws of Logarithms
+              KEY: power law of logarithms
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                   16
+                                                                            
+          5. a) Sketch the graph of the function f(x)  3log 2x  1   4. Identify the key features.
+              b) Identify the domain and range.
+              c) Identify the equation of the vertical asymptote.
+
+
+
+
+              ANS:
+              a)
+
+
+
+
+              b) domain: {x| x  1, x  R }; range: { y| y  R }
+              c) x = 1
+
+              DIF: Difficult     OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions
+              KEY: transformation | domain | range | asymptote
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                         17
+                                                                                      I 
+          6. The intensity level, , in decibels, of sound is defined as   10log  , where I is the intensity of the
+                                                                                       I 0 
+             sound in watts per square metre.The ratio of the intensity of sound pollution measured at a small
+             airport runway versus that of the local highway is 6420.4. If the sound level on the local highway is 91
+             dB, determine the sound level on the runway, to the nearest decibel.
+
+              ANS:
+              Let 1 represent the sound intensity at the airport and 2 represent the sound intensity on the highway.
+                                I              I 
+                                 1              2
+              1  2  10log   10log 
+                                            
+                                  I0              I0 
+                                                  
+                                  I 
+                                   1 
+                                             
+                                     I 
+                                      0 
+              1  2  10log               
+                                       I 2 
+                                              
+                                         I 
+                                          0 
+                                               
+                                 I 
+                                  1
+              1  2  10log 
+                                  I2 
+                                  
+              1  91  10log(6420.4)
+                   1  10log6420.4  91
+                  1  129
+              The sound level on the runway is 129 dB.
+
+              DIF: Difficult      OBJ: Section 8.3           NAT: RF9                TOP: Laws of Logarithms
+              KEY: laws of logarithms
+
+          7. Find the difference in pH levels of a swimming pool with a hydronium ion concentration of 4.4  108
+             mol/L and a swimming pool with a hydronium ion concentration of 5.7  108 mol/L, to the nearest
+             hundredth.
+
+              ANS:
+              Find the pH of each pool individually, and then subtract.
+              Pool 1: pH  log(4.4  108 )
+                          7.36
+              Pool 2: pH  log(5.7  108 )
+                            7.24
+
+              The difference in pH is 0.12.
+
+              DIF: Difficult      OBJ: Section 8.3           NAT: RF9                TOP: Laws of Logarithms
+              KEY: laws of logarithms
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                        18
+                                                                                                              b 
+                                                                                                               1
+          8. The stellar magnitude scale compares the brightness of stars using the equation m2  m1  log  ,
+                                                                                                               b2 
+                                                                                                               
+             where m1 and m2 are the apparent magnitudes (how bright the stars appear in the sky) of the two stars
+             being compared, and b 1 and b 2 are their brightness (how much light they emit).
+             a) The brightest appearing star in our sky, Sirius, has an apparent magnitude of 1.5. How much
+             brighter does Sirius appear than Betelgeuse, whose apparent magnitude is 0.12? Round your answer to
+             the nearest whole number.
+             b) The Sun appears about 1.31010 times as bright in the sky as does Sirius. What is the apparent
+             magnitude of the Sun, to the nearest tenth?
+
+              ANS:
+              Let m1 represent the apparent magnitude of Sirius, b1 represent the brightness of Sirius, m2 represent
+              the apparent magnitude of the Sun, and b2 represent the brightness of the Sun.
+                                     b 
+                                      1
+              a) m2  m1  log 
+                                      b2 
+                                      
+                                      b 
+                                       1
+                 0.12  1.5  log 
+                                       b2 
+                                       
+                                       b 
+                                        1
+                      1.62  log 
+                                        b2 
+                                        
+                               b1
+                    101.62 
+                               b2
+
+                       b1
+                           41.69
+                       b2
+              Sirius is approximately 42 times as bright as the Sun.
+                                  b 
+                                   2
+              b) m1  m2  log 
+                                   b1 
+                                   
+                 1.5  m2  log(1.31010 )
+                       m2  1.5  10.11
+                      m2  11.61
+              The apparent magnitude of the Sun is –11.6.
+
+              DIF: Difficult     OBJ: Section 8.1 | Section 8.3 | Section 8.4
+              NAT: RF7 | RF9
+              TOP: Understanding Logarithms | Laws of Logarithms | Logarithmic and Exponential Equations
+              KEY: logarithmic equation | exponential function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                19
+          9. Prove that loga  loga 2  loga 3  loga 6  log1 .
+
+              ANS:
+              L. S.  loga  loga 2  loga 3  loga 6              R. S.  log1
+                    loga  2loga  3loga  6loga                       0
+                    (1  2  3  6) loga
+                    0loga
+                   0
+
+                                                                L.S. = R.S.
+              Thus, log5  log5  log5  log5  log1 .
+                                        2       3        6
+
+
+
+              DIF: Average        OBJ: Section 8.3              NAT: RF9          TOP: Laws of Logarithms
+              KEY: power law | laws of logarithms
+
+                                 1
+         10. Show that                   logb a.
+                               loga b
+
+              ANS:
+                           1
+              L. S.                           R. S.  logb a
+                        loga b
+
+                    1  loga b
+                               logb
+                    1
+                               loga
+                               loga
+                    1
+                               logb
+
+                    logb a
+                                      L.S. = R.S.
+                          1
+              Thus,               logb a.
+                        loga b
+
+              DIF: Difficult +   OBJ: Section 8.3 NAT: RF9                        TOP: Laws of Logarithms
+              KEY: change of base formula | laws of logarithms
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                    20
+                                                   1
+         11. Show that 3log          x  2logx      logx  3logx .
+                                                   2
+
+              ANS:
+              L. S.  3log       x  2logx  log    x                 R. S.  3logx
+                             3                1
+
+                    logx  logx  logx
+                             2          2     2
+
+                           3 
+                                      
+                             2 2 
+                              x x 
+                    log 1 
+                                      
+                                2 
+                                 x 
+                             3      1
+                               2 
+                    logx    2      2
+
+
+                    logx 3
+                    3logx
+                                   L.S. = R.S.
+                                            1
+              Thus, 3log         x  2logx  logx  3logx .
+                                            2
+
+              DIF: Average        OBJ: Section 8.3 NAT: RF9                    TOP: Laws of Logarithms
+              KEY: laws of logarithms | power law | quotient law | product law
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                 21
+         12. Sketch the graphs of y  log 1 x , y  log 1 x , and y  log 1 x , and then describe the pattern in terms of n
+                                            2           3                4
+
+              for y  log 1 x .
+                           n
+
+
+
+              ANS:
+
+
+
+
+              y  log 1 x : blue
+                      2
+
+              y  log 1 x : red
+                      3
+
+              y  log 1 x : black
+                       4
+
+              The point (1, 0) is the x-intercept for all of the graphs. As n increases, the negative part of the graph of
+              y  log 1 x approaches the x-axis, getting flatter and flatter. The positive part gets steeper and steeper.
+                      n
+
+
+
+              DIF: Difficult +     OBJ: Section 8.2 NAT: RF10
+              TOP: Transformations of Logarithmic Functions
+              KEY: graph | transformations of logarithmic functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                      22
+         13. Sketch a graph of the function f(x)  22x  1 and its inverse f 1 (x) . Compare the graph of f 1 (x) to the
+                                          1
+             graph of the function g(x)  log2 (x  1) . What conclusions can you make?
+                                          2
+
+              ANS:
+
+
+
+
+              f 1 (x) = g(x) for the functions.
+
+              DIF: Difficult     OBJ: Section 8.2 | Section 8.4                NAT: RF10
+              TOP: Transformations of Logarithmic Functions | Logarithmic and Exponential Equations
+              KEY: exponential function | transformation | exponential function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     23
+         14. A 200-g sample of a radioactive substance is placed in a chamber to be tested. After 3 h, 140 g of the
+             sample remains.
+             a) Determine the half-life of this substance, to the nearest hundredth of an hour.
+             b) Graph the amount of the substance remaining as a function of time.
+
+              ANS:
+              a) Let h represent the half-life of the substance.
+                                    3
+                              1  h
+                 140  200 
+                               2
+                              3
+
+                  0.7  0.5   h
+
+
+                         3
+              log0.7      log0.5
+                         h
+                         3log0.5
+                    h
+                         log0.7
+                  h  5.83
+              The half-life is 5.83 h.
+                                           x
+                                  1  5.83
+              b) Graph y  200        .
+                                   2
+
+
+
+
+              DIF: Difficult     OBJ: Section 8.4 NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: exponential equation | logarithmic equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              24
+         15. Prove that logq 5 p 5  logq p .
+
+              ANS:
+              L. S.  logq 5 p 5         R. S.  logq p
+
+                        logq p 5
+                    
+                        logq q 5
+
+                        5logq p
+                    
+                           5
+                     logq p
+                              L.S. = R.S.
+              Thus, logq 5 p  logq p .
+                               5
+
+
+
+
+              DIF: Difficult +    OBJ: Section 8.3         NAT: RF10   TOP: Laws of Logarithms
+              KEY: laws of logarithms
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                         25
+         16. a) Graph the function y  log3 x .
+              b) Graph the following functions on the same graph:
+               y  log3 3x
+               y  log3 9x
+               y  log3 27x
+              c) Explain the effect of the constant k in the function y  log3 kx .
+
+              ANS:
+              a), b)
+
+
+
+
+              c) The constant k will result in a vertical translation up by log3 k . Since k is of the form 3n, where n is
+              a whole number, the translation is up n units.
+
+              DIF: Average       OBJ: Section 8.2 NAT: RF8
+              TOP: Transformations of Logarithmic Functions                           KEY: vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     26
+         17. Explain the steps used to solve the equation log2          x 2  8x  log2 3 .
+
+              ANS:
+              log2          x 2  8x  log2 3
+                      x 2  8x  3      Since the bases are the same, equate the logarithmic arguments.
+                      x 2  8x  9      Square both sides.
+                  x  8x  9  0
+                   2
+                                        Express the quadratic equation in standard form.
+               (x – 9)(x + 1) = 0       Solve for x.
+              x = 9 or x = 1
+              Check the values for extraneous roots.
+              In this case, both values are possible.
+
+              DIF: Difficult     OBJ: Section 8.4 NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: logarithmic equation | extraneous roots
+
+                                                3                 2
+         18. Solve the equation log                 x 2  48x      .
+                                                                  3
+
+              ANS:
+                    3                     2
+              log           x 2  48x 
+                                          3
+                                   1
+                                   3      2
+              log(x  48x) 
+                        2
+                                          3
+              1                  2
+                log(x 2  48x) 
+              3                  3
+                log(x 2  48x)  2
+                log(x 2  48x)  log100
+                            x 2  48x  100
+               x 2  48x  100  0
+               (x  50)(x  2)  0
+                             x  50 or x  2
+              Check the values for extraneous roots.
+              In this case, both values are possible and solve the equation, so they are both valid.
+
+              DIF: Difficult     OBJ: Section 8.4 NAT: RF10
+              TOP: Logarithmic and Exponential Equations
+              KEY: logarithmic equation | extraneous roots
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  27
+         19. For his dream car, Bruce invested $18 000 at 7.8% interest, compounded monthly, for 5 years. After
+             the 5 years, he still did not have enough money. How much longer will he have to invest the money at
+             5% interest, compounded daily, to have a total of $35 000? Round to the nearest tenth of a year.
+
+              ANS:
+              For the first 5 years, the investment is compounded monthly for a total of 5  12, or 60, periods.
+              A  18 000(1  0.0065) 60
+                 26 552.12
+              Solve for the remaining time—compounded daily for n years is 365n periods.
+                                               0.05  365n
+                                            
+                       35 000  26 552.12 1        
+                                                 365    
+                                                        
+                      35 000        365.05  365n
+                                         
+                     26 552.12  365 
+                     35 000                           
+              log              365n log 365.05 
+                                  
+                                               
+                                                 365 
+                      26 552.12                         
+                            n  5.53
+              Bruce will need invest for approximately 5.5 more years.
+
+              DIF: Difficult     OBJ: Section 8.4 NAT: RF10
+              TOP: Exponential and Logarithmic Equations
+              KEY: exponential function | logarithmic equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            28
+                                                                        
+                                                              1           
+         20. Sketch the graph of the function f(x)  2log x  1   1. Determine the x-intercept algebraically,
+                                                               2         
+             to the nearest hundredth.
+
+              ANS:
+
+
+
+
+              Find the x-intercept by substituting y = 0 and solving for x.
+                                               
+                                        1       
+                        0  2log x  1   1
+                                        
+                                         2      
+                                           
+                        1        1           
+                        log x  1 
+                        2         2         
+                                  1
+                                     1
+                         10 2          (x  1)
+                                      2
+                         1
+                     
+              2(10       2
+                             )1 x
+                        x  0.37
+              The x-intercept is 0.37.
+
+              DIF: Average       OBJ: Section 8.2 | Section 8.4             NAT: RF8 | RF10
+              TOP: Transformations of Logarithmic Functions | Logarithmic and Exponential Equations
+              KEY: transformation | logarithmic equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    29
+

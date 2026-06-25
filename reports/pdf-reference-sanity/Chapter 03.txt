@@ -1,0 +1,73 @@
+       Chapter 3: Polynomial Functions
+
+
+       MULTIPLE CHOICE
+
+          1. Which of the following is a polynomial function?
+             A y  4x 4  4x 3  7x 2  9x                 C   g (x )  x  4
+                                                                      4x  9
+              B    f (x )  4x  7                        D    y
+                                                                        x2
+              ANS: A              DIF: Easy            OBJ: Section 3.1      NAT: RF12
+              TOP: Characteristics of Polynomial Functions                   KEY: polynomial function
+
+          2. Which graph represents an odd-degree polynomial function with two x-intercepts?
+             A                                           C
+
+
+
+
+              B                                            D
+
+
+
+
+              ANS: B              DIF: Average         OBJ: Section 3.1      NAT: RF12
+              TOP: Characteristics of Polynomial Functions                   KEY: odd-degree | x-intercepts
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                      1
+          3. Which graph represents an even-degree polynomial function with a y-intercept of 9?
+             A                                           C
+
+
+
+
+              B                                                  D
+
+
+
+
+              ANS: B              DIF: Average            OBJ: Section 3.1             NAT: RF12
+              TOP: Characteristics of Polynomial Functions
+              KEY: even-degree | x-intercepts | y-intercept
+
+          4. How many x-intercepts are possible for the polynomial function h (x )  ax 5  bx 4  cx 3 ?
+             A 4                                            C 3
+             B 5                                            D 1
+              ANS: B              DIF: Easy            OBJ: Section 3.1                NAT: RF12
+              TOP: Characteristics of Polynomial Functions                             KEY: x-intercepts
+
+          5. What is the restriction on x if x 3  8x 2  x  5 is divided by x  2?
+             A x8                                                C x  –1
+             B x  –5                                             D x2
+              ANS: D           DIF: Easy                     OBJ: Section 3.2          NAT: RF11
+              TOP: The Remainder Theorem                     KEY: restriction
+
+          6. If 9x 3  9x 2  4 is divided by 6x  5, then the restriction on x is
+                       6                                                     5
+             A x                                                C x 
+                       5                                                     6
+                       5                                                     6
+             B x                                                D x 
+                       6                                                     5
+              ANS: C           DIF: Average                  OBJ: Section 3.2          NAT: RF12
+              TOP: The Remainder Theorem                     KEY: restriction
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                    2
+

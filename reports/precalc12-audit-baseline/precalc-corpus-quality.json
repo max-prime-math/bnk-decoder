@@ -1,0 +1,359 @@
+{
+  "generatedAt": "2026-06-13T04:44:39.124Z",
+  "inputRoot": "ignore/ExamView/Banks/Pre-Calculus 12",
+  "fileCount": 11,
+  "questionCount": 736,
+  "quality": {
+    "clean": 717,
+    "suspect": 19,
+    "garbage": 0,
+    "averageScore": 97
+  },
+  "files": [
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk",
+      "questions": 71,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 02.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": [
+        {
+          "id": "q-21",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Which of the following functions is the correct inverse for the function – $2,$ {x | x $0, x R$}?"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 03.bnk",
+      "questions": 64,
+      "assets": 0,
+      "diagnostics": 7,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 04.bnk",
+      "questions": 67,
+      "assets": 0,
+      "diagnostics": 8,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 63,
+        "suspect": 4,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": [
+        {
+          "id": "q-12",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Identify the point on the unit circle corresponding to an angle of O in standard position."
+        },
+        {
+          "id": "q-13",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Identify the point on the unit circle corresponding to an angle of $0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0$ radians in standard position."
+        },
+        {
+          "id": "q-14",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Which point on the unit circle corresponds to $tan q = 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1$?"
+        },
+        {
+          "id": "q-56",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "Use a calculator and a diagram to verify your answers to part a)."
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 05.bnk",
+      "questions": 69,
+      "assets": 0,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": [
+        {
+          "id": "q-2",
+          "score": 72,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_SUSPICIOUS_CODE",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "The range (in radians) of the graph of $cos$ is"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 06.bnk",
+      "questions": 70,
+      "assets": 0,
+      "diagnostics": 10,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 6,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": [
+        {
+          "id": "q-7",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-20",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-21",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-22",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] is equivalent to"
+        },
+        {
+          "id": "q-23",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] can be rewritten as"
+        },
+        {
+          "id": "q-24",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] can be rewritten as"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 07.bnk",
+      "questions": 68,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 08.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 09.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 7,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": [
+        {
+          "id": "q-33",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "$x^2+x$"
+        },
+        {
+          "id": "q-35",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "$x^2+x$"
+        },
+        {
+          "id": "q-65",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "A ski club charters a bus for a ski trip at a cost of $480. In an attempt to lower the bus fare per skier, the club invites non-members to go along. After five "
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 10.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": [
+        {
+          "id": "q-64",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "The dimensions of a window are shown. [DIAGRAM NEEDED] a) What function in simplest form represents the area of the entire window?\rb) If the width, x, of the wi"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 11.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 7,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": [
+        {
+          "id": "q-55",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "In how many ways can Tanya buy $2$ burgers, $2$ fries, and $2$ drinks for her and her friend?\rc) If Tanya does not like root beer and her friend does not like o"
+        },
+        {
+          "id": "q-56",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "How many routes are there for Charlie to go from home to the library if she only moves south and east?\rb) How many routes are there for her to go from home to s"
+        },
+        {
+          "id": "q-65",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "If all of the letters in the word ROCKING are used, how many arrangements can be made with all of the vowels together?\rb) Which word has the greater number of d"
+        }
+      ]
+    }
+  ]
+}

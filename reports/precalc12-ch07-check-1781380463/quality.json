@@ -1,0 +1,90 @@
+{
+  "generatedAt": "2026-06-13T19:54:24.098Z",
+  "inputDir": "reports/precalc12-ch07-check-1781380463",
+  "chapterCount": 1,
+  "questionCount": 68,
+  "notDecodedBodyCount": 9,
+  "embeddedBodyCount": 1,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 51,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 68,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 9,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "half-life | exponential decay",
+          "body": "The half$-$life of a radioactive element can be modelled by $32,$ where $45$ is the initial mass of the element; $M = M_0 1 c t b$ is the elapsed time, in hours; and [DIAGRAM: variables (c, b, num)] is the mass that remains after time [DIAGRAM: variables (c, b, num)]. The half$-$life of the element is"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "transformations of exponential functions",
+          "body": "For the function $y = b kx$, if k $< 0,$ the graph of the function is ____________________ in the ____________________$-$axis, when compared to the graph of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "body": "a pattern of growth in which each term is multiplied by a constant amount [embedded object] to produce the next term"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "increasing | decreasing | exponential function",
+          "body": "an exponential function of the form $y = a c x$, where a $> 0$ and [DIAGRAM NEEDED] c [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "asymptote | exponential function",
+          "body": "the horizontal asymptote of an exponential function of the form [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "transformations of exponential functions",
+          "body": "occurs for the graph of $y = a c b(x - h) + k$ when [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 41,
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "body": "Sketch an exponential function with all of the given conditions: domain $y = - 4 1 / 2^(x)$ range [DIAGRAM NEEDED] $y-$intercept of –$4$ no $x-$intercept the function is always increasing"
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "body": "The scatter plot shows how his money has grown over time. [DIAGRAM NEEDED] a) Do the data show an exponential trend? Explain your reasoning.\rb) Estimate values of a and b to develop a model for the information of the form $V t = ab t$, for t in years.\rc) Use your model to predict the expected value of Michael s investment in $30$ years.\rd) How does the result in part c) illustrate the power of exponential growth?"
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "evaluate exponential functions",
+          "body": "When interest is compounded semi$-$annually, the formula used to find the amount of an investment is $A = P 1 + i 2 2n A = P 1 + i 4 4n B$, where A represents the amount; P represents the principal invested; i represents the annual interest rate, as a decimal; and n represents the number of years of the investment.\ra) Use the formula to determine the amount that each investment would be worth.\ri) $5000 at a rate of 4%, compounded semi-annually, for 10 years\rii) $$4000$ at a rate of $5$%, compounded semi$-$annually, for $20$ years\rb) If interest is compounded quarterly, the formula becomes [DIAGRAM NEEDED]. Use the formula to determine the amount that the investments from part a) would be worth if interest were compounded quarterly.\rc) Explain the difference in the answers for parts a) and b)."
+        }
+      ]
+    }
+  ]
+}

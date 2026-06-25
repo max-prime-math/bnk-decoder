@@ -1,0 +1,5407 @@
+{
+  "format": "portable-question-package",
+  "version": "1.0",
+  "producer": {
+    "app": "bnk-decoder",
+    "appVersion": "0.1.0",
+    "exportedAt": "2026-05-16T15:34:27.527Z"
+  },
+  "source": {
+    "kind": "bnk",
+    "label": "Chapter 01.bnk",
+    "originFiles": [
+      "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+    ]
+  },
+  "questions": [
+    {
+      "id": "q-82",
+      "kind": "matching",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Match the correct term to its description below."
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "arithmetic series"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "divergent series"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "geometric sequence"
+            }
+          },
+          {
+            "id": "E",
+            "body": {
+              "format": "typst",
+              "text": "geometric series"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "arithmetic sequence"
+            }
+          },
+          {
+            "id": "F",
+            "body": {
+              "format": "typst",
+              "text": "infinite geometric series"
+            }
+          }
+        ]
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "matching",
+        "tags": [
+          "bnk",
+          "matching"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-82",
+        "confidence": "low",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 88,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "LOW_CONFIDENCE",
+              "level": "info",
+              "message": "Question was decoded with low confidence."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 48,
+            "choiceCount": 6,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-1",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Which of the following numbers occurs in the sequence $-12, -8, -4, 0, 4$,...?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "6"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$-3$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "24"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "15"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-1",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 78,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-2",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The common difference in the arithmetic sequence $2, -6, -14, -22$,... is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$-8$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "8"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$-16$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$-0.333333333333$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-2",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 73,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-3",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The common difference in the arithmetic sequence $1/2, 5/6, 7/6, 3/2, 11/6$,... is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "9"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "0.416666666667"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "3"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$1/3$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-3",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 82,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-4",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In the formula for the general term of an arithmetic sequence $t_n = -7 + (n - 1)(-2.5)$, the common difference is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$-7$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "17.5"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$-2.5$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$-4.5$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-4",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 114,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-5",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Which of the given formulas for the general term of the sequence $-9, -1, 7, 15, 23$,... is correct?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$t_n = -8n - 17$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$t_n = 8n - 1$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$t_n = 8n - 17$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$t_n = -8n - 1$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-5",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 100,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-6",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "What is the 18th term of the sequence $-22, -21.2, -20.4, -19.6, -18.8$,...?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$-6.8$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "0.8"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$-8.4$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$-35.6$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-6",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 76,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-7",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of the series $(-5) + (-7) + (-9) + ... + (-19)$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$-96$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$-192$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$-304$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "26"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-7",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The sum of the series $(-5) + (-7) + (-9) + ... + (-19)$ is"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 59,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-8",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of an arithmetic series where $t_1 =$ –2, $t_3 = 7,$ and n $= 15$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$-502.5$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "476.25"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "442.5"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "885"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-8",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 76,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-9",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of an arithmetic series where $t_1 = 1/2$, $d = 3$, and $n = 19$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "551"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$1045/2$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$165/2$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "1045"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-9",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 75,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-10",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "For the arithmetic series $(107) + (130) + (153) + ... + (981)$, the values of t1, d, and n are"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "39"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$-107$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$-23$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "38"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-10",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 92,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_UNRESOLVED_TOKENS",
+              "level": "warning",
+              "message": "Question body still contains unresolved tokens or variables.",
+              "evidence": "For the arithmetic series $(107) + (130) + (153) + ... + (981)$, the values of t1, d, and n are"
+            },
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "For the arithmetic series $(107) + (130) + (153) + ... + (981)$, the values of t1, d, and n are"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 95,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 1,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-11",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The next day, he places $5$ in the jar. The third day, he places $7$ in the jar, and so on for $9$ days. What amount will be in the jar at the end of this period of time?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "6.72"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "6.96"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "6.36"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "6.12"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-11",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 170,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-12",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The common ratio for the geometric sequence $8, 1, 0.125, 0.015625$,... is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "8"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "-rdenom"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$1/8$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "-1/rdenom"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-12",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 74,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-13",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The population of a community was $82 000$ at the beginning of 2000. Assuming a rate of growth of $1.6$ % per year since $2000,$ what will the population be at the beginning of $20$ 25?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "123 894"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "121 943"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "2 082 800"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "120 023"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-13",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 185,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-14",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In the formula for the general term of a geometric sequence –10, the common ratio is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "4"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "num/denom"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "5"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "denom/num"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-14",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 84,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-15",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The eighth term in the sequence $3 515 625, 703 125, 140 625, 28 125$,... is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "9"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "5"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "45"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$1/9$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-15",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 76,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-16",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The 6th term in the sequence $4/7, 1, 7/4, 49/16$,... is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$2401/4096$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$256/2401$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$2401/256$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$117649/4096$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-16",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 56,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-17",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The first three terms of the sequence given by $11$ are"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "121"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "1331"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$11/3$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$11/9$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-17",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 55,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-18",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "How many terms are in the sequence $2, 8, 32, 128, 512$, ..., $2 097 152$?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "9"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "10"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "12"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "text",
+        "value": "11"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-18",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "How many terms are in the sequence $2, 8, 32, 128, 512$, ..., $2 097 152$?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 74,
+            "choiceCount": 3,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-19",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of a geometric series where $t_1 = 1/3$, $r = 2$, and $n = 3$ is approximately"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "2.3"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "2.7"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "1.3"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "1.2"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-19",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 86,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-20",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of the geometric series $14 + 70 + 350 + ... + 43 750$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "8747"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "54 688"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "10 938"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "54 684"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-20",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The sum of the geometric series $14 + 70 + 350 + ... + 43 750$ is"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 65,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-21",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of the geometric series $13 + 6.5 + 3.25 + ... + 0.203125$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$559/64$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$1651/64$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$1677/64$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$819/32$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-21",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The sum of the geometric series $13 + 6.5 + 3.25 + ... + 0.203125$ is"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 69,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-22",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The 6th term of the geometric series $256 + 128 + 64 + ...$ is"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$64/9$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "8"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "4"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "2"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-22",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The 6th term of the geometric series $256 + 128 + 64 + ...$ is"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 62,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-23",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "What is the value of $S_9$ for the series $8 - 24 + 72 - 216 + ...$?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "39 366"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "52 491"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "–13 122"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "39 368"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-23",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "What is the value of $S_9$ for the series $8 - 24 + 72 - 216 + ...$?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 68,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-24",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "If you researched your ancestors back $16$ generations, how many people would you need to research?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "262 140"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "65 535"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "131 070"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "131 069"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-24",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 99,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-25",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Determine the sum of the infinite geometric series $11 + 11/3 + 11/9 + 11/27$ +..."
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "33"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$33/2$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$33/4$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$440/27$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-25",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 82,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-26",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "What is the sum of the infinite geometric series $15 + 15(8/9) + 15(8/9)^2 + 15(8/9)^3 + ...$?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "-120"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$135/8$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$135/17$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "135"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-26",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "What is the sum of the infinite geometric series $15 + 15(8/9) + 15(8/9)^2 + 15(8/9)^3 + ...$?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 94,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-27",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Determine the sum of the infinite geometric series with $t_1 = 2$ and r $=$ 1/5."
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$1/3$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$-1/2$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "$5/3$"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$5/2$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "D"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-27",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "Determine the sum of the infinite geometric series with $t_1 = 2$ and r $=$ 1/5."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 80,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-28",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of an infinite geometric series is $2$ and its common ratio is 1/4. What is the first term of the series?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "$1/4$"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "$80/3$"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "5"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "$5/3$"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "B"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-28",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "The sum of an infinite geometric series is $2$ and its common ratio is 1/4. What is the first term of the series?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 113,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-29",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Which of the following best describes the series $-50 + (-45) + (-81/2) + (-729/20) + ...$?"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "The series is convergent and has a sum of -500."
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "The series is divergent and has a sum of -500."
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "The series is divergent and has no sum."
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "The series is convergent and has no sum."
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "A"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-29",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "Which of the following best describes the series $-50 + (-45) + (-81/2) + (-729/20) + ...$?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 91,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-30",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In the formula for the general term of an arithmetic sequence $t_n = a + (n - 1)d$, a represents the ____________________ and n represents the ____________________."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-30",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 164,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-31",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "$+ 17 + 25 + 33 + 41 8 + 8$ is an example of $a(n)$ ____________________."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-31",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 90,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "$+ 17 + 25 + 33 + 41 8 + 8$ is an example of $a(n)$ ____________________."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 73,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-32",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The geometric sequence $20, 60, 180, 540$, ..., $393 660$ has ____________________ terms."
+        }
+      },
+      "answer": {
+        "type": "text",
+        "value": "10"
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-32",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The geometric sequence $20, 60, 180, 540$, ..., $393 660$ has ____________________ terms."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 89,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-33",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The geometric sequence $5, 25, 125, 625$, ..., $9 765 625$ has ____________________ terms."
+        }
+      },
+      "answer": {
+        "type": "text",
+        "value": "10"
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-33",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The geometric sequence $5, 25, 125, 625$, ..., $9 765 625$ has ____________________ terms."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 90,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-34",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of the first $8$ terms of the geometric series $5 - 15 + 45 - 135 + ...$ is ____________________."
+        }
+      },
+      "answer": {
+        "type": "text",
+        "value": "8"
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-34",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The sum of the first $8$ terms of the geometric series $5 - 15 + 45 - 135 + ...$ is ____________________."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 105,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-35",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The ratio used to generate the infinite geometric series $-2.5 + 0.5 - 0.1 + 0.02 + ...$ is ____________________."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "completion",
+        "tags": [
+          "bnk",
+          "completion"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-35",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "The ratio used to generate the infinite geometric series $-2.5 + 0.5 - 0.1 + 0.02 + ...$ is ____________________."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 113,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-41",
+      "kind": "mcq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each arithmetic sequence, determine\ra) the value of t1 and d\rb) an explicit formula for the general term\rc) t20"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "The first three terms of the sequence defined by $t_n = -0.3n + 0.5$ are"
+        },
+        "choices": [
+          {
+            "id": "A",
+            "body": {
+              "format": "typst",
+              "text": "0.5, 0.8, 1.1"
+            }
+          },
+          {
+            "id": "B",
+            "body": {
+              "format": "typst",
+              "text": "–0.3, 0.2, 0.7"
+            }
+          },
+          {
+            "id": "C",
+            "body": {
+              "format": "typst",
+              "text": "0.2, –0.1, –0.4"
+            }
+          },
+          {
+            "id": "D",
+            "body": {
+              "format": "typst",
+              "text": "–0.3, –0.8, –1.3 7 9"
+            }
+          }
+        ]
+      },
+      "answer": {
+        "type": "choice",
+        "value": "C"
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-41",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 72,
+            "choiceCount": 4,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-42",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each arithmetic sequence, determine\ra) the value of t1 and d\rb) an explicit formula for the general term\rc) t20"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "–8, –5, –2, $1,$ ..."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-42",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 86,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "–8, –5, –2, $1,$ ..."
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "–8, –5, –2, $1,$ ..."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 20,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-43",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each arithmetic sequence, determine\ra) the value of t1 and d\rb) an explicit formula for the general term\rc) t20"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "3a, 3a $-$ 2b, 3a $-$ 4b, 3a $-$ 6b, ..."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-43",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 86,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "3a, 3a $-$ 2b, 3a $-$ 4b, 3a $-$ 6b, ..."
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "3a, 3a $-$ 2b, 3a $-$ 4b, 3a $-$ 6b, ..."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 40,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-44",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "7/4, $1,$ 1/4, -1/2, ..."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-44",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 77,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "7/4, $1,$ 1/4, -1/2, ..."
+            },
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "7/4, $1,$ 1/4, -1/2, ..."
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "7/4, $1,$ 1/4, -1/2, ..."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 24,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 3,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-45",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine whether each sequence is geometric, arithmetic, or neither. Justify your answer."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "The starting wage at a bookstore is $8.50 per hour with a yearly increase of $$0.75$ per hour."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "The starting wage at a bookstore is $8.50 per hour with a yearly increase of $$0.75$ per hour."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Write the general term of the sequence representing the hourly rate earned in each year."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Use your expression from part a) to determine the hourly rate after $6$ years."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "How many years will someone need to work at the store to earn $15.25 per hour?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-45",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 350,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-46",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine whether each sequence is geometric, arithmetic, or neither. Justify your answer."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "Since the terms have a common ratio of –2, this sequence is geometric."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-46",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 70,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-47",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine whether each sequence is geometric, arithmetic, or neither. Justify your answer."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "Since the sequence has neither a common difference nor a common ratio, it is neither geometric nor arithmetic."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-47",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 110,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-48",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine whether each sequence is geometric, arithmetic, or neither. Justify your answer."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "Since the terms have a common ratio of $10,$ this sequence is geometric."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-48",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 72,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-49",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each geometric sequence, determine\ra) an explicit formula for the general term\rb) [[slot]]"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "Since the terms have a common difference of $3,$ this sequence is arithmetic."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-49",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 77,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-51",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each geometric sequence, determine\ra) an explicit formula for the general term\rb) [[slot]]"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "a) Since $t_1 = 3$ and r $=$ P, P b) P"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-51",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 38,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-52",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each geometric sequence, determine\ra) an explicit formula for the general term\rb) [[slot]]"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "a) Since $t_1 = 3$ and r $=$ P, P b) P"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-52",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 38,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-53",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each arithmetic series, determine\ra) an explicit formula for the general term\rb) a formula for the general sum\rc) [[slot]]\rd) [[slot]]"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "-2, 2/5, -2/25, 2/125, ..."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-53",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 77,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "-2, 2/5, -2/25, 2/125, ..."
+            },
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "-2, 2/5, -2/25, 2/125, ..."
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "-2, 2/5, -2/25, 2/125, ..."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 26,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 3,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-55",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "For each arithmetic series, determine\ra) an explicit formula for the general term\rb) a formula for the general sum\rc) [[slot]]\rd) [[slot]]"
+        },
+        "stem": {
+          "format": "typst",
+          "text": "$2 + 4 + 6 +$ ... $+ 48$"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-55",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 86,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "$2 + 4 + 6 +$ ... $+ 48$"
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "$2 + 4 + 6 +$ ... $+ 48$"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 24,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-56",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine the sum of each arithmetic series."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "–12 $- 9 - 6 -$ ... $+ 12$"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-56",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 86,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "–12 $- 9 - 6 -$ ... $+ 12$"
+            },
+            {
+              "code": "BODY_PUNCTUATION_HEAVY",
+              "level": "warning",
+              "message": "Question body has unusually heavy punctuation relative to text.",
+              "evidence": "–12 $- 9 - 6 -$ ... $+ 12$"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 26,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-58",
+      "kind": "frq",
+      "content": {
+        "narrative": {
+          "format": "typst",
+          "text": "Determine the sum of each arithmetic series."
+        },
+        "stem": {
+          "format": "typst",
+          "text": "P $=$ 4k, d $=$ 7k P P"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-58",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 22,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-60",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Find the value of $t_1$ given $S_8 =$ -3280 and r $=$ -3. Be sure to show all of your work."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-60",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 91,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-61",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "If $S_1 = 0.7$ and $S_2 = 2.1$ in a geometric series, determine the sum of the first $12$ terms in the series. Be sure to show all of your work."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-61",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 144,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-62",
+      "kind": "mcq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "A bouncy ball bounces to $2/3$ its height when it is dropped on a hard surface. Suppose the ball is dropped from $20$ m.\ra) What height will the ball bounce back up to after the sixth bounce?\rb) What is the total distance the ball travels if it bounces indefinitely?"
+        }
+      },
+      "scoring": {
+        "points": 1
+      },
+      "classification": {
+        "questionType": "mcq",
+        "tags": [
+          "bnk",
+          "mcq"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-62",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            {
+              "code": "CHOICES_MISSING",
+              "level": "error",
+              "message": "Structured question is missing choices."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 266,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-63",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Consider an arithmetic sequence with $t_2 = 1/3$ and $t_8 =$ 13/3."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "Consider an arithmetic sequence with $t_2 = 1/3$ and $t_8 =$ 13/3."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Determine the values of $t_1$ and d."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula for the general term of the sequence."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Determine the value of each term."
+              }
+            },
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "$t_12$"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$t_20$"
+                    }
+                  },
+                  {
+                    "label": "iii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$t_26$"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "Determine the term number of each term."
+              }
+            },
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "$7/3$ ii) $9$ iii) $97/3$"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-63",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "Consider an arithmetic sequence with $t_2 = 1/3$ and $t_8 =$ 13/3.\ra) Determine the values of $t_1$ and d.\rb) Determine an explicit formula for the general term of the sequence.\rc) Determine the value of each term.\ri) $t_12$\rii) $t_20$\riii) $t_26$\rd) Determine the term number of each term.\ri) $7/3$ ii) $9$ iii) $97/3$"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 319,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-64",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In a lottery to join a golf club, the first person drawn from the names must pay $14 000. Each subsequent person drawn pays $$250$ less than the person before. The last person drawn pays $8000 for a membership."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "In a lottery to join a golf club, the first person drawn from the names must pay $14 000. Each subsequent person drawn pays $$250$ less than the person before. The last person drawn pays $8000 for a membership."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Write the first four terms of the sequence that represents the cost of a membership."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Determine $t_1$ and d for the sequence."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula for the general term."
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "What will the 10th golfer pay for a membership?"
+              }
+            },
+            {
+              "label": "e",
+              "body": {
+                "format": "typst",
+                "text": "How many golfers will be able to join the club?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-64",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "In a lottery to join a golf club, the first person drawn from the names must pay $14 000. Each subsequent person drawn pays $$250$ less than the person before. The last person drawn pays $8000 for a membership.\ra) Write the first four terms of the sequence that represents the cost of a membership.\rb) Determine $t_1$ and d for the sequence.\rc) Determine an explicit formula for the general term.\rd) What will the 10th golfer pay for a membership?\re) How many golfers will be able to join the club?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 498,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-65",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "How many members joined the club each week?\rb) How many members were there in the first week?"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-65",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 93,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-66",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The sum of the first two terms of an arithmetic series is $15$ and the sum of the next two terms is 43. What are the first four terms of the series?"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-66",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 148,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-67",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Write the first four terms of the arithmetic sequence that represents the number of bottles he picks up at a restaurant."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "Write the first four terms of the arithmetic sequence that represents the number of bottles he picks up at a restaurant."
+          },
+          "items": [
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Determine a and d for the sequence."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "How many bottles will he have picked up after stopping at the eighth restaurant?"
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "If his truck can hold $2000$ empty bottles, will he be able to pick up bottles at the 21st restaurant without emptying the truck first?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-67",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 382,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-68",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In an arithmetic series, the sum of the first $5$ terms is $70$ and the sum of the first $11$ terms is 352."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "In an arithmetic series, the sum of the first $5$ terms is $70$ and the sum of the first $11$ terms is 352."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Determine the values of [embedded object] and d."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "What is the sum of the first i) $30$ terms?"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$50$ terms?"
+                    }
+                  },
+                  {
+                    "label": "iii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$100$ terms?"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Describe how you could use the formula for the sum of an arithmetic series to find the total of terms $35$ to 40."
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "Use your method from part c) to determine the sum of terms $35$ to 40."
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-68",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 90,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_PLACEHOLDERS",
+              "level": "warning",
+              "message": "Question body still contains unresolved embedded-object placeholders.",
+              "evidence": "In an arithmetic series, the sum of the first $5$ terms is $70$ and the sum of the first $11$ terms is 352.\ra) Determine the values of [embedded object] and d.\rb) What is the sum of the first i) $30$ terms?\rii) $50$ terms?\riii) $100$ terms?\rc) Describe how you could use the formula for the sum of an arithmetic series to find the total of terms $35$ to 40.\rd) Use your method from part c) to determine the sum of terms $35$ to 40."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 431,
+            "choiceCount": 0,
+            "placeholderCount": 1,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-69",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Consider the arithmetic series $7 + 19 + 31 + 43 + 52 +$ [DIAGRAM NEEDED]."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "Consider the arithmetic series $7 + 19 + 31 + 43 + 52 +$ [DIAGRAM NEEDED]."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "How many terms are less than 1000?"
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "How many terms are less than 2000?"
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Comment on the results from parts a) and b)."
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "What is the maximum number of terms for a sum of the series less than 1000?"
+              }
+            },
+            {
+              "label": "e",
+              "body": {
+                "format": "typst",
+                "text": "What is the maximum number of terms for a sum of the series less than 2000?"
+              }
+            },
+            {
+              "label": "f",
+              "body": {
+                "format": "typst",
+                "text": "Comment on the results from parts d) and e)."
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-69",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 404,
+            "choiceCount": 0,
+            "placeholderCount": 1,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-70",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "A toy car is rolling down an inclined track and picking up speed as it goes. The car travels $4$ cm in the first second, $8$ cm in the second second, $12$ cm in the next second, and so on. What is the total distance travelled by the car in the first $30$ s?"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-70",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 257,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-71",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "A company purchases a new computer system valued at $42 000. For income tax purposes, an accountant determines that the annual depreciation rate (rate of decrease in value) for the equipment is 11%."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "A company purchases a new computer system valued at $42 000. For income tax purposes, an accountant determines that the annual depreciation rate (rate of decrease in value) for the equipment is 11%."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Make a table of values to show the value of the system over the first $5$ years."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula in function notation to model the value of the system in year n."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "What is the value of the system at the end of year 20?"
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "How realistic is the answer to part c)? Explain."
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-71",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 490,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-72",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "For each sequence, determine"
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "For each sequence, determine"
+          },
+          "items": [
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "an explicit formula for the nth term, using function notation"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$f(11)$"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "[DIAGRAM NEEDED] b) $5, 13, 25, 41, 61,$ c) [DIAGRAM NEEDED]"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-72",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 169,
+            "choiceCount": 0,
+            "placeholderCount": 2,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-73",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The value of an antique increases in value at a rate of 2.5% every year. In $2000,$ the antique was purchased for $5000."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "The value of an antique increases in value at a rate of 2.5% every year. In $2000,$ the antique was purchased for $5000."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula to represent the value of the antique since the year 2000."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Use your formula to write the first three terms of the sequence."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "What was the value of the antique in 2008?"
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "In which year will the value of the antique be $$11$ 866?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-73",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 387,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-74",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "A Registered Education Savings Plan (RESP) earns interest at a rate of 5% per year, compounded annually. Jasmine s parents invest $4000 in the account today."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "A Registered Education Savings Plan (RESP) earns interest at a rate of 5% per year, compounded annually. Jasmine s parents invest $4000 in the account today."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula to represent the value of the investment."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Use your formula to write the first four terms of the sequence."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "What will the investment be worth in"
+              }
+            },
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "$9$ years?"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "$16$ years?"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "Approximately how long will it take for the investment to double?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-74",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 438,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-75",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The first prize in a lottery is $250 000. Each winner chosen after the first is paid 20% as much as the winner before them. a) Determine $t_1$ and r for the geometric sequence that represents this situation."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "The first prize in a lottery is $250 000. Each winner chosen after the first is paid 20% as much as the winner before them. a) Determine $t_1$ and r for the geometric sequence that represents this situation."
+          },
+          "items": [
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Determine an explicit formula for the general term."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Determine a formula for the sum of n terms of the geometric sequence."
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "If $5$ winning numbers are chosen,"
+              }
+            },
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "how much will the last person chosen be paid?"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "how much will have been paid out in the lottery?"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-75",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "The first prize in a lottery is $250 000. Each winner chosen after the first is paid 20% as much as the winner before them. a) Determine $t_1$ and r for the geometric sequence that represents this situation.\rb) Determine an explicit formula for the general term.\rc) Determine a formula for the sum of n terms of the geometric sequence.\rd) If $5$ winning numbers are chosen,\ri) how much will the last person chosen be paid?\rii) how much will have been paid out in the lottery?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 475,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-76",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "A ball is kicked $26$ m into the air. The ball falls, rebounds to half of its original height, and then falls to the ground again. This pattern of rebounding to half of the height from the previous bounce continues. a) Use this information to determine $t_1$ and r for the geometric sequence that represents this situation."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "A ball is kicked $26$ m into the air. The ball falls, rebounds to half of its original height, and then falls to the ground again. This pattern of rebounding to half of the height from the previous bounce continues. a) Use this information to determine $t_1$ and r for the geometric sequence that represents this situation."
+          },
+          "items": [
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "Write an explicit formula for the general term."
+              }
+            },
+            {
+              "label": "c",
+              "body": {
+                "format": "typst",
+                "text": "Write a formula for the total distance travelled after n bounces."
+              }
+            },
+            {
+              "label": "d",
+              "body": {
+                "format": "typst",
+                "text": "If $7$ bounces occur,"
+              }
+            },
+            {
+              "label": "i",
+              "body": {
+                "format": "typst",
+                "text": "how high will the seventh bounce be?"
+              },
+              "parts": {
+                "stem": {
+                  "format": "typst",
+                  "text": ""
+                },
+                "items": [
+                  {
+                    "label": "ii",
+                    "body": {
+                      "format": "typst",
+                      "text": "what total distance will the ball have travelled?"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-76",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 562,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-77",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "In a lottery, the first ticket drawn wins a prize of $25. Each ticket after that receives a prize that is twice the value of the preceding prize."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "In a lottery, the first ticket drawn wins a prize of $25. Each ticket after that receives a prize that is twice the value of the preceding prize."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "Write a function to model the total amount of prize money given away."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "How many prizes are given out if the total amount of prize money is approximately $$2$ million?"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-77",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 317,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-78",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "For a geometric series, $S_4 / S_8 =$ 1/17. What are the first three terms of the series if the first term is 3?"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-78",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 97,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "For a geometric series, $S_4 / S_8 =$ 1/17. What are the first three terms of the series if the first term is 3?"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 112,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-79",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Let xn represent the side length of the nth square.\r$x_1 = 12$\rLet Pn represent the perimeter of the nth square.\r$P_1 = 48$\rUse the Pythagorean relation to find x2. [embedded object] $P_2 =$ [DIAGRAM: variables (y)] Find $x_3$ and $P_3$ in the same way: [DIAGRAM: variables (y)] $P_3 = 24$\rUse these results to find r in the geometric series for Pn. [DIAGRAM: variables (y)] and [DIAGRAM: variables (y)] The common ratio, r, is [DIAGRAM: variables (y)]. Use the formula for the sum of an infinite geometric series: [DIAGRAM: variables (y)] The total perimeter is [embedded value] cm or approximately $163.9$ cm."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-79",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 611,
+            "choiceCount": 0,
+            "placeholderCount": 8,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-80",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "The first perimeter, P_1, is $30$ cm.\rThe common ratio, r, is 1/2.\rUse the formula for the sum of an infinite geometric series: $S_infinity = P_1 /$ (1 $-$ r).\rThe total perimeter is $60$ cm."
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "short_answer",
+        "tags": [
+          "bnk",
+          "short_answer"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-80",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 94,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "The first perimeter, P_1, is $30$ cm.\rThe common ratio, r, is 1/2.\rUse the formula for the sum of an infinite geometric series: $S_infinity = P_1 /$ (1 $-$ r).\rThe total perimeter is $60$ cm."
+            }
+          ],
+          "metrics": {
+            "bodyLength": 191,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 2,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    },
+    {
+      "id": "q-81",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "typst",
+          "text": "Write each repeating decimal number as an equivalent fraction in lowest terms."
+        },
+        "parts": {
+          "stem": {
+            "format": "typst",
+            "text": "Write each repeating decimal number as an equivalent fraction in lowest terms."
+          },
+          "items": [
+            {
+              "label": "a",
+              "body": {
+                "format": "typst",
+                "text": "0.5555..."
+              }
+            },
+            {
+              "label": "b",
+              "body": {
+                "format": "typst",
+                "text": "$0.12$ repeating"
+              }
+            }
+          ]
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "Chapter 01.bnk",
+        "sourceQuestionNumber": "q-81",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 100,
+          "verdict": "clean",
+          "findings": [],
+          "metrics": {
+            "bodyLength": 111,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 47714 to 542356 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 81 candidate string clusters (30 MCQ + 51 other types)."
+    },
+    {
+      "level": "info",
+      "code": "V06_FAKE_QUESTIONS_FILTERED",
+      "message": "Filtered out 4 metadata entries that were incorrectly classified as questions."
+    },
+    {
+      "level": "info",
+      "code": "V06_MATCHING_QUESTIONS_DETECTED",
+      "message": "Found 1 matching question in non-metadata section."
+    },
+    {
+      "level": "info",
+      "code": "V06_MATCHING_QUESTIONS_DECODED",
+      "message": "Successfully decoded 1 matching question from non-metadata section."
+    },
+    {
+      "level": "info",
+      "code": "V06_MATCHING_ITEMS_LINKED",
+      "message": "Linked 5 matching items to matching question q-82."
+    },
+    {
+      "level": "warning",
+      "code": "QUESTION_QUALITY_FLAGGED",
+      "message": "Question q-62 scored 55/100 (suspect).",
+      "questionId": "q-62"
+    }
+  ],
+  "extensions": {}
+}

@@ -1,0 +1,963 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/Math Makes Sense 9/Unit 01/MMS9_1.1.bnk",
+    "byteLength": 8739,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 8723,
+    "inflatedByteLength": 116604
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "List all the whole numbers between 63 and 101 that are perfect squares."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "64, 81, 96"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "64, 81"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "64, 81, 100"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "64, 72, 81, 100"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 04 00 00 00 a8 05 00 00 01 00 00 00 84 00 00 00 02 00 00 00 02 00 00 00 09 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 4c 00 69 00 73 00 74 00 20 00 61 00 6c 00 6c 00 20 00 74 00 68 00 65 00 20 00 77 00 68 00 6f 00 6c 00 65 00 20 00 6e 00 75 00 6d 00 62 00 65 00 72 00 73 00 20 00 62 00 65 00 74 00 77 00 65 00 65 00 6e 00 20 00 36 00 33 00 20 00 61 00 6e 00 64 00 20 00 31 00 30 00 31 00 20 00 74 00 68 00 61 00 74 00 20 00 61 00 72 00 65 00 20 00 70 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 73 00 71 00 75 00 61 00 72 00 65 00 73 00 2e 00 10 00 41 00 2e 00 11 00 36 00 34 00 2c 00 20 00 38 00 31 00 2c 00 20 00 39 00 36 00 11 00 43 00 2e 00 11 00 36 00 34 00 2c 00 20 00 38 00 31 00 2c 00 20 00 31 00 30 00 30 00 11 00 11 00 42 00 2e 00 11 00 36 00 34 00 2c 00 20 00 38 00 31 00 11 00 44 00 2e 00 11 00 36 00 34 00 2c 00 20 00 37 00 32 00 2c 00 20 00 38 00 31 00 2c 00 20 00 31 00 30 00 30 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 84 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nConceptual Understanding\nList all the whole numbers between 63 and 101 that are perfect squares.\nA.\n64, 81, 96\nC.\n64, 81, 100\nB.\n64, 81\nD.\n64, 72, 81, 100\nH\nK\nV\nY\nf\ni\np\ns\nTimes New Roman\nG\nH\n#\n-\nK\nZ\nV"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Determine the value of 0.16."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.07"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.04"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 6772,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(0.2,0.8,0.2)",
+          "sampleValue": "0.4"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*n1",
+          "sampleValue": "0.16"
+        },
+        {
+          "name": "n3",
+          "rule": "n1/10",
+          "sampleValue": "0.04"
+        },
+        {
+          "name": "n4",
+          "rule": "n1/2",
+          "sampleValue": "0.2"
+        },
+        {
+          "name": "n5",
+          "rule": "n2/4+.03",
+          "sampleValue": "0.07"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 6772,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 ba 01 00 00 02 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 9a 99 99 99 99 99 d9 3f 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 32 00 2c 00 30 00 2e 00 38 00 2c 00 30 00 2e 00 32 00 29 00 00 00 30 00 2e 00 34 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7c 14 ae 47 e1 7a c4 3f 6e 00 32 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 30 00 2e 00 31 00 36 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7b 14 ae 47 e1 7a a4 3f 6e 00 33 00 00 00 6e 00 31 00 2f 00 31 00 30 00 00 00 30 00 2e 00 30 00 34 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 c9 3f 6e 00 34 00 00 00 6e 00 31 00 2f 00 32 00 00 00 30 00 2e 00 32 00 00 00 02 00 00 00 08 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 ec 51 b8 1e 85 eb b1 3f 6e 00 35 00 00 00 6e 00 32 00 2f 00 34 00 2b 00 2e 00 30 00 33 00 00 00 30 00 2e 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(0.2,0.8,0.2)\n0.4\nn2\nn1*n1\n0.16\nn3\nn1/10\n0.04\nn4\nn1/2\n0.2\nn5\nn2/4+.03\n0.07\nscramble\nTRUE\n1\n/\nDetermine the value of [[slot]].\nA.\n[[slot]]\nB.\n[[slot]]\nC."
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Determine the value of 0.09."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.3"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.045"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.0225"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.03"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 10006,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,11,2)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "n2",
+          "rule": "n1/10",
+          "sampleValue": "0.3"
+        },
+        {
+          "name": "n3",
+          "rule": "n2*n2",
+          "sampleValue": "0.09"
+        },
+        {
+          "name": "n4",
+          "rule": "n1/100",
+          "sampleValue": "0.03"
+        },
+        {
+          "name": "n5",
+          "rule": "n3/2",
+          "sampleValue": "0.045"
+        },
+        {
+          "name": "n6",
+          "rule": "n3/4",
+          "sampleValue": "0.0225"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 10006,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 f0 01 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 31 00 31 00 2c 00 32 00 29 00 00 00 33 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 d3 3f 6e 00 32 00 00 00 6e 00 31 00 2f 00 31 00 30 00 00 00 30 00 2e 00 33 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a d7 a3 70 3d 0a b7 3f 6e 00 33 00 00 00 6e 00 32 00 2a 00 6e 00 32 00 00 00 30 00 2e 00 30 00 39 00 00 00 02 00 00 00 06 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 b8 1e 85 eb 51 b8 9e 3f 6e 00 34 00 00 00 6e 00 31 00 2f 00 31 00 30 00 30 00 00 00 30 00 2e 00 30 00 33 00 00 00 02 00 00 00 04 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a d7 a3 70 3d 0a a7 3f 6e 00 35 00 00 00 6e 00 33 00 2f 00 32 00 00 00 30 00 2e 00 30 00 34 00 35 00 00 00 02 00 00 00 04 00 00 00 06 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(3,11,2)\n3\nn2\nn1/10\n0.3\nn3\nn2*n2\n0.09\nn4\nn1/100\n0.03\nn5\nn3/2\n0.045\nn6\nn3/4\n0.0225\nscramble\nTRUE\n1\n/\nDetermine the value of [[slot]].\nA.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Determine the value of 2.56."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.64"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.16"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.8"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "1.6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 13294,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(1.2,1.8,0.2)",
+          "sampleValue": "1.6"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*n1",
+          "sampleValue": "2.56"
+        },
+        {
+          "name": "n3",
+          "rule": "n1/10",
+          "sampleValue": "0.16"
+        },
+        {
+          "name": "n4",
+          "rule": "n1/2",
+          "sampleValue": "0.8"
+        },
+        {
+          "name": "n5",
+          "rule": "n2/4",
+          "sampleValue": "0.64"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 13294,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 b2 01 00 00 02 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 9a 99 99 99 99 99 f9 3f 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 32 00 2c 00 31 00 2e 00 38 00 2c 00 30 00 2e 00 32 00 29 00 00 00 31 00 2e 00 36 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7c 14 ae 47 e1 7a 04 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 32 00 2e 00 35 00 36 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7b 14 ae 47 e1 7a c4 3f 6e 00 33 00 00 00 6e 00 31 00 2f 00 31 00 30 00 00 00 30 00 2e 00 31 00 36 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 e9 3f 6e 00 34 00 00 00 6e 00 31 00 2f 00 32 00 00 00 30 00 2e 00 38 00 00 00 02 00 00 00 04 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7c 14 ae 47 e1 7a e4 3f 6e 00 35 00 00 00 6e 00 32 00 2f 00 34 00 00 00 30 00 2e 00 36 00 34 00 00 00 08 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(1.2,1.8,0.2)\n1.6\nn2\nn1*n1\n2.56\nn3\nn1/10\n0.16\nn4\nn1/2\n0.8\nn5\nn2/4\n0.64\nscramble\nTRUE\n1\n/\nDetermine the value of [[slot]].\nA.\n[[slot]]\nB.\n[[slot]]\nC."
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Determine the value of 0.0225."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.225"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.15"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.015"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "2.25"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 16520,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(0.11, 0.23,0.02)",
+          "sampleValue": "0.15"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*n1",
+          "sampleValue": "0.0225"
+        },
+        {
+          "name": "n3",
+          "rule": "n1/10",
+          "sampleValue": "0.015"
+        },
+        {
+          "name": "n4",
+          "rule": "n2*100",
+          "sampleValue": "2.25"
+        },
+        {
+          "name": "n5",
+          "rule": "n2*10",
+          "sampleValue": "0.225"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 16520,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 cc 01 00 00 02 00 00 00 16 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 33 33 33 33 33 33 c3 3f 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 31 00 31 00 2c 00 20 00 30 00 2e 00 32 00 33 00 2c 00 30 00 2e 00 30 00 32 00 29 00 00 00 30 00 2e 00 31 00 35 00 00 00 02 00 00 00 05 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a d7 a3 70 3d 0a 97 3f 6e 00 32 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 30 00 2e 00 30 00 32 00 32 00 35 00 00 00 02 00 00 00 05 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 b8 1e 85 eb 51 b8 8e 3f 6e 00 33 00 00 00 6e 00 31 00 2f 00 31 00 30 00 00 00 30 00 2e 00 30 00 31 00 35 00 00 00 02 00 00 00 06 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 02 40 6e 00 34 00 00 00 6e 00 32 00 2a 00 31 00 30 00 30 00 00 00 32 00 2e 00 32 00 35 00 00 00 02 00 00 00 05 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 03 00 00 00 01 00 00 00 cc cc cc cc cc cc cc 3f 6e 00 35 00 00 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(0.11, 0.23,0.02)\n0.15\nn2\nn1*n1\n0.0225\nn3\nn1/10\n0.015\nn4\nn2*100\n2.25\nn5\nn2*10\n0.225\nscramble\nTRUE\n1\n/\nDetermine the value of [[slot]].\nA.\n[[slot]]\nB.\n[[slot]]\nC."
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the number whose square root is 0.9."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.81"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.0081"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.081"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.09"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 19772,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(4,9)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "n2",
+          "rule": "n1/10",
+          "sampleValue": "0.9"
+        },
+        {
+          "name": "n3",
+          "rule": "n2*n2",
+          "sampleValue": "0.81"
+        },
+        {
+          "name": "n4",
+          "rule": "n3/100",
+          "sampleValue": "0.0081"
+        },
+        {
+          "name": "n5",
+          "rule": "n3/10",
+          "sampleValue": "0.081"
+        },
+        {
+          "name": "n6",
+          "rule": "n1/100",
+          "sampleValue": "0.09"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 19772,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 f0 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 39 00 29 00 00 00 39 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 cd cc cc cc cc cc ec 3f 6e 00 32 00 00 00 6e 00 31 00 2f 00 31 00 30 00 00 00 30 00 2e 00 39 00 00 00 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 ec 51 b8 1e 85 eb e9 3f 6e 00 33 00 00 00 6e 00 32 00 2a 00 6e 00 32 00 00 00 30 00 2e 00 38 00 31 00 00 00 02 00 00 00 06 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 83 e2 c7 98 bb 96 80 3f 6e 00 34 00 00 00 6e 00 33 00 2f 00 31 00 30 00 30 00 00 00 30 00 2e 00 30 00 30 00 38 00 31 00 00 00 02 00 00 00 05 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 23 db f9 7e 6a bc b4 3f 6e 00 35 00 00 00 6e 00 33 00 2f 00 31 00 30 00 00 00 30 00 2e 00 30 00 38 00 31 00 00 00 02 00 00 00 06 00 00 00 04 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(4,9)\n9\nn2\nn1/10\n0.9\nn3\nn2*n2\n0.81\nn4\nn3/100\n0.0081\nn5\nn3/10\n0.081\nn6\nn1/100\n0.09\nscramble\nTRUE\n1\nB\nCalculate the number whose square root is [[slot]].\nA.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the number whose square root is 8.1."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.9"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "32.4"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "65.61"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "81"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 23036,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(4,9)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*n1/10",
+          "sampleValue": "8.1"
+        },
+        {
+          "name": "n3",
+          "rule": "n2*n2",
+          "sampleValue": "65.61"
+        },
+        {
+          "name": "n4",
+          "rule": "n2*4",
+          "sampleValue": "32.4"
+        },
+        {
+          "name": "n5",
+          "rule": "n2*10",
+          "sampleValue": "81"
+        },
+        {
+          "name": "n6",
+          "rule": "n1/10",
+          "sampleValue": "0.9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 23036,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 e6 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 39 00 29 00 00 00 39 00 00 00 02 00 00 00 08 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 20 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 2f 00 31 00 30 00 00 00 38 00 2e 00 31 00 00 00 02 00 00 00 05 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 d7 a3 70 3d 0a 67 50 40 6e 00 33 00 00 00 6e 00 32 00 2a 00 6e 00 32 00 00 00 36 00 35 00 2e 00 36 00 31 00 00 00 02 00 00 00 04 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 40 40 6e 00 34 00 00 00 6e 00 32 00 2a 00 34 00 00 00 33 00 32 00 2e 00 34 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 54 40 6e 00 35 00 00 00 6e 00 32 00 2a 00 31 00 30 00 00 00 38 00 31 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(4,9)\n9\nn2\nn1*n1/10\n8.1\nn3\nn2*n2\n65.61\nn4\nn2*4\n32.4\nn5\nn2*10\n81\nn6\nn1/10\n0.9\nscramble\nTRUE\n1\nB\nCalculate the number whose square root is [[slot]].\nA.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which fraction is a perfect square?\ri) 49 ii) 60 iii) 49 iv) 225"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "28"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "225"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "7"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "15"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 26290,
+        "difficulty": "Easy",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "prime(3,11)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n2",
+          "rule": "range(5,20,5)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "n3",
+          "rule": "n1*n1",
+          "sampleValue": "49"
+        },
+        {
+          "name": "n4",
+          "rule": "n2*n2",
+          "sampleValue": "225"
+        },
+        {
+          "name": "n5",
+          "rule": "n2*4",
+          "sampleValue": "60"
+        },
+        {
+          "name": "n6",
+          "rule": "n1*4",
+          "sampleValue": "28"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 26290,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 1e 02 00 00 02 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 6e 00 31 00 00 00 70 00 72 00 69 00 6d 00 65 00 28 00 33 00 2c 00 31 00 31 00 29 00 00 00 37 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2e 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 32 00 30 00 2c 00 35 00 29 00 00 00 31 00 35 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6e 00 31 00 3c 00 3e 00 6e 00 32 00 00 00 cd cd 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 48 40 6e 00 33 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 34 00 39 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 20 6c 40 6e 00 34 00 00 00 6e 00 32 00 2a 00 6e 00 32 00 00 00 32 00 32 00 35 00 00 00 02 00 00 00 04 00 00 00 02 00",
+          "textPreview": "Easy\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nConceptual Understanding\nn1\nprime(3,11)\n7\nn2\nrange(5,20,5)\n15\nn1<>n2\nn3\nn1*n1\n49\nn4\nn2*n2\n225\nn5\nn2*4\n60\nn6\nn1*4\n28\nscramble\nTRUE\n1\n[\nWhich fraction is a perfect square?\ri)\t[[slot]] \rii)\t[[slot]] \riii)\t[[slot]] \riv)\t[[slot]]\nA."
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which numbers are perfect squares?\ri) 20.25 ii) 32 iii) 16.9 iv) 3.24"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "20.25"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "32"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "16.9"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3.24"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 30034,
+        "difficulty": "Moderate",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3.5,6.5,1)",
+          "sampleValue": "4.5"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*n1",
+          "sampleValue": "20.25"
+        },
+        {
+          "name": "n3",
+          "rule": "range(6,9)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "n4",
+          "rule": "n3*n3/2",
+          "sampleValue": "32"
+        },
+        {
+          "name": "n5",
+          "rule": "range(11,17,2)",
+          "sampleValue": "13"
+        },
+        {
+          "name": "n6",
+          "rule": "n5*n5/10",
+          "sampleValue": "16.9"
+        },
+        {
+          "name": "n7",
+          "rule": "range(12,18,2)",
+          "sampleValue": "18"
+        },
+        {
+          "name": "n8",
+          "rule": "n7*n7/100",
+          "sampleValue": "3.24"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 30034,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 b0 02 00 00 02 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 12 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2e 00 35 00 2c 00 36 00 2e 00 35 00 2c 00 31 00 29 00 00 00 34 00 2e 00 35 00 00 00 02 00 00 00 05 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 34 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 32 00 30 00 2e 00 32 00 35 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 6e 00 33 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 39 00 29 00 00 00 38 00 00 00 02 00 00 00 07 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 40 40 6e 00 34 00 00 00 6e 00 33 00 2a 00 6e 00 33 00 2f 00 32 00 00 00 33 00 32 00 00 00 02 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2a 40 6e 00 35 00 00 00",
+          "textPreview": "Moderate\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nConceptual Understanding\nn1\nrange(3.5,6.5,1)\n4.5\nn2\nn1*n1\n20.25\nn3\nrange(6,9)\n8\nn4\nn3*n3/2\n32\nn5\nrange(11,17,2)\n13\nn6\nn5*n5/10\n16.9\nn7\nrange(12,18,2)\n18\nn8\nn7*n7/100\n3.24\nscramble"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Determine the value of 72."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "12"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "7"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "36"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "49"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_1.1",
+        "sectionName": "1.1 Square Roots of Perfect Squares",
+        "sourceOffset": 33632,
+        "difficulty": "Moderate",
+        "reference": "9.N5",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,8)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n2",
+          "rule": "n1+1",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n3",
+          "rule": "n1*n1",
+          "sampleValue": "36"
+        },
+        {
+          "name": "n4",
+          "rule": "n2*n2",
+          "sampleValue": "49"
+        },
+        {
+          "name": "n5",
+          "rule": "n3*2",
+          "sampleValue": "72"
+        },
+        {
+          "name": "n6",
+          "rule": "n4*2",
+          "sampleValue": "98"
+        },
+        {
+          "name": "n7",
+          "rule": "n1*2",
+          "sampleValue": "12"
+        },
+        {
+          "name": "n8",
+          "rule": "n2*2",
+          "sampleValue": "14"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 33632,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 20 00 52 00 6f 00 6f 00 74 00 73 00 20 00 6f 00 66 00 20 00 50 00 65 00 72 00 66 00 65 00 63 00 74 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 73 00 00 00 39 00 2e 00 4e 00 35 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 48 02 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 38 00 29 00 00 00 36 00 00 00 02 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 1c 40 6e 00 32 00 00 00 6e 00 31 00 2b 00 31 00 00 00 37 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 42 40 6e 00 33 00 00 00 6e 00 31 00 2a 00 6e 00 31 00 00 00 33 00 36 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 48 40 6e 00 34 00 00 00 6e 00 32 00 2a 00 6e 00 32 00 00 00 34 00 39 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 52 40 6e 00 35 00 00 00 6e 00 33 00 2a 00 32 00 00 00 37 00 32 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00",
+          "textPreview": "Moderate\n1.1 Square Roots of Perfect Squares\n9.N5\nNumber\nProcedural Knowledge\nn1\nrange(3,8)\n6\nn2\nn1+1\n7\nn3\nn1*n1\n36\nn4\nn2*n2\n49\nn5\nn3*2\n72\nn6\nn4*2\n98\nn7\nn1*2\n12\nn8\nn2*2\n14\nscramble"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 8723 to 116604 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 23 candidate string clusters; using header count 10."
+    }
+  ],
+  "stats": {
+    "questionCount": 10,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 10
+  }
+}

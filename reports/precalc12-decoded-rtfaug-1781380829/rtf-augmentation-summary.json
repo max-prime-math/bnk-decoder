@@ -1,0 +1,238 @@
+{
+  "decodedDir": "reports/precalc12-decoded-rtfpass-1781380478",
+  "rtfDir": "reports/rtf-reference-all",
+  "outDir": "reports/precalc12-decoded-rtfaug-1781380829",
+  "chapters": [
+    {
+      "chapter": 1,
+      "questionsAugmented": 2,
+      "assetsAdded": 2,
+      "unmatched": [
+        {
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 2,
+      "questionsAugmented": 4,
+      "assetsAdded": 5,
+      "unmatched": []
+    },
+    {
+      "chapter": 3,
+      "questionsAugmented": 3,
+      "assetsAdded": 4,
+      "unmatched": [
+        {
+          "id": "q-32",
+          "title": "dividend",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-33",
+          "title": "divisor",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-34",
+          "title": "quotient",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-40",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-41",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-54",
+          "title": "factor theorem | factor",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-61",
+          "title": "factor theorem | integral zero theorem | factor | root | extraneous roots",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "questionsAugmented": 6,
+      "assetsAdded": 8,
+      "unmatched": [
+        {
+          "id": "q-24",
+          "title": "trigonometric ratios",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-29",
+          "title": "trigonometric ratios",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-30",
+          "title": "trigonometric ratios",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-61",
+          "title": "cosine law | two-dimensional problem",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "questionsAugmented": 5,
+      "assetsAdded": 8,
+      "unmatched": []
+    },
+    {
+      "chapter": 6,
+      "questionsAugmented": 7,
+      "assetsAdded": 11,
+      "unmatched": [
+        {
+          "id": "q-39",
+          "title": "difference identities | sum identities",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 7,
+      "questionsAugmented": 6,
+      "assetsAdded": 11,
+      "unmatched": [
+        {
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "questionsAugmented": 10,
+      "assetsAdded": 16,
+      "unmatched": [
+        {
+          "id": "q-32",
+          "title": "power law | product law | quotient law",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-33",
+          "title": "power law | product law | quotient law",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-34",
+          "title": "power law | product law | quotient law",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-35",
+          "title": "power law | product law | quotient law",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-36",
+          "title": "power law | product law | quotient law",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 9,
+      "questionsAugmented": 3,
+      "assetsAdded": 4,
+      "unmatched": [
+        {
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-56",
+          "title": "slant asymptote | polynomial long division",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "questionsAugmented": 5,
+      "assetsAdded": 12,
+      "unmatched": []
+    },
+    {
+      "chapter": 11,
+      "questionsAugmented": 6,
+      "assetsAdded": 7,
+      "unmatched": [
+        {
+          "id": "q-5",
+          "title": "combinations",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-31",
+          "title": "permutations | combinations | factorial",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-32",
+          "title": "permutations | combinations | factorial",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-33",
+          "title": "permutations | combinations | factorial",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-34",
+          "title": "permutations | combinations | factorial",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-35",
+          "title": "permutations | combinations | factorial",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "reason": "matched block has no question images"
+        }
+      ]
+    }
+  ],
+  "assetsCopied": 88,
+  "questionsAugmented": 57
+}

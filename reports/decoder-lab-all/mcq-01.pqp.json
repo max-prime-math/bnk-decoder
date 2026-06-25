@@ -1,0 +1,95 @@
+{
+  "format": "portable-question-package",
+  "version": "1.0",
+  "producer": {
+    "app": "bnk-decoder",
+    "appVersion": "0.1.0",
+    "exportedAt": "2026-06-13T18:30:00.584Z"
+  },
+  "source": {
+    "kind": "bnk",
+    "label": "mcq-01.bnk",
+    "originFiles": [
+      "ignore/decoder-lab/mcq-01.bnk"
+    ]
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "plain",
+          "text": "mcq-01 AK AL AR AZ CA CO CT DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY Times New Roman\nTimes New Roman Times New Roman Times New Roman Times New Roman Times New Roman Times New Roman a\nMSC Miscellaneous OT Other C\nThis is the question text. a. First c. Second b. Third d. Fourth Times New Roman # - Z $ - ' Z . $ / \" - 2 Z 8 - ; Z B ,"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "mcq-01.bnk",
+        "sourceQuestionNumber": "q-1",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/decoder-lab/mcq-01.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 96,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "mcq-01 AK AL AR AZ CA CO CT DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY Times New Roman\nTimes New Roman Times New Roman Times New Roman Times New Roman Times New Roman Times New Roman a\nMSC Miscellaneous OT Other C\nThis is the question text. a. First c. Second b. Third d. Fourth Times New Roman # - Z $ - ' Z . $ / \" - 2 Z 8 - ; Z B ,"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 420,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 0,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 597 to 5650 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "warning",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 0 candidate v06 question string clusters."
+    }
+  ],
+  "extensions": {}
+}

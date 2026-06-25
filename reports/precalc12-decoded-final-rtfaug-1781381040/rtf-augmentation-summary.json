@@ -1,0 +1,92 @@
+{
+  "decodedDir": "reports/precalc12-decoded-final-1781381029",
+  "rtfDir": "reports/rtf-reference-all",
+  "outDir": "reports/precalc12-decoded-final-rtfaug-1781381040",
+  "chapters": [
+    {
+      "chapter": 1,
+      "questionsAugmented": 2,
+      "assetsAdded": 6,
+      "unmatched": []
+    },
+    {
+      "chapter": 2,
+      "questionsAugmented": 4,
+      "assetsAdded": 6,
+      "unmatched": []
+    },
+    {
+      "chapter": 3,
+      "questionsAugmented": 8,
+      "assetsAdded": 35,
+      "unmatched": [
+        {
+          "id": "q-41",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-54",
+          "title": "factor theorem | factor",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 4,
+      "questionsAugmented": 9,
+      "assetsAdded": 19,
+      "unmatched": []
+    },
+    {
+      "chapter": 5,
+      "questionsAugmented": 5,
+      "assetsAdded": 11,
+      "unmatched": []
+    },
+    {
+      "chapter": 6,
+      "questionsAugmented": 8,
+      "assetsAdded": 22,
+      "unmatched": []
+    },
+    {
+      "chapter": 7,
+      "questionsAugmented": 8,
+      "assetsAdded": 20,
+      "unmatched": []
+    },
+    {
+      "chapter": 8,
+      "questionsAugmented": 15,
+      "assetsAdded": 27,
+      "unmatched": []
+    },
+    {
+      "chapter": 9,
+      "questionsAugmented": 5,
+      "assetsAdded": 13,
+      "unmatched": []
+    },
+    {
+      "chapter": 10,
+      "questionsAugmented": 5,
+      "assetsAdded": 12,
+      "unmatched": []
+    },
+    {
+      "chapter": 11,
+      "questionsAugmented": 12,
+      "assetsAdded": 15,
+      "unmatched": [
+        {
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "reason": "matched block has no question images"
+        }
+      ]
+    }
+  ],
+  "assetsCopied": 186,
+  "questionsAugmented": 81
+}

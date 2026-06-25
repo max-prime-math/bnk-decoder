@@ -1,0 +1,3408 @@
+{
+  "generatedAt": "2026-05-16T01:52:39.468Z",
+  "inputRoot": "ignore/ExamView/Banks",
+  "fileCount": 100,
+  "questionCount": 1918,
+  "quality": {
+    "clean": 1348,
+    "suspect": 541,
+    "garbage": 29,
+    "averageScore": 88
+  },
+  "files": [
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.1 Absolute Value.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 100
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.2 Radical Operations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 86
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.3 Simplifying Radicals.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.4 Adding and Subtracting Radical Expressions.bnk",
+      "questions": 23,
+      "assets": 0,
+      "diagnostics": 22,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 5,
+        "suspect": 13,
+        "garbage": 5,
+        "averageScore": 60
+      },
+      "topIssues": [
+        {
+          "id": "q-3",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "f"
+        },
+        {
+          "id": "q-4",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "f"
+        },
+        {
+          "id": "q-5",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "99 * 9"
+        },
+        {
+          "id": "q-7",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "*\n*\ns X\nff"
+        },
+        {
+          "id": "q-8",
+          "score": 60,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "* @ s 9 * @ * ss @ * @ * ss @ * 99s s"
+        },
+        {
+          "id": "q-9",
+          "score": 46,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "99s s ?"
+        },
+        {
+          "id": "q-10",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "?\ne**"
+        },
+        {
+          "id": "q-11",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "e**\ne**"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.5 Multiplying and Dividing Radical Expressions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/1.6 Radical Equations.bnk",
+      "questions": 2,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.1 Properties of Rational Expressions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 84
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.2 Multiplication and Division of Rational Expressions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.3 Sums and Differences of Rational Expressions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.4 Mixed Operations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.5 Rational Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 81
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/2.6 Applications of Rational Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.1 Angles and Their Measure.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.2 The Three Trigonometric Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.3 Special Angles.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 84
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.4 Oblique Triangles.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.5 Law of Sines.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/3.6 Law of Cosines.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.1 Factoring x^2 + bx + c.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 84
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.2 Factoring ax^2 + bx + c.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.3 Absolute Value Functions.bnk",
+      "questions": 23,
+      "assets": 0,
+      "diagnostics": 14,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 13,
+        "suspect": 10,
+        "garbage": 0,
+        "averageScore": 76
+      },
+      "topIssues": [
+        {
+          "id": "q-3",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "- +# \"% % *"
+        },
+        {
+          "id": "q-4",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "- * \"% % \"% %"
+        },
+        {
+          "id": "q-9",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "!\" #!$ #!$ #!$ %& ' ' () () ' * # #"
+        },
+        {
+          "id": "q-10",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "+ ' # # '"
+        },
+        {
+          "id": "q-11",
+          "score": 46,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "+ , # # ,"
+        },
+        {
+          "id": "q-15",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "W h i c h o f t h e f o l l o w i n g p i e c e w i s e f u n c t i o n s a c c u r a t e l y r e p r e s e n t s t h e g r a p h o f t h e a b s o l u t e v a "
+        },
+        {
+          "id": "q-16",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "{{ { {{{{{{{{{"
+        },
+        {
+          "id": "q-18",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "-{{{{{{{{\t) {{{{{ $ $ {{{{{{{{{\t) {{{{{{"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.4 Solving Absolute Value Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.5 Rational Functions.bnk",
+      "questions": 8,
+      "assets": 0,
+      "diagnostics": 8,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 4,
+        "suspect": 4,
+        "garbage": 0,
+        "averageScore": 71
+      },
+      "topIssues": [
+        {
+          "id": "q-2",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE"
+          ],
+          "bodyPreview": "!! \"# $% #& '( )* +, -. / 01 !* 23 32 45 67 6 89"
+        },
+        {
+          "id": "q-5",
+          "score": 46,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": ": :;"
+        },
+        {
+          "id": "q-6",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_UNRESOLVED_TOKENS",
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": ": :; :%^_$* : :; % `8a b : :; : :; cd4/ef9:; : :; 67 6 67 6 %cgh//B5%67 6 67 6 2 2 I0d L/iHJ 2 2 %jJ>k@8F4? E I#Md C$LhlSm .<Mno?ka\"FKF=hH ,# % Pjpq,So*B a&FCr&"
+        },
+        {
+          "id": "q-7",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "\"#"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.6 Reciprocal Functions.bnk",
+      "questions": 311,
+      "assets": 0,
+      "diagnostics": 306,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 9,
+        "suspect": 294,
+        "garbage": 8,
+        "averageScore": 56
+      },
+      "topIssues": [
+        {
+          "id": "q-1",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_UNRESOLVED_TOKENS",
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": ")= M i c k e l s o n 1 1 P C C h a p t e r 4 Q u a d r a t i c E q u a t i o n s 4 . 6 R e c i p r o c a l F u n c t i o n s\nA K A L A R A Z C A C O C T D E F L"
+        },
+        {
+          "id": "q-3",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "/01 23 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-4",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "678 9: 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-5",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "6:; <= 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-6",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "6>?@ AB 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-7",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "6CD EF 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-8",
+          "score": 66,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "6G HI JK 4\n5 $\n(\n\"\n( ) .\n&"
+        },
+        {
+          "id": "q-9",
+          "score": 66,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "6L MN OP 4\n5 $\n(\n\"\n( ) .\n&"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.1 Properties of Quadratic Functions.bnk",
+      "questions": 19,
+      "assets": 0,
+      "diagnostics": 18,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 5,
+        "suspect": 12,
+        "garbage": 2,
+        "averageScore": 62
+      },
+      "topIssues": [
+        {
+          "id": "q-4",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "0S^00"
+        },
+        {
+          "id": "q-5",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "^ 0"
+        },
+        {
+          "id": "q-6",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "0S^00"
+        },
+        {
+          "id": "q-7",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "0S^00"
+        },
+        {
+          "id": "q-8",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "e @4 @p 9 = 0"
+        },
+        {
+          "id": "q-9",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "0S^00"
+        },
+        {
+          "id": "q-10",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "S S"
+        },
+        {
+          "id": "q-11",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "^ 0"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.2 The Standard Form of a Quadratic Function.bnk",
+      "questions": 42,
+      "assets": 0,
+      "diagnostics": 29,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 17,
+        "suspect": 19,
+        "garbage": 6,
+        "averageScore": 66
+      },
+      "topIssues": [
+        {
+          "id": "q-3",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "zx\nM\n} Fm ] } wY\nx\n0 Y\nM]"
+        },
+        {
+          "id": "q-5",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "zx\nM\n} @j JF"
+        },
+        {
+          "id": "q-6",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "M\nx M\nM]"
+        },
+        {
+          "id": "q-8",
+          "score": 71,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "--- XXX ))) %%% ... 777 *** 555\n!\n\" # \"$% &' ( )* + , ' \" -.! /01234567489':;< =>? !@- +( !AB!! ! CDEFG7)H C! !!I.! B+\n(@ &&&&& JK &&&&&&&&&&&&&&&&&&&&&&&&&&&&&"
+        },
+        {
+          "id": "q-9",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "!+"
+        },
+        {
+          "id": "q-10",
+          "score": 46,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_FORMATTING_NOISE",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "9 vQ yD% ,"
+        },
+        {
+          "id": "q-11",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "KA+"
+        },
+        {
+          "id": "q-12",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "K.-"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.3 Finding the Equation of a Parabola.bnk",
+      "questions": 3,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 3,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 86
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.4 Standard Form to General Form.bnk",
+      "questions": 17,
+      "assets": 0,
+      "diagnostics": 19,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 15,
+        "garbage": 0,
+        "averageScore": 57
+      },
+      "topIssues": [
+        {
+          "id": "q-2",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "<"
+        },
+        {
+          "id": "q-3",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "\"=>"
+        },
+        {
+          "id": "q-4",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "?"
+        },
+        {
+          "id": "q-5",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "@<*"
+        },
+        {
+          "id": "q-6",
+          "score": 67,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "ABC D>0E3FG+HIJKLMNO"
+        },
+        {
+          "id": "q-7",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "PQR"
+        },
+        {
+          "id": "q-8",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "<"
+        },
+        {
+          "id": "q-9",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "@"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.5 Vertex of a Parabola.bnk",
+      "questions": 3,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 3,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 80
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/5.6 Applications of Quadratic Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/6.1 Solving Quadratic Equations by Factoring.bnk",
+      "questions": 2,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/6.2 Completing the Square and Square Root Property.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/6.3 The Quadratic Formula.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/6.4 Graphing Calculator and the Discriminant.bnk",
+      "questions": 10,
+      "assets": 0,
+      "diagnostics": 11,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 3,
+        "suspect": 5,
+        "garbage": 2,
+        "averageScore": 60
+      },
+      "topIssues": [
+        {
+          "id": "q-3",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": ":"
+        },
+        {
+          "id": "q-4",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "Yk X & G%H4 9"
+        },
+        {
+          "id": "q-5",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "N"
+        },
+        {
+          "id": "q-6",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": ") H"
+        },
+        {
+          "id": "q-7",
+          "score": 40,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": ":M"
+        },
+        {
+          "id": "q-8",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "$\\"
+        },
+        {
+          "id": "q-9",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": ":)"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/6.5 Applications of Quadratic Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/7.1 Graphing Non-Linear Systems of Equations.bnk",
+      "questions": 27,
+      "assets": 0,
+      "diagnostics": 28,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 3,
+        "suspect": 21,
+        "garbage": 3,
+        "averageScore": 54
+      },
+      "topIssues": [
+        {
+          "id": "q-1",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_UNRESOLVED_TOKENS",
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "3 M i c k e l s o n 1 1 P C C h a p t e r 7 S y s t e m s o f E q u a t i o n s 7 . 1 G r a p h i n g N o n - L i n e a r S y s t e m s o f E q u a t i o n s A "
+        },
+        {
+          "id": "q-2",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "8"
+        },
+        {
+          "id": "q-3",
+          "score": 47,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_MATH_MODE_LEAK",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "f v >N if f"
+        },
+        {
+          "id": "q-4",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "f"
+        },
+        {
+          "id": "q-5",
+          "score": 36,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "BODY_FORMATTING_NOISE",
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE"
+          ],
+          "bodyPreview": "| | !\tf y6"
+        },
+        {
+          "id": "q-6",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "f f + >C U f"
+        },
+        {
+          "id": "q-7",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "8"
+        },
+        {
+          "id": "q-9",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "h"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/7.2 Solving Non-Linear Systems Algebraically.bnk",
+      "questions": 3,
+      "assets": 0,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": [
+        {
+          "id": "q-2",
+          "score": 60,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PUNCTUATION_HEAVY",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "((( /// *** %%% 999 '''"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/7.3 Graphing Linear Inequalities in Two Variables.bnk",
+      "questions": 4,
+      "assets": 0,
+      "diagnostics": 7,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 62
+      },
+      "topIssues": [
+        {
+          "id": "q-1",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_FORMATTING_NOISE",
+            "BODY_MATH_MODE_LEAK",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "v M i c k e l s o n 1 1 P C C h a p t e r 7 S y s t e m s o f E q u a t i o n s 7 . 3 G r a p h i n g L i n e a r I n e q u a l i t i e s i n T w o V a r i a b "
+        },
+        {
+          "id": "q-2",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "M"
+        },
+        {
+          "id": "q-3",
+          "score": 50,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "M"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/7.4 Graphing Non-Linear Inequalities in Two Variables.bnk",
+      "questions": 16,
+      "assets": 0,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 15,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": [
+        {
+          "id": "q-7",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "LOW_CONFIDENCE",
+            "UNKNOWN_TYPE"
+          ],
+          "bodyPreview": "== = ============================"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/7.5 Applications of Inequalities.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/8.1 Sequences.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/8.2 Arithmetic Series.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/8.3 Geometric Sequences.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/8.4 Geometric Series.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/8.5 Infinite Geometric Series.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk",
+      "questions": 72,
+      "assets": 0,
+      "diagnostics": 10,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 2,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "topIssues": [
+        {
+          "id": "q-62",
+          "score": 52,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "A bouncy ball bounces to 2/3 its height when it is dropped on a hard surface. Suppose the ball is dropped from 20 m.\ra) What height will the ball bounce back up"
+        },
+        {
+          "id": "q-79",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Let xn represent the side length of the nth square.\rx1 = 12\rLet Pn represent the perimeter of the nth square.\rP1 = 48\rUse the Pythagorean relation to find x2. ["
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 02.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 9,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 60,
+        "suspect": 5,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "topIssues": [
+        {
+          "id": "q-42",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "In acute [embedded object], o = 7 cm, p = 9 cm, and [DIAGRAM NEEDED]. Solve [DIAGRAM NEEDED]. What type of triangle is this?"
+        },
+        {
+          "id": "q-48",
+          "score": 45,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "A such that cos A = [DIAGRAM NEEDED].\ra) In which quadrant(s) is this angle? Explain.\rb) If the sine of the angle is negative, in which quadrant is the angle? E"
+        },
+        {
+          "id": "q-53",
+          "score": 45,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "The angle between them is. Prove that the area of the triangle is [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-57",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "A salvage vessel locates a sunken ship directly below it. The angle of depression from the salvage vessel to one end of the ship is 29.3 and to the other end is"
+        },
+        {
+          "id": "q-65",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "Match the correct term to its description below. (d = -)"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 03.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 6,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 2,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "topIssues": [
+        {
+          "id": "q-5",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents the quadratic function abs(n)<abs(d)? Recovered graph functions: -(0.714285714286)*(pow((x+(4)),2))+(-7); -(0.714285714286)*(pow((x-(4)),"
+        },
+        {
+          "id": "q-9",
+          "score": 72,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_SUSPICIOUS_CODE",
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which function is not quadratic? (a2 = 6, sign_p2 = if(p2<0,chr(45),chr(43)), p2_value = 9, p1_value = 9, sign_q2 = if(q2<0,chr(45),chr(43)), q2_value = 9, a1 ="
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 04.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 6,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "topIssues": [
+        {
+          "id": "q-58",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve each equation for x by completing the square.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 05.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 13,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 56,
+        "suspect": 7,
+        "garbage": 2,
+        "averageScore": 86
+      },
+      "topIssues": [
+        {
+          "id": "q-23",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_TOO_SHORT",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Solve 2."
+        },
+        {
+          "id": "q-36",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Identify each number as a mixed radical or an entire radical, and then change it to its other form.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] "
+        },
+        {
+          "id": "q-39",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Simplify each expression.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-40",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Simplify each expression.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-41",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Rationalize the denominator in each expression. Express each answer in simplest form.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-46",
+          "score": 35,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "The perimeter of the quadrilateral shown below is [embedded value] m. What is the missing measure? [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-49",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The velocity, v, in feet per second, of a roller coaster at the bottom of a hill is related to the vertical drop, h, in feet, and the velocity, v0, in feet per "
+        },
+        {
+          "id": "q-54",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Find the perimeter and area of the given shape, in fully simplified form. [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 06.bnk",
+      "questions": 67,
+      "assets": 0,
+      "diagnostics": 11,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 60,
+        "suspect": 6,
+        "garbage": 1,
+        "averageScore": 92
+      },
+      "topIssues": [
+        {
+          "id": "q-36",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine if the following functions are equivalent.\ra) [embedded object] and [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] and [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-53",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "When three resistors are in parallel, then the total resistance, [embedded object], can be calculated using the equation [embedded math expression], where each "
+        },
+        {
+          "id": "q-56",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The rectangle has a perimeter of 5 units. What is the value of x? [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-57",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The rectangle has an area of 1 square unit. What is the value of x? [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-58",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The time for each race is determined by the equation [embedded math expression]. For the race with no current the equation is [DIAGRAM NEEDED]. The time for the"
+        },
+        {
+          "id": "q-59",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The time for the first 5 km is calculated using the equation [embedded math expression]. The time for the last 4 km is [DIAGRAM NEEDED], because he jogged at 2 "
+        },
+        {
+          "id": "q-67",
+          "score": 35,
+          "verdict": "garbage",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "The area of a tennis court can be represented approximately by the function [embedded math expression], and its length can be represented by [DIAGRAM NEEDED], w"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 07.bnk",
+      "questions": 67,
+      "assets": 0,
+      "diagnostics": 11,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 60,
+        "suspect": 7,
+        "garbage": 0,
+        "averageScore": 89
+      },
+      "topIssues": [
+        {
+          "id": "q-13",
+          "score": 72,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "BODY_PUNCTUATION_HEAVY"
+          ],
+          "bodyPreview": "The graph of 1 is Recovered graph functions: ((1)/(2))*x^2-(-3)*x+(2); ((1)/(2))*x^2+(-3)*x+(2); abs(((1)/(2))*x^2+(-3)*x+(2)); abs(((1)/(2))*x^2-(-3)*x+(2))."
+        },
+        {
+          "id": "q-14",
+          "score": 60,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Given the graph of abs(a)>1 and abs(b)>1 and abs(c)>1 and pow(b,2)-4*a*c>0 and abs(b/(2*a))<5 and abs((pow(b,2)/(4*a))-c)<3, which is the graph of (3)*x^2+(-7)*"
+        },
+        {
+          "id": "q-38",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Graph the following on a number line. [embedded object], [DIAGRAM NEEDED], [DIAGRAM NEEDED], [DIAGRAM NEEDED] [DIAGRAM NEEDED] b) Order the absolute values from"
+        },
+        {
+          "id": "q-39",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Evaluate each absolute value expression.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-40",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given the graph of -2*x-3:\ra) sketch the graph of [Graph diagram: Graph: -2*x-3 | x: [-10.0, 10.0], y: [-23.0, 17.0]] b) state the domain and range\rc) express ["
+        },
+        {
+          "id": "q-42",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Consider the function abs(2*(x-4)^2-3).\ra) Express the function in vertex form, [Graph diagram: Graph: abs(2*(x-4)^2-3) | x: [-10.0, 10.0], y: [1.0, 389.0]].\rb)"
+        },
+        {
+          "id": "q-62",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Let S be the actual length of one side of the paper. The machines might make an error of up to 0.25 in. in either direction when cutting side S, so [embedded ob"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 08.bnk",
+      "questions": 69,
+      "assets": 0,
+      "diagnostics": 12,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 61,
+        "suspect": 8,
+        "garbage": 0,
+        "averageScore": 89
+      },
+      "topIssues": [
+        {
+          "id": "q-10",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents the system of equations shown below? 0.2 Recovered graph functions: (0.2)*pow((3.7),2)+d*(3.7)+(3); (0.2)*pow((1),2)+d*(1)+(3); -(-1.2)*x"
+        },
+        {
+          "id": "q-37",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve the system graphically. [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-38",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve the system graphically. [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-39",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve the system graphically. [embedded object] [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-40",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "What is (are) the solution(s) to the following system? [embedded object] [DIAGRAM NEEDED] Solve graphically. [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-43",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine if each system has one, two, or no solutions.\ra) [embedded object] and [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] and [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-44",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine the coordinates of the point(s) of intersection of each linear-quadratic system algebraically. Identify whether you used substitution or elimination i"
+        },
+        {
+          "id": "q-51",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Determine graphically the value of k for which the graph of x^2+1 is tangent to the graph of the parabola [Graph diagram: Graph: x^2+1 | x: [-10.0, 10.0], y: [1"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 09.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 8,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 61,
+        "suspect": 4,
+        "garbage": 0,
+        "averageScore": 91
+      },
+      "topIssues": [
+        {
+          "id": "q-42",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Write two quadratic inequalities in the form [embedded object] with solution set [DIAGRAM NEEDED]. The [DIAGRAM NEEDED] represents the inequality symbol."
+        },
+        {
+          "id": "q-56",
+          "score": 64,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Graph the inequality 5 Graph the quadratic function to determine the zeros and intervals. -16*x^2+42*x-18.25 From the graph, [Graph diagram: Graph: -16*x^2+42*x"
+        },
+        {
+          "id": "q-57",
+          "score": 59,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Use a diagram to visualize the problem. x^2-34*x+240 Since the perimeter is given by [Graph diagram: Graph: x^2-34*x+240 | x: [-10.0, 10.0], y: [0.0, 680.0]], t"
+        },
+        {
+          "id": "q-63",
+          "score": 64,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Let w represent the width of the building. Then, w + 20 represents the length. Thus, x*(x+20).\rGraph the quadratic and the line A(w) = 1500 for w > 0. [embedded"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.1 Functions and Relations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 100
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.2 Arithmetic Combinations of Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.3 Composite Functions.bnk",
+      "questions": 2,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.4 Transformations of Graphs.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.5 Inverse Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.6 Combined Transformations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/2.1 Polynomials.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/2.2 Graphing Polynomial Functions.bnk",
+      "questions": 2,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 83
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/2.3 Division of Polynomials.bnk",
+      "questions": 2,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 2,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/2.4 The Remainder and Factor Theorems.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/2.5 Polynomial Applications.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/3.1 Radicals.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/3.2 Graphing and Solving Radical Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/3.3 Rational Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/3.4 Graphing Rational Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 84
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/4.1 Exponents.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/4.2 Logarithmic Functions and Their Graphs.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/4.3 Properties of Logarithms.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/4.4 Exponential and Logarithmic Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/4.5 Applications of Exponential and Logarithmic Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/5.1 Angles and Their Measure.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/5.2 Trigonometric Functions of Acute Angles.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/5.3 Trigonometric Functions General and Special Angles.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/5.4 Graphing Basic Trigonometric Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 84
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/5.5 Applications of Periodic Functions.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/6.1 Trigonometric Identities and Equation.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 81
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/6.2 Verifying Trigonometric Identities.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/6.3 Trigonometric Equations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/6.4 Sum and Difference Identities.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/6.5 Double Angle Identities.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 78
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/7.1 Fundamental Counting Principle.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/7.2 Permutations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/7.3 Combinations.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/7.4 Binomial Theorem.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/7.5 Pathway Problems.bnk",
+      "questions": 1,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 1,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk",
+      "questions": 71,
+      "assets": 0,
+      "diagnostics": 13,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 9,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": [
+        {
+          "id": "q-19",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which choice best describes the combination of transformations that must be applied to the graph of [embedded object] [DIAGRAM: variables (b, h, constant)] to o"
+        },
+        {
+          "id": "q-28",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_UNRESOLVED_TOKENS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which graph represents the inverse of the graph shown? [DIAGRAM: variables (p, q, a)] [graph not decoded yet]"
+        },
+        {
+          "id": "q-41",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Create a graph of x^2 for each base function given, using transformations.\ra) [Graph diagram: Graph: x^2 | x: [-10.0, 10.0], y: [0.0, 100.0]] b) [DIAGRAM: varia"
+        },
+        {
+          "id": "q-43",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Given the graph of a function, sketch the resulting graph after the specified transformation.\ra) reflection in the x-axis x^2+2 b) reflection in the y-axis [Gra"
+        },
+        {
+          "id": "q-45",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Sketch the graph of 4*x for each base function.\ri) [embedded object] ii) [Graph diagram: Graph: 4*x | x: [-10.0, 10.0], y: [-40.0, 40.0]] iii) [DIAGRAM NEEDED] "
+        },
+        {
+          "id": "q-46",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "For each g(x), describe the transformation(s) from the base function [embedded math expression].\ra) [DIAGRAM: variables (stretch)] b) [DIAGRAM: variables (stret"
+        },
+        {
+          "id": "q-47",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "For each g(x), describe, in the appropriate order, the combination of transformations that must be applied to the base function [embedded math expression].\ra) ["
+        },
+        {
+          "id": "q-48",
+          "score": 64,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "For each of the following, describe the combination of transformations that must be applied to the graph of x^2 (shown in blue) to obtain the graph of g(x) (sho"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 02.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 13,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 56,
+        "suspect": 9,
+        "garbage": 0,
+        "averageScore": 88
+      },
+      "topIssues": [
+        {
+          "id": "q-6",
+          "score": 52,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "When the graph of abs((3))<>abs(x)<>abs(y) is vertically stretched by a factor of [embedded object], the point ([Graph: abs(a)<>abs(x)<>abs(y)], [DIAGRAM: varia"
+        },
+        {
+          "id": "q-21",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Which of the following functions is the correct inverse for the function – 2, {x | x 0, x R}?"
+        },
+        {
+          "id": "q-22",
+          "score": 56,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_UNRESOLVED_TOKENS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which graph represents the square root of the graph shown? [DIAGRAM: variables (p, q, a)] [graph not decoded yet]"
+        },
+        {
+          "id": "q-24",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph shows the graphical solution to the radical equation + 8? Recovered graph functions: pow((-3),2)-(8); -1*(pow((-3),2)-(8)); sqrt(-x+(8))+(-3); sqrt("
+        },
+        {
+          "id": "q-45",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Create a graph of sqrt(x) for each base function given, using transformations.\ra) [Graph diagram: Graph: sqrt(x) | x: [0.0, 10.0], y: [0.0, 3.2]] b) [DIAGRAM NE"
+        },
+        {
+          "id": "q-46",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine the equation of each radical function, which has been transformed from [embedded object] by the given translations.\ra) vertical stretch by a factor of"
+        },
+        {
+          "id": "q-47",
+          "score": 64,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "For each graph, write the equation of a radical function of the form -sqrt(x+4)-3.\ra) [Graph diagram: Graph: -sqrt(x+4)-3 | x: [-4.0, 10.0], y: [-6.7, -3.0]] b)"
+        },
+        {
+          "id": "q-48",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine the domain and range of each function.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 03.bnk",
+      "questions": 64,
+      "assets": 0,
+      "diagnostics": 12,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 59,
+        "suspect": 5,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "topIssues": [
+        {
+          "id": "q-24",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "The graph that corresponds to the function + 8 is Recovered graph functions: x^3+(8)*x^2+(10); x^3+(8)*x^2+(17); x^3+(8)*x^2+(17)*x+(10); (x-a)*(x-(2))*(x-(5))."
+        },
+        {
+          "id": "q-26",
+          "score": 52,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Given the function [embedded math expression], what are the parameters of the transformed function y = [DIAGRAM: variables (a_num, a_denom, a)] [DIAGRAM: variab"
+        },
+        {
+          "id": "q-48",
+          "score": 67,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Solve the following inequalities using an algebraic method. a) x2 + x – 2 > 0\rb) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-60",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Let x represent the increase in each dimension. Then V(x) = (1 + x)(2 + x)(4 + x).\rSolve (1 + x)(2 + x)(4 + x) = 9(1)(2)(4). [embedded object] Let [DIAGRAM NEED"
+        },
+        {
+          "id": "q-61",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Let x represent the side length of the square to be cut from each corner.\rThen V(x) = x(15 – 2x)(25 – 2x).\rSolve x(15 – 2x)(25 – 2x) = 476. [embedded object] Le"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 04.bnk",
+      "questions": 67,
+      "assets": 0,
+      "diagnostics": 10,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 61,
+        "suspect": 6,
+        "garbage": 0,
+        "averageScore": 91
+      },
+      "topIssues": [
+        {
+          "id": "q-7",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents an angle in standard position with a measure of 4.619397662556 rad? Recovered graph functions: 5*cos((1.963495408494)); 5*sin((1.96349540"
+        },
+        {
+          "id": "q-8",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents an angle in standard position with a measure of –3.535533905933 Recovered graph functions: 5*cos((2.356194490192)); 5*sin((2.356194490192"
+        },
+        {
+          "id": "q-12",
+          "score": 48,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_PLACEHOLDERS",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Identify the point on the unit circle corresponding to an angle of O in standard position."
+        },
+        {
+          "id": "q-13",
+          "score": 48,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_PLACEHOLDERS",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Identify the point on the unit circle corresponding to an angle of 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 radians in standard position."
+        },
+        {
+          "id": "q-14",
+          "score": 48,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_IDENTICAL",
+            "CHOICE_PLACEHOLDERS",
+            "CHOICE_UNRESOLVED_TOKENS"
+          ],
+          "bodyPreview": "Which point on the unit circle corresponds to tan q = 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1?"
+        },
+        {
+          "id": "q-56",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "Use a calculator and a diagram to verify your answers to part a)."
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 05.bnk",
+      "questions": 69,
+      "assets": 0,
+      "diagnostics": 12,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 61,
+        "suspect": 8,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "topIssues": [
+        {
+          "id": "q-2",
+          "score": 72,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_SUSPICIOUS_CODE",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "The range (in radians) of the graph of cos is"
+        },
+        {
+          "id": "q-5",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents the function y = 3/5 sin (-1, where is in radians? Recovered graph functions: -1*(0.6)*sin((-1)*x); (0.6)*sin((-1)*x); (0.6)*cos((-1)*x);"
+        },
+        {
+          "id": "q-6",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents the function y = 3/4 cos(3/4 x), where x is in degrees? Recovered graph functions: -1*(0.75)*sin((-1.333333333333)*(pi*x/180)); (0.75)*co"
+        },
+        {
+          "id": "q-54",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The period is 12 h 24 min, or 12.4 h. [embedded object] An equation that models the depth of the water is [DIAGRAM NEEDED].\rAt 10:00 a.m., t = 2. Substitute t ="
+        },
+        {
+          "id": "q-61",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The flapping of a bird s wing can be modelled by the function [embedded math expression], where y represents the distance the tip of the wing travels, in centim"
+        },
+        {
+          "id": "q-64",
+          "score": 59,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Consider the graph of tan(x*pi/180). a) Describe the transformations from the function [embedded math expression].\rb) Graph the two functions on the same set of"
+        },
+        {
+          "id": "q-66",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "A cosine function has half the period of the function cos(2*pi*x/180). All other properties of the two functions are identical.\ra) Determine the number of point"
+        },
+        {
+          "id": "q-68",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Consider the function [embedded math expression].\ra) Determine the amplitude, the period, the phase shift, and the vertical shift of the function with respect t"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 06.bnk",
+      "questions": 70,
+      "assets": 0,
+      "diagnostics": 13,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 61,
+        "suspect": 9,
+        "garbage": 0,
+        "averageScore": 87
+      },
+      "topIssues": [
+        {
+          "id": "q-4",
+          "score": 45,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "What does the expression [embedded math expression] [DIAGRAM: variables (num1, num2, num3)] [DIAGRAM: variables (num1, num2, num3)] [DIAGRAM: variables (num1, n"
+        },
+        {
+          "id": "q-7",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-20",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-21",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "Which expression is equivalent to [embedded object]?"
+        },
+        {
+          "id": "q-22",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] is equivalent to"
+        },
+        {
+          "id": "q-23",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] can be rewritten as"
+        },
+        {
+          "id": "q-24",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "[embedded object] can be rewritten as"
+        },
+        {
+          "id": "q-25",
+          "score": 60,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "CHOICES_IDENTICAL"
+          ],
+          "bodyPreview": "What is the solution to the equation [embedded math expression] over the domain [DIAGRAM NEEDED]?"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 07.bnk",
+      "questions": 68,
+      "assets": 0,
+      "diagnostics": 10,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 6,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "topIssues": [
+        {
+          "id": "q-26",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The half-life of a radioactive element can be modelled by 32, where 45 is the initial mass of the element; [embedded object] is the elapsed time, in hours; and "
+        },
+        {
+          "id": "q-34",
+          "score": 67,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "an exponential function of the form [embedded object], where a > 0 and [DIAGRAM NEEDED] c [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-36",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "occurs for the graph of [embedded object] when [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-38",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Determine the type of function shown in each graph.\ri) 0.5*x^2 ii) [Graph diagram: Graph: 0.5*x^2 | x: [-10.0, 10.0], y: [0.0, 50.0]] iii) [DIAGRAM NEEDED] b) D"
+        },
+        {
+          "id": "q-39",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Match each graph with the correct corresponding equation.\ra) 3*3^x b) [Graph diagram: Graph: 3*3^x | x: [-10.0, 10.0], y: [0.0, 177147.0]] c) [DIAGRAM NEEDED] d"
+        },
+        {
+          "id": "q-44",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Match each exponential scatter plot with the corresponding equation of its curve of best fit.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] i) [DI"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 08.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 10,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 60,
+        "suspect": 6,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "topIssues": [
+        {
+          "id": "q-48",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The magnitude of an earthquake is defined as [embedded object], where A is the amplitude of the ground motion and [DIAGRAM NEEDED] is the amplitude corrected fo"
+        },
+        {
+          "id": "q-50",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given [embedded object] and [DIAGRAM NEEDED], find the value of [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-54",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The stellar magnitude scale compares the brightness of stars using the equation [embedded math expression], where [DIAGRAM NEEDED] and [DIAGRAM NEEDED] are the "
+        },
+        {
+          "id": "q-58",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Sketch the graphs of [embedded object], [DIAGRAM NEEDED], and [DIAGRAM NEEDED], and then describe the pattern in terms of n for [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-59",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Sketch a graph of the function 2^(2*x)-1 and its inverse [Graph diagram: Graph: 2^(2*x)-1 | x: [-10.0, 9.5], y: [-1.0, 524287.0]]. Compare the graph of [DIAGRAM"
+        },
+        {
+          "id": "q-62",
+          "score": 68,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS",
+            "BODY_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Graph the function log(x)/log(3).\rb) Graph the following functions on the same graph: [Graph diagram: Graph: log(x)/log(3) | x: [0.5, 10.0], y: [-0.6, 2.1]] c) "
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 09.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 16,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 53,
+        "suspect": 12,
+        "garbage": 0,
+        "averageScore": 89
+      },
+      "topIssues": [
+        {
+          "id": "q-11",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "BODY_PUNCTUATION_HEAVY",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Which graph represents – 3? Recovered graph functions: (x+(-3))/((5)*x^2-(-23)*x+(24)); (x+(-3))/((5)*x^2+(-23)*x+(24)); (3)/((5)*x^2-(-23)*x-(24)); (x+(-3))/(("
+        },
+        {
+          "id": "q-36",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Determine an equation in the form 1/(4*x-8) for a function with a vertical asymptote at [embedded object] and a y-intercept of [Graph diagram: Graph: 1/(4*x-8) "
+        },
+        {
+          "id": "q-44",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve. a) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-45",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve each equation by graphing, using technology. Express your answers to two decimal places. a) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED] d) [D"
+        },
+        {
+          "id": "q-51",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Write an equation to represent a rational function with the following conditions: reciprocal of a quadratic function asymptotes with equations [embedded object]"
+        },
+        {
+          "id": "q-56",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Use long division to express the function [embedded math expression] as the sum of a polynomial function and a rational function of the form [DIAGRAM NEEDED], w"
+        },
+        {
+          "id": "q-58",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Use the asymptotes and intercepts to make a quick sketch of the function (x+1)/(x-5) and its reciprocal [embedded object] on the same set of axes.\rb) Describe t"
+        },
+        {
+          "id": "q-59",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Use the asymptotes and intercepts to make a quick sketch of the function (x-2)/(x+4) and its reciprocal, [embedded object], on the same set of axes.\rb) Describe"
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 10.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 28,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 42,
+        "suspect": 24,
+        "garbage": 0,
+        "averageScore": 82
+      },
+      "topIssues": [
+        {
+          "id": "q-6",
+          "score": 72,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_SUSPICIOUS_CODE",
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Given the functions 2 and cos, a graph of the combined function range(-1,1) most likely resembles Recovered graph functions: sin(x)+x; sin(x)-x; cos(x)+x; cos(x"
+        },
+        {
+          "id": "q-10",
+          "score": 74,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_MATH_MODE_LEAK",
+            "CHOICE_MATH_MODE_LEAK"
+          ],
+          "bodyPreview": "Given the functions 0 and 0.6, the graph of the combined function cos most likely resembles Recovered graph functions: ((0.6)^x)*sin(x); ((0.6)^x)*cos(x); -((0."
+        },
+        {
+          "id": "q-32",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "If quadratic is a linear function with positive coefficients and [embedded object] is a [DIAGRAM: variables (n, opp, n1)] function with positive coefficients, t"
+        },
+        {
+          "id": "q-33",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "If linear is a linear function and [embedded object] is a [DIAGRAM: variables (n, opp, n1)] function, then [DIAGRAM: variables (n, opp, n1)] is a ______________"
+        },
+        {
+          "id": "q-37",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine a simplified equation for [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-38",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine a simplified equation for [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-39",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine a simplified equation for [DIAGRAM NEEDED]."
+        },
+        {
+          "id": "q-40",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine a simplified equation for [DIAGRAM NEEDED]."
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 11.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 11,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 58,
+        "suspect": 7,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "topIssues": [
+        {
+          "id": "q-5",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Solve for the variable: [embedded object] [DIAGRAM: variables (n, r, d)] = [DIAGRAM: variables (n, r, d)]"
+        },
+        {
+          "id": "q-41",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The total number of possible committees is [DIAGRAM: variables (combinations)].\rThe total number of committees with no men is [DIAGRAM: variables (combinations)"
+        },
+        {
+          "id": "q-54",
+          "score": 65,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "The total number of possible tickets for lottery A is [embedded object] or 13 983 816.\rTherefore, the probability of randomly selecting the winning numbers is ["
+        },
+        {
+          "id": "q-55",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "In how many ways can Tanya buy 2 burgers, 2 fries, and 2 drinks for her and her friend?\rc) If Tanya does not like root beer and her friend does not like orange "
+        },
+        {
+          "id": "q-56",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "How many routes are there for Charlie to go from home to the library if she only moves south and east?\rb) How many routes are there for her to go from home to s"
+        },
+        {
+          "id": "q-60",
+          "score": 70,
+          "verdict": "suspect",
+          "findings": [
+            "BODY_PLACEHOLDERS"
+          ],
+          "bodyPreview": "Simplify.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "id": "q-65",
+          "score": 55,
+          "verdict": "suspect",
+          "findings": [
+            "CHOICES_MISSING"
+          ],
+          "bodyPreview": "If all of the letters in the word ROCKING are used, how many arrangements can be made with all of the vowels together?\rb) Which word has the greater number of d"
+        }
+      ]
+    }
+  ]
+}

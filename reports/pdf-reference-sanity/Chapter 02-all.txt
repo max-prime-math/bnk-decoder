@@ -1,0 +1,1241 @@
+       Chapter 2: Radical Functions
+
+
+       MULTIPLE CHOICE
+
+          1. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      x  2 is
+             translated
+             A 2 units up                                   C 2 units to the left
+             B 2 units to the right                         D 2 units down
+              ANS: D             DIF: Easy            OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: vertical translation
+
+          2. Compared to the graph of the base function f(x)  x , the graph of the function g(x)  8     x is
+             translated
+             A 8 units to the left                          C 8 units to the right
+             B 8 units up                                   D 8 units down
+              ANS: D             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: vertical translation
+
+          3. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      x  5 is
+             translated
+             A 5 units down                                 C 5 units right
+             B 5 units left                                 D 5 units up
+              ANS: C             DIF: Easy            OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal translation
+
+          4. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      5x is
+                                           1
+             A compressed by a factor of and not reflected
+                                           5
+             B stretched by a factor of 5 and reflected in the y-axis
+                                           1
+             C compressed by a factor of and reflected in the y-axis
+                                           5
+             D stretched by a factor of 5 and not reflected
+              ANS: A             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal stretch
+
+          5. When b < 0, the function g(x)  bx has what relationship to the base function f(x)      x?
+             A f(x) is stretched horizontally by a factor of 1/|b|
+             B f(x) is stretched horizontally by a factor of 1/|b| and reflected in the y-axis
+             C f(x) is stretched vertically by a factor of |b|
+             D f(x) is stretched vertically by a factor of |b| and reflected in the x-axis
+              ANS: B             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          6. When the graph of y     x is vertically stretched by a factor of 3, the point (9, –10) will be translated
+             to the point
+             A (–10, 9)
+             B (3, –30)
+             C (–30, 9)
+             D (9, –30)
+              ANS: D             DIF: Easy            OBJ: Section 2.1           NAT: RF13
+              TOP: Radical Functions and Transformations                         KEY: vertical stretch
+
+          7. Which of the graphs shown below represents the base function f(x)        x (in black) and the stretched
+                               3
+             function g(x) =    x (in red)?
+                               2
+
+              A                                              C
+
+
+
+
+              B                                              D
+
+
+
+
+              ANS: B               DIF: Easy             OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: graph | vertical stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  2
+          8. Given the function f(x)  x  h  k with a domain of {x| x  5, x  R} and a range of
+             {y| y  8, y  R}, which of the following best describes the vertical and horizontal translations with
+              respect to the graph of f(x)  x ?
+              A 5 units to the left and 8 units up            C    8 units to the left and 5 units up
+              B 8 units to the left and 5 units down          D    5 units to the left and 8 units down
+              ANS: A              DIF: Average             OBJ: Section 2.1      NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: horizontal translation | vertical translation
+
+          9. Compared to the graph of the base function f(x)  x , the graph of the function g(x)        x  8  4 is
+             translated
+             A 4 units to the right and 8 units up          C 8 units to the left and 4 units down
+             B 4 units to the left and 8 units down         D 8 units to the right and 4 units up
+              ANS: C              DIF: Average             OBJ: Section 2.1      NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: horizontal translation | vertical translation
+
+         10. Given the graph of f(x) shown below, what are the coordinates of point A if the equation of the
+             transformed function is g x   f x   5?
+
+
+
+
+              A   (1, 7)                                     C    (4,  3)
+              B   (4, 7)                                      D    (9, 7)
+              ANS: B             DIF: Easy            OBJ: Section 2.1           NAT: RF13
+              TOP: Radical Functions and Transformations                         KEY: vertical translation | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 3
+         11. What is the equation of the radical function shown in the graph below?
+
+
+
+
+                               1
+              A    f(x)  2      (x  5)  3                    C    f(x)  2 3(x  3)  5
+                               3
+                                                                                   1
+              B    f(x)  2 3(x  3)  5                       D    f(x)  2       (x  3)  5
+                                                                                   3
+
+              ANS: C              DIF: Difficult           OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: horizontal translation | vertical translation | vertical stretch | horizontal stretch | graph |
+              reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             4
+         12. What is the equation of the transformed function, g(x), after the transformations are applied to the
+             graph of the base function f x   x , shown in blue, to obtain the graph of g(x), shown in red?
+
+
+
+
+              A   g x   4    x 4                         C    g x   5    x 4
+              B   g x     x 4 5                          D    g x     x 5 4
+              ANS: D              DIF: Difficult           OBJ: Section 2.1       NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: horizontal translation | vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            5
+         13. In the following graph, what transformations must be applied to the blue curve to obtain the red
+             curve?
+
+
+
+
+              A   a reflection in the x-axis, a vertical translation 5 units up, and a horizontal translation 3
+                  units to the right
+              B   a reflection in the x-axis, a vertical translation 5 units down, and a horizontal translation
+                  3 units to the right
+              C   a reflection in the x-axis, a vertical translation 3 units up, and a horizontal translation 5
+                  units to the left
+              D   a reflection in the x-axis, a vertical translation 3 units up, and a horizontal translation 5
+                  units to the right
+              ANS: D              DIF: Average             OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: graph | horizontal translation | vertical translation | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          6
+         14. The two functions in the graph shown are reflections of each other. Select the type of reflection(s).
+
+
+
+
+              A   a reflection in the y-axis                    C   a reflection in the line y = x
+              B   a reflection in the x-axis and the y-axis     D   a reflection in the x-axis
+              ANS: A             DIF: Average         OBJ: Section 2.1             NAT: RF13
+              TOP: Radical Functions and Transformations                           KEY: reflection
+
+         15. Given the function f(x)   x  4, which of the following is a restriction on the inverse function,
+              f 1 (x) ?
+              A x8                                             C   x  4
+              B x4                                             D   x  4
+              ANS: C               DIF: Difficult        OBJ: Section 2.1          NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: inverse of a radical function | range
+
+         16. Which point on the graph y  f(x) does not exist on the graph of y         f(x) ?
+             A (3,4)                                        C (8,3)
+             B (4,4)                                       D (0.6,2.7)
+
+              ANS: C             DIF: Easy                    OBJ: Section 2.2 NAT: RF13
+              TOP: Square Root of a Function                  KEY: domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             7
+         17. Which of the graphs shown below represents the base function f(x)         x (in black) and the stretched
+              function g(x) =   5 / 6x (in red)?
+
+              A                                              C
+
+
+
+
+              B                                              D
+
+
+
+
+              ANS: D              DIF: Average             OBJ: Section 2.1    NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: graph | horizontal stretch | reflection
+
+         18. What are the coordinates of the invariant point(s) when the function y      x  3 is reflected in the
+             y-axis?
+             A (9, –3)                                       C (0, –3)
+             B (–3, 0) and (9, 0)                            D (0, 9)
+              ANS: C             DIF: Difficult       OBJ: Section 2.1         NAT: RF13
+              TOP: Radical Functions and Transformations                       KEY: invariant points
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 8
+         19. Which is the graph of the square root of the function f(x)  (x  5) 2  2?
+             A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: D             DIF: Average              OBJ: Section 2.2      NAT: RF13
+              TOP: Square Root of a Function               KEY: graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     9
+         20. Which graph represents the square root of the function shown in the graph?
+
+
+
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: B             DIF: Average              OBJ: Section 2.2   NAT: RF13
+              TOP: Square Root of a Function               KEY: graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                  10
+         21. Which of the following functions is the correct inverse for the function f(x)    x  2 , {x | x  0, x 
+             R}?
+             A f 1 (x) = x  2                              C f 1 (x)  x 2  2
+                                                                                        2
+              B    f 1 (x) =   x 2                          D    f 1 (x) = x  2
+              ANS: C               DIF: Easy          OBJ: Section 2.1 | Section 2.2
+              NAT: RF13            TOP: Radical Functions and Transformations | Square Root of a Function
+              KEY: inverse of a radical function
+
+         22. Which graph represents the square root of the graph shown?
+
+
+
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: B             DIF: Easy                 OBJ: Section 2.2 NAT: RF13
+              TOP: Square Root of a Function               KEY: graph | square root of a function
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 11
+         23. Which graph represents the square root of the graph shown?
+
+
+
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: D             DIF: Average              OBJ: Section 2.2 NAT: RF13
+              TOP: Square Root of a Function               KEY: graph | square root | of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                              12
+         24. Which graph shows the graphical solution to the radical equation 0    x  8  3?
+             A                                             C
+
+
+
+
+              B                                             D
+
+
+
+
+              ANS: C             DIF: Average         OBJ: Section 2.3        NAT: RF13
+              TOP: Solving Radical Equations Graphically                      KEY: graphical solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                13
+         25. Which graph shows the graphical solution to the radical equation 0  2 (x  5)  2?
+             A                                             C
+
+
+
+
+              B                                             D
+
+
+
+
+              ANS: A             DIF: Average         OBJ: Section 2.3        NAT: RF13
+              TOP: Solving Radical Equations Graphically                      KEY: graphical solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                14
+         26. Which graph shows the solution to the radical equation   8  x  x  4?
+             A                                              C
+
+
+
+
+              B                                            D
+
+
+
+
+              ANS: C             DIF: Easy            OBJ: Section 2.3        NAT: RF13
+              TOP: Solving Radical Equations Graphically                      KEY: graphical solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                15
+         27. Which radical equation can be solved using the graph shown
+             below?
+
+
+
+
+              A    4x  x 2                             C   x 2   4x
+              B    4x  x 2                              D     4x  x 2
+              ANS: B             DIF: Easy            OBJ: Section 2.3    NAT: RF13
+              TOP: Solving Radical Equations Graphically                  KEY: graphical solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                            16
+         28. Which graph shows the solution to the radical equation  7  x  x  5?
+             A                                              C
+
+
+
+
+              B                                              D
+
+
+
+
+              ANS: B             DIF: Difficult       OBJ: Section 2.3          NAT: RF13
+              TOP: Solving Radical Equations Graphically                        KEY: graphical solution
+
+         29. What is the solution to the radical equation 0  x  9  3?
+             A 18                                            C –18
+             B 36                                            D 0
+              ANS: D             DIF: Average         OBJ: Section 2.3          NAT: RF13
+              TOP: Solving Radical Equations Graphically                        KEY: algebraic solution
+
+         30. What is the solution to the radical equation 0  2 2(x  4)  8?
+             A –4                                             C 4
+             B 12                                             D 128
+              ANS: C             DIF: Difficult       OBJ: Section 2.3          NAT: RF13
+              TOP: Solving Radical Equations Graphically                        KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  17
+         31. What is the solution to the radical equation 10  10 (x  7) ?
+             A 6                                             C 7
+             B 8                                             D –6
+              ANS: D             DIF: Difficult       OBJ: Section 2.3               NAT: RF13
+              TOP: Solving Radical Equations Graphically                             KEY: algebraic solution
+
+         32. When solving the equation       x  8  x  6, which values must be checked for extraneous roots?
+             A –4 and 7                                        C 8 and 6
+             B 7 and –7                                        D –4 and –7
+              ANS: D              DIF: Difficult         OBJ: Section 2.3            NAT: RF13
+              TOP: Solving Radical Equations Graphically
+              KEY: algebraic solution | extraneous roots
+
+         33. Which equation of a radical function would have the following domain and range?
+             {x| x  6, x  R}; {y| y  10, x  R}
+              A    y     x  10  6                            C    y       x  6  10
+              B    y     x  6  10                            D    y       x  10  6
+              ANS: B             DIF: Average         OBJ: Section 2.1               NAT: RF13
+              TOP: Radical Functions and Transformations                             KEY: domain | range
+
+
+       COMPLETION
+
+          1. The variable k in the function f(x)  a     b(x  h)  k represents a ________________.
+
+              ANS: vertical translation
+
+              DIF: Easy          OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations                             KEY: translations | stretches
+
+          2. The graph of g(x)        f(x  8) is the graph of f(x) moved 8 units to the ____________________.
+
+              ANS: left
+
+              DIF: Easy           OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: horizontal translation | vertical translation
+
+          3. If the value of f(x) satisfies f(x) > 1, then the graph of y     f(x) ________________.
+
+              ANS: is below the graph of y = f(x)
+
+              DIF: Difficult     OBJ: Section 2.2 NAT: RF13
+              TOP: Radical Functions and Transformations                             KEY: relative location
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             18
+          4. If f(x)  9  6x 2 , the range of y    f(x) is ____________________.
+
+               ANS: {y| y     3 / 2, y  R}
+
+               DIF: Average         OBJ: Section 2.2       NAT: RF13              TOP: Square Root of a Function
+               KEY: range | square root
+
+          5. When solving the equation 0  10        3x  6  6 algebraically, the restriction on the variable is
+             ____________________.
+
+               ANS: x  2
+
+               DIF: Average       OBJ: Section 2.3 NAT: RF13
+               TOP: Solving Radical Equations Graphically                         KEY: algebraic solution
+
+          6. The solution to the equation 0  4  2 x  19 is ____________________.
+
+               ANS: (–15, 0)
+
+               DIF: Average       OBJ: Section 2.3 NAT: RF13
+               TOP: Solving Radical Equations Graphically                         KEY: algebraic solution
+
+
+       MATCHING
+
+               Match the functions to their corresponding graphs.
+               A f(x)  4 2(x  7)  6                        D f(x)  4 2(x  6)  7
+               B   f(x)  2 4(x  7)  6                       E    f(x)  4 2(x  7)  11
+               C   f(x)  2 4(x  6)  7                       F    f(x)  2 4(x  6)  11
+
+          1.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               19
+          2.
+
+
+
+
+          3.
+
+
+
+
+          4.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.   20
+          5.
+
+
+
+
+          1. ANS: D               DIF: Average           OBJ: Section 2.1 NAT: RF13
+             TOP: Radical Functions and Transformations
+             KEY: graph | transformations | translations | vertical translation | horizontal translation
+          2. ANS: F               DIF: Average           OBJ: Section 2.1 NAT: RF13
+             TOP: Radical Functions and Transformations
+             KEY: graph | transformations | translations | vertical translation | horizontal translation
+          3. ANS: B               DIF: Average           OBJ: Section 2.1 NAT: RF13
+             TOP: Radical Functions and Transformations
+             KEY: graph | transformations | translations | vertical translation | horizontal translation
+          4. ANS: C               DIF: Average           OBJ: Section 2.1 NAT: RF13
+             TOP: Radical Functions and Transformations
+             KEY: graph | transformations | translations | vertical translation | horizontal translation
+          5. ANS: A               DIF: Average           OBJ: Section 2.1 NAT: RF13
+             TOP: Radical Functions and Transformations
+             KEY: graph | transformations | translations | vertical translation | horizontal translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                   21
+       SHORT ANSWER
+
+          1. Create a graph of g(x)  f x  1  2 for each base function given, using transformations.
+              a) f(x)      x
+                            
+              b) f(x)     x
+
+              ANS:
+              a) The graph of f(x)      x is shown in blue and the graph of g(x)    x  1  2 is shown in red.
+
+
+
+
+                                                                                             
+              b) The graph of f(x)     x  is shown in blue and the graph of g(x)     x  1   2 is shown in red.
+
+
+
+
+              DIF: Average         OBJ: Section 2.1 NAT: RF13 | RF13
+              TOP: Radical Functions and Transformations
+              KEY: translations | vertical translation | horizontal translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 22
+          2. Determine the equation of each radical function, which has been transformed from f(x)  x by the
+             given translations.
+             a) vertical stretch by a factor of 5, then a horizontal translation of 6 units right
+                                                    1
+             b) horizontal stretch by a factor of , then a vertical translation of 4 units down
+                                                    6
+             c) horizontal reflection in the y-axis, then a vertical translation of 9 units up and horizontal translation
+                of 2 units right
+                                                    1
+             d) horizontal stretch by a factor of , vertical reflection in the x-axis, and vertical stretch by a factor
+                                                    3
+                   2
+                of
+                   3
+
+              ANS:
+              Substitute values into the general equation g(x)  a    b(x  h)  k .
+              a) g(x)  5 x  6
+              b) g(x)      6x  4
+              c) g(x)      (x  2)  9
+                      or
+                g(x)       x  2  9
+                            2   1
+              d) g(x)           x
+                            3   1
+                                3
+                       or
+                            2
+                 g(x)         3x
+                            3
+
+              DIF: Average       OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations                           KEY: transformations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    23
+          3. For each graph, write the equation of a radical function of the form y  a   b(x  h)  k .
+             a)
+
+
+
+
+              b)
+
+
+
+
+              c)
+
+
+
+
+              ANS:
+              a) y   x  4  3
+              b) y  2 x  1  2
+                     1
+              c) y     2(x  2)  1
+                     2
+
+              DIF: Average       OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations                        KEY: graph | transformations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       24
+          4. Determine the domain and range of each function.
+                             1
+             a) f(x)  x 
+                             2
+                            2
+              b) f(x)  2     (x  2)  1
+                            3
+              c) y  2  2 2(x  1)
+
+              ANS:
+                                           1
+              a) {x| x  0, x  R},{y| y    , y  R}
+                                           2
+              b) {x| x  2, x  R},{y| y  1, y  R}
+              c){x| x  1, x  R},{y| y  2, y  R}
+
+              DIF: Average       OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations        KEY: domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                              25
+          5. a) Sketch the graph of each function f(x) , and then sketch the graph of g(x)        f(x) .
+             i) f(x)  x
+             ii) f(x)  x 2  4
+             iii) f(x)  0.5x  2
+             b) State the domain and range of each f(x) and g(x).
+
+              ANS:
+              a) i) The graph of f(x)  x is shown in blue and the graph of g(x)        f(x) is shown in red.
+
+
+
+
+              ii) The graph of f(x)  x 2  4 is shown in blue and the graph of g(x)      f(x) is shown in red.
+
+
+
+
+              iii) The graph of f(x)  0.5x  2 is shown in blue and the graph of g(x)       f(x) is shown in red.
+
+
+
+
+              b) i) f(x): {x| x  R},{y| y  R}
+                    g(x): {x| x  0, x  R},{y| y  0, y  R}
+              ii) f(x): {x| x  R},{y| y  4, y  R}
+                  g(x): {x|x  2, x  2, x  R},{y| y  0, y  R}
+              iii) f(x): {x| x  R},{y| y  R}
+                 g(x): {x|x  4, x  R},{y| y  0, y  R}
+
+              DIF:   Average        OBJ: Section 2.2        NAT: RF13             TOP: Square Root of a Function
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               26
+              KEY: graph | domain | range | square root of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                27
+          6. Using each graph of y  f(x) , sketch the graph of y    f(x) .
+             a)
+
+
+
+
+              b)
+
+
+
+
+              c)
+
+
+
+
+              ANS:
+              The graph of y  f(x) is shown in black, and the graph of y     f(x) is shown in blue.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                28
+              a)
+
+
+
+
+              b)
+
+
+
+
+              c)
+
+
+
+
+              DIF: Average         OBJ: Section 2.2        NAT: RF13   TOP: Square Root of a Function
+              KEY: graph | square root of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                29
+                                          2x  3
+          7. Sketch the graph of f(x)            and use it to sketch the graph of y    f(x) .
+                                            6
+
+              ANS:
+              The graph of y = f(x) is shown in black, and the graph of y     f(x) is shown in blue.
+
+
+
+
+              DIF: Difficult       OBJ: Section 2.2        NAT: RF13             TOP: Square Root of a Function
+              KEY: graph | square root of a function
+
+          8. Solve the equation 3 2x  4  9  12, x  2, algebraically.
+
+              ANS:
+              3 2x  4  9  12
+
+                 3 2x  4  3
+                     2x  4  1
+                     2x  4  1
+                         2x  3
+                                  3
+                          x
+                                  2
+
+              DIF: Average       OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically                         KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          30
+          9. Solve the equation     3x  6  12 graphically.
+
+              ANS:
+
+
+
+
+              DIF: Average       OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically                            KEY: graphical solution
+
+                                                                    2
+         10. Jim states that the equations    x 2  25 and    x   25 have the same solution. Is he correct?
+                                                                    
+              Justify your reasoning.
+
+              ANS:
+                                                                                                 2
+              No, Jim is not correct.   x 2  25 has two possible solutions of 25, and    x   25 has only one
+                                                                                                 
+              solution, +25.
+
+              DIF: Difficult     OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically                            KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                31
+         11. A student designs a special container as part of an egg drop experiment. She believes that the
+             container can withstand a fall as long as the speed of the container does not exceed 80 ft/s. She uses
+              the equation v         (v 0 ) 2  2ad to model the velocity, v, in feet per second, as a function of constant
+              acceleration, a, in feet per second squared and the drop distance, d, in feet. Assuming the student’s
+              specifications are correct, will the egg break if the student drops the egg from shoulder height (5 ft)
+              off a building 80 ft high? What is the maximum height the egg can be dropped from? (Note: The
+              acceleration due to gravity is 32 ft/s2.)
+
+              ANS:
+              The velocity can be calculated by using the height from which the egg is dropped. The height is 80 ft
+              plus the height of the student, or 85 ft.
+              v     (v 0 ) 2  2ad
+
+                    0  2(32)(85)
+
+                    5440
+              v  73.76
+              Since the speed is less than 80 ft/s, the egg will not crack.
+              The maximum height is limited by a velocity of 80 ft/s, so
+                    v   (v 0 ) 2  2ad
+
+                80      0  2(32)d
+
+                80      64d
+              6400  64d
+               100  d
+              The maximum height is 100 ft.
+
+              DIF: Average       OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically                               KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                       32
+         12. Solve the equation    x 3  4  2 graphically.
+
+              ANS:
+
+
+
+
+              DIF: Difficult     OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically        KEY: graphical solution
+
+         13. Solve the equation    x 3  7  1 algebraically.
+
+              ANS:
+                x3  7  1
+                 x3  7  1
+                     x3  8
+                      x2
+
+              DIF: Difficult     OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically        KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                  33
+       PROBLEM
+
+          1. The speed, s, in metres per second, of sound in dry air is can be described by the function
+                               T
+              s  331.3 1           , where T is temperature, in degrees Celsius.
+                             273.15
+              a) Determine the domain and range of the function.
+              b) Determine the speed of sound, to the nearest tenth of a metre per second, for each of the following
+              temperatures.
+              i) –8°C
+              ii) 12°C
+              iii) 32°C
+              c) Graph the function and determine the x-intercept using the graph.
+              d) What is the meaning of the x-intercept in this context?
+
+              ANS:
+              a) Domain: {T| T  273.15, T  R}
+                 Range: {s| s  0, s  R}
+                                      T
+              b) i) s  331.3 1 
+                                    273.15
+
+                                      8
+                     331.3 1 
+                                    273.15
+                   s  326.4
+                                     T
+              ii) s  331.3 1 
+                                   273.15
+
+                                     12
+                   331.3 1 
+                                   273.15
+                 s  338.5
+                                     T
+              iii) s  331.3 1 
+                                   273.15
+
+                                     32
+                    331.3 1 
+                                   273.15
+                 s  350.2
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               34
+              c)
+
+
+
+
+              The x-intercept is 273.15.
+              d) The x-intercept is the temperature when the speed of sound is 0.
+
+              DIF: Average         OBJ: Section 2.1 | Section 2.3           NAT: RF13
+              TOP: Radical Functions and Transformations | Solving Radical Equations Graphically
+              KEY: x-intercepts | domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                           35
+          2. The manufacturer of a new Global Positioning Satellite (GPS) system wants to predict the consumer
+             interest in its new device. The company uses the function I(w)  3 w  1  15 to model the
+             number, I, in thousands, of pre-orders for the GPS as a function of the number, w, of weeks before the
+             GPS release date.
+             a) What are the domain and range and what do they mean in this situation?
+             b) Identify the transformations represented by the function compared to y  w .
+             c) Graph the function and explain what the shape of the graph indicates about the situation.
+             d) Determine the number of pre-orders the manufacturer can expect to have 10 weeks before the
+             release date.
+
+              ANS:
+              a) Since I  0, solve 0  3 w  1  15 to find the lower boundary of the domain.
+                        0  3 w  1  15
+
+              3 w  1  15
+                 w  1  5
+                  w  1  25
+                      w  26
+                       w  26
+              The upper boundary of the domain is the value of x at the vertex, (1, 15). So the domain is
+              {w|  26  w  1, w  R} and the range is {I|0  I  15, I  R}.
+              The domain is negative, indicating the weeks remaining before the launch of the GPS. The maximum
+              number of GPS units expected to be pre-ordered is 15 thousand.
+
+              b) a = 3: reflection in the x-axis with a vertical stretch by a factor of 3
+              b = 1: reflection in the y-axis
+              h = : translation of 1 unit left
+              k = 15: vertical translation up 15 units
+              c)
+
+
+
+
+              The number of pre-orders increases as the GPS release date gets closer. Since w is negative, it
+              represents the number of weeks remaining before release. The function’s maximum of 15 thousand is
+              the maximum number of pre-orders
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              36
+              d) I(w)  3 w  1  15
+
+                   I(10)  3 (10)  1  15
+
+                         3 10  1  15
+                         3 9  15
+                         3(3)  15
+                 I(10)  6
+              Six thousand pre-orders can be expected 10 weeks before the release date.
+
+              DIF: Difficult        OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: translations | graph | domain | range
+
+                                                           2
+          3. Consider the function f(x)  2x  1  3.
+             a) Determine the square root of the function.
+             b) Graph the functions on the same set of axes.
+             c) State the domains and ranges of the graphs.
+             d) Describe the relationship between the domain and range of f(x) and the domain and range of g(x).
+
+              ANS:
+              a) g(x)       f(x)
+
+                   g(x)    2(x  1) 2  3
+              b)
+
+
+
+
+              c) The domain of f(x) is {x| x  R} and the domain of g(x) is
+                                                                 
+                               3                 3               
+                  x| x   1         , x   1         , x  R . The range of f(x) is {y| y  3, y  R} and the range of
+                                2              
+                                                        2               
+                                                                              
+                                                                           
+              g(x) is {y| y  0, y  }.
+              d) The domain of g(x) consists of all values of the domain of f(x) where f(x)  0. The range of g(x)
+              consists of the square root of all positive values of the range of f(x).
+
+              DIF: Difficult       OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically
+              KEY: graph | square root of a function | domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                                  37
+          4. For f(x)  5 x and g(x)  2 6(x  2)  3 , do the following.
+             a) Graph f(x) and g(x) on the same set of axes.
+             b) Determine the domain and range of each function.
+             c) Explain which transformations would need to be applied to the graph of f(x) to obtain the graph of
+             g(x).
+
+              ANS:
+              a)
+
+
+
+
+              b) f(x): Domain: {x| x  0, x  R}; Range: {y| y  0, y  R}
+                 g(x): Domain: {x| x  2, x  R}; Range: {y| y  3, y  R}
+                                                                                                                  2
+              c) The vertical stretch changes from 5 to 2, which means a vertical compression by a factor of        .
+                                                                                                                  5
+                                                                  1
+              There is a horizontal compression by a factor of      . The graph is reflected in both the x-axis and the
+                                                                  6
+              y-axis. The graph is translated 2 units left and 3 units down.
+
+              DIF: Difficult       OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: graph | transformations | domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  38
+          5. Two groups of students are conducting a lab to determine the relationship between the period, p, in
+             seconds, of a pendulum and the length, l, in metres, of the string. The curves of best fit from the
+             experiment are shown on the graph.
+
+
+
+
+              a) When asked the type of function that could be used to model their findings, both groups argue that
+              a radical function can be used. Do you agree with each group?
+              b) How do these graphs differ from the graph of f(x)  x ?
+              c) Write a function to approximate the graph for each group.
+              d) What may have caused the differences in the data between the two groups? Justify your answer in
+              terms of transformations.
+
+              ANS:
+              a) In both cases, the functions are in the shape of a transformed radical function.
+              b) In both cases, the function is stretched horizontally. The graph created by group 1 has a larger
+              horizontal stretch than the graph created by group 2. Vertical and horizontal translations are applied to
+              both graphs.
+              c) Answers may vary. Sample answer:
+              Group 1: f(x)  2(x  1)  1.6
+              Group 2: g(x)  3(x  1)  1.6
+              d) Answers may vary. Sample answer:
+              Group 1 may have pushed the pendulum or Group 2 may have started the timer early. Students should
+              note that the only difference between the two groups can be accounted for by a horizontal stretch in
+              the function.
+
+              DIF: Difficult     OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations                          KEY: graph | transformations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  39
+                                                                                                              1 2
+          6. The kinetic energy (energy of motion), E, in joules, of an object is given by the equation E      mv ,
+                                                                                                              2
+              where m represents the mass of the object, in kilograms, and v represents its speed, in metres per
+              second.
+              a) Determine the general equation for the velocity of a mass as a function of its kinetic energy.
+              b) Find the speed of an object of mass 12 kg moving with a kinetic energy of
+              i) 200 J
+              ii) 420 J
+              c) Graph the function if the mass is 12 kg.
+              d) John conducts an experiment and graphs the data, resulting in the graph below. What is the mass of
+              the object?
+
+
+
+
+              ANS:
+                          1 2
+              a)     E     mv
+                          2
+                    2E  mv 2
+                   2E
+                       v2
+                   m
+                           2E
+                     v
+                           m
+              b) i) Substitute m = 12 and E = 200 in the equation.
+                       2E
+              v
+                       m
+
+                       2(200)
+                
+                         12
+              v  5.8
+              The speed of the object is 5.8 m/s.
+              ii) Substitute m = 12 and E = 420 in the equation.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               40
+                     2E
+              v
+                     m
+
+                     2(420)
+                
+                       12
+              v  8.4
+              The speed of the object is 8.4 m/s.
+              c) When m = 12,
+                     2E
+              v
+                     m
+
+                     2E
+                
+                     12
+
+                     E
+              v
+                     6
+
+
+
+
+                                                                                            2E
+              d) The point (20, 2) is on the graph. Substitute this into the equation v       and solve for m.
+                                                                                            m
+                         2E
+              v
+                         m
+
+                         2(20)
+              2
+                           m
+                    40
+              4
+                    m
+              m  10
+              The mass of the object is 10 kg.
+
+              DIF: Average       OBJ: Section 2.1 NAT: RF13
+              TOP: Radical Functions and Transformations                          KEY: graph | horizontal stretch
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            41
+          7. Graph the functions below, and then identify and compare their domains and ranges.
+              y 1  3  1.2x 2 and y 2    3  1.2x 2
+
+              ANS:
+
+
+
+
+              y 1  3  1.2x 2 is a quadratic. The range of a positive quadratic function is all values of y so that y is
+              greater than the minimum. In this case, the minimum is y  3, so the range is y  3. The domain is
+              defined for all values of x, so the domain is all real numbers.
+              y2     3  1.2x 2 is a radical function and is defined for all values of y greater than the minimum
+              value at x = 0. Therefore, y      3 . The domain is defined for all values of x. Therefore, the domain is
+              all real numbers.
+
+              DIF: Average       OBJ: Section 2.2 NAT: RF13                          TOP: Square Root of a Function
+              KEY: graph | domain | range | square root of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    42
+          8. Sun-Eui, a graduate student, is using the function N(t)  2.1 t  0.6 to model the number of flowers
+             a new hybrid bee can pollinate. For the function, N represents the number, in thousands, of flowers
+             pollinated and t represents the time, in days.
+             a) If there are 10 000 flowers, how long will it take to pollinate all of the flowers?
+             b) Sun-Eui believes that the second generation of bees can reduce the time to pollinate the flowers by
+             half by changing the function to N(t)  1.05 t  0.3. Is she correct? Justify your reasoning.
+             c) Should Sun-Eui continue with the project?
+
+              ANS:
+              a)   N(t)  2.1 t  0.6
+
+                      10  2.1 t  0.6
+                 10  0.6  2.1 t
+                     9.4
+                                t
+                     2.1
+                     20.0  t
+              It will take 20 days to pollinate the flowers.
+              b) Substitute N = 10 into the new function:
+                  N(t)  1.05 t  0.3
+
+                   10  1.05 t  0.3
+              10  0.3  1.05 t
+                 9.7
+                            t
+                 1.05
+                   85  t
+              Sun-Eui is not correct since the new function will result in a time of 85 days, which means that it will
+              take more than four times as long to pollinate the 10 000 flowers.
+              c) Sun-Eui should only continue with the project once she understands the math better so she can
+              construct a function that will give half the pollination time.
+
+              DIF: Difficult     OBJ: Section 2.3 NAT: RF13
+              TOP: Solving Radical Equations Graphically                          KEY: algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 43
+

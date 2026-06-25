@@ -1,0 +1,1798 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+<head><script src="//archive.org/includes/athena.js" type="text/javascript"></script>
+<script type="text/javascript">window.addEventListener('DOMContentLoaded',function(){var v=archive_analytics.values;v.service='wb';v.server_name='wwwb-app245.us.archive.org';v.server_ms=1619;archive_analytics.send_pageview({});});</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/bundle-playback.js?v=oZ57VlYl" charset="utf-8"></script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/wombat.js?v=txqj7nKC" charset="utf-8"></script>
+<script>window.RufflePlayer=window.RufflePlayer||{};window.RufflePlayer.config={"autoplay":"on","unmuteOverlay":"hidden","showSwfDownload":true};</script>
+<script type="text/javascript" src="https://web-static.archive.org/_static/js/ruffle/ruffle.js"></script>
+<script type="text/javascript">
+    __wm.init("https://web.archive.org/web");
+  __wm.wombat("https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator","20250523081404","https://web.archive.org/","web","https://web-static.archive.org/_static/",
+	      "1747988044");
+</script>
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3" />
+<link rel="stylesheet" type="text/css" href="https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv" />
+<!-- End Wayback Rewrite JS Include -->
+
+  <meta charset="utf-8"/>
+  <!-- v26040 -->
+
+
+  <title>ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator &ndash; Support</title>
+
+  
+
+  <meta name="description" content="NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENTAs of June 30, 2024, ExamView will officially reach its end of life.Please be advised that..."/><meta property="og:image" content="https://web.archive.org/web/20250523081404im_/https://support.echo360.com/hc/theming_assets/01HZHAZV3ZAAMFY20MRSFTAV1S"/>
+<meta property="og:type" content="website"/>
+<meta property="og:site_name" content="Support"/>
+<meta property="og:title" content="ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator"/>
+<meta property="og:description" content="NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENTAs of June 30, 2024, ExamView will officially reach its end of life.Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no..."/>
+<meta property="og:url" content="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator"/>
+<link rel="canonical" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator">
+<link rel="alternate" hreflang="en-us" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator">
+<link rel="alternate" hreflang="x-default" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator">
+
+  <link rel="stylesheet" href="//web.archive.org/web/20250523081404cs_/https://static.zdassets.com/hc/assets/application-cfe22f1db0125fea22ea26916411c608.css" media="all" id="stylesheet"/>
+  <link rel="stylesheet" type="text/css" href="/web/20250523081404cs_/https://support.echo360.com/hc/theming_assets/2288865/360000487111/style.css?digest=35936651009037">
+
+  <link rel="icon" type="image/x-icon" href="/web/20250523081404im_/https://support.echo360.com/hc/theming_assets/01HZHAZV7X3859Q1B2024JTK6X">
+
+    <script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-62758640-3', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src="https://web.archive.org/web/20250523081404js_/https://www.google-analytics.com/analytics.js"></script>
+
+    
+
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- Make the translated search clear button label available for use in JS -->
+<!-- See buildClearSearchButton() in script.js -->
+<script type="text/javascript">window.searchClearButtonLabelLocalized = "Clear search";</script>
+<script src="https://web.archive.org/web/20250523081404js_/https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script src="/web/20250523081404js_/https://support.echo360.com/hc/theming_assets/01HZHAZRV81NMKXRJNJ06XQW24"></script>
+<script src="/web/20250523081404js_/https://support.echo360.com/hc/theming_assets/01HZHAZS32WMTTWTWCT99FGWF5"></script>
+<script src="/web/20250523081404js_/https://support.echo360.com/hc/theming_assets/01HZHAZTDDPNZEJN4ESRYC62XN"></script>
+<script src="/web/20250523081404js_/https://support.echo360.com/hc/theming_assets/01HZHAZTQWEHE3Z5482G5QRK9M"></script>
+<script src="https://web.archive.org/web/20250523081404js_/https://kit.fontawesome.com/88467a06e0.js"></script>
+<script>
+	window.__lc = window.__lc || {};
+	window.__lc.license = 9182415;
+	;(function(n,t,c){function i(n){return e._h?e._h.apply(null,n):e._q.push(n)}var e={_q:[],_h:null,_v:"2.0",on:function(){i(["on",c.call(arguments)])},once:function(){i(["once",c.call(arguments)])},off:function(){i(["off",c.call(arguments)])},get:function(){if(!e._h)throw new Error("[LiveChatWidget] You can't use getters before load.");return i(["get",c.call(arguments)])},call:function(){i(["call",c.call(arguments)])},init:function(){var n=t.createElement("script");n.async=!0,n.type="text/javascript",n.src="https://web.archive.org/web/20250523081404/https://cdn.livechatinc.com/tracking.js",t.head.appendChild(n)}};!n.__lc.asyncInit&&e.init(),n.LiveChatWidget=n.LiveChatWidget||e}(window,document,[].slice))
+</script>
+<noscript><a href="https://web.archive.org/web/20250523081404/https://www.livechat.com/chat-with/9182415/" rel="nofollow">Chat with us</a>, powered by <a href="https://web.archive.org/web/20250523081404/https://www.livechat.com/?welcome" rel="noopener nofollow" target="_blank">LiveChat</a></noscript>
+<link rel="stylesheet" href="/web/20250523081404cs_/https://support.echo360.com/hc/theming_assets/01JEVVKV542M7T1PKSNPJ7D80X">
+<link rel="preconnect" href="https://web.archive.org/web/20250523081404/https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://web.archive.org/web/20250523081404/https://fonts.gstatic.com/" crossorigin>
+<link href="https://web.archive.org/web/20250523081404cs_/https://fonts.googleapis.com/css2?family=Nunito+Sans:ital@0;1&amp;family=Oswald:wght@400;500&amp;display=swap" rel="stylesheet">
+  
+</head>
+<body class=""><!-- BEGIN WAYBACK TOOLBAR INSERT -->
+<script>__wm.rw(0);</script>
+<div id="wm-ipp-base" lang="en" style="display:none;direction:ltr;" toolbar-mode="auto">
+<div id="wm-ipp" style="position:fixed;left:0;top:0;right:0;">
+<div id="donato" style="position:relative;width:100%;height:0;">
+  <div id="donato-base">
+    <iframe id="donato-if" src="https://archive.org/includes/donate.php?as_page=1&amp;platform=wb&amp;referer=https%3A//web.archive.org/web/20250523081404/https%3A//support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator"
+	    scrolling="no" frameborder="0" style="width:100%; height:100%">
+    </iframe>
+  </div>
+</div><div id="wm-ipp-inside">
+  <div id="wm-toolbar" style="position:relative;display:flex;flex-flow:row nowrap;justify-content:space-between;" nav="async">
+    <div id="wm-logo" style="/*width:110px;*/padding-top:12px;">
+      <a href="/web/" title="Wayback Machine home page"><img src="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png" srcset="https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-100.png, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-150.png 1.5x, https://web-static.archive.org/_static/images/toolbar/wayback-toolbar-logo-200.png 2x" alt="Wayback Machine" style="width:100px" border="0" /></a>
+    </div>
+    <div class="c" style="display:flex;flex-flow:column nowrap;justify-content:space-between;flex:1;">
+      <form class="u" style="display:flex;flex-direction:row;flex-wrap:nowrap;" target="_top" method="get" action="/web/submit" name="wmtb" id="wmtb"><input type="text" name="url" id="wmtbURL" value="https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" onfocus="this.focus();this.select();" style="flex:1;"/><input type="hidden" name="type" value="replay" /><input type="hidden" name="date" value="20250523081404" /><input type="submit" value="Go" />
+      </form>
+      <div style="display:flex;flex-flow:row nowrap;align-items:flex-end;">
+                <div class="s" id="wm-nav-captures" style="flex:1;">
+                    <a class="t" href="/web/20250523081404*/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" title="See a list of every capture for this URL">8 captures</a>
+          <div class="r" title="Timespan for captures of this URL">25 Sep 2023 - 17 Oct 2025</div>
+          </div>
+        <div class="k">
+          <a href="" id="wm-graph-anchor">
+            <div id="wm-ipp-sparkline" title="Explore captures for this URL" style="position: relative">
+              <canvas id="wm-sparkline-canvas" width="775" height="27" border="0"></canvas>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="n">
+      <table>
+        <tbody>
+          <!-- NEXT/PREV MONTH NAV AND MONTH INDICATOR -->
+          <tr class="m">
+            <td class="b" nowrap="nowrap">Apr</td>
+            <td class="c" id="displayMonthEl" title="You are here: 08:14:04 May 23, 2025">MAY</td>
+            <td class="f" nowrap="nowrap">Jun</td>
+          </tr>
+          <!-- NEXT/PREV CAPTURE NAV AND DAY OF MONTH INDICATOR -->
+          <tr class="d">
+            <td class="b" nowrap="nowrap"><span class="ta"></span></td>
+            <td class="c" id="displayDayEl" style="width:34px;font-size:22px;white-space:nowrap;" title="You are here: 08:14:04 May 23, 2025">23</td>
+            <td class="f" nowrap="nowrap"><span class="ta"></span></td>
+          </tr>
+          <!-- NEXT/PREV YEAR NAV AND YEAR INDICATOR -->
+          <tr class="y">
+            <td class="b" nowrap="nowrap">2024</td>
+            <td class="c" id="displayYearEl" title="You are here: 08:14:04 May 23, 2025">2025</td>
+            <td class="f" nowrap="nowrap">2026</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="r" style="display:flex;flex-flow:column nowrap;align-items:flex-end;justify-content:space-between;">
+      <div id="wm-btns" style="text-align:right;height:23px;">
+                <span class="xxs">
+          <div id="wm-save-snapshot-success">success</div>
+          <div id="wm-save-snapshot-fail">fail</div>
+          <a id="wm-save-snapshot-open" href="#" title="Share via My Web Archive" >
+            <span class="iconochive-web"></span>
+          </a>
+          <a href="https://archive.org/account/login.php" title="Sign In" id="wm-sign-in">
+            <span class="iconochive-person"></span>
+          </a>
+          <span id="wm-save-snapshot-in-progress" class="iconochive-web"></span>
+        </span>
+                <a class="xxs" href="https://help.archive.org/help/category/the-wayback-machine/" title="Get some help using the Wayback Machine" style="top:-6px;"><span class="iconochive-question" style="color:rgb(87,186,244);font-size:160%;"></span></a>
+        <a id="wm-tb-close" href="#close" style="top:-2px;" title="Close the toolbar"><span class="iconochive-remove-circle" style="color:#888888;font-size:240%;"></span></a>
+      </div>
+      <div id="wm-share" class="xxs">
+        <a href="/web/20250523081404/http://web.archive.org/screenshot/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator"
+           id="wm-screenshot"
+           title="screenshot">
+          <span class="wm-icon-screen-shot"></span>
+        </a>
+        <a href="#" id="wm-video" title="video">
+          <span class="iconochive-movies"></span>
+        </a>
+        <a id="wm-share-facebook" href="#" data-url="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" title="Share on Facebook" style="margin-right:5px;" target="_blank"><span class="iconochive-facebook" style="color:#3b5998;font-size:160%;"></span></a>
+        <a id="wm-share-twitter" href="#" data-url="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" title="Share on Twitter" style="margin-right:5px;" target="_blank"><span class="iconochive-twitter" style="color:#1dcaff;font-size:160%;"></span></a>
+      </div>
+      <div style="padding-right:2px;text-align:right;white-space:nowrap;">
+        <a id="wm-expand" class="wm-btn wm-closed" href="#expand"><span id="wm-expand-icon" class="iconochive-down-solid"></span> <span class="xxs" style="font-size:80%;">About this capture</span></a>
+      </div>
+    </div>
+  </div>
+    <div id="wm-capinfo" style="border-top:1px solid #777;display:none; overflow: hidden">
+        <div id="wm-capinfo-notice" source="api"></div>
+                <div id="wm-capinfo-collected-by">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;">COLLECTED BY</div>
+    <div style="padding:3px;position:relative" id="wm-collected-by-content">
+      <div style="display:inline-block;vertical-align:top;width:49%;">
+			<span class="c-logo" style="background-image:url(https://archive.org/services/img/commoncrawl)"></span>
+		<div>Collection: <a style="color:#33f;" href="https://archive.org/details/commoncrawl" target="_new"><span class="wm-title">Common Crawl</span></a></div>
+		<div style="max-height:75px;overflow:hidden;position:relative;">
+	  <div style="position:absolute;top:0;left:0;width:100%;height:75px;background:linear-gradient(to bottom,rgba(255,255,255,0) 0%,rgba(255,255,255,0) 90%,rgba(255,255,255,255) 100%);"></div>
+	  Web crawl data from Common Crawl.
+	</div>
+	      </div>
+    </div>
+    </div>
+    <div id="wm-capinfo-timestamps">
+    <div style="background-color:#666;color:#fff;font-weight:bold;text-align:center;padding:2px 0;" title="Timestamps for the elements of this page">TIMESTAMPS</div>
+    <div>
+      <div id="wm-capresources" style="margin:0 5px 5px 5px;max-height:250px;overflow-y:scroll !important"></div>
+      <div id="wm-capresources-loading" style="text-align:left;margin:0 20px 5px 5px;display:none"><img src="https://web-static.archive.org/_static/images/loading.gif" alt="loading" /></div>
+    </div>
+    </div>
+  </div></div></div></div><div id="wm-ipp-print">The Wayback Machine - https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator</div>
+<script type="text/javascript">//<![CDATA[
+__wm.bt(775,27,25,2,"web","https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator","20250523081404",1996,"https://web-static.archive.org/_static/",["https://web-static.archive.org/_static/css/banner-styles.css?v=1utQkbB3","https://web-static.archive.org/_static/css/iconochive.css?v=3PDvdIFv"], false);
+  __wm.rw(1);
+//]]></script>
+<!-- END WAYBACK TOOLBAR INSERT -->
+ 
+  
+  
+  
+
+  <a class="skip-navigation" tabindex="1" href="#main-content">Skip to main content</a>
+
+<header class="header">
+  <div class="logo">
+    <a title="Home" href="/web/20250523081404/https://support.echo360.com/hc/en-us">
+      <img src="/web/20250523081404im_/https://support.echo360.com/hc/theming_assets/01HZHAZV3ZAAMFY20MRSFTAV1S" alt="Support Help Center home page"/>
+      
+    </a>
+  </div>
+<div class="statusio">
+          <a href="https://web.archive.org/web/20250523081404/https://status.echo360.com/" target="_blank" style="margin-left: 15px;" class="titlestat"> Echo360 Status:&nbsp;
+            <span id="current-status-description"></span>
+            <i class="current-status-indicator"></i>
+          </a>
+        </div>
+  <div class="nav-wrapper-desktop">
+    <nav class="user-nav" id="user-nav">
+      <ul class="user-nav-list">
+        <li><a class="whats-new" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/sections/17508371725453"><svg id="whats-new" xmlns="http://www.w3.org/2000/svg" viewbox="0 0 64 64"><g id="_64px_boxes"><rect width="64" height="64" style="fill:none;"/></g><g id="Production"><path d="M32.01,2C15.44,2,2,15.43,2,32s13.44,30,30.01,30,29.99-13.43,29.99-30S48.58,2,32.01,2Zm-.01,52.58c-2.42,0-4.59-2.16-4.59-4.58s2.17-4.58,4.59-4.58,4.59,2.16,4.59,4.58-2.17,4.58-4.59,4.58Zm7.19-20.85c-1.22,1.11-2.62,2.58-2.98,4.24,0,0,0,.01,0,.02,0,1.12-.91,2.15-2.02,2.15,0,0-.01,0-.02,0,0,0,0,0,0,0h-4.05c-1.12,0-2.02-1.03-2.02-2.15,0-.03,.02-.05,.02-.08,.17-6.18,6.74-8.81,9.73-12.49,2.12-2.61,.07-6.89-4.49-6.89-2.58,0-4.72,2.11-5.23,3.96,0,0,0,0,0,0-.18,.94-.96,1.66-1.95,1.66,0,0-.01,0-.02,0,0,0,0,0,0,0h-4.12c-1.45,0-2.49-1.51-1.81-2.9,1.35-4.35,5.72-9.45,12.86-9.45,8.81,0,13.04,6.15,13.04,11.36,0,4.41-3.46,7.47-6.93,10.59Z" style="fill:#9358b0;"/></g></svg> What's New?</a></li>
+        <li><a class="submit-a-request" href="/web/20250523081404/https://support.echo360.com/hc/en-us/requests/new">Submit a request</a></li>
+        
+          <li>
+            <a class="sign-in" rel="nofollow" data-auth-action="signin" title="Opens a dialog" role="button" href="/web/20250523081404/https://support.echo360.com/hc/en-us/signin?return_to=https%3A%2F%2Fsupport.echo360.com%2Fhc%2Fen-us%2Farticles%2F11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator">
+              Sign in
+            </a>
+          </li>
+        
+      </ul>
+    </nav>
+    
+  </div>
+
+  <div class="nav-wrapper-mobile">
+    <button class="menu-button-mobile" aria-controls="user-nav-mobile" aria-expanded="false" aria-label="Toggle navigation menu">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" focusable="false" viewbox="0 0 16 16" class="icon-menu">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" d="M1.5 3.5h13m-13 4h13m-13 4h13"/>
+      </svg>
+    </button>
+    <nav class="menu-list-mobile" id="user-nav-mobile" aria-expanded="false">
+      <ul class="menu-list-mobile-items">
+        
+          <li class="item">
+            <a role="button" rel="nofollow" data-auth-action="signin" title="Opens a dialog" href="/web/20250523081404/https://support.echo360.com/hc/en-us/signin?return_to=https%3A%2F%2Fsupport.echo360.com%2Fhc%2Fen-us%2Farticles%2F11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator">
+              Sign in
+            </a>
+          </li>
+          <li class="nav-divider"></li>
+        
+        <li class="item"></li>
+        <li class="item"><a class="submit-a-request" role="menuitem" href="/web/20250523081404/https://support.echo360.com/hc/en-us/requests/new">Submit a request</a></li>
+        <li class="nav-divider"></li>
+        
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+</header>
+
+
+  <main role="main">
+    <!-- <div class="container-divider"></div> -->
+<div class="container">
+  <nav class="sub-nav">
+    <ol class="breadcrumbs">
+  
+    <li title="Support">
+      
+        <a href="/web/20250523081404/https://support.echo360.com/hc/en-us">Support</a>
+      
+    </li>
+  
+    <li title="ExamView">
+      
+        <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/categories/17493716338445-ExamView">ExamView</a>
+      
+    </li>
+  
+    <li title="ExamView Test Generator">
+      
+        <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/sections/17529095878541-ExamView-Test-Generator">ExamView Test Generator</a>
+      
+    </li>
+  
+</ol>
+
+   <!-- <div class="search-container">
+      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewBox="0 0 12 12" class="search-icon" aria-hidden="true">
+        <circle cx="4.5" cy="4.5" r="4" fill="none" stroke="currentColor"/>
+        <path stroke="currentColor" stroke-linecap="round" d="M11 11L7.5 7.5"/>
+      </svg>
+      <form role="search" class="search" data-search="" action="/hc/en-us/search" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" autocomplete="off" /><input type="hidden" name="category" id="category" value="17493716338445" autocomplete="off" />
+<input type="search" name="query" id="query" placeholder="Search" aria-label="Search" /></form>
+    </div> -->
+  </nav>
+    <header class="article-header">
+        <h1 title="ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator" class="article-title">
+          ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator
+          
+        </h1>
+
+        <div class="article-author">
+          
+            <div class="avatar article-avatar">
+              
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewbox="0 0 12 12" class="icon-agent" aria-label="User (Echo360) is a team member">
+                  <path fill="currentColor" d="M6 0C2.7 0 0 2.7 0 6s2.7 6 6 6 6-2.7 6-6-2.7-6-6-6zm0 2c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2zm2.3 7H3.7c-.3 0-.4-.3-.3-.5C3.9 7.6 4.9 7 6 7s2.1.6 2.6 1.5c.1.2 0 .5-.3.5z"/>
+                </svg>
+              
+              <img src="https://web.archive.org/web/20250523081404im_/https://secure.gravatar.com/avatar/6f54bac6144ed0a7ac3ec9f8262a1a24?default=https%3A%2F%2Fassets.zendesk.com%2Fhc%2Fassets%2Fdefault_avatar.png&amp;r=g" alt="" class="user-avatar"/>
+            </div>
+          
+          <div class="article-meta">
+            
+              <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/profiles/8995798358797-Echo360">
+                Echo360
+              </a>
+            
+
+            <ul class="meta-group">
+              
+                <li class="meta-data"><time datetime="2024-03-13T17:47:53Z" title="2024-03-13T17:47:53Z" data-datetime="relative">March 13, 2024 17:47</time></li>
+                <li class="meta-data">Updated</li>
+              
+            </ul>
+          </div>
+        </div>
+
+        
+          <div class="article-subscribe"><div data-helper="subscribe" data-json="{&quot;item&quot;:&quot;article&quot;,&quot;url&quot;:&quot;/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator/subscription.json&quot;,&quot;follow_label&quot;:&quot;Follow&quot;,&quot;unfollow_label&quot;:&quot;Unfollow&quot;,&quot;following_label&quot;:&quot;Following&quot;,&quot;can_subscribe&quot;:true,&quot;is_subscribed&quot;:false}"></div></div>
+        
+      </header>
+</div>
+
+<section class="article-content-wrapper">
+    <div class="container">
+  <div class="article-container" id="article-container">
+    <aside class="article-sidebar" aria-labelledby="section-articles-title">
+      <section class="page-headers article-relatives"><div class="related-articles"><h3>Sections in Article</h3><ul data-toc="div.article-content" data-toc-headings="h1,h2,h3,h4"></ul></div></section>
+      
+      <!--  <div class="collapsible-sidebar">
+          <button type="button" class="collapsible-sidebar-toggle" aria-labelledby="section-articles-title" aria-expanded="false">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12" aria-hidden="true" class="collapsible-sidebar-toggle-icon chevron-icon">
+              <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" focusable="false" viewBox="0 0 12 12" aria-hidden="true" class="collapsible-sidebar-toggle-icon x-icon">
+              <path stroke="currentColor" stroke-linecap="round" d="M3 9l6-6m0 6L3 3"/>
+            </svg>
+          </button>
+           <span id="section-articles-title" class="collapsible-sidebar-title sidenav-title">
+           Related Articles
+          </span>
+         <div class="collapsible-sidebar-body">
+            <ul>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279392681229-ExamView-About-ExamView-Test-Generator" class="sidenav-item ">ExamView: About ExamView Test Generator</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279418392717-ExamView-Adjusting-Table-Cell-Height-and-Width" class="sidenav-item ">ExamView: Adjusting Table Cell Height and Width</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279294995725-ExamView-Algorithm-Definitions-in-Exam-View" class="sidenav-item ">ExamView: Algorithm Definitions in Exam View</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279295032973-ExamView-Algorithmic-Syntax-in-Test-Generator" class="sidenav-item ">ExamView: Algorithmic Syntax in Test Generator</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279393449869-ExamView-Aligning-Columns-and-Applying-Borders-and-Shading-to-Tables-in-Test-Generator" class="sidenav-item ">ExamView: Aligning Columns and Applying Borders and Shading to Tables in Test Generator</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279417839629-ExamView-Assigning-a-Password-to-a-Question-Bank" class="sidenav-item ">ExamView: Assigning a Password to a Question Bank</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279316618253-ExamView-Assigning-a-Password-to-a-Test" class="sidenav-item ">ExamView: Assigning a Password to a Test</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279357733389-ExamView-Cartesian-Graphs" class="sidenav-item ">ExamView: Cartesian Graphs</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279360005261-ExamView-Changing-Preferences-in-Test-Generator" class="sidenav-item ">ExamView: Changing Preferences in Test Generator</a>
+                </li>
+              
+                <li>
+                  <a href="/hc/en-us/articles/11279319902733-ExamView-Changing-the-Equation-Editor-Preferences-in-Test-Generator" class="sidenav-item ">ExamView: Changing the Equation Editor Preferences in Test Generator</a>
+                </li>
+              
+            </ul>
+            
+              <a href="/hc/en-us/sections/17529095878541-ExamView-Test-Generator" class="article-sidebar-item">See more</a>
+            
+          </div> 
+        </div>-->
+      
+        
+          
+  <section class="related-articles">
+    
+      <h2 class="related-articles-title">Related articles</h2>
+    
+    <ul>
+      
+        <li>
+          <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCA0dXypCCjoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCI3q9itCCjoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJSL2hjL2VuLXVzL2FydGljbGVzLzExMjc5Mjk0OTk1NzI1LUV4YW1WaWV3LUFsZ29yaXRobS1EZWZpbml0aW9ucy1pbi1FeGFtLVZpZXcGOwhUOglyYW5raQY%3D--9df054bbdb1da8c5de54251c9919d5cdfa16dff3" rel="nofollow">ExamView: Algorithm Definitions in Exam View</a>
+        </li>
+      
+        <li>
+          <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCDxmLdRTADoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCI3q9itCCjoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSI8L2hjL2VuLXVzL2FydGljbGVzLzM2MDA0MjAzMDY1Mi1FY2hvVmlkZW8tUmVwb3J0aW5nLUFQSQY7CFQ6CXJhbmtpBw%3D%3D--f1ea5a3b9a589a9f881ec452c44a26b23e0c45d9" rel="nofollow">EchoVideo: Reporting API</a>
+        </li>
+      
+        <li>
+          <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCL95%2BtNTADoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCI3q9itCCjoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJIL2hjL2VuLXVzL2FydGljbGVzLzM2MDAzODY5MzMxMS1FY2hvVmlkZW8tQVBJLWFuZC1TREstRG9jdW1lbnRhdGlvbgY7CFQ6CXJhbmtpCA%3D%3D--c8bf23a4fcd23f6d7d26b693ff0459e53c51b48d" rel="nofollow">EchoVideo: API and SDK Documentation</a>
+        </li>
+      
+        <li>
+          <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCOyj9NNTADoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCI3q9itCCjoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJUL2hjL2VuLXVzL2FydGljbGVzLzM2MDAzODMxMDg5Mi1FY2hvVmlkZW8tTWVkaWEtRGV0YWlscy1QYWdlLWZvci1BZG1pbmlzdHJhdG9ycwY7CFQ6CXJhbmtpCQ%3D%3D--0babae199767c2c42b793faaa5452e2831ed0516" rel="nofollow">EchoVideo: Media Details Page for Administrators</a>
+        </li>
+      
+        <li>
+          <a href="/web/20250523081404/https://support.echo360.com/hc/en-us/related/click?data=BAh7CjobZGVzdGluYXRpb25fYXJ0aWNsZV9pZGwrCDSi9NNTADoYcmVmZXJyZXJfYXJ0aWNsZV9pZGwrCI3q9itCCjoLbG9jYWxlSSIKZW4tdXMGOgZFVDoIdXJsSSJZL2hjL2VuLXVzL2FydGljbGVzLzM2MDAzODMxMDQ1Mi1FY2hvVmlkZW8tRWRpdGluZy1SZXByb2Nlc3NpbmctYW5kLURlbGV0aW5nLUNhcHR1cmVzBjsIVDoJcmFua2kK--2ca34f946cb0c2c03eec09c0fbd702eaf5eea65a" rel="nofollow">EchoVideo: Editing, Reprocessing, and Deleting Captures</a>
+        </li>
+      
+    </ul>
+  </section>
+
+
+        
+    </aside>
+
+    <article id="main-content" class="article">
+      <section class="article-info">
+        <div class="article-content">
+          <div class="article-body"><p class="Warn"><strong>NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT</strong><br><br>As of <strong>June 30, 2024, ExamView</strong> will officially reach its end of life.<br><br>Please be advised that after ExamView’s end-of-life date of <strong>June 30th, 2024</strong>, we will no longer be providing updates, security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure uninterrupted service, we encourage migrating to <a href="https://web.archive.org/web/20250523081404/https://echo360.com/the-echosystem/echoexam/" target="_blank" rel="noopener noreferrer">EchoExam</a>, which is designed to offer superior security, compatibility, and a range of advanced features that align with current technological standards. For questions click <a href="https://web.archive.org/web/20250523081404/https://share.hsforms.com/1mq8ka-ZgQRmwv-WlDzpJHQcdg" target="_blank" rel="noopener noreferrer">here</a>.</p>
+
+<p>ExamView Test Generator provides you with numerous pre-defined constants to use when defining variables, conditions, and user-defined functions.</p>
+<p> </p>
+<table cellspacing="0">
+<colgroup>
+<col>
+<col>
+</colgroup>
+<thead>
+<tr>
+<th colspan="1" rowspan="1">Syntax</th>
+<th colspan="1" rowspan="1">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double abs(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the absolute value of the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acos(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cosine of the argument, x. Arguments to the function must be in the range -1 to 1.Values are returned in the range 0 to pi inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acosh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cosine of the argument, x. Arguments to the function must be greater than 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acot(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cotangent of the argument, x. Arguments to the function must not be equal to zero. Values are returned in the range -pi/2 to pi/2 non-inclusive values are returned in the range -pi/2 to pi/2 non-inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acoth(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cotangent of the argument, x. Arguments to the function must be less than -1 or greater than 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acsc(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cosecant of the argument, x. Arguments to the function must be less than or equal to -1 or greater than or equal to 1. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double acsch(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cosecant of the argument, x. Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression AND expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE (1) only if both expressions evaluate to non-zero, otherwise returns FALSE (0). If the first expression evaluates to FALSE, the second expression is not evaluated.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccos(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cosine of the argument, x. Arguments to the function must be in the range -1 to 1.Values are returned in the range 0 to pi inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccosh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cosine of the argument, x. Arguments to the function must be greater than 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccot(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cotangent of the argument, x. Arguments to the function must not be equal to zero. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccoth(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cotangent of the argument, x. Arguments to the function must be less than -1 or greater than 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccsc(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc cosecant of the argument, x. Arguments to the function must be less than or equal to -1 or greater than or equal to 1. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arccsch(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc cosecant of the argument, x. Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arcsec(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc secant of the argument, x. Arguments to the function must be less than or equal to -1 or greater than or equal to 1. Values are returned in the range 0 to pi inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arcsech(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc secant of the argument, x. Arguments to the function must be greater than 0 and less than or equal to 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arcsin(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc sine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are returned in the range -pi/2 to pi/2 inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arcsinh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc sine of the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arctan(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc tangent of the argument, x. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arctan2(double y, double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc tangent of y / x. This function produces correct results even when the resulting angle is near -pi/2 or pi/2. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double arctanh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc tangent of the argument, x. Arguments to the function must be in the range -1 to 1 non-inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int asc(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the ascii value of the first character in the string. If the string is empty, it returns 0.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double asec(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc secant of the argument, x. Arguments to the function must be less than or equal to -1 or greater than or equal to 1. Values are returned in the range 0 to pi inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double asech(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc secant of the argument, x. Arguments to the function must be greater than 0 and less than or equal to 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double asin(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc sine of the argument, x. Arguments to the function must be in the range -1 to 1. Values are returned in the range -pi/2 to pi/2 inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double asinh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc sine of the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double atan(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc tangent of the argument, x. Values are returned in the range -pi/2 to pi/2 inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double atan2(double y, double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the arc tangent of y / x. It produces correct results even when the resulting angle is near -pi/2 or pi/2. Values are returned in the range -pi/2 to pi/2 non-inclusive</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double atanh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic arc tangent of the argument, x. Arguments to the function must be in the range -1 to 1 non-inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double ceil(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Rounds up. The function finds the smallest integer not less than the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression choose(int which, expression arg1, expression arg2, ...)</p>
+<p>- or -</p>
+<p>expression choose(int which, list dataList)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This function will select the argument at the which location in the list of arguments. The expression will be evaluated and returned. All of the arguments must be of the same type (string or numeric). If which is greater than the number of arguments, the function will use the remainder part of which to choose an argument.</p>
+<strong>EXAMPLE</strong>
+<p>which = rand(5)</p>
+<p>choose(which, 1, 14, 3.2, 6, 9) will return 3.2 when which = 3</p>
+<p>- or -</p>
+<p>which = rand(5)</p>
+<p>listOfData = list(1, 14, 3.2, 6, 9)</p>
+<p>choose(which, listOfData) will return 9 when which = 5</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string chr(int x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Description</p>
+<p>Returns a string character with the ASCII value of the argument, x. If x is less than 32 or greater than 255, the function will return a question mark.</p>
+<strong>NOTE</strong>
+<p>You should use this function to generate characters found only in the Symbol font. Once the variable is inserted into a question or narrative, you need to highlight the variable and change it to Symbol font for it to display properly.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int comb(int m, int n)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the number of possible combinations. If we have a group of m objects, how many ways can they be grouped as n objects when position does not matter. The actual function is:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320665485" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double cos(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the cosine of the argument, x. The angle is specified in radians. Values are returned in the range -1 to 1 inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double cosh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic cosine of the argument, x. The actual function is:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295085325" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double cot(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the cotangent of the argument, x. The angle is specified in radians. Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double coth(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic cotangent of the argument, x. This evaluates to cosh(x) / sinh(x). Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double csc(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the cosecant of the argument, x. The angle is specified in radians. Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double csch(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic cosecant of the argument, x. This evaluates to 1 / sinh(x). Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string decs(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This function returns a string representation of the decimal number. If the function determines that the number, x, has an infinitely repeating decimal part, the repeating part will be displayed with an overbar.</p>
+<strong>EXAMPLE</strong>
+<p>decs(18.333333333333) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320721933" alt=""></p>
+<p>decs(0.0142857142857) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320750093" alt=""></p>
+<p>decs(4.25) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320768781" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double deg(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts an argument, x, in radians to degrees.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>e</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 2.71828..., used in problems involving growth or decay (or compound interest). Usually defined by the following equation:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320809869" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression EQV expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE (1) if both expressions evaluate to non-zero or if both expressions evaluate to zero, otherwise returns FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double exp(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates the exponential e to the x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>FALSE</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 0.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double floor(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Rounds down. The function finds the largest integer not greater than the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string format(string format, double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Writes formatted output to a string. For a complete description of formatting specifiers, look in any C programming manual.</p>
+<strong>EXAMPLE</strong>
+<p>format("$%1.2f", 13.4) will return "$13.40"</p>
+<p>format("%d feet", 17) will return "17 feet"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double frac(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the fractional part of the argument, x. The return value will always be greater than or equal to 0 and less than 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string fracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After reducing the fraction numer / denom, this function will return a string as either a whole number, or a fraction in the form "numer/denom". When displayed, this function will draw a stacked fraction if necessary. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>fracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320838285" alt=""></p>
+<p>fracs(22, 11) will return 2</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int gcf(int x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the greatest common factor of the arguments, x and y.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression if (int condition, expression arg1, expression arg2)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use to implement a conditional expression. If condition evaluates to non-zero, arg1 will be returned, else arg2 will be returned. Both of the arguments must be of the same type (string or numeric).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression IMP expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE (1) if the first expression evaluates to non-zero and the second expression evaluates to zero, otherwise returns FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>INF</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] ∞. Can be used to represent positive or negative infinity (INF).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int instr(string x, string y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Searches in the string, x, for the sub-string, y. If it finds it, the function will return the position in the string, x, where the first occurrence of y was found (between 1 and the length of string, x). If the substring is not found, the function returns FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int int(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the integer portion of the argument, x. If x is positive, it rounds down. If x is negative, it rounds up.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double inv(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the inverse of the argument, x. Actual function is 1 / x. Arguments to the function must not be equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int isalpha(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If the first character of the string argument, x, is in the range "A" to "Z" or "a" to "z", the function will return TRUE (1), otherwise it will return FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int isdigit(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If the first character of the string argument, x, is in the range "0" to "9", the function will return TRUE (1), otherwise it will return FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int isprime(int x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Evaluates the number to see if it is prime. If the number is prime, the function will return TRUE (1), otherwise it returns FALSE (0).</p>
+<strong>NOTE</strong>
+<p>Values must be in the range 2 to 1,000,000.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int isrelprime(int x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Evaluates the two numbers to see if they are relatively prime. If the greatest common factor of x and y is 1, the function will return TRUE (1), otherwise it returns FALSE (0).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int isunique(expression arg1, expression arg2, ...)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Compares the arguments to see if there are any duplicates. If there are duplicate arguments, the function will return FALSE (0), otherwise it returns TRUE (1). All of the arguments must be of the same type (string or numeric). This function is useful as a "condition" in evaluating multiple choice answer choices.</p>
+<strong>EXAMPLE</strong>
+<p>(condition) isunique(answerA, answerB, answerC, answerD)</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string lcase(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts the string argument, x, to lower case.</p>
+<strong>EXAMPLE</strong>
+<p>lcase("ExamView") will return "examview"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int lcd(int x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the least common denominator of the arguments, x and y.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string left(string x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the first y characters of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>left("ExamView", 3) will return "Exa"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int len(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the number of characters in the string argument, x, not counting the null-terminating character.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>list(expression arg1, expression arg2, ...)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use this function as a container to hold a group of similar expressions. The expressions must all be of the same type--either numeric or string. If you create a list of strings, you must make sure that no string element contains a comma, since the comma is used to delimit the list. A variable defined as a "list" can be used as an argument for the "choose" function.</p>
+<strong>EXAMPLE</strong>
+<p>fruitList = list("apple", "pear", "peach", "tangerine")</p>
+<p>whichFruit = rand(4)</p>
+<p>fruit = choose(whichFruit, fruitList)</p>
+<p> </p>
+<p>weightList = list(110, 142, 153, 180, 212)</p>
+<p>whichWeight = rand(5)</p>
+<p>weight = choose(whichWeight, weightList)</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double ln(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates the natural log of the argument, x. Arguments to the function must be greater than zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double log(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates the natural log of the argument, x. Arguments to the function must be greater than zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double log10(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates the base 10 logarithm of the argument, x. Arguments to the function must be greater than or equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double logb(double x, double b)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates the base b logarithm of the argument, x. Arguments to the function must be greater than zero. Actual function is:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320882061" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string ltrim(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Trims spaces from the left side of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>ltrim(" ExamView ") will return "ExamView "</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>list makelist(int numValues, double lowerExtreme,</p>
+<p>double lowerQuartile, double median,</p>
+<p>double upperQuartile, double upperExtreme,</p>
+<p>Boolean sortData)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Use this function to create a "list" container to hold a group of data with numValues data, and the range, median, and interquartile ranges assigned. Pass TRUE if you want the data elements to be arranged in ascending order. Pass -1 for either extreme, either quartile, or the median if you do not require them to be specific values.</p>
+<strong>EXAMPLE</strong>
+<p>makelist(3, 5, -1, 8, -1, 9, TRUE) will return "5, 8, 9"</p>
+<p>Both quartile values must be supplied to the makelist() function. If either one is not, they are both ignored.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double max(double x, double y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the larger of two values.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double mean(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the arithmetic mean (or average) of the data in the list.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double median(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the middle value of the data in the list if the number of elements in the list is odd, or the average of the two middle terms if the number of elements is even.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string mid(string x, int start, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns y characters starting at the start position in the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>mid("ExamView", 2, 4) will return "xamV"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double min(double x, double y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the smaller of two values.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string mixfracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After reducing the fraction numer / denom, this function will return a string as either a whole number, or a fraction in the form "whole numer/denom". When displayed, this function will draw a stacked fraction if necessary. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>mixfracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320913549" alt=""></p>
+<p>mixfracs(2, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320946317" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression MOD expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Divides the first expression by the second expression and returns the remainder. If the second expression is equal to zero, the function will return zero. Integer division may return a negative value to satisfy the identity:</p>
+<p>(-A)/B = -(A/B) = A/(-B)</p>
+<strong>EXAMPLE</strong>
+<p>-34 MOD 6 will return -4</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double mode(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the most common value for the data in the list. If the data is multimodal, this function returns zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>NO</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 0.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>NOT expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If expression evaluates to non-zero, this will return FALSE (0), otherwise it will return TRUE (1).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression OR expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns TRUE (1) if either expression evaluates to non-zero, otherwise returns FALSE (0). If the first expression evaluates to TRUE, the second expression is not evaluated.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int perm(int m, int n)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the number of possible permutations. Given that position is important, if one has m objects, how many unique ways can they be placed in n positions. The actual function is:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295360013" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>PI</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 3.1415926.... By definition, PI is the ratio of the circumference of a circle to its diameter.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double pow(double x, double y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Calculates x to the power of y.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int prime(int x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a pseudo-random prime number in the range x to y, inclusive.</p>
+<strong>NOTE</strong>
+<p>Values must be in the range 2 to 1,000.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double quartile(list data, int whichQuartile)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns one of the divisions of observations of the data in the list.</p>
+<strong>EXAMPLE</strong>
+<p>theList = list(30, 25, 19, 26, 31, 29, 23)</p>
+<p>quartile(theList, 0) will return "19", the lower extreme</p>
+<p>quartile(theList, 1) will return "23", the lower quartile</p>
+<p>quartile(theList, 2) will return "26", the median</p>
+<p>quartile(theList, 3) will return "30", the upper quartile</p>
+<p>quartile(theList, 4) will return "31", the upper extreme</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double rad(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts an argument, x, in degrees to radians.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int rand(int x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a pseudo-random number in the range 1 to the argument, x, inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double range(double x, double y, double increment {optional})</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a pseudo-random number in the range x to y, inclusive. If the optional argument, increment, is included, the function will only select values in the given range that are offset from the lower limit by increment.</p>
+<strong>NOTE</strong>
+<p>If increment is in the form .1, .01, .001, etc., then the result will always have the same number of decimal places as the increment. Also, if x is less than zero, and y is greater than zero, and an increment is provided, then the value 0 will never be returned by the function.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string rfracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Reduces the fraction numer / denom. When displayed, this function will always draw a ratio in stacked fraction form. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>rfracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320838285" alt=""></p>
+<p>rfracs(22, 11) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295422349" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string right(string x, int y)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the last y characters of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>right("ExamView", 3) will return "iew"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double round(double x, int precision)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Rounds the argument, x, to have precision decimal places.</p>
+<strong>NOTE</strong>
+<p>If precision is greater than or equal to 10, this function rounds the argument, x, to the nearest precision.</p>
+<br><strong>EXAMPLE</strong>
+<p>round(3.14159265, 4) will return 3.1416</p>
+<p>round(1492.14, 10) will return 1490</p>
+<p>round(1492.14, 100) will return 1500</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string rtrim(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Trims spaces from the right side of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>rtrim(" ExamView ") will return " ExamView"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sciens(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Function returns a string representation of the argument, x, in scientific notation.</p>
+<strong>NOTE</strong>
+<p>You must be sure to also change the format to Scientific Notation and select the number of decimal places when formatting the variable.</p>
+<br><strong>EXAMPLE</strong>
+<p>sciens(143948.123) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279321093389" alt="">when using 2 decimal places.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sdev(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the standard deviation of the data values in the list. Data values are assumed to be the entire population (not a sample). Result is the square root of the population variance. (see variance).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sec(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the secant of the argument, x. The angle is specified in radians.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sech(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic secant of the argument, x. This evaluates to 1 / cosh(x).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sentence(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Changes string argument, x, into a sentence that can be subdivided using the choose function. This allows us to create a sentence that can word wrap.</p>
+<strong>EXAMPLE</strong>
+<p>sentence("This is a long sentence that might need to wrap.")</p>
+<p>choose(3, mySentence) to access the 3rd tenth of the variable mySentence.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sfracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After reducing the fraction numer / denom, this function will return a string as either a whole number, or a fraction in the form "numer/denom". When displayed, this function will draw a small stacked fraction if necessary. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>sfracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320838285" alt=""></p>
+<p>sfracs(22, 11) will return 2</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>int sgn(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If the argument, x, is less than zero, this function returns -1. If the argument, x, is greater than zero, this function returns 1. Otherwise it returns zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sgns(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>If the argument, x, is less than zero, this function returns "-". Otherwise it returns "+".</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sigfig(double x, int numSigFigs, Boolean forceNumSigFigs)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Creates a string version of the argument, x, that has numSigFigs significant digits. If forceNumSigFigs is TRUE, then the string returned will have exactly numSigFigs significant digits (even if the function has to randomly create some digits). If forceNumSigFigs is FALSE, then the function will return a string that has numSigFigs significant digits or less.</p>
+<strong>EXAMPLE</strong>
+<p>sigfig(12362, 3, FALSE) will return 12400</p>
+<p>sigfig(2.14, 5, TRUE) will return 2.1400</p>
+<p>sigfig(1400, 4, TRUE) might return 1427</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sin(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the sine of the argument, x. The angle is specified in radians. Values are returned in the range -1 to 1 inclusive.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sinh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic sine of the argument, x.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string smixfracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After reducing the fraction numer / denom, this function will return a string as either a whole number, or a fraction in the form "whole numer/denom". When displayed, this function will draw a small stacked fraction if necessary. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>smixfracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320913549" alt=""></p>
+<p>smixfracs(2, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320946317" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>list sort(Boolean sortAscending, double arg1, double arg2, ...)</p>
+<p>- or -</p>
+<p>list sort(Boolean sortAscending, list dataList)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This function will sort the list of arguments. All of the arguments must be numeric (or the list must have been composed of only numeric data). Function will return a list that can be used as an argument for choose( ).</p>
+<p>sort(TRUE, 1, 14, 3.2, 6, 9) will return 1, 3.2, 6, 9, 14</p>
+<p>- or -</p>
+<p>listOfData = list(12, -3, 5)</p>
+<p>sort(FALSE, listOfData) will return "12, 5, -3"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sqr(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the positive square root of the argument, x. The argument must be greater than or equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string sqrs(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>After reducing the argument, x, to a multiple of a whole number and a radical, it returns a string representation in the form whole (square root) radical. When displayed, this function will draw a radical if necessary.</p>
+<strong>EXAMPLE</strong>
+<p>sqrs(18) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279321281933" alt=""></p>
+<p>sqrs(16) will return 4</p>
+<p>sqrs(-8) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295694477" alt=""></p>
+<p>sqrs(3.14159) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295757581" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sqrt(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the positive square root of the argument, x. The argument must be greater than or equal to zero.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string srfracs(double numer, double denom)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Reduces the fraction numer / denom. When displayed, this function will always draw a small ratio in stacked fraction form. If denom is 0, the function will return "0".</p>
+<strong>EXAMPLE</strong>
+<p>srfracs(22, 6) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279320838285" alt=""></p>
+<p>srfracs(22, 11) will return <img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295422349" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string str(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a string representation of the argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>str(18) will return "18"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string strdup(string x, int numTimes)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a string by combining the string argument, x, a variable number of times.</p>
+<strong>EXAMPLE</strong>
+<p>strdup("(2)", 5) will return "(2)(2)(2)(2)(2)"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double sum(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the sum of the data values in the list.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string symbol(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts the string argument, x, to the appropriate Symbol character.</p>
+<strong>NOTE</strong>
+<p>Once the variable is inserted into a question or narrative, you need to highlight the variable and change it to Symbol font for it to display properly.</p>
+<p>The following list shows valid arguments to this function. For all other Symbol characters, use the chr function.</p>
+<p>symbol ("&lt;=") will="will" return="return" ≤="≤"&gt;&lt;/=")&gt;</p>
+<p>symbol ("=") will return "≥"</p>
+<p>symbol ("&lt;&gt;") will return "≠"&lt;&gt;&lt;/&gt;&lt;/&gt;</p>
+<p>symbol ("x") will return "×"</p>
+<p>symbol (".") will return "▪"</p>
+<p>symbol ("/") will return "÷"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double tan(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the tangent of the argument, x. The angle is specified in radians.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double tanh(double x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Computes the hyperbolic tangent of the argument, x. This evaluates to sinh(x) / cosh(x).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>testversion</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[pseudo constant] Represents the current test version ("A", "B", "C", etc.).</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string trim(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Trims spaces from both the left and the right side of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>trim(" ExamView ") will return "ExamView"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>TRUE</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 1.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>string ucase(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Converts the string argument, x, to upper case.</p>
+<strong>EXAMPLE</strong>
+<p>ucase("ExamView") will return "EXAMVIEW"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>list unsort(list dataList)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>This function will "unsort" or scramble the list of arguments. The list passed in as an argument must have been composed of only numeric data. Function will return a list that can be used as an argument for choose( )</p>
+<p>listofData = list (1, 2, 3, 4)</p>
+<p>unsort(ListofData) might return "2, 4, 3, 1"</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double val(string x)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns a numeric representation of the string argument, x.</p>
+<strong>EXAMPLE</strong>
+<p>val("18") will return 18</p>
+<p>val("-4") will return -4</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>double variance(list data)</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the variance of the data values in the list. Data values are assumed to be the entire population (not a sample). Actual formula used is:</p>
+<p><img src="/web/20250523081404im_/https://support.echo360.com/hc/article_attachments/11279295967757" alt=""></p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>expression XOR expression</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>Returns the bitwise exclusive-OR of the two expressions.</p>
+</td>
+</tr>
+<tr>
+<td colspan="1" rowspan="1">
+<p>YES</p>
+</td>
+<td colspan="1" rowspan="1">
+<p>[Constant] 1.</p>
+</td>
+</tr>
+</tbody>
+</table></div>
+
+          
+
+          
+        </div>
+      </section>
+
+      <footer>
+        <div class="article-footer">
+          
+            <div class="article-share">
+  <ul class="share">
+    <li>
+      <a href="https://web.archive.org/web/20250523081404/https://www.facebook.com/share.php?title=ExamView%3A+Constants+When+Defining+Variables%2C+Conditions%2C+and+User-defined+Functions+in+Test+Generator&amp;u=https%3A%2F%2Fsupport.echo360.com%2Fhc%2Fen-us%2Farticles%2F11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" class="share-facebook" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewbox="0 0 12 12" aria-label="Share this page on Facebook">
+          <path fill="currentColor" d="M6 0a6 6 0 01.813 11.945V7.63h1.552l.244-1.585H6.812v-.867c0-.658.214-1.242.827-1.242h.985V2.55c-.173-.024-.538-.075-1.23-.075-1.444 0-2.29.767-2.29 2.513v1.055H3.618v1.585h1.484v4.304A6.001 6.001 0 016 0z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://web.archive.org/web/20250523081404/https://twitter.com/share?lang=en&amp;text=ExamView%3A+Constants+When+Defining+Variables%2C+Conditions%2C+and+User-defined+Functions+in+Test+Generator&amp;url=https%3A%2F%2Fsupport.echo360.com%2Fhc%2Fen-us%2Farticles%2F11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" class="share-twitter" aria-label="X Corp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewbox="0 0 12 12" aria-label="Share this page on X Corp">
+          <path fill="currentColor" d="M.0763914 0 3.60864 0 6.75369 4.49755 10.5303 0 11.6586 0 7.18498 5.11431 12 12 8.46775 12 5.18346 7.30333 1.12825 12 0 12 4.7531 6.6879z"/>
+        </svg>
+      </a>
+    </li>
+    <li>
+      <a href="https://web.archive.org/web/20250523081404/https://www.linkedin.com/shareArticle?mini=true&amp;source=Support&amp;title=ExamView%3A+Constants+When+Defining+Variables%2C+Conditions%2C+and+User-defined+Functions+in+Test+Generator&amp;url=https%3A%2F%2Fsupport.echo360.com%2Fhc%2Fen-us%2Farticles%2F11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" class="share-linkedin" aria-label="LinkedIn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" focusable="false" viewbox="0 0 12 12" aria-label="Share this page on LinkedIn">
+          <path fill="currentColor" d="M10.8 0A1.2 1.2 0 0112 1.2v9.6a1.2 1.2 0 01-1.2 1.2H1.2A1.2 1.2 0 010 10.8V1.2A1.2 1.2 0 011.2 0h9.6zM8.09 4.356a1.87 1.87 0 00-1.598.792l-.085.133h-.024v-.783H4.676v5.727h1.778V7.392c0-.747.142-1.47 1.068-1.47.913 0 .925.854.925 1.518v2.785h1.778V7.084l-.005-.325c-.05-1.38-.456-2.403-2.13-2.403zm-4.531.142h-1.78v5.727h1.78V4.498zm-.89-2.846a1.032 1.032 0 100 2.064 1.032 1.032 0 000-2.064z"/>
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+</div>
+          
+          
+        </div>
+        
+          <div class="article-votes">
+            <span class="article-votes-question" id="article-votes-label">Was this article helpful?</span>
+            <div class="article-votes-controls" role="group" aria-labelledby="article-votes-label">
+              <button type="button" class="button article-vote article-vote-up" data-helper="vote" data-item="article" data-type="up" data-id="11279321721485" data-upvote-count="0" data-vote-count="0" data-vote-sum="0" data-vote-url="/hc/en-us/articles/11279321721485/vote" data-value="null" data-label="0 out of 0 found this helpful" data-selected-class="button-primary" aria-label="This article was helpful" aria-pressed="false">Yes</button>
+              <button type="button" class="button article-vote article-vote-down" data-helper="vote" data-item="article" data-type="down" data-id="11279321721485" data-upvote-count="0" data-vote-count="0" data-vote-sum="0" data-vote-url="/hc/en-us/articles/11279321721485/vote" data-value="null" data-label="0 out of 0 found this helpful" data-selected-class="button-primary" aria-label="This article was not helpful" aria-pressed="false">No</button>
+            </div>
+            <small class="article-votes-count">
+              <span class="article-vote-label" data-helper="vote" data-item="article" data-type="label" data-id="11279321721485" data-upvote-count="0" data-vote-count="0" data-vote-sum="0" data-vote-url="/hc/en-us/articles/11279321721485/vote" data-value="null" data-label="0 out of 0 found this helpful">0 out of 0 found this helpful</span>
+            </small>
+          </div>
+        
+
+        <div class="article-more-questions">
+          
+        </div>
+        <div class="article-return-to-top">
+          <a href="#article-container">
+            Return to top
+            <svg xmlns="http://www.w3.org/2000/svg" class="article-return-to-top-icon" width="20" height="20" focusable="false" viewbox="0 0 12 12" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-linecap="round" d="M3 4.5l2.6 2.6c.2.2.5.2.7 0L9 4.5"/>
+            </svg>
+          </a>
+        </div>
+      </footer>
+
+      <div class="article-relatives">
+        
+          <div data-recent-articles></div>
+        
+      </div>
+     
+    </article>
+  </div>
+</div>
+</section> 
+<script>
+$(document).ready(function(){
+sectionName = $('.section_name__c a[href*="/sections/"]');
+$('.section_name__c').html(sectionName);
+$('.section_name__c').show();
+})
+</script>
+  </main>
+
+  <footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-block logo">
+      <a href="https://web.archive.org/web/20250523081404/https://echo360.com/"><img src="/web/20250523081404im_/https://support.echo360.com/hc/theming_assets/01HZHAZSDPT4S6VR4JNJBRV40K" alt="Main Echo360 Home"></a>
+    </div>
+    <div class="footer-block support-menu">
+      <h3>Support</h3>
+      <ul>
+        <li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/11259904654733">EchoAuthor</a></li>
+        <li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/11264966128141">EchoExam</a></li>
+        <li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/29294172918285">EchoInk</a></li>
+        <li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/11260138571661">EchoPoll</a></li>
+      	<li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/10966976395789">EchoVideo</a></li>
+      	<li><a href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/categories/17523673532429">PointSolutions</a></li>
+      </ul>
+    </div>
+    <div class="footer-block web-menu">
+      <h3>Company</h3>
+      <ul id="menu-footer" class="menu">
+        <li class="mega-menu-echo menu-item menu-item-type-post_type menu-item-object-page menu-item-68525"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/the-echosystem/" class="elementor-item">The Echosystem</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68526"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/education/" class="elementor-item">Education</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68527"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/business/" class="elementor-item">Business</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68528"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/government/" class="elementor-item">Government</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68529"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/resources/" class="elementor-item">Resources</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-68530"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/company/" class="elementor-item">Company</a></li>
+				<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-70612"><a href="https://web.archive.org/web/20250523081404/https://echo360.com/downloads/" class="elementor-item">Downloads</a></li>
+			</ul>
+    </div>
+    <div class="footer-language-selector">
+      
+    </div>
+  </div>
+  <div class="footer-social">
+		<div class="container">
+			<ul class="c-nav__list">
+				<li class="c-nav--footer__listitem--meta v--center"><a data-clog-click="" data-clog-ui-component="hc_footer_nav" data-clog-ui-element="link_status" href="https://web.archive.org/web/20250523081404/https://echo360.com/privacy/" target="_blank" rel="noopener" data-qa="status">Privacy Policy</a></li>
+        <li style="color: #fff"> | </li>
+				<li class="c-nav--footer__listitem--meta v--center"><a data-clog-click="" data-clog-ui-component="hc_footer_nav" data-clog-ui-element="link_legal" target="_blank" href="https://web.archive.org/web/20250523081404/https://echo360.com/terms-and-conditions/" data-qa="privacy_terms">Terms &amp; Conditions</a></li>
+        <li style="color: #fff"> | </li>
+        <li class="c-nav--footer__listitem--meta v--center"><a target="_blank" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/31303077397261">Support Policy</a></li>
+        <li style="color: #fff"> | </li>
+        <li class="c-nav--footer__listitem--meta v--center"><a target="_blank" href="https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/en-us/articles/31303065193869">Feedback Policy</a></li>
+        <li style="color: #fff"> | </li>
+				<li class="c-nav--footer__listitem--meta v--center"><a data-clog-click="" data-clog-ui-component="hc_footer_nav" data-clog-ui-element="link_help_contact" target="_blank" href="https://web.archive.org/web/20250523081404/https://echo360.com/request-info">Contact</a></li>
+			</ul>
+			<div class="social-wrap">
+      	<div class="social-icon facebook"><a href="https://web.archive.org/web/20250523081404/https://www.facebook.com/echo360/" alt="Echo360 Facebook"><i class="fab fa-facebook-square" title="Echo360 Facebook" aria-hidden="true"></i></a>
+  			</div>
+  			<div class="social-icon twitter"><a href="https://web.archive.org/web/20250523081404/https://twitter.com/echo360" alt="Echo360 Twitter"><i class="fab fa-twitter-square" title="Echo360 Twitter" aria-hidden="true"></i></a>
+  			</div>
+  			<div class="social-icon youtube"><a href="https://web.archive.org/web/20250523081404/https://www.youtube.com/channel/UCPzf1TOJqm2Xs2Dv6_VVCDA" alt="Echo360 YouTube"><i class="fab fa-youtube-square" title="Echo360 YouTube" aria-hidden="true"></i></a>
+      	</div>
+  			<div class="social-icon linkedin"><a href="https://web.archive.org/web/20250523081404/https://www.linkedin.com/company-beta/479654/?pathWildcard=479654" alt="Echo360 LinkedIn"><i class="fab fa-linkedin" title="Echo360 LinkedIn" aria-hidden="true"></i></a>
+  			</div>
+    	</div>
+		</div>
+	</div>
+</footer>
+
+
+  <!-- / -->
+
+  
+  <script src="//web.archive.org/web/20250523081404js_/https://static.zdassets.com/hc/assets/en-us.2e1abb2645a9c23ddaa2.js"></script>
+  <script src="https://web.archive.org/web/20250523081404js_/https://echo360.zendesk.com/auth/v2/host/without_iframe.js" data-brand-id="360000487111" data-return-to="https://support.echo360.com/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator" data-theme="hc" data-locale="en-us" data-auth-origin="360000487111,true,true"></script>
+
+  <script type="text/javascript">
+  /*
+
+    Greetings sourcecode lurker!
+
+    This is for internal Zendesk and legacy usage,
+    we don't support or guarantee any of these values
+    so please don't build stuff on top of them.
+
+  */
+
+  HelpCenter = {};
+  HelpCenter.account = {"subdomain":"echo360","environment":"production","name":"Echo360"};
+  HelpCenter.user = {"identifier":"da39a3ee5e6b4b0d3255bfef95601890afd80709","email":null,"name":"","role":"anonymous","avatar_url":"https://web.archive.org/web/20250523081404/https://assets.zendesk.com/hc/assets/default_avatar.png","is_admin":false,"organizations":[],"groups":[]};
+  HelpCenter.internal = {"asset_url":"//web.archive.org/web/20250523081404/https://static.zdassets.com/hc/assets/","web_widget_asset_composer_url":"https://web.archive.org/web/20250523081404/https://static.zdassets.com/ekr/snippet.js","current_session":{"locale":"en-us","csrf_token":null,"shared_csrf_token":null},"usage_tracking":{"event":"article_viewed","data":"BAh7CDoLbG9jYWxlSSIKZW4tdXMGOgZFVDoPYXJ0aWNsZV9pZGwrCI3q9itCCjoKX21ldGF7DDoPYWNjb3VudF9pZGkD4ewiOhNoZWxwX2NlbnRlcl9pZGwrCNOgrdFTADoNYnJhbmRfaWRsKwjHfrPRUwA6DHVzZXJfaWQwOhN1c2VyX3JvbGVfbmFtZUkiDkFOT05ZTU9VUwY7BlQ7AEkiCmVuLXVzBjsGVDoaYW5vbnltb3VzX3RyYWNraW5nX2lkMA==--94ba2032547dcf9d758e2a7239ceb92647eb7df7","url":"https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/activity"},"current_record_id":"11279321721485","current_record_url":"/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator","current_record_title":"ExamView: Constants When Defining Variables, Conditions, and User-defined Functions in Test Generator","current_text_direction":"ltr","current_brand_id":360000487111,"current_brand_name":"Support","current_brand_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com","current_brand_active":true,"current_path":"/hc/en-us/articles/11279321721485-ExamView-Constants-When-Defining-Variables-Conditions-and-User-defined-Functions-in-Test-Generator","show_autocomplete_breadcrumbs":true,"user_info_changing_enabled":false,"has_user_profiles_enabled":true,"has_end_user_attachments":true,"user_aliases_enabled":false,"has_anonymous_kb_voting":true,"has_multi_language_help_center":true,"show_at_mentions":false,"embeddables_config":{"embeddables_web_widget":false,"embeddables_connect_ipms":false,"web_widget_seamless_auth_enabled":false},"answer_bot_subdomain":"static","general_settings_url":"https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/admin/general_settings?locale=en-us","user_segments_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/user_segments?brand_id=360000487111","has_gather":true,"has_ckeditor":false,"has_community_enabled":false,"has_community_badges":true,"has_community_post_content_tagging":false,"has_gather_content_tags":true,"has_guide_content_tags":true,"has_user_segments":true,"has_answer_bot_web_form_enabled":false,"has_edit_user_profile_v2":true,"has_garden_modals":false,"theming_cookie_key":"hc-da39a3ee5e6b4b0d3255bfef95601890afd80709-2-preview","is_preview":false,"has_alternate_templates":true,"arrange_articles_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/arrange?brand_id=360000487111","article_verification_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/verification?brand_id=360000487111","has_article_verification":true,"guide_language_settings_url":"https://web.archive.org/web/20250523081404/https://support.echo360.com/hc/admin/language_settings?locale=en-us","docs_importer_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/import_articles?brand_id=360000487111","content_tags_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/content_tags?brand_id=360000487111","community_badges_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/community_badges?brand_id=360000487111","community_settings_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/community_settings?brand_id=360000487111","gather_plan_state":"subscribed","search_settings_url":"https://web.archive.org/web/20250523081404/https://echo360.zendesk.com/knowledge/search_settings?brand_id=360000487111","has_search_settings_in_plan":true,"theming_api_version":2,"theming_settings":{"brand_color":"rgba(213, 0, 108, 1)","brand_text_color":"#FFFFFF","text_color":"rgba(47, 55, 59, 1)","link_color":"rgba(0, 118, 198, 1)","hover_link_color":"rgba(0, 118, 198, 1)","visited_link_color":"rgba(84, 84, 84, 1)","background_color":"#FFFFFF","heading_font":"Arial, 'Helvetica Neue', Helvetica, sans-serif","text_font":"Arial, 'Helvetica Neue', Helvetica, sans-serif","logo":"/hc/theming_assets/01HZHAZV3ZAAMFY20MRSFTAV1S","show_brand_name":false,"favicon":"/hc/theming_assets/01HZHAZV7X3859Q1B2024JTK6X","homepage_background_image":"/hc/theming_assets/01HZHAZVDCXFGB3W7ZX49P1QGC","community_background_image":"/hc/theming_assets/01HZHAZVHZ31HFW6WXDZA6JQTR","community_image":"/hc/theming_assets/01HZHAZVNVSJX1TKJQT6F0NVT1","instant_search":true,"scoped_kb_search":true,"scoped_community_search":false,"show_recent_activity":true,"show_articles_in_section":true,"show_article_author":true,"show_article_comments":false,"show_follow_article":true,"show_recently_viewed_articles":true,"show_related_articles":true,"show_article_sharing":true,"show_follow_section":true,"show_follow_post":true,"show_post_sharing":true,"show_follow_topic":true,"request_list_beta":true},"has_pci_credit_card_custom_field":true,"help_center_restricted":false,"is_assuming_someone_else":false,"flash_messages":[],"user_photo_editing_enabled":true,"user_preferred_locale":"en-us","base_locale":"en-us","has_user_session_cookie_enabled":true,"has_custom_statuses_enabled":false,"has_generative_answers_in_help_center":false,"has_generative_answers_in_help_center_for_anonymous":true,"has_hc_generative_answers_setting_enabled":true,"has_intl_date_format_enabled":true,"has_guide_service_catalog":false,"version":"v26040"};
+</script>
+
+  
+  <script src="//web.archive.org/web/20250523081404js_/https://static.zdassets.com/hc/assets/hc_enduser-d9f859c74bbad82cdf2417951f3382a2.js"></script>
+  <script type="text/javascript" src="/web/20250523081404js_/https://support.echo360.com/hc/theming_assets/2288865/360000487111/script.js?digest=35936651009037"></script>
+  
+</body>
+</html><!--
+     FILE ARCHIVED ON 08:14:04 May 23, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 20:38:07 May 16, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.798
+  exclusion.robots: 0.179
+  exclusion.robots.policy: 0.165
+  esindex: 0.01
+  cdx.remote: 11.774
+  LoadShardBlock: 1350.472 (3)
+  PetaboxLoader3.datanode: 1356.063 (4)
+  load_resource: 192.5
+  PetaboxLoader3.resolve: 89.144
+  nav: 0.295 (6)
+-->

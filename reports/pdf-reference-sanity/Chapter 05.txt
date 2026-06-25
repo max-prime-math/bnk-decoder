@@ -1,0 +1,65 @@
+       Chapter 5: Trigonometric Functions and Graphs
+
+
+       MULTIPLE CHOICE
+
+          1. Which function, where x is in radians, is represented by the graph shown below?
+
+
+
+
+              A. y  cos x                                 C.   y  cos x
+              B. y  sin x                                  D.   y  sin x
+              ANS: A             DIF: Easy            OBJ: Section 5.1          NAT: T4
+              TOP: Graphing Sine and Cosine Functions                           KEY: graph | sinusoidal function
+
+          2. The range (in radians) of the graph of y  cos x is
+             A. 1  y  1                                    C. y  R
+             B. 0  y  2                                    D. 2  y  2
+
+              ANS: A             DIF: Easy            OBJ: Section 5.1          NAT: T4
+              TOP: Graphing Sine and Cosine Functions                           KEY: range | sinusoidal function
+
+          3. The period (in degrees) of the graph of y  cos 4x is
+             A. 270                                         C. 90
+             B. 180                                         D. 45
+              ANS: C             DIF: Easy            OBJ: Section 5.1          NAT: T4
+              TOP: Graphing Sine and Cosine Functions                           KEY: period | sinusoidal function
+
+          4. The amplitude and period (in degrees) of y  2sin 5x are
+                              1                                               1
+             A. amplitude =                                 C. amplitude = 
+                              5                                               5
+                 period = 72                                    period = 90
+             B. amplitude = 2                               D. amplitude = –2
+                 period = 72                                    period = 90
+              ANS: B              DIF: Average            OBJ: Section 5.1      NAT: T4
+              TOP: Graphing Sine and Cosine Functions
+              KEY: amplitude | period | sinusoidal function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            1
+                                                       3
+          5. Which graph represents the function y =     sin (, where  is in radians?
+                                                       5
+              A.                                              C.
+
+
+
+
+              B.                                             D.
+
+
+
+
+              ANS: C              DIF: Difficult          OBJ: Section 5.1      NAT: T4
+              TOP: Graphing Sine and Cosine Functions
+              KEY: graph | amplitude | period | sinusoidal function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                    2
+

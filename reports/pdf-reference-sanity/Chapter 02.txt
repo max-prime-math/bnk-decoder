@@ -1,0 +1,83 @@
+       Chapter 2: Radical Functions
+
+
+       MULTIPLE CHOICE
+
+          1. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      x  2 is
+             translated
+             A 2 units up                                   C 2 units to the left
+             B 2 units to the right                         D 2 units down
+              ANS: D             DIF: Easy            OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: vertical translation
+
+          2. Compared to the graph of the base function f(x)  x , the graph of the function g(x)  8     x is
+             translated
+             A 8 units to the left                          C 8 units to the right
+             B 8 units up                                   D 8 units down
+              ANS: D             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: vertical translation
+
+          3. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      x  5 is
+             translated
+             A 5 units down                                 C 5 units right
+             B 5 units left                                 D 5 units up
+              ANS: C             DIF: Easy            OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal translation
+
+          4. Compared to the graph of the base function f(x)  x , the graph of the function g(x)      5x is
+                                           1
+             A compressed by a factor of and not reflected
+                                           5
+             B stretched by a factor of 5 and reflected in the y-axis
+                                           1
+             C compressed by a factor of and reflected in the y-axis
+                                           5
+             D stretched by a factor of 5 and not reflected
+              ANS: A             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal stretch
+
+          5. When b < 0, the function g(x)  bx has what relationship to the base function f(x)      x?
+             A f(x) is stretched horizontally by a factor of 1/|b|
+             B f(x) is stretched horizontally by a factor of 1/|b| and reflected in the y-axis
+             C f(x) is stretched vertically by a factor of |b|
+             D f(x) is stretched vertically by a factor of |b| and reflected in the x-axis
+              ANS: B             DIF: Average         OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations                      KEY: horizontal stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          6. When the graph of y     x is vertically stretched by a factor of 3, the point (9, –10) will be translated
+             to the point
+             A (–10, 9)
+             B (3, –30)
+             C (–30, 9)
+             D (9, –30)
+              ANS: D             DIF: Easy            OBJ: Section 2.1           NAT: RF13
+              TOP: Radical Functions and Transformations                         KEY: vertical stretch
+
+          7. Which of the graphs shown below represents the base function f(x)        x (in black) and the stretched
+                               3
+             function g(x) =    x (in red)?
+                               2
+
+              A                                              C
+
+
+
+
+              B                                              D
+
+
+
+
+              ANS: B               DIF: Easy             OBJ: Section 2.1        NAT: RF13
+              TOP: Radical Functions and Transformations
+              KEY: graph | vertical stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  2
+

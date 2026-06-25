@@ -1,0 +1,65 @@
+       Chapter 1: Function Transformations
+
+
+       MULTIPLE CHOICE
+
+          1. Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x 2  9 is
+             translated
+             A 9 units to the left                          C 9 units down
+             B 9 units to the right                         D 9 units up
+              ANS: C             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: vertical translation
+
+          2. Compared to the graph of the base function f(x)  | x| , the graph of the function g(x)  5  x  is
+             translated
+             A 5 units to the right                         C 5 units down
+             B 5 units up                                   D 5 units to the left
+              ANS: C             DIF: Average           OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: vertical translation
+
+                                                                                                                2
+          3. Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x  4 is
+             translated
+             A 4 units to the right                         C 4 units down
+             B 4 units to the left                          D 4 units up
+              ANS: A             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: horizontal translation
+
+          4. Compared to the graph of the base function f(x)  x  , the graph of the function g(x)  x  9 is
+             translated
+             A 9 units to the right                         C 9 units down
+             B 9 units up                                   D 9 units to the left
+              ANS: D             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: horizontal translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          5. Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is
+             represented by g x   f x  2 ?
+
+
+
+
+              A   (3,  4)                                   C   (1,  2)
+              B   (1,  4)                                  D   (3,  6)
+              ANS: A             DIF: Average           OBJ: Section 1.1       NAT: RF2
+              TOP: Horizontal and Vertical Translations                        KEY: horizontal translation
+
+          6. Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is
+             represented by g x   f x   3?
+
+
+
+
+              A   (5, 2)                                     C   (2,  1)
+              B   (2,  4)                                   D   (8, 2)
+              ANS: A             DIF: Average           OBJ: Section 1.1       NAT: RF2
+              TOP: Horizontal and Vertical Translations                        KEY: vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            2
+

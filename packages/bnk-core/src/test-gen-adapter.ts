@@ -1,6 +1,9 @@
 import type { DecodedQuestion, DecodeResult } from './index';
 import type { Class, Question, Section, Unit } from '@bnk-decoder/question-model';
 
+const RAW_TYPST_OPEN = '%%BNK_RAW_TYPST_START%%';
+const RAW_TYPST_CLOSE = '%%BNK_RAW_TYPST_END%%';
+
 export interface TestGeneratorCurriculumOptions {
   className?: string;
   classId?: string;
@@ -168,16 +171,31 @@ function toQuestionParts(parts: NonNullable<DecodedQuestion['parts']>): Question
 
 function matchingQuestionBody(q: DecodedQuestion): string {
   const choiceLines = chunkArray(q.choices ?? [], 2)
-    .map((row) => row.map((choice) => `${choice.id}. ${choice.body.text}`).join('    '))
+    .map((row) => row.map((choice) => `${choice.id}. ${matchingContentText(choice.body.text)}`).join('    '))
     .join('\n');
   const itemLines = (q.items ?? [])
-    .map((item, index) => `${index + 1}. ${item.body.text}`)
+    .map((item, index) => `${index + 1}. ${matchingContentText(item.body.text, item.graphTypst?.text)}`)
     .join('\n');
   return [
     q.body.text,
     choiceLines,
     itemLines,
   ].filter(Boolean).join('\n\n');
+}
+
+function matchingContentText(text: string, graphTypst?: string): string {
+  const chunks = [text.trim()];
+  if (graphTypst?.trim()) chunks.push(rawTypstFragment(graphTypst));
+  if (!graphTypst && /^\s*#(?:block|plot)\b/.test(text)) return rawTypstFragment(text);
+  return chunks.filter(Boolean).join('\n');
+}
+
+function rawTypstFragment(text: string): string {
+  return `${RAW_TYPST_OPEN}${compactTypstBlock(text)}${RAW_TYPST_CLOSE}`;
+}
+
+function compactTypstBlock(text: string): string {
+  return text.replace(/\s+/g, ' ').trim();
 }
 
 function matchingSolutionText(q: DecodedQuestion): string {
@@ -199,6 +217,18 @@ function toTestGeneratorTypstText(text: string): string {
   const normalized = text.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
   const chunks: string[] = [];
   let cursor = 0;
+
+  for (const match of normalized.matchAll(new RegExp(`${RAW_TYPST_OPEN}([\\s\\S]*?)${RAW_TYPST_CLOSE}`, 'g'))) {
+    const start = match.index ?? 0;
+    if (start > cursor) chunks.push(toTestGeneratorTypstText(normalized.slice(cursor, start)));
+    chunks.push(match[1] ?? '');
+    cursor = start + match[0].length;
+  }
+
+  if (cursor > 0) {
+    if (cursor < normalized.length) chunks.push(toTestGeneratorTypstText(normalized.slice(cursor)));
+    return chunks.join('');
+  }
 
   for (const match of normalized.matchAll(/#image\("\/imgs\/[^"]+"(?:,\s*width:\s*[^)]+)?\)/g)) {
     const start = match.index ?? 0;
@@ -357,7 +387,7 @@ function isLikelyTypstMathSpan(text: string): boolean {
   if (!hasBalancedParens(trimmed)) return false;
   if (/\bif\s*\(|\bchr\s*\(|\bVAR\d/i.test(trimmed)) return false;
   const longWords = trimmed.match(/[A-Za-z]{3,}/g)
-    ?.filter((word) => !/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs|frac|times|dot|theta|alpha|beta|gamma|delta|deg|pi|op|cm|min|mph|infinity)$/.test(word));
+    ?.filter((word) => !/^(?:sin|cos|tan|sec|csc|cot|asin|acos|atan|arcsin|arccos|arctan|log|ln|lim|max|min|gcd|lcm|sqrt|abs|frac|times|dot|plus|minus|theta|alpha|beta|gamma|delta|deg|pi|op|cm|min|mph|infinity)$/.test(word));
   if (longWords?.length) return false;
   if (trimmed.startsWith('#math.')) return true;
   if (/^[–−-]?\d+(?:\.\d+)?$/.test(trimmed)) return true;

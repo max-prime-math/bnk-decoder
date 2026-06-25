@@ -1,0 +1,75 @@
+{
+  "decodedDir": "reports/precalc12-decoded-final-1781381324",
+  "rtfDir": "reports/rtf-reference-all",
+  "outDir": "reports/precalc12-decoded-final-rtfaug-1781381329",
+  "chapters": [
+    {
+      "chapter": 1,
+      "questionsAugmented": 44,
+      "assetsAdded": 121,
+      "unmatched": []
+    },
+    {
+      "chapter": 2,
+      "questionsAugmented": 42,
+      "assetsAdded": 140,
+      "unmatched": []
+    },
+    {
+      "chapter": 3,
+      "questionsAugmented": 17,
+      "assetsAdded": 62,
+      "unmatched": []
+    },
+    {
+      "chapter": 4,
+      "questionsAugmented": 15,
+      "assetsAdded": 35,
+      "unmatched": []
+    },
+    {
+      "chapter": 5,
+      "questionsAugmented": 24,
+      "assetsAdded": 88,
+      "unmatched": []
+    },
+    {
+      "chapter": 6,
+      "questionsAugmented": 9,
+      "assetsAdded": 24,
+      "unmatched": []
+    },
+    {
+      "chapter": 7,
+      "questionsAugmented": 23,
+      "assetsAdded": 75,
+      "unmatched": []
+    },
+    {
+      "chapter": 8,
+      "questionsAugmented": 31,
+      "assetsAdded": 73,
+      "unmatched": []
+    },
+    {
+      "chapter": 9,
+      "questionsAugmented": 34,
+      "assetsAdded": 99,
+      "unmatched": []
+    },
+    {
+      "chapter": 10,
+      "questionsAugmented": 21,
+      "assetsAdded": 106,
+      "unmatched": []
+    },
+    {
+      "chapter": 11,
+      "questionsAugmented": 12,
+      "assetsAdded": 15,
+      "unmatched": []
+    }
+  ],
+  "assetsCopied": 838,
+  "questionsAugmented": 272
+}

@@ -1,0 +1,54 @@
+{
+  "generatedAt": "2026-06-13T18:56:13.900Z",
+  "inputDir": "reports/precalc12-ch01-q47",
+  "chapterCount": 1,
+  "questionCount": 71,
+  "notDecodedBodyCount": 3,
+  "embeddedBodyCount": 0,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 47,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 71,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 95
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 3,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "stretch",
+          "body": "For each $g(x),$ describe the transformation(s) from the base function $f(x) = x^2$.\ra) $g(x) = 1 / 2 x^2$ b) $g(x) = x^3 2$ c) [DIAGRAM: variables (stretch)]"
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of $f(x) = x^2$ is transformed to the graph of [DIAGRAM NEEDED].\ra) Describe the two translations represented by this transformation.\rb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?"
+        }
+      ]
+    }
+  ]
+}

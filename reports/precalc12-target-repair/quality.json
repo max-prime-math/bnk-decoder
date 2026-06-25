@@ -1,0 +1,409 @@
+{
+  "generatedAt": "2026-06-13T18:49:16.725Z",
+  "inputDir": "reports/precalc12-target-repair",
+  "chapterCount": 6,
+  "questionCount": 402,
+  "notDecodedBodyCount": 48,
+  "embeddedBodyCount": 14,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 334,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 393,
+    "suspect": 9,
+    "garbage": 0,
+    "averageScore": 93
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 5,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 2,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 19,
+          "id": "q-19",
+          "title": "horizontal stretch | horizontal translation",
+          "body": "Which choice best describes the combination of transformations that must be applied to the graph of [embedded object] [DIAGRAM: variables (b, h, constant)] to obtain the graph of [DIAGRAM: variables (b, h, constant)]?"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "stretch",
+          "body": "For each $g(x),$ describe the transformation(s) from the base function $f(x) = x^2$.\ra) $g(x) = 1 / 2 x^2$ b) $g(x) = x^3 2$ c) [DIAGRAM: variables (stretch)]"
+        },
+        {
+          "number": 47,
+          "id": "q-47",
+          "title": "translation | stretch | reflection",
+          "body": "For each $g(x),$ describe, in the appropriate order, the combination of transformations that must be applied to the base function $f(x) = x$.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of $f(x) = x^2$ is transformed to the graph of [DIAGRAM NEEDED].\ra) Describe the two translations represented by this transformation.\rb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 5,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "translations | stretches",
+          "body": "The variable [embedded value] in the function $f(x) = a b(x - h)$ represents a ________________."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "domain | range",
+          "body": "Determine the domain and range of each function.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "algebraic solution",
+          "body": "Jim states that the equations [embedded object] and [DIAGRAM NEEDED] have the same solution. Is he correct? Justify your reasoning."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "graphical solution",
+          "body": "Solve the equation [embedded math expression] graphically."
+        },
+        {
+          "number": 65,
+          "id": "q-65",
+          "title": "algebraic solution",
+          "body": "For the function, N represents the number, in thousands, of flowers pollinated and t represents the time, in days.\ra) If there are $10 000$ flowers, how long will it take to pollinate all of the flowers?\rb) Sun$-$Eui believes that the second generation of bees can reduce the time to pollinate the flowers by half by changing the function to [DIAGRAM NEEDED]. Is she correct? Justify your reasoning.\rc) Should Sun$-$Eui continue with the project?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 8,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "double-angle identities | general solutions",
+          "body": "What is the general solution, in radians, to the equation [embedded math expression]?"
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "reciprocal identities | quotient identities | Pythagorean identities",
+          "body": "$0 1$ [embedded object] are known as the _______________ identities."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "reciprocal identities | quotient identities | Pythagorean identities",
+          "body": "The $1 0 1$ identities are defined as $0$ $cos 2 + sin^2(x), 1 + tan^2(x), 1 + cot^2(x)$ [DIAGRAM: variables (num, eq$1,$ eq2)]"
+        },
+        {
+          "number": 39,
+          "id": "q-39",
+          "title": "difference identities | sum identities",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 47,
+          "id": "q-47",
+          "title": "exact value",
+          "body": "What is the solution for $cos(x) - 3 = 0$ for [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "Pythagorean identities | equation",
+          "body": "If $x = k$, for what value(s) of k does [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 59,
+          "id": "q-59",
+          "title": "quotient identities | proof",
+          "body": "Prove the identity [embedded math expression]."
+        },
+        {
+          "number": 70,
+          "id": "q-70",
+          "title": "general solutions | quadratic equation",
+          "body": "Solve $sin^2(x) = 0$ over the domain [DIAGRAM NEEDED]."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 6,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 58,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 38,
+          "id": "q-38",
+          "title": "instantaneous rate of change",
+          "body": "Determine the approximate slope of the tangent to the curve $f(x) = 3x + 1 2x + 7$ at [DIAGRAM NEEDED], to one decimal place."
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "body": "Solve each equation by graphing, using technology. Express your answers to two decimal places. a) $3x x - 2 = - 1 x + 3 1 x + 1 x - 5 = - 1 * x^2 (x - 5) 3 = - 2 x - 5 3x - 1 x = x + 5 x - 3$ b) $x - 3.52$ c) $x - 1.19$ d) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "reciprocal of quadratic function | average rate of change",
+          "body": "A photographer uses a light meter to measure the intensity of light from a flash bulb. The intensity, I, in lux, of the flash bulb is a function of the distance, d, in metres, from the light and can be represented by [DIAGRAM NEEDED]. a) Determine the following, to two decimal places: i) the intensity of light $3 m$ from the flash bulb ii) the average rate of change in the intensity of light for the interval [DIAGRAM NEEDED] b) What does the sign of your answer to part a)ii) indicate about the light intensity?"
+        },
+        {
+          "number": 51,
+          "id": "q-51",
+          "title": "reciprocal of quadratic function",
+          "body": "a) Write an equation to represent a rational function with the following conditions: reciprocal of a quadratic function asymptotes with equations $x = - 5 o o x = 4 3 o 9 9 y = 0 o 9 9 y$, $f(x) = - 1 3x 2 + 11x - 20 , f(x) = - k 3x 2 + 11x - 20$, and [DIAGRAM NEEDED] [DIAGRAM NEEDED] whenever [DIAGRAM NEEDED] or [DIAGRAM NEEDED] b) How many such equations are there? Explain your answer."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "slant asymptote | polynomial long division",
+          "body": "a) Use long division to express the function $f(x) = x - 5 + 17 x + 2$ as the sum of a polynomial function and a rational function of the form [DIAGRAM NEEDED], where A is a constant. b) What does your result in part a) allow you to predict about the graph of $y = x - 5$, for large values of x? Why?"
+        },
+        {
+          "number": 62,
+          "id": "q-62",
+          "title": "rational equation",
+          "body": "Solve. a) $2 x + 3 2x x - 2 = 2 - 1 x + 2 2x + 1 x + 2 = x + 3 x + 4$ b) $1 x + 1 x^2 = - 1 x^3 F -$ c) $x = - 6 5 l l x = - 2 6$ d) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 7,
+      "embeddedBodies": 4,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 2,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "bodyIssues": [
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "composite functions",
+          "body": "If $7,$ and $cot,$ then $7 =$ _____________ and [embedded object] $=$ _______________."
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "composite functions | evaluate",
+          "body": "Given the functions $f(x) = x^2 - 7$ and [DIAGRAM NEEDED], what is the value of [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "composite functions",
+          "body": "Given the functions [embedded object] and [DIAGRAM NEEDED], what values of x result in [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 50,
+          "id": "q-50",
+          "title": "composite functions",
+          "body": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine all possible values of x for which [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 53,
+          "id": "q-53",
+          "title": "composite functions | domain | range",
+          "body": "Given that $f ( g ( x ) )$ and [DIAGRAM NEEDED], what are the domain and range of the function $f(g(x))$?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "subtract functions",
+          "body": "The revenue function for a school group selling n bookmarks is given by $R n = 2n$, and the total cost function is given by [DIAGRAM NEEDED]. Determine the number of bookmarks that need to be sold for the school group to break even."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "add functions | subtract functions",
+          "body": "Jenny and Jimmy are a married couple who work at the same store. Jimmy s total weekly salary, in dollars, if he sells x items is given by [embedded object], and Jenny s total weekly salary, in dollars, if she sells x items is given by [DIAGRAM NEEDED].\ra) Assuming that they sell the same number of items in a week, what is the minimum number of items they have to sell so that Jenny s weekly salary is at least $100 more than Jimmy s?\rb) Assuming that they sell the same number of items in a week, what is the minimum number of items they each need to sell to make their combined weekly salary greater than $1000?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 17,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 62,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "bodyIssues": [
+        {
+          "number": 5,
+          "id": "q-5",
+          "title": "combinations",
+          "body": "Solve for the variable: $X + X$ [DIAGRAM: variables (n, r, d)] $=$ [DIAGRAM: variables (n, r, d)]"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "body": "Let s represent the number of sandwich choices, c the number of cheese choices, v the number of vegetable choices, and a the number of sauce choices. Let T represent the total number of choices. [embedded object] There are $3528$ different choices."
+        },
+        {
+          "number": 37,
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "body": "Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number of ways the letters in COMBINATION can be arranged. $P = 11!$ [DIAGRAM NEEDED] There are more arrangements for PERMUTATION, so Sun Eui is correct."
+        },
+        {
+          "number": 39,
+          "id": "q-39",
+          "title": "combinations",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 40,
+          "id": "q-40",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Use the binomial theorem to expand [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 41,
+          "id": "q-41",
+          "title": "combinations",
+          "body": "The total number of possible committees is [DIAGRAM: variables (combinations)].\rThe total number of committees with no men is [DIAGRAM: variables (combinations)]. The total number of committees with no women is [DIAGRAM: variables (combinations)].\rThe total number of committees with at least one man and one woman is $1287 56 1$ or 1230."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand and simplify: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "permutations",
+          "body": "The number of different permutations using all of the $1-$digit numbers of a set is given by [DIAGRAM NEEDED].\ra) What is the smallest number that can be created that meets these conditions? Explain your reasoning.\rb) What is the difference between the largest number and the smallest number? Explain your reasoning."
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "combinations",
+          "body": "The total number of possible tickets for lottery A is [embedded object] or $13 983 816$.\rTherefore, the probability of randomly selecting the winning numbers is [DIAGRAM: variables (combinations)] The total number of possible tickets for lottery B is [DIAGRAM: variables (combinations)] or $85 900 584$.\rTherefore, the probability of randomly selecting the winning numbers is [DIAGRAM: variables (combinations)] Compare the probabilities: [DIAGRAM: variables (combinations)] Bernadette is not correct. The probability of winning lottery A is only $6.14$ times as great."
+        },
+        {
+          "number": 60,
+          "id": "q-60",
+          "title": "factorial | permutations | combinations",
+          "body": "Simplify.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 62,
+          "id": "q-62",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand using the binomial theorem: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Which of the following binomial expansions has the greater coefficient: the $12$th term in the expansion of [embedded object] or the $8$th term in the expansion of [DIAGRAM NEEDED]?"
+        }
+      ]
+    }
+  ]
+}

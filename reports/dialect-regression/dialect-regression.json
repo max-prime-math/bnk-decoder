@@ -1,0 +1,512 @@
+{
+  "generatedAt": "2026-06-16T03:29:22.609Z",
+  "fixtureCount": 9,
+  "passed": 9,
+  "failed": 0,
+  "summaries": [
+    {
+      "dialect": "v06-precalculus-standard",
+      "label": "Pre-Calculus 11 baseline",
+      "path": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 542356,
+        "dialect": {
+          "version": "v06",
+          "family": "Pre-Calculus 11",
+          "profile": "v06-precalculus-standard",
+          "notes": [
+            "Baseline pre-calculus dialect used for regression control."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 73,
+        "diagnostics": 13,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 69,
+          "suspect": 4,
+          "garbage": 0,
+          "averageScore": 96
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-precalculus-standard",
+      "label": "Pre-Calculus 12 baseline",
+      "path": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 817961,
+        "dialect": {
+          "version": "v06",
+          "family": "Pre-Calculus 12",
+          "profile": "v06-precalculus-standard",
+          "notes": [
+            "Baseline pre-calculus dialect used for regression control."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 67,
+        "diagnostics": 7,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 67,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 100
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-precalculus-mickelson",
+      "label": "Pre-Calculus 11 Mickelson stress",
+      "path": "ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.6 Reciprocal Functions.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 521545,
+        "dialect": {
+          "version": "v06",
+          "family": "Pre-Calculus 11 (Mickelson)",
+          "profile": "v06-precalculus-mickelson",
+          "notes": [
+            "Narrative-heavy, structure-rich pre-calculus dialect."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 311,
+        "diagnostics": 307,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 9,
+          "suspect": 294,
+          "garbage": 8,
+          "averageScore": 56
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-precalculus-mickelson",
+      "label": "Pre-Calculus 12 Mickelson representative",
+      "path": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.1 Functions and Relations.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 9976,
+        "dialect": {
+          "version": "v06",
+          "family": "Pre-Calculus 12 (Mickelson)",
+          "profile": "v06-precalculus-mickelson",
+          "notes": [
+            "Narrative-heavy, structure-rich pre-calculus dialect."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 1,
+        "diagnostics": 4,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 1,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 100
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-mathworks",
+      "label": "MathWorks 11 representative",
+      "path": "ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 157144,
+        "dialect": {
+          "version": "v06",
+          "family": "MathWorks 11",
+          "profile": "v06-mathworks",
+          "notes": [
+            "Broader applied-math prompt style; likely more embedded content and varied layouts."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 23,
+        "diagnostics": 4,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 23,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 100
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-foundations",
+      "label": "Foundations of Math 10 representative",
+      "path": "ignore/ExamView/Banks/Foundations of Math 10/Chapter 01/MMS10_1.1.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 102455,
+        "dialect": {
+          "version": "v06",
+          "family": "Foundations of Math 10",
+          "profile": "v06-foundations",
+          "notes": [
+            "Large applied/foundations banks; likely heavier on template text and nontrivial assets."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 25,
+        "diagnostics": 5,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 25,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 98
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-math-makes-sense",
+      "label": "Math Makes Sense 9 representative",
+      "path": "ignore/ExamView/Banks/Math Makes Sense 9/Unit 01/MMS9_1.1.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 116604,
+        "dialect": {
+          "version": "v06",
+          "family": "Math Makes Sense 9",
+          "profile": "v06-math-makes-sense",
+          "notes": [
+            "School-style unit banks; often language-dense and template-driven."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 23,
+        "diagnostics": 4,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 23,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 100
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v06-math-apprenticeship",
+      "label": "Math Apprenticeship 10 representative",
+      "path": "ignore/ExamView/Banks/Math Apprenticeship 10/Chapter 01 AW10.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 06.00",
+        "inflatedByteLength": 558306,
+        "dialect": {
+          "version": "v06",
+          "family": "Math Apprenticeship 10",
+          "profile": "v06-math-apprenticeship",
+          "notes": [
+            "Very large banks with heavy applied wording; good stress test for preservation and performance."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 200,
+        "diagnostics": 4,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 200,
+          "suspect": 0,
+          "garbage": 0,
+          "averageScore": 100
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "dialect": "v05-calculus",
+      "label": "Calculus v05 representative",
+      "path": "ignore/ExamView/Banks/Calculus/GQ-Calculus.bnk",
+      "source": {
+        "detectedFormat": "examview-container",
+        "version": "W 05.00",
+        "inflatedByteLength": 0,
+        "dialect": {
+          "version": "v05",
+          "family": "Calculus",
+          "profile": "v05-calculus",
+          "notes": [
+            "Known single-file v05 outlier; defer until a dedicated v05 parser exists."
+          ]
+        }
+      },
+      "stats": {
+        "questions": 687,
+        "diagnostics": 20,
+        "unsupportedFragments": 0,
+        "quality": {
+          "clean": 670,
+          "suspect": 17,
+          "garbage": 0,
+          "averageScore": 88
+        }
+      },
+      "checks": [
+        {
+          "name": "inflated",
+          "pass": true,
+          "expected": false,
+          "actual": false
+        },
+        {
+          "name": "minQuestions",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "maxGarbage",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        },
+        {
+          "name": "minAverageScore",
+          "pass": true,
+          "expected": true,
+          "actual": true
+        }
+      ],
+      "pass": true
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+<FSCScannerConfig version='1'>
+<LexmarkPageCountFix scanner='Lexmark X215 USB'/>
+<LexmarkPageCountFix scanner='Lexmark X215 Parallel'/>
+<LexmarkPageCountFix scanner='Xerox WorkCentre PE16'/>
+<LexmarkPageCountFix scanner='Xerox WorkCentre PE16 USB'/>
+</FSCScannerConfig>

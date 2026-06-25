@@ -1,0 +1,1020 @@
+       Chapter 10: Function Operations
+
+
+       MULTIPLE CHOICE
+
+          1. Given the functions f (x )  x 2  3 and g (x )  9  x , determine the equation for the combined
+             function y  f (x )  g (x ) .
+              A. y  x 2  27x  12                            C. y  x 2  27x  6
+              B.   y  x2  x  6                              D. y  x 2  x  12
+
+              ANS: D               DIF: Easy          OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | subtract functions
+
+          2. Given the functions f (x )  x 2  8 and g (x )  2  x 2 , determine the equation for the combined
+             function y  f (x )  g (x ) .
+              A. 6  2x 2                                     C. 16  x 4
+              B. 10                                           D. 4  x
+              ANS: B              DIF: Easy           OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: subtract functions | add functions
+
+          3. Given the functions f (x )  x 3  81x and g (x )  x  9, determine the simplified equation for the
+                                      f (x )
+             combined function y            .
+                                      g (x )
+                                                                        x
+             A. x (x  9) , x  9                              C.          , x  9, 9
+                                                                      x 9
+                                                                        x
+             B. x (x  9) , x  9                              D.          , x  9
+                                                                      x 9
+              ANS: B             DIF: Easy             OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions
+
+          4. Given the functions f (x )  x 2  8 and g (x )  5  x , determine an equation for the combined function
+             h (x )  f(g (x )).
+              A. y  x 2  10x  17                            C. y  x 2  3
+              B.   y  x 2  13                               D. y  x 2  10x  3
+
+              ANS: A               DIF: Easy          OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | subtract functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  1
+              For the following question(s), assume that x is in radians, if applicable.
+
+          5. Given the functions f (x )  x 8 and g (x )  8 x , the graph of the combined function h (x )  f(g (x ))
+             most likely resembles
+             A.                                                  C.
+
+
+
+
+              B.                                                D.
+
+
+
+
+              ANS: C            DIF: Average                OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                      KEY: inverse function | composite functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 2
+          6. Given the functions f (x )  cosx and g (x )  x , a graph of the combined function h (x )  f (x )  g (x )
+             most likely resembles
+             A.                                                  C.
+
+
+
+
+              B.                                                 D.
+
+
+
+
+              ANS: D               DIF: Difficult         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | graph | subtract functions
+
+          7. Given the functions f (x )  9x and g (x )  9sinx , what is the range of the composite function
+             h (x )  f (x )g (x ) ?
+             A. {y| 9  y  9, y  R}                         C. {y| y  R}
+             B. cannot be determined                           D. {y| y  9, y  R}
+
+              ANS: C             DIF: Easy             OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: multiply functions | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    3
+          8. Shown is the graph of h (x )  f(g(x)), where f (x )  sinx and g (x ) is a function of the form
+             g (x )  a(x  b) .
+
+
+
+
+              What equation represents g (x ) ?
+                         1
+              A. g (x )  (x  9)                                C. g (x )  2(x  9)
+                         2
+                                                                               1
+              B. g (x )  2(x  9)                               D. g (x )      (x  9)
+                                                                               2
+              ANS: A            DIF: Difficult                OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                        KEY: composite functions | transformations | graph
+
+          9. Given the functions f (x )  sinx and g (x )      2  x , what is the value of g(f()) ?
+              A.                                                C.      2
+              B.     3                                           D. 1
+              ANS: C            DIF: Average                  OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                        KEY: composite functions | evaluate
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           4
+         10. Given the functions f (x )  0.6x and g (x )  cosx , the graph of the combined function h (x )  f (x )g (x )
+             most likely resembles
+             A.                                                C.
+
+
+
+
+              B.                                                 D.
+
+
+
+
+              ANS: B             DIF: Difficult        OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: multiply functions | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                      5
+                                                                                                                  f (x )
+         11. Given the functions f (x )  x 2  4 and g (x )  x  4, a graph of the combined function h (x ) 
+                                                                                                                  g (x )
+              most likely resembles
+              A.                                                C.
+
+
+
+
+              B.                                                D.
+
+
+
+
+              ANS: C             DIF: Average          OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   6
+         12. An equation for the graph shown is most likely
+
+
+
+
+              A. 4x  cosx                                    C. 4x  sinx
+              B. 4x cosx                                      D. 4sinx
+              ANS: A            DIF: Average         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                   KEY: add functions | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                            7
+         13. An equation for the graph shown is most likely
+
+
+
+
+                              cosx                                 sinx
+              A.   f (x )                                    C.
+                               x                                   cosx
+                                                                              sinx
+              B. 2sinx                                        D.   f (x ) 
+                                                                               x
+              ANS: D             DIF: Difficult        OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions | graph
+
+         14. Given the functions f (x )   x  2 and g (x )  x 2  2x  7, what is the domain of the combined
+             function k (x )  f (x )  g (x ) ?
+             A. cannot be determined                          C. {x | x  2, x  R}
+             B. {x | x  7, x  R}                            D. {x | x  9, x  R}
+
+              ANS: C            DIF: Easy            OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                   KEY: subtract functions | domain
+
+         15. Given the functions f (x )  8x and g (x )  log(7  x) , determine the domain of the combined function
+             h (x )  f (x )g (x ) .
+             A. {x | x  7, x  R}                             C. {x | x  7, x  R}
+             B. cannot be determined                            D. {x| x  R}
+
+              ANS: C             DIF: Average          OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: multiply functions | domain
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               8
+         16. Given the functions f (x )  7cos x and g (x )  x 2  3x  54, determine the domain of the combined
+                               f (x )
+             function h (x )          .
+                               g (x )
+                                                
+                                     3
+             A.  x | x  , x         , x  R             C. {x | x  1, x  54, x  R}
+                          2          2             
+             B. {x | x  9, x  6, x  R}                      D. {x | x  9, x  6, x  R}
+
+              ANS: D             DIF: Average          OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions | domain
+
+         17. Given the functions f (x )  5x and g (x )  4sinx , what is the domain of the composite function
+             h (x )  f(g (x ))?
+                                                                             
+             A. {x |  4  x  4, x  R}                       C.  x| x  R 
+                                                                               
+             B. {x | x  5, x  R}                             D. cannot be determined
+
+              ANS: C            DIF: Easy                  OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                     KEY: composite functions | domain
+
+         18. Given the functions f (x )  7sinx and g (x )  7, determine the range of the combined function
+             k (x )  f (x )  g (x ) .
+             A. {y| y  7, y  R}                             C. {y| 14  y  0, y  R}
+             B. {y| y  R}                                     D. {y| 7  y  7, y  R}
+
+              ANS: C            DIF: Easy            OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                   KEY: add functions | range
+
+                                                                1
+         19. Given the functions f (x )  x  3 and g (x )        , what is the simplified form of (f  g)(x)?
+                                                               x3
+                              8                                                  3x  8
+              A. (f  g)(x)      ,x  0                         C. (f  g)(x)          ,x 3
+                               x                                                   x3
+                              3x  8                                              1
+              B. (f  g)(x)         , x  3                    D. (f  g)(x)  , x  0
+                              x3                                                 x
+              ANS: C            DIF: Average               OBJ: Section 10.2 NAT: RF1
+              TOP: Composite Functions                     KEY: composite functions | notation
+
+         20. If f (x )  7 x  5 and g (x )     x  9, what are the restrictions on the domain for the combined
+                              f (x )
+             function h(x)          ?
+                             g (x )
+             A. x  0                                            C. x  81
+             B. x  0, x  81                                    D. x  3
+              ANS: A              DIF: Easy               OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions
+              KEY: divide functions | domain | restrictions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            9
+                                                                                                              f (x )
+         21. If f (x )  3 x  1 and g (x )        x  5, what is the simplified combined function h(x)           ?
+                                                                                                              g (x )
+                            3x  14 x  5                                       3x  14 x  5
+              A. h(x)                     ,x 0                    C. h(x)                    , x  0, x  25
+                                 x  25                                               x  25
+                            3x  14 x  5                                       3x  14 x  5
+              B. h(x)                     ,x 0                    D. h(x)                    , x  0, x  25
+                                 x  25                                               x  25
+              ANS: D             DIF: Easy             OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions | domain
+
+         22. Given f (x )  9x 2  7x and g (x )  2  x , determine 5g (x )  f (x ) .
+              A. 45x 2  36x  2                                    C. 45x 2  6x  5
+              B. 9x 2  6x  2                                      D. 9x 2  12x  10
+              ANS: D            DIF: Average         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                   KEY: add functions
+
+         23. Given the function f (x )  x 2  5, determine the value of f(f(1)) .
+             A. –8                                              C. 11
+             B. 16                                              D. –4
+              ANS: C            DIF: Average                    OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                          KEY: composite functions | evaluate
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 10
+                                                            1
+         24. Given the functions f (x )    x and g (x )   (x  5) , which of the following is most likely the
+                                                            3
+              graph of y  f(g(x)) ?
+              A.                                              C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: D            DIF: Average               OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                     KEY: composite functions | transformations | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           11
+         25. Given the functions f (x )  logx and g (x )  x  4, which of the following is most likely the graph of
+             h (x )  f(g(x))?
+             A.                                                 C.
+
+
+
+
+              B.                                               D.
+
+
+
+
+              ANS: C            DIF: Average               OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                     KEY: composite functions | transformations | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                12
+       MATCHING
+
+              Use the following information to answer the matching questions:
+                                2
+              f (x )  (2x  2)
+              g (x )  2x 2  8x  6
+
+              Match each function with its corresponding graph.
+              A.                                            D.
+
+
+
+
+              B.                                            E.
+
+
+
+
+              C.                                            F.
+
+
+
+
+          1. h (x )  f (x )  g (x )
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                        13
+          2. h (x )  f (x )  g (x )
+          3. h (x )  f (x )g (x )
+                       f (x )
+          4. h (x ) 
+                      g (x )
+          5. h (x )  f(g(x))
+          6. h (x )  g(f(x))
+
+          1. ANS: A             DIF: Average          OBJ: Section 10.1 NAT: RF1
+             TOP: Sums and Differences of Functions                      KEY: add functions | graph
+          2. ANS: E             DIF: Average          OBJ: Section 10.1 NAT: RF1
+             TOP: Sums and Differences of Functions                      KEY: subtract functions | graph
+          3. ANS: B             DIF: Average          OBJ: Section 10.2 NAT: RF1
+             TOP: Products and Quotients of Functions                    KEY: multiply functions | graph
+          4. ANS: C             DIF: Average          OBJ: Section 10.2 NAT: RF1
+             TOP: Products and Quotients of Functions                    KEY: divide functions | graph
+          5. ANS: D             DIF: Average          OBJ: Section 10.3 NAT: RF1
+             TOP: Composite Functions                 KEY: composite functions | graph
+          6. ANS: F             DIF: Average          OBJ: Section 10.3 NAT: RF1
+             TOP: Composite Functions                 KEY: composite functions | graph
+
+
+       COMPLETION
+
+          1. If f (x ) is a quadratic function with positive coefficients and g (x ) is a linear function with positive
+             coefficients, then f (x )  g (x ) is a _______________ function.
+
+              ANS: quadratic
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                                 KEY: add functions
+
+          2. If f (x ) is a linear function and g (x ) is a linear function, then f (x )g (x ) is a _______________
+             function.
+
+              ANS: quadratic
+
+              DIF: Average       OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                               KEY: multiply functions
+
+          3. If f (x )  x  4 and g (x )  x 2  3, then the domain of the function h (x )  f(g(x)) is
+             _______________.
+
+              ANS: {x | x             7 or x    7 , x  R}
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions | domain
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  14
+          4. If f (x )  x  8 and g (x )  x 2  4, then the domain of the function h (x )  g(f(x)) is
+             _______________ .
+
+              ANS: {x| x  8, x  R}
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                         TOP: Composite Functions
+              KEY: composite functions | domain
+
+          5. If h (x )  f(g(x)), and h (x )  7cot 2 x, then f (x ) = _____________ and g (x ) = _______________.
+
+              ANS:
+              Answers may vary. Sample answer:
+               7
+                 ; tanx
+              x2
+
+              DIF: Difficult     OBJ: Section 10.3 NAT: RF1                         TOP: Composite Functions
+              KEY: composite functions
+
+
+       SHORT ANSWER
+
+          1. Given the functions f (x )  x  1 and g (x )  x 2  3x  1, determine a simplified equation for
+             h (x )  f (x )  g (x ) .
+
+              ANS:
+              h (x )  f (x )  g (x )
+                     x  1  x 2  3x  1
+                     x 2  4x  2
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                                KEY: add functions
+
+          2. Given the functions f (x )  x 2  3 and g (x )  x 3  x , determine a simplified equation for
+             h (x )  f (x )  g (x ) .
+
+              ANS:
+              h (x )  f (x )  g (x )
+                     x 2  3  (x 3  x)
+                     x 3  x 2  x  3
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                                KEY: subtract functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             15
+          3. Given the functions f (x )  x 2  7 and g (x )  2  x 3 , determine a simplified equation for
+             h (x )  f (x )g (x ) .
+
+              ANS:
+              h (x )  f (x )g (x )
+                     (x 2  7)(2  x 3 )
+                     x 5  7x 3  2x 2  14
+
+              DIF: Average       OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                              KEY: multiply functions
+
+          4. Given the functions f (x )  x 2  4 and g (x )  x 2  3x  2, determine a simplified equation for
+                      f (x )
+             h (x )         .
+                      g (x )
+
+              ANS:
+                         f (x )
+              h (x ) 
+                         g (x )
+
+                            x2  4
+                    
+                         x 2  3x  2
+                         (x  2) (x  2)
+                    
+                         (x  2) (x  1)
+                         (x  2)
+                                , x  2, x  1
+                         (x  1)
+
+              DIF: Average       OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                              KEY: divide functions | restrictions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   16
+              For the following question(s), assume that x is in radians, if applicable.
+
+          5. a) Graph the functions f (x )  sin(x) and g (x )  log(x) on the grid.
+             b) Graph the function h (x )  f (x )  g (x ) on the same grid.
+
+
+
+
+              ANS:
+
+
+
+
+              DIF:   Difficult       OBJ: Section 10.1 NAT: RF1
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                   17
+              TOP: Sums and Differences of Functions                               KEY: add functions | graph
+
+                                                                       sinx
+          6. Determine the domain and range of the function y              .
+                                                                     x x6
+                                                                      2
+
+
+
+              ANS:
+              Domain: {x| x  2, x  3, x  R}
+              Range: {y | y  R}
+
+              DIF: Average       OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                             KEY: divide functions | domain
+
+          7. Given the functions f (x )  cos x and g (x )  2x  5, determine the value of g(f()) .
+
+              ANS:
+              g(f(x))  g(cos x)
+                       2cos x  5
+                            cos 
+              g(f())  2             5
+                       21  5
+                          1
+                           5
+                          2
+                          11
+                            or 5.5
+                          2
+
+              DIF: Difficult     OBJ: Section 10.3 NAT: RF1                        TOP: Composite Functions
+              KEY: composite functions | evaluate
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            18
+                                                                        2           
+                                                                          x  1 
+                                                                                     
+          8. a) Graph the functions f (x )  sin(x ) and g x   2         .
+             b) Use the graphs to graph the function h (x )  f (x )g (x ) .
+
+
+
+
+              ANS:
+
+
+
+
+              f(x) is in blue, g(x) is in red, and h(x) is in black.
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                    19
+              DIF: Difficult     OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                                KEY: multiply functions | graph
+
+                                                                                                0.9x
+          9. Determine the equation(s) of the vertical asymptote(s) of the function y                  .
+                                                                                               2x 2  3
+
+              ANS:
+              2x 2  3  0
+                  2x 2  3
+                          3
+                   x2 
+                          2
+                              3
+                    x
+                              2
+
+                               6
+                    x
+                              2
+
+              DIF: Difficult +    OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions
+              KEY: divide functions | vertical asymptotes
+
+         10. Given the functions f (x )  x 2  7 and g (x )  2  x 3 , what is the value of f(g(2)) ?
+
+              ANS:
+                              3
+              g (2)  2  (2)
+                     6
+                              2
+              f (6)  (6)  7
+                     29
+              f(g(2))  29
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                           TOP: Composite Functions
+              KEY: composite functions | evaluate
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                20
+       PROBLEM
+
+          1. Given the functions f (x )  x 2  3x  2 and g (x )  x  1, determine a simplified equation for
+             k (x )  f(g(x)) .
+
+              ANS:
+                              2
+              k (x )  (x  1)  3(x  1)  2
+                     x 2  2x  1  3x  3  2
+                     x 2  5x  6
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions | evaluate
+
+                                              1
+          2. Given the functions f (x )           and g (x )  sinx , determine the equation for h (x )  f(g(x)).
+                                            1  x2
+
+              ANS:
+                             1
+              h (x ) 
+                         1  sin2 x
+                           1
+                    
+                         cos 2 x
+                     sec 2 x
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions
+
+          3. Given the functions f (x )  x  2 and g (x )  x 2 , what values of x result in f(g(x))  g(f(x)) ?
+
+              ANS:
+              f(g(x))  g(f(x))
+                f(x 2 )  g (x  2)
+                                      2
+               x 2  2  (x  2)
+               x 2  2  x 2  4x  4
+                   2  4x
+                             1
+                     x
+                             2
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              21
+          4. Given the functions f (x )                x and g (x )  x  1, determine all possible values of x for which
+             f(g(x))  g(f(x)) .
+
+              ANS:
+                 f(g(x))  g(f(x))
+                                             
+                    f x  1  g      x 
+                                             
+                       x1             x 1
+                          2                    2
+                  x  1         x  1
+                                             
+                       x 1  x 2 x 1
+                            02 x
+                            x0
+
+              DIF: Difficult     OBJ: Section 10.3 NAT: RF1                                  TOP: Composite Functions
+              KEY: composite functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     22
+                                                                                                              f (x )
+          5. Given the functions f (x )  x 2  3x  10 and g (x )  x 2  5x , graph the function h (x )           . Label all
+                                                                                                              g (x )
+              intercepts and identify any asymptotes and/or points of discontinuity.
+
+
+
+
+              ANS:
+
+
+
+
+              DIF:   Difficult       OBJ: Section 10.2 NAT: RF1
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                           23
+              TOP: Products and Quotients of Functions
+              KEY: divide functions | vertical asymptotes | hole
+
+          6. What are the domain and range of the function y  2sin x , where x is in radians?
+
+              ANS:
+              Domain: {x| x  R}
+                                           
+                            1
+              Range:  y |  y  2, y  R 
+                          2                   
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                         TOP: Composite Functions
+              KEY: composite functions | domain | range
+
+          7. Given that f (x )       x and g (x )  x 2  10x  24, what are the domain and range of the function
+             f(g(x))?
+
+              ANS:
+              Domain: {x| x  6, x  4, x  R}
+              Range: {y| y  0, y  R}
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                         TOP: Composite Functions
+              KEY: composite functions | domain | range
+
+                                                                                                  1
+          8. Determine the equation for the composite function y  f(f(x)) given that f (x )       .
+                                                                                                  x
+
+              ANS:
+              y  f(f(x))
+                        1 
+                 f  
+                        x 
+                     1
+                
+                     1
+                     x
+                 x, x  0
+
+              DIF: Easy          OBJ: Section 10.3 NAT: RF1                         TOP: Composite Functions
+              KEY: composite functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             24
+          9. The revenue function for a school group selling n bookmarks is given by R(n)  2n , and the total cost
+             function is given by C (n)  144  0.80n. Determine the number of bookmarks that need to be sold for
+             the school group to break even.
+
+              ANS:
+              The profit function is given by P(n)  R(n)  C (n) .
+              P(n)  2n  (144  0.80n)
+                     1.2n  144
+              To break even, P(n)  0.
+              1.2n  144  0
+                    1.2n  144
+                     n  120
+              The number of bookmarks that need to be sold to break even is 120.
+
+              DIF: Average      OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                           KEY: subtract functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              25
+         10. Given the functions f (x )  x 2 and g (x )  3, sketch the graph of the combined function
+             y  f (x )  g (x ) .
+
+
+
+
+              ANS:
+
+
+
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  26
+              KEY: combined function | difference | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.    27
+         11. Given the graphs of the functions f (x )  2x and g (x )  x  1, sketch the graph of the combined
+             function y  f(g(x)) .
+
+
+
+
+              ANS:
+
+
+
+
+              DIF:   Average        OBJ: Section 10.3 NAT: RF1                   TOP: Composite Functions
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          28
+              KEY: composite functions | graph | transformations
+
+         12. The revenue function for a company selling n key chains is given by R(n)  2n , and the total cost
+             function is given by C (n)  100  0.80n. Determine the simplified equation for P(n) , the profit
+             function for the company.
+
+              ANS:
+              P(n)  R(n)  C (n)
+                    2n  (100  0.80n)
+                    1.2n  100
+
+              DIF: Easy            OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: profit function | subtract functions
+
+         13. Use the graph of the combined function f (x )    x  sinx to solve the inequality sinx    x.
+
+
+
+
+              ANS:
+              The given inequality is never satisfied.
+              There is no solution.
+
+              DIF: Difficult +  OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: combined function | inequality | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          29
+         14. Use the graph of the combined function f (x )  2x  x 2 to determine an approximate solution to the
+              inequality 2x  x 2 .
+
+
+
+
+              ANS:
+              From the graph, the x-values that result in the combined function having a value greater than zero
+              (positive), which is equivalent to 2x  x 2 , are 0.8  x  2 or x  4.
+
+              DIF: Difficult +  OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: combined function | inequality | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            30
+         15. Jenny and Jimmy are a married couple who work at the same store. Jimmy’s total weekly salary, in
+             dollars, if he sells x items is given by S (x )  10.0  5x, and Jenny’s total weekly salary, in dollars, if
+             she sells x items is given by S (x )  8.0  6x.
+             a) Assuming that they sell the same number of items in a week, what is the minimum number of items
+             they have to sell so that Jenny’s weekly salary is at least $100 more than Jimmy’s?
+             b) Assuming that they sell the same number of items in a week, what is the minimum number of items
+             they each need to sell to make their combined weekly salary greater than $1000?
+
+              ANS:
+              a) D (x )  (8.0  6x)  (10.0  5x)
+                        2.0  x
+              This difference must be at least 100.
+              2  x  100
+                  x  102
+              The minimum number sold is 102 items.
+              b) T(x )  (8.0  6x)  (10.0  5x)
+                       18.0  11x
+              This total must be at least 1000.
+              18  11x  1000
+                   11x  982
+                    x  89.272
+              The minimum number sold is 90 items.
+
+              DIF: Difficult       OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | subtract functions
+
+         16. The revenue function for a company selling n coffee mugs can be modelled by the function
+             R(n)  10n , and the total cost function can be modelled by the function C (n)  360  6n.
+             a) Determine a simplified equation for P(n) , the profit function for the company.
+             b) How many coffee mugs must be sold to make a profit of $1000?
+
+              ANS:
+              a) P(n)  R(n)  C (n)
+                        10n  (360  6n)
+                       4n  360
+              b) P(n)  4n  360
+                 1000  4n  360
+                 1360  4n
+                   n  340
+              340 mugs must be sold to make a profit of $1000.
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                               KEY: subtract functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    31
+         17. The heights, h, of two balls, in metres, for a horizontal distance of x metres are shown in the graph.
+
+
+
+
+              What was the difference in height of the two balls when the horizontal distance was 0 m?
+
+              ANS:
+              The difference in the y-intercepts is 18  12 = 6.
+              One ball was 6 m above the other.
+
+              DIF: Easy         OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                             KEY: subtract functions | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              32
+         18. The dimensions of a window are shown.
+
+
+
+
+              a) What function in simplest form represents the area of the entire window?
+              b) If the width, x, of the window is 1.2 m, what is the total area of the window, to the nearest tenth of
+              a square metre?
+
+              ANS:
+              a) Area of rectangle = 2x 2
+                                          x  2
+                                      
+                                          2
+              Area of semi-circle 
+                                            2
+                                          x 2
+                                      
+                                           8
+                                     x 2
+              Total area  2x 2 
+                                      8
+                               16x 2  x 2
+                           
+                                     8
+                          x 2 (16  )
+                           
+                                8
+                        x (16  )
+                         2
+              b) Area 
+                              8
+                          1.22 (16  )
+                        
+                                8
+                       3.4
+              The area of the window is approximately 3.4 m2.
+
+              DIF: Average      OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions                               KEY: add functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  33
+         19. A vehicle depreciates 20% in value in the first year and 10% in each year after the first.
+             a) Write a function, v 1 (c) , to describe the value of the vehicle after 1 year in terms of the original
+             cost, c.
+             b) Write a function, v n (c) , to describe the value after n years in terms of the original cost, c.
+             c) If the original value of the vehicle is $45 000, what is its value after 5 years?
+
+              ANS:
+              a) v 1 (c)  0.8c
+                                            n
+              b) v n (c)  (0.8c) (0.9) , n = number of years after the first year
+                                                 4
+              c) v n (c)  (0.8(45 000)) (0.9)
+                                            4
+                          36 000(0.9)
+                        23 619.6
+              After 5 years the vehicle will have a value of $23 619.60.
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions | depreciation
+
+         20. a) Write a function to represent the area of a circle in terms of the radius.
+             b) Write a function to represent the radius of a circle in terms of the circumference.
+             c) What is the function that represents the area of a circle in terms of the circumference?
+
+              ANS:
+              a) A(r)  r 2
+                         C
+              b) r (C) 
+                         2
+                                 C  2
+              c) A(r(C))    
+                                  2 
+                               C 2
+                           
+                               4 2
+                               C2
+                           
+                               4
+
+              DIF: Average       OBJ: Section 10.3 NAT: RF1                          TOP: Composite Functions
+              KEY: composite functions | area of circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 34
+

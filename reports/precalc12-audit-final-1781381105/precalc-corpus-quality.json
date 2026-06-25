@@ -1,0 +1,168 @@
+{
+  "generatedAt": "2026-06-13T20:05:22.971Z",
+  "inputRoot": "ignore/ExamView/Banks/Pre-Calculus 12",
+  "fileCount": 11,
+  "questionCount": 736,
+  "quality": {
+    "clean": 736,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 98
+  },
+  "files": [
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk",
+      "questions": 71,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 02.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 03.bnk",
+      "questions": 64,
+      "assets": 3,
+      "diagnostics": 8,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 04.bnk",
+      "questions": 67,
+      "assets": 15,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 05.bnk",
+      "questions": 69,
+      "assets": 1,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 06.bnk",
+      "questions": 70,
+      "assets": 1,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 99
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 07.bnk",
+      "questions": 68,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 08.bnk",
+      "questions": 66,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 09.bnk",
+      "questions": 65,
+      "assets": 0,
+      "diagnostics": 4,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 98
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 10.bnk",
+      "questions": 66,
+      "assets": 1,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 11.bnk",
+      "questions": 65,
+      "assets": 3,
+      "diagnostics": 5,
+      "unsupportedFragments": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 97
+      },
+      "topIssues": []
+    }
+  ]
+}

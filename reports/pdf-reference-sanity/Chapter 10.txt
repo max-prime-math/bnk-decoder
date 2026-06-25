@@ -1,0 +1,70 @@
+       Chapter 10: Function Operations
+
+
+       MULTIPLE CHOICE
+
+          1. Given the functions f (x )  x 2  3 and g (x )  9  x , determine the equation for the combined
+             function y  f (x )  g (x ) .
+              A. y  x 2  27x  12                            C. y  x 2  27x  6
+              B.   y  x2  x  6                              D. y  x 2  x  12
+
+              ANS: D               DIF: Easy          OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | subtract functions
+
+          2. Given the functions f (x )  x 2  8 and g (x )  2  x 2 , determine the equation for the combined
+             function y  f (x )  g (x ) .
+              A. 6  2x 2                                     C. 16  x 4
+              B. 10                                           D. 4  x
+              ANS: B              DIF: Easy           OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: subtract functions | add functions
+
+          3. Given the functions f (x )  x 3  81x and g (x )  x  9, determine the simplified equation for the
+                                      f (x )
+             combined function y            .
+                                      g (x )
+                                                                        x
+             A. x (x  9) , x  9                              C.          , x  9, 9
+                                                                      x 9
+                                                                        x
+             B. x (x  9) , x  9                              D.          , x  9
+                                                                      x 9
+              ANS: B             DIF: Easy             OBJ: Section 10.2 NAT: RF1
+              TOP: Products and Quotients of Functions                   KEY: divide functions
+
+          4. Given the functions f (x )  x 2  8 and g (x )  5  x , determine an equation for the combined function
+             h (x )  f(g (x )).
+              A. y  x 2  10x  17                            C. y  x 2  3
+              B.   y  x 2  13                               D. y  x 2  10x  3
+
+              ANS: A               DIF: Easy          OBJ: Section 10.1 NAT: RF1
+              TOP: Sums and Differences of Functions
+              KEY: add functions | subtract functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  1
+              For the following question(s), assume that x is in radians, if applicable.
+
+          5. Given the functions f (x )  x 8 and g (x )  8 x , the graph of the combined function h (x )  f(g (x ))
+             most likely resembles
+             A.                                                  C.
+
+
+
+
+              B.                                                D.
+
+
+
+
+              ANS: C            DIF: Average                OBJ: Section 10.3 NAT: RF1
+              TOP: Composite Functions                      KEY: inverse function | composite functions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 2
+

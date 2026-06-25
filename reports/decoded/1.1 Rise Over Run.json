@@ -1,0 +1,1692 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk",
+    "byteLength": 14010,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 13994,
+    "inflatedByteLength": 157144
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which of the following would not be a correct description of slope? a. [embedded object] b. The height that a line rises. c. How gently or steeply something is slanted. d. The change in vertical distance compared to the change in horizontal distance."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "Which of the following would not be a correct description of slope? a. [inline object not decoded yet] b. The height that a line rises. c. How gently or steeply something is slanted.",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 8c 09 00 00 01 00 00 00 f0 00 00 00 04 00 00 00 03 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 69 00 6e 00 67 00 20 00 77 00 6f 00 75 00 6c 00 64 00 20 00 6e 00 6f 00 74 00 20 00 62 00 65 00 20 00 61 00 20 00 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 20 00 64 00 65 00 73 00 63 00 72 00 69 00 70 00 74 00 69 00 6f 00 6e 00 20 00 6f 00 66 00 20 00 73 00 6c 00 6f 00 70 00 65 00 3f 00 0d 00 10 00 61 00 2e 00 11 00 0f 00 11 00 11 00 62 00 2e 00 11 00 54 00 68 00 65 00 20 00 68 00 65 00 69 00 67 00 68 00 74 00 20 00 74 00 68 00 61 00 74 00 20 00 61 00 20 00 6c 00 69 00 6e 00 65 00 20 00 72 00 69 00 73 00 65 00 73 00 2e 00 11 00 11 00 63 00 2e 00 11 00 48 00 6f 00 77 00 20 00 67 00 65 00 6e 00 74 00 6c 00 79 00 20 00 6f 00 72 00 20 00 73 00 74 00 65 00 65 00 70 00 6c 00 79 00 20 00 73 00 6f 00 6d 00 65 00 74 00 68 00 69 00 6e 00 67 00 20 00 69 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nL\nscramble\ntrue\n1\nWhich of the following would not be a correct description of slope?\na.\n[[slot]]\nb.\nThe height that a line rises.\nc.\nHow gently or steeply something is slanted.\nd.\nThe change in vertical distance compared to the change in horizontal distance.\np\nTimes New Roman\nD\nE\n#\n-\nH\nZ\nJ\n$\nK"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A wheelchair ramp rises 5 feet over a distance of 15 feet. What is the slope of this ramp? a. 2/5 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "$2/5$"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "3"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "$1/3$"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "$4/3$"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 7770,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(2,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "run",
+          "rule": "range(12,18)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "correct",
+          "rule": "fracs(rise,run)",
+          "sampleValue": "1/3"
+        },
+        {
+          "name": "err1",
+          "rule": "fracs(run,rise)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "err2",
+          "rule": "fracs(rise+run,run)",
+          "sampleValue": "4/3"
+        },
+        {
+          "name": "err3",
+          "rule": "fracs(rise+1,run)",
+          "sampleValue": "2/5"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 7770,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 6e 02 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 35 00 29 00 00 00 35 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2e 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 31 00 38 00 29 00 00 00 31 00 35 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 07 00 00 00 0f 00 00 00 05 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 66 00 72 00 61 00 63 00 73 00 28 00 72 00 69 00 73 00 65 00 2c 00 72 00 75 00 6e 00 29 00 00 00 01 00 81 f0 31 00 2f 00 33 00 00 00 04 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 65 00 72 00 72 00 31 00 00 00 66 00 72 00 61 00 63 00 73 00 28 00 72 00 75 00 6e 00 2c 00 72 00 69 00 73 00 65 00 29 00 00 00 01 00 81 f0 33 00 00 00 04 00 00 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nrise\nrange(2,5)\n5\nrun\nrange(12,18)\n15\nscramble\ntrue\n1\n[[slot]]\ncorrect\nfracs(rise,run)\n1/3\n[[slot]]\nerr1\nfracs(run,rise)\n3\nerr2\nfracs(rise+run,run)\n4/3\nerr3\nfracs(rise+1,run)\n2/5\nq"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The slope of a bike jump is 1.9 and it rises 4 feet. What is the horizontal distance covered by this jump? a. 2.1 ft c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "2.1"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "1.7"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.5"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "7.6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 11288,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "slope",
+          "rule": "range(1.5,2.3,.2)",
+          "sampleValue": "1.9"
+        },
+        {
+          "name": "rise",
+          "rule": "range(4,7)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "err1",
+          "rule": "slope*rise",
+          "sampleValue": "7.6"
+        },
+        {
+          "name": "correct",
+          "rule": "rise/slope",
+          "sampleValue": "2.1"
+        },
+        {
+          "name": "err2",
+          "rule": "slope/rise",
+          "sampleValue": "0.5"
+        },
+        {
+          "name": "err3",
+          "rule": "rise/slope*.8",
+          "sampleValue": "1.7"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 11288,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 44 02 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 66 66 66 66 66 66 fe 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 35 00 2c 00 32 00 2e 00 33 00 2c 00 2e 00 32 00 29 00 00 00 31 00 2e 00 39 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 37 00 29 00 00 00 34 00 00 00 04 00 00 00 0a 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 66 66 66 66 66 66 1e 40 65 00 72 00 72 00 31 00 00 00 73 00 6c 00 6f 00 70 00 65 00 2a 00 72 00 69 00 73 00 65 00 00 00 37 00 2e 00 36 00 00 00 07 00 00 00 0a 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 79 0d e5 35 94 d7 00 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 69 00 73 00 65 00 2f 00 73 00 6c 00 6f 00 70 00 65 00 00 00 32 00 2e 00 31 00 00 00 04 00 00 00 0a 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 66 66 66 66 66 66 de 3f 65 00 72 00 72 00 32 00 00 00 73 00 6c 00 6f 00 70 00 65 00 2f 00 72 00 69 00 73 00 65 00 00 00 30 00 2e 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nslope\nrange(1.5,2.3,.2)\n1.9\nrise\nrange(4,7)\n4\nerr1\nslope*rise\n7.6\ncorrect\nrise/slope\n2.1\nerr2\nslope/rise\n0.5\nerr3\nrise/slope*.8\n1.7\nscramble\ntrue\n1\nThe slope of a bike jump is [[slot]] and it rises [[slot]] feet. What is the horizontal distance covered by this jump?\na.\n[[slot]] ft"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If the slope of a hill is 0.60, which of the following would be the rise and run? a. rise = 6 m, run = 6 m c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 14826,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(1,4)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "run",
+          "rule": "rise+2",
+          "sampleValue": "5"
+        },
+        {
+          "name": "slope",
+          "rule": "rise/run",
+          "sampleValue": "0.60"
+        },
+        {
+          "name": "err1",
+          "rule": "rise+1",
+          "sampleValue": "4"
+        },
+        {
+          "name": "err2",
+          "rule": "run+1",
+          "sampleValue": "6"
+        },
+        {
+          "name": "err3",
+          "rule": "rise+3",
+          "sampleValue": "6"
+        },
+        {
+          "name": "err4",
+          "rule": "run+3",
+          "sampleValue": "8"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 14826,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 c4 02 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 34 00 29 00 00 00 33 00 00 00 03 00 00 00 06 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 14 40 72 00 75 00 6e 00 00 00 72 00 69 00 73 00 65 00 2b 00 32 00 00 00 35 00 00 00 05 00 00 00 08 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 09 00 00 00 33 33 33 33 33 33 e3 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 00 00 30 00 2e 00 36 00 30 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 08 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 31 00 00 00 72 00 69 00 73 00 65 00 00 00 33 00 00 00 08 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 14 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 32 00 00 00 72 00 75 00 6e 00 00 00 35 00 00 00 04 00 00 00 06 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 10 40 65 00 72 00 72 00 31 00 00 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nrise\nrange(1,4)\n3\nrun\nrise+2\n5\nslope\nrise/run\n0.60\ncorrect1\nrise\n3\ncorrect2\nrun\n5\nerr1\nrise+1\n4\nerr2\nrun+1\n6\nerr3\nrise+3\n6"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the slope of this triangle? 2 a. – 9 c. b. 3 d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "3"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "$9/2$"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "$2/9$"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 19068,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(3,9)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "run",
+          "rule": "range(2,8)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "correct",
+          "rule": "fracs(rise,run)",
+          "sampleValue": "9/2"
+        },
+        {
+          "name": "err1",
+          "rule": "fracs(run,rise)",
+          "sampleValue": "2/9"
+        },
+        {
+          "name": "err2",
+          "rule": "fracs(rise+1,run)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "err3",
+          "rule": "fracs(rise,run+1)",
+          "sampleValue": "3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 19068,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 a0 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 39 00 29 00 00 00 39 00 00 00 03 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 38 00 29 00 00 00 32 00 00 00 07 00 00 00 0f 00 00 00 05 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 66 00 72 00 61 00 63 00 73 00 28 00 72 00 69 00 73 00 65 00 2c 00 72 00 75 00 6e 00 29 00 00 00 01 00 81 f0 39 00 2f 00 32 00 00 00 04 00 00 00 0f 00 00 00 05 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 65 00 72 00 72 00 31 00 00 00 66 00 72 00 61 00 63 00 73 00 28 00 72 00 75 00 6e 00 2c 00 72 00 69 00 73 00 65 00 29 00 00 00 01 00 81 f0 32 00 2f 00 39 00 00 00 04 00 00 00 11 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nscramble\ntrue\n1\nrise\nrange(3,9)\n9\nrun\nrange(2,8)\n2\n[[slot]]\ncorrect\nfracs(rise,run)\n9/2\n[[slot]]\nerr1\nfracs(run,rise)\n2/9\nerr2\nfracs(rise+1,run)\n5\nerr3\nfracs(rise,run+1)\n3\nrise<>run"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A contractor is designing a roof that will have a 6: 13 pitch, which means the roof will rise 6 feet for every 13 feet of horizontal distance. Which of the following diagrams would represent a 6: 13 roof? a. 8 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "$-4$"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "$-1$"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "$-4$"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "$-4$"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 26538,
+        "difficulty": "Difficult",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(5,8,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "run",
+          "rule": "rise*2+1",
+          "sampleValue": "13"
+        },
+        {
+          "name": "correctcenter",
+          "rule": "(-17+run)",
+          "sampleValue": "–4"
+        },
+        {
+          "name": "botsegment",
+          "rule": "5-rise",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "totalrun",
+          "rule": "run*2",
+          "sampleValue": "26"
+        },
+        {
+          "name": "err1rise",
+          "rule": "rise-1",
+          "sampleValue": "5"
+        },
+        {
+          "name": "err1run",
+          "rule": "err1rise*2+1",
+          "sampleValue": "11"
+        },
+        {
+          "name": "err1center",
+          "rule": "(-17+err1run)",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "err1bot",
+          "rule": "5-err1rise",
+          "sampleValue": "0"
+        },
+        {
+          "name": "err1totalrun",
+          "rule": "err1run*2",
+          "sampleValue": "22"
+        },
+        {
+          "name": "err2rise",
+          "rule": "rise+2",
+          "sampleValue": "8"
+        },
+        {
+          "name": "err2run",
+          "rule": "err2rise+4",
+          "sampleValue": "12"
+        },
+        {
+          "name": "err2center",
+          "rule": "(-17+err2run)",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "err2bot",
+          "rule": "5-err2rise",
+          "sampleValue": "–3"
+        },
+        {
+          "name": "err2totalrun",
+          "rule": "err2run*2",
+          "sampleValue": "24"
+        },
+        {
+          "name": "err3rise",
+          "rule": "rise+4",
+          "sampleValue": "10"
+        },
+        {
+          "name": "err3run",
+          "rule": "err3rise+2",
+          "sampleValue": "12"
+        },
+        {
+          "name": "err3center",
+          "rule": "(-17+err3run)",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "err3bot",
+          "rule": "5-err3rise",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "err3totalrun",
+          "rule": "err3run*2",
+          "sampleValue": "24"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 26538,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 f4 06 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 38 00 2c 00 31 00 29 00 00 00 36 00 00 00 03 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 2a 40 72 00 75 00 6e 00 00 00 72 00 69 00 73 00 65 00 2a 00 32 00 2b 00 31 00 00 00 31 00 33 00 00 00 0d 00 00 00 09 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 10 c0 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 63 00 65 00 6e 00 74 00 65 00 72 00 00 00 28 00 2d 00 31 00 37 00 2b 00 72 00 75 00 6e 00 29 00 00 00 13 20 34 00 00 00 0a 00 00 00 06 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 bf 62 00 6f 00 74 00 73 00 65 00 67 00 6d 00 65 00 6e 00 74 00 00 00 35 00 2d 00 72 00 69 00 73 00 65 00 00 00 13 20 31 00 00 00 08 00 00 00 05 00 00 00 02 00 00 00",
+          "textPreview": "Difficult\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nscramble\ntrue\n1\nrise\nrange(5,8,1)\n6\nrun\nrise*2+1\n13\ncorrectcenter\n(-17+run)\n–4\nbotsegment\n5-rise\n–1\ntotalrun\nrun*2\n26\nerr1rise\nrise-1\n5\nerr1run\nerr1rise*2+1\n11"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A ladder on the West Coast Trail hike on Vancouver Island, BC, has a slope of 16 over a run of 3 m. What is the vertical distance covered by the ladder? a. 57.6 m c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "57.6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.2"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "5.3"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "48.0"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 70308,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "slope",
+          "rule": "range(12,16)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "run",
+          "rule": "range(3,5)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "correct",
+          "rule": "run*slope",
+          "sampleValue": "48.0"
+        },
+        {
+          "name": "err1",
+          "rule": "run/slope",
+          "sampleValue": "0.2"
+        },
+        {
+          "name": "err2",
+          "rule": "slope/run",
+          "sampleValue": "5.3"
+        },
+        {
+          "name": "err3",
+          "rule": "correct*1.2",
+          "sampleValue": "57.6"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 70308,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 30 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 30 40 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 31 00 36 00 29 00 00 00 31 00 36 00 00 00 03 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 29 00 00 00 33 00 00 00 07 00 00 00 09 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 00 00 00 00 00 00 48 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 75 00 6e 00 2a 00 73 00 6c 00 6f 00 70 00 65 00 00 00 34 00 38 00 2e 00 30 00 00 00 04 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 00 00 00 00 00 00 c8 3f 65 00 72 00 72 00 31 00 00 00 72 00 75 00 6e 00 2f 00 73 00 6c 00 6f 00 70 00 65 00 00 00 30 00 2e 00 32 00 00 00 04 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nscramble\ntrue\n1\nslope\nrange(12,16)\n16\nrun\nrange(3,5)\n3\ncorrect\nrun*slope\n48.0\nerr1\nrun/slope\n0.2\nerr2\nslope/run\n5.3\nerr3\ncorrect*1.2\n57.6\nA ladder on the West Coast Trail hike on Vancouver Island, BC, has a slope of [[slot]] over a run of [[slot]] m. What is the vertical distance covered by the ladder?\na.\n[[slot]] m"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A staircase has a rise of 1.74 m over a run of 1.95 m. What is the slope of this staircase? a. 0.89 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.89"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "1.41"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "1.12"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3.69"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 73912,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(1.5,1.8,0.01)",
+          "sampleValue": "1.74"
+        },
+        {
+          "name": "run",
+          "rule": "range(1.9,2.1,0.01)",
+          "sampleValue": "1.95"
+        },
+        {
+          "name": "correct",
+          "rule": "rise/run",
+          "sampleValue": "0.89"
+        },
+        {
+          "name": "err1",
+          "rule": "run/rise",
+          "sampleValue": "1.12"
+        },
+        {
+          "name": "err2",
+          "rule": "(rise+1)/run",
+          "sampleValue": "1.41"
+        },
+        {
+          "name": "err3",
+          "rule": "run+rise",
+          "sampleValue": "3.69"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 73912,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 98 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 d7 a3 70 3d 0a d7 fb 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 35 00 2c 00 31 00 2e 00 38 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 31 00 2e 00 37 00 34 00 00 00 03 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 33 33 33 33 33 33 ff 3f 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 39 00 2c 00 32 00 2e 00 31 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 31 00 2e 00 39 00 35 00 00 00 07 00 00 00 08 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 09 00 00 00 dd c8 8d dc c8 8d ec 3f 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 00 00 30 00 2e 00 38 00 39 00 00 00 04 00 00 00 08 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 09 00 00 00 84 e5 9e 46 58 ee f1 3f 65 00 72 00 72 00 31 00 00 00 72 00 75 00 6e 00 2f 00 72 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nscramble\ntrue\n1\nrise\nrange(1.5,1.8,0.01)\n1.74\nrun\nrange(1.9,2.1,0.01)\n1.95\ncorrect\nrise/run\n0.89\nerr1\nrun/rise\n1.12\nerr2\n(rise+1)/run\n1.41\nerr3\nrun+rise\n3.69\nrise<>run\nm\nA staircase has a rise of [[slot]] m over a run of [[slot]] m. What is the slope of this staircase?"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A sloped skate rail starts at 3.5 feet from the ground and slopes down to 20 inches from the ground. The rail travels 8 feet horizontally. Which of the following calculations will give the correct value for slope? a. 20 c. – 96 b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "22"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "22"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "96"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 77664,
+        "difficulty": "Difficult",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "start",
+          "rule": "range(2.5,3.5,.25)",
+          "sampleValue": "3.5"
+        },
+        {
+          "name": "startinches",
+          "rule": "start*12",
+          "sampleValue": "42"
+        },
+        {
+          "name": "end",
+          "rule": "range(8,20,4)",
+          "sampleValue": "20"
+        },
+        {
+          "name": "rail",
+          "rule": "range(6,10,2)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "endfeet",
+          "rule": "end/12",
+          "sampleValue": "1.67"
+        },
+        {
+          "name": "rise",
+          "rule": "startinches-end",
+          "sampleValue": "22"
+        },
+        {
+          "name": "run",
+          "rule": "rail*12",
+          "sampleValue": "96"
+        },
+        {
+          "name": "correctrise",
+          "rule": "str(rise)",
+          "sampleValue": "22"
+        },
+        {
+          "name": "correctrun",
+          "rule": "str(run)",
+          "sampleValue": "96"
+        },
+        {
+          "name": "err1rise",
+          "rule": "str(start)",
+          "sampleValue": "3.5"
+        },
+        {
+          "name": "err1run",
+          "rule": "str(rail)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "err2rise",
+          "rule": "str(end)",
+          "sampleValue": "20"
+        },
+        {
+          "name": "err3run",
+          "rule": "str(rail)",
+          "sampleValue": "8"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 77664,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 92 04 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 05 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 0c 40 73 00 74 00 61 00 72 00 74 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2e 00 35 00 2c 00 33 00 2e 00 35 00 2c 00 2e 00 32 00 35 00 29 00 00 00 33 00 2e 00 35 00 00 00 0b 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 45 40 73 00 74 00 61 00 72 00 74 00 69 00 6e 00 63 00 68 00 65 00 73 00 00 00 73 00 74 00 61 00 72 00 74 00 2a 00 31 00 32 00 00 00 34 00 32 00 00 00 03 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 34 40 65 00 6e 00 64 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 32 00 30 00 2c 00 34 00 29 00 00 00 32 00 30 00 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 72 00 61 00 69 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 31 00 30 00 2c 00",
+          "textPreview": "Difficult\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nscramble\ntrue\n1\nstart\nrange(2.5,3.5,.25)\n3.5\nstartinches\nstart*12\n42\nend\nrange(8,20,4)\n20\nrail\nrange(6,10,2)\n8\nendfeet\nend/12\n1.67\n[[slot]]\nrise\nstartinches-end\n22\nrun\nrail*12"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If a line rises 0 feet over a horizontal distance of 10 feet, the slope could be described as: a. A gentle decline. c. A vertical wall. b. m = 0.5 d. A horizontal surface."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 84178,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 84178,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 b6 05 00 00 01 00 00 00 af 00 00 00 02 00 00 00 02 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 49 00 66 00 20 00 61 00 20 00 6c 00 69 00 6e 00 65 00 20 00 72 00 69 00 73 00 65 00 73 00 20 00 30 00 20 00 66 00 65 00 65 00 74 00 20 00 6f 00 76 00 65 00 72 00 20 00 61 00 20 00 68 00 6f 00 72 00 69 00 7a 00 6f 00 6e 00 74 00 61 00 6c 00 20 00 64 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 20 00 6f 00 66 00 20 00 31 00 30 00 20 00 66 00 65 00 65 00 74 00 2c 00 20 00 74 00 68 00 65 00 20 00 73 00 6c 00 6f 00 70 00 65 00 20 00 63 00 6f 00 75 00 6c 00 64 00 20 00 62 00 65 00 20 00 64 00 65 00 73 00 63 00 72 00 69 00 62 00 65 00 64 00 20 00 61 00 73 00 3a 00 0d 00 10 00 61 00 2e 00 11 00 41 00 20 00 67 00 65 00 6e 00 74 00 6c 00 65 00 20 00 64 00 65 00 63 00 6c 00 69 00 6e 00 65 00 2e 00 11 00 63 00 2e 00 11 00 41 00 20 00 76 00 65 00 72 00 74 00 69 00 63 00 61 00 6c 00 20 00 77 00 61 00 6c 00 6c 00 2e 00 11 00 11 00 62 00 2e 00 11 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nL\nscramble\ntrue\n1\nIf a line rises 0 feet over a horizontal distance of 10 feet, the slope could be described as:\na.\nA gentle decline.\nc.\nA vertical wall.\nb.\nm = 0.5\nd.\nA horizontal surface.\nTimes New Roman\n_\n`\n#\n-\nc\n[[slot]]\nZ\nu\n-\nx"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The windmill trap on a mini-putt course includes a ramp that vanishes underground for 1.2 m. If the slope of the ramp is 0.5, what is the vertical distance the ball will descend?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 86346,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "run*slope",
+          "sampleValue": "0.6"
+        },
+        {
+          "name": "slope",
+          "rule": "range(0.3,0.6,.1)",
+          "sampleValue": "0.5"
+        },
+        {
+          "name": "run",
+          "rule": "range(0.7,1.2,.1)",
+          "sampleValue": "1.2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 86346,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 0e 01 00 00 04 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 e3 3f 72 00 69 00 73 00 65 00 00 00 72 00 75 00 6e 00 2a 00 73 00 6c 00 6f 00 70 00 65 00 00 00 30 00 2e 00 36 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 e0 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 33 00 2c 00 30 00 2e 00 36 00 2c 00 2e 00 31 00 29 00 00 00 30 00 2e 00 35 00 00 00 03 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 33 33 33 33 33 33 f3 3f 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 37 00 2c 00 31 00 2e 00 32 00 2c 00 2e 00 31 00 29 00 00 00 31 00 2e 00 32 00 00 00 fc 03 00 00 01 00 00 00 ae 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 54 00 68 00 65 00 20 00 77 00 69 00 6e 00 64 00 6d 00 69 00 6c 00 6c 00 20 00 74 00 72 00 61 00 70 00 20 00 6f 00 6e 00 20 00 61 00 20 00 6d 00 69 00 6e 00 69 00 2d 00 70 00 75 00 74 00 74 00 20 00 63 00 6f 00 75 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nrise\nrun*slope\n0.6\nslope\nrange(0.3,0.6,.1)\n0.5\nrun\nrange(0.7,1.2,.1)\n1.2\nThe windmill trap on a mini-putt course includes a ramp that vanishes underground for [[slot]] m. If the slope of the ramp is [[slot]], what is the vertical distance the ball will descend?\nTimes New Roman\nV\nw\nX\nrun\nX\nslope\n[[slot]]\r\rThe ball will descend [[slot]] m.\nTimes New Roman\n)\ne\nn\nslope\ne"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The hill on Cedar Street climbs to an elevation of 44 m over 119 m of horizontal distance. The hill on Gordon Street climbs to an elevation of 15 m over a 30 m horizontal distance. Which of these hills is steepest?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 89350,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "slope1",
+          "rule": "range(0.25,0.4,0.01)",
+          "sampleValue": "0.37"
+        },
+        {
+          "name": "slope2",
+          "rule": "range(0.45,0.57,.01)",
+          "sampleValue": "0.51"
+        },
+        {
+          "name": "run1",
+          "rule": "range(110,120)",
+          "sampleValue": "119"
+        },
+        {
+          "name": "run2",
+          "rule": "range(25,30)",
+          "sampleValue": "30"
+        },
+        {
+          "name": "rise1",
+          "rule": "round(slope1*run1,0)",
+          "sampleValue": "44"
+        },
+        {
+          "name": "rise2",
+          "rule": "round(slope2*run2,0)",
+          "sampleValue": "15"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 89350,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 4a 02 00 00 06 00 00 00 14 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 ae 47 e1 7a 14 ae d7 3f 73 00 6c 00 6f 00 70 00 65 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 32 00 35 00 2c 00 30 00 2e 00 34 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 30 00 2e 00 33 00 37 00 00 00 06 00 00 00 14 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 52 b8 1e 85 eb 51 e0 3f 73 00 6c 00 6f 00 70 00 65 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 34 00 35 00 2c 00 30 00 2e 00 35 00 37 00 2c 00 2e 00 30 00 31 00 29 00 00 00 30 00 2e 00 35 00 31 00 00 00 04 00 00 00 0e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 5d 40 72 00 75 00 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 31 00 30 00 2c 00 31 00 32 00 30 00 29 00 00 00 31 00 31 00 39 00 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3e 40 72 00 75 00 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 33 00 30 00 29 00 00 00 33 00 30 00 00 00 05 00 00 00 14 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 46 40",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nslope1\nrange(0.25,0.4,0.01)\n0.37\nslope2\nrange(0.45,0.57,.01)\n0.51\nrun1\nrange(110,120)\n119\nrun2\nrange(25,30)\n30\nrise1\nround(slope1*run1,0)\n44\nrise2\nround(slope2*run2,0)\n15\nHarpreet wants to avoid steep hills on his bike ride to work. He has a choice of two routes:\nThe hill on Cedar Street climbs to an elevation of [[slot]] m over [[slot]] m of horizontal distance.\nThe hill on Gordon Street climbs to an elevation of [[slot]] m over a [[slot]] m horizontal"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A luggage$ _belt at the Calgary International Airport begins at ground level on the tarmac and must rise to the level of the baggage claim area at $17$ _m above ground. If the $slope of the belt is greater than 1.2, some luggage will slide backwards down the belt. At the maximum slope of the belt, what would be the run distance?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 93744,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(12,24)",
+          "sampleValue": "17"
+        },
+        {
+          "name": "slope",
+          "rule": "range(1.2,1.9,.1)",
+          "sampleValue": "1.2"
+        },
+        {
+          "name": "run",
+          "rule": "round(rise/slope,1)",
+          "sampleValue": "14.2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 93744,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 18 01 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 31 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 32 00 34 00 29 00 00 00 31 00 37 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 33 33 33 33 33 33 f3 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 32 00 2c 00 31 00 2e 00 39 00 2c 00 2e 00 31 00 29 00 00 00 31 00 2e 00 32 00 00 00 03 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 66 66 66 66 66 66 2c 40 72 00 75 00 6e 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 73 00 6c 00 6f 00 70 00 65 00 2c 00 31 00 29 00 00 00 31 00 34 00 2e 00 32 00 00 00 86 05 00 00 01 00 00 00 43 01 00 00 01 00 00 00 01 00 00 00 05 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 6c 00 75 00 67 00 67 00 61 00 67 00 65 00 20 00 62 00 65 00 6c 00 74 00 20 00 61 00 74 00 20 00 74 00 68 00 65 00 20 00 43 00 61 00 6c 00 67 00 61 00 72 00 79 00 20 00 49 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nrise\nrange(12,24)\n17\nslope\nrange(1.2,1.9,.1)\n1.2\nrun\nround(rise/slope,1)\n14.2\nA luggage belt at the Calgary International Airport begins at ground level on the tarmac and must rise to the level of the baggage claim area at [[slot]] m above ground. \r\rIf the slope of the belt is greater than [[slot]], some luggage will slide backwards down the belt. At the maximum slope of the belt, what would be the run distance?\nTimes New Roman\nX\nrise\nX\nslop"
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the half-width. 3 ft 2 = 1.5 ft 1.6 The tent will rise to a height of 1.5 ft at the centre."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 97245,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "slope",
+          "rule": "range(1.5,1.8,.1)",
+          "sampleValue": "1.6"
+        },
+        {
+          "name": "width",
+          "rule": "range(3,6)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "run",
+          "rule": "width/2",
+          "sampleValue": "1.5"
+        },
+        {
+          "name": "rise",
+          "rule": "run*slope",
+          "sampleValue": "2.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 97245,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 48 01 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 9a 99 99 99 99 99 f9 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 35 00 2c 00 31 00 2e 00 38 00 2c 00 2e 00 31 00 29 00 00 00 31 00 2e 00 36 00 00 00 05 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 77 00 69 00 64 00 74 00 68 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 29 00 00 00 33 00 00 00 03 00 00 00 07 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f8 3f 72 00 75 00 6e 00 00 00 77 00 69 00 64 00 74 00 68 00 2f 00 32 00 00 00 31 00 2e 00 35 00 00 00 04 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 34 33 33 33 33 33 03 40 72 00 69 00 73 00 65 00 00 00 72 00 75 00 6e 00 2a 00 73 00 6c 00 6f 00 70 00 65 00 00 00 32 00 2e 00 34 00 00 00 e2 04 00 00 01 00 00 00 21 01 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 53 00 74 00 65 00 66 00 61 00 6e 00 20 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nslope\nrange(1.5,1.8,.1)\n1.6\nwidth\nrange(3,6)\n3\nrun\nwidth/2\n1.5\nrise\nrun*slope\n2.4\nStefan is a designer for an outdoor equipment company. He is designing a winter tent. The particular fabric being used requires the slope of the tent walls to be [[slot]], so that snow and rain will run off the tent. If the tent has a total width of [[slot]] ft, what height will it reach in the centre?\nTimes New Roman\nX\nslope\nX\nwidth\nc\nCalculate the half-width."
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A jump being built for a snowboard competition is planned to reach a height of 22 ft and have a slope of 6.5. What horizontal length of the snowboard run must be set aside to build the jump?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 101018,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(18,26)",
+          "sampleValue": "22"
+        },
+        {
+          "name": "slope",
+          "rule": "range(4.5,6.5,.5)",
+          "sampleValue": "6.5"
+        },
+        {
+          "name": "run",
+          "rule": "round(rise/slope,1)",
+          "sampleValue": "3.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 101018,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 16 01 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 36 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 38 00 2c 00 32 00 36 00 29 00 00 00 32 00 32 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1a 40 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2e 00 35 00 2c 00 36 00 2e 00 35 00 2c 00 2e 00 35 00 29 00 00 00 36 00 2e 00 35 00 00 00 03 00 00 00 13 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 0b 40 72 00 75 00 6e 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 73 00 6c 00 6f 00 70 00 65 00 2c 00 31 00 29 00 00 00 33 00 2e 00 34 00 00 00 16 04 00 00 01 00 00 00 bb 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 6a 00 75 00 6d 00 70 00 20 00 62 00 65 00 69 00 6e 00 67 00 20 00 62 00 75 00 69 00 6c 00 74 00 20 00 66 00 6f 00 72 00 20 00 61 00 20 00 73 00 6e 00 6f 00 77 00 62 00 6f 00 61 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nrise\nrange(18,26)\n22\nslope\nrange(4.5,6.5,.5)\n6.5\nrun\nround(rise/slope,1)\n3.4\nA jump being built for a snowboard competition is planned to reach a height of [[slot]] ft and have a slope of [[slot]]. What horizontal length of the snowboard run must be set aside to build the jump?\nTimes New Roman\nO\nh\nκ\nX\nrise\nX\nslope\n2\n[[slot]]\r\rThe jump will have a horizontal length of [[slot]] ft.\nTimes New Roman\n-\n)\ne"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "W$h_a$t is the slope of a driveway t$h_a$t rises 1.1 m over a length of 10.9 m?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 104137,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(.8,1.2,.1)",
+          "sampleValue": "1.1"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/run,3)",
+          "sampleValue": "0.101"
+        },
+        {
+          "name": "run",
+          "rule": "range(9.8,11.6,.1)",
+          "sampleValue": "10.9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 104137,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 24 01 00 00 04 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 9a 99 99 99 99 99 f1 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2e 00 38 00 2c 00 31 00 2e 00 32 00 2c 00 2e 00 31 00 29 00 00 00 31 00 2e 00 31 00 00 00 05 00 00 00 11 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 42 60 e5 d0 22 db b9 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 2c 00 33 00 29 00 00 00 30 00 2e 00 31 00 30 00 31 00 00 00 03 00 00 00 12 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 cd cc cc cc cc cc 25 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 39 00 2e 00 38 00 2c 00 31 00 31 00 2e 00 36 00 2c 00 2e 00 31 00 29 00 00 00 31 00 30 00 2e 00 39 00 00 00 28 03 00 00 01 00 00 00 44 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 65 00 20 00 73 00 6c 00 6f 00 70 00 65 00 20 00 6f 00 66 00 20 00 61 00 20 00 64 00 72 00 69 00 76 00 65 00 77 00 61 00 79 00 20 00 74 00 68 00 61 00 74 00 20 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nrise\nrange(.8,1.2,.1)\n1.1\nslope\nround(rise/run,3)\n0.101\nrun\nrange(9.8,11.6,.1)\n10.9\nD\nWhat is the slope of a driveway that rises [[slot]] m over a length of [[slot]] m?\nTimes New Roman\n+\n@\nX\nrise\nX\nrun\n(\n[[slot]]\r\rThe slope of the driveway is about [[slot]].\nTimes New Roman\n&\ne\nn"
+        }
+      ]
+    },
+    {
+      "id": "q-17",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A bird taking off from a pond gains 9 m of height over the 85 m of the pond. What is the slope of the bird s flight?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 106883,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(8,12,1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/run,3)",
+          "sampleValue": "0.106"
+        },
+        {
+          "name": "run",
+          "rule": "range(78,116,1)",
+          "sampleValue": "85"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 106883,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 10 01 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 32 00 2c 00 31 00 29 00 00 00 39 00 00 00 05 00 00 00 11 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 89 41 60 e5 d0 22 bb 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 2c 00 33 00 29 00 00 00 30 00 2e 00 31 00 30 00 36 00 00 00 03 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 55 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 38 00 2c 00 31 00 31 00 36 00 2c 00 31 00 29 00 00 00 38 00 35 00 00 00 86 03 00 00 01 00 00 00 73 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 62 00 69 00 72 00 64 00 20 00 74 00 61 00 6b 00 69 00 6e 00 67 00 20 00 6f 00 66 00 66 00 20 00 66 00 72 00 6f 00 6d 00 20 00 61 00 20 00 70 00 6f 00 6e 00 64 00 20 00 67 00 61 00 69 00 6e 00 73 00 20 00 0f 00 20 00 6d 00 20 00 6f 00 66 00 20 00 68 00 65 00 69 00 67 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nrise\nrange(8,12,1)\n9\nslope\nround(rise/run,3)\n0.106\n[[slot]]\nrun\nrange(78,116,1)\n85\ns\nA bird taking off from a pond gains [[slot]] m of height over the [[slot]] m of the pond. What is the slope of the bird\ns flight?\nTimes New Roman\n$\n;\nX\nrise\nX\nrun\n-\n[[slot]]\r\rThe slope of the bird\ns flight is about [[slot]].\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-18",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "What is the slope of John s roof? $b_. $How many feet does John s roof rise for every 8 feet of horizontal distance? 32"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 109677,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "factor",
+          "rule": "range(5,9)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "width",
+          "rule": "factor*4",
+          "sampleValue": "32"
+        },
+        {
+          "name": "run",
+          "rule": "factor*2",
+          "sampleValue": "16"
+        },
+        {
+          "name": "rise",
+          "rule": "factor+1",
+          "sampleValue": "9"
+        },
+        {
+          "name": "centerx",
+          "rule": "-15+width/2",
+          "sampleValue": "1"
+        },
+        {
+          "name": "bottom",
+          "rule": "8-rise",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/run,2)",
+          "sampleValue": "0.56"
+        },
+        {
+          "name": "ansb",
+          "rule": "rise/2",
+          "sampleValue": "4.5"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 109677,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 78 02 00 00 06 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 66 00 61 00 63 00 74 00 6f 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 39 00 29 00 00 00 38 00 00 00 05 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 40 40 77 00 69 00 64 00 74 00 68 00 00 00 66 00 61 00 63 00 74 00 6f 00 72 00 2a 00 34 00 00 00 33 00 32 00 00 00 03 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 30 40 72 00 75 00 6e 00 00 00 66 00 61 00 63 00 74 00 6f 00 72 00 2a 00 32 00 00 00 31 00 36 00 00 00 04 00 00 00 08 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 22 40 72 00 69 00 73 00 65 00 00 00 66 00 61 00 63 00 74 00 6f 00 72 00 2b 00 31 00 00 00 39 00 00 00 07 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 63 00 65 00 6e 00 74 00 65 00 72 00 78 00 00 00 2d 00 31 00 35 00 2b 00 77 00 69 00 64 00 74 00 68 00 2f 00 32 00 00 00 31 00 00 00 06 00 00 00 06 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nfactor\nrange(5,9)\n8\nwidth\nfactor*4\n32\nrun\nfactor*2\n16\nrise\nfactor+1\n9\ncenterx\n-15+width/2\n1\nbottom\n8-rise\n–1\nslope\nround(rise/run,2)\n0.56\nansb\nrise/2\n4.5"
+        }
+      ]
+    },
+    {
+      "id": "q-19",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A parking garage has 9 floors, including the street level, with 8 separate ramps connecting them. Each ramp is 18 m in length and the top floor is 28 m above street level. a. Assuming each ramp has the same dimensions, what is the slope of each ramp? b. Stairs rise from the street level to the top floor. The stairwell between the street level and the first floor has the same rise as one ramp. The slope of the stairwell is 0.95. What horizontal distance does the stairwell cover?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 125591,
+        "difficulty": "Difficult",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "floors",
+          "rule": "range(6,9)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "ramps",
+          "rule": "floors-1",
+          "sampleValue": "8"
+        },
+        {
+          "name": "rise",
+          "rule": "range(2.75,3.5,.25)",
+          "sampleValue": "3.5"
+        },
+        {
+          "name": "height",
+          "rule": "ramps*rise",
+          "sampleValue": "28"
+        },
+        {
+          "name": "run",
+          "rule": "range(17,22)",
+          "sampleValue": "18"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/run,3)",
+          "sampleValue": "0.194"
+        },
+        {
+          "name": "stairrun",
+          "rule": "round(rise/stairslope,2)",
+          "sampleValue": "3.68"
+        },
+        {
+          "name": "stairslope",
+          "rule": "range(0.85,1.05,0.05)",
+          "sampleValue": "0.95"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 125591,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 f0 02 00 00 06 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 66 00 6c 00 6f 00 6f 00 72 00 73 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 39 00 29 00 00 00 39 00 00 00 05 00 00 00 08 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 20 40 72 00 61 00 6d 00 70 00 73 00 00 00 66 00 6c 00 6f 00 6f 00 72 00 73 00 2d 00 31 00 00 00 38 00 00 00 04 00 00 00 13 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 0c 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2e 00 37 00 35 00 2c 00 33 00 2e 00 35 00 2c 00 2e 00 32 00 35 00 29 00 00 00 33 00 2e 00 35 00 00 00 06 00 00 00 0a 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3c 40 68 00 65 00 69 00 67 00 68 00 74 00 00 00 72 00 61 00 6d 00 70 00 73 00 2a 00 72 00 69 00 73 00 65 00 00 00 32 00 38 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 32 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00",
+          "textPreview": "Difficult\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nfloors\nrange(6,9)\n9\nramps\nfloors-1\n8\nrise\nrange(2.75,3.5,.25)\n3.5\nheight\nramps*rise\n28\nrun\nrange(17,22)\n18\nslope\nround(rise/run,3)\n0.194\nstairrun\nround(rise/stairslope,2)\n3.68\nstairslope\nrange(0.85,1.05,0.05)\n0.95"
+        }
+      ]
+    },
+    {
+      "id": "q-20",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A contractor is building sidewalks with a slope of 0.008 and the sidewalks are 4 feet wide. a. How much higher is the outside edge of the sidewalk than the street side? b. If the city wants to widen sidewalks to 5 feet while maintaining the same slope, how much higher will the sidewalk rise?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 132207,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "slope",
+          "rule": "range(0.007,0.011,0.001)",
+          "sampleValue": "0.008"
+        },
+        {
+          "name": "run",
+          "rule": "range(3,5,.5)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "run2",
+          "rule": "run+1",
+          "sampleValue": "5"
+        },
+        {
+          "name": "rise",
+          "rule": "run*slope",
+          "sampleValue": "0.032"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 132207,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 5a 01 00 00 05 00 00 00 18 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 fc a9 f1 d2 4d 62 80 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 30 00 30 00 37 00 2c 00 30 00 2e 00 30 00 31 00 31 00 2c 00 30 00 2e 00 30 00 30 00 31 00 29 00 00 00 30 00 2e 00 30 00 30 00 38 00 00 00 03 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 2c 00 2e 00 35 00 29 00 00 00 34 00 00 00 04 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 14 40 72 00 75 00 6e 00 32 00 00 00 72 00 75 00 6e 00 2b 00 31 00 00 00 35 00 00 00 04 00 00 00 09 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 fc a9 f1 d2 4d 62 a0 3f 72 00 69 00 73 00 65 00 00 00 72 00 75 00 6e 00 2a 00 73 00 6c 00 6f 00 70 00 65 00 00 00 30 00 2e 00 30 00 33 00 32 00 00 00 0e 07 00 00 01 00 00 00 73 01 00 00 02 00 00 00 02 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 01 00 00 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nslope\nrange(0.007,0.011,0.001)\n0.008\nrun\nrange(3,5,.5)\n4\nrun2\nrun+1\n5\nrise\nrun*slope\n0.032\nTo help with water drainage, sidewalks are slightly slanted toward the street. A contractor is building sidewalks with a slope of [[slot]] and the sidewalks are [[slot]] feet wide.\r\ra. How much higher is the outside edge of the sidewalk than the street side?\r\rb. If the city wants to widen sidewalks to [[slot]] feet while maintaining the same slope, how"
+        }
+      ]
+    },
+    {
+      "id": "q-21",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A moving truck has a ramp that extends from the deck, or floor, of the truck to the ground to allow movers to wheel furniture and boxes into the truck on carts. The deck of a truck is 2.5 ft high and the ramp extends to a point on the ground 8 ft away. a. What is the slope of the ramp? b. Jaime is looking for a moving truck with a slope of 0.19 to comfortably move a large oak chest of drawers. Is the ramp of this truck too steep or too shallow? Explain. c. All the trucks offered by the moving company have the same deck height. What horizontal length of ramp would Jamie need to create the slope she is comfortable with?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 137222,
+        "difficulty": "Moderate",
+        "reference": "A-SO2 | A-SO1",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(2.5,3.25,.25)",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "run",
+          "rule": "range(8,12)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/run,2)",
+          "sampleValue": "0.31"
+        },
+        {
+          "name": "reqslope",
+          "rule": "range(0.15,0.2,0.01)",
+          "sampleValue": "0.19"
+        },
+        {
+          "name": "reqrun",
+          "rule": "round(rise/reqslope,2)",
+          "sampleValue": "13.16"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 137222,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 20 00 7c 00 20 00 41 00 2d 00 53 00 4f 00 31 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 f2 01 00 00 04 00 00 00 13 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 04 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2e 00 35 00 2c 00 33 00 2e 00 32 00 35 00 2c 00 2e 00 32 00 35 00 29 00 00 00 32 00 2e 00 35 00 00 00 03 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 32 00 29 00 00 00 38 00 00 00 05 00 00 00 11 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 d7 a3 70 3d 0a d7 d3 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 2c 00 32 00 29 00 00 00 30 00 2e 00 33 00 31 00 00 00 08 00 00 00 14 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 52 b8 1e 85 eb 51 c8 3f 72 00 65 00 71 00 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 31 00 35 00 2c 00 30 00 2e 00 32 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 30 00 2e 00 31 00 39 00 00 00 06 00 00 00 16 00 00 00 05 00 00 00 00 00 00 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2 | A-SO1\nRise Over Run\nslope\nrise\nrange(2.5,3.25,.25)\n2.5\nrun\nrange(8,12)\n8\nslope\nround(rise/run,2)\n0.31\nreqslope\nrange(0.15,0.2,0.01)\n0.19\nreqrun\nround(rise/reqslope,2)\n13.16\nA moving truck has a ramp that extends from the deck, or floor, of the truck to the ground to allow movers to wheel furniture and boxes into the truck on carts.\r\rThe deck of a truck is [[slot]] ft high and the ramp extends to a point on the ground [[slot]] ft away.\r\ra. What is the slope of the ram"
+        }
+      ]
+    },
+    {
+      "id": "q-22",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The first choice is steepest. It has the greater slope, and the larger the slope, the steeper the incline. slope1<>slope2 A rock climber is choosing a route up a slab. Looking at two possible routes, she estimates the slope of the two paths up the overhang. She estimates the slope of the first route as 3: 1 and the slope of the second route as 5: 2. a. What is the slope of each section, in decimal form? b. Which section is the steepest? Explain."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 143434,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise1",
+          "rule": "range(3,7,2)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "run1",
+          "rule": "range(1,2)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "rise2",
+          "rule": "range(5,9,2)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "run2",
+          "rule": "range(2,3)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "slope1",
+          "rule": "round(rise1/run1,1)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "slope2",
+          "rule": "round(rise2/run2,1)",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "ansc",
+          "rule": "if(slope1>slope2,\"The first choice is steepest. It has the greater slope, and the larger the slope, the steeper the incline.\",\"The second choice is steepest. It has the greater slope, and the larger the slope, the steeper the incline. \")"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 143434,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 36 05 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 72 00 69 00 73 00 65 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 37 00 2c 00 32 00 29 00 00 00 33 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 3f 72 00 75 00 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 32 00 29 00 00 00 31 00 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 72 00 69 00 73 00 65 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 39 00 2c 00 32 00 29 00 00 00 35 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 72 00 75 00 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 33 00 29 00 00 00 32 00 00 00 06 00 00 00 13 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 08 40 73 00 6c 00 6f 00 70 00 65 00 31 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 31 00 2f 00 72 00 75 00 6e 00 31 00 2c 00 31 00 29 00 00 00 33 00 00 00 06 00 00 00 13 00 00 00",
+          "textPreview": "Easy\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nrise1\nrange(3,7,2)\n3\nrun1\nrange(1,2)\n1\nrise2\nrange(5,9,2)\n5\nrun2\nrange(2,3)\n2\nslope1\nround(rise1/run1,1)\n3\nslope2\nround(rise2/run2,1)\n2.5\nj\nansc\nif(slope1>slope2,\"The first choice is steepest. It has the greater slope, and the larger the slope, the steeper the incline.\",\"The second choice is steepest. It has the greater slope, and the larger the slope, the steeper the incline. \")\nThe first choice is steepest. It has the greater slope, and the larger the"
+        }
+      ]
+    },
+    {
+      "id": "q-23",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The staircase leading up to Lloyd s front porch is 10 steps. The total rise is 1.52 m and the total run is 1.65 m. The steps are all built to identical dimensions. a. What is the slope of the staircase? b. What are the rise and run of each step, in millimetres? c. What is the slope of each step?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.1 Rise Over Run",
+        "sectionName": "1.1",
+        "sourceOffset": 150264,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Rise Over Run",
+        "title": "slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "steps",
+          "rule": "range(6,10,2)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "rise",
+          "rule": "range(1.4,1.6,0.01)",
+          "sampleValue": "1.52"
+        },
+        {
+          "name": "slope",
+          "rule": "range(0.90,0.95,0.01)",
+          "sampleValue": "0.92"
+        },
+        {
+          "name": "run",
+          "rule": "round(rise/slope,2)",
+          "sampleValue": "1.65"
+        },
+        {
+          "name": "steprise",
+          "rule": "round(rise/steps,3)",
+          "sampleValue": "0.152"
+        },
+        {
+          "name": "steprun",
+          "rule": "round(run/steps,3)",
+          "sampleValue": "0.165"
+        },
+        {
+          "name": "steprisemm",
+          "rule": "steprise*1000",
+          "sampleValue": "152"
+        },
+        {
+          "name": "steprunmm",
+          "rule": "steprun*1000",
+          "sampleValue": "165"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 150264,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 52 00 69 00 73 00 65 00 20 00 4f 00 76 00 65 00 72 00 20 00 52 00 75 00 6e 00 00 00 73 00 6c 00 6f 00 70 00 65 00 00 00 22 03 00 00 05 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 73 00 74 00 65 00 70 00 73 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 31 00 30 00 2c 00 32 00 29 00 00 00 31 00 30 00 00 00 04 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 52 b8 1e 85 eb 51 f8 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 34 00 2c 00 31 00 2e 00 36 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 31 00 2e 00 35 00 32 00 00 00 05 00 00 00 15 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 71 3d 0a d7 a3 70 ed 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 39 00 30 00 2c 00 30 00 2e 00 39 00 35 00 2c 00 30 00 2e 00 30 00 31 00 29 00 00 00 30 00 2e 00 39 00 32 00 00 00 03 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 66 66 66 66 66 66 fa 3f 72 00 75 00 6e 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 73 00 6c 00 6f 00 70 00 65 00 2c 00 32 00 29 00 00 00 31 00 2e 00 36 00 35 00 00 00 08 00 00 00 13 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00",
+          "textPreview": "Moderate\n1.1\nAlgebra\nA-SO2\nRise Over Run\nslope\nsteps\nrange(6,10,2)\n10\nrise\nrange(1.4,1.6,0.01)\n1.52\nslope\nrange(0.90,0.95,0.01)\n0.92\nrun\nround(rise/slope,2)\n1.65\nsteprise\nround(rise/steps,3)\n0.152\nsteprun\nround(run/steps,3)\n0.165\nsteprisemm\nsteprise*1000\n152\nsteprunmm\nsteprun*1000\n165"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 13994 to 157144 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 23 candidate v06 question string clusters."
+    }
+  ],
+  "stats": {
+    "questionCount": 23,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 23
+  }
+}

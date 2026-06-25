@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -n \"toTypst\\\\|toLaTeX\\\\|toLatex\\\\|mathMode\\\\|\\\\\\\\\\\\$\\\\|math mode\\\\|typst\\\\|latex\" /home/max/testgen-suite/bnk-decoder/packages/bnk-core/src/index.ts)",
+      "Bash(grep -n \"contentText\\\\|mathToTypst\\\\|mathToLatex\\\\|typstMath\\\\|latexMath\\\\|wrapMath\\\\|math_mode\\\\|\\\\\\\\\\\\$.*\\\\\\\\\\\\$\\\\|inMath\\\\|mathExpr\" /home/max/testgen-suite/bnk-decoder/packages/bnk-core/src/index.ts)",
+      "Bash(grep -n \"t_n\\\\|S_n\\\\|S_\\\\${n\\\\|f\\\\^\\(\\\\|f\\(x\\)\\\\|inv_b\\\\|inv_m\\\\|_n\\\\s*=\\\\|f\\\\^\" /home/max/testgen-suite/bnk-decoder/packages/bnk-core/src/index.ts)",
+      "Bash(npm run *)",
+      "Bash(grep -E '\\\\$[^$]+\\\\$' \"reports/ch01-mathmode-test/Chapter 01.typ\")",
+      "Bash(git -C /home/max/testgen-suite/bnk-decoder status)",
+      "Bash(git -C /home/max/testgen-suite/bnk-decoder diff --stat)",
+      "Bash(git *)",
+      "Bash(grep -E '\\\\$[^$]+\\\\$|t_n|S_[0-9]|\\\\^' \"reports/ch03-mathmode-test/Chapter 03.typ\")",
+      "Bash(grep -E \"t_n|S_[0-9]|\\\\^|\\\\$\" \"reports/ch01-mathmode-test/Chapter 01.typ\")",
+      "Bash(grep -E \"t_n|S_[0-9]|\\\\^|\\\\$\" \"reports/ch03-mathmode-test/Chapter 03.typ\")",
+      "Bash(grep -n \"x\\\\^2\\\\|\\\\\\\\\\\\$.*\\\\\\\\\\\\$\\\\|axis of symmetry\" /home/max/testgen-suite/bnk-decoder/packages/bnk-core/src/index.ts)",
+      "Bash(node --input-type=module)",
+      "Bash(grep -E '\\\\$[A-Za-z]_' \"reports/pc12ch01-fmtrun-test/Chapter 01.typ\")",
+      "Bash(grep -E '\\\\$[A-Za-z]_[A-Za-z]' \"reports/pc12ch01-fmtrun-test/Chapter 01.typ\")",
+      "Bash(grep -E 'y_axis|y_ax|\\\\$[A-Za-z]_' \"reports/pc12ch01-fmtrun-test/Chapter 01.typ\")",
+      "Bash(grep -E '\\\\$t_n|\\\\$S_[0-9]' 'reports/ch01-fmtrun-test/Chapter 01.typ')",
+      "Bash(node scripts/decode-file.mjs \"ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk\")",
+      "Bash(node scripts/decode-file.mjs \"ignore/ExamView/Banks/Foundations of Math 10/Chapter 01/MMS10_1.1.bnk\")",
+      "Bash(node scripts/inspect-records.mjs \"ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk\")",
+      "Bash(node -e ' *)",
+      "Bash(node *)",
+      "Bash(wait)"
+    ]
+  }
+}

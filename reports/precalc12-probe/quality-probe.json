@@ -1,0 +1,328 @@
+{
+  "generatedAt": "2026-06-13T18:35:16.891Z",
+  "inputDir": "reports/precalc12-probe",
+  "chapterCount": 3,
+  "questionCount": 203,
+  "notDecodedBodyCount": 43,
+  "embeddedBodyCount": 24,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 181,
+  "badChoiceCount": 4,
+  "quality": {
+    "clean": 193,
+    "suspect": 10,
+    "garbage": 0,
+    "averageScore": 91
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 11,
+      "embeddedBodies": 9,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 3,
+      "quality": {
+        "clean": 68,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "bodyIssues": [
+        {
+          "number": 11,
+          "id": "q-11",
+          "title": "vertical stretch | reflection",
+          "body": "When a $> 0,$ the function [embedded math expression] has what relationship to the base function [embedded math expression]?"
+        },
+        {
+          "number": 12,
+          "id": "q-12",
+          "title": "horizontal stretch | reflection",
+          "body": "When b $> 0,$ the function [embedded math expression] has what relationship to the base function [embedded math expression]?"
+        },
+        {
+          "number": 16,
+          "id": "q-16",
+          "title": "reflection | vertical stretch",
+          "body": "When the value of a is less than –$1,$ the function [embedded math expression] has what relationship to the base function [embedded math expression]?"
+        },
+        {
+          "number": 17,
+          "id": "q-17",
+          "title": "horizontal translation | vertical translation",
+          "body": "Compared to the graph of the base function [embedded math expression], the graph of the function [embedded math expression] is translated"
+        },
+        {
+          "number": 19,
+          "id": "q-19",
+          "title": "horizontal stretch | horizontal translation",
+          "body": "Which choice best describes the combination of transformations that must be applied to the graph of [embedded object] [DIAGRAM: variables (b, h, constant)] to obtain the graph of [DIAGRAM: variables (b, h, constant)]?"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "stretch",
+          "body": "For each $g(x),$ describe the transformation(s) from the base function [embedded math expression].\ra) [DIAGRAM: variables (stretch)] b) [DIAGRAM: variables (stretch)] c) [DIAGRAM: variables (stretch)]"
+        },
+        {
+          "number": 47,
+          "id": "q-47",
+          "title": "translation | stretch | reflection",
+          "body": "For each $g(x),$ describe, in the appropriate order, the combination of transformations that must be applied to the base function $f(x) = x$.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 51,
+          "id": "q-51",
+          "title": "inverse of a function | domain | range | graph | function notation | completing the square",
+          "body": "a) Determine the inverse of the function [embedded math expression].\rb) Determine the domain and range of the function and its inverse.\rc) Is the inverse a function? Explain."
+        },
+        {
+          "number": 62,
+          "id": "q-62",
+          "title": "graph | inverse of a function | function notation | domain | range",
+          "body": "Consider the function [embedded math expression].\ra) State the domain and range of the function.\rb) Use this information to determine the domain and range of the inverse of the function.\rc) Determine the inverse of the function.\rd) Graph the function and its inverse on the same set of axes (include the line y $= x$ to verify the inverse)."
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of [embedded object] is transformed to the graph of [DIAGRAM NEEDED].\ra) Describe the two translations represented by this transformation.\rb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 14,
+      "embeddedBodies": 4,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 63,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 92
+      },
+      "bodyIssues": [
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 44,
+          "id": "q-44",
+          "title": "power law | laws of logarithms",
+          "body": "Given [embedded object], find the value of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "logarithm",
+          "body": "The magnitude of an earthquake is defined as $M = log(A/A_0)$, where A is the amplitude of the ground motion and $A_0$ is the amplitude corrected for the distance from the actual earthquake that would be expected for a standard earthquake. On March $2, 2012,$ an earthquake with an amplitude $M = log 10 5.1 A_0 A_0 M = log10 5.1 M = 5.1$ times [DIAGRAM NEEDED] was recorded in Norman Wells, Northwest Territories.\ra) What was the earthquake s magnitude on the Richter scale?\rb) How does the earthquake in Norman Wells compare to the earthquake off Vancouver Island in $1946$ that measured $7.3$ on the Richter scale?"
+        },
+        {
+          "number": 50,
+          "id": "q-50",
+          "title": "power law of logarithms",
+          "body": "Given [embedded object] and [DIAGRAM NEEDED], find the value of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 52,
+          "id": "q-52",
+          "title": "laws of logarithms",
+          "body": "The intensity level, [embedded object], in decibels, of sound is defined as [DIAGRAM NEEDED], where I is the intensity of the sound in watts per square metre.The ratio of the intensity of sound pollution measured at a small airport runway versus that of the local highway is $6420.4$. If the sound level on the local highway is $91$ dB, determine the sound level on the runway, to the nearest decibel."
+        },
+        {
+          "number": 53,
+          "id": "q-53",
+          "title": "laws of logarithms",
+          "body": "Find the difference in pH levels of a swimming pool with a hydronium ion concentration of [embedded object] mol$/L$ and a swimming pool with a hydronium ion concentration of [DIAGRAM NEEDED] mol$/L,$ to the nearest hundredth."
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "logarithmic equation | exponential function",
+          "body": "The stellar magnitude scale compares the brightness of stars using the equation $log b 1 b$, where [DIAGRAM NEEDED] and [DIAGRAM NEEDED] are the apparent magnitudes (how bright the stars appear in the sky) of the two stars being compared, and $log b 1 b^2 0.12 + 1.5 = log b 1 b^2 1.62 = log b 1 b^2 10 1.62 = b 1 b^2^(b) 1 b^2 41.69$ and [DIAGRAM NEEDED] are their brightness (how much light they emit).\ra) The brightest appearing star in our sky, Sirius, has an apparent magnitude of $1.5$. How much brighter does Sirius appear than Betelgeuse, whose apparent magnitude is $0.12$? Round your answer to the nearest whole number.\rb) The Sun appears about $log b^2 b 1 - 1.5 - m^2 = log(1.3 10 10 ) m^2 - 1.5 - 10.11 m^2 - 11.61$ times as bright in the sky as does Sirius. What is the apparent magnitude of the Sun, to the nearest tenth?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "power law | laws of logarithms",
+          "body": "Prove that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "change of base formula | laws of logarithms",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 57,
+          "id": "q-57",
+          "title": "laws of logarithms | power law | quotient law | product law",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 58,
+          "id": "q-58",
+          "title": "graph | transformations of logarithmic functions",
+          "body": "Sketch the graphs of $y = log 1 / 2 x$, [DIAGRAM NEEDED], and [DIAGRAM NEEDED], and then describe the pattern in terms of n for [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "laws of logarithms",
+          "body": "Prove that [DIAGRAM NEEDED]."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 18,
+      "embeddedBodies": 11,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 1,
+      "quality": {
+        "clean": 62,
+        "suspect": 4,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "bodyIssues": [
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "add functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 27,
+          "id": "q-27",
+          "title": "subtract functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "multiply functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "divide functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "composite functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "composite functions | graph",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "add functions",
+          "body": "If quadratic is a linear function with positive coefficients and [embedded object] is a [DIAGRAM: variables (n, opp, $n_1)$] function with positive coefficients, then [DIAGRAM: variables (n, opp, $n_1)$] is a _______________ function."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "multiply functions",
+          "body": "If linear is a linear function and [embedded object] is a [DIAGRAM: variables (n, opp, $n_1)$] function, then [DIAGRAM: variables (n, opp, $n_1)$] is a _______________ function."
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "composite functions",
+          "body": "If $7,$ and $cot,$ then $7 =$ _____________ and [embedded object] $=$ _______________."
+        },
+        {
+          "number": 42,
+          "id": "q-42",
+          "title": "divide functions | domain",
+          "body": "Determine the domain and range of the function [embedded math expression]."
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "composite functions | evaluate",
+          "body": "Given the functions $f(x) = x^2 - 7$ and [DIAGRAM NEEDED], what is the value of [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "composite functions",
+          "body": "Given the functions [embedded object] and [DIAGRAM NEEDED], what values of x result in [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 50,
+          "id": "q-50",
+          "title": "composite functions",
+          "body": "Given the functions [embedded object] and [DIAGRAM NEEDED], determine all possible values of x for which [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 52,
+          "id": "q-52",
+          "title": "composite functions | domain | range",
+          "body": "What are the domain and range of the function [embedded math expression], where x is in radians?"
+        },
+        {
+          "number": 53,
+          "id": "q-53",
+          "title": "composite functions | domain | range",
+          "body": "Given that [embedded object] and [DIAGRAM NEEDED], what are the domain and range of the function $f(g(x))$?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "subtract functions",
+          "body": "The revenue function for a school group selling n bookmarks is given by [embedded object], and the total cost function is given by [DIAGRAM NEEDED]. Determine the number of bookmarks that need to be sold for the school group to break even."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "add functions | subtract functions",
+          "body": "Jenny and Jimmy are a married couple who work at the same store. Jimmy s total weekly salary, in dollars, if he sells x items is given by [embedded object], and Jenny s total weekly salary, in dollars, if she sells x items is given by [DIAGRAM NEEDED].\ra) Assuming that they sell the same number of items in a week, what is the minimum number of items they have to sell so that Jenny s weekly salary is at least $100 more than Jimmy s?\rb) Assuming that they sell the same number of items in a week, what is the minimum number of items they each need to sell to make their combined weekly salary greater than $1000?"
+        },
+        {
+          "number": 65,
+          "id": "q-65",
+          "title": "composite functions | depreciation",
+          "body": "A vehicle depreciates $20$% in value in the first year and $10$% in each year after the first.\ra) Write a function, [embedded object], to describe the value of the vehicle after $1$ year in terms of the original cost, c.\rb) Write a function, [embedded object], to describe the value after n years in terms of the original cost, c.\rc) If the original value of the vehicle is $$45 000,$ what is its value after $5$ years?"
+        }
+      ]
+    }
+  ]
+}

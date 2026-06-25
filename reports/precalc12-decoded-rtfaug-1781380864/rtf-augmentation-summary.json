@@ -1,0 +1,124 @@
+{
+  "decodedDir": "reports/precalc12-decoded-rtfpass-1781380478",
+  "rtfDir": "reports/rtf-reference-all",
+  "outDir": "reports/precalc12-decoded-rtfaug-1781380864",
+  "chapters": [
+    {
+      "chapter": 1,
+      "questionsAugmented": 3,
+      "assetsAdded": 3,
+      "unmatched": []
+    },
+    {
+      "chapter": 2,
+      "questionsAugmented": 4,
+      "assetsAdded": 5,
+      "unmatched": []
+    },
+    {
+      "chapter": 3,
+      "questionsAugmented": 10,
+      "assetsAdded": 13,
+      "unmatched": []
+    },
+    {
+      "chapter": 4,
+      "questionsAugmented": 7,
+      "assetsAdded": 9,
+      "unmatched": [
+        {
+          "id": "q-24",
+          "title": "trigonometric ratios",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-29",
+          "title": "trigonometric ratios",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-61",
+          "title": "cosine law | two-dimensional problem",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 5,
+      "questionsAugmented": 5,
+      "assetsAdded": 8,
+      "unmatched": []
+    },
+    {
+      "chapter": 6,
+      "questionsAugmented": 8,
+      "assetsAdded": 12,
+      "unmatched": []
+    },
+    {
+      "chapter": 7,
+      "questionsAugmented": 6,
+      "assetsAdded": 11,
+      "unmatched": [
+        {
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 8,
+      "questionsAugmented": 15,
+      "assetsAdded": 21,
+      "unmatched": []
+    },
+    {
+      "chapter": 9,
+      "questionsAugmented": 4,
+      "assetsAdded": 5,
+      "unmatched": [
+        {
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "reason": "matched block has no question images"
+        }
+      ]
+    },
+    {
+      "chapter": 10,
+      "questionsAugmented": 5,
+      "assetsAdded": 12,
+      "unmatched": []
+    },
+    {
+      "chapter": 11,
+      "questionsAugmented": 12,
+      "assetsAdded": 13,
+      "unmatched": [
+        {
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "reason": "matched block has no question images"
+        },
+        {
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "reason": "matched block has no question images"
+        }
+      ]
+    }
+  ],
+  "assetsCopied": 112,
+  "questionsAugmented": 79
+}

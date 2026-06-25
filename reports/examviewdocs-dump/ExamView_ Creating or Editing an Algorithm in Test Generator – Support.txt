@@ -1,0 +1,117 @@
+Chat with us, powered by LiveChat Skip to main content
+Support Help Center home page
+Echo360 Status: 
+
+  • What's New?
+  • Echosystem Roadmap
+  • Feature Requests
+  • Contact Support
+  • Sign in
+
+(Toggle navigation menu)
+
+  • Sign in
+  • 
+  • What's New
+  • Echosystem Roadmap
+  • Feature Requests
+  • Contact Support
+
+ 1. Support
+ 2. ExamView
+ 3. ExamView Test Generator
+
+ExamView: Creating or Editing an Algorithm in Test Generator
+
+[6f54bac614]
+Echo360
+
+  • August 15, 2023 18:17
+  • Updated
+
+Sections in Article
+
+Related articles
+
+  • ExamView: Algorithm Definitions in Exam View
+  • EchoPoll: Manage Rosters
+  • EchoVideo: API and SDK Documentation
+  • EchoVideo: Managing Capture Availability
+  • EchoVideo: Automatically Apply Automated Transcripts as Closed Captions for Media
+
+NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT
+
+As of June 30, 2024, ExamView will officially reach its end of life.
+
+Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no longer be providing updates,
+security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView
+will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security
+vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure
+uninterrupted service, we encourage migrating to EchoExam, which is designed to offer superior security, compatibility,
+and a range of advanced features that align with current technological standards. For questions click here.
+
+Creating or Editing an Algorithm
+
+There are no formatting options for constants, conditions, and user-defined functions, since only variables can be
+inserted into questions, narratives, or matching groups. If you have a value that is a constant or condition and you
+want to display it, you will need to create it as a variable.
+
+In order to make your algorithms easy to understand or debug, you may want to include comments in your algorithm
+definitions. To add a comment, type the pound sign (#) followed by your comment in the Definition field.
+
+ 1. Create a new question, narrative, or matching group.
+ 2. Click Edit from the menu bar and select Algorithm Definitions.
+
+    The Edit Algorithm Definitions window opens.
+
+ 3. Click New to create a variable, constant, condition, or user-defined function.
+
+    Once an algorithm is created as a particular type: variable, constant, condition, or user-defined function, you
+    will be unable to change the type.
+
+ 4. To add algorithms to an existing item, click Edit from the menu bar and select Algorithm Definitions, select the
+    algorithm name and definition, and click Edit.
+
+  •  
+  •  
+  •  
+
+Was this article helpful?
+(This article was helpful)Yes (This article was not helpful)No
+0 out of 2 found this helpful
+Return to top
+Main Echo360 Home
+
+Support
+
+  • EchoAuthor
+  • EchoExam
+  • EchoInk
+  • EchoPoll
+  • EchoVideo
+  • PointSolutions
+
+Company
+
+  • The Echosystem
+  • Education
+  • Business
+  • Government
+  • Resources
+  • Company
+  • Downloads
+
+  • Privacy Policy
+  • |
+  • Terms & Conditions
+  • |
+  • Support Policy
+  • |
+  • Feedback Policy
+  • |
+  • Contact
+
+ 
+ 
+ 
+ 

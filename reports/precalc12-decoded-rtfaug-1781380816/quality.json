@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2026-06-13T20:00:16.234Z",
+  "inputDir": "reports/precalc12-decoded-rtfaug-1781380816",
+  "chapterCount": 0,
+  "questionCount": 0,
+  "notDecodedBodyCount": 0,
+  "embeddedBodyCount": 0,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 0,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 0,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 0
+  },
+  "chapters": []
+}

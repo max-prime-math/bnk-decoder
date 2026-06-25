@@ -1,0 +1,512 @@
+<FSCScanForm version='2' name='50 Questions A-E' description='50 multiple-choice questions with 5 choices for each response. Choices are labeled ABCDE. Free space is provided for students to write at the bottom of the form. Student ID numbers allow up to 10 digits.'>
+<region widthmm='190.5' heightmm='254'>
+<barcode3of9 x='0.06' y='0.96' height='0.024' text='EI50AE'/>
+<field name='Student Name'>
+<textbox x='0.15' y='0.068' width='0.275' height='0.015' fontface='Times New Roman' fontsize='12' format='left'/>
+</field>
+<field name='Assignment'>
+<textbox x='0.134' y='0.095' width='0.29' height='0.015' fontface='Times New Roman' fontsize='12' format='left'/>
+</field>
+<field name='Period'>
+<textbox x='0.093' y='0.122' width='0.14' height='0.015' fontface='Times New Roman' fontsize='12' format='left'/>
+</field>
+<field name='Date'>
+<textbox x='0.294' y='0.122' width='0.13' height='0.015' fontface='Times New Roman' fontsize='12' format='left'/>
+</field>
+<field name='Score'>
+<textbox x='0.44' y='0.18' width='0.07' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+</field>
+<field name='Student ID'>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.57' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.58' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.58' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.58' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.58' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.58' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.58' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.58' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.58' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.58' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.58' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.61' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.62' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.62' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.62' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.62' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.62' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.62' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.62' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.62' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.62' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.62' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.65' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.66' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.66' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.66' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.66' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.66' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.66' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.66' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.66' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.66' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.66' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.69' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.7' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.7' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.7' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.7' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.7' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.7' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.7' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.7' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.7' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.7' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.73' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.74' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.74' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.74' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.74' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.74' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.74' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.74' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.74' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.74' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.74' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.77' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.78' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.78' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.78' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.78' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.78' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.78' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.78' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.78' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.78' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.78' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.81' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.82' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.82' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.82' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.82' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.82' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.82' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.82' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.82' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.82' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.82' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.85' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.86' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.86' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.86' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.86' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.86' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.86' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.86' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.86' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.86' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.86' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.89' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.9' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.9' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.9' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.9' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.9' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.9' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.9' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.9' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.9' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.9' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+<bubbleset maxfilled='1' maxfilledexceeded='*' unfilleddefault=' '>
+<textbox x='0.93' y='0.015' width='0.02' height='0.015' fontface='Times New Roman' fontsize='12' format='center'/>
+<bubble x='0.94' y='0.05' width='0.02' height='0.015' alias='0'/>
+<bubble x='0.94' y='0.07' width='0.02' height='0.015' alias='1'/>
+<bubble x='0.94' y='0.09' width='0.02' height='0.015' alias='2'/>
+<bubble x='0.94' y='0.11' width='0.02' height='0.015' alias='3'/>
+<bubble x='0.94' y='0.13' width='0.02' height='0.015' alias='4'/>
+<bubble x='0.94' y='0.15' width='0.02' height='0.015' alias='5'/>
+<bubble x='0.94' y='0.17' width='0.02' height='0.015' alias='6'/>
+<bubble x='0.94' y='0.19' width='0.02' height='0.015' alias='7'/>
+<bubble x='0.94' y='0.21' width='0.02' height='0.015' alias='8'/>
+<bubble x='0.94' y='0.23' width='0.02' height='0.015' alias='9'/>
+</bubbleset>
+</field>
+<field name='Test Version'>
+<bubbleset>
+<bubble x='0.48' y='0.05' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.48' y='0.07' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.48' y='0.09' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.48' y='0.11' width='0.02' height='0.015' alias='D'/>
+</bubbleset>
+</field>
+<field name='Questions' delimiter=','>
+<bubbleset>
+<bubble x='0.08' y='0.28' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.28' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.28' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.28' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.28' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.3145' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.3145' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.3145' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.3145' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.3145' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.349' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.349' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.349' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.349' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.349' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.3835' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.3835' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.3835' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.3835' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.3835' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.418' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.418' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.418' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.418' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.418' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.4525' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.4525' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.4525' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.4525' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.4525' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.487' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.487' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.487' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.487' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.487' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.5215' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.5215' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.5215' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.5215' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.5215' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.556' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.556' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.556' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.556' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.556' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.08' y='0.5905' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.108' y='0.5905' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.136' y='0.5905' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.164' y='0.5905' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.192' y='0.5905' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.28' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.28' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.28' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.28' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.28' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.3145' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.3145' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.3145' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.3145' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.3145' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.349' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.349' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.349' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.349' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.349' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.3835' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.3835' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.3835' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.3835' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.3835' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.418' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.418' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.418' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.418' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.418' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.4525' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.4525' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.4525' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.4525' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.4525' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.487' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.487' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.487' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.487' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.487' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.5215' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.5215' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.5215' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.5215' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.5215' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.556' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.556' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.556' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.556' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.556' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.27' y='0.5905' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.298' y='0.5905' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.326' y='0.5905' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.354' y='0.5905' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.382' y='0.5905' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.28' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.28' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.28' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.28' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.28' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.3145' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.3145' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.3145' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.3145' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.3145' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.349' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.349' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.349' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.349' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.349' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.3835' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.3835' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.3835' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.3835' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.3835' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.418' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.418' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.418' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.418' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.418' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.4525' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.4525' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.4525' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.4525' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.4525' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.487' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.487' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.487' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.487' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.487' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.5215' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.5215' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.5215' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.5215' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.5215' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.556' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.556' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.556' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.556' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.556' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.46' y='0.5905' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.488' y='0.5905' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.516' y='0.5905' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.544' y='0.5905' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.572' y='0.5905' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.28' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.28' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.28' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.28' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.28' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.3145' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.3145' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.3145' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.3145' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.3145' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.349' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.349' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.349' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.349' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.349' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.3835' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.3835' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.3835' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.3835' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.3835' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.418' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.418' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.418' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.418' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.418' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.4525' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.4525' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.4525' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.4525' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.4525' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.487' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.487' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.487' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.487' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.487' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.5215' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.5215' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.5215' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.5215' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.5215' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.556' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.556' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.556' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.556' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.556' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.65' y='0.5905' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.678' y='0.5905' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.706' y='0.5905' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.734' y='0.5905' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.762' y='0.5905' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.28' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.28' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.28' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.28' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.28' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.3145' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.3145' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.3145' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.3145' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.3145' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.349' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.349' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.349' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.349' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.349' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.3835' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.3835' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.3835' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.3835' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.3835' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.418' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.418' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.418' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.418' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.418' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.4525' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.4525' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.4525' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.4525' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.4525' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.487' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.487' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.487' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.487' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.487' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.5215' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.5215' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.5215' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.5215' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.5215' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.556' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.556' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.556' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.556' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.556' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+<bubbleset>
+<bubble x='0.84' y='0.5905' width='0.02' height='0.015' alias='A'/>
+<bubble x='0.868' y='0.5905' width='0.02' height='0.015' alias='B'/>
+<bubble x='0.896' y='0.5905' width='0.02' height='0.015' alias='C'/>
+<bubble x='0.924' y='0.5905' width='0.02' height='0.015' alias='D'/>
+<bubble x='0.952' y='0.5905' width='0.02' height='0.015' alias='E'/>
+</bubbleset>
+</field>
+</region>
+</FSCScanForm>

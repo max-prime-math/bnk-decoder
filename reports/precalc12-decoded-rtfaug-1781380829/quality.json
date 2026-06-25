@@ -1,0 +1,389 @@
+{
+  "generatedAt": "2026-06-13T20:00:30.361Z",
+  "inputDir": "reports/precalc12-decoded-rtfaug-1781380829",
+  "chapterCount": 11,
+  "questionCount": 736,
+  "notDecodedBodyCount": 31,
+  "embeddedBodyCount": 6,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 532,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 736,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 64,
+      "notDecodedBodies": 7,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 30,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 33,
+          "id": "q-32",
+          "title": "dividend",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-33",
+          "title": "divisor",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-34",
+          "title": "quotient",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 41,
+          "id": "q-40",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "body": "A variety of factoring techniques is required. Factor fully. a) $x_2(x$ – $2)(x + 2) + 3x + 6\nb) 16x4$ – (x $+ 1)2$ [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 42,
+          "id": "q-41",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "body": "A variety of factoring techniques is required. Factor $2x3 + 5x2$ – $14x$ – $8$ fully [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 51,
+          "id": "q-54",
+          "title": "factor theorem | factor",
+          "body": "Show that x $+ a$ is a factor of the polynomial $P(x) = (x + a)4 + (x + c)4$ – (a – c)$4$. [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 57,
+          "id": "q-61",
+          "title": "factor theorem | integral zero theorem | factor | root | extraneous roots",
+          "body": "Let x represent the side length of the square to be cut from each corner.\rThen $V(x) = x(15$ – $2x)(25$ – $2x)$.\rSolve $x(15$ – $2x)(25$ – $2x) = 476$. $x = 1 3 .$ Let $P(x) = 4x 3 - 80x 2 + 375x - 476$, and try x $= 4$ in the factor theorem. $P(x) = 4x 3 - 80x 2 + 375x - 476 P(4) = 4(4) 3 - 80(4 2 ) + 375(4) - 476 = 256 - 1280 + 1500 - 476 P(4) = 0$ Thus, x $4$ is a factor of $P(x)$. Divide to find another factor. $4x 3 - 80x 2 + 375x - 476 = 0 (x - 4)(4x 2 - 64x + 119) = 0 x = 4$ Thus, $x = 64 ( - 64) 2 - 4(4)(119) 2(4) = 16 137 2 13.9$ Use the quadratic formula to solve the quadratic equation. [DIAGRAM NEEDED] x $= 13.9$ cm is not possible because of the starting dimensions of the sheet of metal. The side length of the square cut from each corner is either $4$ cm or approximately $2.15$ cm."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 4,
+      "embeddedBodies": 4,
+      "slotBodies": 0,
+      "inlineObjects": 29,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 24,
+          "id": "q-24",
+          "title": "trigonometric ratios",
+          "body": "degree$<>0$ and degree$<>90$ and degree$<>180$ and degree$<>270$ and degree$<>360$ Giai got an answer of [embedded object] when she was calculating the value of a trigonometric function. Assuming Giai did her calculation correctly, which of the following was she calculating?"
+        },
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "trigonometric ratios",
+          "body": "For a point on the unit circle, the [embedded object] can be determined using the ____________________."
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "trigonometric ratios",
+          "body": "The [embedded object] occurs when the angle in standard position is ____________________."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "cosine law | two-dimensional problem",
+          "body": "Let x represent the width of the canyon. Use the cosine law. [embedded object] The width of the canyon is approximately $173.3 m$."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 37,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 39,
+          "id": "q-39",
+          "title": "difference identities | sum identities",
+          "body": "[DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 3,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "body": "a pattern of growth in which each term is multiplied by a constant amount [embedded object] to produce the next term"
+        },
+        {
+          "number": 41,
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "body": "Sketch an exponential function with all of the given conditions: domain $y = - 4 1 / 2^(x)$ range [DIAGRAM NEEDED] $y-$intercept of –$4$ no $x-$intercept the function is always increasing"
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "body": "The scatter plot shows how his money has grown over time. [DIAGRAM NEEDED] a) Do the data show an exponential trend? Explain your reasoning.\rb) Estimate values of a and b to develop a model for the information of the form $V t = ab t$, for t in years.\rc) Use your model to predict the expected value of Michael s investment in $30$ years.\rd) How does the result in part c) illustrate the power of exponential growth?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 5,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 2,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 58,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "body": "Solve each equation by graphing, using technology. Express your answers to two decimal places. a) $3x x - 2 = - 1 x + 3 1 x + 1 x - 5 = - 1 * x^2 (x - 5) 3 = - 2 x - 5 3x - 1 x = x + 5 x - 3$ b) $x - 3.52$ c) $x - 1.19$ d) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "slant asymptote | polynomial long division",
+          "body": "a) Use long division to express the function $f(x) = x - 5 + 17 x + 2$ as the sum of a polynomial function and a rational function of the form [DIAGRAM NEEDED], where A is a constant. b) What does your result in part a) allow you to predict about the graph of $y = x - 5$, for large values of x? Why?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 8,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 5,
+          "id": "q-5",
+          "title": "combinations",
+          "body": "Solve for the variable: $X + X$ [DIAGRAM: variables (n, r, d)] $=$ [DIAGRAM: variables (n, r, d)]"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "body": "Let s represent the number of sandwich choices, c the number of cheese choices, v the number of vegetable choices, and a the number of sauce choices. Let T represent the total number of choices. [embedded object] There are $3528$ different choices."
+        },
+        {
+          "number": 37,
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "body": "Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number of ways the letters in COMBINATION can be arranged. $P = 11!$ [DIAGRAM NEEDED] There are more arrangements for PERMUTATION, so Sun Eui is correct."
+        }
+      ]
+    }
+  ]
+}

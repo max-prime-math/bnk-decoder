@@ -1,0 +1,1461 @@
+       Chapter 1: Function Transformations
+
+
+       MULTIPLE CHOICE
+
+          1. Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x 2  9 is
+             translated
+             A 9 units to the left                          C 9 units down
+             B 9 units to the right                         D 9 units up
+              ANS: C             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: vertical translation
+
+          2. Compared to the graph of the base function f(x)  | x| , the graph of the function g(x)  5  x  is
+             translated
+             A 5 units to the right                         C 5 units down
+             B 5 units up                                   D 5 units to the left
+              ANS: C             DIF: Average           OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: vertical translation
+
+                                                                                                                2
+          3. Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x  4 is
+             translated
+             A 4 units to the right                         C 4 units down
+             B 4 units to the left                          D 4 units up
+              ANS: A             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: horizontal translation
+
+          4. Compared to the graph of the base function f(x)  x  , the graph of the function g(x)  x  9 is
+             translated
+             A 9 units to the right                         C 9 units down
+             B 9 units up                                   D 9 units to the left
+              ANS: D             DIF: Easy              OBJ: Section 1.1           NAT: RF2
+              TOP: Horizontal and Vertical Translations                            KEY: horizontal translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          5. Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is
+             represented by g x   f x  2 ?
+
+
+
+
+              A   (3,  4)                                   C   (1,  2)
+              B   (1,  4)                                  D   (3,  6)
+              ANS: A             DIF: Average           OBJ: Section 1.1       NAT: RF2
+              TOP: Horizontal and Vertical Translations                        KEY: horizontal translation
+
+          6. Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is
+             represented by g x   f x   3?
+
+
+
+
+              A   (5, 2)                                     C   (2,  1)
+              B   (2,  4)                                   D   (8, 2)
+              ANS: A             DIF: Average           OBJ: Section 1.1       NAT: RF2
+              TOP: Horizontal and Vertical Translations                        KEY: vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            2
+          7. What is the equation of the transformed function, g(x), after the transformations are applied to the
+             graph of the base function f x   x 2 , shown in blue, to obtain the graph of g(x), shown in red?
+
+
+
+
+                                         2                                               2
+              A   g x   3  x  5                        C   g x   5  x  3
+                                  2                                               2
+              B   g x   x  3  5                        D   g x   x  5  3
+              ANS: B              DIF: Average             OBJ: Section 1.1      NAT: RF2
+              TOP: Horizontal and Vertical Translations
+              KEY: horizontal translation | vertical translation
+
+          8. The function f(x)  g( x) represents a transformation that can best be described as
+             A a reflection in the x-axis                    C a reflection in the y-axis
+             B a reflection in the x-axis and the y-axis     D a reflection in the line y = x
+              ANS: A             DIF: Easy                 OBJ: Section 1.2      NAT: RF5
+              TOP: Reflections and Stretches               KEY: reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            3
+          9. The two functions in the graph shown are reflections of each other. Select the type of reflection(s).
+
+
+
+
+              A   a reflection in the line y = x                 C   a reflection in the y-axis
+              B   a reflection in the x-axis and the y-axis      D   a reflection in the x-axis
+              ANS: D             DIF: Average                 OBJ: Section 1.2     NAT: RF5
+              TOP: Reflections and Stretches                  KEY: reflection
+
+         10. When a function is reflected in the x-axis, the coordinates of point (x, y) become
+             A (x, –y)                                        C (–x, –y)
+             B (–x, y)                                        D (x, y)
+              ANS: A             DIF: Easy                    OBJ: Section 1.1     NAT: RF5
+              TOP: Reflections and Stretches                  KEY: reflection
+
+         11. When a > 0, the function g(x)  ax 2 has what relationship to the base function f(x)  x 2 ?
+             A f(x) is stretched vertically by a factor of |a| and reflected in the x-axis
+             B f(x) is stretched horizontally by a factor of 1/|a|
+             C f(x) is stretched vertically by a factor of |a|
+             D f(x) is stretched horizontally by a factor of 1/|a| and reflected in the y-axis
+              ANS: C             DIF: Easy                    OBJ: Section 1.2 NAT: RF3 | RF5
+              TOP: Reflections and Stretches                  KEY: vertical stretch | reflection
+
+         12. When b > 0, the function g(x)  bx has what relationship to the base function f(x)  x  ?
+             A f(x) is stretched vertically by a factor of |b| and reflected in the x-axis
+             B f(x) is stretched vertically by a factor of |b|
+             C f(x) is stretched horizontally by a factor of 1/|b| and reflected in the y-axis
+             D f(x) is stretched horizontally by a factor of 1/|b|
+              ANS: D             DIF: Easy                    OBJ: Section 1.2 NAT: RF3 | RF5
+              TOP: Reflections and Stretches                  KEY: horizontal stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             4
+         13. Which of the graphs shown below represents the base function f(x)  x 2 and the stretched function
+                     1
+             g(x) =  x2?
+                     5
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: A             DIF: Average              OBJ: Section 1.2 NAT: RF3 | RF5
+              TOP: Reflections and Stretches               KEY: graph | vertical stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          5
+         14. Which of the graphs shown below represents the base function f(x)  x 2 and the stretched function
+                     3
+             g(x) = ( x)2?
+                     4
+
+              A                                                C
+
+
+
+
+              B                                                D
+
+
+
+
+              ANS: A             DIF: Average              OBJ: Section 1.2 NAT: RF3 | RF5
+              TOP: Reflections and Stretches               KEY: graph | horizontal stretch | reflection
+
+         15. What are the coordinates of the invariant point(s) when the function y  x   2 is reflected in the
+             y-axis?
+             A (2, –2)                                       C (0, –2)
+             B (–2, 0) and (2, 0)                            D (0, 2)
+              ANS: C             DIF: Average              OBJ: Section 1.2 NAT: RF3
+              TOP: Reflections and Stretches               KEY: invariant point
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             6
+         16. When the value of a is less than –1, the function g(x)  ax 2 has what relationship to the base function
+             f(x)  x 2 ?
+             A f(x) is compressed vertically
+             B f(x) is reflected and compressed vertically
+             C f(x) is stretched vertically
+             D f(x) is reflected and stretched vertically
+              ANS: D             DIF: Average              OBJ: Section 1.2 NAT: RF3 | RF5
+              TOP: Reflections and Stretches               KEY: reflection | vertical stretch
+
+                                                                                                                2
+         17. Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x  4  9 is
+             translated
+             A 9 units to the left and 4 units down         C 9 units to the right and 4 units up
+             B 4 units to the left and 9 units down         D 4 units to the right and 9 units up
+              ANS: D            DIF: Easy                  OBJ: Section 1.3 NAT: RF4
+              TOP: Combining Transformations               KEY: horizontal translation | vertical translation
+
+                                                               2
+         18. Which is the graph of the function f(x)  x  6  3?
+             A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: C            DIF: Easy                  OBJ: Section 1.3 NAT: RF4
+              TOP: Combining Transformations               KEY: graph | horizontal translation | vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                7
+         19. Which choice best describes the combination of transformations that must be applied to the graph of
+             f x   x  to obtain the graph of g(x)  f 2x  4 ?
+             A a horizontal stretch by a factor of 2 and a horizontal translation of 2 units to the left
+                                                        1
+             B a horizontal stretch by a factor of and a horizontal translation of 4 units to the right
+                                                        2
+                                                        1
+             C a horizontal stretch by a factor of and a horizontal translation of 2 units to the right
+                                                        2
+             D a horizontal stretch by a factor of –2 and a horizontal translation of 2 units to the right
+              ANS: C            DIF: Difficult              OBJ: Section 1.3 NAT: RF4
+              TOP: Combining Transformations                KEY: horizontal stretch | horizontal translation
+
+         20. In the following graph, which transformations must be applied to the blue curve to obtain the red
+             curve?
+
+
+
+
+              A   a reflection in the x-axis, a vertical translation of 4 units up, and a horizontal translation
+                  of 3 units to the right
+              B   a reflection in the x-axis, a vertical translation of 3 units up, and a horizontal translation
+                  of 4 units to the right
+              C   a reflection in the x-axis, a vertical translation of 3 units down, and a horizontal
+                  translation of 4 units to the right
+              D   a reflection in the x-axis, a vertical translation of 4 units up, and a horizontal translation
+                  of 3 units to the left
+              ANS: A              DIF: Average             OBJ: Section 1.3 NAT: RF4 | RF5
+              TOP: Combining Transformations
+              KEY: graph | horizontal translation | vertical translation | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           8
+         21. In the graph shown, which transformations must be applied to the blue curve to obtain the red curve?
+
+
+
+
+              A   a reflection in the x-axis and a translation of 5 units down
+              B   a reflection in the y-axis and a translation of 5 units up
+              C   a reflection in the x-axis and a translation of 5 units up
+              D   a reflection in the y-axis and a translation of 5 units down
+              ANS: C            DIF: Average               OBJ: Section 1.3 NAT: RF4
+              TOP: Combining Transformations               KEY: graph | vertical translation | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            9
+         22. Which of the following graphs represents the graph of the function f x   x  transformed to
+             f x   22x  4  2?
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: D               DIF: Difficult          OBJ: Section 1.3 NAT: RF4 | RF5
+              TOP: Combining Transformations
+              KEY: graph | vertical translation | horizontal translation | stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       10
+         23. When the function f x   x  is transformed to f x   4x  3  2, the graph looks like
+
+              A                                                 C
+
+
+
+
+              B                                                 D
+
+
+
+
+              ANS: C               DIF: Average            OBJ: Section 1.3 NAT: RF4 | RF5
+              TOP: Combining Transformations
+              KEY: graph | vertical translation | horizontal translation | stretch | reflection
+
+         24. Which of the following functions is the correct inverse for the function f(x)  3x  5?
+                          1 5                                                1 5
+             A f 1 (x) = x                                 C f 1 (x) =  x
+                          3 3                                                3 3
+                            1   5                                           1    5
+             B f 1 (x) =  x                               D f 1 (x) = x
+                            3 3                                             3 3
+              ANS: A              DIF: Easy                 OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                    KEY: inverse of a function | function notation
+
+                                                                                              9
+         25. Which of the following functions is the correct inverse for the function f(x) =  x  6?
+                                                                                              2
+                            2 4                                               2 4
+             A f 1 (x) =  x                               C f 1 (x) =  x
+                            9 3                                               9 3
+                          9    4                                            9    4
+             B f 1 (x) = x                                 D f 1 (x) = x
+                          2 3                                               2 3
+              ANS: A              DIF: Average              OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                    KEY: inverse of a function | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                      11
+         26. Which of the following functions is the correct inverse for the function f(x)  x 2  7,
+             {x | x  0, x  R}?
+                                  2
+             A f 1 (x) = x  7                            C f 1 (x) = x  7
+              B    f 1 (x) =   x 7                           D    f 1 (x) =   x7
+              ANS: C              DIF: Average             OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                   KEY: inverse of a function | function notation
+
+         27. Which of the following relations is the correct inverse for the function f(x)  x 2  6x  2?
+              A    f 1 (x) = 3 x  7                         C    f 1 (x) = 3 x  7
+              B    f 1 (x) = 7 x  3                         D    f 1 (x) = –7 x  3
+              ANS: C              DIF: Difficult +        OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation
+              KEY: inverse of a function | function notation | completing the square
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     12
+         28. Which graph represents the inverse of the graph shown?
+
+
+
+
+              A                                               C
+
+
+
+
+              B                                               D
+
+
+
+
+              ANS: D              DIF: Average             OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                   KEY: graph | inverse of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                        13
+         29. Which graph represents the inverse of the function shown?
+
+
+
+
+              A                                                C
+
+
+
+
+              B                                                D
+
+
+
+
+              ANS: D              DIF: Easy                 OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                    KEY: graph | inverse of a function
+
+         30. The equation of the inverse of f(x)  9x is
+                          x
+             A f 1 (x)                                       C    f 1 (x)  9x
+                          9
+                          x
+             B f 1 (x)                                       D    f 1 (x)  9x
+                          9
+              ANS: A              DIF: Easy                 OBJ: Section 1.4 NAT: RF6
+              TOP: Inverse of a Relation                    KEY: inverse of a function | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     14
+       COMPLETION
+
+          1. ____________________ are transformations that
+             cause the graph of a function to change shape without changing the orientation of the graph.
+
+              ANS: Stretches
+
+              DIF: Easy             OBJ: Section 1.1 | Section 1.2             NAT: RF2 | RF3
+              TOP: Horizontal and Vertical Translations | Reflections and Stretches
+              KEY: translation | stretch | reflection
+
+          2. The graph of g(x)  f(x  2) is the graph of f(x) translated 2 units ____________________.
+
+              ANS: to the right
+
+              DIF: Easy           OBJ: Section 1.1 NAT: RF2
+              TOP: Horizontal and Vertical Translations
+              KEY: horizontal translation | vertical translation
+
+          3. The ____________________ is (are) invariant on a function after a reflection in the y-axis.
+
+              ANS: the y-intercept
+
+              DIF: Easy            OBJ: Section 1.2         NAT: RF3               TOP: Reflections and Stretches
+              KEY: reflection | invariant point
+
+          4. The graph of f(x) is reflected in the y-axis, translated 8 units to the left, and translated 7 units down.
+             The equation of the transformed function is g(x) = ____________________.
+
+              ANS: f((x  8))  7
+
+              DIF: Average          OBJ: Section 1.3        NAT: RF4 | RF5         TOP: Combining Transformations
+              KEY: translation | reflection
+
+                                               5
+          5. The inverse of the function f(x) = x – 5 is ____________________.
+                                               4
+
+                                4
+              ANS: f 1 (x)      x4
+                                5
+
+              DIF: Average        OBJ: Section 1.4          NAT: RF6               TOP: Inverse of a Relation
+              KEY: inverse of a function
+
+
+       MATCHING
+
+              Match each definition or explanation given below to its corresponding term.
+              A transformation                               D image point
+              B mapping                                      E reflection
+              C inverse of a relation                        F invariant point
+          1. the point that is the result of a transformation of the original point on the graph
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  15
+          2. a point that is mapped to itself by the function
+          3. a rule of correspondence established between sets that associates each element of a set with an
+             element in the same or another set
+          4. a relation that undoes another relation
+          5. a change made to a figure or graph of a relation that results in a shift or change in shape of the figure
+             or graph
+
+          1. ANS: D              DIF: Easy             OBJ: Section 1.1 NAT: RF2
+             TOP: Horizontal and Vertical Translations                      KEY: image point
+          2. ANS: F              DIF: Easy             OBJ: Section 1.2 NAT: RF5
+             TOP: Reflections and Stretches            KEY: invariant point
+          3. ANS: B              DIF: Easy             OBJ: Section 1.1 NAT: RF2
+             TOP: Horizontal and Vertical Translations                      KEY: mapping
+          4. ANS: C              DIF: Easy             OBJ: Section 1.4 NAT: RF6
+             TOP: Inverse of a Relation                KEY: inverse of a function
+          5. ANS: A              DIF: Easy             OBJ: Section 1.1 NAT: RF2
+             TOP: Horizontal and Vertical Translations                      KEY: transformation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 16
+       SHORT ANSWER
+
+          1. Create a graph of g(x)  f x  1  2 for each base function given, using transformations.
+             a) f(x)  x 2
+             b) f(x)  x 
+
+              ANS:
+                                                                                         2
+              a) The graph of f(x)  x 2 is shown in blue and the graph of g(x)  x  1  2 is shown in red.
+
+
+
+
+              b) The graph of f(x)  x  is shown in blue and the graph of g(x)  x  1  2 is shown in red.
+
+
+
+
+              DIF: Average          OBJ: Section 1.3       NAT: RF4               TOP: Combining Transformations
+              KEY: translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           17
+          2. Determine the equation, in standard form, of each parabola after being transformed from f(x)  x 2 by
+             the given translations.
+             a) 4 units to the right and 3 units up
+             b) 2 units to the left and 1 unit up
+             c) 2 units down and 7 units to the left
+
+              ANS:
+                               2
+              a) g(x)  x  4  3
+                      x 2  8x  16  3
+                      x 2  8x  19
+                              2
+              b) g(x)  x  2  1
+                      x 2  4x  4  1
+                      x 2  4x  5
+                              2
+              c) g(x)  x  7  2
+                      x 2  14x  49  2
+                      x 2  14x  47
+
+              DIF: Average             OBJ: Section 1.3    NAT: RF4            TOP: Combining Transformations
+              KEY: translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             18
+          3. Given the graph of a function, sketch the resulting graph after the specified transformation.
+             a) reflection in the x-axis
+
+
+
+
+              b) reflection in the y-axis
+
+
+
+
+              c) reflection in the x-axis and the y-axis
+
+
+
+
+              ANS:
+              a)
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     19
+              b)
+
+
+
+
+              c)
+
+
+
+
+              DIF: Difficult +     OBJ: Section 1.2        NAT: RF3 | RF5        TOP: Reflections and Stretches
+              KEY: graph | reflection
+
+          4. Determine the equation of the function g(x) after the indicated reflection.
+                                2
+             a) f(x)  x  1  2, in the x-axis
+             b) f(x)  x   1, in the y-axis
+
+              ANS:
+              a) g x   f(x)
+                                   2
+                       x  1  2
+              b) g(x)  f x
+                       x  1
+                       x   1
+
+              DIF: Average          OBJ: Section 1.3       NAT: RF4 | RF5        TOP: Combining Transformations
+              KEY: reflection | translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          20
+          5. a) Sketch the graph of g(x)  2f 2x for each base function.
+             i) f(x)  x
+             ii) f(x)  x 2
+             iii) f(x)  x 
+             b) Write the equation for g(x) to represent a single stretch that results in the same graph as in each
+             function in part a).
+             c) Describe how each stretch affects the domain and range for each function.
+
+              ANS:
+              a) i) The graph of f(x)  x is shown in blue and the graph of g(x) = 2(2x) is shown in red.
+
+
+
+
+              ii) The graph of f(x)  x 2 is shown in blue and the graph of g(x) = 2(2x)2 is shown in red.
+
+
+
+
+              iii) The graph of f(x)  x  is shown in blue and the graph of g(x) = 22x is shown in red.
+
+
+
+
+              b) i) g(x)  4x (vertical stretch by a factor of 4)
+              ii) g(x)  8x 2 (vertical stretch by a factor of 8)
+              iii) g(x)  4x  (vertical stretch by a factor of 4)
+              c) The stretches do not affect the domain or range of any of the functions.
+
+              DIF: Average         OBJ: Section 1.2         NAT: RF3               TOP: Reflections and Stretches
+              KEY: stretch | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              21
+          6. For each g(x), describe the transformation(s) from the base function f(x)  x 2 .
+                           1
+             a) g(x)  x 2
+                           2
+                           x  2
+             b) g(x)   
+                           3
+                                      2
+                             x 
+              c) g(x)  5 
+                             2
+
+              ANS:
+                                                   1
+              a) a vertical stretch by a factor of
+                                                   2
+              b) a horizontal stretch by a factor of 3
+              c) a vertical stretch by a factor of 5 and a horizontal stretch by a factor of 2
+
+              DIF: Average                OBJ: Section 1.2   NAT: RF3               TOP: Reflections and Stretches
+              KEY: stretch
+
+          7. For each g(x), describe, in the appropriate order, the combination of transformations that must be
+             applied to the base function f(x)  x .
+              a) g(x)   2x  1  2
+              b) g(x)  2 x  3  4
+                          1
+              c) g(x)     5x 1
+                          2
+
+              ANS:
+                                                                                       1
+              a) a reflection in the x-axis, a horizontal compression by a factor of     , and then a translation of 1 unit
+                                                                                       2
+              to the left and 2 units down
+              b) a vertical stretch by a factor of 2, and then a translation of 3 units to the right and 4 units down
+                                                                                                   1
+              c) reflections in the x-axis and the y-axis, a vertical compression by a factor of , and then a
+                                                                                                   2
+              translation of 5 units to the right and 1 unit up
+
+              DIF: Difficult +      OBJ: Section 1.3         NAT: RF4 | RF5         TOP: Combining Transformations
+              KEY: translation | stretch | reflection
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                      22
+          8. For each of the following, describe the combination of transformations that must be applied to the
+             graph of f(x)  x 2 (shown in blue) to obtain the graph of g(x) (shown in red).
+             a)
+
+
+
+
+              b)
+
+
+
+
+              c)
+
+
+
+
+              ANS:
+              a) a reflection in the x-axis, and then a translation of 2 units to the right and 3 units up
+              b) a vertical stretch by a factor of 2, and then a translation of 1 unit to the left and 1 unit down
+                                                         1
+              c) a vertical compression by a factor of , a reflection in the x-axis, and then a translation of 2 units to
+                                                         2
+              the right and 2 units up
+
+              DIF: Average         OBJ: Section 1.3         NAT: RF4               TOP: Combining Transformations
+              KEY: graph | transformation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    23
+          9. For each function f(x),
+             i) determine f 1 (x)
+             ii) graph f(x) and its inverse
+                        5
+             a) f(x)  x  3
+                        2
+                                         2
+              b) f(x)  3x  2  3
+
+              ANS:
+                                   5
+              a) i)        y        x 3
+                                   2
+                                   5
+                           x        y 3
+                                   2
+                                   5
+                       x3          y
+                                   2
+                      2x  6  5y
+                                   2    6
+                           y        x
+                                   5    5
+                            2      6
+                      f 1 (x) 
+                              x
+                            5      5
+              ii) The graph of f(x) is shown in blue and the graph of f 1 (x) is shown in red.
+
+
+
+
+              b) i)                y  3(x  2) 2  3
+                                   x  3(y  2) 2  3
+                           x  3  3(y  2) 2
+                           x 3
+                                 (y  2) 2
+                             3
+                           x3
+                               y2
+                            3
+
+                                              x 3
+                                   y  2
+                                                3
+
+                                        x 3
+                          f 1 (x)  2 
+                                          3
+              ii) The graph of f(x) is shown in blue and the graph of f 1 (x) is shown in red.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                          24
+              DIF: Difficult      OBJ: Section 1.4 NAT: RF6            TOP: Inverse of a Relation
+              KEY: inverse of a function | graph | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                            25
+         10. a) Determine the inverse graph of the function f(x) = 3x + 2 in two ways:
+             i) Determine 5 points on the line, switch their x-coordinates and y-coordinates, and graph the new set
+             of points, connecting these new points with a straight line.
+             ii) Algebraically determine the inverse of the function and graph this function.
+             b) How do your answers in part a) compare?
+
+              ANS:
+              a) i) Answers may vary. Sample answer:
+              Points (0, 2), (1, 5), (2, 8), (3, 11), and (4, 14) on the graph of f(x) become (2, 0), (5, 1), (8, 2), (11, 3),
+              and (14, 4) on the graph of the inverse.
+
+
+
+
+              ii)         y  3x  2
+                          x  3y  2
+                     x  2  3y
+                    1   2
+                      x y
+                    3   3
+                           1      2
+                    f 1 x  
+                             x
+                           3      3
+              The graph of f(x) is shown in blue and the graph of its inverse is shown in red.
+
+
+
+
+              b) Answers may vary. Sample answer:
+              Each point graphed in part a) i) is on the corresponding line graphed in ii).
+
+              DIF:      Difficult      OBJ: Section 1.4       NAT: RF6                TOP: Inverse of a Relation
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                         26
+              KEY: graph | inverse of a function | function notation
+
+         11. a) Determine the inverse of the function f(x)  x 2  4x  5.
+             b) Determine the domain and range of the function and its inverse.
+             c) Is the inverse a function? Explain.
+
+              ANS:
+              a) First, rewrite the quadratic function in vertex form.
+              f(x)  x 2  4x  5
+                    (x 2  4x  4  4)  5
+                             2
+                   x  2  1
+              Then, determine the inverse.
+                       x  (y  2) 2  1
+                    x  1  (y  2) 2
+                 x 1  y 2
+
+              2    x 1  y
+                    f 1 (x)  2  x  1
+              b) For f(x): domain {x  R}, range {y  1, y  R}
+              For f 1 (x) : domain {x  1, x  R}, range {y  R}
+              c) The inverse is not a function because it fails the vertical line test.
+
+              DIF: Average        OBJ: Section 1.4 NAT: RF6                      TOP: Inverse of a Relation
+              KEY: inverse of a function | domain | range | graph | function notation | completing the square
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                        27
+       PROBLEM
+
+          1. The approximate height, h, in metres, of an object above the ground after it is dropped from a
+             distance, d, in metres, can be modelled by the function h(t)  d  5t 2 , where t is the time, in seconds,
+             after being dropped.
+             a) Determine the function for an object being dropped from each height.
+             i) 400 m
+             ii) 550 m
+             iii) 850 m
+             b) Graph all three functions on the same set of axes.
+             c) Describe the transformation that relates the highest curve to the lowest curve.
+             d) Describe the transformation that relates the highest curve to the curve in the middle.
+
+              ANS:
+              a) i) h 400 (t)  400  5t 2
+              ii) h 550 (t)  550  5t 2
+              iii) h 850 t   850  5t 2
+              b)
+
+
+
+
+              c) a vertical translation of 450 units up; h 850 (t)  h 400 (t)  450
+              d) a vertical translation of 300 units up; h 850 (t)  h 550 (t)  300
+
+              DIF: Easy          OBJ: Section 1.1 NAT: RF2
+              TOP: Horizontal and Vertical Translations                                KEY: vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  28
+          2. To rent a cottage for the months of July and August, the renter must pay a flat fee of $150 plus a daily
+             amount of $100.
+             a) Write a function that represents the total cost, C, in dollars, of the rental as a function of the
+             number of days, d, that the cottage is rented.
+             b) Determine the domain and range of the function.
+             c) In the months of November and December, the renter only needs to pay a flat fee of $50, but the
+             daily fee is still $100. Write a function that represents the total cost, T, in dollars, as a function of the
+             number of days, d, of the rental.
+             d) Describe a transformation that relates the function C(d) to the function T(d).
+
+              ANS:
+              a) C(d) = 100d + 150
+              b) domain  0  d  62, d  N , range  0  C  6350, C  N
+              c) T(d) = 100d + 50
+              d) The graph of C(d) is a translation of 100 units up of the graph of T(d); C(d) = T(d) + 100.
+
+              DIF: Average         OBJ: Section 1.1 NAT: RF2
+              TOP: Horizontal and Vertical Translations
+              KEY: translation | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     29
+                                                                2
+          3. Consider the function f(x)  2x  1  3.
+             a) Determine the equation of each function.
+             i) f(x)
+             ii) f(–x)
+             iii) f(x)
+             b) Graph all four functions from part a) on the same set of axes.
+             c) From the graph, determine the pairs of equations that can be represented as translations of each
+             other.
+             d) Describe the translation that can be applied to each pair of functions you determined in part c) to
+             generate the same graph.
+
+              ANS:
+                                      2
+              a) i) f(x)  [2x  1  3]
+                                            2
+                          2x  1  3
+                                        2
+              ii) f(x)  2x  1  3
+                                2                       2
+                        21 x  1  3
+                                    2
+                        2x  1  3
+                                                    2
+              iii) f(x)  [2x  1  3]
+                                        2                   2
+                          [21 x  1  3]
+                                                2
+                          [2x  1  3]
+                                            2
+                          2x  1  3
+              b)
+
+
+
+
+              c) The graphs of f(x) and f(–x) are horizontal translations of each other. This is also true of f x  and
+              f x .
+              d) In both pairs, one curve is a horizontal translation of 2 units left or right of the other.
+
+              DIF: Difficult       OBJ: Section 1.3 NAT: RF4                        TOP: Combining Transformations
+              KEY: reflection | graph | translation | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    30
+          4. For the base function f(x)  x 2 , a reflection in the y-axis is followed by a reflection in the x-axis.
+             a) Discuss the effect of each reflection on the base function.
+             b) Is there a point that you expect to be invariant during these reflections? If so, state its coordinates.
+             c) Graph the function after each reflection.
+             d) Use your graph in part c) to verify your answer for part b).
+             e) Make a general statement regarding invariant points after reflections in the x-axis and the y-axis.
+
+              ANS:
+              a) The reflection in the y-axis does not change the graph of the function. The reflection in the x-axis
+              does change the graph, so that the graph of the function points downward.
+              b) Since the vertex is on the x-axis and the y-axis, at (0, 0), this point should not change during the
+              reflections.
+              c)
+
+
+
+
+              d) The graph shows that the point (0, 0) is invariant under the reflections.
+              e) Invariant points after a reflection in the x-axis are those points of the original function that are on
+              the x-axis, and invariant points after a reflection in the y-axis are those points of the original function
+              that are on the y-axis. The only invariant point after both reflections is the origin.
+
+              DIF: Average         OBJ: Section 1.2         NAT: RF3                TOP: Reflections and Stretches
+              KEY: graph | reflection | invariant point
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    31
+          5. For the base function f(x)  x  , a reflection in the y-axis is followed by a reflection in the x-axis.
+             a) Discuss the effect of each reflection on the base function.
+             b) Is there a point that you expect to be invariant during these reflections? If so, state its coordinates.
+             c) Graph each function after the reflections.
+             d) Use this graph to verify your answer for part b).
+             e) Make a general statement regarding invariant points after reflections in the x-axis and the y-axis.
+
+              ANS:
+              a) The reflection in the y-axis does not change the graph of the function. The reflection in the x-axis
+              does change the graph of the function so that it points downward after the reflection.
+              b) Since the vertex is on the x-axis and the y-axis, at (0, 0), this point should not change during the
+              reflections.
+              c)
+
+
+
+
+              d) The graph shows that the point (0, 0) is invariant under the reflections.
+              e) Invariant points after a reflection in the x-axis are those points of the original function that are on
+              the x-axis, and invariant points after a reflection in the y-axis are those points of the original function
+              that are on the y-axis. The only invariant point after both reflections is the origin.
+
+              DIF: Average         OBJ: Section 1.2         NAT: RF3                TOP: Reflections and Stretches
+              KEY: graph | reflection | invariant point
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    32
+                                                                                                              1 2
+          6. The kinetic energy (energy of motion), E, in joules, of an object is given by the equation E      mv ,
+                                                                                                              2
+              where m represents the mass of the object, in kilograms, and v represents its speed, in metres per
+              second.
+              a) Determine the equation for the kinetic energy of a mass of 15 kg as a function of its speed.
+              b) Find the kinetic energy of an object of mass 15 kg moving at
+              i) 5 m/s
+              ii) 10 m/s
+              iii) 15 m/s
+              iv) 20 m/s
+              c) Determine the equation for the kinetic energy of a mass of 20 kg as a function of its speed.
+              d) Find the kinetic energy of an object of mass 20 kg moving at
+              i) 5 m/s
+              ii) 10 m/s
+              iii) 15 m/s
+              iv) 20 m/s
+              e) Graph the functions in parts b) and d) on the same set of axes.
+              f) Explain how the two functions are vertical stretches of each other, and determine the value of the
+              vertical stretch factor.
+
+              ANS:
+              a) E  7.5v 2
+              b) i) 187.5 J  ii) 750 J       iii) 1687.5 J    iv) 3000 J
+              c) E  10v  2
+
+              d) i) 250 J    ii) 1000 J      iii) 2250 J      iv) 4000 J
+              e) The 15-kg mass curve is shown in blue and the 20-kg mass curve is shown in red.
+
+
+
+
+              f) Since the two functions differ in their value of a in E  av 2 , they are vertical stretches of each
+                                                          4
+              other. The value of this vertical stretch is for the function describing the 20-kg object compared to
+                                                          3
+              the function describing the 15-kg object.
+              4
+                 (7.5)  10
+              3
+
+              DIF: Difficult +      OBJ: Section 1.2       NAT: RF3              TOP: Reflections and Stretches
+              KEY: graph | stretch | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                33
+          7. An object falls to the ground from a height of 25 m. The height, h, in metres, of the object above the
+                                                                1
+             ground can be modelled by the function h(t)   at 2  25, where a is the acceleration due to gravity,
+                                                                2
+             in metres per second squared, and t is the time, in seconds.
+             a) Write an equation for the height of the object on Earth given a = 9.8 m/s2.
+             b) Write an equation for the height of the object on Mars given a = 3.7 m/s2.
+             c) Graph both functions on the same set of axes.
+             d) What scale factor can be applied to the Earth function to transform it to the Mars function?
+
+              ANS:
+              a) h(t)  4.9t 2  25
+              b) h(t)  1.85t 2  25
+              c) The Earth function is shown in blue and the Mars function is shown in red.
+
+
+
+
+                                                                                                                      37
+              d) The scale factor that can be applied to the Earth function to transform it to the Mars function is      .
+                                                                                                                      98
+                      37
+              4.9        1.85
+                      98
+
+              DIF: Difficult        OBJ: Section 1.2       NAT: RF3               TOP: Reflections and Stretches
+              KEY: graph | stretch | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     34
+          8. The base function f(x)      x is reflected in the x-axis, stretched horizontally by a factor of 2,
+                                                    1
+              compressed vertically by a factor of , and translated 3 units to the left and 5 units down.
+                                                    3
+              a) Write the equation of the transformed function g(x).
+              b) Graph the original function and the transformed function on the same set of axes.
+              c) Which transformations must be done first but in any order?
+              d) Which transformations must be done last but in any order?
+
+              ANS:
+                            1   1
+              a) g(x)           x  3  5
+                            3   2
+              b)
+
+
+
+
+              c) The reflection, horizontal stretch, and vertical compression must be done first, but can be done in
+              any order.
+              d) The translations to the left and down must be done last, but can be done in any order.
+
+              DIF: Difficult +     OBJ: Section 1.3 NAT: RF4                       TOP: Combining Transformations
+              KEY: graph | transformation | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               35
+          9. The height, h, in metres, of a flare fired into the air from a boat can be modelled using the function
+                             2
+             h(t)  5t  4  85, where t is the time, in seconds, after the flare is fired.
+             a) Explain how this function can be obtained from the function h(t)  t 2 using a series of
+             transformations.
+             b) Graph the base function and the transformed function on the same set of axes.
+             c) Use the graph to estimate
+             i) how long the flare is in the air
+             ii) the maximum height reached by the flare, and how long it takes to reach this maximum height
+
+              ANS:
+              a) The graph of the function h(t)  t 2 must be reflected in the t-axis, vertically stretched by a factor of
+              5, and then translated 4 units to the right and 85 units up.
+                                                                                             2
+              b) The function h(t)  t 2 is shown in blue and the function h(t)  5t  4  85 is shown in red.
+
+
+
+
+              c) i) The flare is in the air for approximately 8 s.
+              ii) The flare reaches a maximum height of 85 m after 4 s.
+
+              DIF: Average         OBJ: Section 1.3         NAT: RF4 | RF5          TOP: Combining Transformations
+              KEY: graph | transformation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     36
+         10. To graph the inverse of a linear function, you can use the following method.
+             1. Graph the linear function and the line y = x on grid paper using the same scale for both axes.
+             2. Draw light pencil lines that are perpendicular to the line y = x. Measure the distances along these
+             lines from the line y = x to the linear function.
+             3. Mark these measurements along the perpendicular lines on the opposite side of the line y = x.
+             4. Connect these points to form the graph of the inverse of the function.
+             a) Use this method to graph the function f(x)  2x  4 and its inverse.
+             b) Determine the inverse function f 1 (x) algebraically.
+             c) Graph f 1 (x) on the same axes as you used in part a) to verify the result.
+             d) Is there a point that is invariant on the graph? If so, what are the coordinates of the point?
+
+              ANS:
+              a) The graph of f(x) is shown in blue and the graph of its inverse is shown in red.
+
+
+
+
+              b)        y  2x  4
+                        x  2y  4
+                    x  4  2y
+                                1
+                        y        x 2
+                                2
+                         1
+                   f 1 (x) 
+                           x 2
+                         2
+              c) The graph of f(x) is shown in blue and the graph of f 1 (x) is shown in red.
+
+
+
+
+              d) The invariant point is (–4, –4).
+
+              DIF: Easy            OBJ: Section 1.4 NAT: RF6                       TOP: Inverse of a Relation
+              KEY: graph | inverse of a function | function notation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              37
+         11. Consider the function f(x)  2 x  1  4.
+             a) State the domain and range of the function.
+             b) Use this information to determine the domain and range of the inverse of the function.
+             c) Determine the inverse of the function.
+             d) Graph the function and its inverse on the same set of axes (include the line y = x to verify the
+             inverse).
+
+              ANS:
+              a) domain {x  1, x  R}, range {y  4, y  R}
+              b) domain {x  4, x  R}, range {y  1, y  R}
+              c)                  y  2 x  1  4
+
+                                  x  2 y  1  4
+
+                              x  4  2 y  1
+                            x  4
+                                         y1
+                               2
+                     x  4   2
+                               y  1
+                       
+                        2  
+                                    
+                                          x  4  2
+                                  y             1
+                                                    
+                                             2      
+                                  1        2
+                             f 1 (x) 
+                                    x  4  1
+                                  4
+              d) The graph of f(x) is shown in blue and the graph of f 1 (x) is shown in red.
+
+
+
+
+              DIF: Difficult       OBJ: Section 1.4 NAT: RF6                      TOP: Inverse of a Relation
+              KEY: graph | inverse of a function | function notation | domain | range
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           38
+         12. The cost of renting a car for a day is a flat fee of $50 plus $0.12 for each kilometre driven. Let C
+             represent the total cost of renting a car for a day if it is driven a distance, x, in kilometres.
+             a) Write the total cost function for the car rental.
+             b) Determine the inverse of this function.
+             c) What does this inverse function represent?
+             d) Give an example of how this function can be used.
+
+              ANS:
+              a) C(x)  50  0.12x
+              b)      C  50  0.12x
+                 C  50  0.12x
+                              C  50
+                       x
+                               0.12
+                            C  50
+                 f 1 (C) 
+                             0.12
+              c) This function represents the distance the car can be driven for a given rental cost.
+              d) Answers may vary. Sample answer:
+              If you have $65 to spend on the car rental, for how many kilometres can you drive the car?
+                          65  50
+              f 1 (65) 
+                           0.12
+                      125
+              You can drive a total of 125 km for the $65 rental fee.
+
+              DIF: Average        OBJ: Section 1.4 NAT: RF6                           TOP: Inverse of a Relation
+              KEY: inverse of a function | function notation
+
+         13. The graph of f x   x 2 is transformed to the graph of g x   f x  8  12.
+             a) Describe the two translations represented by this transformation.
+             b) Determine three points on the base function. Horizontally translate and then vertically translate the
+             points. What are the three resulting image points?
+
+              ANS:
+              a) The graph is translated 8 units to the left and 12 units upward.
+              b) Answers may vary. Sample answer:
+              Start with the points (0, 0), (1, 1), and (1, 1). Translating the points 8 units to the left results in the
+              coordinates (8, 0), (, 1), and (9, 1). Translating the points 12 units upward changes the
+              coordinates to (8, 12), (, 13), and (9, 13).
+
+              DIF: Easy           OBJ: Section 1.1 NAT: RF2
+              TOP: Horizontal and Vertical Translations
+              KEY: horizontal translation | vertical translation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     39
+                                                                                2
+         14. Draw a graph to determine the invariant points of f x   x  2  9 when it is reflected in the
+             a) x-axis
+             b) y-axis
+
+              ANS:
+              Graph f(x) and then f(x) and f(x) to determine the invariant points.
+
+
+
+
+              a) From the graph, the invariant points are (1, 0) and (5, 0).
+              b) From the graph, the invariant point is (0, 5).
+
+              DIF: Easy            OBJ: Section 1.2        NAT: RF3                 TOP: Reflections and Stretches
+              KEY: invariant point | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             40
+         15. Two skydivers jump out of a plane. The first skydiver’s motion can be modelled by the function
+                                      2
+             g t   4000  5t  10 . The second skydiver jumps 10 s later with a goal of catching up to the first
+              skydiver. The motion of the second skydiver can be modelled by h t   4000  5t 2 . For both functions,
+              the height is measured in metres and the time is the number of seconds after the second skydiver
+              jumps.
+              a) Graph the functions on the same set of axes.
+              b) Will the second skydiver catch up to the first before they have to open their parachutes at 800 m?
+              c) State the domain and range of these functions in this context.
+
+              ANS:
+              a) The first skydiver is represented in red and the second in blue.
+
+
+
+
+              b) No; from the graphs it can be seen that the path of the second skydiver will not intersect the path of
+              the first before they reach 800 m above the ground.
+              c) The domain for the first skydiver is 10  t  15.3, t  R , while for the second skydiver it is
+              0  t  25.3, t  R  . The range for g(t) is {800  g  4000, g  R}, and the range for h(t) is
+              {800  h  4000, h  R}. The given functions do not apply after the skydivers pass 800 m above the
+              ground, because when they open their parachutes, the function modelling their height changes.
+
+              DIF: Average          OBJ: Section 1.3       NAT: RF4                 TOP: Combining Transformations
+              KEY: translation | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  41
+         16. The value, V, in thousands of dollars, of a certain car after t years can be modelled by the equation
+                      35
+             Vt       .
+                     t3
+                                                                                                1
+             a) Sketch the graph of this relation using transformations of the function f(t)  .
+                                                                                                t
+             b) What is the initial value of this car?
+             c) What is the projected value of this car after 2 years?
+
+              ANS:
+              a)
+
+
+
+
+              b) From the graph, the y-intercept is about 11.5, so the initial value of the car is about $11 500.
+              c) At t = 2, the value of the car is $7000.
+
+              DIF: Difficult +      OBJ: Section 1.3        NAT: RF4               TOP: Combining Transformations
+              KEY: stretch | translation | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             42
+         17. In ballistics, the paths of projectiles are studied. It is known that the greater the speed at which an
+             object is fired, the farther it will travel. For a particular spring-loaded cannon, this relationship can be
+                                 v2
+             modelled by d  , where d is the distance, in metres, travelled by the projectile and v is the muzzle
+                                 10
+             speed, in metres per second.
+             a) Graph the distance function and state its domain and range.
+             b) Graph the inverse of the distance function. What does it represent? State its domain and range.
+
+              ANS:
+              a)
+
+
+
+
+              The domain is v  0, v  R and the range is d  0, d  R
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    43
+              b)
+
+
+
+
+              This graph represent the velocity required to reach a certain distance. The domain is d  0, d  R
+              and the range is v  0, v  R .
+
+              DIF: Difficult      OBJ: Section 1.4         NAT: RF6             TOP: Inverse of a Relation
+              KEY: inverse of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             44
+                                 9
+         18. The equation y       x  32 can be used to convert between Celsius and Fahrenheit temperatures, where
+                                 5
+              x is the temperature in degrees Celsius and y is the temperature in degrees Fahrenheit.
+              a) Determine the inverse of this equation. What does it represent? What do the variables represent?
+              b) Graph the original and inverse functions on the same set of axes.
+              c) Which temperature is the same in Celsius and Fahrenheit? Explain how you know.
+
+              ANS:
+                              9
+              a)       x       y  32
+                              5
+                              9
+                   x  32      y
+                              5
+                         5
+                       y  x  32
+                         9
+              The inverse represents the equation to convert a temperature from degrees Fahrenheit to degrees
+              Celsius. The variable x represents the temperature in degrees Fahrenheit and the variable y represents
+              the temperature in degrees Celsius.
+              b)
+
+
+
+
+              c) The temperature that is the same in Celsius and Fahrenheit is 40. This is the invariant point of the
+              original function and its inverse.
+
+              DIF: Average        OBJ: Section 1.4 NAT: RF6                      TOP: Inverse of a Relation
+              KEY: inverse of a function | invariant point
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  45
+         19. Jai works at an electronics store. She earns $600 a week, plus commission of 5% of her sales.
+             a) Write a function to describe Jai’s total weekly earnings as a function of her sales.
+             b) Determine the inverse of this function.
+             c) One week Jai earned $775. What were her sales that week?
+
+              ANS:
+              a) Let s represent Jai’s sales that week and t her total earnings.
+              t  600  0.05s
+              b)        t  600  0.05s
+                 t  600  0.05s
+                           t  600
+                      s
+                             0.05
+                       s  20t  12 000
+              c) s  20775  12 000
+                    3500
+              Jai had sales of $3500 that week
+
+              DIF: Average        OBJ: Section 1.4          NAT: RF6               TOP: Inverse of a Relation
+              KEY: inverse of a function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                        46
+         20. Given the function f x   3x  7,
+             a) determine the inverse of the function
+             b) graph the function and its inverse on the same set of axes
+
+              ANS:
+              a) f x   3x  7
+                         y  3x  7
+                         x  3y  7
+                     x  7  3y
+                                 x 7
+                         y
+                                   3
+                                 x 7
+                   f 1 x  
+                                   3
+              b)
+
+
+
+
+              DIF: Easy           OBJ: Section 1.4         NAT: RF6          TOP: Inverse of a Relation
+              KEY: inverse of a function | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  47
+

@@ -1,0 +1,206 @@
+Chat with us, powered by LiveChat Skip to main content
+Support Help Center home page
+Echo360 Status: 
+
+  • What's New?
+  • Join the Community
+  • Sign in
+
+(Toggle navigation menu)
+
+  • Sign in
+  • 
+  • What's New
+  • Join the Community
+
+ 1. Support
+ 2. ExamView
+ 3. ExamView Test Generator
+
+ExamView: Polar Graphs in ExamView
+
+[6f54bac614]
+Echo360
+
+  • March 13, 2024 18:32
+  • Updated
+
+Sections in Article
+
+Related articles
+
+  • ExamView: Algorithm Definitions in Exam View
+  • PointSolutions Offerings
+  • EchoVideo: Creating Captures and Capture Schedules
+  • PointSolutions: PowerPoint for TurningPoint Web Preferences
+  • ExamView: Installing the ExamView Assessment Suite Software
+
+NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT
+
+As of June 30, 2024, ExamView will officially reach its end of life.
+
+Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no longer be providing updates,
+security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView
+will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security
+vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure
+uninterrupted service, we encourage migrating to EchoExam, which is designed to offer superior security, compatibility,
+and a range of advanced features that align with current technological standards. For questions click here.
+
+Inserting a Polar Graph
+
+Polar graphs can be inserted into a question, answer, matching group, rationale, feedback or narrative.
+
+The graph pictured shows the polar curve r = e ^ (theta / 10) and the domain is from 0 to 5 * pi:
+
+ 1. Position the cursor at the location where you want to insert the graph.
+ 2. Click Insert from the menu bar, mouse over Graph and select Polar.
+
+    A polar graph with default properties will be inserted, and the Format Graph – Polar window will be displayed.
+
+    The Functions tab lets you add, edit, and delete items from the graph. These items include f(theta), and Point (r,
+    theta).
+
+    The Axes tab lets you change attributes of the polar axis such as the scale (units per tick), ticks per inch, and
+    line styles.
+
+    The View tab lets you change the size and background of the graph, and whether it is centered on a certain value or
+    anchored at the lower left to a certain value.
+
+ 3. Click the Functions tab, select the type of item you want to add from the drop-down menu and click New.
+ 4. To edit existing items, select the description of the item and click Edit (or double-click the description).
+ 5. To delete an item, select the description of the item and click Delete.
+ 6. To change the order of the items on the graph, click the item you want to reorder and drag it to the correct
+    position.
+ 7. Click the Axes tab, enter a label to display at the right of the polar axis or leave the label blank. By default,
+    the label is r. Click Font to set the font characteristics of the label. The font characteristics used for the axis
+    label are also used for the tick labels.
+    NOTE
+
+    Variables cannot be used as values for the axis label, units per tick, ticks per inch, ticks per label, width,
+    height, or baseline. Variables can be used to define most of the attributes for the items added to the graph.
+
+ 8. Set the scale (units per tick) for the graph. Units per tick must be greater than zero.
+ 9. Set the ticks per inch. Value must be between 1 and 50.
+10. Set the ticks per label. Value must be between 1 and 99.
+11. Set the axis width. You can choose to hide the axis altogether, or display the axis with a thin or a thick line.
+12. Set the axis color. To change the color of the polar axis label or the tick mark labels, click Font.
+13. By default, the polar axis displays tick marks and tick-mark labels. Show or hide these using the Show tick
+    marks and Label tick marks check boxes.
+14. Click Zoom In and Zoom Out to quickly change the units per tick. Zooming in or out automatically applies changes to
+    the graph.
+15. Click Clear to quickly remove the axis label, tick marks, tick mark labels, and background.
+16. Click the View tab, enter a width, height, and baseline (in inches) for the graph. You can also manually set these
+    values from the editing dialog by clicking and dragging the resize handles.
+17. Select a background style for the graph. The background can be either blank or lined. If you select a lined
+    background, you can also select a line color. By default, the background displays light gray lines.
+18. Select set graph center or set graph left. Enter x, y coordinate values in the appropriate section. Even though the
+    coordinates for a polar graph are not in x, y coordinates, this system is still used for positioning the graph.
+19. Click the Web tab, to enter alternate text to be displayed when the student points to the graph while taking an
+    internet or LAN-based test.
+20. Click Apply to view your changes in the editing window or click OK to record your changes and close the Format
+    Graph – Polar window.
+    NOTE
+
+    If you inadvertently apply changes that you do not want to the graph, close the Format Graph – Polar window, click
+    Edit from the menu bar and select Undo. This will cancel all changes made while the dialog was displayed, including
+    inserting new items.
+
+     
+
+    f(theta)
+
+21. Insert a polar graph into a question, answer, matching group, rationale, feedback or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+22. Click the Functions tab, select f(theta) from the drop-down menu and click New.
+23. Enter a function for r (the absolute distance from the point to the origin) using theta (the angle, in radians
+    moving counterclockwise, from the horizontal axis) as the variable. The example shows the function 4 * sin(theta *
+    3). Use the same algorithmic syntax used to define variables.
+    NOTE
+
+    Variables can be used anywhere in the function definition or as values for the domain.
+
+    Click the Add from List button next to the function definition to display a list of currently defined variables,
+    constants, and keywords.
+
+24. Enter the domain of theta. The default domain for functions of theta is from zero to 2 pi.
+25. To display the function only if a certain condition is met, enter the condition in the field following Display
+    function (only if ).
+26. To change the drawing style for the function, click the Pattern drop-down menu .
+27. To change the color of the function, click the Color drop-down menu .
+28. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Function – f(theta) window.
+
+Point (r, theta)
+
+ 1. Insert a polar graph into a question, answer, matching group, rationale, feedback or narrative.
+
+    To edit an existing graph, double-click the graph or click Format from the menu bar and select Format Graph.
+
+ 2. Click the Functions tab, select Point(r,theta) from the drop-down menu and click New.
+ 3. Enter the coordinate of the point in terms of r (the absolute distance from the point to the origin) and theta (the
+    angle, in radians moving counterclockwise, from the horizontal axis).
+    NOTE
+
+    Variables can be used as values for r, theta, and the label.
+
+    Values for r must be positive.
+
+ 4. Select a point style. The point styles can be none, solid, or hollow.
+ 5. Select a label style. You can have no label, use the coordinates of the point as the label, or optionally enter a
+    text label. Click Font to set the font characteristics of the label. If the program determines that the theta
+    coordinate of the point is a multiple of pi (or if a multiple of theta equals pi, as in pi / 4), the display of the
+    theta value will be the pi symbol (π).
+ 6. Select a label position. You can select where the label appears in relation to the point.
+ 7. Optionally, to display the point only if a certain condition is met, enter the condition in the field
+    following Display point (only if ).
+ 8. Click the Color drop-down menu to change the color of the point. To change the color of the label, click Font.
+ 9. Click Apply to view your changes in the editing window or click OK to record your changes and close the New
+    Point window.
+
+ 
+
+  •  
+  •  
+  •  
+
+Was this article helpful?
+(This article was helpful)Yes (This article was not helpful)No
+0 out of 0 found this helpful
+Return to top
+Main Echo360 Home
+
+Support
+
+  • EchoAuthor
+  • EchoExam
+  • EchoInk
+  • EchoPoll
+  • EchoVideo
+  • PointSolutions
+
+Company
+
+  • The Echosystem
+  • Education
+  • Business
+  • Government
+  • Resources
+  • Company
+  • Downloads
+
+  • Privacy Policy
+  • |
+  • Terms & Conditions
+  • |
+  • Support Policy
+  • |
+  • Feedback Policy
+  • |
+  • Contact
+
+ 
+ 
+ 
+ 

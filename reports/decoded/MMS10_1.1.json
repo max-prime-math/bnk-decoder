@@ -1,0 +1,1499 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/Foundations of Math 10/Chapter 01/MMS10_1.1.bnk",
+    "byteLength": 11645,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 11629,
+    "inflatedByteLength": 102455
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Convert 24 yd. to feet."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "288"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "72"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(21,36,3)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*3",
+          "sampleValue": "72"
+        },
+        {
+          "name": "n3",
+          "rule": "n1/3",
+          "sampleValue": "8"
+        },
+        {
+          "name": "n4",
+          "rule": "n1*12",
+          "sampleValue": "288"
+        },
+        {
+          "name": "n5",
+          "rule": "n1/12",
+          "sampleValue": "2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 8a 01 00 00 02 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 31 00 2c 00 33 00 36 00 2c 00 33 00 29 00 00 00 32 00 34 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6e 00 31 00 3c 00 3e 00 33 00 30 00 00 00 cd cd 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 52 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 33 00 00 00 37 00 32 00 00 00 02 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 20 40 6e 00 33 00 00 00 6e 00 31 00 2f 00 33 00 00 00 38 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 72 40 6e 00 34 00 00 00 6e 00 31 00 2a 00 31 00 32 00 00 00 32 00 38 00 38 00 00 00 02 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(21,36,3)\n24\nn1<>30\nn2\nn1*3\n72\nn3\nn1/3\n8\nn4\nn1*12\n288\nn5\nn1/12\n2\nD\nConvert [[slot]] yd. to feet.\nA.\n[[slot]] ft.\nB.\n[[slot]] ft.\nC.\n[[slot]] ft.\nD."
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Convert 7 yd. to inches."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "21"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "252"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "43"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "84"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 7726,
+        "difficulty": "Easy",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(5,9)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*36",
+          "sampleValue": "252"
+        },
+        {
+          "name": "n3",
+          "rule": "n1*3",
+          "sampleValue": "21"
+        },
+        {
+          "name": "n4",
+          "rule": "n1*12",
+          "sampleValue": "84"
+        },
+        {
+          "name": "n5",
+          "rule": "n1+36",
+          "sampleValue": "43"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 7726,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 4c 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 39 00 29 00 00 00 37 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 6f 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 33 00 36 00 00 00 32 00 35 00 32 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 35 40 6e 00 33 00 00 00 6e 00 31 00 2a 00 33 00 00 00 32 00 31 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 55 40 6e 00 34 00 00 00 6e 00 31 00 2a 00 31 00 32 00 00 00 38 00 34 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 45 40 6e 00 35 00 00 00 6e 00 31 00 2b 00 33 00 36 00 00 00 34 00 33 00 00 00 a4 07 00 00 01 00 00 00 3e 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00",
+          "textPreview": "Easy\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(5,9)\n7\nn2\nn1*36\n252\nn3\nn1*3\n21\nn4\nn1*12\n84\nn5\nn1+36\n43\n>\nConvert [[slot]] yd. to inches.\nA.\n[[slot]] in.\nB.\n[[slot]] in.\nC.\n[[slot]] in.\nD.\n[[slot]] in."
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Convert 100 in. to yards, feet, and inches."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "2"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 10702,
+        "difficulty": "Easy",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(100,150,7)",
+          "sampleValue": "100"
+        },
+        {
+          "name": "n2",
+          "rule": "int(n1/36)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "n3",
+          "rule": "n1-n2*36",
+          "sampleValue": "28"
+        },
+        {
+          "name": "n4",
+          "rule": "int(n3/12)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "n5",
+          "rule": "n3-n4*12",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n6",
+          "rule": "int(n1/24)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n7",
+          "rule": "n1-n6*24",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n10",
+          "rule": "int(n9/24)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "n9",
+          "rule": "n1-n8*72",
+          "sampleValue": "28"
+        },
+        {
+          "name": "n11",
+          "rule": "n9-n10*24",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n8",
+          "rule": "int(n1/72)",
+          "sampleValue": "1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 10702,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 22 03 00 00 02 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 59 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 30 00 2c 00 31 00 35 00 30 00 2c 00 37 00 29 00 00 00 31 00 30 00 30 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 6e 00 32 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2f 00 33 00 36 00 29 00 00 00 32 00 00 00 02 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3c 40 6e 00 33 00 00 00 6e 00 31 00 2d 00 6e 00 32 00 2a 00 33 00 36 00 00 00 32 00 38 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 6e 00 34 00 00 00 69 00 6e 00 74 00 28 00 6e 00 33 00 2f 00 31 00 32 00 29 00 00 00 32 00 00 00 02 00 00 00 08 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 10 40 6e 00 35 00 00 00 6e 00 33 00 2d 00 6e 00",
+          "textPreview": "Easy\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(100,150,7)\n100\nn2\nint(n1/36)\n2\nn3\nn1-n2*36\n28\nn4\nint(n3/12)\n2\nn5\nn3-n4*12\n4\nn6\nint(n1/24)\n4\nn7\nn1-n6*24\n4\nn10\nint(n9/24)\n1\nn9"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Convert 12 565 ft. to miles, yards, and feet."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "6 mi. 167 yd. 1 ft."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "2 mi. 55 yd. 25 ft."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "2 mi. 668 yd. 1 ft."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6 mi. 668 yd. 1 ft."
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 15490,
+        "difficulty": "Easy",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(12040,12565,105)",
+          "sampleValue": "12 565"
+        },
+        {
+          "name": "n2",
+          "rule": "int(n1/5280)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "n4",
+          "rule": "int(n3/3)",
+          "sampleValue": "668"
+        },
+        {
+          "name": "n3",
+          "rule": "n1-n2*5280",
+          "sampleValue": "2005"
+        },
+        {
+          "name": "n5",
+          "rule": "n3-n4*3",
+          "sampleValue": "1"
+        },
+        {
+          "name": "n6",
+          "rule": "3*n2",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n7",
+          "rule": "int(n3/36)",
+          "sampleValue": "55"
+        },
+        {
+          "name": "n8",
+          "rule": "n3-n7*36",
+          "sampleValue": "25"
+        },
+        {
+          "name": "n9",
+          "rule": "int(n3/12)",
+          "sampleValue": "167"
+        },
+        {
+          "name": "n10",
+          "rule": "n3-n9*12",
+          "sampleValue": "1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 15490,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 f2 02 00 00 02 00 00 00 16 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 80 8a c8 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 30 00 34 00 30 00 2c 00 31 00 32 00 35 00 36 00 35 00 2c 00 31 00 30 00 35 00 29 00 00 00 31 00 32 00 20 00 35 00 36 00 35 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 6e 00 32 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2f 00 35 00 32 00 38 00 30 00 29 00 00 00 32 00 00 00 02 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 e0 84 40 6e 00 34 00 00 00 69 00 6e 00 74 00 28 00 6e 00 33 00 2f 00 33 00 29 00 00 00 36 00 36 00 38 00 00 00 02 00 00 00 0a 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 54 9f 40 6e 00 33 00 00 00 6e 00 31 00 2d 00 6e 00 32 00 2a 00 35 00 32 00 38 00 30 00 00 00 32 00 30 00 30 00 35 00 00 00 02 00 00 00 07 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Easy\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(12040,12565,105)\n12 565\nn2\nint(n1/5280)\n2\nn4\nint(n3/3)\n668\nn3\nn1-n2*5280\n2005\nn5\nn3-n4*3\n1\nn6\n3*n2\n6\nn7\nint(n3/36)\n55\nn8\nn3-n7*36\n25\nn9"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "How many strips can Marie make?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "32"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "21"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "10"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 20388,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "rand(8)+10",
+          "sampleValue": "17"
+        },
+        {
+          "name": "n2",
+          "rule": "n1 +2",
+          "sampleValue": "19"
+        },
+        {
+          "name": "n3",
+          "rule": "int(n1*12/n2)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "n4",
+          "rule": "int(n1*24/n2)",
+          "sampleValue": "21"
+        },
+        {
+          "name": "n5",
+          "rule": "int(n1*3/n2)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "n6",
+          "rule": "int(n1*36/n2)",
+          "sampleValue": "32"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 20388,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 ca 01 00 00 02 00 00 00 0a 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 31 40 6e 00 31 00 00 00 72 00 61 00 6e 00 64 00 28 00 38 00 29 00 2b 00 31 00 30 00 00 00 31 00 37 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 33 40 6e 00 32 00 00 00 6e 00 31 00 20 00 2b 00 32 00 00 00 31 00 39 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 24 40 6e 00 33 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2a 00 31 00 32 00 2f 00 6e 00 32 00 29 00 00 00 31 00 30 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 35 40 6e 00 34 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2a 00 32 00 34 00 2f 00 6e 00 32 00 29 00 00 00 32 00 31 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 6e 00 35 00 00 00 69 00 6e 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrand(8)+10\n17\nn2\nn1 +2\n19\nn3\nint(n1*12/n2)\n10\nn4\nint(n1*24/n2)\n21\nn5\nint(n1*3/n2)\n2\nn6\nint(n1*36/n2)\n32\n{\nMarie has [[slot]] yd. of material that she will cut into strips [[slot]] in. wide. How many strips can Marie make?\nA.\n[[slot]]\nB.\n[[slot]]\nC."
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "How many curtains can Nancy make?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "92"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "14"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "1"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 23904,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(16,22)",
+          "sampleValue": "18"
+        },
+        {
+          "name": "n2",
+          "rule": "n1-11",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n3",
+          "rule": "int(n2*36/n1)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "n4",
+          "rule": "int(n2*12/n1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n5",
+          "rule": "int(n2*3/n1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "n6",
+          "rule": "int(n1*36/n2)",
+          "sampleValue": "92"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 23904,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 ca 01 00 00 02 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 32 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 36 00 2c 00 32 00 32 00 29 00 00 00 31 00 38 00 00 00 02 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 1c 40 6e 00 32 00 00 00 6e 00 31 00 2d 00 31 00 31 00 00 00 37 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 2c 40 6e 00 33 00 00 00 69 00 6e 00 74 00 28 00 6e 00 32 00 2a 00 33 00 36 00 2f 00 6e 00 31 00 29 00 00 00 31 00 34 00 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 10 40 6e 00 34 00 00 00 69 00 6e 00 74 00 28 00 6e 00 32 00 2a 00 31 00 32 00 2f 00 6e 00 31 00 29 00 00 00 34 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 6e 00 35 00 00 00 69 00 6e 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(16,22)\n18\nn2\nn1-11\n7\nn3\nint(n2*36/n1)\n14\nn4\nint(n2*12/n1)\n4\nn5\nint(n2*3/n1)\n1\nn6\nint(n1*36/n2)\n92\nNancy has [[slot]] yd. of material. She wants to make curtains that are [[slot]] in. wide. How many curtains can Nancy make?\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The fencing material is sold by the yard. It costs $ 3.75 /yd. What is the cost of material before taxes?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "$66.25"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "$63.75"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "$67.50"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "$33.75"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 27438,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "18",
+          "sampleValue": "18"
+        },
+        {
+          "name": "n3",
+          "rule": "range(3.75,4.15,0.10)",
+          "sampleValue": "3.75"
+        },
+        {
+          "name": "n4",
+          "rule": "format(\"$%1.2f\",n1*n3)",
+          "sampleValue": "$67.50"
+        },
+        {
+          "name": "n5",
+          "rule": "format(\"$%1.2f\",(n1-1/3)*n3)",
+          "sampleValue": "$66.25"
+        },
+        {
+          "name": "n6",
+          "rule": "format(\"$%1.2f\",(n1-1)*n3)",
+          "sampleValue": "$63.75"
+        },
+        {
+          "name": "n7",
+          "rule": "format(\"$%1.2f\",n1/2*n3)",
+          "sampleValue": "$33.75"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 27438,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 62 02 00 00 02 00 00 00 02 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 32 40 6e 00 31 00 00 00 31 00 38 00 00 00 31 00 38 00 00 00 02 00 00 00 15 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 0e 40 6e 00 33 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2e 00 37 00 35 00 2c 00 34 00 2e 00 31 00 35 00 2c 00 30 00 2e 00 31 00 30 00 29 00 00 00 33 00 2e 00 37 00 35 00 00 00 02 00 00 00 16 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 6e 00 34 00 00 00 66 00 6f 00 72 00 6d 00 61 00 74 00 28 00 22 00 24 00 25 00 31 00 2e 00 32 00 66 00 22 00 2c 00 6e 00 31 00 2a 00 6e 00 33 00 29 00 00 00 24 00 36 00 37 00 2e 00 35 00 30 00 00 00 02 00 00 00 1c 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 6e 00 35 00 00 00 66 00 6f 00 72 00 6d 00 61 00 74 00 28 00 22 00 24 00 25 00 31 00 2e 00 32 00 66 00 22 00 2c 00 28 00 6e 00 31 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\n18\n18\nn3\nrange(3.75,4.15,0.10)\n3.75\nn4\nformat(\"$%1.2f\",n1*n3)\n$67.50\nn5\nformat(\"$%1.2f\",(n1-1/3)*n3)\n$66.25\nn6\nformat(\"$%1.2f\",(n1-1)*n3)\n$63.75\nn7\nformat(\"$%1.2f\",n1/2*n3)\n$33.75\nOscar is building a fence around his rectangular garden. His garden measures 18 ft. 6 in. by 8 ft. 5 in. The fencing material is sold by the yard. It costs $[[slot]]/yd. What is the cost of material before taxes?\nA.\n[[slot]]\nB.\n[[slot]]\n"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A map of Alberta has a scale of 1:1 505 000. The distance on the map between Calgary and Red Deer is [embedded value] in. What is this distance to the nearest mile?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "232 mi."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "77 mi."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "308 mi."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "26 mi."
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 31030,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "value",
+          "placeholder": "[inline value not decoded yet]",
+          "context": "a scale of 1:1 505 000. The distance on the map between Calgary and Red Deer is [inline value not decoded yet] in. What is this distance to the nearest mile?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 31030,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 04 00 00 00 9c 06 00 00 01 00 00 00 c2 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 6d 00 61 00 70 00 20 00 6f 00 66 00 20 00 41 00 6c 00 62 00 65 00 72 00 74 00 61 00 20 00 68 00 61 00 73 00 20 00 61 00 20 00 73 00 63 00 61 00 6c 00 65 00 20 00 6f 00 66 00 20 00 31 00 3a 00 31 00 20 00 35 00 30 00 35 00 20 00 30 00 30 00 30 00 2e 00 20 00 54 00 68 00 65 00 20 00 64 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 20 00 6f 00 6e 00 20 00 74 00 68 00 65 00 20 00 6d 00 61 00 70 00 20 00 62 00 65 00 74 00 77 00 65 00 65 00 6e 00 20 00 43 00 61 00 6c 00 67 00 61 00 72 00 79 00 20 00 61 00 6e 00 64 00 20 00 52 00 65 00 64 00 20 00 44 00 65 00 65 00 72 00 20 00 69 00 73 00 20 00 0f 00 20 00 69 00 6e 00 2e 00 20 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 69 00 73 00 20 00 64 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 20 00 74 00 6f 00 20 00 74 00 68 00 65 00 20 00 6e 00 65 00 61 00 72 00 65 00 73 00 74 00 20 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nA map of Alberta has a scale of 1:1 505 000. The distance on the map between Calgary and Red Deer is [[slot]] in. What is this distance to the nearest mile?\nA.\n232 mi.\nC.\n308 mi.\nB.\n77 mi.\nD.\n26 mi.\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ\n$\n\"\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A map of British Columbia has a scale of 1:1 723 000. The distance on the map between Prince George and Cache Creek is [embedded value] in. What is this distance to the nearest mile?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "945 mi."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "79 mi."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "708 mi."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "236 mi."
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 33422,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "value",
+          "placeholder": "[inline value not decoded yet]",
+          "context": "f 1:1 723 000. The distance on the map between Prince George and Cache Creek is [inline value not decoded yet] in. What is this distance to the nearest mile?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 33422,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 04 00 00 00 c4 06 00 00 01 00 00 00 d5 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 6d 00 61 00 70 00 20 00 6f 00 66 00 20 00 42 00 72 00 69 00 74 00 69 00 73 00 68 00 20 00 43 00 6f 00 6c 00 75 00 6d 00 62 00 69 00 61 00 20 00 68 00 61 00 73 00 20 00 61 00 20 00 73 00 63 00 61 00 6c 00 65 00 20 00 6f 00 66 00 20 00 31 00 3a 00 31 00 20 00 37 00 32 00 33 00 20 00 30 00 30 00 30 00 2e 00 20 00 54 00 68 00 65 00 20 00 64 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 20 00 6f 00 6e 00 20 00 74 00 68 00 65 00 20 00 6d 00 61 00 70 00 20 00 62 00 65 00 74 00 77 00 65 00 65 00 6e 00 20 00 50 00 72 00 69 00 6e 00 63 00 65 00 20 00 47 00 65 00 6f 00 72 00 67 00 65 00 20 00 61 00 6e 00 64 00 20 00 43 00 61 00 63 00 68 00 65 00 20 00 43 00 72 00 65 00 65 00 6b 00 20 00 69 00 73 00 20 00 0f 00 20 00 69 00 6e 00 2e 00 20 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 69 00 73 00 20 00 64 00 69 00 73 00 74 00 61 00 6e 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nA map of British Columbia has a scale of 1:1 723 000. The distance on the map between Prince George and Cache Creek is [[slot]] in. What is this distance to the nearest mile?\nA.\n945 mi.\nC.\n708 mi.\nB.\n79 mi.\nD.\n236 mi.\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ\n$\n\"\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A 3-D puzzle of the CN Tower has a scale of 1:640. In the puzzle, the tower is [embedded value] in. tall. What is the height of the CN Tower to the nearest foot?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "1833 ft."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "605 ft."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "1815 ft."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "7260 ft."
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 35854,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "value",
+          "placeholder": "[inline value not decoded yet]",
+          "context": "A 3-D puzzle of the CN Tower has a scale of 1:640. In the puzzle, the tower is [inline value not decoded yet] in. tall. What is the height of the CN Tower to the nearest foot?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 35854,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 04 00 00 00 9c 06 00 00 01 00 00 00 c3 00 00 00 02 00 00 00 02 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 33 00 2d 00 44 00 20 00 70 00 75 00 7a 00 7a 00 6c 00 65 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 43 00 4e 00 20 00 54 00 6f 00 77 00 65 00 72 00 20 00 68 00 61 00 73 00 20 00 61 00 20 00 73 00 63 00 61 00 6c 00 65 00 20 00 6f 00 66 00 20 00 31 00 3a 00 36 00 34 00 30 00 2e 00 20 00 49 00 6e 00 20 00 74 00 68 00 65 00 20 00 70 00 75 00 7a 00 7a 00 6c 00 65 00 2c 00 20 00 74 00 68 00 65 00 20 00 74 00 6f 00 77 00 65 00 72 00 20 00 69 00 73 00 20 00 0f 00 20 00 69 00 6e 00 2e 00 20 00 74 00 61 00 6c 00 6c 00 2e 00 20 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 65 00 20 00 68 00 65 00 69 00 67 00 68 00 74 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 43 00 4e 00 20 00 54 00 6f 00 77 00 65 00 72 00 20 00 74 00 6f 00 20 00 74 00 68 00 65 00 20 00 6e 00 65 00 61 00 72 00 65 00 73 00 74 00 20 00 66 00 6f 00 6f 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nA 3-D puzzle of the CN Tower has a scale of 1:640. In the puzzle, the tower is [[slot]] in. tall. What is the height of the CN Tower to the nearest foot?\nA.\n1833 ft.\nB.\n605 ft.\nC.\n1815 ft.\nD.\n7260 ft.\nP\nQ\nTimes New Roman\n#\n-\nZ\n-\nZ\n-\nZ\n-\nZ\n,\nO\np\np"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The actual length of the bridge is 764 yd. What is the scale of the puzzle, to the nearest thousand?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "1:1302"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "1:1000"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "1:1100"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "1:3333"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 38246,
+        "difficulty": "Difficult",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 38246,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 04 00 00 00 3b 07 00 00 01 00 00 00 d7 00 00 00 02 00 00 00 02 00 00 00 0b 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 4f 00 6e 00 20 00 61 00 20 00 6a 00 69 00 67 00 73 00 61 00 77 00 20 00 70 00 75 00 7a 00 7a 00 6c 00 65 00 2c 00 20 00 74 00 68 00 65 00 20 00 6c 00 65 00 6e 00 67 00 74 00 68 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 57 00 69 00 6c 00 6c 00 69 00 61 00 6d 00 20 00 52 00 2e 00 20 00 42 00 65 00 6e 00 6e 00 65 00 74 00 74 00 20 00 42 00 72 00 69 00 64 00 67 00 65 00 20 00 69 00 73 00 20 00 0f 00 20 00 69 00 6e 00 2e 00 20 00 54 00 68 00 65 00 20 00 61 00 63 00 74 00 75 00 61 00 6c 00 20 00 6c 00 65 00 6e 00 67 00 74 00 68 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 62 00 72 00 69 00 64 00 67 00 65 00 20 00 69 00 73 00 20 00 37 00 36 00 34 00 20 00 79 00 64 00 2e 00 20 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 65 00 20 00 73 00 63 00 61 00 6c 00 65 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 70 00 75 00",
+          "textPreview": "Difficult\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nOn a jigsaw puzzle, the length of the William R. Bennett Bridge is [[slot]] in. The actual length of the bridge is 764 yd. What is the scale of the puzzle, to the nearest thousand?\nA.\n1:1302\nB.\n1:1000\nC.\n1:1100\nD.\n1:3333\nD\nE\nTimes New Roman\n#\n-\nZ\n-\nZ\n-\nZ\n-\nZ\n,\nC\no\no"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A model of the Calgary Tower has a scale of 1:300. The height of the model is [embedded value] in. What is the height of the Calgary Tower to the nearest foot?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "2506 ft."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "209 ft."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "644 ft."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "627 ft."
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 40799,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "value",
+          "placeholder": "[inline value not decoded yet]",
+          "context": "A model of the Calgary Tower has a scale of 1:300. The height of the model is [inline value not decoded yet] in. What is the height of the Calgary Tower to the nearest foot?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 40799,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 04 00 00 00 64 06 00 00 01 00 00 00 bf 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 6d 00 6f 00 64 00 65 00 6c 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 43 00 61 00 6c 00 67 00 61 00 72 00 79 00 20 00 54 00 6f 00 77 00 65 00 72 00 20 00 68 00 61 00 73 00 20 00 61 00 20 00 73 00 63 00 61 00 6c 00 65 00 20 00 6f 00 66 00 20 00 31 00 3a 00 33 00 30 00 30 00 2e 00 20 00 54 00 68 00 65 00 20 00 68 00 65 00 69 00 67 00 68 00 74 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 6d 00 6f 00 64 00 65 00 6c 00 20 00 69 00 73 00 20 00 0f 00 20 00 69 00 6e 00 2e 00 20 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 65 00 20 00 68 00 65 00 69 00 67 00 68 00 74 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 43 00 61 00 6c 00 67 00 61 00 72 00 79 00 20 00 54 00 6f 00 77 00 65 00 72 00 20 00 74 00 6f 00 20 00 74 00 68 00 65 00 20 00 6e 00 65 00 61 00 72 00 65 00 73 00 74 00 20 00 66 00 6f 00 6f 00 74 00 3f 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nA model of the Calgary Tower has a scale of 1:300. The height of the model is [[slot]] in. What is the height of the Calgary Tower to the nearest foot?\nA.\n2506 ft.\nB.\n209 ft.\nC.\n644 ft.\nD.\n627 ft.\nTimes New Roman\n#\n-\nZ\n-\nZ\n-\nZ\n-\nZ\n,\nN\np\np\n1\n6"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The wood is sold in 8-ft. lengths. How many 8-ft. lengths does Paul need to purchase?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "61"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "7"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 43135,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(436,521,17)",
+          "sampleValue": "487"
+        },
+        {
+          "name": "n2",
+          "rule": "int(n1/96)+1",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n3",
+          "rule": "int(n1/96)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "n4",
+          "rule": "int(n1/96)+2",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n5",
+          "rule": "int(n1/8)+1",
+          "sampleValue": "61"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 43135,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 8a 01 00 00 02 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 70 7e 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 33 00 36 00 2c 00 35 00 32 00 31 00 2c 00 31 00 37 00 29 00 00 00 34 00 38 00 37 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 18 40 6e 00 32 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2f 00 39 00 36 00 29 00 2b 00 31 00 00 00 36 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 14 40 6e 00 33 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2f 00 39 00 36 00 29 00 00 00 35 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 1c 40 6e 00 34 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2f 00 39 00 36 00 29 00 2b 00 32 00 00 00 37 00 00 00 02 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(436,521,17)\n487\nn2\nint(n1/96)+1\n6\nn3\nint(n1/96)\n5\nn4\nint(n1/96)+2\n7\nn5\nint(n1/8)+1\n61\nPaul plans to replace [[slot]] in. of wood railing along the top of his patio fence. The wood is sold in 8-ft. lengths. How many 8-ft. lengths does Paul need to purchase?\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "How many 8-ft. lengths does Nelia need to purchase?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "29"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "28"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "26"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "27"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 46547,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(71,82,1)",
+          "sampleValue": "73"
+        },
+        {
+          "name": "n2",
+          "rule": "n1*3",
+          "sampleValue": "219"
+        },
+        {
+          "name": "n3",
+          "rule": "floor(n7)+1",
+          "sampleValue": "28"
+        },
+        {
+          "name": "n4",
+          "rule": "floor(n7)",
+          "sampleValue": "27"
+        },
+        {
+          "name": "n5",
+          "rule": "floor(n7)-1",
+          "sampleValue": "26"
+        },
+        {
+          "name": "n6",
+          "rule": "floor(n7)+2",
+          "sampleValue": "29"
+        },
+        {
+          "name": "n7",
+          "rule": "n2/8",
+          "sampleValue": "27.375"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 46547,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 08 02 00 00 02 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 52 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 31 00 2c 00 38 00 32 00 2c 00 31 00 29 00 00 00 37 00 33 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 60 6b 40 6e 00 32 00 00 00 6e 00 31 00 2a 00 33 00 00 00 32 00 31 00 39 00 00 00 02 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3c 40 6e 00 33 00 00 00 66 00 6c 00 6f 00 6f 00 72 00 28 00 6e 00 37 00 29 00 2b 00 31 00 00 00 32 00 38 00 00 00 02 00 00 00 09 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3b 40 6e 00 34 00 00 00 66 00 6c 00 6f 00 6f 00 72 00 28 00 6e 00 37 00 29 00 00 00 32 00 37 00 00 00 02 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3a 40 6e 00 35 00 00 00 66 00 6c 00 6f 00 6f 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(71,82,1)\n73\nn2\nn1*3\n219\nn3\nfloor(n7)+1\n28\nn4\nfloor(n7)\n27\nn5\nfloor(n7)-1\n26\nn6\nfloor(n7)+2\n29\nn7\nn2/8\n27.375\nBaseboards are sold in 8-ft. lengths. Nelia requires [[slot]] yd. of baseboard. How many 8-ft. lengths does Nelia need to purchase?\nA.\n[[slot]]\nB."
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A gardener recommends planting daffodil bulbs 9 in. apart. Peter follows the gardener s advice and plants daffodils along the entire length of his 18 -ft. driveway. How many daffodil bulbs will Peter need?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "26"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "24"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "25"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "72"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 50007,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(17,23)",
+          "sampleValue": "18"
+        },
+        {
+          "name": "n2",
+          "rule": "int(12*n1/9)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "n3",
+          "rule": "n2+1",
+          "sampleValue": "25"
+        },
+        {
+          "name": "n4",
+          "rule": "n2+2",
+          "sampleValue": "26"
+        },
+        {
+          "name": "n5",
+          "rule": "int(n1*36/9)",
+          "sampleValue": "72"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 50007,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 6a 01 00 00 02 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 32 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 37 00 2c 00 32 00 33 00 29 00 00 00 31 00 38 00 00 00 02 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 38 40 6e 00 32 00 00 00 69 00 6e 00 74 00 28 00 31 00 32 00 2a 00 6e 00 31 00 2f 00 39 00 29 00 00 00 32 00 34 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 39 40 6e 00 33 00 00 00 6e 00 32 00 2b 00 31 00 00 00 32 00 35 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3a 40 6e 00 34 00 00 00 6e 00 32 00 2b 00 32 00 00 00 32 00 36 00 00 00 02 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 52 40 6e 00 35 00 00 00 69 00 6e 00 74 00 28 00 6e 00 31 00 2a 00 33 00 36 00 2f 00 39 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(17,23)\n18\nn2\nint(12*n1/9)\n24\nn3\nn2+1\n25\nn4\nn2+2\n26\nn5\nint(n1*36/9)\n72\nA gardener recommends planting daffodil bulbs 9 in. apart. Peter follows the gardener\ns advice and plants daffodils along the entire length of his [[slot]]-ft. driveway. How many daffodil bulbs will Peter need?\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Mike ran 1 $m_i. in 4 min. On average, how far did he run every 10 s? Give your answer in yards and feet.$"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "73 yd. 1 ft."
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "7 yd. 1 ft."
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "220 yd. 0 ft."
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "293 yd. 1 ft."
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Foundations of Math 10",
+        "unitName": "MMS10_1.1",
+        "sectionName": "1.1 Imperial Measures of Length",
+        "sourceOffset": 53467,
+        "difficulty": "Moderate",
+        "reference": "10.M2",
+        "topic": "Measurement",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(10,15)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "n2",
+          "rule": "1760/240*n1",
+          "sampleValue": "73.333333333333"
+        },
+        {
+          "name": "n3",
+          "rule": "1760/2400*n1",
+          "sampleValue": "7.333333333333"
+        },
+        {
+          "name": "n4",
+          "rule": "1760/80*n1",
+          "sampleValue": "220"
+        },
+        {
+          "name": "n5",
+          "rule": "1760/60*n1",
+          "sampleValue": "293.333333333333"
+        },
+        {
+          "name": "n7",
+          "rule": "int(n2)",
+          "sampleValue": "73"
+        },
+        {
+          "name": "n8",
+          "rule": "int(n3)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n9",
+          "rule": "int(n4)",
+          "sampleValue": "220"
+        },
+        {
+          "name": "n10",
+          "rule": "int(n5)",
+          "sampleValue": "293"
+        },
+        {
+          "name": "n11",
+          "rule": "int(3*(n2-n7)+.1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "n12",
+          "rule": "int(3*(n3-n8)+.1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "n13",
+          "rule": "int(3*(n4-n9)+.1)",
+          "sampleValue": "0"
+        },
+        {
+          "name": "n14",
+          "rule": "int(3*(n5-n10)+.1)",
+          "sampleValue": "1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 53467,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 20 00 49 00 6d 00 70 00 65 00 72 00 69 00 61 00 6c 00 20 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 4c 00 65 00 6e 00 67 00 74 00 68 00 00 00 31 00 30 00 2e 00 4d 00 32 00 00 00 4d 00 65 00 61 00 73 00 75 00 72 00 65 00 6d 00 65 00 6e 00 74 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 46 04 00 00 02 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 2c 00 31 00 35 00 29 00 00 00 31 00 30 00 00 00 02 00 00 00 0b 00 00 00 0f 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 55 55 55 55 55 55 52 40 6e 00 32 00 00 00 31 00 37 00 36 00 30 00 2f 00 32 00 34 00 30 00 2a 00 6e 00 31 00 00 00 37 00 33 00 2e 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 00 00 02 00 00 00 0c 00 00 00 0e 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 55 55 55 55 55 55 1d 40 6e 00 33 00 00 00 31 00 37 00 36 00 30 00 2f 00 32 00 34 00 30 00 30 00 2a 00 6e 00 31 00 00 00 37 00 2e 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 33 00 00 00 02 00 00 00 0a 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 6b 40 6e 00 34 00 00 00 31 00 37 00 36 00 30 00 2f 00 38 00 30 00 2a 00 6e 00 31 00",
+          "textPreview": "Moderate\n1.1 Imperial Measures of Length\n10.M2\nMeasurement\nProcedural Knowledge\nn1\nrange(10,15)\n10\n[[slot]]\nn2\n1760/240*n1\n73.333333333333\nn3\n1760/2400*n1\n7.333333333333\nn4\n1760/80*n1\n220\nn5\n1760/60*n1\n293.333333333333\nn7\nint(n2)\n73\nn8\nint(n3)\n7\nn9\nint(n4)\n220"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 11629 to 102455 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 25 candidate string clusters; using header count 16."
+    }
+  ],
+  "stats": {
+    "questionCount": 16,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 16
+  }
+}

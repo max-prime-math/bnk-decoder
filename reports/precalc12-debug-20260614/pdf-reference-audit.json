@@ -1,0 +1,1399 @@
+{
+  "generatedAt": "2026-06-14T13:59:32.279Z",
+  "decodedDir": "reports/precalc12-debug-20260614",
+  "pdfDir": "reports/pdf-text",
+  "summary": {
+    "decodedQuestions": 70,
+    "pdfQuestions": 75,
+    "comparedQuestions": 70,
+    "lowStemSimilarity": 60,
+    "answerMatches": 10,
+    "answerCompared": 28,
+    "choiceMatches": 37,
+    "choiceCompared": 98,
+    "decodedPlaceholderQuestions": 18,
+    "stemSimilarityPassRate": 0.143,
+    "answerMatchRate": 0.357,
+    "choiceMatchRate": 0.378
+  },
+  "chapters": [
+    {
+      "chapter": "Chapter 01",
+      "decodedPath": "reports/precalc12-debug-20260614/Chapter 01.json",
+      "pdfPath": "reports/pdf-text/Chapter 01.pdf",
+      "referenceTextPath": "reports/pdf-text/Chapter 01.txt",
+      "decodedQuestionCount": 70,
+      "pdfQuestionCount": 75,
+      "comparedQuestionCount": 70,
+      "lowStemSimilarityCount": 60,
+      "answerMatches": 10,
+      "answerCompared": 28,
+      "choiceMatches": 37,
+      "choiceCompared": 98,
+      "decodedPlaceholderQuestions": 18,
+      "examples": [
+        {
+          "number": 1,
+          "decodedId": "q-1",
+          "stemSimilarity": 0.938,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "9"
+          ],
+          "decodedStemPreview": "Compared to the graph of the base function $f(x) = x^2$, the graph of the function [embedded math expression] is translated",
+          "pdfStemPreview": "Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x 2  9 is translated",
+          "answer": {
+            "decoded": "C",
+            "pdf": "C"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 2,
+          "decodedId": "q-2",
+          "stemSimilarity": 0.611,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "equals",
+            "abs",
+            "5"
+          ],
+          "decodedStemPreview": "Compared to the graph of the base function [embedded math expression], the graph of the function [embedded math expression] is translated",
+          "pdfStemPreview": "Compared to the graph of the base function f(x)  | x| , the graph of the function g(x)  5  x  is translated",
+          "answer": {
+            "decoded": "C",
+            "pdf": "C"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 3,
+          "decodedId": "q-3",
+          "stemSimilarity": 0.933,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "4"
+          ],
+          "decodedStemPreview": "Compared to the graph of the base function $f(x) = x^2$, the graph of the function [embedded math expression] is translated",
+          "pdfStemPreview": "Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x  4 is translated",
+          "answer": {
+            "decoded": "A",
+            "pdf": "A"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 4,
+          "decodedId": "q-4",
+          "stemSimilarity": 0.611,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "equals",
+            "abs",
+            "9"
+          ],
+          "decodedStemPreview": "Compared to the graph of the base function [embedded math expression], the graph of the function [embedded math expression] is translated",
+          "pdfStemPreview": "Compared to the graph of the base function f(x)  x  , the graph of the function g(x)  x  9 is translated",
+          "answer": {
+            "decoded": "D",
+            "pdf": "D"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 5,
+          "decodedId": "q-5",
+          "stemSimilarity": 0.933,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "equals"
+          ],
+          "decodedStemPreview": "Given the graph of $f(x)$ shown below, what are the coordinates of point A if the transformed graph is represented by [DIAGRAM: variables ($x_1, x_2, x_3)$]? $3 y 2 - . 5$",
+          "pdfStemPreview": "Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is represented by g x   f x  2 ?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "A"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "– 2",
+              "pdf": "(3,  4)",
+              "missingReferenceTokens": [
+                "3",
+                "4"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "– 2",
+              "pdf": "(1,  4)",
+              "missingReferenceTokens": [
+                "1",
+                "4"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "3",
+              "pdf": "(1,  2)",
+              "missingReferenceTokens": [
+                "1",
+                "2"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.5,
+              "decoded": "$-6$",
+              "pdf": "(3,  6)",
+              "missingReferenceTokens": [
+                "3"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 6,
+          "decodedId": "q-6",
+          "stemSimilarity": 0.933,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "equals"
+          ],
+          "decodedStemPreview": "Given the graph of $f(x)$ shown below, what are the coordinates of point A if the transformed graph is represented by [DIAGRAM: variables ($x_1, x_2, x_3)$]? [DIAGRAM: variables ($x_1, x_2, x_3)$]",
+          "pdfStemPreview": "Given the graph of f(x) shown below, what are the coordinates of point A if the transformed graph is represented by g x   f x   3?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "A"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.5,
+              "decoded": "2",
+              "pdf": "(5, 2)",
+              "missingReferenceTokens": [
+                "5"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.5,
+              "decoded": "$-4$",
+              "pdf": "(2,  4)",
+              "missingReferenceTokens": [
+                "2"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "8",
+              "pdf": "(2,  1)",
+              "missingReferenceTokens": [
+                "2",
+                "1"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.5,
+              "decoded": "2",
+              "pdf": "(8, 2)",
+              "missingReferenceTokens": [
+                "8"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 7,
+          "decodedId": "q-7",
+          "stemSimilarity": 0.962,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "equals"
+          ],
+          "decodedStemPreview": "What is the equation of the transformed function, $g(x),$ after the transformations are applied to the graph of the base function $x^2,$ shown in blue, to obtain the graph of $g(x),$ shown in red? Recovered graph func...",
+          "pdfStemPreview": "What is the equation of the transformed function, g(x), after the transformations are applied to the graph of the base function f x   x 2 , shown in blue, to obtain the graph of g(x), shown in red? 2 2",
+          "answer": {
+            "decoded": "B",
+            "pdf": "B"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.333,
+              "decoded": "+ 3",
+              "pdf": "g x   3  x  5",
+              "missingReferenceTokens": [
+                "equals",
+                "5"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.333,
+              "decoded": "– 5",
+              "pdf": "g x   x  3  5",
+              "missingReferenceTokens": [
+                "equals",
+                "3"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.333,
+              "decoded": "– 5",
+              "pdf": "g x   5  x  3",
+              "missingReferenceTokens": [
+                "equals",
+                "3"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.333,
+              "decoded": "+ 3",
+              "pdf": "g x   x  5  3",
+              "missingReferenceTokens": [
+                "equals",
+                "5"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 8,
+          "decodedId": "q-9",
+          "stemSimilarity": 0,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "function",
+            "equals",
+            "represents",
+            "transformation",
+            "can",
+            "best",
+            "be",
+            "described",
+            "as"
+          ],
+          "decodedStemPreview": "The two functions in the graph shown are reflections of each other. Select the type of reflection(s).",
+          "pdfStemPreview": "The function f(x)  g( x) represents a transformation that can best be described as",
+          "answer": {
+            "decoded": "C",
+            "pdf": "A"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.333,
+              "decoded": "y-axis",
+              "pdf": "a reflection in the x-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.5,
+              "decoded": "x-axis and the y-axis",
+              "pdf": "a reflection in the x-axis and the y-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.333,
+              "decoded": "x-axis",
+              "pdf": "a reflection in the y-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 9,
+          "decodedId": "q-10",
+          "stemSimilarity": 0.273,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "two",
+            "functions",
+            "graph",
+            "reflections",
+            "other",
+            "select",
+            "type",
+            "reflection"
+          ],
+          "decodedStemPreview": "When a function is reflected in the x $-$axis, the coordinates of point (x, y) become",
+          "pdfStemPreview": "The two functions in the graph shown are reflections of each other. Select the type of reflection(s).",
+          "answer": {
+            "decoded": "A",
+            "pdf": "D"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "x, –y",
+              "pdf": "a reflection in the line y = x",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "line",
+                "equals"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "–x, –y",
+              "pdf": "a reflection in the x-axis and the y-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "–x, y",
+              "pdf": "a reflection in the y-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "x, y",
+              "pdf": "a reflection in the x-axis",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 10,
+          "decodedId": "q-11",
+          "stemSimilarity": 0.2,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "is",
+            "reflected",
+            "in",
+            "axis",
+            "coordinates",
+            "of",
+            "point",
+            "become"
+          ],
+          "decodedStemPreview": "When a $> 0,$ the function $g(x) = ax^2$ has what relationship to the base function $f(x) = x^2$?",
+          "pdfStemPreview": "When a function is reflected in the x-axis, the coordinates of point (x, y) become",
+          "answer": {
+            "decoded": "C",
+            "pdf": "A"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 11,
+          "decodedId": "q-12",
+          "stemSimilarity": 0.786,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "ax",
+            "2"
+          ],
+          "decodedStemPreview": "When b $> 0,$ the function $g(x) = bx$ has what relationship to the base function [embedded math expression]?",
+          "pdfStemPreview": "When a > 0, the function g(x)  ax 2 has what relationship to the base function f(x)  x 2 ?",
+          "answer": {
+            "decoded": "D",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "B",
+              "similarity": 0.667,
+              "decoded": "stretched vertically by a factor of |b|",
+              "pdf": "f(x) is stretched horizontally by a factor of 1/|a|",
+              "missingReferenceTokens": [
+                "is",
+                "horizontally",
+                "1"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.75,
+              "decoded": "stretched horizontally by a factor of 1/|b| and reflected in the y-axis",
+              "pdf": "f(x) is stretched vertically by a factor of |a|",
+              "missingReferenceTokens": [
+                "is",
+                "vertically"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.667,
+              "decoded": "stretched horizontally by a factor of 1/|b|",
+              "pdf": "f(x) is stretched horizontally by a factor of 1/|a| and reflected in the y-axis",
+              "missingReferenceTokens": [
+                "is",
+                "reflected",
+                "in",
+                "axis"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 12,
+          "decodedId": "q-13",
+          "stemSimilarity": 0.313,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "when",
+            "0",
+            "abs",
+            "bx",
+            "has",
+            "what",
+            "relationship",
+            "to"
+          ],
+          "decodedStemPreview": "Which of the graphs shown below represents the base function $x^2$ and the stretched function $g(x) = 5 x_2$?",
+          "pdfStemPreview": "When b > 0, the function g(x)  bx has what relationship to the base function f(x)  x  ?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "D"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "0.2",
+              "pdf": "f(x) is stretched vertically by a factor of |b| and reflected in the x-axis",
+              "missingReferenceTokens": [
+                "is",
+                "stretched",
+                "vertically",
+                "by",
+                "factor",
+                "of",
+                "abs",
+                "reflected",
+                "in",
+                "axis"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "$-5$",
+              "pdf": "f(x) is stretched vertically by a factor of |b|",
+              "missingReferenceTokens": [
+                "is",
+                "stretched",
+                "vertically",
+                "by",
+                "factor",
+                "of",
+                "abs"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "5",
+              "pdf": "f(x) is stretched horizontally by a factor of 1/|b| and reflected in the y-axis",
+              "missingReferenceTokens": [
+                "is",
+                "stretched",
+                "horizontally",
+                "by",
+                "factor",
+                "of",
+                "1",
+                "abs",
+                "reflected",
+                "in",
+                "axis"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 14,
+          "decodedId": "q-16",
+          "stemSimilarity": 0.571,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "which",
+            "graphs",
+            "represents",
+            "stretched",
+            "3",
+            "4"
+          ],
+          "decodedStemPreview": "When the value of a is $g(x) = ax^2$, the function $f(x) = x^2$ has what relationship to the base function [embedded math expression]?",
+          "pdfStemPreview": "Which of the graphs shown below represents the base function f(x)  x 2 and the stretched function 3 g(x) = ( x)2? 4",
+          "answer": {
+            "decoded": "D",
+            "pdf": "A"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 15,
+          "decodedId": "q-17",
+          "stemSimilarity": 0.333,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "what",
+            "coordinates",
+            "invariant",
+            "point",
+            "when",
+            "abs",
+            "reflected",
+            "in",
+            "axis"
+          ],
+          "decodedStemPreview": "Compared to the graph of the base function $f(x) = x^2$, the graph of $g(x) = (x + 4)^2 + 9$ is translated $4$ units right and $9$ units up.",
+          "pdfStemPreview": "What are the coordinates of the invariant point(s) when the function y  x   2 is reflected in the y-axis?",
+          "answer": {
+            "decoded": "D",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "9 units to the left and 4 units down",
+              "pdf": "(2, –2)",
+              "missingReferenceTokens": [
+                "2"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "4 units to the left and 9 units down",
+              "pdf": "(–2, 0) and (2, 0)",
+              "missingReferenceTokens": [
+                "2",
+                "0"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "9 units to the right and 4 units up",
+              "pdf": "(0, –2)",
+              "missingReferenceTokens": [
+                "0",
+                "2"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "4 units to the right and 9 units up",
+              "pdf": "(0, 2)",
+              "missingReferenceTokens": [
+                "0",
+                "2"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 16,
+          "decodedId": "q-18",
+          "stemSimilarity": 0.105,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "when",
+            "value",
+            "of",
+            "is",
+            "less",
+            "than",
+            "1",
+            "function",
+            "ax",
+            "2",
+            "has",
+            "what",
+            "relationship",
+            "to",
+            "base"
+          ],
+          "decodedStemPreview": "Which graph represents $g(x) = f(x + 6) + 3$?",
+          "pdfStemPreview": "When the value of a is less than –1, the function g(x)  ax 2 has what relationship to the base function f(x)  x 2 ?",
+          "answer": {
+            "decoded": "C",
+            "pdf": "D"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "graph of $g(x) = f(x - 6) + 3$; translated 6 units right and 3 units up",
+              "pdf": "f(x) is compressed vertically",
+              "missingReferenceTokens": [
+                "is",
+                "compressed",
+                "vertically"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "graph of $g(x) = f(x + 6) - 3$; translated 6 units left and 3 units down",
+              "pdf": "f(x) is reflected and compressed vertically",
+              "missingReferenceTokens": [
+                "is",
+                "reflected",
+                "compressed",
+                "vertically"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "graph of $g(x) = f(x + 6) + 3$; translated 6 units left and 3 units up",
+              "pdf": "f(x) is stretched vertically",
+              "missingReferenceTokens": [
+                "is",
+                "stretched",
+                "vertically"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "graph of $g(x) = f(x - 6) - 3$; translated 6 units right and 3 units down",
+              "pdf": "f(x) is reflected and stretched vertically",
+              "missingReferenceTokens": [
+                "is",
+                "reflected",
+                "stretched",
+                "vertically"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 17,
+          "decodedId": "q-19",
+          "stemSimilarity": 0.5,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "compared",
+            "base",
+            "function",
+            "2",
+            "9",
+            "is",
+            "translated"
+          ],
+          "decodedStemPreview": "Which choice best describes the combination of transformations that must be applied to the graph of $f(x)$ to obtain the graph of $g(x) = f(2x - 4)$?",
+          "pdfStemPreview": "Compared to the graph of the base function f(x)  x 2 , the graph of the function g(x)  x  4  9 is translated",
+          "answer": {
+            "decoded": "C",
+            "pdf": "D"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.571,
+              "decoded": "a horizontal stretch by a factor of 2 and a horizontal translation of 2 units to the left",
+              "pdf": "9 units to the left and 4 units down",
+              "missingReferenceTokens": [
+                "9",
+                "4",
+                "down"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.571,
+              "decoded": "a horizontal stretch by a factor of 1/2 and a horizontal translation of 4 units to the right",
+              "pdf": "4 units to the left and 9 units down",
+              "missingReferenceTokens": [
+                "left",
+                "9",
+                "down"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.571,
+              "decoded": "a horizontal stretch by a factor of 1/2 and a horizontal translation of 2 units to the right",
+              "pdf": "9 units to the right and 4 units up",
+              "missingReferenceTokens": [
+                "9",
+                "4",
+                "up"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.571,
+              "decoded": "a horizontal stretch by a factor of –2 and a horizontal translation of 2 units to the right",
+              "pdf": "4 units to the right and 9 units up",
+              "missingReferenceTokens": [
+                "4",
+                "9",
+                "up"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 18,
+          "decodedId": "q-20",
+          "stemSimilarity": 0.5,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "is",
+            "of",
+            "function",
+            "6"
+          ],
+          "decodedStemPreview": "Which graph represents $g(x) = f(x - 3) + 4$?",
+          "pdfStemPreview": "Which is the graph of the function f(x)  x  6  3?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "C"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 19,
+          "decodedId": "q-21",
+          "stemSimilarity": 0.435,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "choice",
+            "best",
+            "describes",
+            "combination",
+            "of",
+            "equals",
+            "abs",
+            "2x",
+            "4"
+          ],
+          "decodedStemPreview": "In the graph shown, which transformations must be applied to the blue curve to obtain the red curve? $2*(x+1)$",
+          "pdfStemPreview": "Which choice best describes the combination of transformations that must be applied to the graph of f x   x  to obtain the graph of g(x)  f 2x  4 ?",
+          "answer": {
+            "decoded": "C",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.308,
+              "decoded": "a reflection in the x-axis and a translation of down units 5",
+              "pdf": "a horizontal stretch by a factor of 2 and a horizontal translation of 2 units to the left",
+              "missingReferenceTokens": [
+                "horizontal",
+                "stretch",
+                "by",
+                "factor",
+                "2",
+                "to",
+                "left"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.333,
+              "decoded": "a reflection in the y-axis and a translation of up units 5",
+              "pdf": "a horizontal stretch by a factor of and a horizontal translation of 4 units to the right",
+              "missingReferenceTokens": [
+                "horizontal",
+                "stretch",
+                "by",
+                "factor",
+                "4",
+                "to",
+                "right"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.333,
+              "decoded": "a reflection in the x-axis and a translation of up units 5",
+              "pdf": "a horizontal stretch by a factor of and a horizontal translation of 2 units to the right",
+              "missingReferenceTokens": [
+                "horizontal",
+                "stretch",
+                "by",
+                "factor",
+                "2",
+                "to",
+                "right"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.308,
+              "decoded": "a reflection in the y-axis and a translation of down units 5",
+              "pdf": "a horizontal stretch by a factor of –2 and a horizontal translation of 2 units to the right",
+              "missingReferenceTokens": [
+                "horizontal",
+                "stretch",
+                "by",
+                "factor",
+                "2",
+                "to",
+                "right"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 20,
+          "decodedId": "q-22",
+          "stemSimilarity": 0.333,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "in",
+            "transformations",
+            "must",
+            "be",
+            "applied",
+            "blue",
+            "curve",
+            "obtain",
+            "red"
+          ],
+          "decodedStemPreview": "Which of the following graphs represents the graph of the function ($2)*abs((-2)*x-(4))+(2)$ Recovered graph functions: ($2)*abs((-2)*x-(4))+(2); (2)*((-2)*x-(4))^2+(2); -(2)*abs((-2)*x+(4))-(2); -(2)*((-2)*x+(4))^2-(...",
+          "pdfStemPreview": "In the following graph, which transformations must be applied to the blue curve to obtain the red curve?",
+          "answer": {
+            "decoded": "D",
+            "pdf": "A"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "$x >= + 2$",
+              "pdf": "a reflection in the x-axis, a vertical translation of 4 units up, and a horizontal translation",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "vertical",
+                "translation",
+                "of",
+                "4",
+                "units",
+                "up",
+                "horizontal"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "$x >= – 2$",
+              "pdf": "a reflection in the x-axis, a vertical translation of 3 units up, and a horizontal translation",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "vertical",
+                "translation",
+                "of",
+                "3",
+                "units",
+                "up",
+                "horizontal"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "$x >= –2$",
+              "pdf": "a reflection in the x-axis, a vertical translation of 3 units down, and a horizontal",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "vertical",
+                "translation",
+                "of",
+                "3",
+                "units",
+                "down",
+                "horizontal"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "$x <= + 2$",
+              "pdf": "a reflection in the x-axis, a vertical translation of 4 units up, and a horizontal translation",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "vertical",
+                "translation",
+                "of",
+                "4",
+                "units",
+                "up",
+                "horizontal"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 21,
+          "decodedId": "q-23",
+          "stemSimilarity": 0.214,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "in",
+            "which",
+            "transformations",
+            "must",
+            "be",
+            "applied",
+            "blue",
+            "curve",
+            "obtain",
+            "red"
+          ],
+          "decodedStemPreview": "When the function ($-4)*abs(x+(3))-(2)$ $-4*abs(x+3)-2$ is transformed to Recovered graph functions: ($-4)*abs(x+(3))-(2); (-4)*(x+(3))^2-(2); (-4)*abs(x+(3))+(2); (-4)*(x+(3))^2+(2); (-4)*abs(x-(3))+(2); (-4)*(x-(3))...",
+          "pdfStemPreview": "In the graph shown, which transformations must be applied to the blue curve to obtain the red curve?",
+          "answer": {
+            "decoded": "C",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "$x >= + 2$",
+              "pdf": "a reflection in the x-axis and a translation of 5 units down",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "translation",
+                "of",
+                "5",
+                "units",
+                "down"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0,
+              "decoded": "$x >= + 3$",
+              "pdf": "a reflection in the y-axis and a translation of 5 units up",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "translation",
+                "of",
+                "5",
+                "units",
+                "up"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0,
+              "decoded": "$x >= 1$",
+              "pdf": "a reflection in the x-axis and a translation of 5 units up",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "translation",
+                "of",
+                "5",
+                "units",
+                "up"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "$x <= + 2$",
+              "pdf": "a reflection in the y-axis and a translation of 5 units down",
+              "missingReferenceTokens": [
+                "reflection",
+                "in",
+                "axis",
+                "translation",
+                "of",
+                "5",
+                "units",
+                "down"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 22,
+          "decodedId": "q-24",
+          "stemSimilarity": 0.35,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "graphs",
+            "represents",
+            "graph",
+            "abs",
+            "transformed",
+            "to",
+            "2",
+            "2x",
+            "4"
+          ],
+          "decodedStemPreview": "Which of the following functions is the correct inverse for the function $f(x) = 3x + 5$?",
+          "pdfStemPreview": "Which of the following graphs represents the graph of the function f x   x  transformed to f x   22x  4  2?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "D"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 23,
+          "decodedId": "q-25",
+          "stemSimilarity": 0.235,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "when",
+            "abs",
+            "transformed",
+            "to",
+            "4",
+            "3",
+            "2",
+            "graph",
+            "looks",
+            "like"
+          ],
+          "decodedStemPreview": "Which of the following functions is the correct inverse for the function $f(x) = -9/2x + 6$?",
+          "pdfStemPreview": "When the function f x   x  is transformed to f x   4x  3  2, the graph looks like",
+          "answer": {
+            "decoded": "A",
+            "pdf": "C"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 24,
+          "decodedId": "q-26",
+          "stemSimilarity": 0.6,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "3x",
+            "5",
+            "1"
+          ],
+          "decodedStemPreview": "Which of the following functions is the correct inverse for the function $f(x) = sqrt(x) + 7$, {x | x $>= 0, x$ in R}?",
+          "pdfStemPreview": "Which of the following functions is the correct inverse for the function f(x)  3x  5? 1 5 1 5",
+          "answer": {
+            "decoded": "C",
+            "pdf": "A"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 25,
+          "decodedId": "q-27",
+          "stemSimilarity": 0.733,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "functions",
+            "6",
+            "4"
+          ],
+          "decodedStemPreview": "Which of the following relations is the correct inverse for the function $f(x) = x^2 + 6x + 2$?",
+          "pdfStemPreview": "Which of the following functions is the correct inverse for the function f(x) =  x  6? 2 2 4 2 4",
+          "answer": {
+            "decoded": "C",
+            "pdf": "A"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.5,
+              "decoded": "$y = 3 +/- sqrt(x + 7)$",
+              "pdf": "f 1 (x) =  x",
+              "missingReferenceTokens": [
+                "1"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.5,
+              "decoded": "$y = -3 +/- sqrt(x - 7)$",
+              "pdf": "f 1 (x) = x",
+              "missingReferenceTokens": [
+                "1"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.5,
+              "decoded": "$y = -3 +/- sqrt(x + 7)$",
+              "pdf": "f 1 (x) =  x",
+              "missingReferenceTokens": [
+                "1"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.5,
+              "decoded": "$y = 3 +/- sqrt(x + 3)$",
+              "pdf": "f 1 (x) = x",
+              "missingReferenceTokens": [
+                "1"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 26,
+          "decodedId": "q-28",
+          "stemSimilarity": 0.357,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "following",
+            "functions",
+            "is",
+            "correct",
+            "function",
+            "equals",
+            "7",
+            "abs",
+            "0"
+          ],
+          "decodedStemPreview": "Which graph represents the inverse of the graph shown? Original graph: $-(x-2)^2+1$. Inverse relation: $(y-1)^2+2$.",
+          "pdfStemPreview": "Which of the following functions is the correct inverse for the function f(x)  x 2  7, {x | x  0, x  R}? 2",
+          "answer": {
+            "decoded": "D",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0.333,
+              "decoded": "graph of $-(x-2)^2+1$",
+              "pdf": "f 1 (x) = x  7",
+              "missingReferenceTokens": [
+                "equals",
+                "7"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.333,
+              "decoded": "graph of $(y-1)^2+2$",
+              "pdf": "f 1 (x) = x 7",
+              "missingReferenceTokens": [
+                "equals",
+                "7"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.333,
+              "decoded": "graph of $-(y-1)^2+2$",
+              "pdf": "f 1 (x) = x  7",
+              "missingReferenceTokens": [
+                "equals",
+                "7"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0.333,
+              "decoded": "graph of $(y-2)^2+1$",
+              "pdf": "f 1 (x) = x7",
+              "missingReferenceTokens": [
+                "equals",
+                "7"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 27,
+          "decodedId": "q-29",
+          "stemSimilarity": 0.25,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "following",
+            "relations",
+            "is",
+            "correct",
+            "function",
+            "equals",
+            "2",
+            "6x"
+          ],
+          "decodedStemPreview": "Which graph represents the inverse of the graph shown? Original graph: $-(x3)/5$. Inverse relation: $-(x-3)/5$.",
+          "pdfStemPreview": "Which of the following relations is the correct inverse for the function f(x)  x 2  6x  2?",
+          "answer": {
+            "decoded": "D",
+            "pdf": "C"
+          },
+          "choiceMismatches": [
+            {
+              "id": "A",
+              "similarity": 0,
+              "decoded": "graph of $-(x3)/5$",
+              "pdf": "f 1 (x) = 3 x  7",
+              "missingReferenceTokens": [
+                "1",
+                "equals",
+                "3",
+                "7"
+              ]
+            },
+            {
+              "id": "B",
+              "similarity": 0.25,
+              "decoded": "graph of $-(x-3)/5$",
+              "pdf": "f 1 (x) = 7 x  3",
+              "missingReferenceTokens": [
+                "1",
+                "equals",
+                "7"
+              ]
+            },
+            {
+              "id": "C",
+              "similarity": 0.25,
+              "decoded": "graph of $(x-3)/5$",
+              "pdf": "f 1 (x) = 3 x  7",
+              "missingReferenceTokens": [
+                "1",
+                "equals",
+                "7"
+              ]
+            },
+            {
+              "id": "D",
+              "similarity": 0,
+              "decoded": "graph of $(x3)/5$",
+              "pdf": "f 1 (x) = –7 x  3",
+              "missingReferenceTokens": [
+                "1",
+                "equals",
+                "7",
+                "3"
+              ]
+            }
+          ]
+        },
+        {
+          "number": 28,
+          "decodedId": "q-30",
+          "stemSimilarity": 0.333,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "which",
+            "graph",
+            "represents"
+          ],
+          "decodedStemPreview": "The equation of the inverse of [embedded math expression] is",
+          "pdfStemPreview": "Which graph represents the inverse of the graph shown?",
+          "answer": {
+            "decoded": "A",
+            "pdf": "D"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 29,
+          "decodedId": "q-31",
+          "stemSimilarity": 0.5,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "which",
+            "represents",
+            "inverse"
+          ],
+          "decodedStemPreview": "____________________ are transformations that cause the graph of a function to change shape without changing the orientation of the graph.",
+          "pdfStemPreview": "Which graph represents the inverse of the function shown?",
+          "answer": {
+            "pdf": "D"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 30,
+          "decodedId": "q-32",
+          "stemSimilarity": 0.429,
+          "hasDecodedPlaceholder": true,
+          "missingReferenceTokens": [
+            "equation",
+            "inverse",
+            "equals",
+            "9x"
+          ],
+          "decodedStemPreview": "The graph of $f(x)$ [DIAGRAM: variables (h, $h_display,$ direction)] is the graph of [DIAGRAM: variables (h, $h_display,$ direction)] translated [DIAGRAM: variables (h, $h_display,$ direction)] units _________________...",
+          "pdfStemPreview": "The equation of the inverse of f(x)  9x is x",
+          "answer": {
+            "pdf": "A"
+          },
+          "choiceMismatches": []
+        },
+        {
+          "number": 1,
+          "decodedId": "q-33",
+          "stemSimilarity": 0.077,
+          "hasDecodedPlaceholder": false,
+          "missingReferenceTokens": [
+            "transformations",
+            "cause",
+            "graph",
+            "of",
+            "to",
+            "change",
+            "shape",
+            "without",
+            "changing",
+            "orientation"
+          ],
+          "decodedStemPreview": "The ____________________ is (are) invariant on a function after a reflection in the y $-$axis.",
+          "pdfStemPreview": "____________________ are transformations that cause the graph of a function to change shape without changing the orientation of the graph.",
+          "answer": {},
+          "choiceMismatches": []
+        }
+      ]
+    }
+  ]
+}

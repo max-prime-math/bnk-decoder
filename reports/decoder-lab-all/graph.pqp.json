@@ -1,0 +1,101 @@
+{
+  "format": "portable-question-package",
+  "version": "1.0",
+  "producer": {
+    "app": "bnk-decoder",
+    "appVersion": "0.1.0",
+    "exportedAt": "2026-06-13T18:29:59.825Z"
+  },
+  "source": {
+    "kind": "bnk",
+    "label": "graph.bnk",
+    "originFiles": [
+      "ignore/decoder-lab/graph.bnk"
+    ]
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "kind": "frq",
+      "content": {
+        "stem": {
+          "format": "plain",
+          "text": "i g r a p h - 0 1 A K A L A R A Z C A C O C T D E F L G A H I I A I D I L I N K S K Y L A M A M D M E M I M N M O M S M T N C N D N E N H N J N M N V N Y O H O K O R P A R I S C S D T N T X U T V A V T W A W I W V W Y T i m e s N e w R o m a n\nT i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n a\nM S C M i s c e l l a n e o u s O T O t h e r i i B T i m e s N e w R o m a n 0 0 0 0 x ? T i m e s N e w R o m a n y ? T i m e s N e w R o m a n - i n f i n f X x ^ 2 7 t h e f u n c t i o n i s T i m e s N e w R o m a n\nq ; ; y=x^2"
+        }
+      },
+      "scoring": {
+        "points": 5
+      },
+      "classification": {
+        "questionType": "problem",
+        "tags": [
+          "bnk",
+          "problem"
+        ]
+      },
+      "provenance": {
+        "sourceApp": "bnk-decoder",
+        "sourceLabel": "graph.bnk",
+        "sourceQuestionNumber": "q-1",
+        "confidence": "medium",
+        "originFiles": [
+          "ignore/decoder-lab/graph.bnk"
+        ]
+      },
+      "extensions": {
+        "quality": {
+          "score": 93,
+          "verdict": "clean",
+          "findings": [
+            {
+              "code": "BODY_FORMATTING_NOISE",
+              "level": "info",
+              "message": "Question body has spacing or punctuation artifacts.",
+              "evidence": "i g r a p h - 0 1 A K A L A R A Z C A C O C T D E F L G A H I I A I D I L I N K S K Y L A M A M D M E M I M N M O M S M T N C N D N E N H N J N M N V N Y O H O K O R P A R I S C S D T N T X U T V A V T W A W I W V W Y T i m e s N e w R o m a n\nT i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n a\nM S C M i s c e l l a n e o u s O T O t h e r i i B T i m e s N e w R o m a n 0 0 0 0 x ? T i m e s N e w R o m a n y ? T i m e s N e w R o m a n - i n f i n f X x ^ 2 7 t h e f u n c t i o n i s T i m e s N e w R o m a n\nq ; ; y=x^2"
+            },
+            {
+              "code": "BODY_MATH_MODE_LEAK",
+              "level": "warning",
+              "message": "Question body appears to contain unwrapped math fragments.",
+              "evidence": "i g r a p h - 0 1 A K A L A R A Z C A C O C T D E F L G A H I I A I D I L I N K S K Y L A M A M D M E M I M N M O M S M T N C N D N E N H N J N M N V N Y O H O K O R P A R I S C S D T N T X U T V A V T W A W I W V W Y T i m e s N e w R o m a n\nT i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n a\nM S C M i s c e l l a n e o u s O T O t h e r i i B T i m e s N e w R o m a n 0 0 0 0 x ? T i m e s N e w R o m a n y ? T i m e s N e w R o m a n - i n f i n f X x ^ 2 7 t h e f u n c t i o n i s T i m e s N e w R o m a n\nq ; ; y=x^2"
+            }
+          ],
+          "metrics": {
+            "bodyLength": 635,
+            "choiceCount": 0,
+            "placeholderCount": 0,
+            "unresolvedTokenCount": 0,
+            "choicePlaceholderCount": 0,
+            "solutionPlaceholderCount": 0,
+            "mathLeakCount": 1,
+            "choiceMathLeakCount": 0
+          }
+        }
+      }
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 560 to 9873 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "warning",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 0 candidate v06 question string clusters."
+    }
+  ],
+  "extensions": {}
+}

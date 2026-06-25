@@ -1,0 +1,8 @@
+page   num  type   width height color comp bpc  enc interp  object ID x-ppi y-ppi size ratio
+--------------------------------------------------------------------------------------------
+   2     0 image    1201  1152  rgb     3   8  jpeg   no        39  0   600   600 34.8K 0.9%
+   2     1 image    1201    49  rgb     3   8  jpeg   no        40  0   600   600 2479B 1.4%
+   2     2 image    1201  1152  rgb     3   8  jpeg   no        41  0   600   600 38.1K 0.9%
+   2     3 image    1201    49  rgb     3   8  jpeg   no        40  0   600   600 2479B 1.4%
+   2     4 image    1201  1152  rgb     3   8  jpeg   no        42  0   600   600 35.7K 0.9%
+   2     5 image    1201    49  rgb     3   8  jpeg   no        43  0   600   600 2584B 1.5%

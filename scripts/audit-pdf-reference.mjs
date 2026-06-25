@@ -27,6 +27,8 @@ const summary = chapters.reduce((acc, chapter) => {
   acc.choiceMatches += chapter.choiceMatches;
   acc.choiceCompared += chapter.choiceCompared;
   acc.decodedPlaceholderQuestions += chapter.decodedPlaceholderQuestions;
+  acc.unmatchedDecodedQuestions += chapter.unmatchedDecodedQuestions;
+  acc.unmatchedPdfQuestions += chapter.unmatchedPdfQuestions;
   return acc;
 }, {
   decodedQuestions: 0,
@@ -38,6 +40,8 @@ const summary = chapters.reduce((acc, chapter) => {
   choiceMatches: 0,
   choiceCompared: 0,
   decodedPlaceholderQuestions: 0,
+  unmatchedDecodedQuestions: 0,
+  unmatchedPdfQuestions: 0,
 });
 
 const report = {
@@ -71,7 +75,8 @@ for (const chapter of chapters) {
     `${chapter.chapter}: decoded ${chapter.decodedQuestionCount}, PDF ${chapter.pdfQuestionCount}, `
       + `low stems ${chapter.lowStemSimilarityCount}, placeholders ${chapter.decodedPlaceholderQuestions}, `
       + `answers ${chapter.answerMatches}/${chapter.answerCompared}, `
-      + `choices ${chapter.choiceMatches}/${chapter.choiceCompared}`,
+      + `choices ${chapter.choiceMatches}/${chapter.choiceCompared}, `
+      + `unmatched decoded/PDF ${chapter.unmatchedDecodedQuestions}/${chapter.unmatchedPdfQuestions}`,
   );
   for (const mismatch of chapter.examples.slice(0, 3)) {
     console.log(`  - Q${mismatch.number}: stem ${mismatch.stemSimilarity}; missing: ${mismatch.missingReferenceTokens.slice(0, 8).join(', ') || 'none'}`);
@@ -94,7 +99,8 @@ function auditChapter(decodedPath, pdfPath) {
 
   const pdfQuestions = parsePdfQuestions(pdfText);
   const decodedQuestions = decoded.questions ?? [];
-  const comparedQuestionCount = Math.min(decodedQuestions.length, pdfQuestions.length);
+  const alignments = alignQuestions(decodedQuestions, pdfQuestions);
+  const comparedQuestionCount = alignments.filter((alignment) => alignment.kind === 'match').length;
   const examples = [];
   let lowStemSimilarityCount = 0;
   let answerMatches = 0;
@@ -102,14 +108,59 @@ function auditChapter(decodedPath, pdfPath) {
   let choiceMatches = 0;
   let choiceCompared = 0;
   let decodedPlaceholderQuestions = 0;
+  let unmatchedDecodedQuestions = 0;
+  let unmatchedPdfQuestions = 0;
 
-  for (let index = 0; index < comparedQuestionCount; index++) {
-    const decodedQuestion = decodedQuestions[index];
-    const pdfQuestion = pdfQuestions[index];
-    const stem = compareText(decodedQuestion.body?.text ?? '', pdfQuestion.stem);
-    const choiceComparison = compareChoices(decodedQuestion.choices ?? [], pdfQuestion.choices);
+  for (const alignment of alignments) {
+    if (alignment.kind === 'decoded-only') {
+      unmatchedDecodedQuestions++;
+      const decodedQuestion = decodedQuestions[alignment.decodedIndex];
+      if (decodedQuestionHasPlaceholder(decodedQuestion)) decodedPlaceholderQuestions++;
+      examples.push({
+        number: undefined,
+        decodedId: decodedQuestion.id,
+        alignment: 'decoded-only',
+        stemSimilarity: 0,
+        hasDecodedPlaceholder: decodedQuestionHasPlaceholder(decodedQuestion),
+        missingReferenceTokens: [],
+        decodedStemPreview: preview(decodedQuestionText(decodedQuestion)),
+        pdfStemPreview: '',
+        answer: {
+          decoded: normalizedAnswer(decodedQuestionAnswer(decodedQuestion)),
+          pdf: undefined,
+        },
+        choiceMismatches: [],
+      });
+      continue;
+    }
+
+    if (alignment.kind === 'pdf-only') {
+      unmatchedPdfQuestions++;
+      const pdfQuestion = pdfQuestions[alignment.pdfIndex];
+      examples.push({
+        number: pdfQuestion.number,
+        decodedId: undefined,
+        alignment: 'pdf-only',
+        stemSimilarity: 0,
+        hasDecodedPlaceholder: false,
+        missingReferenceTokens: tokens(pdfQuestion.stem).slice(0, 20),
+        decodedStemPreview: '',
+        pdfStemPreview: preview(pdfQuestion.stem),
+        answer: {
+          decoded: undefined,
+          pdf: normalizedAnswer(pdfQuestion.answer),
+        },
+        choiceMismatches: [],
+      });
+      continue;
+    }
+
+    const decodedQuestion = decodedQuestions[alignment.decodedIndex];
+    const pdfQuestion = pdfQuestions[alignment.pdfIndex];
+    const stem = compareText(decodedQuestionText(decodedQuestion), pdfQuestion.stem);
+    const choiceComparison = compareChoices(decodedQuestionChoices(decodedQuestion), pdfQuestion.choices);
     const hasDecodedPlaceholder = decodedQuestionHasPlaceholder(decodedQuestion);
-    const decodedAnswer = normalizedAnswer(decodedQuestion.answer?.value);
+    const decodedAnswer = normalizedAnswer(decodedQuestionAnswer(decodedQuestion));
     const pdfAnswer = normalizedAnswer(pdfQuestion.answer);
 
     if (stem.similarity < 0.62) lowStemSimilarityCount++;
@@ -126,10 +177,11 @@ function auditChapter(decodedPath, pdfPath) {
       examples.push({
         number: pdfQuestion.number,
         decodedId: decodedQuestion.id,
+        alignment: alignment.decodedIndex === alignment.pdfIndex ? 'index' : `decoded ${alignment.decodedIndex + 1}`,
         stemSimilarity: stem.similarity,
         hasDecodedPlaceholder,
         missingReferenceTokens: stem.missingReferenceTokens,
-        decodedStemPreview: preview(decodedQuestion.body?.text ?? ''),
+        decodedStemPreview: preview(decodedQuestionText(decodedQuestion)),
         pdfStemPreview: preview(pdfQuestion.stem),
         answer: {
           decoded: decodedAnswer,
@@ -154,6 +206,8 @@ function auditChapter(decodedPath, pdfPath) {
     choiceMatches,
     choiceCompared,
     decodedPlaceholderQuestions,
+    unmatchedDecodedQuestions,
+    unmatchedPdfQuestions,
     examples: examples.slice(0, 30),
   };
 }
@@ -173,6 +227,8 @@ function emptyChapter(chapter, decodedPath, pdfPath, error) {
     choiceMatches: 0,
     choiceCompared: 0,
     decodedPlaceholderQuestions: 0,
+    unmatchedDecodedQuestions: 0,
+    unmatchedPdfQuestions: 0,
     examples: [],
   };
 }
@@ -187,6 +243,63 @@ function extractPdfText(pdfPath) {
     throw new Error(`pdftotext failed for ${pdfPath}: ${result.stderr}`);
   }
   return result.stdout;
+}
+
+function alignQuestions(decodedQuestions, pdfQuestions) {
+  const gapCost = 0.62;
+  const rows = decodedQuestions.length + 1;
+  const cols = pdfQuestions.length + 1;
+  const dp = Array.from({ length: rows }, () => Array(cols).fill(0));
+  const back = Array.from({ length: rows }, () => Array(cols).fill(undefined));
+
+  for (let i = 1; i < rows; i++) {
+    dp[i][0] = i * gapCost;
+    back[i][0] = 'decoded-only';
+  }
+  for (let j = 1; j < cols; j++) {
+    dp[0][j] = j * gapCost;
+    back[0][j] = 'pdf-only';
+  }
+
+  for (let i = 1; i < rows; i++) {
+    for (let j = 1; j < cols; j++) {
+      const similarity = compareText(decodedQuestionText(decodedQuestions[i - 1]), pdfQuestions[j - 1].stem).similarity;
+      const matchCost = dp[i - 1][j - 1] + (1 - similarity);
+      const decodedOnlyCost = dp[i - 1][j] + gapCost;
+      const pdfOnlyCost = dp[i][j - 1] + gapCost;
+
+      if (matchCost <= decodedOnlyCost && matchCost <= pdfOnlyCost) {
+        dp[i][j] = matchCost;
+        back[i][j] = 'match';
+      } else if (decodedOnlyCost <= pdfOnlyCost) {
+        dp[i][j] = decodedOnlyCost;
+        back[i][j] = 'decoded-only';
+      } else {
+        dp[i][j] = pdfOnlyCost;
+        back[i][j] = 'pdf-only';
+      }
+    }
+  }
+
+  const alignments = [];
+  let i = decodedQuestions.length;
+  let j = pdfQuestions.length;
+  while (i > 0 || j > 0) {
+    const step = back[i][j];
+    if (step === 'match') {
+      alignments.push({ kind: 'match', decodedIndex: i - 1, pdfIndex: j - 1 });
+      i--;
+      j--;
+    } else if (step === 'decoded-only') {
+      alignments.push({ kind: 'decoded-only', decodedIndex: i - 1 });
+      i--;
+    } else {
+      alignments.push({ kind: 'pdf-only', pdfIndex: j - 1 });
+      j--;
+    }
+  }
+
+  return alignments.reverse();
 }
 
 function parsePdfQuestions(text) {
@@ -257,7 +370,7 @@ function parsePdfChoices(lines) {
 function parsePdfChoiceLine(line) {
   const choices = [];
   const normalized = line.replace(/\t/g, '    ');
-  const pattern = /(?:^|\s{2,})([A-H])\s+(.+?)(?=(?:\s{2,}[A-H]\s+)|$)/g;
+  const pattern = /(?:^|\s{2,})([A-H])\.?\s+(.+?)(?=(?:\s{2,}[A-H]\.?\s+)|$)/g;
   for (const match of normalized.matchAll(pattern)) {
     const text = normalizePdfWhitespace(match[2]);
     if (text && !/\b(?:ANS|DIF|OBJ|NAT|TOP|KEY)\s*:/i.test(text)) {
@@ -284,7 +397,7 @@ function compareChoices(decodedChoices, pdfChoices) {
   let compared = 0;
   let matches = 0;
   const mismatches = [];
-  const decodedById = new Map(decodedChoices.map((choice) => [String(choice.id).toUpperCase(), choice.body?.text ?? '']));
+  const decodedById = new Map(decodedChoices.map((choice) => [String(choice.id).toUpperCase(), choice.text ?? '']));
 
   for (const pdfChoice of pdfChoices) {
     const decoded = decodedById.get(pdfChoice.id.toUpperCase());
@@ -309,10 +422,65 @@ function compareChoices(decodedChoices, pdfChoices) {
 
 function decodedQuestionHasPlaceholder(question) {
   const texts = [
-    question.body?.text ?? '',
-    ...(question.choices ?? []).map((choice) => choice.body?.text ?? ''),
+    decodedQuestionText(question),
+    ...decodedQuestionChoices(question).map((choice) => choice.text),
   ];
   return texts.some((text) => /\[\[slot\]\]|\[(?:embedded|inline|diagram|graph|math|object|choice)[^\]]+\]/i.test(text));
+}
+
+function decodedQuestionText(question) {
+  if (typeof question.body === 'string') return question.body;
+  if (question.body && typeof question.body === 'object' && typeof question.body.text === 'string') return question.body.text;
+  if (question.content && typeof question.content === 'object') {
+    const stem = question.content.stem;
+    if (stem && typeof stem === 'object' && typeof stem.text === 'string') return stem.text;
+  }
+  return '';
+}
+
+function decodedQuestionChoices(question) {
+  const choices = question.choices;
+  if (Array.isArray(choices)) {
+    return choices
+      .map((choice) => {
+        if (!choice || typeof choice !== 'object') return null;
+        const id = choice.id;
+        const body = choice.body;
+        const text = typeof body === 'string'
+          ? body
+          : body && typeof body === 'object' && typeof body.text === 'string'
+            ? body.text
+            : '';
+        return id && text ? { id: String(id), text } : null;
+      })
+      .filter(Boolean);
+  }
+  if (choices && typeof choices === 'object') {
+    return Object.entries(choices)
+      .map(([id, text]) => typeof text === 'string' ? { id, text } : null)
+      .filter(Boolean);
+  }
+
+  const content = question.content;
+  if (content && typeof content === 'object' && Array.isArray(content.choices)) {
+    return content.choices
+      .map((choice) => {
+        if (!choice || typeof choice !== 'object') return null;
+        const id = choice.id;
+        const body = choice.body;
+        const text = body && typeof body === 'object' && typeof body.text === 'string' ? body.text : '';
+        return id && text ? { id: String(id), text } : null;
+      })
+      .filter(Boolean);
+  }
+
+  return [];
+}
+
+function decodedQuestionAnswer(question) {
+  if (typeof question.answer === 'string') return question.answer;
+  if (question.answer && typeof question.answer === 'object' && typeof question.answer.value === 'string') return question.answer.value;
+  return undefined;
 }
 
 function tokens(text) {

@@ -1,0 +1,1511 @@
+       Chapter 9: Rational Functions
+
+
+       MULTIPLE CHOICE
+
+                                                                                            9
+          1. Which of the reciprocal functions has a vertical asymptote with equation x      ?
+                                                                                            2
+                            1                                              9
+              A.   f(x)                                     C.   f(x) 
+                          2x  9                                         x 2
+                            1                                              1
+              B.   f(x)                                     D.   f(x) 
+                          2x  9                                             9
+                                                                         x
+                                                                             2
+
+              ANS: B               DIF: Easy               OBJ: Section 9.1      NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | vertical asymptote
+
+                                                                       1           5
+          2. What is true about the behaviour of the function f(x)        as x    (right to left)?
+                                                                    4x  5         4
+              A.   f(x)                                   C. f(x)  0
+              B.   f(x)                                   D. f(x) is undefined
+
+              ANS: B               DIF: Average           OBJ: Section 9.1 NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | behaviour at non-permissible values
+
+                                                   1
+          3. What is the x-intercept of f(x)           ?
+                                                 2x  4
+              A. There is no x-intercept.                    C. 2
+                   1
+              B.                                            D. 0
+                   2
+              ANS: A               DIF: Easy               OBJ: Section 9.1      NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | x-intercept
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                 1
+                                                            4
+          4. Which graph represents the function f(x)          5?
+                                                           x9
+              A.                                              C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: B               DIF: Average           OBJ: Section 9.1   NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | graph from function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                 2
+                                            3x  7
+          5. The rational function f(x)            2
+                                                      is represented by which graph?
+                                            (x  5)
+              A.                                                C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: A               DIF: Difficult         OBJ: Section 9.1       NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | graph from function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     3
+          6. Which function represents the graph shown below?
+
+
+
+
+                           9                                                 9
+              A.   f(x)      3                                C.   f(x)      8
+                          x8                                               x3
+                           9                                                9
+              B.   f(x)      3                                D.   f(x)      8
+                          x8                                               x3
+              ANS: A               DIF: Average           OBJ: Section 9.1        NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | function from graph
+
+          7. Which of the following functions has a slant asymptote when graphed?
+                        5x 3  10x 2  15x                              5x 3  10x 2  15x
+             A. f(x)                                        C.  f(x) 
+                           x 2  3x  4                                      x 2  3x
+                            5x 3  10x 2  15x
+              B.   f(x)                                        D. all of the above
+                               x 2  2x  3
+              ANS: A             DIF: Difficult +     OBJ: Section 9.1            NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations             KEY: slant asymptote | hole | factor
+
+                                                             2k                                               2
+          8. What is the value of k in the function f(x)           if its graph passes through the point (3,  ) ?
+                                                             5x  k                                            19
+                     19
+              A.                                               C. –10
+                     2
+              B. 4                                              D. No such k exists
+              ANS: B             DIF: Difficult       OBJ: Section 9.1            NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations             KEY: reciprocal of linear function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 4
+                                                                                   6
+          9. Which function has vertical asymptotes with equations x  9 and x   ?
+                                                                                   7
+                           7x  6                                            1
+             A. f(x)  2                                   C. f(x)  2
+                       x  15x  54                                    7x  69x  54
+                              1                                             9
+             B. f(x)  2                                   D. f(x)  2
+                       7x  69x  54                                   x  15x  54
+              ANS: B              DIF: Average            OBJ: Section 9.2   NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: reciprocal of quadratic function | vertical asymptote
+
+         10. Which function has a point of discontinuity at x  3?
+                           x3                                            x 3
+             A. f(x)  2                                     C. f(x)  2
+                       2x  2x  12                                   x  6x  12
+                           x 3                                          x 3
+             B. f(x)  2                                     D. f(x)  2
+                       x  6x  12                                    x  6x  9
+              ANS: A              DIF: Average            OBJ: Section 9.2   NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: reciprocal of quadratic function | vertical asymptote
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                 5
+                                                x 3
+         11. Which graph represents f(x)                  ?
+                                             5x  23x  24
+                                               2
+
+              A.                                               C.
+
+
+
+
+              B.                                               D.
+
+
+
+
+              ANS: C             DIF: Difficult             OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions             KEY: rational function | discontinuity | hole
+
+                                                     8
+         12. Which function has a y-intercept of       ?
+                                                     27
+                               8                                                8
+              A.   f(x)                                       C.   f(x) 
+                          x  12x  27
+                            2
+                                                                             x  12x  27
+                                                                              2
+
+                                 8
+              B.   f(x)                                       D. all of the above
+                          (8x  3)(x  9)
+
+              ANS: C             DIF: Average               OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions             KEY: reciprocal of quadratic function | y-intercept
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          6
+                                                                            2
+         13. Which function has a horizontal asymptote with equation y       ?
+                                                                            7
+                          2x  3                                         7x  3
+              A.   f(x)                                      C.   f(x) 
+                           7x  8                                         2x  8
+                          7x  8                                          2x  3
+              B.   f(x)                                      D.   f(x) 
+                          2x  3                                          7x  8
+              ANS: D              DIF: Average          OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: linear expressions in numerator and denominator | horizontal asymptote
+
+                                                    1
+         14. Which function has an x-intercept of     ?
+                                                    3
+                          6x  2                                         6x  2
+              A.   f(x)                                      C.   f(x) 
+                           5x  3                                         5x  3
+                          5x  3                                          5x  2
+              B.   f(x)                                      D.   f(x) 
+                          6x  2                                          6x  3
+              ANS: C              DIF: Average          OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: linear expressions in numerator and denominator | x-intercept
+
+         15. What is the equation for the vertical asymptote of the graph of the function shown?
+
+
+
+
+              A. x  2                                        C.   y7
+              B. x  3                                        D.   y6
+              ANS: B             DIF: Easy                 OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions            KEY: quadratic denominator | vertical asymptote
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     7
+         16. What is the equation for the horizontal asymptote of the graph of the function shown?
+
+
+
+
+              A. y  2                                        C. y  3
+              B. x  5                                       D. x  6
+              ANS: C             DIF: Easy                 OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions            KEY: quadratic denominator | horizontal asymptote
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       8
+         17. Which graph of a rational function has the following characteristics?
+             • a vertical asymptote with equation x  1
+             • a horizontal asymptote with equation y  1
+             • a point of discontinuity at (2,  2)
+
+              A.                                              C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: C             DIF: Average              OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions            KEY: quadratic denominator | graph from characteristics
+
+         18. Which rational function has the following characteristics?
+             • a vertical asymptote with equation x  2
+             • a horizontal asymptote with equation y  8
+             • a point of discontinuity at (3, 9)
+
+                                  x 3                                          x 3
+              A.   f x                  8                C.   f (x )                 8
+                             (x  3)(x  2)                                 (x  2)(x  3)
+                                x 3                                            x 2
+              B.   f (x )                 8                 D.   f (x )                 8
+                            (x  3)(x  2)                                  (x  3)(x  2)
+
+              ANS: B             DIF: Difficult        OBJ: Section 9.2          NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: quadratic denominator | function from characteristics
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             9
+         19. Which function has a graph in the shape of a parabola?
+                       (x  3) 2 (x  7)                                   x3
+             A. f(x)                                       C. f(x) 
+                        (x  3)(x  7)                                (x  3) 3 (x  7)
+                            (x  3) 2 (x  7)
+              B.   f(x)                                      D. none of the above
+                                 x3
+              ANS: B             DIF: Average              OBJ: Section 9.2      NAT: RF14
+              TOP: Analysing Rational Functions            KEY: hole
+
+                                      1
+         20. Solve the equation            8  x.
+                                     x 6
+              A. x = 7                                       C. x = –6
+                                                                       1
+              B. x = –8                                       D. x = 
+                                                                       7
+              ANS: A            DIF: Easy            OBJ: Section 9.3            NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+                                      2  3
+         21. Solve the equation           .
+                                     x 6 x
+                     18                                                  18
+              A. x =                                          C. x = 
+                      5                                                  5
+              B. x = 3                                        D. x = 4
+              ANS: C            DIF: Average         OBJ: Section 9.3            NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+                                     x 3 x 8
+         22. Solve the equation               .
+                                     x 8 x 9
+                                                                         91
+              A. x = –3                                       C. x = 
+                                                                         12
+                       91
+              B. x =                                          D. x = 8, x = –9
+                       12
+              ANS: C            DIF: Average         OBJ: Section 9.3            NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+                                       x    9
+         23. Solve the equation               .
+                                     x 2 x 9
+                     9  2 9
+              A. x                                           C. no solution
+                          2
+              B. x = 2, x = 9                                 D. x   3 2
+              ANS: D            DIF: Easy            OBJ: Section 9.3            NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  10
+                                                                 x 2  7x  18
+         24. What are the x-intercepts of the graph of f(x)                    ?
+                                                                 x 2  12x  35
+              A. –7, –5                                          C. 7, 5
+              B. 2, –9                                           D. –2, 9
+              ANS: B            DIF: Average         OBJ: Section 9.3               NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                         KEY: rational function | x-intercept
+
+                                       6x 3  6
+         25. Solve the equation 0                graphically.
+                                      x 3  8x 2
+
+
+              A. no solution                                     C. 0
+              B. x  1                                          D. x  8
+              ANS: B            DIF: Difficult +     OBJ: Section 9.3               NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                         KEY: rational equation | graph
+
+
+       COMPLETION
+
+                                               1
+          1. The rational function f(x)              has a vertical asymptote with equation _______________.
+                                            17x  17
+
+              ANS: x  1
+
+              DIF: Easy          OBJ: Section 9.2           NAT: RF14
+              TOP: Analysing Rational Functions             KEY: reciprocal of linear function | vertical asymptote
+
+                                              13
+          2. The rational function f(x)           has a y-intercept of _______________.
+                                            x  11
+                                             2
+
+
+
+                       13
+              ANS: 
+                       11
+
+              DIF: Easy          OBJ: Section 9.2           NAT: RF14
+              TOP: Analysing Rational Functions             KEY: reciprocal of quadratic function | y-intercept
+
+                                                                   (x  3)(x  8)(x  4)
+          3. The number of x-intercepts in the graph of f(x)                            is _______________.
+                                                                         x(x  8)
+
+              ANS: 2
+
+              DIF: Easy         OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                         KEY: zeros | roots | x-intercept
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               11
+          4. Given a rational function, if x  a is a restriction, then x  a could be the
+             location of a point of discontinuity or the _______________.
+
+               ANS: equation of a vertical asymptote
+
+               DIF: Average       OBJ: Section 9.2         NAT: RF14
+               TOP: Analysing Rational Functions           KEY: point of discontinuity | vertical asymptote
+
+                                                   x 2  8x  6
+          5. When solving the rational function                  x  2 graphically, the single function that could be
+                                                     4  3x
+               graphed is _______________.
+
+                             x 2  8x  6
+               ANS: f(x)                 x 2
+                               4  3x
+
+               DIF: Average      OBJ: Section 9.3 NAT: RF14
+               TOP: Connecting Graphs and Rational Equations                       KEY: graph | rational function
+
+
+       MATCHING
+
+               Match each graph of a rational function with its equation.
+                            9                                             3x  9
+               A. f(x)  2                                      E. f(x) 
+                         x 4                                              x 4
+                           1                                                   9
+               B. f(x)                                         F. f(x)  2
+                         x 4                                             x  6x  8
+                             1                                               1
+               C. f(x)                                        G. f(x) 
+                           x4                                            (x  4) 2
+                            1                                                 x
+               D. f(x)  2                                      H. f(x) 
+                         x 4                                             3(x  4)
+
+          1.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 12
+          2.
+
+
+
+
+          3.
+
+
+
+
+          4.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.   13
+          5.
+
+
+
+
+          1. ANS: C             DIF: Average               OBJ: Section 9.2 NAT: RF14
+             TOP: Analysing Rational Functions             KEY: rational functions | graphs
+          2. ANS: H             DIF: Average               OBJ: Section 9.2 NAT: RF14
+             TOP: Analysing Rational Functions             KEY: rational functions | graphs
+          3. ANS: F             DIF: Average               OBJ: Section 9.2 NAT: RF14
+             TOP: Analysing Rational Functions             KEY: rational functions | graphs
+          4. ANS: E             DIF: Average               OBJ: Section 9.2 NAT: RF14
+             TOP: Analysing Rational Functions             KEY: rational functions | graphs
+          5. ANS: A             DIF: Average               OBJ: Section 9.2 NAT: RF14
+             TOP: Analysing Rational Functions             KEY: rational functions | graphs
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                      14
+       SHORT ANSWER
+
+                                                              1
+          1. a) Determine an equation in the form f(x)            for a function with a vertical asymptote at x  2
+                                                            kx  c
+                                    1
+              and a y-intercept of  .
+                                    8
+              b) Sketch the graph of the function.
+
+
+
+
+              ANS:
+                            1
+              a) f(x) 
+                          4x  8
+              b)
+
+
+
+
+              DIF: Average         OBJ: Section 9.1 NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: reciprocal of linear function | vertical asymptote | y-intercept | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               15
+                                                         5
+          2. Sketch the graph of the function f(x)         using transformations and identify
+                                                       x 3
+              a) the vertical asymptotes (if any)
+              b) the horizontal asymptotes (if any)
+              c) the domain and range
+              d) the behaviour near any non-permissible values
+              e) the end behaviour
+
+
+
+
+              ANS:
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                         16
+              a) vertical asymptote with equation x  3
+              b) horizontal asymptote with equation y  0
+              c) domain {x | x  3, x  R}; range {y | y  0, y  R}
+              d) As x approaches 3,  y  becomes very large.
+              e) As x  becomes very large, y approaches 0.
+
+              DIF: Easy           OBJ: Section 9.1 NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations
+              KEY: graph | characteristics | transformations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                 17
+                                                                                  3x  1
+          3. Determine the approximate slope of the tangent to the curve f(x)           at x  2, to one decimal
+                                                                                  2x  7
+              place.
+
+              ANS:
+              Use technology to draw the graph of the function and estimate the tangent line at the point of
+                               5 
+              tangency,  2,  .
+                                3
+
+
+
+
+              m  2.1
+
+              DIF: Difficult +   OBJ: Section 9.2          NAT: RF14
+              TOP: Analysing Rational Functions            KEY: instantaneous rate of change
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             18
+                                               2
+          4. Consider the function f(x)          .
+                                             x4
+              a) Determine the key features of the function:
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+              b) Sketch the graph of the function.
+
+
+
+
+              ANS:
+              a) i) {x| x  4, x  R}, {y| y  0, y  R}
+                                                    1
+              ii) x-intercept: none, y-intercept: 
+                                                    2
+              iii) x = –4, y = 0
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.       19
+              b)
+
+
+
+
+              DIF: Average         OBJ: Section 9.2 | Section 9.3          NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: reciprocal of linear function | key features | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     20
+                                              3
+          5. Consider the function f(x)           .
+                                            4x  5
+              a) Determine the key features of the function:
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+              b) Sketch the graph of the function.
+
+
+
+
+              ANS:
+                                      
+                              5
+              a) i)  x| x  , x  R  , {y| y  0, y  R}
+                            4            
+                                                        3
+              ii) x-intercept: none, y-intercept: 
+                                                        5
+                           5
+              iii) x  , y  0
+                           4
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.         21
+              b)
+
+
+
+
+              DIF: Average         OBJ: Section 9.2 | Section 9.3          NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: reciprocal of linear function | key features | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     22
+                                                1
+          6. Consider the function f(x)               .
+                                            x  2x  8
+                                             2
+
+              a) Determine the key features of the function:
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+              b) Sketch the graph of the function.
+
+
+
+
+              ANS:
+              a) i) {x| x  2,4, x  R}, {y| y  0, y  R}
+                                                    1
+              ii) x-intercept: none, y-intercept: 
+                                                    8
+              iii) x  2, x  4, y  0
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.       23
+              b)
+
+
+
+
+              DIF: Difficult      OBJ: Section 9.2 | Section 9.3           NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: reciprocal of quadratic function | key features | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     24
+                                            3x  8
+          7. Consider the function f(x)           .
+                                            x 2
+              a) Determine the key features of the function:
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+              b) Sketch the graph of the function.
+
+
+
+
+              ANS:
+              a) i) {x| x  2, x  R}, {y| y  3, y  R}
+                                 8
+              ii) x-intercept:  , y-intercept: 4
+                                 3
+              iii) x  2, y  3
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.       25
+              b)
+
+
+
+
+              DIF: Average        OBJ: Section 9.2 | Section 9.3              NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: linear expressions in numerator and denominator | key features | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     26
+                                               x 3
+          8. Consider the function f(x)               .
+                                            x  x  12
+                                             2
+
+              a) Determine the key features of the function:
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+              b) Sketch the graph of the function.
+
+              ANS:
+              a) i) {x| x  3,x  4, x  R}, {y| y  0, y  R}
+                                                      1
+              ii) x-intercept: none, y-intercept: 
+                                                      4
+              iii) x  4, y  0
+                                                      1 
+              b) Note the hole at the point  3,   .
+                                                       7
+
+
+
+
+              DIF: Difficult       OBJ: Section 9.2 | Section 9.3          NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: rational function | key features | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     27
+          9. Solve.
+                  1      6
+             a)       
+                x 4     x
+                x  5 2x  7
+             b)       
+                x 3      x
+                    1    1
+             c) 7  
+                    x x2
+                   3       4
+             d)        
+                2x  4 x  2
+
+              ANS:
+                   1     6
+              a)      
+                 x 4    x
+                     x  6(x  4)
+                     x  6x  24
+                    7x  24
+                         24
+                     x
+                         7
+              The solution satisfies the restrictions on x.
+                        x  5 2x  7
+              b)              
+                        x 3        x
+                      x(x  5)  (x  3)(2x  7)
+                      x 2  5x  2x 2  x  21
+                 x 2  4x  21  0
+                 (x  7)(x  3)  0
+                            x  7 or x  3
+              Both solutions satisfy the restrictions on x.
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.      28
+                                1   1
+              c)           7     
+                                x x2
+                           7x  1    1
+                                  
+                             x      x2
+                   (x  2)(7x  1)  x
+                    7x 2  13x  2  x
+                    7x 2  14x  2  0
+
+                                      (14)           (14) 2  4(7)(2)
+                                x
+                                                         2(7)
+
+                                      14         252
+                                  
+                                             14
+                                      14  6 7
+                                  
+                                          14
+                                  73 7
+                                x
+                                      7
+              Both solutions satisfy the restrictions on x.
+                    3        4
+              d)         
+                 2x  4 x  2
+                   3(x  2)  4(2x  4)
+                     3x  6  8x  16
+                        5x  10
+                       x2
+              But x = 2 is an inadmissible value for the equation, so there is no solution.
+
+              DIF: Average      OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                       KEY: rational equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                   29
+         10. Solve each equation by graphing, using technology. Express your answers to two decimal places.
+                 3x        1
+             a)      
+                x 2     x3
+                1     1
+             b)           1
+                x x5
+                    x2          2
+              c)           
+                 (x  5) 3    x  5
+                 3x  1 x  5
+              d)          
+                    x       x3
+
+              ANS:
+              a) x  0.19 or x  3.52
+              b) x  1.19 or x  4.19
+              c) No solution.
+              d) x  0.21 or x  7.29
+
+              DIF: Difficult      OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations
+              KEY: rational equation | technology
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                      30
+       PROBLEM
+
+          1. The time, t, in hours, that it takes Alistair to jog 5 km is inversely proportional to his average speed, v,
+             in kilometres per hour.
+             a) Write a function to represent the time as a function of the speed.
+             b) Sketch the graph of this function.
+             c) If Alistair jogs at 4.5 km/h, how long does it take him to complete a 5-km run, to the nearest
+             minute?
+
+              ANS:
+                          5
+              a) t(v)      ,v  0
+                          v
+              b)
+
+
+
+
+              c) 1 h and 7 min
+
+              DIF: Easy          OBJ: Section 9.1 | Section 9.3             NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations | Connecting Graphs and Rational
+              Equations          KEY: word problem | reciprocal of linear function | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    31
+          2. The pressure exerted on the floor by the heel of someone’s shoe is inversely proportional to the square
+             of the width of the heel of the shoe. When Megumi wears 2-cm-wide heels, she exerts a pressure of
+             400 kPa.
+             a) Determine a function to represent the pressure, p, exerted by Megumi if she wears heels of width w.
+             b) Sketch the graph of this function.
+             c) If she wears spike heels with a width of 0.5 cm, what pressure does she exert?
+
+              ANS:
+              a) Since the pressure, p, exerted by a person’s shoe is inversely proportional to the width, w, of the
+                                            k
+              shoe, you can write p(w)  2 for some k. Since p(2) = 400, substituting these values into
+                                           w
+                       k
+              p(w)  2 gives k = 1600.
+                      w
+                      1600
+              p(w)  2 , w  0
+                       w
+              b)
+
+
+
+
+                            1600
+              c) p(w) 
+                             w2
+                            1600
+                 p(0.5) 
+                            0.52
+                       6400
+              Megumi exerts 6400 kPa of pressure.
+
+              DIF: Average        OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations
+              KEY: reciprocal of quadratic function | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               32
+          3. A photographer uses a light meter to measure the intensity of light from a flash bulb. The intensity, I,
+             in lux, of the flash bulb is a function of the distance, d, in metres, from the light and can be
+                                       10
+             represented by I(d)  2 , d  0.
+                                       d
+             a) Determine the following, to two decimal places:
+                 i) the intensity of light 3 m from the flash bulb
+                 ii) the average rate of change in the intensity of light for the interval 1  d  3
+             b) What does the sign of your answer to part a)ii) indicate about the light intensity?
+
+              ANS:
+                             10
+              a) i) I(d) 
+                             d2
+                             10
+                   I(3) 
+                             32
+                        1.11
+              The intensity is 1.11 lux.
+                               10
+              ii)      I(d)  2
+                               d
+                               10 10
+                                 
+                 I(3)  I(1)   32 12
+                             
+                    31          2
+                              4.44
+              The rate of change of intensity is –4.44 lux/m.
+              b) As the distance from the light increases, the intensity decreases.
+
+              DIF: Average       OBJ: Section 9.1 | Section 9.3             NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations | Connecting Graphs and Rational
+              Equations          KEY: reciprocal of quadratic function | average rate of change
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                33
+                                                                                     20(4t  3)
+          4. The population, P, of a small town is modelled by the function P(t)               , where t is time, in
+                                                                                       2t  5
+              years, since the start of 1990.
+              a) Is the population increasing or decreasing? Justify your answer.
+              b) The town will need its own transit system if the population exceeds 50 000. Will the town’s
+              population ever exceed 50 000? Explain.
+
+              ANS:
+              a) There are several ways to determine this result. One way involves approximating the instantaneous
+              rate of change for the current year. For 2012, t = 22 and m 
+                                                                           0.12. Since m > 0, the population must be
+              increasing. Another way is to determine the population at different times, such as at t = 21 and t = 22,
+              and show that the population is going up. A graph could also be used.
+              b) There are several ways to determine this result. There is a horizontal asymptote at P  40. Thus, the
+                                                                               20(4t  3)
+              population never exceeds 40 000. Another way is to show that                 50 has no solution for
+                                                                                 2t  5
+              positive t-values. A graph could also be used.
+
+              DIF: Difficult +   OBJ: Section 9.1 | Section 9.3               NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations | Connecting Graphs and Rational
+              Equations          KEY: rational inequality | increasing | decreasing
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 34
+          5. Ingrid is docking a motorboat. She turns off the power and lets the boat coast toward the dock. The
+             distance, d, in metres, between the boat and the dock as a function of time, t, in seconds, is given by
+                     7t  70
+             d(t)            , 0  t  10.
+                       t4
+             a) What is the average velocity of the boat during the time interval from when Ingrid turns the boat off
+             to when it meets the dock?
+             b) Determine the velocity of the boat when Ingrid turns off the power, to one decimal place.
+             c) Determine the velocity of the boat when it meets the dock, to one decimal place.
+             d) Sketch the graph of the function. On the same set of axes, sketch the graph of the speed of the boat
+             in relation to the time.
+
+              ANS:
+              a) Ingrid turns off the boat at t = 0 and the boat hits the dock when d = 0. Set d = 0 and solve for t:
+                     7t  70
+              d(t) 
+                       t4
+                     7t  70
+                0
+                      t4
+                0  7t  70
+                0  t  10
+                 t  10
+                                                                                                   d(t)
+              Thus, t = 10 when the boat hits the dock. To find the average velocity, determine          for 0  t  10:
+                                                                                                    t
+              d(t) d(10)  d(0)
+                   
+               t      10  0
+                            70
+                          0
+                             4
+                     
+                           10
+                      1.75
+              The average velocity is 1.75 m/s toward the dock.
+              b) 6.1 m/s toward the dock
+              (This is the instantaneous velocity at t = 0.)
+              c) 0.5 m/s toward the dock
+              (This is the instantaneous velocity at t = 10.)
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   35
+              d)
+
+
+
+
+              The red line is the graph of the speed of the boat with respect to its starting position. It is decreasing
+              because the speed of the boat decreases once power has been cut. Students should not be expected to
+              find this graph precisely but should intuit its basic shape.
+
+                                             98
+              Note: Although d (t)               is negative, this derivative does not represent the speed of the boat,
+                                          (t  4) 2
+              only the rate of change in the distance between the boat and the dock, which is shrinking. In fact, the
+              equation for the speed of the boat with respect to its starting position is the exact opposite of this:
+                          98
+              speed             , which is the equation of the red line graphed above. Again, students are not
+                       (t  4) 2
+              expected to be this precise.
+
+              DIF: Difficult +   OBJ: Section 9.1 | Section 9.3            NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations | Connecting Graphs and Rational
+              Equations          KEY: linear expressions in numerator and denominator | rate of change | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     36
+          6. a) Write an equation to represent a rational function with the following conditions:
+             • reciprocal of a quadratic function
+                                                       4
+             • asymptotes with equations x  5, x  , and y  0
+                                                       3
+                                              4
+             • y  0 whenever x  5 or x 
+                                              3
+             b) How many such equations are there? Explain your answer.
+
+              ANS:
+              a) Answers may vary. Sample answer:
+                           1
+              f(x)   2
+                      3x  11x  20
+                                                                                                 k
+              b) There are infinitely many equations. Any function of the form f(x)                     , k  0 , will
+                                                                                          3x 2  11x  20
+              satisfy the conditions.
+
+              DIF: Difficult     OBJ: Section 9.2          NAT: RF14
+              TOP: Analysing Rational Functions            KEY: reciprocal of quadratic function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                   37
+          7. Write an equation for the graph of the rational function shown. Explain your reasoning.
+
+
+
+
+              ANS:
+              Answers may vary. Sample answer:
+                       1
+              f(x)  2
+                     x 4
+                                                k
+              Any function of the form f(x)  2      , k  0, is a reasonable candidate since it is difficult to tell
+                                              x 4
+              from the graph how stretched the function is.
+
+              DIF: Average       OBJ: Section 9.2           NAT: RF14
+              TOP: Analysing Rational Functions             KEY: reciprocal of quadratic function
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                38
+                                                                ax  b
+          8. a) The graph of a function of the form f(x)              is shown. Determine the key features:
+                                                                cx  d
+                 i) domain and range
+                 ii) intercepts
+                 iii) equations of any asymptotes
+
+
+
+
+              b) State a possible equation for this function.
+
+              ANS:
+              a) i) {x| x  2, x  R},{y| y  2, y  R}
+              ii) x-intercept: –3, y-intercept: 3
+              iii) x = –2, y = 2
+              b) Answers may vary. Sample answer:
+                       2x  6
+              f(x) 
+                       x 2
+              (Since there is a vertical asymptote at x = –2, the denominator must be a multiple of x + 2. Since there
+                                                            a
+              is a horizontal asymptote at y = 2, the ratio = 2. If you pick c = 1, then a = 2. To ensure an
+                                                            c
+              x-intercept of –3 and a y-intercept of 3, b = 6.)
+
+              DIF: Average        OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: linear expressions in numerator and denominator | graph | key features
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 39
+                                                           ax  b
+          9. a) Determine an equation in the form f(x)           for a function that has asymptotes with equations
+                                                           cx  d
+                              3
+              x  1 and y     and a y-intercept of 2.
+                              4
+              b) Sketch the graph of your function.
+
+              ANS:
+              Answers may vary. Sample answer:
+                        3x  8
+              a) f(x) 
+                        4x  4
+              b)
+
+
+
+
+              (Since there is a vertical asymptote at x = –1, the denominator must be a multiple of x + 1. Since there
+                                                3            a 3
+              is a horizontal asymptote at y  , the ratio = . If you pick c = 4, then a = 3. To ensure a
+                                                4            c 4
+              y-intercept of 2, d = 4 and b = 8.)
+
+              DIF: Difficult      OBJ: Section 9.2 NAT: RF14
+              TOP: Analysing Rational Functions
+              KEY: linear expressions in numerator and denominator | graph
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 40
+                                                                              4x
+         10. Explain the difference between the solution to the equation           3 and the solution to the
+                                                                             x 2
+                            4x
+              inequality         3.
+                           x 2
+
+              ANS:
+                                4x
+              The equation           3 has one solution, x = –6. However, there are infinitely many solutions to
+                               x 2
+               4x
+                    3, with x = –6 being one of them, acting as a boundary on the interval of solutions for x.
+              x 2
+
+              DIF: Difficult +   OBJ: Section 9.1 | Section 9.3               NAT: RF14
+              TOP: Exploring Rational Functions Using Transformations | Connecting Graphs and Rational
+              Equations          KEY: rational inequality | rational equation
+
+                                                                    x 2  3x  7
+         11. a) Use long division to express the function f(x)                  as the sum of a polynomial function
+                                                                        x 2
+                                                      A
+              and a rational function of the form        , where A is a constant.
+                                                    x 2
+                                                                                                   x 2  3x  7
+              b) What does your result in part a) allow you to predict about the graph of f(x)                 , for
+                                                                                                       x 2
+              large values of x? Why?
+
+              ANS:
+                                   17
+              a) f(x)  x  5 
+                                  x 2
+                                                                                     17
+              b) There is a slant asymptote with equation y  x  5. As x   ,           0, and so
+                                                                                    x 2
+                                17
+              f(x)  x  5          x  5, which is a straight line.
+                               x 2
+
+              DIF: Difficult +   OBJ: Section 9.2            NAT: RF14
+              TOP: Analysing Rational Functions              KEY: slant asymptote | polynomial long division
+
+         12. Write an equation for a rational function whose graph has all of the following features:
+             • vertical asymptote with equation x = 3
+             • horizontal asymptote with equation y = 2
+             • hole at x = 1
+             • no x-intercepts
+
+
+              ANS:
+              Answers may vary. Sample answer:
+                       2(x  1) 2
+              f(x) 
+                     (x  1)(x  3)
+
+              DIF: Difficult       OBJ: Section 9.2 | Section 9.3          NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: rational function | hole
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                41
+                                                                                                    x 1
+         13. a) Use the asymptotes and intercepts to make a quick sketch of the function f(x)           and its
+                                                                                                    x 5
+                                x5
+              reciprocal g(x)        on the same set of axes.
+                                x1
+              b) Describe the symmetry in the graphs in part a).
+              c) Determine the equation of the mirror line in your graph from part a).
+              d) Determine intervals where f is positive and where f is negative. Determine intervals where g is
+              positive and where g is negative. How do the two sets of intervals compare to each other?
+                                                                                       xb             x d
+              e) Does the pattern from part d) occur for all pairs of functions f(x)       and g(x)        ,
+                                                                                       x d            x b
+              b  d ? Explain why or why not.
+
+              ANS:
+                              x 1                                                     1 
+              a) For f(x)         : asymptotes x  5, y  1; intercepts (1,0),  0, 
+                              x 5                                                      5
+                           x5
+              For g(x)        : asymptotes x  1, y  1; intercepts (5,0), (0,5)
+                           x1
+
+
+
+
+              b) There is reflective symmetry in this graph, about a vertical mirror line that runs exactly halfway
+              between the two vertical asymptotes.
+              c) x = 2
+              d) f(x)  0 for x  1 or x  5 and f(x)  0 for 1  x  5.
+              g(x)  0 for x  1 or x  5 and g(x)  0 for 1  x  5.
+              The intervals where f and g are positive and negative are identical.
+                                                                             xb               x d
+              e) Yes, this pattern is true for all pairs of functions f(x)        and g(x)         because when you
+                                                                             x d              x b
+              take the reciprocal of any y-value, it does not change sign (i.e., the positive y-values of f remain
+              positive when their reciprocals are taken).
+
+              DIF:   Difficult         OBJ: Section 9.2 | Section 9.3                   NAT: RF14
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                42
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: linear expressions in numerator and denominator | graph | reciprocal
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                     43
+                                                                                                   x 2
+         14. a) Use the asymptotes and intercepts to make a quick sketch of the function f(x)          and its
+                                                                                                   x 4
+                                 x4
+              reciprocal, g(x)       , on the same set of axes.
+                                 x2
+              b) Describe the symmetry in the graphs in part a).
+              c) Determine the equation of the mirror line in your graph from part a).
+              d) Determine intervals of increase and decrease for both f and g. How do the sets of intervals
+              compare?
+                                                                                       xb              x d
+              e) Does the pattern from part d) occur for all pairs of functions f(x)       and g(x)        ,
+                                                                                       x d             x b
+              b  d ? Explain why or why not.
+
+              ANS:
+                              x 2                                                     1 
+              a) For f(x)         : asymptotes x  4, y  1; intercepts (2,0),  0, 
+                              x 4                                                      2
+                           x4
+              For g(x)        : asymptotes x  2, y  1; intercepts (4,0), (0,2)
+                           x2
+
+
+
+
+              b) There is reflective symmetry in this graph, about a vertical mirror line that runs exactly halfway
+              between the two vertical asymptotes.
+              c) x = 1
+              d) For f: increasing for x  R, x  4, decreasing for no values of x
+              For g: increasing for no values of x, decreasing for x  R, x  2 .
+              Where f increases, g decreases, except at x  4 and x  2, the locations of the vertical asymptotes.
+              e) Yes, this pattern occurs for all such pairs of functions. Values that are growing larger grow smaller
+              when their reciprocals are taken, and vice versa.
+
+              DIF: Difficult +    OBJ: Section 9.2 | Section 9.3              NAT: RF14
+              TOP: Analysing Rational Functions | Connecting Graphs and Rational Equations
+              KEY: linear expressions in numerator and denominator | graph | increasing | decreasing | reciprocal
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 44
+         15. Solve each inequality by graphing, using technology. Express your answers to one decimal place.
+                2x  1
+             a)         x
+                 x 3
+                  x      1
+             b)         2
+                x 5 x
+                3x 2  4     1
+             c) 2         2
+                x 9        x
+                  2x       3x
+             d)        
+                x  3 2x  4
+
+              ANS:
+              a) 0.2  x  3 or x  5.2
+              b) x  10.5 or 5  x  0.5 or x  0
+              c) x  3 or 1.5  x  0 or 0  x  1.5 or x  3
+              d) x  17 or 2  x  0 or x  3
+
+              DIF: Difficult +    OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations
+              KEY: rational inequality | technology
+
+         16. Solve.
+                  6
+             a)       2
+                x 3
+                2x  4
+             b)        0
+                 x 2
+                 x 2  4x  12
+              c)               0
+                    x 2  25
+                    x      x4
+              d)         
+                 x 4        x
+
+              ANS:
+              a) 3  x  0
+              b) x  2 or x  2
+              c) x  5 or 2  x  5 or x  6
+              d) 4  x  2 or x  0
+
+              DIF: Difficult +  OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                   KEY: rational inequality
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       45
+         17. Solve.
+                            2
+              a) x  2 
+                           x3
+                  2x           1
+              b)        2
+                 x 2       x2
+                 2x  1 x  3
+              c)       
+                 x2      x4
+                 1 1         1
+              d)  2   3
+                 x x        x
+
+              ANS:
+              a) x = –4 or x = –1
+                       6
+              b) x  
+                       5
+              c) x  2  6
+              d) No solution.
+
+              DIF: Average      OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+         18. An airplane makes a 990-mi flight with a tail wind and returns, flying into the wind. The total flying
+             time is 3 h 20 min, and the plane’s airspeed is 600 mph. What is the wind speed?
+
+              ANS:
+              Let w represent the wind speed.
+              Then, 600  w is the ground speed with the wind
+                      600  w is the ground speed against the wind
+                                     10
+              3 h 20 min is equal to    h.
+                                     3
+              Therefore,
+                                 990       990     10
+                                                
+                               600  w 600  w 3
+              (3)990(600  w)  (3)990(600  w)  10(600  w) (600  w)
+                   (3)99(600  w)  (3)99(600  w)  (600  w) (600  w)
+                178 200  297w  178 200  297w  360 000  w2
+                                               w2  3600
+                                                 w  60
+              The wind speed is 60 mph.
+
+              DIF: Average      OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations                      KEY: rational equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              46
+                                                                    x 2 x 1      11x  32
+         19. What is the solution to the rational equation                     2           ?
+                                                                    x  4 x  6 x  10x  24
+
+              ANS:
+                                  x2 x1        11x  32
+                                            
+                                  x  4 x  6 x 2  10x  24
+                                  x2 x1        11x  32
+                                            
+                                  x  4 x  6 x  4 x  6
+                                  x  2 x  1   11x  32 
+              x  4 x  6                                    
+                                                     x  4 x  6  x  4 x  6
+                                   x  4   x  6                        
+              x  2 x  6  x  4 x  1  11x  32
+                    x 2  4x  12  x 2  5x  4  11x  32
+                                  2x 2  2x  40  0
+                                     x 2  x  20  0
+                                 x  5 x  4  0
+                                                 x  5, x  4
+              Check:
+              Let x  5.
+                     52 51                           11(5)  32
+              L.S.                       R.S. 
+                     54 56                         5  10(5)  24
+                                                      2
+
+
+                       3 6                           87
+                                               
+                       9 11                          99
+                       33 54
+                        
+                       99 99
+                     87
+                   
+                     99
+              L.S. = R.S.
+              The value of x cannot be 4, because x = 4 is an inadmissable value.
+              Therefore, the solution is x  5.
+
+              DIF: Difficult     OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations
+              KEY: quadratic denominator | extraneous solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                         47
+         20. A ski club charters a bus for a ski trip at a cost of $480. In an attempt to lower the bus fare per skier,
+             the club invites non-members to go along. After five non-members join the trip, the fare per skier
+             decreases by $4.80. How many club members are going on the trip?
+
+              ANS:
+              Let x represent the number of members going on the ski trip.
+                                   480 480
+                                                   4.8
+                                     x     x5
+                                480 480 
+               x  x  5                 4.8x  x  5
+                                                
+                                  x     x  5   
+                      480x  5  480x  4.8x  x  5
+                       100(x  5)  100x  x(x  5)
+                      100x  500  100x  x 2  5x
+                           x 2  5x  500  0
+                        x  25 x  20  0
+                                      x  25, x  20
+              The negative answer cannot be used in the context of this problem, and it is excluded.
+              20 members of the ski club are going on the trip.
+
+              DIF: Average        OBJ: Section 9.3 NAT: RF14
+              TOP: Connecting Graphs and Rational Equations
+              KEY: linear expressions in numerator and denominator | x-intercept | excluded solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  48
+

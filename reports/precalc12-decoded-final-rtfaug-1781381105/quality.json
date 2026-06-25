@@ -1,0 +1,195 @@
+{
+  "generatedAt": "2026-06-13T20:05:06.237Z",
+  "inputDir": "reports/precalc12-decoded-final-rtfaug-1781381105",
+  "chapterCount": 11,
+  "questionCount": 736,
+  "notDecodedBodyCount": 0,
+  "embeddedBodyCount": 0,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 532,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 736,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 64,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 30,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 29,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 37,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 58,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    }
+  ]
+}

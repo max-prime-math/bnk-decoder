@@ -1,0 +1,96 @@
+       Chapter 11: Permutations, Combinations, and the Binomial Theorem
+
+
+       MULTIPLE CHOICE
+
+          1. What is the value of 6!?
+             A. 46 656                                        C. 21
+             B. 720                                           D. 36
+              ANS: B            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: factorial
+
+          2. The number of different ways that 9 bikes can be locked in a bike rack is
+             A. 3 628 800                                   C. 40 320
+             B. 20 160                                      D. 362 880
+              ANS: D            DIF:       Easy            OBJ: Section 11.1 NAT: PC1
+              TOP: Permutations                            KEY: fundamental counting principle
+
+          3. Evaluate 15 P8 .
+             A. 32 432 400                                    C. 6435
+             B. 163 459 296 000                               D. 259 459 200
+              ANS: D            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: permutations
+
+          4. Solve for the variable:
+             5 P r  20
+             A. 5                                             C. 60
+             B. 2                                             D. 7
+              ANS: B            DIF:       Easy            OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: permutations
+
+          5. Solve for the variable:
+             n C 5 = 252
+             A. 15                                            C. 6
+             B. 5                                             D. 10
+              ANS: D            DIF:       Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+          6. An orchestra has 2 violinists, 3 cellists, and 4 harpists. Assume that the players of each instrument
+             have to sit together, but they can sit in any position in their own group. In how many ways can the
+             conductor seat the members of the orchestra in a line?
+             A. 144                                             C. 24
+             B. 72                                              D. 1728
+              ANS: D            DIF:       Average         OBJ: Section 11.1 NAT: PC2
+              TOP: Permutations                            KEY: fundamental counting principle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             1
+          7. Evaluate the expression 14 C9 .
+             A. 726 485 760                                   C. 2002
+             B. 240 240                                       D. 126
+              ANS: C            DIF:       Easy            OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+          8. Evaluate the expression 14 C11 14 P3 .
+             A. 2184                                          C. 794 976
+             B. 87 178 291 200                                D. 239 500 800
+              ANS: C                DIF: Average        OBJ: Section 11.1 | Section 11.2
+              NAT: PC2 | PC3        TOP: Permutations | Combinations         KEY: permutations | combinations
+
+          9. Solve for n in the expression n C4 n P4  117 600.
+             A. 8                                             C. 9
+             B. 16                                            D. 8
+              ANS: D                DIF: Average        OBJ: Section 11.1 | Section 11.2
+              NAT: PC2 | PC3        TOP: Permutations | Combinations         KEY: permutations | combinations
+
+         10. After the tryouts for the volleyball team, the coach selects 14 people to join the team. Due to a
+             problem with transportation, only 9 people can travel. In how many ways can the coach pick the
+             people to go?
+             A. 726 485 760                                    C. 630
+             B. 2002                                           D. 126
+              ANS: B            DIF:       Average         OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+         11. Rachael has a digital music player that holds 800 songs. She has 1500 songs in her music library. She
+             decides that her 50 favourite songs must be on the player. Which expression can be used to calculate
+             the number of ways can she load songs on to the MP3 player so that it is full?
+             A. 800 C 50                                     C. 1500 C 50
+             B. 1450 C750                                    D. 1500 C800
+
+              ANS: B            DIF:       Average         OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+         12. For a mock United Nations, 6 boys and 7 girls are to be chosen. If there are 12 boys and 9 girls to
+             choose from, how many groups are possible?
+             A. 846 720                                     C. 960
+             B. 33 264                                      D. 120 708 403 200
+              ANS: B            DIF:       Difficult       OBJ: Section 11.2 NAT: PC3
+              TOP: Combinations                            KEY: combinations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             2
+

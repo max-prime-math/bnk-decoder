@@ -1,0 +1,944 @@
+{
+  "generatedAt": "2026-06-14T18:51:28.878Z",
+  "inputDir": "reports/math-object-pass-20260614e",
+  "chapterCount": 11,
+  "questionCount": 732,
+  "notDecodedBodyCount": 123,
+  "embeddedBodyCount": 58,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 699,
+  "badChoiceCount": 4,
+  "quality": {
+    "clean": 721,
+    "suspect": 10,
+    "garbage": 1,
+    "averageScore": 93
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 70,
+      "notDecodedBodies": 9,
+      "embeddedBodies": 4,
+      "slotBodies": 0,
+      "inlineObjects": 70,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 5,
+          "id": "q-5",
+          "title": "horizontal translation",
+          "body": "Given the graph of $f(x)$ shown below, what are the coordinates of point A if the transformed graph is represented by $g(x) = f(x - 2)$? [DIAGRAM: variables ($x_1, x_2, x_3)$]"
+        },
+        {
+          "number": 6,
+          "id": "q-6",
+          "title": "vertical translation",
+          "body": "Given the graph of $f(x)$ shown below, what are the coordinates of point A if the transformed graph is represented by $g(x) = f(x + 3)$? [DIAGRAM: variables ($x_1, x_2, x_3)$]"
+        },
+        {
+          "number": 14,
+          "id": "q-16",
+          "title": "reflection | vertical stretch",
+          "body": "When the value of a is $g(x) = ax^2$, the function $f(x) = x^2$ has what relationship to the base function [embedded math expression]?"
+        },
+        {
+          "number": 30,
+          "id": "q-32",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of [DIAGRAM: variables (h, $h_display,$ direction)] [DIAGRAM: variables (h, $h_display,$ direction)] is the graph of [DIAGRAM: variables (h, $h_display,$ direction)] translated [DIAGRAM: variables (h, $h_display,$ direction)] units ____________________."
+        },
+        {
+          "number": 32,
+          "id": "q-34",
+          "title": "translation | reflection",
+          "body": "The graph of [DIAGRAM: variables (h, $h_display, k)$] is reflected in the [DIAGRAM: variables (h, $h_display, k)$] $-$axis, translated [DIAGRAM: variables (h, $h_display, k)$] units to the [embedded math expression], and translated down units $f(x)$. The equation of the transformed function is $g(x) =$ ____________________."
+        },
+        {
+          "number": 33,
+          "id": "q-35",
+          "title": "inverse of a function",
+          "body": "The inverse of the function $f(x) = 5/4 x$ [embedded math expression] is ____________________."
+        },
+        {
+          "number": 44,
+          "id": "q-46",
+          "title": "stretch",
+          "body": "For each $g(x),$ describe the transformation(s) from the base function $f(x) = x^2$.\ra) [DIAGRAM: variables (stretch)] b) [DIAGRAM: variables (stretch)] c) [DIAGRAM: variables (stretch)]"
+        },
+        {
+          "number": 57,
+          "id": "q-59",
+          "title": "graph | transformation | function notation",
+          "body": "The base function $g ( x ) .$ is reflected in the $x-$axis, stretched horizontally by a factor of $2,$ compressed vertically by a factor of [embedded math expression], and translated $3$ units to the left and $5$ units down.\ra) Write the equation of the transformed function $g(x)$.\rb) Graph the original function and the transformed function on the same set of axes.\rc) Which transformations must be done first but in any order?\rd) Which transformations must be done last but in any order?"
+        },
+        {
+          "number": 62,
+          "id": "q-64",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of [DIAGRAM NEEDED] is transformed to the graph of [DIAGRAM NEEDED].\ra) Describe the two translations represented by this transformation.\rb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 7,
+      "embeddedBodies": 6,
+      "slotBodies": 0,
+      "inlineObjects": 46,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 15,
+          "id": "q-15",
+          "title": "inverse of a radical function | range",
+          "body": "Given the function $f(x) = - abs(x)$, which of the following is a restriction on the inverse function, [embedded math expression]?"
+        },
+        {
+          "number": 16,
+          "id": "q-16",
+          "title": "domain | range",
+          "body": "Which point on the graph [DIAGRAM: variables ($x_1, x_2, x_3)$] does not exist on the graph of [DIAGRAM: variables ($x_1, x_2, x_3)$]?"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "translations | stretches",
+          "body": "The variable [embedded value] in the function $f(x) = a b(x - h)$ represents a ________________."
+        },
+        {
+          "number": 38,
+          "id": "q-38",
+          "title": "algebraic solution",
+          "body": "When solving the equation [embedded math expression] algebraically, the restriction on the variable is ____________________."
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "algebraic solution",
+          "body": "Jim states that the equations [embedded object] and [DIAGRAM NEEDED] have the same solution. Is he correct? Justify your reasoning."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "graphical solution",
+          "body": "Solve the equation [embedded math expression] graphically."
+        },
+        {
+          "number": 65,
+          "id": "q-65",
+          "title": "algebraic solution",
+          "body": "For the function, N represents the number, in thousands, of flowers pollinated and t represents the time, in days.\ra) If there are $10 000$ flowers, how long will it take to pollinate all of the flowers?\rb) Sun$-$Eui believes that the second generation of bees can reduce the time to pollinate the flowers by half by changing the function to [embedded math expression]. Is she correct? Justify your reasoning.\rc) Should Sun$-$Eui continue with the project?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 65,
+      "notDecodedBodies": 6,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 96
+      },
+      "bodyIssues": [
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "graph | transformations",
+          "body": "Given the function $y = x^3$, what are the parameters of the transformed function y $=$ [DIAGRAM: variables ($a_num, a_denom, a)$] $g (x - 2) 3 - 8$ and what is the effect of each parameter on the graph of the original function?"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "x-intercepts | odd-degree",
+          "body": "The minimum number of $x-$intercepts that the graph of an [DIAGRAM: variables (degree, ans)] $-$degree polynomial function can have is _______________."
+        },
+        {
+          "number": 36,
+          "id": "q-40",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "body": "A variety of factoring techniques is required. Factor fully. a) $x_2(x$ – $2)(x + 2) + 3x + 6\nb) 16x4$ – (x $+ 1)2$ [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 48,
+          "id": "q-52",
+          "title": "factor theorem | integral zero theorem | factor",
+          "body": "Factor $2x4$ – $7x3$ – $41x2$ – $53x$ – $21$ fully. [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 49,
+          "id": "q-53",
+          "title": "factor theorem | integral zero theorem | factor",
+          "body": "Factor $3x4 + 5x3$ – $13x2$ – x $+ 6$ fully. [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 57,
+          "id": "q-61",
+          "title": "factor theorem | integral zero theorem | factor | root | extraneous roots",
+          "body": "Let x represent the side length of the square to be cut from each corner.\rThen $V(x) = x(15$ – $2x)(25$ – $2x)$.\rSolve $x(15$ – $2x)(25$ – $2x) = 476$. $x = 1 3 .$ Let $P(x) = 4x 3 - 80x 2 + 375x - 476$, and try x $= 4$ in the factor theorem. $P(x) = 4x 3 - 80x 2 + 375x - 476 P(4) = 4(4) 3 - 80(4 2 ) + 375(4) - 476 = 256 - 1280 + 1500 - 476 P(4) = 0$ Thus, x $4$ is a factor of $P(x)$. Divide to find another factor. $4x 3 - 80x 2 + 375x - 476 = 0 (x - 4)(4x 2 - 64x + 119) = 0 x = 4$ Thus, $x = 64 ( - 64) 2 - 4(4)(119) 2(4) = 16 137 2 13.9$ Use the quadratic formula to solve the quadratic equation. [DIAGRAM NEEDED] x $= 13.9$ cm is not possible because of the starting dimensions of the sheet of metal. The side length of the square cut from each corner is either $4$ cm or approximately $2.15$ cm."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 11,
+      "embeddedBodies": 7,
+      "slotBodies": 0,
+      "inlineObjects": 32,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 1,
+          "id": "q-1",
+          "title": "radians | degrees",
+          "body": "$4/3$ [embedded object] radians is equal to how many degrees?"
+        },
+        {
+          "number": 22,
+          "id": "q-22",
+          "title": "unit circle | intersection point",
+          "body": "Determine the point in quadrant $x^2+1$ where the line represented by [embedded object] intersects the unit circle."
+        },
+        {
+          "number": 24,
+          "id": "q-24",
+          "title": "trigonometric ratios",
+          "body": "degree$<>0$ and degree$<>90$ and degree$<>180$ and degree$<>270$ and degree$<>360$ Giai got an answer of [embedded object] when she was calculating the value of a trigonometric function. Assuming Giai did her calculation correctly, which of the following was she calculating?"
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "trigonometric ratios",
+          "body": "The [embedded object] occurs when the angle in standard position is ____________________."
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "arc length",
+          "body": "A child swings on a playground swing set. If the length of the swing s chain is $3 m$ and the child swings through an angle of [embedded object], what is the exact arc length through which the child travels?"
+        },
+        {
+          "number": 38,
+          "id": "q-38",
+          "title": "special angles | trigonometric ratios",
+          "body": "A $3-m$ ladder is leaning against a vertical wall such that the angle between the ground and the ladder is [DIAGRAM NEEDED]. What is the exact height that the ladder reaches up the wall?"
+        },
+        {
+          "number": 42,
+          "id": "q-42",
+          "title": "reference angle | reciprocal trigonometric ratios | unit circle",
+          "body": "Without using a calculator, determine two angles between $0$ and $360$ that have a cosecant of [DIAGRAM NEEDED]. Include an explanation of how you determined the two angles."
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "primary trigonometric ratios | exact value",
+          "body": "Determine the exact measures for all angles where $tan(theta) = - 3$ in the domain [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "volume | trigonometric ratios | trigonometric equations | radians",
+          "body": "The volume of a drinking cup can be approximated by the formula [embedded math expression], where the top and bottom of the cup are circular and h is the height. If the cup has a bottom diameter of $6$ cm, a height of $10$ cm, and sides that slope outward at an angle of $0.09,$ determine the cup s volume.\n#image(\"/imgs/asset-4\", width: 75%)"
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "two-dimensional problem | trigonometric ratios | right triangle",
+          "body": "A represent the angle that Gursant would measure. Let d represent the distance that Gursant is from the monument. Thus, #image(\"/imgs/asset-8\", width: 75%). [DIAGRAM: variables (e)] Gursant would measure an angle of $30$ from the ground to the top of the monument."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "cosine law | two-dimensional problem",
+          "body": "Let x represent the width of the canyon. Use the cosine law. [embedded object] The width of the canyon is approximately $173.3 m$."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 12,
+      "embeddedBodies": 5,
+      "slotBodies": 0,
+      "inlineObjects": 62,
+      "badChoices": 4,
+      "quality": {
+        "clean": 67,
+        "suspect": 1,
+        "garbage": 1,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 2,
+          "id": "q-2",
+          "title": "range | sinusoidal function",
+          "body": "The range (in radians) of the graph of [DIAGRAM: variables (function, select_function)] is"
+        },
+        {
+          "number": 3,
+          "id": "q-3",
+          "title": "period | sinusoidal function",
+          "body": "The period (in degrees) of the graph of [DIAGRAM: variables (function, select_function, b)] is"
+        },
+        {
+          "number": 9,
+          "id": "q-9",
+          "title": "translation | primary trigonometric function",
+          "body": "The graph of [DIAGRAM: variables (function$1,$ select_function, other_function)] can be obtained by translating the graph of [DIAGRAM: variables (function$1,$ select_function, other_function)]"
+        },
+        {
+          "number": 10,
+          "id": "q-10",
+          "title": "amplitude | sinusoidal function",
+          "body": "What is the amplitude of the sinusoidal function [embedded math expression]?"
+        },
+        {
+          "number": 11,
+          "id": "q-11",
+          "title": "period | sinusoidal function",
+          "body": "What is the period of the sinusoidal function [embedded math expression]?"
+        },
+        {
+          "number": 15,
+          "id": "q-15",
+          "title": "transformations | equation | properties | sinusoidal function",
+          "body": "Give an equation for a transformed sine function with an amplitude of [embedded math expression], a period of [embedded math expression], a phase shift of $3/2$ rad to the right, and a vertical translation of $9$ units down."
+        },
+        {
+          "number": 20,
+          "id": "q-20",
+          "title": "coordinate | tangent function",
+          "body": "Given the trigonometric function $y = tan(x)$, find the value of the $y-$coordinate of the point with $x-$coordinate [DIAGRAM: variables (n, $a_1, a_2)$]"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "amplitude | period | phase shift | vertical displacement | sinusoidal function",
+          "body": "For the function [embedded math expression], [DIAGRAM: variables (parameter_choose, select_parameter, ans)] affects the _______________ of the graph."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "maximum | primary trigonometric function",
+          "body": "The maximum value of the function [embedded math expression] is _______________."
+        },
+        {
+          "number": 42,
+          "id": "q-42",
+          "title": "quadratic trigonometric equation",
+          "body": "Solve $sin^2(x) - 5cos(x) - 2 = 0$ on the interval [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "transformations | sinusoidal function",
+          "body": "Describe the transformations that, when applied to the graph of y $= cos x,$ result in the graph of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "sinusoidal function | maximum | minimum",
+          "body": "A population, p, of bears varies according to $p(t) = 250 + 30 cos(t)$, where t is the time, in years, and angles are measured in radians.\ra) What are the maximum and minimum populations?\rb) What is the first interval, in years and months, over which the population is increasing? [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 10,
+      "embeddedBodies": 4,
+      "slotBodies": 0,
+      "inlineObjects": 77,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 4,
+          "id": "q-4",
+          "title": "quotient identity | reciprocal identity",
+          "body": "What does the expression $tan(theta)$ [DIAGRAM: variables (num$1a,$ num$2a,$ num$3a)$] [DIAGRAM: variables (num$1a,$ num$2a,$ num$3a)$] [DIAGRAM: variables (num$1a,$ num$2a,$ num$3a)$] [DIAGRAM: variables (num$1a,$ num$2a,$ num$3a)$] [DIAGRAM: variables (num$1a,$ num$2a,$ num$3a)$] simplify to?"
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "reciprocal identities | quotient identities | Pythagorean identities",
+          "body": "$0 1$ [embedded object] are known as the _______________ identities."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "reciprocal identities | quotient identities | Pythagorean identities",
+          "body": "The $1 0 1$ identities are defined as $0$ $cos 2 + sin^2(x), 1 + tan^2(x), 1 + cot^2(x)$ [DIAGRAM: variables (num, eq$1,$ eq2)]"
+        },
+        {
+          "number": 39,
+          "id": "q-39",
+          "title": "difference identities | sum identities",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 42,
+          "id": "q-42",
+          "title": "exact value",
+          "body": "Determine the value of [embedded object] if $cos(theta) sin(theta) sec(theta) + tan(theta) sec(theta) tan(theta)$ and $sin(theta) = 13$."
+        },
+        {
+          "number": 43,
+          "id": "q-43",
+          "title": "counterexample",
+          "body": "Use a counterexample to show that [embedded math expression] is not an identity."
+        },
+        {
+          "number": 47,
+          "id": "q-47",
+          "title": "exact value",
+          "body": "What is the solution for $cos(x) - 3 = 0$ for [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "Pythagorean identities | equation",
+          "body": "If $x = k$, for what value(s) of k does [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 59,
+          "id": "q-59",
+          "title": "quotient identities | proof",
+          "body": "Prove the identity [embedded math expression]."
+        },
+        {
+          "number": 70,
+          "id": "q-70",
+          "title": "general solutions | quadratic equation",
+          "body": "Solve $sin^2(x) = 0$ over the domain [DIAGRAM NEEDED]."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 17,
+      "embeddedBodies": 7,
+      "slotBodies": 0,
+      "inlineObjects": 62,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 2,
+          "id": "q-2",
+          "title": "increasing | decreasing",
+          "body": "Which choice best describes the function $y = 1 6 abs(x 0) a a y = 6 abs(x 1)$ [embedded math expression]?"
+        },
+        {
+          "number": 3,
+          "id": "q-3",
+          "title": "domain | range",
+          "body": "Which set of properties is correct for the function $y = 1 9 abs(x 1) a a y = 9 abs(x 0)$ [embedded math expression]?"
+        },
+        {
+          "number": 6,
+          "id": "q-6",
+          "title": "modelling | exponential growth",
+          "body": "A colony of ants has an initial population of [embedded math expression] and triples every day. Which function can be used to model the ant population, p, after t days?"
+        },
+        {
+          "number": 8,
+          "id": "q-8",
+          "title": "range | domain | exponential function",
+          "body": "An investment of $ $150$ is placed into an account that earns interest, compounded annually, at a rate of $5$ % for $12$ years. The amount, A, in the account can be modelled by the function [embedded math expression], where t is the time, in years. What is the $5$ of this function?"
+        },
+        {
+          "number": 11,
+          "id": "q-11",
+          "title": "modelling | exponential decay",
+          "body": "How much was in the account $10$ years ago, to the nearest cent?\r[Hint: Use [DIAGRAM: variables (balance, interest, years)].]"
+        },
+        {
+          "number": 14,
+          "id": "q-14",
+          "title": "increasing | decreasing | domain | range",
+          "body": "For the exponential function [embedded math expression], which of the following statements is not true?"
+        },
+        {
+          "number": 16,
+          "id": "q-16",
+          "title": "transformations of exponential functions",
+          "body": "Which function results when the graph of $y = 6 abs(x)$ is translated [DIAGRAM: variables (c, k, $k_value)$] units [DIAGRAM: variables (c, k, $k_value)$]?"
+        },
+        {
+          "number": 22,
+          "id": "q-22",
+          "title": "negative exponents",
+          "body": "The population of a bacterial culture triples every hour. When the scientist observed the culture, it had already been growing for some time. She developed the equation for the population, P, after t hours as [embedded math expression], based on t $= 0$ representing the time she started her measurements. How many bacterial cells were there $3 h$ before she started measuring?"
+        },
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "half-life | exponential decay",
+          "body": "The half$-$life of a radioactive element can be modelled by $32,$ where $45$ is the initial mass of the element; $M = M_0 1 32 t 45$ is the elapsed time, in hours; and [DIAGRAM: variables (c, b, num)] is the mass that remains after time [DIAGRAM: variables (c, b, num)]. The half$-$life of the element is"
+        },
+        {
+          "number": 27,
+          "id": "q-27",
+          "title": "domain | range | exponential function",
+          "body": "The graph of [DIAGRAM: variables (base, num$1,$ num$2)$] has domain ____________________ and range ____________________."
+        },
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "exponential function | intercepts",
+          "body": "The graph of [DIAGRAM: variables (base, num$1,$ num$2)$] has a $y-$intercept of ____________________ and an $x-$intercept of ____________________."
+        },
+        {
+          "number": 30,
+          "id": "q-30",
+          "title": "change of base",
+          "body": "The expression $x^2$ written as a single power of [embedded math expression] is ____________________."
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "transformations of exponential functions",
+          "body": "For the function $y = b kx$, if k $< 0,$ the graph of the function is ____________________ in the ____________________$-$axis, when compared to the graph of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "increasing | decreasing | exponential function",
+          "body": "an exponential function of the form $y = a c abs(x)$, where a $> 0$ and [DIAGRAM NEEDED] c [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "asymptote | exponential function",
+          "body": "the horizontal asymptote of an exponential function of the form [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "transformations of exponential functions",
+          "body": "occurs for the graph of [DIAGRAM NEEDED] when [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "body": "The scatter plot shows how his money has grown over time. [DIAGRAM NEEDED] a) Do the data show an exponential trend? Explain your reasoning.\rb) Estimate values of a and b to develop a model for the information of the form $V(t) = a b^t$, for t in years.\rc) Use your model to predict the expected value of Michael s investment in $30$ years.\rd) How does the result in part c) illustrate the power of exponential growth?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 24,
+      "embeddedBodies": 12,
+      "slotBodies": 0,
+      "inlineObjects": 89,
+      "badChoices": 0,
+      "quality": {
+        "clean": 63,
+        "suspect": 3,
+        "garbage": 0,
+        "averageScore": 90
+      },
+      "bodyIssues": [
+        {
+          "number": 6,
+          "id": "q-6",
+          "title": "range | logarithmic functions",
+          "body": "The range of the function [embedded math expression] is"
+        },
+        {
+          "number": 8,
+          "id": "q-8",
+          "title": "vertical translation | transformation",
+          "body": "Compared to the graph of the base function $y = log_c(x)$, the graph of the function [embedded math expression] is translated a. [DIAGRAM: variables (k, c, ans_units)] units to the left c. [DIAGRAM: variables (k, c, ans_units)] units [DIAGRAM: variables (k, c, ans_units)] b. d. [DIAGRAM: variables (k, c, ans_units)] units to the right"
+        },
+        {
+          "number": 11,
+          "id": "q-11",
+          "title": "horizontal stretch | vertical translation | reflection",
+          "body": "Which function represents a vertical translation of – $8$ units [embedded math expression], a horizontal translation of $9$ units – $8, a$ horizontal stretch by a factor of $7,$ down, a vertical stretch by a factor of [embedded math expression], and $f(x) = log_c(x)$, when compared to the base function $g(x) = 6 log 9 1 6 abs(x - 8) - 7 / g(x) = 6 log_c(6) abs(x - 7) - 8$."
+        },
+        {
+          "number": 16,
+          "id": "q-16",
+          "title": "product law | laws of logarithms",
+          "body": "Which of the following is equivalent to the expression [embedded math expression]?"
+        },
+        {
+          "number": 17,
+          "id": "q-17",
+          "title": "product law | laws of logarithms | quotient law",
+          "body": "If $log3 = s$, [embedded math expression], and [embedded math expression], an algebraic expression in terms of [embedded math expression], [embedded math expression], and v for z is"
+        },
+        {
+          "number": 18,
+          "id": "q-18",
+          "title": "product law | laws of logarithms",
+          "body": "Which if the following is equivalent to the expression [embedded math expression]?"
+        },
+        {
+          "number": 23,
+          "id": "q-23",
+          "title": "exponential equation | logarithmic equation",
+          "body": "A graduate student determines that the relationship between the length, s, in metres, of the skull and the body mass, m, in kilograms, of a particular species can be expressed using the equation [embedded math expression]. Determine the body mass of an animal with a skull size of $3.4425 m$. Round your answer to the nearest kilogram."
+        },
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "logarithmic functions | transformation",
+          "body": "The variable [embedded value] in the function [embedded math expression] represents ________________."
+        },
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of [DIAGRAM: variables (h, $h_display,$ direction)] [DIAGRAM: variables (h, $h_display,$ direction)] is the graph of [DIAGRAM: variables (h, $h_display,$ direction)] translated ____________________."
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "laws of logarithms",
+          "body": "The equation $log_c(MN) = log_c(M) + log_c(N)$ [DIAGRAM: variables (which, select_ans_list, power)] $log_c(M) N = log_c(M) - log_c(N)$ is an example of the ____________ law of logarithms."
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "power law | product law | quotient law",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 44,
+          "id": "q-44",
+          "title": "power law | laws of logarithms",
+          "body": "Given [embedded object], find the value of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "logarithm",
+          "body": "The magnitude of an earthquake is defined as $M = log(A / A_0)$, where A is the amplitude of the ground motion and $A_0$ is the amplitude corrected for the distance from the actual earthquake that would be expected for a standard earthquake. On March $2, 2012,$ an earthquake with an amplitude $M = log 10 5.1 A_0 A_0 M = log10 5.1 M = 5.1$ times [DIAGRAM NEEDED] was recorded in Norman Wells, Northwest Territories.\ra) What was the earthquake s magnitude on the Richter scale?\rb) How does the earthquake in Norman Wells compare to the earthquake off Vancouver Island in $1946$ that measured $7.3$ on the Richter scale?"
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "transformations | logarithmic functions",
+          "body": "List the steps and explain the effect of each transformation to graph the function [embedded math expression]."
+        },
+        {
+          "number": 52,
+          "id": "q-52",
+          "title": "laws of logarithms",
+          "body": "The intensity level, [embedded object], in decibels, of sound is defined as [DIAGRAM NEEDED], where I is the intensity of the sound in watts per square metre.The ratio of the intensity of sound pollution measured at a small airport runway versus that of the local highway is $6420.4$. If the sound level on the local highway is $91$ dB, determine the sound level on the runway, to the nearest decibel."
+        },
+        {
+          "number": 53,
+          "id": "q-53",
+          "title": "laws of logarithms",
+          "body": "Find the difference in pH levels of a swimming pool with a hydronium ion concentration of [embedded object] mol$/L$ and a swimming pool with a hydronium ion concentration of [DIAGRAM NEEDED] mol$/L,$ to the nearest hundredth."
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "power law | laws of logarithms",
+          "body": "Prove that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "change of base formula | laws of logarithms",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 57,
+          "id": "q-57",
+          "title": "laws of logarithms | power law | quotient law | product law",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "laws of logarithms",
+          "body": "Prove that [DIAGRAM NEEDED]."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 11,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 74,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 1,
+          "id": "q-1",
+          "title": "reciprocal of linear function | vertical asymptote",
+          "body": "Which of the reciprocal functions has a vertical asymptote with equation [embedded math expression]?"
+        },
+        {
+          "number": 2,
+          "id": "q-2",
+          "title": "reciprocal of linear function | behaviour at non-permissible values",
+          "body": "What is true about the behaviour of the function $f(x)$ as $+ 5 -5/4$ [DIAGRAM: variables (num, denom, np_value)] (right to left)?"
+        },
+        {
+          "number": 8,
+          "id": "q-8",
+          "title": "reciprocal of linear function",
+          "body": "What is the value of k in the function $f(x) = 2 - 4 5 x + 4$ if its graph passes through the point ([embedded math expression], [DIAGRAM: variables (b, d, a)])?"
+        },
+        {
+          "number": 24,
+          "id": "q-24",
+          "title": "rational function | x-intercept",
+          "body": "What are the $x-$intercepts of the graph of [DIAGRAM: variables (a, b, c)]?"
+        },
+        {
+          "number": 28,
+          "id": "q-28",
+          "title": "zeros | roots | x-intercept",
+          "body": "The number of $x-$intercepts in the graph of [DIAGRAM: variables (a, b, c)] is _______________. [DIAGRAM: variables (a, b, c)]"
+        },
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "point of discontinuity | vertical asymptote",
+          "body": "Given a rational function, if [embedded math expression] is a restriction, then equation of a vertical asymptote could be the [DIAGRAM: variables (num, option$1,$ option$2)$] or the _______________."
+        },
+        {
+          "number": 38,
+          "id": "q-38",
+          "title": "instantaneous rate of change",
+          "body": "Determine the approximate slope of the tangent to the curve $f(x) = 3x + 1 2x + 7$ at [DIAGRAM NEEDED], to one decimal place."
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "body": "Solve each equation by graphing, using technology. Express your answers to two decimal places. a) $3x x - 2 = - 1 x + 3 1 x + 1 x - 5 = - 1 * abs(x) 2 (x - 5) 3 = - 2 x - 5 3x - 1 x = abs(x) + 5 x - 3$ b) $x - 3.52$ c) $x - 1.19$ d) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "reciprocal of quadratic function | average rate of change",
+          "body": "A photographer uses a light meter to measure the intensity of light from a flash bulb. The intensity, I, in lux, of the flash bulb is a function of the distance, d, in metres, from the light and can be represented by $I(d) = 10 d^2$. a) Determine the following, to two decimal places: i) the intensity of light $3 m$ from the flash bulb ii) the average rate of change in the intensity of light for the interval [DIAGRAM NEEDED] b) What does the sign of your answer to part a)ii) indicate about the light intensity?"
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "slant asymptote | polynomial long division",
+          "body": "a) Use long division to express the function $f(x) = x - 5 + 17 x + 2$ as the sum of a polynomial function and a rational function of the form $y = x - 5 | F F x$, where A is a constant. b) What does your result in part a) allow you to predict about the graph of [DIAGRAM NEEDED], for large values of x? Why?"
+        },
+        {
+          "number": 62,
+          "id": "q-62",
+          "title": "rational equation",
+          "body": "Solve. a) $2 x + 3 2x x - 2 = 2 - 1 x + 2 2x + 1 x + 2 = abs(x) + 3 x + 4$ b) $1 x + 1 x^2 = - 1 x^3 F -$ c) $x = - 6 5 l l x = - 2 6$ d) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 6,
+      "embeddedBodies": 5,
+      "slotBodies": 0,
+      "inlineObjects": 119,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 9,
+          "id": "q-9",
+          "title": "composite functions | evaluate",
+          "body": "Given the functions $sin$ and $2,$ what is the value of [embedded object]?"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "composite functions",
+          "body": "If $7,$ and $cot,$ then $7 =$ _____________ and [embedded object] $=$ _______________."
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "composite functions | evaluate",
+          "body": "Given the functions $f(x) = x^2 - 7$ and [DIAGRAM NEEDED], what is the value of [DIAGRAM NEEDED]?"
+        },
+        {
+          "number": 55,
+          "id": "q-55",
+          "title": "subtract functions",
+          "body": "The revenue function for a school group selling n bookmarks is given by [embedded math expression], and the total cost function is given by $R n = 2n$. Determine the number of bookmarks that need to be sold for the school group to break even."
+        },
+        {
+          "number": 58,
+          "id": "q-58",
+          "title": "profit function | subtract functions",
+          "body": "The revenue function for a company selling n key chains is given by [embedded math expression], and the total cost function is given by $R n = 2n$. Determine the simplified equation for $C n = 100 + 0.80n$, the profit function for the company."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "add functions | subtract functions",
+          "body": "Jenny and Jimmy are a married couple who work at the same store. Jimmy s total weekly salary, in dollars, if he sells x items is given by [embedded object], and Jenny s total weekly salary, in dollars, if she sells x items is given by [DIAGRAM NEEDED].\ra) Assuming that they sell the same number of items in a week, what is the minimum number of items they have to sell so that Jenny s weekly salary is at least $100 more than Jimmy s?\rb) Assuming that they sell the same number of items in a week, what is the minimum number of items they each need to sell to make their combined weekly salary greater than $1000?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 61,
+      "notDecodedBodies": 10,
+      "embeddedBodies": 5,
+      "slotBodies": 0,
+      "inlineObjects": 33,
+      "badChoices": 0,
+      "quality": {
+        "clean": 60,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 5,
+          "id": "q-5",
+          "title": "combinations",
+          "body": "Solve for the variable: [embedded object] [DIAGRAM: variables (n, r, d)] $=$ [DIAGRAM: variables (n, r, d)]"
+        },
+        {
+          "number": 7,
+          "id": "q-7",
+          "title": "combinations",
+          "body": "Evaluate the expression [embedded math expression]."
+        },
+        {
+          "number": 8,
+          "id": "q-8",
+          "title": "permutations | combinations",
+          "body": "Evaluate the expression [embedded math expression]."
+        },
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "combinations | factorial | permutations | Pascal's triangle",
+          "body": "An abbreviation for products of successive positive integers, The arrangements of objects in a definite order, The selection of objects in which order is not important, The pattern from which the binomial theorem can be derived The selection of objects in which order is not important [embedded object] is called $a(n)$ ________________."
+        },
+        {
+          "number": 34,
+          "id": "q-39",
+          "title": "combinations",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 35,
+          "id": "q-40",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Use the binomial theorem to expand [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 43,
+          "id": "q-48",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand and simplify: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 44,
+          "id": "q-49",
+          "title": "permutations",
+          "body": "The number of different permutations using all of the $1-$digit numbers of a set is given by [DIAGRAM NEEDED].\ra) What is the smallest number that can be created that meets these conditions? Explain your reasoning.\rb) What is the difference between the largest number and the smallest number? Explain your reasoning."
+        },
+        {
+          "number": 57,
+          "id": "q-62",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand using the binomial theorem: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 59,
+          "id": "q-64",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Which of the following binomial expansions has the greater coefficient: the $12$th term in the expansion of [embedded object] or the $8$th term in the expansion of [DIAGRAM NEEDED]?"
+        }
+      ]
+    }
+  ]
+}

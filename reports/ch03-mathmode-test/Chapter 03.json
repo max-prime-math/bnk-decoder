@@ -1,0 +1,4862 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 03.bnk",
+    "byteLength": 58226,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 58210,
+    "inflatedByteLength": 1118890
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What are the x-intercepts of if(VAR1<0,chr(43),chr(45))?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "–6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "–9"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "–9"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "intercept"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "VAR1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "VAR2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "SIGN1",
+          "rule": "if(VAR1<0,chr(43),chr(45))"
+        },
+        {
+          "name": "SIGN2",
+          "rule": "if(VAR2<0,chr(43),chr(45))"
+        },
+        {
+          "name": "INT1",
+          "rule": "abs(VAR1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "INT2",
+          "rule": "abs(VAR2)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "OPPVAR1",
+          "rule": "-1*VAR1",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "OPPVAR2",
+          "rule": "-1*VAR2",
+          "sampleValue": "–9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 69 00 6e 00 74 00 65 00 72 00 63 00 65 00 70 00 74 00 00 00 ae 03 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 56 00 41 00 52 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 36 00 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 56 00 41 00 52 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 39 00 00 00 00 00 00 00 14 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 69 00 73 00 75 00 6e 00 69 00 71 00 75 00 65 00 28 00 56 00 41 00 52 00 31 00 2c 00 20 00 56 00 41 00 52 00 32 00 29 00 00 00 cd cd 00 00 00 00 13 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 56 00 41 00 52 00 31 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 32 00 3c 00 3e 00 30 00 00 00 cd cd 05 00 00 00 1a 00 00 00 03 00 00 00",
+          "textPreview": "Easy\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nintercept\nVAR1\nrange(-9,9,1)\n6\nVAR2\nrange(-9,9,1)\n9\nisunique(VAR1, VAR2)\nVAR1<>0 and VAR2<>0\nSIGN1\nif(VAR1<0,chr(43),chr(45))\nSIGN2\nif(VAR2<0,chr(43),chr(45))\nINT1\nabs(VAR1)\n6\nINT2\nabs(VAR2)\n9\nOPPVAR1\n-1*VAR1\n–6\nOPPVAR2\n-1*VAR2\n–9\nSCRAMBLE"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the axis of symmetry of the quadratic $x^2$ expression with axis $– 3$?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "2"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "–6"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "– 3"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 9556,
+        "difficulty": "Easy",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "axis of symmetry"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "VAR1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "VAR2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "+ 6"
+        },
+        {
+          "name": "SIGN3",
+          "rule": "if(VAR3<0,chr(43),chr(45))"
+        },
+        {
+          "name": "SIGN2",
+          "rule": "if(VAR2<0,chr(43),chr(45))"
+        },
+        {
+          "name": "OPPVAR3",
+          "rule": "-1*VAR3",
+          "sampleValue": "3"
+        },
+        {
+          "name": "ANS",
+          "rule": "-1*VAR2",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "VAR3",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "– 3"
+        },
+        {
+          "name": "DIS",
+          "rule": "-1*ANS",
+          "sampleValue": "6"
+        }
+      ],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "What is the axis of symmetry of [inline object not decoded yet]?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 9556,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 61 00 78 00 69 00 73 00 20 00 6f 00 66 00 20 00 73 00 79 00 6d 00 6d 00 65 00 74 00 72 00 79 00 00 00 e0 04 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 05 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 56 00 41 00 52 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 32 00 00 00 04 00 00 00 0d 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 56 00 41 00 52 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 2b 00 20 00 36 00 00 00 00 00 00 00 2b 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 56 00 41 00 52 00 31 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 32 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 33 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 31 00 3c 00 3e 00 31 00 00 00 cd cd 05 00 00 00 1a 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00",
+          "textPreview": "Easy\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\naxis of symmetry\nVAR1\nrange(-9,9,1)\n2\nVAR2\nrange(-9,9,1)\n+ 6\n+\nVAR1<>0 and VAR2<>0 and VAR3<>0 and VAR1<>1\nSIGN3\nif(VAR3<0,chr(43),chr(45))\nSIGN2\nif(VAR2<0,chr(43),chr(45))\np\nVAR2\n6\nOPPVAR3\n-1*VAR3\n3\nANS\n-1*VAR2\n–6\nSCRAMBLE\nTRUE\n1\nVAR3"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the quadratic function in vertex form for the parabola shown below? –8"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "if(p<0,chr(43),chr(45))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "1"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(q<0,chr(43),chr(45))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "2"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 14183,
+        "difficulty": "Average",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "vertex form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-9,9,.25)",
+          "sampleValue": "–8"
+        },
+        {
+          "name": "p",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "q",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "p_dis1",
+          "rule": "-1*p_value",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "-1*q_value",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "a_dis1",
+          "rule": "-1*a",
+          "sampleValue": "8"
+        },
+        {
+          "name": "sign_dis_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_dis_q",
+          "rule": "if(q<0,chr(43),chr(45))"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "a*(x-p)^2+q"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "a*(x-p)^2+q",
+              "substituted": "(-8)*(x-(1))^2+(2)",
+              "typst": "(-8) dot (x-(1))^2+(2)",
+              "latex": "(-8) \\cdot (x-(1))^2+(2)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": -966
+                },
+                {
+                  "x": -9.5,
+                  "y": -880
+                },
+                {
+                  "x": -9,
+                  "y": -798
+                },
+                {
+                  "x": -8.5,
+                  "y": -720
+                },
+                {
+                  "x": -8,
+                  "y": -646
+                },
+                {
+                  "x": -7.5,
+                  "y": -576
+                },
+                {
+                  "x": -7,
+                  "y": -510
+                },
+                {
+                  "x": -6.5,
+                  "y": -448
+                },
+                {
+                  "x": -6,
+                  "y": -390
+                },
+                {
+                  "x": -5.5,
+                  "y": -336
+                },
+                {
+                  "x": -5,
+                  "y": -286
+                },
+                {
+                  "x": -4.5,
+                  "y": -240
+                },
+                {
+                  "x": -4,
+                  "y": -198
+                },
+                {
+                  "x": -3.5,
+                  "y": -160
+                },
+                {
+                  "x": -3,
+                  "y": -126
+                },
+                {
+                  "x": -2.5,
+                  "y": -96
+                },
+                {
+                  "x": -2,
+                  "y": -70
+                },
+                {
+                  "x": -1.5,
+                  "y": -48
+                },
+                {
+                  "x": -1,
+                  "y": -30
+                },
+                {
+                  "x": -0.5,
+                  "y": -16
+                },
+                {
+                  "x": 0,
+                  "y": -6
+                },
+                {
+                  "x": 0.5,
+                  "y": 0
+                },
+                {
+                  "x": 1,
+                  "y": 2
+                },
+                {
+                  "x": 1.5,
+                  "y": 0
+                },
+                {
+                  "x": 2,
+                  "y": -6
+                },
+                {
+                  "x": 2.5,
+                  "y": -16
+                },
+                {
+                  "x": 3,
+                  "y": -30
+                },
+                {
+                  "x": 3.5,
+                  "y": -48
+                },
+                {
+                  "x": 4,
+                  "y": -70
+                },
+                {
+                  "x": 4.5,
+                  "y": -96
+                },
+                {
+                  "x": 5,
+                  "y": -126
+                },
+                {
+                  "x": 5.5,
+                  "y": -160
+                },
+                {
+                  "x": 6,
+                  "y": -198
+                },
+                {
+                  "x": 6.5,
+                  "y": -240
+                },
+                {
+                  "x": 7,
+                  "y": -286
+                },
+                {
+                  "x": 7.5,
+                  "y": -336
+                },
+                {
+                  "x": 8,
+                  "y": -390
+                },
+                {
+                  "x": 8.5,
+                  "y": -448
+                },
+                {
+                  "x": 9,
+                  "y": -510
+                },
+                {
+                  "x": 9.5,
+                  "y": -576
+                },
+                {
+                  "x": 10,
+                  "y": -646
+                }
+              ]
+            }
+          ],
+          "variables": {
+            "a": "-8",
+            "p": "1",
+            "q": "2"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 14183,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 66 00 6f 00 72 00 6d 00 00 00 7e 05 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 05 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 c0 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 2e 00 32 00 35 00 29 00 00 00 13 20 38 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 3f 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 31 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 32 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 31 00 20 00 61 00 6e 00 64 00 20 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 70 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 71 00 3c 00 3e 00",
+          "textPreview": "Average\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nvertex form\n[[slot]]\na\nrange(-9,9,.25)\n–8\np\nrange(-9,9,1)\n1\nq\nrange(-9,9,1)\n2\na<>1 and a<>0 and p<>0 and q<>0\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\np_value\nabs(p)\n1\nq_value\nabs(q)\n2\np_dis1\n-1*p_value\n–1\nq_dis1"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the vertex of 7?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "(if(VAR2<0,chr(45),chr(43)), 5)"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "(5, –5)"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "(if(VAR3<0,chr(45),chr(43)), 4)"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "(–4, 5)"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 25019,
+        "difficulty": "Average",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "vertex"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "VAR1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "VAR2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "SIGN3",
+          "rule": "if(VAR3<0,chr(45),chr(43))"
+        },
+        {
+          "name": "SIGN2",
+          "rule": "if(VAR2<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "abs(VAR2)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "OPPVAR3",
+          "rule": "-1*VAR3",
+          "sampleValue": "–4"
+        },
+        {
+          "name": "VAR3",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "q",
+          "rule": "abs(VAR3)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "ANSx",
+          "rule": "-1*VAR2",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "DISx1",
+          "rule": "-1*ANSx",
+          "sampleValue": "5"
+        },
+        {
+          "name": "DISy1",
+          "rule": "-1*ANSy",
+          "sampleValue": "–4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 25019,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 00 00 de 04 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 56 00 41 00 52 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 37 00 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 56 00 41 00 52 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 35 00 00 00 00 00 00 00 2b 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 56 00 41 00 52 00 31 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 32 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 33 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 31 00 3c 00 3e 00 31 00 00 00 cd cd 05 00 00 00 1a 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 53 00 49 00 47 00 4e 00 33 00",
+          "textPreview": "Average\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nvertex\nVAR1\nrange(-9,9,1)\n7\nVAR2\nrange(-9,9,1)\n5\n+\nVAR1<>0 and VAR2<>0 and VAR3<>0 and VAR1<>1\nSIGN3\nif(VAR3<0,chr(45),chr(43))\nSIGN2\nif(VAR2<0,chr(45),chr(43))\np\nabs(VAR2)\n5\nOPPVAR3\n-1*VAR3\n–4\nSCRAMBLE\nTRUE\n1\nVAR3\nrange(-9,9,1)\n4\nq"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which graph represents the quadratic function abs(n)<abs(d)? Recovered graph functions: -(0.714285714286)*(pow((x+(4)),2))+(-7); -(0.714285714286)*(pow((x-(4)),2))-(-7); (0.714285714286)*(pow((x-(4)),2))+(-7); (0.714285714286)*(pow((x+(4)),2))-(-7)."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "graph of -(0.714285714286)*(pow((x+(4)),2))+(-7)"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "graph of -(0.714285714286)*(pow((x-(4)),2))-(-7)"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "graph of (0.714285714286)*(pow((x-(4)),2))+(-7)"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "graph of (0.714285714286)*(pow((x+(4)),2))-(-7)"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 30237,
+        "difficulty": "Difficult",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "vertex form | graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "n/d",
+          "sampleValue": "0.714285714286"
+        },
+        {
+          "name": "p",
+          "rule": "range(-6,6,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "q",
+          "rule": "range(-10,10,1)",
+          "sampleValue": "–7"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "value_p",
+          "rule": "abs(p)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "value_q",
+          "rule": "abs(q)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "d",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "sign_a",
+          "rule": "if((n*d)<0,chr(45),chr(32))",
+          "sampleValue": "abs(n)<abs(d)"
+        },
+        {
+          "name": "numerator",
+          "rule": "abs(n)/(gcf(abs(n),abs(d)))",
+          "sampleValue": "5"
+        },
+        {
+          "name": "denominator",
+          "rule": "abs(d)/(gcf(abs(n),abs(d)))",
+          "sampleValue": "7"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "-a*(pow((x+p),2))+q",
+            "-a*(pow((x-p),2))-q",
+            "a*(pow((x-p),2))+q",
+            "a*(pow((x+p),2))-q"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "-a*(pow((x+p),2))+q",
+              "substituted": "-(0.714285714286)*(pow((x+(4)),2))+(-7)",
+              "typst": "-(0.714285714286) dot (((x+(4)))^2)+(-7)",
+              "latex": "-(0.714285714286) \\cdot (((x+(4)))^2)+(-7)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": -32.714286
+                },
+                {
+                  "x": -9.5,
+                  "y": -28.607143
+                },
+                {
+                  "x": -9,
+                  "y": -24.857143
+                },
+                {
+                  "x": -8.5,
+                  "y": -21.464286
+                },
+                {
+                  "x": -8,
+                  "y": -18.428571
+                },
+                {
+                  "x": -7.5,
+                  "y": -15.75
+                },
+                {
+                  "x": -7,
+                  "y": -13.428571
+                },
+                {
+                  "x": -6.5,
+                  "y": -11.464286
+                },
+                {
+                  "x": -6,
+                  "y": -9.857143
+                },
+                {
+                  "x": -5.5,
+                  "y": -8.607143
+                },
+                {
+                  "x": -5,
+                  "y": -7.714286
+                },
+                {
+                  "x": -4.5,
+                  "y": -7.178571
+                },
+                {
+                  "x": -4,
+                  "y": -7
+                },
+                {
+                  "x": -3.5,
+                  "y": -7.178571
+                },
+                {
+                  "x": -3,
+                  "y": -7.714286
+                },
+                {
+                  "x": -2.5,
+                  "y": -8.607143
+                },
+                {
+                  "x": -2,
+                  "y": -9.857143
+                },
+                {
+                  "x": -1.5,
+                  "y": -11.464286
+                },
+                {
+                  "x": -1,
+                  "y": -13.428571
+                },
+                {
+                  "x": -0.5,
+                  "y": -15.75
+                },
+                {
+                  "x": 0,
+                  "y": -18.428571
+                },
+                {
+                  "x": 0.5,
+                  "y": -21.464286
+                },
+                {
+                  "x": 1,
+                  "y": -24.857143
+                },
+                {
+                  "x": 1.5,
+                  "y": -28.607143
+                },
+                {
+                  "x": 2,
+                  "y": -32.714286
+                },
+                {
+                  "x": 2.5,
+                  "y": -37.178571
+                },
+                {
+                  "x": 3,
+                  "y": -42
+                },
+                {
+                  "x": 3.5,
+                  "y": -47.178571
+                },
+                {
+                  "x": 4,
+                  "y": -52.714286
+                },
+                {
+                  "x": 4.5,
+                  "y": -58.607143
+                },
+                {
+                  "x": 5,
+                  "y": -64.857143
+                },
+                {
+                  "x": 5.5,
+                  "y": -71.464286
+                },
+                {
+                  "x": 6,
+                  "y": -78.428571
+                },
+                {
+                  "x": 6.5,
+                  "y": -85.75
+                },
+                {
+                  "x": 7,
+                  "y": -93.428571
+                },
+                {
+                  "x": 7.5,
+                  "y": -101.464286
+                },
+                {
+                  "x": 8,
+                  "y": -109.857143
+                },
+                {
+                  "x": 8.5,
+                  "y": -118.607143
+                },
+                {
+                  "x": 9,
+                  "y": -127.714286
+                },
+                {
+                  "x": 9.5,
+                  "y": -137.178571
+                },
+                {
+                  "x": 10,
+                  "y": -147
+                }
+              ]
+            },
+            {
+              "original": "-a*(pow((x-p),2))-q",
+              "substituted": "-(0.714285714286)*(pow((x-(4)),2))-(-7)",
+              "typst": "-(0.714285714286) dot (((x-(4)))^2)-(-7)",
+              "latex": "-(0.714285714286) \\cdot (((x-(4)))^2)-(-7)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": -133
+                },
+                {
+                  "x": -9.5,
+                  "y": -123.178571
+                },
+                {
+                  "x": -9,
+                  "y": -113.714286
+                },
+                {
+                  "x": -8.5,
+                  "y": -104.607143
+                },
+                {
+                  "x": -8,
+                  "y": -95.857143
+                },
+                {
+                  "x": -7.5,
+                  "y": -87.464286
+                },
+                {
+                  "x": -7,
+                  "y": -79.428571
+                },
+                {
+                  "x": -6.5,
+                  "y": -71.75
+                },
+                {
+                  "x": -6,
+                  "y": -64.428571
+                },
+                {
+                  "x": -5.5,
+                  "y": -57.464286
+                },
+                {
+                  "x": -5,
+                  "y": -50.857143
+                },
+                {
+                  "x": -4.5,
+                  "y": -44.607143
+                },
+                {
+                  "x": -4,
+                  "y": -38.714286
+                },
+                {
+                  "x": -3.5,
+                  "y": -33.178571
+                },
+                {
+                  "x": -3,
+                  "y": -28
+                },
+                {
+                  "x": -2.5,
+                  "y": -23.178571
+                },
+                {
+                  "x": -2,
+                  "y": -18.714286
+                },
+                {
+                  "x": -1.5,
+                  "y": -14.607143
+                },
+                {
+                  "x": -1,
+                  "y": -10.857143
+                },
+                {
+                  "x": -0.5,
+                  "y": -7.464286
+                },
+                {
+                  "x": 0,
+                  "y": -4.428571
+                },
+                {
+                  "x": 0.5,
+                  "y": -1.75
+                },
+                {
+                  "x": 1,
+                  "y": 0.571429
+                },
+                {
+                  "x": 1.5,
+                  "y": 2.535714
+                },
+                {
+                  "x": 2,
+                  "y": 4.142857
+                },
+                {
+                  "x": 2.5,
+                  "y": 5.392857
+                },
+                {
+                  "x": 3,
+                  "y": 6.285714
+                },
+                {
+                  "x": 3.5,
+                  "y": 6.821429
+                },
+                {
+                  "x": 4,
+                  "y": 7
+                },
+                {
+                  "x": 4.5,
+                  "y": 6.821429
+                },
+                {
+                  "x": 5,
+                  "y": 6.285714
+                },
+                {
+                  "x": 5.5,
+                  "y": 5.392857
+                },
+                {
+                  "x": 6,
+                  "y": 4.142857
+                },
+                {
+                  "x": 6.5,
+                  "y": 2.535714
+                },
+                {
+                  "x": 7,
+                  "y": 0.571429
+                },
+                {
+                  "x": 7.5,
+                  "y": -1.75
+                },
+                {
+                  "x": 8,
+                  "y": -4.428571
+                },
+                {
+                  "x": 8.5,
+                  "y": -7.464286
+                },
+                {
+                  "x": 9,
+                  "y": -10.857143
+                },
+                {
+                  "x": 9.5,
+                  "y": -14.607143
+                },
+                {
+                  "x": 10,
+                  "y": -18.714286
+                }
+              ]
+            },
+            {
+              "original": "a*(pow((x-p),2))+q",
+              "substituted": "(0.714285714286)*(pow((x-(4)),2))+(-7)",
+              "typst": "(0.714285714286) dot (((x-(4)))^2)+(-7)",
+              "latex": "(0.714285714286) \\cdot (((x-(4)))^2)+(-7)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 133
+                },
+                {
+                  "x": -9.5,
+                  "y": 123.178571
+                },
+                {
+                  "x": -9,
+                  "y": 113.714286
+                },
+                {
+                  "x": -8.5,
+                  "y": 104.607143
+                },
+                {
+                  "x": -8,
+                  "y": 95.857143
+                },
+                {
+                  "x": -7.5,
+                  "y": 87.464286
+                },
+                {
+                  "x": -7,
+                  "y": 79.428571
+                },
+                {
+                  "x": -6.5,
+                  "y": 71.75
+                },
+                {
+                  "x": -6,
+                  "y": 64.428571
+                },
+                {
+                  "x": -5.5,
+                  "y": 57.464286
+                },
+                {
+                  "x": -5,
+                  "y": 50.857143
+                },
+                {
+                  "x": -4.5,
+                  "y": 44.607143
+                },
+                {
+                  "x": -4,
+                  "y": 38.714286
+                },
+                {
+                  "x": -3.5,
+                  "y": 33.178571
+                },
+                {
+                  "x": -3,
+                  "y": 28
+                },
+                {
+                  "x": -2.5,
+                  "y": 23.178571
+                },
+                {
+                  "x": -2,
+                  "y": 18.714286
+                },
+                {
+                  "x": -1.5,
+                  "y": 14.607143
+                },
+                {
+                  "x": -1,
+                  "y": 10.857143
+                },
+                {
+                  "x": -0.5,
+                  "y": 7.464286
+                },
+                {
+                  "x": 0,
+                  "y": 4.428571
+                },
+                {
+                  "x": 0.5,
+                  "y": 1.75
+                },
+                {
+                  "x": 1,
+                  "y": -0.571429
+                },
+                {
+                  "x": 1.5,
+                  "y": -2.535714
+                },
+                {
+                  "x": 2,
+                  "y": -4.142857
+                },
+                {
+                  "x": 2.5,
+                  "y": -5.392857
+                },
+                {
+                  "x": 3,
+                  "y": -6.285714
+                },
+                {
+                  "x": 3.5,
+                  "y": -6.821429
+                },
+                {
+                  "x": 4,
+                  "y": -7
+                },
+                {
+                  "x": 4.5,
+                  "y": -6.821429
+                },
+                {
+                  "x": 5,
+                  "y": -6.285714
+                },
+                {
+                  "x": 5.5,
+                  "y": -5.392857
+                },
+                {
+                  "x": 6,
+                  "y": -4.142857
+                },
+                {
+                  "x": 6.5,
+                  "y": -2.535714
+                },
+                {
+                  "x": 7,
+                  "y": -0.571429
+                },
+                {
+                  "x": 7.5,
+                  "y": 1.75
+                },
+                {
+                  "x": 8,
+                  "y": 4.428571
+                },
+                {
+                  "x": 8.5,
+                  "y": 7.464286
+                },
+                {
+                  "x": 9,
+                  "y": 10.857143
+                },
+                {
+                  "x": 9.5,
+                  "y": 14.607143
+                },
+                {
+                  "x": 10,
+                  "y": 18.714286
+                }
+              ]
+            },
+            {
+              "original": "a*(pow((x+p),2))-q",
+              "substituted": "(0.714285714286)*(pow((x+(4)),2))-(-7)",
+              "typst": "(0.714285714286) dot (((x+(4)))^2)-(-7)",
+              "latex": "(0.714285714286) \\cdot (((x+(4)))^2)-(-7)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 32.714286
+                },
+                {
+                  "x": -9.5,
+                  "y": 28.607143
+                },
+                {
+                  "x": -9,
+                  "y": 24.857143
+                },
+                {
+                  "x": -8.5,
+                  "y": 21.464286
+                },
+                {
+                  "x": -8,
+                  "y": 18.428571
+                },
+                {
+                  "x": -7.5,
+                  "y": 15.75
+                },
+                {
+                  "x": -7,
+                  "y": 13.428571
+                },
+                {
+                  "x": -6.5,
+                  "y": 11.464286
+                },
+                {
+                  "x": -6,
+                  "y": 9.857143
+                },
+                {
+                  "x": -5.5,
+                  "y": 8.607143
+                },
+                {
+                  "x": -5,
+                  "y": 7.714286
+                },
+                {
+                  "x": -4.5,
+                  "y": 7.178571
+                },
+                {
+                  "x": -4,
+                  "y": 7
+                },
+                {
+                  "x": -3.5,
+                  "y": 7.178571
+                },
+                {
+                  "x": -3,
+                  "y": 7.714286
+                },
+                {
+                  "x": -2.5,
+                  "y": 8.607143
+                },
+                {
+                  "x": -2,
+                  "y": 9.857143
+                },
+                {
+                  "x": -1.5,
+                  "y": 11.464286
+                },
+                {
+                  "x": -1,
+                  "y": 13.428571
+                },
+                {
+                  "x": -0.5,
+                  "y": 15.75
+                },
+                {
+                  "x": 0,
+                  "y": 18.428571
+                },
+                {
+                  "x": 0.5,
+                  "y": 21.464286
+                },
+                {
+                  "x": 1,
+                  "y": 24.857143
+                },
+                {
+                  "x": 1.5,
+                  "y": 28.607143
+                },
+                {
+                  "x": 2,
+                  "y": 32.714286
+                },
+                {
+                  "x": 2.5,
+                  "y": 37.178571
+                },
+                {
+                  "x": 3,
+                  "y": 42
+                },
+                {
+                  "x": 3.5,
+                  "y": 47.178571
+                },
+                {
+                  "x": 4,
+                  "y": 52.714286
+                },
+                {
+                  "x": 4.5,
+                  "y": 58.607143
+                },
+                {
+                  "x": 5,
+                  "y": 64.857143
+                },
+                {
+                  "x": 5.5,
+                  "y": 71.464286
+                },
+                {
+                  "x": 6,
+                  "y": 78.428571
+                },
+                {
+                  "x": 6.5,
+                  "y": 85.75
+                },
+                {
+                  "x": 7,
+                  "y": 93.428571
+                },
+                {
+                  "x": 7.5,
+                  "y": 101.464286
+                },
+                {
+                  "x": 8,
+                  "y": 109.857143
+                },
+                {
+                  "x": 8.5,
+                  "y": 118.607143
+                },
+                {
+                  "x": 9,
+                  "y": 127.714286
+                },
+                {
+                  "x": 9.5,
+                  "y": 137.178571
+                },
+                {
+                  "x": 10,
+                  "y": 147
+                }
+              ]
+            }
+          ],
+          "variables": {
+            "a": "0.714285714286",
+            "p": "4",
+            "q": "-7"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 30237,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 66 00 6f 00 72 00 6d 00 20 00 7c 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 56 06 00 00 01 00 00 00 03 00 00 00 0e 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 b7 6d db b6 6d db e6 3f 61 00 00 00 6e 00 2f 00 64 00 00 00 30 00 2e 00 37 00 31 00 34 00 32 00 38 00 35 00 37 00 31 00 34 00 32 00 38 00 36 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 36 00 2c 00 36 00 2c 00 31 00 29 00 00 00 34 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c c0 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 30 00 2c 00 31 00 30 00 2c 00 31 00 29 00 00 00 13 20 37 00 00 00 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 70 00 00 00 69 00 66 00 28 00 70 00 3c 00 30 00 2c 00 63 00 68 00 72 00 28 00",
+          "textPreview": "Difficult\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nvertex form | graph\na\nn/d\n0.714285714286\np\nrange(-6,6,1)\n4\n[[slot]]\nq\nrange(-10,10,1)\n–7\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\nvalue_p\nabs(p)\n4\nvalue_q\nabs(q)\n7\n1\na<>0 and a<>1 and p<>0 and q<>0 and n<>0 and d<>1\np<>(-1*q)\n[[slot]]\nabs(a*p*p+q)<12"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What are the domain and range of 7?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "Domain: if(VAR2<0,chr(45),chr(43)) Range: 1"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "Domain: { Range: –1"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "Domain: if(VAR3<0,chr(45),chr(43)) Range: 9"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "Domain: if(VAR1<0,chr(163),chr(179)) Range: 7"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 52132,
+        "difficulty": "Average",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "domain | range"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "VAR1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "VAR2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "SIGN3",
+          "rule": "if(VAR3<0,chr(45),chr(43))"
+        },
+        {
+          "name": "SIGN2",
+          "rule": "if(VAR2<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "abs(VAR2)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "VAR3",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–9"
+        },
+        {
+          "name": "q",
+          "rule": "abs(VAR3)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "inequality",
+          "rule": "if(VAR1<0,chr(163),chr(179))"
+        },
+        {
+          "name": "dis_inequality",
+          "rule": "if(VAR1<0,chr(179),chr(163))",
+          "sampleValue": "{"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 52132,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 64 00 6f 00 6d 00 61 00 69 00 6e 00 20 00 7c 00 20 00 72 00 61 00 6e 00 67 00 65 00 00 00 3e 04 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 56 00 41 00 52 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 37 00 00 00 04 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 bf 56 00 41 00 52 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 31 00 00 00 00 00 00 00 2b 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 56 00 41 00 52 00 31 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 32 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 33 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 56 00 41 00 52 00 31 00 3c 00 3e 00 31 00 00 00 cd cd 05 00 00 00 1a 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00",
+          "textPreview": "Average\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\ndomain | range\nVAR1\nrange(-9,9,1)\n7\nVAR2\nrange(-9,9,1)\n–1\n+\nVAR1<>0 and VAR2<>0 and VAR3<>0 and VAR1<>1\nSIGN3\nif(VAR3<0,chr(45),chr(43))\nSIGN2\nif(VAR2<0,chr(45),chr(43))\np\nabs(VAR2)\n1\nSCRAMBLE\nTRUE\n1\nVAR3\nrange(-9,9,1)\n–9\nq\nabs(VAR3)\n9\ninequality"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The vertex of a parabola is located at –5. If the parabola has a y-intercept of 6, which quadratic function represents the parabola?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "if(p<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(q<0,chr(43),chr(45))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 60438,
+        "difficulty": "Difficult",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "vertex | y-intercept"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-10,10,1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "p",
+          "rule": "range(-6,6,1)",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "q",
+          "rule": "range(-10,10,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "value_p",
+          "rule": "abs(p)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "value_q",
+          "rule": "abs(q)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "y_int",
+          "rule": "a*p*p+q",
+          "sampleValue": "231"
+        },
+        {
+          "name": "dis_sign_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "dis_sign_q",
+          "rule": "if(q<0,chr(43),chr(45))"
+        },
+        {
+          "name": "dis_a",
+          "rule": "-1*a",
+          "sampleValue": "–9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 60438,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 7c 00 20 00 79 00 2d 00 69 00 6e 00 74 00 65 00 72 00 63 00 65 00 70 00 74 00 00 00 d2 04 00 00 01 00 00 00 0f 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 30 00 2c 00 31 00 30 00 2c 00 31 00 29 00 00 00 39 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 c0 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 36 00 2c 00 36 00 2c 00 31 00 29 00 00 00 13 20 35 00 00 00 01 00 00 00 0f 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 30 00 2c 00 31 00 30 00 2c 00 31 00 29 00 00 00 36 00 00 00 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 70 00 00 00 69 00 66 00 28 00 70 00 3c 00 30 00 2c 00 63 00 68 00 72 00 28 00",
+          "textPreview": "Difficult\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nvertex | y-intercept\n[[slot]]\na\nrange(-10,10,1)\n9\np\nrange(-6,6,1)\n–5\n[[slot]]\nq\nrange(-10,10,1)\n6\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\nvalue_p\nabs(p)\n5\nvalue_q\nabs(q)\n6\na<>0 and a<>1 and p<>0 and q<>0\np<>(-1*q)\nscramble\ntrue"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What information can be determined from the quadratic function –9?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "downward"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "–9"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "–2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "upward"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.1",
+        "sourceOffset": 67206,
+        "difficulty": "Average",
+        "reference": "RF 3",
+        "topic": "Investigating Quadratic Functions in Vertex Form",
+        "title": "vertex | direction of opening"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "n/d",
+          "sampleValue": "0.666666666667"
+        },
+        {
+          "name": "p",
+          "rule": "range(-10,10,1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "q",
+          "rule": "range(-10,10,1)",
+          "sampleValue": "–9"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "value_p",
+          "rule": "abs(p)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "value_q",
+          "rule": "abs(q)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "n",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–4"
+        },
+        {
+          "name": "d",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "sign_a",
+          "rule": "if((n*d)<0,chr(45),chr(32))",
+          "sampleValue": "abs(n)<abs(d)"
+        },
+        {
+          "name": "numerator",
+          "rule": "abs(n)/(gcf(abs(n),abs(d)))",
+          "sampleValue": "2"
+        },
+        {
+          "name": "denominator",
+          "rule": "abs(d)/(gcf(abs(n),abs(d)))",
+          "sampleValue": "3"
+        },
+        {
+          "name": "direction",
+          "rule": "if(a<0,\"downward\",\"upward\")",
+          "sampleValue": "upward"
+        },
+        {
+          "name": "dis_direction",
+          "rule": "if(a<0,\"upward\",\"downward\")",
+          "sampleValue": "downward"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 67206,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 31 00 00 00 52 00 46 00 20 00 33 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 56 00 65 00 72 00 74 00 65 00 78 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 7c 00 20 00 64 00 69 00 72 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 6f 00 66 00 20 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 00 00 66 07 00 00 01 00 00 00 03 00 00 00 0e 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 55 55 55 55 55 55 e5 3f 61 00 00 00 6e 00 2f 00 64 00 00 00 30 00 2e 00 36 00 36 00 36 00 36 00 36 00 36 00 36 00 36 00 36 00 36 00 36 00 37 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 c0 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 30 00 2c 00 31 00 30 00 2c 00 31 00 29 00 00 00 13 20 32 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 c0 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 30 00 2c 00 31 00 30 00 2c 00 31 00 29 00 00 00 13 20 39 00 00 00 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 70 00 00 00",
+          "textPreview": "Average\nSection 3.1\nRF 3\nInvestigating Quadratic Functions in Vertex Form\nvertex | direction of opening\na\nn/d\n0.666666666667\n[[slot]]\np\nrange(-10,10,1)\n–2\n[[slot]]\nq\nrange(-10,10,1)\n–9\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\nvalue_p\nabs(p)\n2\nvalue_q\nabs(q)\n9\n1\na<>0 and a<>1 and p<>0 and q<>0 and n<>0 and d<>1\np<>q\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which function is not quadratic? (a2 = 6, sign_p2 = if(p2<0,chr(45),chr(43)), p2_value = 9, p1_value = 9, sign_q2 = if(q2<0,chr(45),chr(43)), q2_value = 9, a1 = 7, sign_q1 = if(q1<0,chr(45),chr(43)), q1_value = 8, sign_q2 = if(q2<0,chr(45),chr(43)), p2_value = 9, a2 = 6, sign_p2 = if(p2<0,chr(45),chr(43)), q1_value = 8, a2 = 6, sign_p1 = if(p1<0,chr(45),chr(43)), p1_value = 9)"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(p1<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "9"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 74419,
+        "difficulty": "Easy",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "identify quadratic functions"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "a2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "p1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–9"
+        },
+        {
+          "name": "p2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "q1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "q2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–9"
+        },
+        {
+          "name": "sign_p1",
+          "rule": "if(p1<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_p2",
+          "rule": "if(p2<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_q1",
+          "rule": "if(q1<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_q2",
+          "rule": "if(q2<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p1_value",
+          "rule": "abs(p1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "p2_value",
+          "rule": "abs(p2)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "q1_value",
+          "rule": "abs(q1)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "q2_value",
+          "rule": "abs(q2)",
+          "sampleValue": "9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 74419,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 69 00 64 00 65 00 6e 00 74 00 69 00 66 00 79 00 20 00 71 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 66 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 00 00 62 06 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 61 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 37 00 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 61 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 36 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 c0 70 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 39 00 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 70 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00",
+          "textPreview": "Easy\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nidentify quadratic functions\na1\nrange(-9,9,1)\n7\na2\nrange(-9,9,1)\n6\np1\nrange(-9,9,1)\n–9\np2\nrange(-9,9,1)\n9\nq1\nrange(-9,9,1)\n8\nq2\nrange(-9,9,1)\n–9\nl\na1<>a2 and p1<>p2 and q1<>q2 and a1<>0 and a1<>1 and a2<>0 and a2<>1 and p1<>0 and p2<>0 and q1<>0 and q2<>0\nsign_p1\nif(p1<0,chr(45),chr(43))\nsign_p2\nif(p2<0,chr(45),chr(43))\nsign_q1"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Identify the characteristics of this graph. (0.5)*(pow((x-(-5)),2))+(-2)"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "vertex: (–2, –5)\raxis of symmetry: –2 y-intercept: 10.5 x-intercepts: –3 and –7 opens downward"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "vertex: (–5, –2)\raxis of symmetry: –5 y-intercept: 10.5 x-intercepts: –3 and –7 opens upward"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "vertex: (–2, –5)\raxis of symmetry: –2 y-intercept: 10.5 x-intercepts: –3 and –7 opens upward"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "vertex: (–5, –2)\raxis of symmetry: –2 y-intercept: 10.5 x-intercepts: 3 and 7 opens downward"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 80410,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "vertex | axis of symmetry | y-intercept | x-intercept | direction of opening"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-15,2,.1)",
+          "sampleValue": "0.5"
+        },
+        {
+          "name": "p",
+          "rule": "range(-15,15,1)",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "q",
+          "rule": "range(-15,15,1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "p_dis1",
+          "rule": "-1*p_value",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "-1*q_value",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "a_dis1",
+          "rule": "-1*a",
+          "sampleValue": "–0.5"
+        },
+        {
+          "name": "sign_dis_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_dis_q",
+          "rule": "if(q<0,chr(43),chr(45))"
+        },
+        {
+          "name": "y_int",
+          "rule": "a*p*p+q",
+          "sampleValue": "10.5"
+        },
+        {
+          "name": "x_int1",
+          "rule": "p+sqrt(-q/a)",
+          "sampleValue": "–3"
+        },
+        {
+          "name": "x_int2",
+          "rule": "p-sqrt(-q/a)",
+          "sampleValue": "–7"
+        },
+        {
+          "name": "direction",
+          "rule": "if(a<0,\"downward\",\"upward\")",
+          "sampleValue": "upward"
+        },
+        {
+          "name": "direction_dis",
+          "rule": "if(a>0,\"downward\",\"upward\")",
+          "sampleValue": "downward"
+        },
+        {
+          "name": "x_int1_dis",
+          "rule": "-1*x_int1",
+          "sampleValue": "3"
+        },
+        {
+          "name": "x_int2_dis",
+          "rule": "-1*x_int2",
+          "sampleValue": "7"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "a*(pow((x-p),2))+q"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "a*(pow((x-p),2))+q",
+              "substituted": "(0.5)*(pow((x-(-5)),2))+(-2)",
+              "typst": "(0.5) dot (((x-(-5)))^2)+(-2)",
+              "latex": "(0.5) \\cdot (((x-(-5)))^2)+(-2)",
+              "variables": [
+                "a",
+                "p",
+                "q"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 10.5
+                },
+                {
+                  "x": -9.5,
+                  "y": 8.125
+                },
+                {
+                  "x": -9,
+                  "y": 6
+                },
+                {
+                  "x": -8.5,
+                  "y": 4.125
+                },
+                {
+                  "x": -8,
+                  "y": 2.5
+                },
+                {
+                  "x": -7.5,
+                  "y": 1.125
+                },
+                {
+                  "x": -7,
+                  "y": 0
+                },
+                {
+                  "x": -6.5,
+                  "y": -0.875
+                },
+                {
+                  "x": -6,
+                  "y": -1.5
+                },
+                {
+                  "x": -5.5,
+                  "y": -1.875
+                },
+                {
+                  "x": -5,
+                  "y": -2
+                },
+                {
+                  "x": -4.5,
+                  "y": -1.875
+                },
+                {
+                  "x": -4,
+                  "y": -1.5
+                },
+                {
+                  "x": -3.5,
+                  "y": -0.875
+                },
+                {
+                  "x": -3,
+                  "y": 0
+                },
+                {
+                  "x": -2.5,
+                  "y": 1.125
+                },
+                {
+                  "x": -2,
+                  "y": 2.5
+                },
+                {
+                  "x": -1.5,
+                  "y": 4.125
+                },
+                {
+                  "x": -1,
+                  "y": 6
+                },
+                {
+                  "x": -0.5,
+                  "y": 8.125
+                },
+                {
+                  "x": 0,
+                  "y": 10.5
+                },
+                {
+                  "x": 0.5,
+                  "y": 13.125
+                },
+                {
+                  "x": 1,
+                  "y": 16
+                },
+                {
+                  "x": 1.5,
+                  "y": 19.125
+                },
+                {
+                  "x": 2,
+                  "y": 22.5
+                },
+                {
+                  "x": 2.5,
+                  "y": 26.125
+                },
+                {
+                  "x": 3,
+                  "y": 30
+                },
+                {
+                  "x": 3.5,
+                  "y": 34.125
+                },
+                {
+                  "x": 4,
+                  "y": 38.5
+                },
+                {
+                  "x": 4.5,
+                  "y": 43.125
+                },
+                {
+                  "x": 5,
+                  "y": 48
+                },
+                {
+                  "x": 5.5,
+                  "y": 53.125
+                },
+                {
+                  "x": 6,
+                  "y": 58.5
+                },
+                {
+                  "x": 6.5,
+                  "y": 64.125
+                },
+                {
+                  "x": 7,
+                  "y": 70
+                },
+                {
+                  "x": 7.5,
+                  "y": 76.125
+                },
+                {
+                  "x": 8,
+                  "y": 82.5
+                },
+                {
+                  "x": 8.5,
+                  "y": 89.125
+                },
+                {
+                  "x": 9,
+                  "y": 96
+                },
+                {
+                  "x": 9.5,
+                  "y": 103.125
+                },
+                {
+                  "x": 10,
+                  "y": 110.5
+                }
+              ]
+            }
+          ],
+          "variables": {
+            "a": "0.5",
+            "p": "-5",
+            "q": "-2"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 80410,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 7c 00 20 00 61 00 78 00 69 00 73 00 20 00 6f 00 66 00 20 00 73 00 79 00 6d 00 6d 00 65 00 74 00 72 00 79 00 20 00 7c 00 20 00 79 00 2d 00 69 00 6e 00 74 00 65 00 72 00 63 00 65 00 70 00 74 00 20 00 7c 00 20 00 78 00 2d 00 69 00 6e 00 74 00 65 00 72 00 63 00 65 00 70 00 74 00 20 00 7c 00 20 00 64 00 69 00 72 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 6f 00 66 00 20 00 6f 00 70 00 65 00 6e 00 69 00 6e 00 67 00 00 00 ee 08 00 00 01 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 e0 3f 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 35 00 2c 00 32 00 2c 00 2e 00 31 00 29 00 00 00 30 00 2e 00 35 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 c0 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 35 00 2c 00 31 00 35 00 2c 00 31 00 29 00 00 00 13 20 35 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00",
+          "textPreview": "Average\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nvertex | axis of symmetry | y-intercept | x-intercept | direction of opening\n[[slot]]\na\nrange(-15,2,.1)\n0.5\n[[slot]]\np\nrange(-15,15,1)\n–5\n[[slot]]\nq\nrange(-15,15,1)\n–2\na<>0 and p<>0 and q<>0\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\np_value\nabs(p)\n5\nq_value\nabs(q)\n2\np_dis1\n-1*p_value"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is –2 written in standard form?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 95108,
+        "difficulty": "Easy",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "standard form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-5,5,1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "b",
+          "rule": "range(-5,5,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "c",
+          "rule": "range(-15,15,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "d",
+          "rule": "range(-15,15,1)",
+          "sampleValue": "–14"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_d",
+          "rule": "if(d<0,chr(45),chr(43))"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "d_value",
+          "rule": "abs(d)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "A_ANS",
+          "rule": "a*b",
+          "sampleValue": "–8"
+        },
+        {
+          "name": "B_ANS",
+          "rule": "-1*(b*c+a*d)",
+          "sampleValue": "–52"
+        },
+        {
+          "name": "C_ANS",
+          "rule": "c*d",
+          "sampleValue": "–84"
+        },
+        {
+          "name": "sign_B_ANS",
+          "rule": "if(B_ANS<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_C_ANS",
+          "rule": "if(C_ANS<0,chr(45),chr(43))"
+        },
+        {
+          "name": "B_VALUE",
+          "rule": "abs(B_ANS)",
+          "sampleValue": "52"
+        },
+        {
+          "name": "CONSTANT",
+          "rule": "abs(C_ANS)",
+          "sampleValue": "84"
+        },
+        {
+          "name": "a_dis1",
+          "rule": "a+b",
+          "sampleValue": "2"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c+d",
+          "sampleValue": "–8"
+        },
+        {
+          "name": "c_dis1_value",
+          "rule": "abs(c_dis1)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c_dis1<1,chr(45),chr(43))"
+        },
+        {
+          "name": "a_dis2",
+          "rule": "a*b",
+          "sampleValue": "–8"
+        },
+        {
+          "name": "c_dis2",
+          "rule": "c*d",
+          "sampleValue": "–84"
+        },
+        {
+          "name": "c_dis2_value",
+          "rule": "abs(c_dis2)",
+          "sampleValue": "84"
+        },
+        {
+          "name": "sign_c_dis2",
+          "rule": "if(c_dis2<0,chr(45),chr(43))"
+        },
+        {
+          "name": "B_ANS_dis",
+          "rule": "abs(a*d)",
+          "sampleValue": "28"
+        },
+        {
+          "name": "sign_C_ANS_dis",
+          "rule": "if(C_ANS>0,chr(45),chr(43))"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 95108,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 00 00 8e 0a 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 c0 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 2c 00 35 00 2c 00 31 00 29 00 00 00 13 20 32 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 2c 00 35 00 2c 00 31 00 29 00 00 00 34 00 00 00 01 00 00 00 0f 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 35 00 2c 00 31 00 35 00 2c 00 31 00 29 00 00 00 36 00 00 00 01 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2c c0 64 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 35 00 2c 00 31 00 35 00 2c 00 31 00 29 00 00 00 13 20 31 00 34 00 00 00 00 00 00 00 51 00 00 00 00 00 00 00 03 00 00 00",
+          "textPreview": "Easy\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nstandard form\na\nrange(-5,5,1)\n–2\nb\nrange(-5,5,1)\n4\n[[slot]]\nc\nrange(-15,15,1)\n6\n[[slot]]\nd\nrange(-15,15,1)\n–14\nQ\na<>0 and b<>0 and c<>0 and d<>0 and abs(a)<>1 and abs(b)<>1 and a+b<>0 and c+d<>0\nsign_c\nif(c<0,chr(45),chr(43))\nsign_d\nif(d<0,chr(45),chr(43))\nc_value\nabs(c)\n6\nd_value\nabs(d)"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What are the coordinates of the vertex of the quadratic function 4?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "–2"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "–6"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 102944,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "vertex"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "b",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "c",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "x_coord",
+          "rule": "-1*b/(2*a)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "y_coord",
+          "rule": "((b*b)/(4*a))-((b*b)/(2*a))+c",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "k",
+          "rule": "[[slot]]"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 102944,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 00 00 f2 04 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 34 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 38 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 c0 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 32 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 61 00 3c 00 3e 00 31 00 20 00 61 00 6e 00 64 00 20 00 62 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 63 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00",
+          "textPreview": "Average\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nvertex\na\nrange(-9,9,1)\n4\nb\nrange(-9,9,1)\n8\nc\nrange(-9,9,1)\n–2\na<>0 and a<>1 and b<>0 and c<>0\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n8\nc_value\nabs(c)\n2\nx_coord\n-1*b/(2*a)\n–1\ny_coord\n((b*b)/(4*a))-((b*b)/(2*a))+c"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the function 2 written in standard form?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "if(ANS_B<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "16"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(ANS_C<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "30"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 107921,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "standard form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "p",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "q",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(43),chr(45))"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "ANS_B",
+          "rule": "-2*a*p",
+          "sampleValue": "–16"
+        },
+        {
+          "name": "ANS_C",
+          "rule": "a*p*p+q",
+          "sampleValue": "30"
+        },
+        {
+          "name": "sign_ANS_B",
+          "rule": "if(ANS_B<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_ANS_C",
+          "rule": "if(ANS_C<0,chr(45),chr(43))"
+        },
+        {
+          "name": "ANS_B_value",
+          "rule": "abs(ANS_B)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "ANS_C_value",
+          "rule": "abs(ANS_C)",
+          "sampleValue": "30"
+        },
+        {
+          "name": "B_dis1",
+          "rule": "abs(a*p)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "C_dis1",
+          "rule": "abs(a*p*p-q)",
+          "sampleValue": "34"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 107921,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 00 00 7a 06 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 32 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 34 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 c0 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 32 00 00 00 00 00 00 00 1f 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 61 00 3c 00 3e 00 31 00 20 00 61 00 6e 00 64 00 20 00 70 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 71 00",
+          "textPreview": "Average\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nstandard form\na\nrange(-9,9,1)\n2\np\nrange(-9,9,1)\n4\nq\nrange(-9,9,1)\n–2\na<>0 and a<>1 and p<>0 and q<>0\nsign_p\nif(p<0,chr(43),chr(45))\nsign_q\nif(q<0,chr(45),chr(43))\np_value\nabs(p)\n4\nq_value\nabs(q)\n2\nANS_B\n-2*a*p\n–16\nANS_C\na*p*p+q"
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the function if(q<0,chr(45),chr(43)) written in standard form?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(ANS_B<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 113547,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "standard form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "q",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "ANS_B",
+          "rule": "2*q",
+          "sampleValue": "4"
+        },
+        {
+          "name": "ANS_C",
+          "rule": "q*q",
+          "sampleValue": "4"
+        },
+        {
+          "name": "sign_ANS_B",
+          "rule": "if(ANS_B<0,chr(45),chr(43))"
+        },
+        {
+          "name": "ANS_B_value",
+          "rule": "abs(ANS_B)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "sign_dis1",
+          "rule": "if(q<0,chr(43),chr(45))",
+          "sampleValue": "[[slot]]"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 113547,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 00 00 52 03 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 71 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 32 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 71 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 71 00 00 00 69 00 66 00 28 00 71 00 3c 00 30 00 2c 00 63 00 68 00 72 00 28 00 34 00 35 00 29 00 2c 00 63 00 68 00 72 00 28 00 34 00 33 00 29 00 29 00 00 00 01 00 8b f0 2b f0 00 00 07 00 00 00 06 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 71 00 5f 00 76 00 61 00 6c 00 75 00 65 00 00 00 61 00 62 00 73 00 28 00 71 00 29 00 00 00 32 00 00 00 05 00 00 00 03 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Average\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nstandard form\nq\nrange(-9,9,1)\n2\nq<>0\nsign_q\nif(q<0,chr(45),chr(43))\nq_value\nabs(q)\n2\nANS_B\n2*q\n4\nANS_C\nq*q\n4\nsign_ANS_B\nif(ANS_B<0,chr(45),chr(43))\nANS_B_value\nabs(ANS_B)\n4\nscramble\ntrue\n1\nsign_dis1\nif(q<0,chr(43),chr(45))"
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which graph represents the quadratic function with the following characteristics: x-intercepts at 8 and 10 maximum of 1 Recovered graph functions: -1*(-1)*(x-(8))*(x-(10)); -1*(-1)*(x+(8))*(x+(10)); (-1)*(x+(8))*(x+(10)); (-1)*(x-(8))*(x-(10))."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "10"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "maximum"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "1"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 119130,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "graph",
+          "rule": "[[slot]]"
+        },
+        {
+          "name": "x1",
+          "rule": "range(-12,12,1)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "x2",
+          "rule": "range(-12,12,1)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "a",
+          "rule": "range(-1,1,1)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "max_or_min",
+          "rule": "if(a=1,\"minimum\",\"maximum\")",
+          "sampleValue": "maximum"
+        },
+        {
+          "name": "vertex_y",
+          "rule": "a*(((x1+x2)/2)-x1)*(((x1+x2)/2)-x2)",
+          "sampleValue": "1"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "-1*a*(x-x1)*(x-x2)",
+            "-1*a*(x+x1)*(x+x2)",
+            "a*(x+x1)*(x+x2)",
+            "a*(x-x1)*(x-x2)"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "-1*a*(x-x1)*(x-x2)",
+              "substituted": "-1*(-1)*(x-(8))*(x-(10))",
+              "typst": "-1 dot (-1) dot (x-(8)) dot (x-(10))",
+              "latex": "-1 \\cdot (-1) \\cdot (x-(8)) \\cdot (x-(10))",
+              "variables": [
+                "a",
+                "x1",
+                "x2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 360
+                },
+                {
+                  "x": -9.5,
+                  "y": 341.25
+                },
+                {
+                  "x": -9,
+                  "y": 323
+                },
+                {
+                  "x": -8.5,
+                  "y": 305.25
+                },
+                {
+                  "x": -8,
+                  "y": 288
+                },
+                {
+                  "x": -7.5,
+                  "y": 271.25
+                },
+                {
+                  "x": -7,
+                  "y": 255
+                },
+                {
+                  "x": -6.5,
+                  "y": 239.25
+                },
+                {
+                  "x": -6,
+                  "y": 224
+                },
+                {
+                  "x": -5.5,
+                  "y": 209.25
+                },
+                {
+                  "x": -5,
+                  "y": 195
+                },
+                {
+                  "x": -4.5,
+                  "y": 181.25
+                },
+                {
+                  "x": -4,
+                  "y": 168
+                },
+                {
+                  "x": -3.5,
+                  "y": 155.25
+                },
+                {
+                  "x": -3,
+                  "y": 143
+                },
+                {
+                  "x": -2.5,
+                  "y": 131.25
+                },
+                {
+                  "x": -2,
+                  "y": 120
+                },
+                {
+                  "x": -1.5,
+                  "y": 109.25
+                },
+                {
+                  "x": -1,
+                  "y": 99
+                },
+                {
+                  "x": -0.5,
+                  "y": 89.25
+                },
+                {
+                  "x": 0,
+                  "y": 80
+                },
+                {
+                  "x": 0.5,
+                  "y": 71.25
+                },
+                {
+                  "x": 1,
+                  "y": 63
+                },
+                {
+                  "x": 1.5,
+                  "y": 55.25
+                },
+                {
+                  "x": 2,
+                  "y": 48
+                },
+                {
+                  "x": 2.5,
+                  "y": 41.25
+                },
+                {
+                  "x": 3,
+                  "y": 35
+                },
+                {
+                  "x": 3.5,
+                  "y": 29.25
+                },
+                {
+                  "x": 4,
+                  "y": 24
+                },
+                {
+                  "x": 4.5,
+                  "y": 19.25
+                },
+                {
+                  "x": 5,
+                  "y": 15
+                },
+                {
+                  "x": 5.5,
+                  "y": 11.25
+                },
+                {
+                  "x": 6,
+                  "y": 8
+                },
+                {
+                  "x": 6.5,
+                  "y": 5.25
+                },
+                {
+                  "x": 7,
+                  "y": 3
+                },
+                {
+                  "x": 7.5,
+                  "y": 1.25
+                },
+                {
+                  "x": 8,
+                  "y": 0
+                },
+                {
+                  "x": 8.5,
+                  "y": -0.75
+                },
+                {
+                  "x": 9,
+                  "y": -1
+                },
+                {
+                  "x": 9.5,
+                  "y": -0.75
+                },
+                {
+                  "x": 10,
+                  "y": 0
+                }
+              ]
+            },
+            {
+              "original": "-1*a*(x+x1)*(x+x2)",
+              "substituted": "-1*(-1)*(x+(8))*(x+(10))",
+              "typst": "-1 dot (-1) dot (x+(8)) dot (x+(10))",
+              "latex": "-1 \\cdot (-1) \\cdot (x+(8)) \\cdot (x+(10))",
+              "variables": [
+                "a",
+                "x1",
+                "x2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 0
+                },
+                {
+                  "x": -9.5,
+                  "y": -0.75
+                },
+                {
+                  "x": -9,
+                  "y": -1
+                },
+                {
+                  "x": -8.5,
+                  "y": -0.75
+                },
+                {
+                  "x": -8,
+                  "y": 0
+                },
+                {
+                  "x": -7.5,
+                  "y": 1.25
+                },
+                {
+                  "x": -7,
+                  "y": 3
+                },
+                {
+                  "x": -6.5,
+                  "y": 5.25
+                },
+                {
+                  "x": -6,
+                  "y": 8
+                },
+                {
+                  "x": -5.5,
+                  "y": 11.25
+                },
+                {
+                  "x": -5,
+                  "y": 15
+                },
+                {
+                  "x": -4.5,
+                  "y": 19.25
+                },
+                {
+                  "x": -4,
+                  "y": 24
+                },
+                {
+                  "x": -3.5,
+                  "y": 29.25
+                },
+                {
+                  "x": -3,
+                  "y": 35
+                },
+                {
+                  "x": -2.5,
+                  "y": 41.25
+                },
+                {
+                  "x": -2,
+                  "y": 48
+                },
+                {
+                  "x": -1.5,
+                  "y": 55.25
+                },
+                {
+                  "x": -1,
+                  "y": 63
+                },
+                {
+                  "x": -0.5,
+                  "y": 71.25
+                },
+                {
+                  "x": 0,
+                  "y": 80
+                },
+                {
+                  "x": 0.5,
+                  "y": 89.25
+                },
+                {
+                  "x": 1,
+                  "y": 99
+                },
+                {
+                  "x": 1.5,
+                  "y": 109.25
+                },
+                {
+                  "x": 2,
+                  "y": 120
+                },
+                {
+                  "x": 2.5,
+                  "y": 131.25
+                },
+                {
+                  "x": 3,
+                  "y": 143
+                },
+                {
+                  "x": 3.5,
+                  "y": 155.25
+                },
+                {
+                  "x": 4,
+                  "y": 168
+                },
+                {
+                  "x": 4.5,
+                  "y": 181.25
+                },
+                {
+                  "x": 5,
+                  "y": 195
+                },
+                {
+                  "x": 5.5,
+                  "y": 209.25
+                },
+                {
+                  "x": 6,
+                  "y": 224
+                },
+                {
+                  "x": 6.5,
+                  "y": 239.25
+                },
+                {
+                  "x": 7,
+                  "y": 255
+                },
+                {
+                  "x": 7.5,
+                  "y": 271.25
+                },
+                {
+                  "x": 8,
+                  "y": 288
+                },
+                {
+                  "x": 8.5,
+                  "y": 305.25
+                },
+                {
+                  "x": 9,
+                  "y": 323
+                },
+                {
+                  "x": 9.5,
+                  "y": 341.25
+                },
+                {
+                  "x": 10,
+                  "y": 360
+                }
+              ]
+            },
+            {
+              "original": "a*(x+x1)*(x+x2)",
+              "substituted": "(-1)*(x+(8))*(x+(10))",
+              "typst": "(-1) dot (x+(8)) dot (x+(10))",
+              "latex": "(-1) \\cdot (x+(8)) \\cdot (x+(10))",
+              "variables": [
+                "a",
+                "x1",
+                "x2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 0
+                },
+                {
+                  "x": -9.5,
+                  "y": 0.75
+                },
+                {
+                  "x": -9,
+                  "y": 1
+                },
+                {
+                  "x": -8.5,
+                  "y": 0.75
+                },
+                {
+                  "x": -8,
+                  "y": 0
+                },
+                {
+                  "x": -7.5,
+                  "y": -1.25
+                },
+                {
+                  "x": -7,
+                  "y": -3
+                },
+                {
+                  "x": -6.5,
+                  "y": -5.25
+                },
+                {
+                  "x": -6,
+                  "y": -8
+                },
+                {
+                  "x": -5.5,
+                  "y": -11.25
+                },
+                {
+                  "x": -5,
+                  "y": -15
+                },
+                {
+                  "x": -4.5,
+                  "y": -19.25
+                },
+                {
+                  "x": -4,
+                  "y": -24
+                },
+                {
+                  "x": -3.5,
+                  "y": -29.25
+                },
+                {
+                  "x": -3,
+                  "y": -35
+                },
+                {
+                  "x": -2.5,
+                  "y": -41.25
+                },
+                {
+                  "x": -2,
+                  "y": -48
+                },
+                {
+                  "x": -1.5,
+                  "y": -55.25
+                },
+                {
+                  "x": -1,
+                  "y": -63
+                },
+                {
+                  "x": -0.5,
+                  "y": -71.25
+                },
+                {
+                  "x": 0,
+                  "y": -80
+                },
+                {
+                  "x": 0.5,
+                  "y": -89.25
+                },
+                {
+                  "x": 1,
+                  "y": -99
+                },
+                {
+                  "x": 1.5,
+                  "y": -109.25
+                },
+                {
+                  "x": 2,
+                  "y": -120
+                },
+                {
+                  "x": 2.5,
+                  "y": -131.25
+                },
+                {
+                  "x": 3,
+                  "y": -143
+                },
+                {
+                  "x": 3.5,
+                  "y": -155.25
+                },
+                {
+                  "x": 4,
+                  "y": -168
+                },
+                {
+                  "x": 4.5,
+                  "y": -181.25
+                },
+                {
+                  "x": 5,
+                  "y": -195
+                },
+                {
+                  "x": 5.5,
+                  "y": -209.25
+                },
+                {
+                  "x": 6,
+                  "y": -224
+                },
+                {
+                  "x": 6.5,
+                  "y": -239.25
+                },
+                {
+                  "x": 7,
+                  "y": -255
+                },
+                {
+                  "x": 7.5,
+                  "y": -271.25
+                },
+                {
+                  "x": 8,
+                  "y": -288
+                },
+                {
+                  "x": 8.5,
+                  "y": -305.25
+                },
+                {
+                  "x": 9,
+                  "y": -323
+                },
+                {
+                  "x": 9.5,
+                  "y": -341.25
+                },
+                {
+                  "x": 10,
+                  "y": -360
+                }
+              ]
+            },
+            {
+              "original": "a*(x-x1)*(x-x2)",
+              "substituted": "(-1)*(x-(8))*(x-(10))",
+              "typst": "(-1) dot (x-(8)) dot (x-(10))",
+              "latex": "(-1) \\cdot (x-(8)) \\cdot (x-(10))",
+              "variables": [
+                "a",
+                "x1",
+                "x2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": -360
+                },
+                {
+                  "x": -9.5,
+                  "y": -341.25
+                },
+                {
+                  "x": -9,
+                  "y": -323
+                },
+                {
+                  "x": -8.5,
+                  "y": -305.25
+                },
+                {
+                  "x": -8,
+                  "y": -288
+                },
+                {
+                  "x": -7.5,
+                  "y": -271.25
+                },
+                {
+                  "x": -7,
+                  "y": -255
+                },
+                {
+                  "x": -6.5,
+                  "y": -239.25
+                },
+                {
+                  "x": -6,
+                  "y": -224
+                },
+                {
+                  "x": -5.5,
+                  "y": -209.25
+                },
+                {
+                  "x": -5,
+                  "y": -195
+                },
+                {
+                  "x": -4.5,
+                  "y": -181.25
+                },
+                {
+                  "x": -4,
+                  "y": -168
+                },
+                {
+                  "x": -3.5,
+                  "y": -155.25
+                },
+                {
+                  "x": -3,
+                  "y": -143
+                },
+                {
+                  "x": -2.5,
+                  "y": -131.25
+                },
+                {
+                  "x": -2,
+                  "y": -120
+                },
+                {
+                  "x": -1.5,
+                  "y": -109.25
+                },
+                {
+                  "x": -1,
+                  "y": -99
+                },
+                {
+                  "x": -0.5,
+                  "y": -89.25
+                },
+                {
+                  "x": 0,
+                  "y": -80
+                },
+                {
+                  "x": 0.5,
+                  "y": -71.25
+                },
+                {
+                  "x": 1,
+                  "y": -63
+                },
+                {
+                  "x": 1.5,
+                  "y": -55.25
+                },
+                {
+                  "x": 2,
+                  "y": -48
+                },
+                {
+                  "x": 2.5,
+                  "y": -41.25
+                },
+                {
+                  "x": 3,
+                  "y": -35
+                },
+                {
+                  "x": 3.5,
+                  "y": -29.25
+                },
+                {
+                  "x": 4,
+                  "y": -24
+                },
+                {
+                  "x": 4.5,
+                  "y": -19.25
+                },
+                {
+                  "x": 5,
+                  "y": -15
+                },
+                {
+                  "x": 5.5,
+                  "y": -11.25
+                },
+                {
+                  "x": 6,
+                  "y": -8
+                },
+                {
+                  "x": 6.5,
+                  "y": -5.25
+                },
+                {
+                  "x": 7,
+                  "y": -3
+                },
+                {
+                  "x": 7.5,
+                  "y": -1.25
+                },
+                {
+                  "x": 8,
+                  "y": 0
+                },
+                {
+                  "x": 8.5,
+                  "y": 0.75
+                },
+                {
+                  "x": 9,
+                  "y": 1
+                },
+                {
+                  "x": 9.5,
+                  "y": 0.75
+                },
+                {
+                  "x": 10,
+                  "y": 0
+                }
+              ]
+            }
+          ],
+          "variables": {
+            "a": "-1",
+            "x1": "8",
+            "x2": "10"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 119130,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 67 00 72 00 61 00 70 00 68 00 00 00 68 03 00 00 02 00 00 00 0f 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 78 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 32 00 2c 00 31 00 32 00 2c 00 31 00 29 00 00 00 38 00 00 00 02 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 78 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 32 00 2c 00 31 00 32 00 2c 00 31 00 29 00 00 00 31 00 30 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 bf 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 31 00 2c 00 31 00 2c 00 31 00 29 00 00 00 13 20 31 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 00 00 cd cd 0a 00 00 00 1b 00 00 00 07 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 6d 00 61 00 78 00",
+          "textPreview": "Average\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\ngraph\n[[slot]]\nx1\nrange(-12,12,1)\n8\n[[slot]]\nx2\nrange(-12,12,1)\n10\na\nrange(-1,1,1)\n–1\na<>0\nmax_or_min\nif(a=1,\"minimum\",\"maximum\")\nmaximum\nx1<x2 and abs(x1)<>abs(x2)\n#\nvertex_y\na*(((x1+x2)/2)-x1)*(((x1+x2)/2)-x2)\n1\n+\nvertex_y=int(vertex_y) and abs(vertex_y)<11\nscramble\ntrue\n1"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If the points $(–1, 4)$ and $(2, 13)$ are on the graph of the quadratic function $f(x) = x^2 + b x + c$, what are the values of b and c?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "4 and –4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "13 and 7"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "–4 and 2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "–7 and –3"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 140354,
+        "difficulty": "Difficult",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "standard form | determine equations from two points"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "b",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–4"
+        },
+        {
+          "name": "c",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–7"
+        },
+        {
+          "name": "x1",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "x2",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "y1",
+          "rule": "a*x1*x1+b*x1+c",
+          "sampleValue": "4"
+        },
+        {
+          "name": "y2",
+          "rule": "a*x2*x2+b*x2+c",
+          "sampleValue": "13"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "x1-x2",
+          "sampleValue": "–3"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "y1-y2",
+          "sampleValue": "–9"
+        },
+        {
+          "name": "b_dis2",
+          "rule": "-1*b_dis1",
+          "sampleValue": "3"
+        },
+        {
+          "name": "c_dis2",
+          "rule": "-1*c_dis1",
+          "sampleValue": "9"
+        }
+      ],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "If the points [inline object not decoded yet] and [diagram/object not decoded yet] are on the graph of the quadratic function",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "If the points [inline object not decoded yet] and [diagram/object not decoded yet] are on the graph of the quadratic function [inline math/object not decoded yet]",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-2"
+        },
+        {
+          "kind": "math",
+          "placeholder": "[inline math/object not decoded yet]",
+          "context": "and [diagram/object not decoded yet] are on the graph of the quadratic function [inline math/object not decoded yet], what are the values of b and c?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 140354,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 20 00 7c 00 20 00 64 00 65 00 74 00 65 00 72 00 6d 00 69 00 6e 00 65 00 20 00 65 00 71 00 75 00 61 00 74 00 69 00 6f 00 6e 00 73 00 20 00 66 00 72 00 6f 00 6d 00 20 00 74 00 77 00 6f 00 20 00 70 00 6f 00 69 00 6e 00 74 00 73 00 00 00 d8 04 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 37 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 c0 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 34 00 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c c0 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 37 00 00 00 02 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00",
+          "textPreview": "Difficult\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nstandard form | determine equations from two points\na\nrange(-9,9,1)\n7\nb\nrange(-9,9,1)\n–4\nc\nrange(-9,9,1)\n–7\nx1\nrange(-9,9,1)\n–1\nx2\nrange(-9,9,1)\n2\n5\na<>0 and b<>0 and c<>0 and x1<>0 and x2<>0 and x1<>x2\ny1\na*x1*x1+b*x1+c\n4\ny2\na*x2*x2+b*x2+c\n13\nabs(y1)<50 and abs(y2)<50\nb_dis1"
+        }
+      ]
+    },
+    {
+      "id": "q-17",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The table shows the path of an extraterrestrial missile, where x is the horizontal distance, in metres, from the launch pad and h is the height, in metres, of the missile above the launch pad. Horizontal distance, x Height, h 4.0 What quadratic equation can be used to model the data set?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "if(b<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(c>0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.2",
+        "sourceOffset": 147035,
+        "difficulty": "Difficult",
+        "reference": "RF 4",
+        "topic": "Investigating Quadratic Functions in Standard Form",
+        "title": "standard form | modelling data"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-.5,-.1,.1)",
+          "sampleValue": "–0.4"
+        },
+        {
+          "name": "b",
+          "rule": "range(1,9,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "c",
+          "rule": "range(1,4,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "a_dis1",
+          "rule": "-1*a",
+          "sampleValue": "0.4"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "b_value/2",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c_value/2",
+          "sampleValue": "2"
+        },
+        {
+          "name": "sign_b_dis1",
+          "rule": "if(b>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c>0,chr(45),chr(43))"
+        },
+        {
+          "name": "x1",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "x2",
+          "rule": "1",
+          "sampleValue": "1"
+        },
+        {
+          "name": "x3",
+          "rule": "2",
+          "sampleValue": "2"
+        },
+        {
+          "name": "x4",
+          "rule": "int(x7*.3)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "x5",
+          "rule": "int(x7*.5)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "x6",
+          "rule": "int(x7*.75)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "x7",
+          "rule": "int((-b-sqrt(b*b-4*a*c))/(2*a))",
+          "sampleValue": "13"
+        },
+        {
+          "name": "h1",
+          "rule": "a*x1*x1+b*x1+c",
+          "sampleValue": "4.0"
+        },
+        {
+          "name": "h2",
+          "rule": "a*x2*x2+b*x2+c",
+          "sampleValue": "8.6"
+        },
+        {
+          "name": "h3",
+          "rule": "a*x3*x3+b*x3+c",
+          "sampleValue": "12.4"
+        },
+        {
+          "name": "h4",
+          "rule": "a*x4*x4+b*x4+c",
+          "sampleValue": "15.4"
+        },
+        {
+          "name": "h5",
+          "rule": "a*x5*x5+b*x5+c",
+          "sampleValue": "19.6"
+        },
+        {
+          "name": "h6",
+          "rule": "a*x6*x6+b*x6+c",
+          "sampleValue": "16.6"
+        },
+        {
+          "name": "h7",
+          "rule": "a*x7*x7+b*x7+c",
+          "sampleValue": "1.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 147035,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 32 00 00 00 52 00 46 00 20 00 34 00 00 00 49 00 6e 00 76 00 65 00 73 00 74 00 69 00 67 00 61 00 74 00 69 00 6e 00 67 00 20 00 51 00 75 00 61 00 64 00 72 00 61 00 74 00 69 00 63 00 20 00 46 00 75 00 6e 00 63 00 74 00 69 00 6f 00 6e 00 73 00 20 00 69 00 6e 00 20 00 53 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 46 00 6f 00 72 00 6d 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 20 00 7c 00 20 00 6d 00 6f 00 64 00 65 00 6c 00 6c 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 00 00 fc 08 00 00 01 00 00 00 11 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 0b 00 00 00 9a 99 99 99 99 99 d9 bf 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 2e 00 35 00 2c 00 2d 00 2e 00 31 00 2c 00 2e 00 31 00 29 00 00 00 13 20 30 00 2e 00 34 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 39 00 2c 00 31 00 29 00 00 00 35 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 34 00 2c 00 31 00 29 00 00 00 34 00 00 00 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 62 00",
+          "textPreview": "Difficult\nSection 3.2\nRF 4\nInvestigating Quadratic Functions in Standard Form\nstandard form | modelling data\na\nrange(-.5,-.1,.1)\n–0.4\nb\nrange(1,9,1)\n5\nc\nrange(1,4,1)\n4\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n5\nc_value\nabs(c)\n4\na_dis1\n-1*a\n0.4\nb_dis1\nb_value/2\n2.5"
+        }
+      ]
+    },
+    {
+      "id": "q-18",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the equation of the quadratic function if(b<0,chr(45),chr(43)) in vertex form?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "12"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "if(q<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "115"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "24"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.3",
+        "sourceOffset": 156621,
+        "difficulty": "Easy",
+        "reference": "RF 4",
+        "topic": "Completing the Square",
+        "title": "standard to vertex form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "b",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "c",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "29"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "29"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "b_value/2",
+          "sampleValue": "12"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c_value/2",
+          "sampleValue": "14.5"
+        },
+        {
+          "name": "sign_b_dis1",
+          "rule": "if(b>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c>0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "b/2",
+          "sampleValue": "12"
+        },
+        {
+          "name": "q",
+          "rule": "-(pow(b,2)/(4))+c",
+          "sampleValue": "–115"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "115"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "pow((b/2),2)+c",
+          "sampleValue": "173"
+        },
+        {
+          "name": "sign_q_dis",
+          "rule": "if(q>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_p_dis",
+          "rule": "if(p>0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value_dis1",
+          "rule": "abs(q_dis1)",
+          "sampleValue": "173"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 156621,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 33 00 00 00 52 00 46 00 20 00 34 00 00 00 43 00 6f 00 6d 00 70 00 6c 00 65 00 74 00 69 00 6e 00 67 00 20 00 74 00 68 00 65 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 74 00 6f 00 20 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 66 00 6f 00 72 00 6d 00 00 00 32 08 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 32 00 34 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3d 40 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 32 00 39 00 00 00 00 00 00 00 0d 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 62 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 63 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 62 00 00 00 69 00 66 00 28 00 62 00 3c 00 30 00 2c 00 63 00 68 00 72 00 28 00 34 00 35 00 29 00 2c 00 63 00 68 00 72 00 28 00 34 00 33 00 29 00 29 00 00 00 01 00 8b f0 2b f0 00 00 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\nSection 3.3\nRF 4\nCompleting the Square\nstandard to vertex form\n[[slot]]\nb\nrange(-50,50,1)\n24\n[[slot]]\nc\nrange(-50,50,1)\n29\nb<>0 and c<>0\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n24\nc_value\nabs(c)\n29\nb_dis1\nb_value/2\n12\nc_dis1\nc_value/2\n14.5"
+        }
+      ]
+    },
+    {
+      "id": "q-19",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the equation of the quadratic function – 26 in vertex form?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "– 13"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "– 128"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "– 26"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.3",
+        "sourceOffset": 163489,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Completing the Square",
+        "title": "standard to vertex form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-5,5,1)",
+          "sampleValue": "[[slot]]"
+        },
+        {
+          "name": "b",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "– 26"
+        },
+        {
+          "name": "c",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "+ 41"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "26"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "41"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "b_value/2",
+          "sampleValue": "13"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c_value/2",
+          "sampleValue": "20.5"
+        },
+        {
+          "name": "sign_b_dis1",
+          "rule": "if(b>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c>0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "b/(2*a)",
+          "sampleValue": "– 13"
+        },
+        {
+          "name": "q",
+          "rule": "-(pow(b,2)/(4*a))+c",
+          "sampleValue": "– 128"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "128"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "13"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "pow((b/(2*a)),2)+c",
+          "sampleValue": "210"
+        },
+        {
+          "name": "sign_q_dis",
+          "rule": "if(q>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_p_dis",
+          "rule": "if(p>0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value_dis1",
+          "rule": "abs(q_dis1)",
+          "sampleValue": "210"
+        },
+        {
+          "name": "e",
+          "rule": "-a",
+          "sampleValue": "–"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 163489,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 33 00 00 00 52 00 46 00 20 00 34 00 00 00 43 00 6f 00 6d 00 70 00 6c 00 65 00 74 00 69 00 6e 00 67 00 20 00 74 00 68 00 65 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 00 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 74 00 6f 00 20 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 66 00 6f 00 72 00 6d 00 00 00 5e 09 00 00 01 00 00 00 0d 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 05 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 3f 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 2c 00 35 00 2c 00 31 00 29 00 00 00 cd cd 01 00 00 00 0f 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3a c0 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 13 20 20 00 32 00 36 00 00 00 01 00 00 00 0f 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 44 40 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 2b 00 20 00 34 00 31 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 62 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 63 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00",
+          "textPreview": "Average\nSection 3.3\nRF 4\nCompleting the Square\nstandard to vertex form\na\nrange(-5,5,1)\n[[slot]]\nb\nrange(-50,50,1)\n– 26\n[[slot]]\nc\nrange(-50,50,1)\n+ 41\na<>0 and b<>0 and c<>0\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n26\nc_value\nabs(c)\n41\nb_dis1\nb_value/2\n13\nc_dis1"
+        }
+      ]
+    },
+    {
+      "id": "q-20",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which quadratic function in standard form represents 3?"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "if(b<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "if(c<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "11"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.3",
+        "sourceOffset": 170892,
+        "difficulty": "Average",
+        "reference": "RF 4",
+        "topic": "Completing the Square",
+        "title": "vertex to standard form"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-5,5,1)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "b",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "–6"
+        },
+        {
+          "name": "c",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "–22"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "22"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "b_value/2",
+          "sampleValue": "3"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c_value/2",
+          "sampleValue": "11"
+        },
+        {
+          "name": "sign_b_dis1",
+          "rule": "if(b>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c>0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "b/(2*a)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "q",
+          "rule": "-(pow(b,2)/(4*a))+c",
+          "sampleValue": "–25"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "25"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "abs(p)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "pow((b/(2*a)),2)+c",
+          "sampleValue": "–21"
+        },
+        {
+          "name": "sign_q_dis",
+          "rule": "if(q>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_p_dis",
+          "rule": "if(p>0,chr(45),chr(43))"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 170892,
+          "length": 512,
+          "hexPreview": "41 00 76 00 65 00 72 00 61 00 67 00 65 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 33 00 00 00 52 00 46 00 20 00 34 00 00 00 43 00 6f 00 6d 00 70 00 6c 00 65 00 74 00 69 00 6e 00 67 00 20 00 74 00 68 00 65 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 74 00 6f 00 20 00 73 00 74 00 61 00 6e 00 64 00 61 00 72 00 64 00 20 00 66 00 6f 00 72 00 6d 00 00 00 76 08 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 2c 00 35 00 2c 00 31 00 29 00 00 00 33 00 00 00 01 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 c0 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 13 20 36 00 00 00 01 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 36 c0 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 13 20 32 00 32 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 62 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 63 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Average\nSection 3.3\nRF 4\nCompleting the Square\nvertex to standard form\na\nrange(-5,5,1)\n3\n[[slot]]\nb\nrange(-50,50,1)\n–6\n[[slot]]\nc\nrange(-50,50,1)\n–22\na<>0 and b<>0 and c<>0\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n6\nc_value\nabs(c)\n22\nb_dis1\nb_value/2\n3"
+        }
+      ]
+    },
+    {
+      "id": "q-21",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "State whether the function –4.5 has a maximum or minimum value and identify the coordinates of the vertex."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "4 at if(b<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "43 at maximum"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "36 at if(c<0,chr(45),chr(43))"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "4.5 at –124"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.3",
+        "sourceOffset": 177098,
+        "difficulty": "Difficult",
+        "reference": "RF 4",
+        "topic": "Completing the Square",
+        "title": "max/min"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "a",
+          "rule": "range(-5,5,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "b",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "–36"
+        },
+        {
+          "name": "c",
+          "rule": "range(-50,50,1)",
+          "sampleValue": "–43"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if(b<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if(c<0,chr(45),chr(43))"
+        },
+        {
+          "name": "b_value",
+          "rule": "abs(b)",
+          "sampleValue": "36"
+        },
+        {
+          "name": "c_value",
+          "rule": "abs(c)",
+          "sampleValue": "43"
+        },
+        {
+          "name": "b_dis1",
+          "rule": "b_value/2",
+          "sampleValue": "18"
+        },
+        {
+          "name": "c_dis1",
+          "rule": "c_value/2",
+          "sampleValue": "21.5"
+        },
+        {
+          "name": "sign_b_dis1",
+          "rule": "if(b>0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c_dis1",
+          "rule": "if(c>0,chr(45),chr(43))"
+        },
+        {
+          "name": "p",
+          "rule": "b/(2*a)",
+          "sampleValue": "–4.5"
+        },
+        {
+          "name": "q",
+          "rule": "-(pow(b,2)/(4*a))+c",
+          "sampleValue": "–124"
+        },
+        {
+          "name": "sign_q",
+          "rule": "if(q<0,chr(45),chr(43))"
+        },
+        {
+          "name": "q_value",
+          "rule": "abs(q)",
+          "sampleValue": "124"
+        },
+        {
+          "name": "sign_p",
+          "rule": "if(p>0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_value",
+          "rule": "-1*p",
+          "sampleValue": "4.5"
+        },
+        {
+          "name": "q_dis1",
+          "rule": "pow((b/(2*a)),2)+c",
+          "sampleValue": "–22.75"
+        },
+        {
+          "name": "Direction",
+          "rule": "if(a<0,\"maximum\",\"minimum\")",
+          "sampleValue": "minimum"
+        },
+        {
+          "name": "dis_Direction",
+          "rule": "if(a>0,\"maximum\",\"minimum\")",
+          "sampleValue": "maximum"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 177098,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 33 00 00 00 52 00 46 00 20 00 34 00 00 00 43 00 6f 00 6d 00 70 00 6c 00 65 00 74 00 69 00 6e 00 67 00 20 00 74 00 68 00 65 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 00 00 6d 00 61 00 78 00 2f 00 6d 00 69 00 6e 00 00 00 b2 08 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 2c 00 35 00 2c 00 31 00 29 00 00 00 34 00 00 00 01 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 42 c0 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 13 20 33 00 36 00 00 00 01 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 45 c0 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 35 00 30 00 2c 00 35 00 30 00 2c 00 31 00 29 00 00 00 13 20 34 00 33 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 62 00 3c 00 3e 00 30 00 20 00 61 00 6e 00 64 00 20 00 63 00 3c 00 3e 00 30 00 00 00 cd cd 06 00 00 00 17 00 00 00 03 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 73 00 69 00 67 00 6e 00 5f 00 62 00 00 00 69 00 66 00 28 00",
+          "textPreview": "Difficult\nSection 3.3\nRF 4\nCompleting the Square\nmax/min\na\nrange(-5,5,1)\n4\n[[slot]]\nb\nrange(-50,50,1)\n–36\n[[slot]]\nc\nrange(-50,50,1)\n–43\na<>0 and b<>0 and c<>0\nsign_b\nif(b<0,chr(45),chr(43))\nsign_c\nif(c<0,chr(45),chr(43))\nb_value\nabs(b)\n36\nc_value\nabs(c)\n43\nb_dis1\nb_value/2\n18"
+        }
+      ]
+    },
+    {
+      "id": "q-22",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The vertex of the quadratic function -7/9 is"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "$-31/9072$"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "$-3/28$"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "$3/28$"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "$-31/9072$"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Pre-Calculus 11",
+        "unitName": "Chapter 03",
+        "sectionName": "Section 3.3",
+        "sourceOffset": 184915,
+        "difficulty": "Difficult",
+        "reference": "RF 4",
+        "topic": "Completing the Square",
+        "title": "vertex | fraction"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "m",
+          "rule": "range(-8,8,1)",
+          "sampleValue": "–7"
+        },
+        {
+          "name": "n",
+          "rule": "range(2,9,1)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "r_calc",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–3"
+        },
+        {
+          "name": "r",
+          "rule": "abs(r_calc)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "t_calc",
+          "rule": "range(-9,9,1)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "t",
+          "rule": "abs(t_calc)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "s",
+          "rule": "2*n",
+          "sampleValue": "18"
+        },
+        {
+          "name": "u",
+          "rule": "n*n",
+          "sampleValue": "81"
+        },
+        {
+          "name": "a",
+          "rule": "fracs(m,n)",
+          "sampleValue": "-7/9"
+        },
+        {
+          "name": "b",
+          "rule": "fracs(r,s)",
+          "sampleValue": "1/6"
+        },
+        {
+          "name": "c",
+          "rule": "fracs(t,u)",
+          "sampleValue": "1/81"
+        },
+        {
+          "name": "sign_b",
+          "rule": "if((r_calc/s)<0,chr(45),chr(43))"
+        },
+        {
+          "name": "sign_c",
+          "rule": "if((t_calc/u)<0,chr(45),chr(43))"
+        },
+        {
+          "name": "p_denom",
+          "rule": "-4*m",
+          "sampleValue": "28"
+        },
+        {
+          "name": "q_num",
+          "rule": "-1*n*r_calc*r_calc+16*m*t_calc",
+          "sampleValue": "31"
+        },
+        {
+          "name": "q_denom",
+          "rule": "16*m*n*n",
+          "sampleValue": "–9072"
+        },
+        {
+          "name": "p",
+          "rule": "fracs(r_calc,p_denom)",
+          "sampleValue": "-3/28"
+        },
+        {
+          "name": "q",
+          "rule": "fracs(q_num,q_denom)",
+          "sampleValue": "-31/9072"
+        },
+        {
+          "name": "q_num_dis",
+          "rule": "-1*q_num",
+          "sampleValue": "–31"
+        },
+        {
+          "name": "p_denom_dis",
+          "rule": "-1*p_denom",
+          "sampleValue": "–28"
+        },
+        {
+          "name": "p_dis",
+          "rule": "fracs(r_calc,p_denom_dis)",
+          "sampleValue": "3/28"
+        },
+        {
+          "name": "q_dis",
+          "rule": "fracs(q_num_dis,q_denom)",
+          "sampleValue": "31/9072"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 184915,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 53 00 65 00 63 00 74 00 69 00 6f 00 6e 00 20 00 33 00 2e 00 33 00 00 00 52 00 46 00 20 00 34 00 00 00 43 00 6f 00 6d 00 70 00 6c 00 65 00 74 00 69 00 6e 00 67 00 20 00 74 00 68 00 65 00 20 00 53 00 71 00 75 00 61 00 72 00 65 00 00 00 76 00 65 00 72 00 74 00 65 00 78 00 20 00 7c 00 20 00 66 00 72 00 61 00 63 00 74 00 69 00 6f 00 6e 00 00 00 9c 08 00 00 01 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c c0 6d 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 38 00 2c 00 38 00 2c 00 31 00 29 00 00 00 13 20 37 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 39 00 2c 00 31 00 29 00 00 00 39 00 00 00 06 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 c0 72 00 5f 00 63 00 61 00 6c 00 63 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 2d 00 39 00 2c 00 39 00 2c 00 31 00 29 00 00 00 13 20 33 00 00 00 01 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 08 40 72 00 00 00 61 00 62 00 73 00 28 00 72 00 5f 00 63 00 61 00 6c 00 63 00 29 00 00 00 33 00 00 00 06 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 bf 74 00 5f 00 63 00 61 00 6c 00 63 00 00 00 72 00 61 00 6e 00 67 00",
+          "textPreview": "Difficult\nSection 3.3\nRF 4\nCompleting the Square\nvertex | fraction\nm\nrange(-8,8,1)\n–7\nn\nrange(2,9,1)\n9\nr_calc\nrange(-9,9,1)\n–3\nr\nabs(r_calc)\n3\nt_calc\nrange(-9,9,1)\n–1\nt\nabs(t_calc)\n1\ns\n2*n\n18\nu\nn*n\n81\n-"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 58210 to 1118890 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 63 candidate string clusters; using header count 22."
+    }
+  ],
+  "stats": {
+    "questionCount": 22,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 22
+  }
+}

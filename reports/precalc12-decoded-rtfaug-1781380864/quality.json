@@ -1,0 +1,253 @@
+{
+  "generatedAt": "2026-06-13T20:01:04.837Z",
+  "inputDir": "reports/precalc12-decoded-rtfaug-1781380864",
+  "chapterCount": 11,
+  "questionCount": 736,
+  "notDecodedBodyCount": 9,
+  "embeddedBodyCount": 5,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 532,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 736,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 64,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 30,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 3,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 29,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 24,
+          "id": "q-24",
+          "title": "trigonometric ratios",
+          "body": "degree$<>0$ and degree$<>90$ and degree$<>180$ and degree$<>270$ and degree$<>360$ Giai got an answer of [embedded object] when she was calculating the value of a trigonometric function. Assuming Giai did her calculation correctly, which of the following was she calculating?"
+        },
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "trigonometric ratios",
+          "body": "For a point on the unit circle, the [embedded object] can be determined using the ____________________."
+        },
+        {
+          "number": 61,
+          "id": "q-61",
+          "title": "cosine law | two-dimensional problem",
+          "body": "Let x represent the width of the canyon. Use the cosine law. [embedded object] The width of the canyon is approximately $173.3 m$."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 37,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 3,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "body": "a pattern of growth in which each term is multiplied by a constant amount [embedded object] to produce the next term"
+        },
+        {
+          "number": 41,
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "body": "Sketch an exponential function with all of the given conditions: domain $y = - 4 1 / 2^(x)$ range [DIAGRAM NEEDED] $y-$intercept of –$4$ no $x-$intercept the function is always increasing"
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "body": "The scatter plot shows how his money has grown over time. [DIAGRAM NEEDED] a) Do the data show an exponential trend? Explain your reasoning.\rb) Estimate values of a and b to develop a model for the information of the form $V t = ab t$, for t in years.\rc) Use your model to predict the expected value of Michael s investment in $30$ years.\rd) How does the result in part c) illustrate the power of exponential growth?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 58,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "rational equation | technology",
+          "body": "Solve each equation by graphing, using technology. Express your answers to two decimal places. a) $3x x - 2 = - 1 x + 3 1 x + 1 x - 5 = - 1 * x^2 (x - 5) 3 = - 2 x - 5 3x - 1 x = x + 5 x - 3$ b) $x - 3.52$ c) $x - 1.19$ d) [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 2,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "body": "Let s represent the number of sandwich choices, c the number of cheese choices, v the number of vegetable choices, and a the number of sauce choices. Let T represent the total number of choices. [embedded object] There are $3528$ different choices."
+        },
+        {
+          "number": 37,
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "body": "Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number of ways the letters in COMBINATION can be arranged. $P = 11!$ [DIAGRAM NEEDED] There are more arrangements for PERMUTATION, so Sun Eui is correct."
+        }
+      ]
+    }
+  ]
+}

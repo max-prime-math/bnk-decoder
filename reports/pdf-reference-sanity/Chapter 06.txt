@@ -1,0 +1,110 @@
+       Chapter 6: Trigonometric Identities
+
+
+       MULTIPLE CHOICE
+
+          1. Which equation is a reciprocal identity?
+                          1                                              1
+             A. sec                                        C. sec 
+                        tan                                           csc
+                          1                                              1
+             B. sec                                        D. sec 
+                        cos                                           sin
+              ANS: B             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: reciprocal identity
+
+          2. Which equation is a quotient identity?
+                          1                                            cos
+             A. cot                                        C. cot 
+                       cos                                            sin
+                        sin                                             1
+             B. cot                                        D. cot 
+                       cos                                            sin
+              ANS: C             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: quotient identity
+
+          3. Which equation is a Pythagorean identity?
+             A. 1  tan2   sec 2                          C. 1  tan2   sec 2 
+             B. cot 2   1  csc 2                         D. sin2   cos 2   1
+              ANS: A             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: Pythagorean identities
+
+          4. What does the expression cot sincsc  simplify to?
+             A. cot                                        C. cos 
+             B. tan                                        D. sin
+              ANS: A               DIF: Average            OBJ: Section 6.1    NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: quotient identity | reciprocal identity
+
+          5. Which of the following sets is the set of reciprocal trigonometric ratios?
+             A. csc , sec , and cot                        C. sin , csc , and cot 
+             B. sec , cos , and cot                        D. csc , sec , and tan 
+              ANS: A               DIF: Average        OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal trigonometric ratios
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     1
+          6. What is an equivalent expression for cot A?
+                   1                                                    1
+             A.                                                 C.
+                 sin A                                                cos A
+                    1                                                   1
+             B.                                                 D.
+                 tan A                                                secA
+              ANS: B               DIF: Easy           OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal trigonometric ratios
+
+                                                  cos 
+          7. Which expression is equivalent to            ?
+                                                 1  sin
+                   cos  1  sin                                   1  sin
+              A.                                                C.
+                      1  sin2                                        cos 
+                    cos                                              1  sin
+              B.                                                D.
+                   1  sin                                            cos 
+              ANS: C             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+          8. Which expression is equivalent to tan  cot  ?
+                                                                            1
+              A. 1                                              C.
+                                                                   cos  sin
+                                                                        sin 
+              B. cos  sin                                     D. 2        
+                                                                                 
+                                                                         cos    
+              ANS: C             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+          9. Which expression is equivalent to sec 2  sin2 ?
+             A. tan2                                          C. 1
+             B. cos 2                                         D. sin4 
+              ANS: A             DIF: Easy             OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+         10. Which expression is equivalent to tan2   sin2  ?
+                                                                      sin3 
+              A. sin2  cos 2                                  C.
+                                                                      cos 2 
+                                                                      sin2 
+              B. sin2  tan2                                   D.
+                                                                      cos 2 
+              ANS: B             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+                                                                2
+         11. Which expression is equivalent to sin  cos  ?
+             A. 1  2sin cos                               C. 1
+             B. 2sin cos                                   D. sin2   cos 2 
+              ANS: A             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            2
+

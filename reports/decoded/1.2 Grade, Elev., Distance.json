@@ -1,0 +1,1737 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.2 Grade, Elev., Distance.bnk",
+    "byteLength": 14085,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 14069,
+    "inflatedByteLength": 147005
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "For the triangle shown, which of the following would allow you to calculate the angle of elevation? 8 a. 28 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "28"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "8"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "28"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(20,29)",
+          "sampleValue": "28"
+        },
+        {
+          "name": "run",
+          "rule": "range(7,15)",
+          "sampleValue": "8"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 ea 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3c 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 2c 00 32 00 39 00 29 00 00 00 32 00 38 00 00 00 03 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 2c 00 31 00 35 00 29 00 00 00 38 00 00 00 af 2d 00 00 01 00 00 00 7d 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 46 00 6f 00 72 00 20 00 74 00 68 00 65 00 20 00 74 00 72 00 69 00 61 00 6e 00 67 00 6c 00 65 00 20 00 73 00 68 00 6f 00 77 00 6e 00 2c 00 20 00 77 00 68 00 69 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of elevation\nscramble\ntrue\n1\nrise\nrange(20,29)\n28\nrun\nrange(7,15)\n8\n-\n}\nFor the triangle shown, which of the following would allow you to calculate the angle of elevation?\r[[slot]]\na.\n[[slot]]\nc.\n[[slot]]\nb.\n[[slot]]\nd.\n[[slot]]\n}\nTimes New Roman\nf\ng"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The slope of a ramp leading into a grocery store is 1: 6. What is the angle of elevation of the ramp? a. 10.5 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "10.5"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "9.5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "80.5"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "64.4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 17257,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(1,3)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "run",
+          "rule": "rise*5+1",
+          "sampleValue": "6"
+        },
+        {
+          "name": "correct",
+          "rule": "round(deg(arctan(rise/run)),1)",
+          "sampleValue": "9.5"
+        },
+        {
+          "name": "err1",
+          "rule": "round(deg(arctan(run/rise)),1)",
+          "sampleValue": "80.5"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*1.1,1)",
+          "sampleValue": "10.5"
+        },
+        {
+          "name": "err3",
+          "rule": "round(err1*.8,1)",
+          "sampleValue": "64.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 17257,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 9a 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 33 00 29 00 00 00 31 00 00 00 03 00 00 00 08 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 18 40 72 00 75 00 6e 00 00 00 72 00 69 00 73 00 65 00 2a 00 35 00 2b 00 31 00 00 00 36 00 00 00 07 00 00 00 1e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 23 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 64 00 65 00 67 00 28 00 61 00 72 00 63 00 74 00 61 00 6e 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 29 00 29 00 2c 00 31 00 29 00 00 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of elevation\nscramble\ntrue\n1\nrise\nrange(1,3)\n1\nrun\nrise*5+1\n6\ncorrect\nround(deg(arctan(rise/run)),1)\n9.5\nerr1\nround(deg(arctan(run/rise)),1)\n80.5\nerr2\nround(correct*1.1,1)\n10.5\nerr3\nround(err1*.8,1)\n64.4\nThe slope of a ramp leading into a grocery store is [[slot]]:[[slot]]. What is the angle of elevation of the ramp?\na.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A commonly accepted angle of elevation for safe, accessible wheelchair ramps is 4.5. The public library s main door is 1.2 m above street level. What will be the run of this ramp? a. 11.44 m c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "11.44"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "15.25"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.07"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "1.32"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 20935,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(0.8,1.5,.1)",
+          "sampleValue": "1.2"
+        },
+        {
+          "name": "theta",
+          "rule": "range(4.4,4.8,.1)",
+          "sampleValue": "4.5"
+        },
+        {
+          "name": "correct",
+          "rule": "round(rise/tan(rad(theta)),2)",
+          "sampleValue": "15.25"
+        },
+        {
+          "name": "err1",
+          "rule": "round(tan(rad(theta))/rise,2)",
+          "sampleValue": "0.07"
+        },
+        {
+          "name": "err2",
+          "rule": "round(err1+1.25,2)",
+          "sampleValue": "1.32"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*.75,2)",
+          "sampleValue": "11.44"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 20935,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 cc 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 33 33 33 33 33 33 f3 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 38 00 2c 00 31 00 2e 00 35 00 2c 00 2e 00 31 00 29 00 00 00 31 00 2e 00 32 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 12 40 74 00 68 00 65 00 74 00 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2e 00 34 00 2c 00 34 00 2e 00 38 00 2c 00 2e 00 31 00 29 00 00 00 34 00 2e 00 35 00 00 00 07 00 00 00 1d 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 2e 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of elevation\nscramble\ntrue\n1\nrise\nrange(0.8,1.5,.1)\n1.2\ntheta\nrange(4.4,4.8,.1)\n4.5\ncorrect\nround(rise/tan(rad(theta)),2)\n15.25\nerr1\nround(tan(rad(theta))/rise,2)\n0.07\nerr2\nround(err1+1.25,2)\n1.32\nerr3\nround(correct*.75,2)\n11.44\nA commonly accepted angle of elevation for safe, accessible wheelchair ramps is [[slot]]\n. The public library\ns main door is [[slot]] m above street level. What will be the run of this ramp?"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A drainage pipe has an angle of elevation of 2.3 over a distance of 118 feet. What is the rise in height of the pipe? a. 4.74 ft c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "4.74"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "7.58"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "5.69"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3.79"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 24823,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "correct",
+          "rule": "round(tan(rad(angle))*run,2)",
+          "sampleValue": "4.74"
+        },
+        {
+          "name": "angle",
+          "rule": "range(1.9,2.8,.1)",
+          "sampleValue": "2.3"
+        },
+        {
+          "name": "run",
+          "rule": "range(100,120,2)",
+          "sampleValue": "118"
+        },
+        {
+          "name": "err1",
+          "rule": "round(correct*1.2,2)",
+          "sampleValue": "5.69"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*1.6,2)",
+          "sampleValue": "7.58"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*.8,2)",
+          "sampleValue": "3.79"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 24823,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 b2 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 07 00 00 00 1c 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 f6 28 5c 8f c2 f5 12 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 61 00 6e 00 28 00 72 00 61 00 64 00 28 00 61 00 6e 00 67 00 6c 00 65 00 29 00 29 00 2a 00 72 00 75 00 6e 00 2c 00 32 00 29 00 00 00 34 00 2e 00 37 00 34 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 66 66 66 66 66 66 02 40 61 00 6e 00 67 00 6c 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 39 00 2c 00 32 00 2e 00 38 00 2c 00 2e 00 31 00 29 00 00 00 32 00 2e 00 33 00 00 00 03 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 5d 40 72 00 75 00 6e 00 00 00 72 00 61 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of elevation\nscramble\ntrue\n1\ncorrect\nround(tan(rad(angle))*run,2)\n4.74\nangle\nrange(1.9,2.8,.1)\n2.3\nrun\nrange(100,120,2)\n118\nerr1\nround(correct*1.2,2)\n5.69\nerr2\nround(correct*1.6,2)\n7.58\nerr3\nround(correct*.8,2)\n3.79\nA drainage pipe has an angle of elevation of [[slot]]\nover a distance of [[slot]] feet. What is the rise in height of the pipe?\na."
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the percent grade of a hill that rises to an elevation of 1500 m with a run of 16 km? a. 9.4 % c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "9.4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "93.8"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "1.1"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "7.1"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 28561,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(1000,1500,50)",
+          "sampleValue": "1500"
+        },
+        {
+          "name": "run",
+          "rule": "range(11,16)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "runm",
+          "rule": "run*1000",
+          "sampleValue": "16000"
+        },
+        {
+          "name": "correct",
+          "rule": "round(rise/runm*100,1)",
+          "sampleValue": "9.4"
+        },
+        {
+          "name": "err1",
+          "rule": "round(correct*.75,1)",
+          "sampleValue": "7.1"
+        },
+        {
+          "name": "err2",
+          "rule": "round(rise/run,1)",
+          "sampleValue": "93.8"
+        },
+        {
+          "name": "err3",
+          "rule": "round(run/rise*100,1)",
+          "sampleValue": "1.1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 28561,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 e8 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 70 97 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 30 00 30 00 2c 00 31 00 35 00 30 00 30 00 2c 00 35 00 30 00 29 00 00 00 31 00 35 00 30 00 30 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 30 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 31 00 2c 00 31 00 36 00 29 00 00 00 31 00 36 00 00 00 04 00 00 00 08 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 cf 40 72 00 75 00 6e 00 6d 00 00 00 72 00 75 00 6e 00 2a 00 31 00 30 00 30 00 30 00 00 00 31 00 36 00 30 00 30 00 30 00 00 00 07 00 00 00 16 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\npercent grade\nscramble\ntrue\n1\nrise\nrange(1000,1500,50)\n1500\nrun\nrange(11,16)\n16\nrunm\nrun*1000\n16000\ncorrect\nround(rise/runm*100,1)\n9.4\nerr1\nround(correct*.75,1)\n7.1\nerr2\nround(rise/run,1)\n93.8\nerr3\nround(run/rise*100,1)\n1.1"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A skateboard rail rises 5 feet over a run of 8 feet. What is the length of the rail? a. 11.3 ft c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "11.3"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "8.5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "6.2"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "9.4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 32277,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "Pythagorean theorem"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(2,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "run",
+          "rule": "range(6,8)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "correct",
+          "rule": "round(sqrt(rise^2+run^2),1)",
+          "sampleValue": "9.4"
+        },
+        {
+          "name": "err1",
+          "rule": "round(sqrt(abs(rise^2-run^2)),1)",
+          "sampleValue": "6.2"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*1.2,1)",
+          "sampleValue": "11.3"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*0.9,1)",
+          "sampleValue": "8.5"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 32277,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 50 00 79 00 74 00 68 00 61 00 67 00 6f 00 72 00 65 00 61 00 6e 00 20 00 74 00 68 00 65 00 6f 00 72 00 65 00 6d 00 00 00 e2 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 35 00 29 00 00 00 35 00 00 00 03 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 38 00 29 00 00 00 38 00 00 00 05 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 14 40 72 00 69 00 73 00 65 00 32 00 00 00 72 00 69 00 73 00 65 00 00 00 35 00 00 00 07 00 00 00 1b 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 cd cc cc cc cc cc 22 40 63 00 6f 00 72 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nPythagorean theorem\nscramble\ntrue\n1\nrise\nrange(2,5)\n5\nrun\nrange(6,8)\n8\nrise2\nrise\n5\ncorrect\nround(sqrt(rise^2+run^2),1)\n9.4\nerr1\nround(sqrt(abs(rise^2-run^2)),1)\n6.2\nerr2\nround(correct*1.2,1)\n11.3\nerr3\nround(correct*0.9,1)\n8.5"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What is the slope of mountain with a 9 % grade? a. 0.13 c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.13"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.34"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "0.08"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.09"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 36013,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "grade",
+          "rule": "range(9,18)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "correct",
+          "rule": "grade/100",
+          "sampleValue": "0.09"
+        },
+        {
+          "name": "err1",
+          "rule": "correct-0.01",
+          "sampleValue": "0.08"
+        },
+        {
+          "name": "err2",
+          "rule": "correct+0.04",
+          "sampleValue": "0.13"
+        },
+        {
+          "name": "err3",
+          "rule": "correct+.25",
+          "sampleValue": "0.34"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 36013,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 f2 01 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 05 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 67 00 72 00 61 00 64 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 39 00 2c 00 31 00 38 00 29 00 00 00 39 00 00 00 07 00 00 00 09 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a d7 a3 70 3d 0a b7 3f 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 67 00 72 00 61 00 64 00 65 00 2f 00 31 00 30 00 30 00 00 00 30 00 2e 00 30 00 39 00 00 00 04 00 00 00 0c 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7b 14 ae 47 e1 7a b4 3f 65 00 72 00 72 00 31 00 00 00 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 2d 00 30 00 2e 00 30 00 31 00 00 00 30 00 2e 00 30 00 38 00 00 00 04 00 00 00 0c 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\npercent grade\nscramble\ntrue\n1\ngrade\nrange(9,18)\n9\ncorrect\ngrade/100\n0.09\nerr1\ncorrect-0.01\n0.08\nerr2\ncorrect+0.04\n0.13\nerr3\ncorrect+.25\n0.34\nF\nWhat is the slope of mountain with a [[slot]]% grade?\na.\n[[slot]]\nc.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A student builds a ramp to measure the speed of a wooden cart he built in woodworking class. He needs an angle of depression of 11 to achieve the desired speed. The run of his ramp is 160 cm. How far does the cart drop? a. 12.4 cm c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "12.4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "823.1"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "40.4"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "31.1"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 39225,
+        "difficulty": "Difficult",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of depression"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "angle",
+          "rule": "range(5,12)",
+          "sampleValue": "11"
+        },
+        {
+          "name": "run",
+          "rule": "range(125,240,5)",
+          "sampleValue": "160"
+        },
+        {
+          "name": "correct",
+          "rule": "round(run*tan(rad(angle)),1)",
+          "sampleValue": "31.1"
+        },
+        {
+          "name": "err1",
+          "rule": "round(run/tan(rad(angle)),1)",
+          "sampleValue": "823.1"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*1.3,1)",
+          "sampleValue": "40.4"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*.4,1)",
+          "sampleValue": "12.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 39225,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 64 00 65 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 00 00 b6 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 05 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 26 40 61 00 6e 00 67 00 6c 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 31 00 32 00 29 00 00 00 31 00 31 00 00 00 03 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 64 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 35 00 2c 00 32 00 34 00 30 00 2c 00 35 00 29 00 00 00 31 00 36 00 30 00 00 00 07 00 00 00 1c 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 19 3f 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 75 00 6e 00 2a 00 74 00 61 00 6e 00 28 00 72 00 61 00",
+          "textPreview": "Difficult\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of depression\nscramble\ntrue\n1\nangle\nrange(5,12)\n11\nrun\nrange(125,240,5)\n160\ncorrect\nround(run*tan(rad(angle)),1)\n31.1\nerr1\nround(run/tan(rad(angle)),1)\n823.1\nerr2\nround(correct*1.3,1)\n40.4\nerr3\nround(correct*.4,1)\n12.4\nA student builds a ramp to measure the speed of a wooden cart he built in woodworking class. He needs an angle of depression of [[slot]]\nto achieve the desired speed. The run of his ramp is [[slot]] cm. How "
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A roof has a pitch of 6: 13. If it rises 6 feet, how long is the surface of the roof to the peak? a. 8.6 ft c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "8.6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "17.2"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "13"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "14.3"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 43185,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "Pythagorean theorem"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(5,9)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "run",
+          "rule": "rise*2+1",
+          "sampleValue": "13"
+        },
+        {
+          "name": "correct",
+          "rule": "round(sqrt(rise^2+run^2),1)",
+          "sampleValue": "14.3"
+        },
+        {
+          "name": "err1",
+          "rule": "round(correct*1.2,1)",
+          "sampleValue": "17.2"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*.8,1)",
+          "sampleValue": "11.4"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*.6,1)",
+          "sampleValue": "8.6"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 43185,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 50 00 79 00 74 00 68 00 61 00 67 00 6f 00 72 00 65 00 61 00 6e 00 20 00 74 00 68 00 65 00 6f 00 72 00 65 00 6d 00 00 00 86 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 39 00 29 00 00 00 36 00 00 00 03 00 00 00 08 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 2a 40 72 00 75 00 6e 00 00 00 72 00 69 00 73 00 65 00 2a 00 32 00 2b 00 31 00 00 00 31 00 33 00 00 00 07 00 00 00 1b 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 2c 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 73 00 71 00 72 00 74 00 28 00 72 00 69 00 73 00 65 00 5e 00 32 00 2b 00 72 00 75 00 6e 00 5e 00 32 00 29 00 2c 00 31 00 29 00 00 00 31 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nPythagorean theorem\nscramble\ntrue\n1\nrise\nrange(5,9)\n6\nrun\nrise*2+1\n13\ncorrect\nround(sqrt(rise^2+run^2),1)\n14.3\nerr1\nround(correct*1.2,1)\n17.2\nerr2\nround(correct*.8,1)\n11.4\nerr3\nround(correct*.6,1)\n8.6\nA roof has a pitch of [[slot]]:[[slot]]. If it rises [[slot]] feet, how long is the surface of the roof to the peak?\na.\n[[slot]] ft"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The highway through Kicking Horse Pass between British Columbia and Alberta has many sections where the road reaches a grade of 7 %. On one section of road with this grade, Vlad notices he has climbed an elevation of 733 feet. What is the run of this section of road? a. 10471.4 ft c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "10471.4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "2094.3"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "12565.7"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "16754.2"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 47015,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(700,800)",
+          "sampleValue": "733"
+        },
+        {
+          "name": "grade",
+          "rule": "range(6,9)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "risem",
+          "rule": "round(0.3048*rise,2)",
+          "sampleValue": "223.42"
+        },
+        {
+          "name": "correct",
+          "rule": "round(rise/(grade/100),1)",
+          "sampleValue": "10471.4"
+        },
+        {
+          "name": "err1",
+          "rule": "round(correct*1.2,1)",
+          "sampleValue": "12565.7"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*.2,1)",
+          "sampleValue": "2094.3"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*1.6,1)",
+          "sampleValue": "16754.2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 47015,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 1a 03 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 e8 86 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 30 00 30 00 2c 00 38 00 30 00 30 00 29 00 00 00 37 00 33 00 33 00 00 00 05 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 67 00 72 00 61 00 64 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 39 00 29 00 00 00 37 00 00 00 05 00 00 00 14 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 3d 0a d7 a3 70 ed 6b 40 72 00 69 00 73 00 65 00 6d 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 30 00 2e 00 33 00 30 00 34 00 38 00 2a 00 72 00 69 00 73 00 65 00 2c 00 32 00 29 00 00 00 32 00 32 00 33 00 2e 00 34 00 32 00 00 00 07 00 00 00 19 00 00 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\npercent grade\nscramble\ntrue\n1\nrise\nrange(700,800)\n733\ngrade\nrange(6,9)\n7\nrisem\nround(0.3048*rise,2)\n223.42\ncorrect\nround(rise/(grade/100),1)\n10471.4\nerr1\nround(correct*1.2,1)\n12565.7\nerr2\nround(correct*.2,1)\n2094.3\nerr3\nround(correct*1.6,1)\n16754.2"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Label the angles of elevation and depression in the following triangle and calculate their values. 77"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 51147,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of depression|angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "run",
+          "rule": "range(50,95)",
+          "sampleValue": "77"
+        },
+        {
+          "name": "rise",
+          "rule": "range(60,90)",
+          "sampleValue": "64"
+        },
+        {
+          "name": "angleB",
+          "rule": "round(deg(arctan(rise/run)),1)",
+          "sampleValue": "39.7"
+        },
+        {
+          "name": "angleA",
+          "rule": "90-angleB",
+          "sampleValue": "50.3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 51147,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 64 00 65 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 7c 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 78 01 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 53 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 30 00 2c 00 39 00 35 00 29 00 00 00 37 00 37 00 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 50 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 30 00 2c 00 39 00 30 00 29 00 00 00 36 00 34 00 00 00 06 00 00 00 1e 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 d9 43 40 61 00 6e 00 67 00 6c 00 65 00 42 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 64 00 65 00 67 00 28 00 61 00 72 00 63 00 74 00 61 00 6e 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 29 00 29 00 2c 00 31 00 29 00 00 00 33 00 39 00 2e 00 37 00 00 00 06 00 00 00 09 00 00 00 04 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of depression|angle of elevation\nrun\nrange(50,95)\n77\nrise\nrange(60,90)\n64\nangleB\nround(deg(arctan(rise/run)),1)\n39.7\nangleA\n90-angleB\n50.3\n6\nd\nLabel the angles of elevation and depression in the following triangle and calculate their values.\r[[slot]]\nTimes New Roman\nc\n3\n0\n0\n0\n0\n2\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The road through the Rocky Mountains rises from an elevation of 1309 m in Canmore, AB, to the top of Kicking Horse Pass at 1627 m. The run is approximately 94.6 km. If the road were at a constant slope, what would be the percent grade?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 68251,
+        "difficulty": "Difficult",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 68251,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 04 00 00 00 2e 03 00 00 01 00 00 00 eb 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 54 00 68 00 65 00 20 00 72 00 6f 00 61 00 64 00 20 00 74 00 68 00 72 00 6f 00 75 00 67 00 68 00 20 00 74 00 68 00 65 00 20 00 52 00 6f 00 63 00 6b 00 79 00 20 00 4d 00 6f 00 75 00 6e 00 74 00 61 00 69 00 6e 00 73 00 20 00 72 00 69 00 73 00 65 00 73 00 20 00 66 00 72 00 6f 00 6d 00 20 00 61 00 6e 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 20 00 6f 00 66 00 20 00 31 00 33 00 30 00 39 00 20 00 6d 00 20 00 69 00 6e 00 20 00 43 00 61 00 6e 00 6d 00 6f 00 72 00 65 00 2c 00 20 00 41 00 42 00 2c 00 20 00 74 00 6f 00 20 00 74 00 68 00 65 00 20 00 74 00 6f 00 70 00 20 00 6f 00 66 00 20 00 4b 00 69 00 63 00 6b 00 69 00 6e 00 67 00 20 00 48 00 6f 00 72 00 73 00 65 00 20 00 50 00 61 00 73 00 73 00 20 00 61 00 74 00 20 00 31 00 36 00 32 00 37 00 20 00 6d 00 2e 00 20 00 54 00 68 00 65 00 20 00 72 00 75 00 6e 00 20 00 69 00 73 00 20 00",
+          "textPreview": "Difficult\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\npercent grade\nThe road through the Rocky Mountains rises from an elevation of 1309 m in Canmore, AB, to the top of Kicking Horse Pass at 1627 m. The run is approximately 94.6 km. If the road were at a constant slope, what would be the percent grade?\nTimes New Roman\nCalculate the rise.\rrise = 1627 – 1309\rrise = 318 m\r\rConvert the run to metres.\r[[slot]]\r\r[[slot]]\r\rThe grade of the road would be about 0.34%.\nTimes New Roman\nP\nS\nς\n"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Convert the length of the ditch to inches. 3.5 42 The angle of depression of the ditch is about 8"
+      },
+      "answer": {
+        "value": "10.8",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 71166,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of depression"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "run",
+          "rule": "range(2,4,0.25)",
+          "sampleValue": "3.5"
+        },
+        {
+          "name": "rise",
+          "rule": "range(6,12)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "runin",
+          "rule": "run*12",
+          "sampleValue": "42"
+        },
+        {
+          "name": "answer",
+          "rule": "round(deg(arctan(rise/runin)),1)",
+          "sampleValue": "10.8"
+        },
+        {
+          "name": "s",
+          "rule": "X"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 71166,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 64 00 65 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 00 00 74 01 00 00 03 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 0c 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 34 00 2c 00 30 00 2e 00 32 00 35 00 29 00 00 00 33 00 2e 00 35 00 00 00 04 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 20 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 31 00 32 00 29 00 00 00 38 00 00 00 05 00 00 00 06 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 45 40 72 00 75 00 6e 00 69 00 6e 00 00 00 72 00 75 00 6e 00 2a 00 31 00 32 00 00 00 34 00 32 00 00 00 06 00 00 00 20 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 25 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 64 00 65 00 67 00 28 00 61 00 72 00 63 00 74 00 61 00 6e 00 28 00 72 00 69 00 73 00 65 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of depression\n[[slot]]\nrun\nrange(2,4,0.25)\n3.5\nrise\nrange(6,12)\n8\nrunin\nrun*12\n42\nanswer\nround(deg(arctan(rise/runin)),1)\n10.8\nMunir is digging a drainage ditch to prevent water from puddling under his tent. He digs a straight trench that is [[slot]] feet long and drops [[slot]] inches from the level of his tent. What is the angle of depression of this ditch?\nTimes New Roman\ns\nX\nrun\nX\nrise\nb\nConvert the length of the ditch "
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "An airplane takes off with an angle of elevation of 26. If it must clear the 37 -m tall tree at the end of its runway, what length of runway does the plane require?"
+      },
+      "answer": {
+        "value": "75.9",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 75013,
+        "difficulty": "Moderate",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "angle",
+          "rule": "range(21,36)",
+          "sampleValue": "26"
+        },
+        {
+          "name": "rise",
+          "rule": "range(30,40)",
+          "sampleValue": "37"
+        },
+        {
+          "name": "answer",
+          "rule": "round(rise/tan(rad(angle)),1)",
+          "sampleValue": "75.9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 75013,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 26 01 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3a 40 61 00 6e 00 67 00 6c 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 31 00 2c 00 33 00 36 00 29 00 00 00 32 00 36 00 00 00 04 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 42 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 30 00 2c 00 34 00 30 00 29 00 00 00 33 00 37 00 00 00 06 00 00 00 1d 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 f9 52 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 74 00 61 00 6e 00 28 00 72 00 61 00 64 00 28 00 61 00 6e 00 67 00 6c 00 65 00 29 00 29 00 2c 00 31 00 29 00 00 00 37 00 35 00 2e 00 39 00 00 00 e4 03 00 00 01 00 00 00 a2 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\nangle of elevation\nangle\nrange(21,36)\n26\nrise\nrange(30,40)\n37\nanswer\nround(rise/tan(rad(angle)),1)\n75.9\nAn airplane takes off with an angle of elevation of [[slot]]\n. If it must clear the [[slot]]-m tall tree at the end of its runway, what length of runway does the plane require?\nTimes New Roman\n4\nM\nX\nangle\nX\nrise\n.\n[[slot]]\r\rThe plane needs a runway at least [[slot]] m long.\n7Times New Roman\n%\n3\ne"
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Use the Pythagorean theorem. 61 $T_he artificial stream is about 10 ft long.$"
+      },
+      "answer": {
+        "value": "61.8",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 78557,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "Pythagorean theorem"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(6,12)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "run",
+          "rule": "range(55,75)",
+          "sampleValue": "61"
+        },
+        {
+          "name": "rise2",
+          "rule": "rise^2",
+          "sampleValue": "100"
+        },
+        {
+          "name": "run2",
+          "rule": "run^2",
+          "sampleValue": "3721"
+        },
+        {
+          "name": "sum2",
+          "rule": "rise2+run2",
+          "sampleValue": "3821"
+        },
+        {
+          "name": "answer",
+          "rule": "round(sqrt(sum2),1)",
+          "sampleValue": "61.8"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 78557,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 50 00 79 00 74 00 68 00 61 00 67 00 6f 00 72 00 65 00 61 00 6e 00 20 00 74 00 68 00 65 00 6f 00 72 00 65 00 6d 00 00 00 f0 01 00 00 04 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 31 00 32 00 29 00 00 00 31 00 30 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 4e 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 35 00 2c 00 37 00 35 00 29 00 00 00 36 00 31 00 00 00 05 00 00 00 06 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 59 40 72 00 69 00 73 00 65 00 32 00 00 00 72 00 69 00 73 00 65 00 5e 00 32 00 00 00 31 00 30 00 30 00 00 00 04 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 12 ad 40 72 00 75 00 6e 00 32 00 00 00 72 00 75 00 6e 00 5e 00 32 00 00 00 33 00 37 00 32 00 31 00 00 00 04 00 00 00 0a 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nPythagorean theorem\nrise\nrange(6,12)\n10\nrun\nrange(55,75)\n61\nrise2\nrise^2\n100\nrun2\nrun^2\n3721\nsum2\nrise2+run2\n3821\nanswer\nround(sqrt(sum2),1)\n61.8\nTo assist fish in returning to spawning sites up gentle slopes, a rough artificial stream can be built instead of a fish ladder. To cross a dam which is [[slot]] feet high, an artificial stream covers a run of [[slot]] feet. What is the length of the artificial stream?\nTimes New Roman\nX\nris"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the half-width of the roof.\ra = 36 cm 2 a = 18 cm Calculate the top angle of the right triangle. 18 The angle the top of the the bird feeder is double this angle. 12 The angle at the top of the roof is 18"
+      },
+      "answer": {
+        "value": "112.6",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 82649,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of depression"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "width",
+          "rule": "range(30,40,2)",
+          "sampleValue": "36"
+        },
+        {
+          "name": "rise",
+          "rule": "range(8,12)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "run",
+          "rule": "width/2",
+          "sampleValue": "18"
+        },
+        {
+          "name": "halfanswer",
+          "rule": "round(deg(arctan(run/rise)),1)",
+          "sampleValue": "56.3"
+        },
+        {
+          "name": "answer",
+          "rule": "halfanswer*2",
+          "sampleValue": "112.6"
+        },
+        {
+          "name": "triangle",
+          "rule": "-run",
+          "sampleValue": "rise/2"
+        },
+        {
+          "name": "square",
+          "rule": "0",
+          "sampleValue": "-rise/2+2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 82649,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 64 00 65 00 70 00 72 00 65 00 73 00 73 00 69 00 6f 00 6e 00 00 00 d4 01 00 00 05 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 42 40 77 00 69 00 64 00 74 00 68 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 30 00 2c 00 34 00 30 00 2c 00 32 00 29 00 00 00 33 00 36 00 00 00 04 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 28 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 32 00 29 00 00 00 31 00 32 00 00 00 03 00 00 00 07 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 32 40 72 00 75 00 6e 00 00 00 77 00 69 00 64 00 74 00 68 00 2f 00 32 00 00 00 31 00 38 00 00 00 0a 00 00 00 1e 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 66 66 66 66 66 26 4c 40 68 00 61 00 6c 00 66 00 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 64 00 65 00 67 00 28 00 61 00 72 00 63 00 74 00 61 00 6e 00 28 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of depression\nwidth\nrange(30,40,2)\n36\nrise\nrange(8,12)\n12\nrun\nwidth/2\n18\nhalfanswer\nround(deg(arctan(run/rise)),1)\n56.3\nanswer\nhalfanswer*2\n112.6\n/\nJerome is building a bird feeder which will have an aluminum roof with the measurements shown in the diagram. What will be the angle at the top of the roof?\r[[slot]]\nTimes New Roman\n,\n0\n0\n0\n0\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-17",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A 7% grade would be a rise of 7 feet for every 100 feet of horizontal distance. a. What is the slope of a road with a 7% grade? b. Would a stretch of highway where the elevation increases by 580 feet over 7200 feet require a warning sign? What is the grade of this section of road? c. For the same 580 foot elevation increase, what horizontal distance would need to be covered to have a grade of 7%?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 98554,
+        "difficulty": "Moderate",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade|slope"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(550,750,10)",
+          "sampleValue": "580"
+        },
+        {
+          "name": "run",
+          "rule": "range(6800,7500,100)",
+          "sampleValue": "7200"
+        },
+        {
+          "name": "grade",
+          "rule": "round(rise/run*100,1)",
+          "sampleValue": "8.1"
+        },
+        {
+          "name": "ansc",
+          "rule": "round(rise*100/7,1)",
+          "sampleValue": "8286"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 98554,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 7c 00 73 00 6c 00 6f 00 70 00 65 00 00 00 92 01 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 20 82 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 35 00 30 00 2c 00 37 00 35 00 30 00 2c 00 31 00 30 00 29 00 00 00 35 00 38 00 30 00 00 00 03 00 00 00 14 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 20 bc 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 38 00 30 00 30 00 2c 00 37 00 35 00 30 00 30 00 2c 00 31 00 30 00 30 00 29 00 00 00 37 00 32 00 30 00 30 00 00 00 05 00 00 00 15 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 20 40 67 00 72 00 61 00 64 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 2a 00 31 00 30 00 30 00 2c 00 31 00 29 00 00 00 38 00 2e 00 31 00 00 00 04 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\npercent grade|slope\nrise\nrange(550,750,10)\n580\nrun\nrange(6800,7500,100)\n7200\ngrade\nround(rise/run*100,1)\n8.1\nansc\nround(rise*100/7,1)\n8286\nHighways with a grade higher than 7% usually have signs for trucks and other heavy vehicles to warn the drivers of the change in grade. A 7% grade would be a rise of 7 feet for every 100 feet of horizontal distance. \r\ra. What is the slope of a road with a 7% grade?\r\rb. Would a stretch of"
+        }
+      ]
+    },
+    {
+      "id": "q-18",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A designer of dog agility courses is planning a ramp which will have a 34 % grade and rise to a platform at 6.5 feet. How long will the ramp be?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 104685,
+        "difficulty": "Moderate",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade|Pythagorean theorem"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "grade",
+          "rule": "range(30,40)",
+          "sampleValue": "34"
+        },
+        {
+          "name": "rise",
+          "rule": "range(5,6.5,.5)",
+          "sampleValue": "6.5"
+        },
+        {
+          "name": "run",
+          "rule": "round(rise*100/grade,1)",
+          "sampleValue": "19.1"
+        },
+        {
+          "name": "rise2",
+          "rule": "rise^2",
+          "sampleValue": "42.25"
+        },
+        {
+          "name": "run2",
+          "rule": "run^2",
+          "sampleValue": "364.81"
+        },
+        {
+          "name": "sum2",
+          "rule": "rise2+run2",
+          "sampleValue": "407.06"
+        },
+        {
+          "name": "length",
+          "rule": "round(sqrt(sum2),1)",
+          "sampleValue": "20.2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 104685,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 7c 00 50 00 79 00 74 00 68 00 61 00 67 00 6f 00 72 00 65 00 61 00 6e 00 20 00 74 00 68 00 65 00 6f 00 72 00 65 00 6d 00 00 00 74 02 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 41 40 67 00 72 00 61 00 64 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 30 00 2c 00 34 00 30 00 29 00 00 00 33 00 34 00 00 00 04 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1a 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 36 00 2e 00 35 00 2c 00 2e 00 35 00 29 00 00 00 36 00 2e 00 35 00 00 00 03 00 00 00 17 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 19 33 40 72 00 75 00 6e 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2a 00 31 00 30 00 30 00 2f 00 67 00 72 00 61 00 64 00 65 00 2c 00 31 00 29 00 00 00 31 00 39 00 2e 00 31 00 00 00 05 00 00 00 06 00 00 00 05 00 00 00 00 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\npercent grade|Pythagorean theorem\ngrade\nrange(30,40)\n34\n[[slot]]\nrise\nrange(5,6.5,.5)\n6.5\nrun\nround(rise*100/grade,1)\n19.1\nrise2\nrise^2\n42.25\nrun2\nrun^2\n364.81\nsum2\nrise2+run2\n407.06\nlength\nround(sqrt(sum2),1)\n20.2\nθ\nA designer of dog agility courses is planning a ramp which will have a [[slot]]% grade and rise to a platform at [[slot]] feet. How long will the ramp be?"
+        }
+      ]
+    },
+    {
+      "id": "q-19",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "For a new trail, they must decide between wood chips, gravel, and packed earth. Use the information below to determine what the best choices would be for each section of trail. Angle of elevation 0–9 Packed earth Requires regular traffic; can be slippery in wet weather. 10–24 Reasonable grip, minimal plant growth, easy to maintain. 25–35 Wood chips Sticky grip, minimal plant growth, slippery in wet weather. a. The first section of trail ascends a steep hill, with a rise of 12 m over a run of 109 m. What is the angle of elevation? What would be the best footing for this section? b. After a 2-km flat section, the trail descends to a lake, dropping 12 m over a 109 m run. What is the angle of depression? What would be the best footing for this section? 7Times New Roman 6.3 6.3 Z a. 24 The angle of elevation is about 49, so the best footing would be packed earth. b. 24 The angle of depression is about 49, so the best footing would be wood chips."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 109859,
+        "difficulty": "Easy",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise1",
+          "rule": "range(12,18)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "run1",
+          "rule": "range(102,110)",
+          "sampleValue": "109"
+        },
+        {
+          "name": "angle1",
+          "rule": "round(deg(arctan(rise1/run1)),1)",
+          "sampleValue": "6.3"
+        },
+        {
+          "name": "rise2",
+          "rule": "range(24,32)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "run2",
+          "rule": "range(45,50)",
+          "sampleValue": "49"
+        },
+        {
+          "name": "angle2",
+          "rule": "round(deg(arctan(rise2/run2)),1)",
+          "sampleValue": "26.1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 109859,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 58 02 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 28 40 72 00 69 00 73 00 65 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 31 00 38 00 29 00 00 00 31 00 32 00 00 00 04 00 00 00 0e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 5b 40 72 00 75 00 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 32 00 2c 00 31 00 31 00 30 00 29 00 00 00 31 00 30 00 39 00 00 00 06 00 00 00 20 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 33 33 33 33 33 33 19 40 61 00 6e 00 67 00 6c 00 65 00 31 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 64 00 65 00 67 00 28 00 61 00 72 00 63 00 74 00 61 00 6e 00 28 00 72 00 69 00 73 00 65 00 31 00 2f 00 72 00 75 00 6e 00 31 00 29 00 29 00 2c 00 31 00 29 00 00 00 36 00 2e 00 33 00 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 72 00 69 00",
+          "textPreview": "Easy\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\nangle of elevation\nrise1\nrange(12,18)\n12\nrun1\nrange(102,110)\n109\nangle1\nround(deg(arctan(rise1/run1)),1)\n6.3\nrise2\nrange(24,32)\n24\nrun2\nrange(45,50)\n49\nangle2\nround(deg(arctan(rise2/run2)),1)\n26.1\nProvincial park authorities are responsible for choosing the type of material used as footing on their hiking trails. For a new trail, they must decide between wood chips, gravel, and packed earth. Use the information below to determine wha"
+        }
+      ]
+    },
+    {
+      "id": "q-20",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "A wheelchair ramp is being constructed to allow access to a doorway which is 12 feet above street level. $a_. If one straight ramp is built at an angle of 4, how far back from the building will the ramp need to begin?$ $b_. If the ramp is built with a switchback, so that the angle of elevation is 4 and the ramp changes directions in exactly the middle, how far back will the ramp begin?$ 7Times New Roman a. 12 The ramp will need to start 18.8 ft from the building. b. 18.8 Divide the run by 2. 9.5 2 = 4 ft If the ramp changes direction in the middle, it will begin 4 ft back from the door."
+      },
+      "answer": {
+        "value": "18.8",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 118585,
+        "difficulty": "Moderate",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "angle of elevation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "angle",
+          "rule": "range(9,14)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "rise",
+          "rule": "range(3.5,5.5,.5)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "angle2",
+          "rule": "range(8.5,14)",
+          "sampleValue": "9.5"
+        },
+        {
+          "name": "answer",
+          "rule": "round(rise/tan(rad(angle)),1)",
+          "sampleValue": "18.8"
+        },
+        {
+          "name": "answer2",
+          "rule": "round(rise/tan(rad(angle2)),1)",
+          "sampleValue": "23.9"
+        },
+        {
+          "name": "answerb",
+          "rule": "answer2/2",
+          "sampleValue": "11.95"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 118585,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 61 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 65 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 00 00 5e 02 00 00 05 00 00 00 0b 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 28 40 61 00 6e 00 67 00 6c 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 39 00 2c 00 31 00 34 00 29 00 00 00 31 00 32 00 00 00 04 00 00 00 11 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2e 00 35 00 2c 00 35 00 2e 00 35 00 2c 00 2e 00 35 00 29 00 00 00 34 00 00 00 06 00 00 00 0d 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 23 40 61 00 6e 00 67 00 6c 00 65 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2e 00 35 00 2c 00 31 00 34 00 29 00 00 00 39 00 2e 00 35 00 00 00 06 00 00 00 1d 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 cd cc cc cc cc cc 32 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00 75 00 6e 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\nangle of elevation\nangle\nrange(9,14)\n12\nrise\nrange(3.5,5.5,.5)\n4\nangle2\nrange(8.5,14)\n9.5\nanswer\nround(rise/tan(rad(angle)),1)\n18.8\nanswer2\nround(rise/tan(rad(angle2)),1)\n23.9\nanswerb\nanswer2/2\n11.95\nA wheelchair ramp is being constructed to allow access to a doorway which is [[slot]] feet above street level.\r\ra. If one straight ramp is built at an angle of [[slot]]\n, how far back from the building will the ramp need to beg"
+        }
+      ]
+    },
+    {
+      "id": "q-21",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "What is the slope of this hill? b. The racers descend 300 m of elevation. What is the run of the course? c. What is the length of the hillside?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 125497,
+        "difficulty": "Difficult",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade|Pythagorean theorem"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "grade",
+          "rule": "range(39,45)",
+          "sampleValue": "40"
+        },
+        {
+          "name": "slope",
+          "rule": "grade/100",
+          "sampleValue": "0.4"
+        },
+        {
+          "name": "rise",
+          "rule": "range(280,340,10)",
+          "sampleValue": "320"
+        },
+        {
+          "name": "run",
+          "rule": "round(rise/slope,1)",
+          "sampleValue": "800"
+        },
+        {
+          "name": "rise2",
+          "rule": "rise^2",
+          "sampleValue": "102400"
+        },
+        {
+          "name": "run2",
+          "rule": "run^2",
+          "sampleValue": "640000"
+        },
+        {
+          "name": "sum2",
+          "rule": "rise2+run2",
+          "sampleValue": "742400"
+        },
+        {
+          "name": "length",
+          "rule": "round(sqrt(sum2),1)",
+          "sampleValue": "861.6"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 125497,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 7c 00 50 00 79 00 74 00 68 00 61 00 67 00 6f 00 72 00 65 00 61 00 6e 00 20 00 74 00 68 00 65 00 6f 00 72 00 65 00 6d 00 00 00 c2 02 00 00 05 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 44 40 67 00 72 00 61 00 64 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 39 00 2c 00 34 00 35 00 29 00 00 00 34 00 30 00 00 00 05 00 00 00 09 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 d9 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 67 00 72 00 61 00 64 00 65 00 2f 00 31 00 30 00 30 00 00 00 30 00 2e 00 34 00 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 74 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 38 00 30 00 2c 00 33 00 34 00 30 00 2c 00 31 00 30 00 29 00 00 00 33 00 32 00 30 00 00 00 03 00 00 00 13 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Difficult\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\npercent grade|Pythagorean theorem\ngrade\nrange(39,45)\n40\nslope\ngrade/100\n0.4\nrise\nrange(280,340,10)\n320\nrun\nround(rise/slope,1)\n800\nrise2\nrise^2\n102400\nrun2\nrun^2\n640000\nsum2\nrise2+run2\n742400\nlength\nround(sqrt(sum2),1)\n861.6"
+        }
+      ]
+    },
+    {
+      "id": "q-22",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A library is 0.06 m long and the gutters slope downwards from the centre of the building with a drop of 24 cm. What is the percent grade of the gutters? b. The convenience store next door has gutters with the same percent grade. If the store is 8 m long, what is the drop of the gutter, in centimetres? 7Times New Roman a. 0.25 The grade of the gutters is about 0.25 %. b.\tConvert the store s length to centimetres. 9 900 The gutter on the convenience store will drop 0.25 cm."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 132934,
+        "difficulty": "Moderate",
+        "reference": "A-SO2|A-SO1",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "run",
+          "rule": "range(22,28)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "rise",
+          "rule": "range(3,8)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "risem",
+          "rule": "rise/100",
+          "sampleValue": "0.06"
+        },
+        {
+          "name": "grade",
+          "rule": "round(rise/run,2)",
+          "sampleValue": "0.25"
+        },
+        {
+          "name": "run2",
+          "rule": "range(7,9,.5)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "run2cm",
+          "rule": "run2*100",
+          "sampleValue": "900"
+        },
+        {
+          "name": "rise2",
+          "rule": "run2cm*grade/100",
+          "sampleValue": "2.25"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 132934,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 7c 00 41 00 2d 00 53 00 4f 00 31 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 54 02 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 32 00 2c 00 32 00 38 00 29 00 00 00 32 00 34 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 38 00 29 00 00 00 36 00 00 00 05 00 00 00 08 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 b8 1e 85 eb 51 b8 ae 3f 72 00 69 00 73 00 65 00 6d 00 00 00 72 00 69 00 73 00 65 00 2f 00 31 00 30 00 30 00 00 00 30 00 2e 00 30 00 36 00 00 00 05 00 00 00 11 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 d0 3f 67 00 72 00 61 00 64 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 2c 00 32 00 29 00 00 00 30 00 2e 00 32 00 35 00 00 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2|A-SO1\nGrade, Angle of Elevation, and Distance\npercent grade\nrun\nrange(22,28)\n24\nrise\nrange(3,8)\n6\nrisem\nrise/100\n0.06\ngrade\nround(rise/run,2)\n0.25\nrun2\nrange(7,9,.5)\n9\nrun2cm\nrun2*100\n900\nrise2\nrun2cm*grade/100\n2.25\nGutters on buildings are installed at an angle to collect and funnel water away from pedestrians on the sidewalks.\r\ra. A library is [[slot]] m long and the gutters slope downwards from the centre of the building with a drop of [[slot]] cm. What is the perce"
+        }
+      ]
+    },
+    {
+      "id": "q-23",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A boardwalk along a lakeshore is built to slope towards the lake to allow for drainage. The boardwalk slopes 1.5 inches downward for every 3 feet of horizontal width. a. How many inches of drop are there over the entire 13 -foot width of the boardwalk? b. What is the percent grade of this boardwalk?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "1.2 Grade, Elev., Distance",
+        "sectionName": "1.2",
+        "sourceOffset": 139578,
+        "difficulty": "Moderate",
+        "reference": "A-SO2",
+        "topic": "Grade, Angle of Elevation, and Distance",
+        "title": "percent grade"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rise",
+          "rule": "range(0.5,1.5,.5)",
+          "sampleValue": "1.5"
+        },
+        {
+          "name": "run",
+          "rule": "range(1.5,3,.5)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "runin",
+          "rule": "run*12",
+          "sampleValue": "36"
+        },
+        {
+          "name": "slope",
+          "rule": "round(rise/runin,3)",
+          "sampleValue": "0.042"
+        },
+        {
+          "name": "runa",
+          "rule": "range(13,17)",
+          "sampleValue": "13"
+        },
+        {
+          "name": "runain",
+          "rule": "runa*12",
+          "sampleValue": "156"
+        },
+        {
+          "name": "risea",
+          "rule": "round(slope*runain,2)",
+          "sampleValue": "6.55"
+        },
+        {
+          "name": "grade",
+          "rule": "slope*100",
+          "sampleValue": "4.2"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 139578,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 32 00 00 00 41 00 6c 00 67 00 65 00 62 00 72 00 61 00 00 00 41 00 2d 00 53 00 4f 00 32 00 00 00 47 00 72 00 61 00 64 00 65 00 2c 00 20 00 41 00 6e 00 67 00 6c 00 65 00 20 00 6f 00 66 00 20 00 45 00 6c 00 65 00 76 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 61 00 6e 00 64 00 20 00 44 00 69 00 73 00 74 00 61 00 6e 00 63 00 65 00 00 00 70 00 65 00 72 00 63 00 65 00 6e 00 74 00 20 00 67 00 72 00 61 00 64 00 65 00 00 00 c0 02 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f8 3f 72 00 69 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 35 00 2c 00 31 00 2e 00 35 00 2c 00 2e 00 35 00 29 00 00 00 31 00 2e 00 35 00 00 00 03 00 00 00 0f 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 72 00 75 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2e 00 35 00 2c 00 33 00 2c 00 2e 00 35 00 29 00 00 00 33 00 00 00 05 00 00 00 06 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 42 40 72 00 75 00 6e 00 69 00 6e 00 00 00 72 00 75 00 6e 00 2a 00 31 00 32 00 00 00 33 00 36 00 00 00 05 00 00 00 13 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 1b 2f dd 24 06 81 a5 3f 73 00 6c 00 6f 00 70 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 72 00 69 00 73 00 65 00 2f 00 72 00 75 00 6e 00 69 00 6e 00 2c 00 33 00 29 00 00 00 30 00 2e 00",
+          "textPreview": "Moderate\n1.2\nAlgebra\nA-SO2\nGrade, Angle of Elevation, and Distance\npercent grade\nrise\nrange(0.5,1.5,.5)\n1.5\n[[slot]]\nrun\nrange(1.5,3,.5)\n3\nrunin\nrun*12\n36\nslope\nround(rise/runin,3)\n0.042\nruna\nrange(13,17)\n13\nrunain\nruna*12\n156\nrisea\nround(slope*runain,2)\n6.55\ngrade\nslope*100"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 14069 to 147005 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 23 candidate v06 question string clusters."
+    }
+  ],
+  "stats": {
+    "questionCount": 23,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 23
+  }
+}

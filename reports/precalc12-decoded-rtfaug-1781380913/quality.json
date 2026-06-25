@@ -1,0 +1,242 @@
+{
+  "generatedAt": "2026-06-13T20:01:54.036Z",
+  "inputDir": "reports/precalc12-decoded-rtfaug-1781380913",
+  "chapterCount": 11,
+  "questionCount": 736,
+  "notDecodedBodyCount": 7,
+  "embeddedBodyCount": 3,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 532,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 736,
+    "suspect": 0,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 71,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 03.json",
+      "questions": 64,
+      "notDecodedBodies": 2,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 30,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 42,
+          "id": "q-41",
+          "title": "factor theorem | factor | integral zero theorem | grouping | rational zero theorem",
+          "body": "A variety of factoring techniques is required. Factor $2x3 + 5x2$ – $14x$ – $8$ fully [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 51,
+          "id": "q-54",
+          "title": "factor theorem | factor",
+          "body": "Show that x $+ a$ is a factor of the polynomial $P(x) = (x + a)4 + (x + c)4$ – (a – c)$4$. [DIAGRAM NEEDED]"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 04.json",
+      "questions": 67,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 29,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 29,
+          "id": "q-29",
+          "title": "trigonometric ratios",
+          "body": "For a point on the unit circle, the [embedded object] can be determined using the ____________________."
+        }
+      ]
+    },
+    {
+      "file": "Chapter 05.json",
+      "questions": 69,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 37,
+      "badChoices": 0,
+      "quality": {
+        "clean": 69,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 06.json",
+      "questions": 70,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 69,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 1,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 68,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "body": "a pattern of growth in which each term is multiplied by a constant amount [embedded object] to produce the next term"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 08.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 09.json",
+      "questions": 65,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 58,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 10.json",
+      "questions": 66,
+      "notDecodedBodies": 0,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 83,
+      "badChoices": 0,
+      "quality": {
+        "clean": 66,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": []
+    },
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 2,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "body": "Let s represent the number of sandwich choices, c the number of cheese choices, v the number of vegetable choices, and a the number of sauce choices. Let T represent the total number of choices. [embedded object] There are $3528$ different choices."
+        },
+        {
+          "number": 37,
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "body": "Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number of ways the letters in COMBINATION can be arranged. $P = 11!$ [DIAGRAM NEEDED] There are more arrangements for PERMUTATION, so Sun Eui is correct."
+        }
+      ]
+    }
+  ]
+}

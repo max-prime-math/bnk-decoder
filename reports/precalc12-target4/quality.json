@@ -1,0 +1,178 @@
+{
+  "generatedAt": "2026-06-13T18:55:53.958Z",
+  "inputDir": "reports/precalc12-target4",
+  "chapterCount": 3,
+  "questionCount": 204,
+  "notDecodedBodyCount": 18,
+  "embeddedBodyCount": 4,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 140,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 202,
+    "suspect": 2,
+    "garbage": 0,
+    "averageScore": 94
+  },
+  "chapters": [
+    {
+      "file": "Chapter 01.json",
+      "questions": 71,
+      "notDecodedBodies": 4,
+      "embeddedBodies": 0,
+      "slotBodies": 0,
+      "inlineObjects": 47,
+      "badChoices": 0,
+      "quality": {
+        "clean": 70,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 95
+      },
+      "bodyIssues": [
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "translation | stretch | reflection",
+          "body": "cause the graph of a function to move locations without changing shape., cause the graph of a function to change shape without changing the orientation of the graph., create a mirror image of the base function. cause the graph of a function to change shape without changing the orientation of the graph. Translations, Stretches, Reflections ____________________ are transformations that [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 46,
+          "id": "q-46",
+          "title": "stretch",
+          "body": "For each $g(x),$ describe the transformation(s) from the base function $f(x) = x^2$.\ra) $g(x) = 1 / 2 x^2$ b) $g(x) = x^3 2$ c) [DIAGRAM: variables (stretch)]"
+        },
+        {
+          "number": 47,
+          "id": "q-47",
+          "title": "translation | stretch | reflection",
+          "body": "For each $g(x),$ describe, in the appropriate order, the combination of transformations that must be applied to the base function $f(x) = x$.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] c) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "horizontal translation | vertical translation",
+          "body": "The graph of $f(x) = x^2$ is transformed to the graph of [DIAGRAM NEEDED].\ra) Describe the two translations represented by this transformation.\rb) Determine three points on the base function. Horizontally translate and then vertically translate the points. What are the three resulting image points?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 02.json",
+      "questions": 65,
+      "notDecodedBodies": 4,
+      "embeddedBodies": 3,
+      "slotBodies": 0,
+      "inlineObjects": 42,
+      "badChoices": 0,
+      "quality": {
+        "clean": 65,
+        "suspect": 0,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "translations | stretches",
+          "body": "The variable [embedded value] in the function $f(x) = a b(x - h)$ represents a ________________."
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "algebraic solution",
+          "body": "Jim states that the equations [embedded object] and [DIAGRAM NEEDED] have the same solution. Is he correct? Justify your reasoning."
+        },
+        {
+          "number": 56,
+          "id": "q-56",
+          "title": "graphical solution",
+          "body": "Solve the equation [embedded math expression] graphically."
+        },
+        {
+          "number": 65,
+          "id": "q-65",
+          "title": "algebraic solution",
+          "body": "For the function, N represents the number, in thousands, of flowers pollinated and t represents the time, in days.\ra) If there are $10 000$ flowers, how long will it take to pollinate all of the flowers?\rb) Sun$-$Eui believes that the second generation of bees can reduce the time to pollinate the flowers by half by changing the function to [DIAGRAM NEEDED]. Is she correct? Justify your reasoning.\rc) Should Sun$-$Eui continue with the project?"
+        }
+      ]
+    },
+    {
+      "file": "Chapter 07.json",
+      "questions": 68,
+      "notDecodedBodies": 10,
+      "embeddedBodies": 1,
+      "slotBodies": 0,
+      "inlineObjects": 51,
+      "badChoices": 0,
+      "quality": {
+        "clean": 67,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 94
+      },
+      "bodyIssues": [
+        {
+          "number": 26,
+          "id": "q-26",
+          "title": "half-life | exponential decay",
+          "body": "The half$-$life of a radioactive element can be modelled by $32,$ where $45$ is the initial mass of the element; $M = M_0 1 c t b$ is the elapsed time, in hours; and [DIAGRAM: variables (c, b, num)] is the mass that remains after time [DIAGRAM: variables (c, b, num)]. The half$-$life of the element is"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "transformations of exponential functions",
+          "body": "For the function $y = b kx$, if k $< 0,$ the graph of the function is ____________________ in the ____________________$-$axis, when compared to the graph of [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "exponential growth | exponential decay",
+          "body": "a pattern of growth in which each term is multiplied by a constant amount [embedded object] to produce the next term"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "increasing | decreasing | exponential function",
+          "body": "an exponential function of the form $y = a c x$, where a $> 0$ and [DIAGRAM NEEDED] c [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "asymptote | exponential function",
+          "body": "the horizontal asymptote of an exponential function of the form [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "transformations of exponential functions",
+          "body": "occurs for the graph of $y = a c b(x - h) + k$ when [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 41,
+          "id": "q-41",
+          "title": "domain | range | intercepts | exponential function",
+          "body": "Sketch an exponential function with all of the given conditions: domain $y = - 4 1 / 2^(x)$ range [DIAGRAM NEEDED] $y-$intercept of –$4$ no $x-$intercept the function is always increasing"
+        },
+        {
+          "number": 44,
+          "id": "q-44",
+          "title": "graph | modelling | exponential function",
+          "body": "Match each exponential scatter plot with the corresponding equation of its curve of best fit.\ra) $y = 2 1.6^(x)$ b) $y = 40 0.6^(x)$ c) $y = 10 1.8^(x)$ i) [DIAGRAM NEEDED] ii) [DIAGRAM NEEDED] iii) [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 45,
+          "id": "q-45",
+          "title": "modelling | exponential function",
+          "body": "The scatter plot shows how his money has grown over time. [DIAGRAM NEEDED] a) Do the data show an exponential trend? Explain your reasoning.\rb) Estimate values of a and b to develop a model for the information of the form $V t = ab t$, for t in years.\rc) Use your model to predict the expected value of Michael s investment in $30$ years.\rd) How does the result in part c) illustrate the power of exponential growth?"
+        },
+        {
+          "number": 54,
+          "id": "q-54",
+          "title": "evaluate exponential functions",
+          "body": "When interest is compounded semi$-$annually, the formula used to find the amount of an investment is $A = P 1 + i 2 2n A = P 1 + i 4 4n B$, where A represents the amount; P represents the principal invested; i represents the annual interest rate, as a decimal; and n represents the number of years of the investment.\ra) Use the formula to determine the amount that each investment would be worth.\ri) $5000 at a rate of 4%, compounded semi-annually, for 10 years\rii) $$4000$ at a rate of $5$%, compounded semi$-$annually, for $20$ years\rb) If interest is compounded quarterly, the formula becomes [DIAGRAM NEEDED]. Use the formula to determine the amount that the investments from part a) would be worth if interest were compounded quarterly.\rc) Explain the difference in the answers for parts a) and b)."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "source": {
+    "path": "ignore/decoder-lab/narr-01.bnk",
+    "byteLength": 523,
+    "inflatedByteLength": 7646,
+    "header": {
+      "recognized": true,
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "rawText": "\\x1aFSCBNK#W#06#00#"
+    }
+  },
+  "summary": {
+    "recordCount": 0,
+    "inlineSlotCount": 0,
+    "recordsWithSlots": 0,
+    "recordsWithSlotsWithoutRefs": 0,
+    "variableCount": 0,
+    "visibleChoiceCount": 0,
+    "slotClassCounts": {},
+    "layoutCounts": {},
+    "difficultyCounts": {}
+  },
+  "records": []
+}

@@ -1,0 +1,1830 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/MathWorks 10/Ch1-Unit Pricing, Currency Exch/1.1-Proportional Reasoning.bnk",
+    "byteLength": 12928,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 12912,
+    "inflatedByteLength": 122283
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "How long will it take him to type 2800 words? Round to the nearest minute. a. 27 minutes c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "27"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "33"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "41"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "40"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rate",
+          "rule": "range(25,90,5)",
+          "sampleValue": "85"
+        },
+        {
+          "name": "total",
+          "rule": "range(1000,3000,100)",
+          "sampleValue": "2800"
+        },
+        {
+          "name": "correct",
+          "rule": "round(total/rate,0)",
+          "sampleValue": "33"
+        },
+        {
+          "name": "err1",
+          "rule": "round(total/(0.8*rate),0)",
+          "sampleValue": "41"
+        },
+        {
+          "name": "err2",
+          "rule": "round(total/(1.2*rate),0)",
+          "sampleValue": "27"
+        },
+        {
+          "name": "err3",
+          "rule": "round(1.2*total/rate,0)",
+          "sampleValue": "40"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 b0 02 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 55 40 72 00 61 00 74 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 39 00 30 00 2c 00 35 00 29 00 00 00 38 00 35 00 00 00 05 00 00 00 14 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 e0 a5 40 74 00 6f 00 74 00 61 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 30 00 30 00 2c 00 33 00 30 00 30 00 30 00 2c 00 31 00 30 00 30 00 29 00 00 00 32 00 38 00 30 00 30 00 00 00 07 00 00 00 13 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 40 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 6f 00 74 00 61 00 6c 00 2f 00 72 00 61 00 74 00 65 00 2c 00 30 00 29 00 00 00 33 00 33 00 00 00 04 00 00 00 19 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 44 40 65 00 72 00 72 00 31 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 6f 00 74 00 61 00 6c 00 2f 00 28 00 30 00 2e 00 38 00 2a 00 72 00 61 00 74 00 65 00 29 00 2c 00 30 00 29 00 00 00 34 00 31 00 00 00 04 00 00 00 19 00 00 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\nrate\nrange(25,90,5)\n85\ntotal\nrange(1000,3000,100)\n2800\ncorrect\nround(total/rate,0)\n33\nerr1\nround(total/(0.8*rate),0)\n41\nerr2\nround(total/(1.2*rate),0)\n27\nerr3\nround(1.2*total/rate,0)\n40\nscramble\ntrue\n1\nSamir can type [[slot]] words per minute. How long will it take him to type [[slot]] words? Round to the nearest minute.\na.\n[[slot]] minutes"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A dirt bike w$i_th a 2-stroke engine requires 15 L of gas to be mixed with 1.5 L of oil. How much oil will you need to mix with 25 L of gas to fill up your dirt bike? Round to 1 decimal place.$ a. 250.0 L of oil c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "250.0"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.9"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "2.5"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3.0"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 8326,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "fuel",
+          "rule": "range(14,18,1)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "tank",
+          "rule": "range(20,26,1)",
+          "sampleValue": "25"
+        },
+        {
+          "name": "oil",
+          "rule": "range(0.5,1.5,0.5)",
+          "sampleValue": "1.5"
+        },
+        {
+          "name": "correct",
+          "rule": "round(tank*oil/fuel,1)",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "err1",
+          "rule": "round(tank*fuel/oil,1)",
+          "sampleValue": "250.0"
+        },
+        {
+          "name": "err2",
+          "rule": "round(oil*fuel/tank,1)",
+          "sampleValue": "0.9"
+        },
+        {
+          "name": "err3",
+          "rule": "round(oil*tank*1.2/fuel,1)",
+          "sampleValue": "3.0"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 8326,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 08 03 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2e 40 66 00 75 00 65 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 34 00 2c 00 31 00 38 00 2c 00 31 00 29 00 00 00 31 00 35 00 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 39 40 74 00 61 00 6e 00 6b 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 2c 00 32 00 36 00 2c 00 31 00 29 00 00 00 32 00 35 00 00 00 03 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f8 3f 6f 00 69 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 30 00 2e 00 35 00 2c 00 31 00 2e 00 35 00 2c 00 30 00 2e 00 35 00 29 00 00 00 31 00 2e 00 35 00 00 00 07 00 00 00 16 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 00 00 00 00 00 00 04 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 61 00 6e 00 6b 00 2a 00 6f 00 69 00 6c 00 2f 00 66 00 75 00 65 00 6c 00 2c 00 31 00 29 00 00 00 32 00 2e 00 35 00 00 00 04 00 00 00 16 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nfuel\nrange(14,18,1)\n15\ntank\nrange(20,26,1)\n25\noil\nrange(0.5,1.5,0.5)\n1.5\ncorrect\nround(tank*oil/fuel,1)\n2.5\nerr1\nround(tank*fuel/oil,1)\n250.0\nerr2\nround(oil*fuel/tank,1)\n0.9\nerr3\nround(oil*tank*1.2/fuel,1)\n3.0\nscramble\ntrue\n1"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If her pace stays the same, how long will it take her to run 5 km? Round to 2 decimal places. a. 15.56 minutes c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "15.56"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "12.45"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "17.12"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "18.67"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 12444,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "minutes",
+          "rule": "range(4,5,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "seconds",
+          "rule": "range(10,50,10)",
+          "sampleValue": "40"
+        },
+        {
+          "name": "mins",
+          "rule": "minutes*60 + seconds",
+          "sampleValue": "280"
+        },
+        {
+          "name": "rate",
+          "rule": "1500/mins",
+          "sampleValue": "5.357142857143"
+        },
+        {
+          "name": "err1",
+          "rule": "round(correct*1.2,2)",
+          "sampleValue": "18.67"
+        },
+        {
+          "name": "err2",
+          "rule": "round(correct*.8,2)",
+          "sampleValue": "12.45"
+        },
+        {
+          "name": "err",
+          "rule": "round(correct *1.1,2)",
+          "sampleValue": "17.12"
+        },
+        {
+          "name": "correct",
+          "rule": "round(mins*5/1.5/60,2)",
+          "sampleValue": "15.56"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 12444,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 70 03 00 00 07 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6d 00 69 00 6e 00 75 00 74 00 65 00 73 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 35 00 2c 00 31 00 29 00 00 00 34 00 00 00 07 00 00 00 0f 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 44 40 73 00 65 00 63 00 6f 00 6e 00 64 00 73 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 2c 00 35 00 30 00 2c 00 31 00 30 00 29 00 00 00 34 00 30 00 00 00 04 00 00 00 14 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 71 40 6d 00 69 00 6e 00 73 00 00 00 6d 00 69 00 6e 00 75 00 74 00 65 00 73 00 2a 00 36 00 30 00 20 00 2b 00 20 00 73 00 65 00 63 00 6f 00 6e 00 64 00 73 00 00 00 32 00 38 00 30 00 00 00 04 00 00 00 09 00 00 00 0e 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 db b6 6d db b6 6d 15 40 72 00 61 00 74 00 65 00 00 00 31 00 35 00 30 00 30 00 2f 00 6d 00 69 00 6e 00 73 00 00 00 35 00 2e 00 33 00 35 00 37 00 31 00 34 00 32 00 38 00 35 00 37 00 31 00 34 00 33 00 00 00 04 00 00 00 14 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\nminutes\nrange(4,5,1)\n4\n[[slot]]\nseconds\nrange(10,50,10)\n40\nmins\nminutes*60 + seconds\n280\nrate\n1500/mins\n5.357142857143\nerr1\nround(correct*1.2,2)\n18.67\nerr2\nround(correct*.8,2)\n12.45\nerr\nround(correct *1.1,2)\n17.12\nscramble\ntrue"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If you want to make 10 cups of juice, how much concentrate and water do you need? Round to 1 decimal place. a. 6.7 cups of water, 3.3 cups of concentrate b. 0.6 cups of concentrate, 2.0 cups of water c. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "2.0"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "8.0"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 16420,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "juice",
+          "rule": "range(3,6,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "water",
+          "rule": "range(1,3,1)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "total",
+          "rule": "range(8,12,1)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "answerjuice",
+          "rule": "round(juice/(juice+water)*total,1)",
+          "sampleValue": "6.7"
+        },
+        {
+          "name": "answerwater",
+          "rule": "round(water/(juice+water)*total,1)",
+          "sampleValue": "3.3"
+        },
+        {
+          "name": "err1",
+          "rule": "round(juice/water,1)",
+          "sampleValue": "2.0"
+        },
+        {
+          "name": "err2",
+          "rule": "round(water/(water+juice)*1.2,1)",
+          "sampleValue": "0.4"
+        },
+        {
+          "name": "err3",
+          "rule": "round(juice/(juice+water)*0.9,1)",
+          "sampleValue": "0.6"
+        },
+        {
+          "name": "err4",
+          "rule": "total - err1",
+          "sampleValue": "8.0"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 16420,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 fe 04 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6a 00 75 00 69 00 63 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 2c 00 31 00 29 00 00 00 36 00 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 77 00 61 00 74 00 65 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 33 00 2c 00 31 00 29 00 00 00 33 00 00 00 00 00 00 00 0b 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6a 00 75 00 69 00 63 00 65 00 3e 00 77 00 61 00 74 00 65 00 72 00 00 00 68 00 05 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 74 00 6f 00 74 00 61 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 32 00 2c 00 31 00 29 00 00 00 31 00 30 00 00 00 0b 00 00 00 22 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 cd cc cc cc cc cc 1a 40 61 00 6e 00 73 00 77 00 65 00 72 00 6a 00 75 00 69 00 63 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 6a 00 75 00 69 00 63 00 65 00 2f 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\njuice\nrange(3,6,1)\n6\nwater\nrange(1,3,1)\n3\njuice>water\nh\ntotal\nrange(8,12,1)\n10\n\"\nanswerjuice\nround(juice/(juice+water)*total,1)\n6.7\n\"\nanswerwater\nround(water/(juice+water)*total,1)\n3.3\nerr1\nround(juice/water,1)\n2.0\nerr2\nround(water/(water+juice)*1.2,1)"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If you want to make 10 cups of juice, how much concentrate and water do you need? a. 0.23 cups of concentrate, 2.5 cups of water b. c. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "7.5"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.33"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "9.67"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "0.9"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 21882,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "juice",
+          "rule": "range(1,3,1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "water",
+          "rule": "range(3,8,1)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "total",
+          "rule": "range(6,15,1)",
+          "sampleValue": "10"
+        },
+        {
+          "name": "answerjuice",
+          "rule": "round(juice/(juice+water)*total,2)",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "answerwater",
+          "rule": "round(water/(juice+water)*total,2)",
+          "sampleValue": "7.5"
+        },
+        {
+          "name": "err1",
+          "rule": "round(juice/water,2)",
+          "sampleValue": "0.33"
+        },
+        {
+          "name": "err2",
+          "rule": "round(water/(water+juice)*1.2,2)",
+          "sampleValue": "0.9"
+        },
+        {
+          "name": "err3",
+          "rule": "round(juice/(juice+water)*0.9,2)",
+          "sampleValue": "0.23"
+        },
+        {
+          "name": "err4",
+          "rule": "total - err1",
+          "sampleValue": "9.67"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 21882,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 06 05 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 f0 3f 6a 00 75 00 69 00 63 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 33 00 2c 00 31 00 29 00 00 00 31 00 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 77 00 61 00 74 00 65 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 38 00 2c 00 31 00 29 00 00 00 33 00 00 00 00 00 00 00 0b 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 77 00 61 00 74 00 65 00 72 00 3e 00 6a 00 75 00 69 00 63 00 65 00 00 00 68 00 05 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 24 40 74 00 6f 00 74 00 61 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 31 00 35 00 2c 00 31 00 29 00 00 00 31 00 30 00 00 00 0b 00 00 00 22 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 04 40 61 00 6e 00 73 00 77 00 65 00 72 00 6a 00 75 00 69 00 63 00 65 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 6a 00 75 00 69 00 63 00 65 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\njuice\nrange(1,3,1)\n1\nwater\nrange(3,8,1)\n3\nwater>juice\nh\ntotal\nrange(6,15,1)\n10\n\"\nanswerjuice\nround(juice/(juice+water)*total,2)\n2.5\n\"\nanswerwater\nround(water/(juice+water)*total,2)\n7.5\nerr1\nround(juice/water,2)\n0.33\nerr2\nround(water/(water+juice)*1.2,2)"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A chainsaw s engine uses a mixture of 30 L of gas and 2 L of oil. How much oil must you mix with 5 L of gas to refuel the chainsaw? a. 0.33 L of oil c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "0.33"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "0.4"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "12"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "75"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 27302,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "fuel",
+          "rule": "range(30,50,5)",
+          "sampleValue": "30"
+        },
+        {
+          "name": "tank",
+          "rule": "range(2,6,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "oil",
+          "rule": "range(1,4,1)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "correct",
+          "rule": "round(tank*oil/fuel,2)",
+          "sampleValue": "0.33"
+        },
+        {
+          "name": "err1",
+          "rule": "round(tank*fuel/oil,2)",
+          "sampleValue": "75"
+        },
+        {
+          "name": "err2",
+          "rule": "round(oil*fuel/tank,2)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "err3",
+          "rule": "round(oil*tank*1.2/fuel,2)",
+          "sampleValue": "0.4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 27302,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 20 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 ec 02 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3e 40 66 00 75 00 65 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 30 00 2c 00 35 00 30 00 2c 00 35 00 29 00 00 00 33 00 30 00 00 00 04 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 74 00 61 00 6e 00 6b 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 36 00 2c 00 31 00 29 00 00 00 35 00 00 00 03 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 6f 00 69 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 34 00 2c 00 31 00 29 00 00 00 32 00 00 00 07 00 00 00 16 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 1f 85 eb 51 b8 1e d5 3f 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 61 00 6e 00 6b 00 2a 00 6f 00 69 00 6c 00 2f 00 66 00 75 00 65 00 6c 00 2c 00 32 00 29 00 00 00 30 00 2e 00 33 00 33 00 00 00 04 00 00 00 16 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 c0 52 40 65 00 72 00 72 00 31 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nfuel\nrange(30,50,5)\n30\ntank\nrange(2,6,1)\n5\noil\nrange(1,4,1)\n2\ncorrect\nround(tank*oil/fuel,2)\n0.33\nerr1\nround(tank*fuel/oil,2)\n75\nerr2\nround(oil*fuel/tank,2)\n12\nerr3\nround(oil*tank*1.2/fuel,2)\n0.4\nscramble\ntrue\n1"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A 2-stroke dirt$ _bike requires 15 L of gas to be mixed with 4 L of oil. How much oil do you need to fill up your dirt bike if you use 24 L of gas?$ a. 90 L of oil c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "90"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "2.5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "7.68"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "6.4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 31102,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "fuel",
+          "rule": "range(12,20,0.5)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "tank",
+          "rule": "range(20,26,1)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "oil",
+          "rule": "range(3,5,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "correct",
+          "rule": "round(tank*oil/fuel,2)",
+          "sampleValue": "6.4"
+        },
+        {
+          "name": "err1",
+          "rule": "round(tank*fuel/oil,2)",
+          "sampleValue": "90"
+        },
+        {
+          "name": "err2",
+          "rule": "round(oil*fuel/tank,2)",
+          "sampleValue": "2.5"
+        },
+        {
+          "name": "err3",
+          "rule": "round(oil*tank*1.2/fuel,2)",
+          "sampleValue": "7.68"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 31102,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 f8 02 00 00 04 00 00 00 10 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2e 40 66 00 75 00 65 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 32 00 30 00 2c 00 30 00 2e 00 35 00 29 00 00 00 31 00 35 00 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 74 00 61 00 6e 00 6b 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 2c 00 32 00 36 00 2c 00 31 00 29 00 00 00 32 00 34 00 00 00 03 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6f 00 69 00 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 2c 00 31 00 29 00 00 00 34 00 00 00 07 00 00 00 16 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 9a 99 99 99 99 99 19 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 74 00 61 00 6e 00 6b 00 2a 00 6f 00 69 00 6c 00 2f 00 66 00 75 00 65 00 6c 00 2c 00 32 00 29 00 00 00 36 00 2e 00 34 00 00 00 04 00 00 00 16 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 56 40 65 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nfuel\nrange(12,20,0.5)\n15\ntank\nrange(20,26,1)\n24\noil\nrange(3,5,1)\n4\ncorrect\nround(tank*oil/fuel,2)\n6.4\nerr1\nround(tank*fuel/oil,2)\n90\nerr2\nround(oil*fuel/tank,2)\n2.5\nerr3\nround(oil*tank*1.2/fuel,2)\n7.68\nscramble\ntrue\n1"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If 4 cans of paint cover 192 m2 of wall space, how many cans of paint will you need to cover 270 m2? a. 6 cans of paint c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "9"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 35118,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "num1",
+          "rule": "range(4,6)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "num2",
+          "rule": "num1*range(40,50)",
+          "sampleValue": "192"
+        },
+        {
+          "name": "num3",
+          "rule": "range(220,280,10)",
+          "sampleValue": "270"
+        },
+        {
+          "name": "correct",
+          "rule": "ceil(num1*num3/num2)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "err1",
+          "rule": "floor(correct-1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "err3",
+          "rule": "ceil(num1*num2/num3)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "err2",
+          "rule": "floor(correct*1.5)",
+          "sampleValue": "9"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 35118,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 ce 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6e 00 75 00 6d 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 36 00 29 00 00 00 34 00 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 68 40 6e 00 75 00 6d 00 32 00 00 00 6e 00 75 00 6d 00 31 00 2a 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 30 00 2c 00 35 00 30 00 29 00 00 00 31 00 39 00 32 00 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 e0 70 40 6e 00 75 00 6d 00 33 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 32 00 30 00 2c 00 32 00 38 00 30 00 2c 00 31 00 30 00 29 00 00 00 32 00 37 00 30 00 00 00 07 00 00 00 14 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 18 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 63 00 65 00 69 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nscramble\ntrue\n1\nnum1\nrange(4,6)\n4\nnum2\nnum1*range(40,50)\n192\nnum3\nrange(220,280,10)\n270\ncorrect\nceil(num1*num3/num2)\n6\nerr1\nfloor(correct-1)\n5\nerr3\nceil(num1*num2/num3)\n3\nerr2\nfloor(correct*1.5)\n9"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "If 5 cm on a map represents 5 km of actual ground, how many centimetres would 25 km of actual ground be on the map? a. 25 cm c. b. d."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "25"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "1"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "20"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "25"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 38938,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "num1",
+          "rule": "range(1,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "num2",
+          "rule": "range(5,25,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "num3",
+          "rule": "range(25,45,5)",
+          "sampleValue": "25"
+        },
+        {
+          "name": "correct",
+          "rule": "round(num1*num3/num2,1)",
+          "sampleValue": "25"
+        },
+        {
+          "name": "err1",
+          "rule": "round(num2*num3/num1,1)",
+          "sampleValue": "25"
+        },
+        {
+          "name": "err2",
+          "rule": "round(num1*num2/num3,1)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "err3",
+          "rule": "round(correct*.8,1)",
+          "sampleValue": "20"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 38938,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 dc 02 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 04 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 75 00 6d 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 35 00 29 00 00 00 35 00 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 75 00 6d 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 32 00 35 00 2c 00 35 00 29 00 00 00 35 00 00 00 04 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 39 40 6e 00 75 00 6d 00 33 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 34 00 35 00 2c 00 35 00 29 00 00 00 32 00 35 00 00 00 07 00 00 00 17 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 39 40 63 00 6f 00 72 00 72 00 65 00 63 00 74 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 6e 00 75 00 6d 00 31 00 2a 00 6e 00 75 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nscramble\ntrue\n1\nnum1\nrange(1,5)\n5\nnum2\nrange(5,25,5)\n5\nnum3\nrange(25,45,5)\n25\ncorrect\nround(num1*num3/num2,1)\n25\nerr1\nround(num2*num3/num1,1)\n25\nerr2\nround(num1*num2/num3,1)\n1\nerr3\nround(correct*.8,1)\n20"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A recipe for chocolate chip cookies contains: [embedded object] cups of flour [embedded diagram/object] cups of brown sugar 1 cup of butter [embedded diagram/object] cup of chocolate chips What is the ratio of flour to chocolate chips? a. 5:2 c. 3:2 b. 2:3 d. 1:3"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 42648,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "A recipe for chocolate chip cookies contains: [inline object not decoded yet] cups of flour [diagram/object not decoded yet] cups of brown sugar 1 cup of but",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "chocolate chip cookies contains: [inline object not decoded yet] cups of flour [diagram/object not decoded yet] cups of brown sugar 1 cup of butter [diagram/object not decoded yet] cup of cho",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-2"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "s of flour [diagram/object not decoded yet] cups of brown sugar 1 cup of butter [diagram/object not decoded yet] cup of chocolate chips What is the ratio of flour to chocolate chips? a. 5:2 c.",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 42648,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 ab 08 00 00 01 00 00 00 d4 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 72 00 65 00 63 00 69 00 70 00 65 00 20 00 66 00 6f 00 72 00 20 00 63 00 68 00 6f 00 63 00 6f 00 6c 00 61 00 74 00 65 00 20 00 63 00 68 00 69 00 70 00 20 00 63 00 6f 00 6f 00 6b 00 69 00 65 00 73 00 20 00 63 00 6f 00 6e 00 74 00 61 00 69 00 6e 00 73 00 3a 00 0d 00 22 20 20 00 0f 00 20 00 63 00 75 00 70 00 73 00 20 00 6f 00 66 00 20 00 66 00 6c 00 6f 00 75 00 72 00 0d 00 22 20 20 00 0f 00 20 00 63 00 75 00 70 00 73 00 20 00 6f 00 66 00 20 00 62 00 72 00 6f 00 77 00 6e 00 20 00 73 00 75 00 67 00 61 00 72 00 0d 00 22 20 20 00 31 00 20 00 63 00 75 00 70 00 20 00 6f 00 66 00 20 00 62 00 75 00 74 00 74 00 65 00 72 00 0d 00 22 20 20 00 0f 00 20 00 63 00 75 00 70 00 20 00 6f 00 66 00 20 00 63 00 68 00 6f 00 63 00 6f 00 6c 00 61 00 74 00 65 00 20 00 63 00 68 00 69 00 70 00 73 00 0d 00 0d 00 57 00 68 00 61 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nL\nscramble\ntrue\n1\nA recipe for chocolate chip cookies contains:\n[[slot]] cups of flour\n[[slot]] cups of brown sugar\n1 cup of butter\n[[slot]] cup of chocolate chips\r\rWhat is the ratio of flour to chocolate chips?\na.\n5:2\nc.\n3:2\nb.\n2:3\nd.\n1:3\n@\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "The ratio of Grant s weight to Gregory s weight is [embedded object]: [embedded diagram/object]. If Gregory weighs [embedded diagram/object] kg, how much does Grant weigh?"
+      },
+      "answer": {
+        "value": "98.57",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 45581,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rgrant",
+          "rule": "range(3,6,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "rgreg",
+          "rule": "range(4,8,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "mgreg",
+          "rule": "range(60,120,5)",
+          "sampleValue": "115"
+        },
+        {
+          "name": "answer",
+          "rule": "round(mgreg*rgrant/rgreg,2)",
+          "sampleValue": "98.57"
+        }
+      ],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "The ratio of Grant s weight to Gregory s weight is [inline object not decoded yet]: [diagram/object not decoded yet]. If Gregory weighs [diagram/object not decode",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "ratio of Grant s weight to Gregory s weight is [inline object not decoded yet]: [diagram/object not decoded yet]. If Gregory weighs [diagram/object not decoded yet] kg, how much does Grant wei",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-2"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "ne object not decoded yet]: [diagram/object not decoded yet]. If Gregory weighs [diagram/object not decoded yet] kg, how much does Grant weigh?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 45581,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 da 01 00 00 06 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 72 00 67 00 72 00 61 00 6e 00 74 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 2c 00 31 00 29 00 00 00 36 00 00 00 05 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 72 00 67 00 72 00 65 00 67 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 38 00 2c 00 31 00 29 00 00 00 37 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 69 00 73 00 75 00 6e 00 69 00 71 00 75 00 65 00 28 00 72 00 67 00 72 00 61 00 6e 00 74 00 2c 00 72 00 67 00 72 00 65 00 67 00 29 00 00 00 00 4e 05 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 5c 40 6d 00 67 00 72 00 65 00 67 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 30 00 2c 00 31 00 32 00 30 00 2c 00 35 00 29 00 00 00 31 00 31 00 35 00 00 00 06 00 00 00 1b 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 14 ae 47 e1 7a a4 58 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nrgrant\nrange(3,6,1)\n6\nrgreg\nrange(4,8,1)\n7\nisunique(rgrant,rgreg)\n[[slot]]\nmgreg\nrange(60,120,5)\n115\nanswer\nround(mgreg*rgrant/rgreg,2)\n98.57\nj\nThe ratio of Grant\ns weight to Gregory\ns weight is [[slot]]:[[slot]]. If Gregory weighs [[slot]] kg, how much does Grant weigh?\nTimes New Roman\n3\n5\nJ\nμ\nX"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the height of a TV that is 27 inches wide."
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 49229,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "w",
+          "rule": "range(25,55,1)",
+          "sampleValue": "27"
+        },
+        {
+          "name": "h",
+          "rule": "round(9*w/16,2)",
+          "sampleValue": "15.19"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 49229,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 ac 00 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3b 40 77 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 35 00 35 00 2c 00 31 00 29 00 00 00 32 00 37 00 00 00 01 00 00 00 0f 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 e1 7a 14 ae 47 61 2e 40 68 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 39 00 2a 00 77 00 2f 00 31 00 36 00 2c 00 32 00 29 00 00 00 31 00 35 00 2e 00 31 00 39 00 00 00 5e 03 00 00 01 00 00 00 b1 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 4d 00 61 00 6e 00 79 00 20 00 62 00 69 00 67 00 20 00 73 00 63 00 72 00 65 00 65 00 6e 00 20 00 54 00 56 00 73 00 20 00 68 00 61 00 76 00 65 00 20 00 61 00 6e 00 20 00 61 00 73 00 70 00 65 00 63 00 74 00 20 00 72 00 61 00 74 00 69 00 6f 00 20 00 6f 00 66 00 20 00 31 00 36 00 3a 00 39 00 2e 00 20 00 54 00 68 00 69 00 73 00 20 00 6d 00 65 00 61 00 6e 00 73 00 20 00 74 00 68 00 61 00 74 00 20 00 66 00 6f 00 72 00 20 00 65 00 76 00 65 00 72 00 79 00 20 00 31 00 36 00 20 00 69 00 6e 00 63 00 68 00 65 00 73 00 20 00 6f 00 66 00 20 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nw\nrange(25,55,1)\n27\n[[slot]]\nh\nround(9*w/16,2)\n15.19\nMany big screen TVs have an aspect ratio of 16:9. This means that for every 16 inches of width, the TV will be 9 inches high. Calculate the height of a TV that is [[slot]] inches wide.\nTimes New Roman\nX\nw\nZ\nSet up a proportion to solve for x, the height of the TV.\r[[slot]]\r\rThe TV will be [[slot]] inches high.\n!\n$\nTimes New Roman\n:\nL\nw\n8\nw\nx\n6\n9"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the width of a monitor that is 24 inches high."
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 52303,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "w",
+          "rule": "range(13,27,1)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "h",
+          "rule": "round(4*w/3,2)",
+          "sampleValue": "32"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 52303,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 a4 00 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 38 40 77 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 33 00 2c 00 32 00 37 00 2c 00 31 00 29 00 00 00 32 00 34 00 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 40 40 68 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 34 00 2a 00 77 00 2f 00 33 00 2c 00 32 00 29 00 00 00 33 00 32 00 00 00 68 03 00 00 01 00 00 00 b6 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 53 00 6f 00 6d 00 65 00 20 00 63 00 6f 00 6d 00 70 00 75 00 74 00 65 00 72 00 20 00 6d 00 6f 00 6e 00 69 00 74 00 6f 00 72 00 73 00 20 00 68 00 61 00 76 00 65 00 20 00 61 00 6e 00 20 00 61 00 73 00 70 00 65 00 63 00 74 00 20 00 72 00 61 00 74 00 69 00 6f 00 20 00 6f 00 66 00 20 00 34 00 3a 00 33 00 2e 00 20 00 54 00 68 00 69 00 73 00 20 00 6d 00 65 00 61 00 6e 00 73 00 20 00 74 00 68 00 61 00 74 00 20 00 66 00 6f 00 72 00 20 00 65 00 76 00 65 00 72 00 79 00 20 00 34 00 20 00 69 00 6e 00 63 00 68 00 65 00 73 00 20 00 6f 00 66 00 20 00 77 00 69 00 64 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nw\nrange(13,27,1)\n24\nh\nround(4*w/3,2)\n32\nSome computer monitors have an aspect ratio of 4:3. This means that for every 4 inches of width, the monitor is 3 inches high. Calculate the width of a monitor that is [[slot]] inches high.\nTimes New Roman\nX\nw\nl\nSet up a proportion to solve for x, the width of the monitor.\r[[slot]]\r\rThe computer monitor will be [[slot]] inches wide.\n!\n$\nTimes New Roman\n>\n^\nw\n)\n4\n3\nx\nw\nw"
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Does the triangle below remain proportional if: a) Each side length is tripled? b) Each side length is halved? c) Each side length is increased by 3? d) Each side length is decreased by 1? [embedded diagram/object]"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 55326,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "? c) Each side length is increased by 3? d) Each side length is decreased by 1? [diagram/object not decoded yet]",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 55326,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 04 00 00 00 a2 37 00 00 01 00 00 00 c7 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 44 00 6f 00 65 00 73 00 20 00 74 00 68 00 65 00 20 00 74 00 72 00 69 00 61 00 6e 00 67 00 6c 00 65 00 20 00 62 00 65 00 6c 00 6f 00 77 00 20 00 72 00 65 00 6d 00 61 00 69 00 6e 00 20 00 70 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 69 00 66 00 3a 00 0d 00 0d 00 61 00 29 00 20 00 09 00 45 00 61 00 63 00 68 00 20 00 73 00 69 00 64 00 65 00 20 00 6c 00 65 00 6e 00 67 00 74 00 68 00 20 00 69 00 73 00 20 00 74 00 72 00 69 00 70 00 6c 00 65 00 64 00 3f 00 0d 00 0d 00 62 00 29 00 20 00 09 00 45 00 61 00 63 00 68 00 20 00 73 00 69 00 64 00 65 00 20 00 6c 00 65 00 6e 00 67 00 74 00 68 00 20 00 69 00 73 00 20 00 68 00 61 00 6c 00 76 00 65 00 64 00 3f 00 0d 00 0d 00 63 00 29 00 20 00 09 00 45 00 61 00 63 00 68 00 20 00 73 00 69 00 64 00 65 00 20 00 6c 00 65 00 6e 00 67 00 74 00 68 00 20 00 69 00 73 00 20 00 69 00 6e 00 63 00 72 00 65 00 61 00 73 00 65 00 64 00 20 00 62 00 79 00 20 00 33 00 3f 00 0d 00 0d 00 64 00 29 00 20 00 09 00 45 00 61 00 63 00 68 00 20 00 73 00 69 00 64 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\n7\nDoes the triangle below remain proportional if:\r\ra) Each side length is tripled?\r\rb) Each side length is halved?\r\rc) Each side length is increased by 3?\r\rd) Each side length is decreased by 1?\r\r[[slot]]\n1\nTimes New Roman\n3\n1\n2\n0\n0\nTimes New Roman\nTimes New Roman\n0\n3\nx\n0\n3\n3\n3 cm\nTimes New Roman\n1\n3.5\n0\n3 cm\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Calculate High End Games s profit per game. $1475.00 220 = $6.70 The store makes a profit of $6.70 per game. Calculate the profit on the sale of 150 games. $6.70 High End Games makes a profit of 150 on the sale of $1005.68 games."
+      },
+      "answer": {
+        "value": "1005.68181818182",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 75139,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p",
+          "rule": "range(1225,1850,25)",
+          "sampleValue": "1475"
+        },
+        {
+          "name": "num",
+          "rule": "range(200,300,20)",
+          "sampleValue": "220"
+        },
+        {
+          "name": "num2",
+          "rule": "range(25,150,25)",
+          "sampleValue": "150"
+        },
+        {
+          "name": "ans",
+          "rule": "p/num*num2",
+          "sampleValue": "1005.68181818182"
+        },
+        {
+          "name": "profit",
+          "rule": "format(\"$%1.2f\",p)",
+          "sampleValue": "$1475.00"
+        },
+        {
+          "name": "answer",
+          "rule": "format(\"$%1.2f\",ans)",
+          "sampleValue": "$1005.68"
+        },
+        {
+          "name": "pg",
+          "rule": "p/num",
+          "sampleValue": "6.704545454545"
+        },
+        {
+          "name": "pergame",
+          "rule": "format(\"$%1.2f\",pg)",
+          "sampleValue": "$6.70"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 75139,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 26 03 00 00 01 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 0c 97 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 32 00 35 00 2c 00 31 00 38 00 35 00 30 00 2c 00 32 00 35 00 29 00 00 00 31 00 34 00 37 00 35 00 00 00 03 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 6b 40 6e 00 75 00 6d 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 30 00 2c 00 33 00 30 00 30 00 2c 00 32 00 30 00 29 00 00 00 32 00 32 00 30 00 00 00 04 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 62 40 6e 00 75 00 6d 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 31 00 35 00 30 00 2c 00 32 00 35 00 29 00 00 00 31 00 35 00 30 00 00 00 03 00 00 00 0a 00 00 00 10 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 d1 45 17 5d 74 6d 8f 40 61 00 6e 00 73 00 00 00 70 00 2f 00 6e 00 75 00 6d 00 2a 00 6e 00 75 00 6d 00 32 00 00 00 31 00 30 00 30 00 35 00 2e 00 36 00 38 00 31 00 38 00 31 00 38 00 31 00 38 00 31 00 38 00 32 00 00 00 06 00 00 00 12 00 00 00 08 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\np\nrange(1225,1850,25)\n1475\nnum\nrange(200,300,20)\n220\nnum2\nrange(25,150,25)\n150\nans\np/num*num2\n1005.68181818182\nprofit\nformat(\"$%1.2f\",p)\n$1475.00\nanswer\nformat(\"$%1.2f\",ans)\n$1005.68\npg\np/num\n6.704545454545\npergame\nformat(\"$%1.2f\",pg)\n$6.70"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "The ratio of George s weight to Tia s weight is [embedded object]: [embedded diagram/object]. If George weighs [embedded diagram/object] kg, how much does Tia weigh?"
+      },
+      "answer": {
+        "value": "37.5",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 79844,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rgeorge",
+          "rule": "range(3,6,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "rtia",
+          "rule": "range(4,8,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "mgeorge",
+          "rule": "range(20,60,5)",
+          "sampleValue": "45"
+        },
+        {
+          "name": "answer",
+          "rule": "round(mgeorge*rtia/rgeorge,2)",
+          "sampleValue": "37.5"
+        }
+      ],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "The ratio of George s weight to Tia s weight is [inline object not decoded yet]: [diagram/object not decoded yet]. If George weighs [diagram/object not decoded",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "he ratio of George s weight to Tia s weight is [inline object not decoded yet]: [diagram/object not decoded yet]. If George weighs [diagram/object not decoded yet] kg, how much does Tia weigh?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-2"
+        },
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "ine object not decoded yet]: [diagram/object not decoded yet]. If George weighs [diagram/object not decoded yet] kg, how much does Tia weigh?",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 79844,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 dc 01 00 00 07 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 72 00 67 00 65 00 6f 00 72 00 67 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 2c 00 31 00 29 00 00 00 36 00 00 00 04 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 72 00 74 00 69 00 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 38 00 2c 00 31 00 29 00 00 00 35 00 00 00 00 00 00 00 16 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 69 00 73 00 75 00 6e 00 69 00 71 00 75 00 65 00 28 00 72 00 74 00 69 00 61 00 2c 00 72 00 67 00 65 00 6f 00 72 00 67 00 65 00 29 00 00 00 00 4e 07 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 46 40 6d 00 67 00 65 00 6f 00 72 00 67 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 2c 00 36 00 30 00 2c 00 35 00 29 00 00 00 34 00 35 00 00 00 06 00 00 00 1d 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 c0 42 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nrgeorge\nrange(3,6,1)\n6\nrtia\nrange(4,8,1)\n5\nisunique(rtia,rgeorge)\nmgeorge\nrange(20,60,5)\n45\nanswer\nround(mgeorge*rtia/rgeorge,2)\n37.5\nd\nThe ratio of George\ns weight to Tia\ns weight is [[slot]]:[[slot]]. If George weighs [[slot]] kg, how much does Tia weigh?\nTimes New Roman\n0\n2\nF\nX\nrgeorge\nX"
+        }
+      ]
+    },
+    {
+      "id": "q-17",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Find the ratio of height to length. height:length = X: X Divide each part of the ratio by the largest common factor.\rheight:length = (2 / 20):(2 / 2)\rheight:length = 20: 2 The ramp is safe."
+      },
+      "answer": {
+        "value": "1/10",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 83532,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "l",
+          "rule": "range(16,44,1)",
+          "sampleValue": "20"
+        },
+        {
+          "name": "h",
+          "rule": "range(1,4,01)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "ans",
+          "rule": "fracs(h,l)",
+          "sampleValue": "1/10"
+        },
+        {
+          "name": "divisor",
+          "rule": "gcf(h,l)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "a",
+          "rule": "h/divisor",
+          "sampleValue": "1"
+        },
+        {
+          "name": "b",
+          "rule": "l/divisor",
+          "sampleValue": "10"
+        },
+        {
+          "name": "w",
+          "rule": "X"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 83532,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 1e 02 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 34 40 6c 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 36 00 2c 00 34 00 34 00 2c 00 31 00 29 00 00 00 32 00 30 00 00 00 01 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 68 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 2c 00 34 00 2c 00 30 00 31 00 29 00 00 00 32 00 00 00 03 00 00 00 0a 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 61 00 6e 00 73 00 00 00 66 00 72 00 61 00 63 00 73 00 28 00 68 00 2c 00 6c 00 29 00 00 00 01 00 81 f0 31 00 2f 00 31 00 30 00 00 00 00 00 00 00 12 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 61 00 6e 00 73 00 20 00 3c 00 3d 00 20 00 66 00 72 00 61 00 63 00 73 00 28 00 31 00 2c 00 31 00 32 00 29 00 00 00 00 00 07 00 00 00 08 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 64 00 69 00 76 00 69 00 73 00 6f 00 72 00 00 00 67 00 63 00 66 00 28 00 68 00 2c 00 6c 00 29 00 00 00 32 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nl\nrange(16,44,1)\n20\nh\nrange(1,4,01)\n2\nans\nfracs(h,l)\n1/10\nans <= fracs(1,12)\ndivisor\ngcf(h,l)\n2\na\nh/divisor\n1\nb\nl/divisor\n10\nHoward works as a carpenter. He has been asked to check if the grade of the ramp leading into the public library is safe for wheelchair access. In order to be safe, the ramp must have a ratio of height to length no greater than 1:12. Howard measures the ramp to be [[slot]] feet long and [[slot]] feet high. Find the rat"
+        }
+      ]
+    },
+    {
+      "id": "q-18",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "If the patient requires a dose of 500 mg of medicine, how much water is needed? Round to the nearest millilitre."
+      },
+      "answer": {
+        "value": "1200",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 88148,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Estimation, Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "drug",
+          "rule": "range(75,150,25)",
+          "sampleValue": "125"
+        },
+        {
+          "name": "water",
+          "rule": "range(150,300,25)",
+          "sampleValue": "300"
+        },
+        {
+          "name": "dose",
+          "rule": "range(300,600,25)",
+          "sampleValue": "500"
+        },
+        {
+          "name": "answer",
+          "rule": "round(water*dose/drug,0)",
+          "sampleValue": "1200"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 88148,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 45 00 73 00 74 00 69 00 6d 00 61 00 74 00 69 00 6f 00 6e 00 2c 00 20 00 52 00 61 00 74 00 65 00 00 00 90 01 00 00 04 00 00 00 10 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 5f 40 64 00 72 00 75 00 67 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 35 00 2c 00 31 00 35 00 30 00 2c 00 32 00 35 00 29 00 00 00 31 00 32 00 35 00 00 00 05 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 72 40 77 00 61 00 74 00 65 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 35 00 30 00 2c 00 33 00 30 00 30 00 2c 00 32 00 35 00 29 00 00 00 33 00 30 00 30 00 00 00 04 00 00 00 11 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 40 7f 40 64 00 6f 00 73 00 65 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 30 00 30 00 2c 00 36 00 30 00 30 00 2c 00 32 00 35 00 29 00 00 00 35 00 30 00 30 00 00 00 06 00 00 00 18 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 c0 92 40 61 00 6e 00 73 00 77 00 65 00 72 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 77 00 61 00 74 00 65 00 72 00 2a 00 64 00 6f 00 73 00 65 00 2f 00 64 00 72 00 75 00 67 00 2c 00 30 00 29 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nEstimation, Rate\ndrug\nrange(75,150,25)\n125\nwater\nrange(150,300,25)\n300\ndose\nrange(300,600,25)\n500\nanswer\nround(water*dose/drug,0)\n1200\nLawrence is a nurse. He needs to measure and administer the correct dose of medicine to his patients. [[slot]] mg of medicine must be dissolved into [[slot]] mL of water. If the patient requires a dose of [[slot]] mg of medicine, how much water is needed? Round to the nearest millilitre.\nTimes New Roman\nf\nX\ndrug\nX\nwate"
+        }
+      ]
+    },
+    {
+      "id": "q-19",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "The studio makes a profit of $2200.00 for every 16 portfolios it produces. a) How much profit does the studio make on the production of 1 portfolio? b) What profit will the studio make if it produces 5 portfolios? c) How many portfolios would the studio need to do a year to make a profit of $39000.00? It cannot make partial portfolios, so round your answer up to a whole number."
+      },
+      "answer": {
+        "value": "687.5",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 92384,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p",
+          "rule": "range(2000,4000,50)",
+          "sampleValue": "2200"
+        },
+        {
+          "name": "num",
+          "rule": "range(10,20,2)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "num2",
+          "rule": "range(5,50,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "ans",
+          "rule": "round(p/num,2)*num2",
+          "sampleValue": "687.5"
+        },
+        {
+          "name": "profit",
+          "rule": "format(\"$%1.2f\",p)",
+          "sampleValue": "$2200.00"
+        },
+        {
+          "name": "answer",
+          "rule": "format(\"$%1.2f\",ans)",
+          "sampleValue": "$687.50"
+        },
+        {
+          "name": "ansa",
+          "rule": "p/num",
+          "sampleValue": "137.5"
+        },
+        {
+          "name": "answera",
+          "rule": "format(\"$%1.2f\",ansa)",
+          "sampleValue": "$137.50"
+        },
+        {
+          "name": "yp",
+          "rule": "range(30000,50000,1000)",
+          "sampleValue": "39000"
+        },
+        {
+          "name": "yprofit",
+          "rule": "format(\"$%1.2f\",yp)",
+          "sampleValue": "$39000.00"
+        },
+        {
+          "name": "ansc",
+          "rule": "ceil(yp/ansa)",
+          "sampleValue": "284"
+        },
+        {
+          "name": "answerc",
+          "rule": "format(\"$%1.2f\",ansc)",
+          "sampleValue": "$284.00"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 92384,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 b0 04 00 00 01 00 00 00 13 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 30 a1 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 30 00 30 00 30 00 2c 00 34 00 30 00 30 00 30 00 2c 00 35 00 30 00 29 00 00 00 32 00 32 00 30 00 30 00 00 00 03 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 30 40 6e 00 75 00 6d 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 2c 00 32 00 30 00 2c 00 32 00 29 00 00 00 31 00 36 00 00 00 04 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 75 00 6d 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 35 00 30 00 2c 00 35 00 29 00 00 00 35 00 00 00 03 00 00 00 13 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 7c 85 40 61 00 6e 00 73 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 70 00 2f 00 6e 00 75 00 6d 00 2c 00 32 00 29 00 2a 00 6e 00 75 00 6d 00 32 00 00 00 36 00 38 00 37 00 2e 00 35 00 00 00 06 00 00 00 12 00 00 00 08 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\np\nrange(2000,4000,50)\n2200\nnum\nrange(10,20,2)\n16\nnum2\nrange(5,50,5)\n5\nans\nround(p/num,2)*num2\n687.5\nprofit\nformat(\"$%1.2f\",p)\n$2200.00\nanswer\nformat(\"$%1.2f\",ans)\n$687.50\nansa\np/num\n137.5\nanswera\nformat(\"$%1.2f\",ansa)\n$137.50"
+        }
+      ]
+    },
+    {
+      "id": "q-20",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Find how much green paint is produced from the ratio given.\rparts green paint = parts yellow paint + parts blue paint\rparts green paint = X + X parts green paint = X Set up a proportion to solve for x, the amount of yellow paint needed. 5 The painter needs 7 L of yellow paint. Calculate how much blue paint is needed.\rblue paint needed = green paint needed – yellow paint needed\rblue paint needed = 12 – 5 blue paint needed = 12 L The painter needs 4 L of blue paint. $A_lternative Solution$\rThe proportion could be set up to solve for the amount of blue paint needed. 5 yellow paint needed = green paint needed – blue paint needed\ryellow paint needed = 12 – 4 yellow paint needed = 4 L The painter needs 5 L of blue paint and 12 L of yellow paint."
+      },
+      "answer": {
+        "value": "4",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 99751,
+        "difficulty": "Difficult",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "y",
+          "rule": "range(2,5,1)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "b",
+          "rule": "range(4,9,1)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n",
+          "rule": "range(3,6,1)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "yellow",
+          "rule": "round(n*y/(y+b),2)",
+          "sampleValue": "1.7"
+        },
+        {
+          "name": "blue",
+          "rule": "round(n*b/(y+b),2)",
+          "sampleValue": "2.3"
+        },
+        {
+          "name": "total",
+          "rule": "y+b",
+          "sampleValue": "12"
+        },
+        {
+          "name": "w",
+          "rule": "X"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 99751,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 1e 02 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 79 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 35 00 2c 00 31 00 29 00 00 00 35 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 39 00 2c 00 31 00 29 00 00 00 37 00 00 00 00 00 00 00 04 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 79 00 3c 00 3e 00 62 00 00 00 00 00 01 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 2c 00 31 00 29 00 00 00 34 00 00 00 06 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 09 00 00 00 b8 1e 85 eb 51 b8 fa 3f 79 00 65 00 6c 00 6c 00 6f 00 77 00 00 00 72 00 6f 00 75 00 6e 00 64 00 28 00 6e 00 2a 00 79 00 2f 00 28 00 79 00 2b 00 62 00 29 00 2c 00 32 00 29 00 00 00 31 00 2e 00 37 00 00 00 04 00 00 00 12 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00",
+          "textPreview": "Difficult\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\ny\nrange(2,5,1)\n5\nb\nrange(4,9,1)\n7\ny<>b\nn\nrange(3,6,1)\n4\nyellow\nround(n*y/(y+b),2)\n1.7\nblue\nround(n*b/(y+b),2)\n2.3\ntotal\ny+b\n12\nTo produce a certain shade of green paint, a painter must mix [[slot]] parts yellow paint with [[slot]] parts blue paint. If the painter requires [[slot]] litres of green paint, how much yellow and blue paint does he need? Round your answer to 1 decimal place.\nTimes New Roman\n>\nw\nX"
+        }
+      ]
+    },
+    {
+      "id": "q-21",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A restaurant buys a 4-lb jar of peanut butter for $10.99. a) The restaurant bought $43.96 worth of peanut butter. How many pounds of peanut butter were purchased? b) How much would it cost the restaurant to buy 32 lb of peanut butter?"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 107896,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p",
+          "rule": "range(9.99,10.99,0.25)",
+          "sampleValue": "10.99"
+        },
+        {
+          "name": "price",
+          "rule": "format(\"$%1.2f\",p)",
+          "sampleValue": "$10.99"
+        },
+        {
+          "name": "n1",
+          "rule": "p*n3",
+          "sampleValue": "43.96"
+        },
+        {
+          "name": "num1",
+          "rule": "format(\"$%1.2f\",n1)",
+          "sampleValue": "$43.96"
+        },
+        {
+          "name": "num2",
+          "rule": "range(8,32,4)",
+          "sampleValue": "32"
+        },
+        {
+          "name": "ansb",
+          "rule": "num2/4*p",
+          "sampleValue": "87.92"
+        },
+        {
+          "name": "answerb",
+          "rule": "format(\"$%1.2f\",ansb)",
+          "sampleValue": "$87.92"
+        },
+        {
+          "name": "n3",
+          "rule": "range(3,8)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "answer1",
+          "rule": "4*n3",
+          "sampleValue": "16"
+        },
+        {
+          "name": "answer2",
+          "rule": "num2/4",
+          "sampleValue": "8"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 107896,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 6e 03 00 00 01 00 00 00 16 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 7b 14 ae 47 e1 fa 25 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 39 00 2e 00 39 00 39 00 2c 00 31 00 30 00 2e 00 39 00 39 00 2c 00 30 00 2e 00 32 00 35 00 29 00 00 00 31 00 30 00 2e 00 39 00 39 00 00 00 05 00 00 00 12 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 70 00 72 00 69 00 63 00 65 00 00 00 66 00 6f 00 72 00 6d 00 61 00 74 00 28 00 22 00 24 00 25 00 31 00 2e 00 32 00 66 00 22 00 2c 00 70 00 29 00 00 00 24 00 31 00 30 00 2e 00 39 00 39 00 00 00 02 00 00 00 04 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 7b 14 ae 47 e1 fa 45 40 6e 00 31 00 00 00 70 00 2a 00 6e 00 33 00 00 00 34 00 33 00 2e 00 39 00 36 00 00 00 04 00 00 00 13 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 6e 00 75 00 6d 00 31 00 00 00 66 00 6f 00 72 00 6d 00 61 00 74 00 28 00 22 00 24 00 25 00 31 00 2e 00 32 00 66 00 22 00 2c 00 6e 00 31 00 29 00 00 00 24 00 34 00 33 00 2e 00 39 00 36 00 00 00 04 00 00 00 0d 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\np\nrange(9.99,10.99,0.25)\n10.99\nprice\nformat(\"$%1.2f\",p)\n$10.99\nn1\np*n3\n43.96\nnum1\nformat(\"$%1.2f\",n1)\n$43.96\nnum2\nrange(8,32,4)\n32\nansb\nnum2/4*p\n87.92\nanswerb\nformat(\"$%1.2f\",ansb)\n$87.92\nn3\nrange(3,8)\n4"
+        }
+      ]
+    },
+    {
+      "id": "q-22",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A recipe for minestrone soup contains: 4 cups diced tomatoes 8 cups chicken broth 4 cups water 1 cup beans a) What is the ratio of chicken broth to water? b) What is the ratio of tomatoes to beans? c) What is the ratio of beans to chicken broth?"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 114803,
+        "difficulty": "Easy",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Ratio"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 114803,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 69 00 6f 00 00 00 04 00 00 00 12 04 00 00 01 00 00 00 03 01 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 72 00 65 00 63 00 69 00 70 00 65 00 20 00 66 00 6f 00 72 00 20 00 6d 00 69 00 6e 00 65 00 73 00 74 00 72 00 6f 00 6e 00 65 00 20 00 73 00 6f 00 75 00 70 00 20 00 63 00 6f 00 6e 00 74 00 61 00 69 00 6e 00 73 00 3a 00 0d 00 22 20 20 00 34 00 20 00 63 00 75 00 70 00 73 00 20 00 64 00 69 00 63 00 65 00 64 00 20 00 74 00 6f 00 6d 00 61 00 74 00 6f 00 65 00 73 00 0d 00 22 20 20 00 38 00 20 00 63 00 75 00 70 00 73 00 20 00 63 00 68 00 69 00 63 00 6b 00 65 00 6e 00 20 00 62 00 72 00 6f 00 74 00 68 00 0d 00 22 20 20 00 34 00 20 00 63 00 75 00 70 00 73 00 20 00 77 00 61 00 74 00 65 00 72 00 0d 00 22 20 20 00 31 00 20 00 63 00 75 00 70 00 20 00 62 00 65 00 61 00 6e 00 73 00 0d 00 0d 00 61 00 29 00 20 00 09 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 74 00 68 00 65 00 20 00 72 00 61 00 74 00 69 00 6f 00 20 00 6f 00 66 00 20 00 63 00 68 00 69 00 63 00 6b 00 65 00 6e 00 20 00 62 00 72 00 6f 00 74 00 68 00 20 00 74 00 6f 00 20 00 77 00 61 00 74 00 65 00 72 00 3f 00 0d 00 0d 00 62 00 29 00 20 00 09 00 57 00 68 00 61 00",
+          "textPreview": "Easy\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRatio\nA recipe for minestrone soup contains:\n4 cups diced tomatoes\n8 cups chicken broth\n4 cups water\n1 cup beans\r\ra) What is the ratio of chicken broth to water?\r\rb) What is the ratio of tomatoes to beans?\r\rc) What is the ratio of beans to chicken broth?\nt\nTimes New Roman\na)\tThe recipe includes 8 cups of chicken broth and 4 cups of water.\rchicken broth:water = 8:4\rchicken broth:water = 2:1\r\rb) The recipe includes 4 cups of tomatoes and 1 cup of beans."
+        }
+      ]
+    },
+    {
+      "id": "q-23",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Calculate the cost of 1 piece of 8-foot lumber. $84.00 One piece of 8-foot lumber costs $14.00. Calculate the cost of 1 foot of lumber. $14.00 8 = $14.00 Multiply to calculate the cost of $1.75 feet of lumber. 240 The cost to purchase $1.75 feet of lumber is 240."
+      },
+      "answer": {
+        "value": "420",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 10",
+        "unitName": "1.1-Proportional Reasoning",
+        "sectionName": "1.1",
+        "sourceOffset": 117657,
+        "difficulty": "Moderate",
+        "reference": "N-SO1",
+        "topic": "Proportional Reasoning",
+        "title": "Rate"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "num",
+          "rule": "range(4,8,1)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "p",
+          "rule": "range(8,16,.5)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "pr",
+          "rule": "num*p",
+          "sampleValue": "84"
+        },
+        {
+          "name": "price",
+          "rule": "format(\"$%1.2f\",pr)",
+          "sampleValue": "$84.00"
+        },
+        {
+          "name": "num2",
+          "rule": "range(72,328,8)",
+          "sampleValue": "240"
+        },
+        {
+          "name": "ans",
+          "rule": "num2/8*p",
+          "sampleValue": "420"
+        },
+        {
+          "name": "answer",
+          "rule": "format(\"$%1.2f\",ans)",
+          "sampleValue": "$420.00"
+        },
+        {
+          "name": "Price2",
+          "rule": "format(\"$%1.2f\",p/8)",
+          "sampleValue": "$1.75"
+        },
+        {
+          "name": "price3",
+          "rule": "format(\"$%1.2f\",p)",
+          "sampleValue": "$14.00"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 117657,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 31 00 2e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 4e 00 2d 00 53 00 4f 00 31 00 00 00 50 00 72 00 6f 00 70 00 6f 00 72 00 74 00 69 00 6f 00 6e 00 61 00 6c 00 20 00 52 00 65 00 61 00 73 00 6f 00 6e 00 69 00 6e 00 67 00 00 00 52 00 61 00 74 00 65 00 00 00 36 03 00 00 03 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 75 00 6d 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 38 00 2c 00 31 00 29 00 00 00 36 00 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2c 40 70 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 36 00 2c 00 2e 00 35 00 29 00 00 00 31 00 34 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 55 40 70 00 72 00 00 00 6e 00 75 00 6d 00 2a 00 70 00 00 00 38 00 34 00 00 00 05 00 00 00 13 00 00 00 06 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 70 00 72 00 69 00 63 00 65 00 00 00 66 00 6f 00 72 00 6d 00 61 00 74 00 28 00 22 00 24 00 25 00 31 00 2e 00 32 00 66 00 22 00 2c 00 70 00 72 00 29 00 00 00 24 00 38 00 34 00 2e 00 30 00 30 00 00 00 04 00 00 00 0f 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 6e 40 6e 00 75 00 6d 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 32 00 2c 00 33 00 32 00",
+          "textPreview": "Moderate\n1.1\nNumber\nN-SO1\nProportional Reasoning\nRate\nnum\nrange(4,8,1)\n6\np\nrange(8,16,.5)\n14\npr\nnum*p\n84\nprice\nformat(\"$%1.2f\",pr)\n$84.00\n[[slot]]\nnum2\nrange(72,328,8)\n240\nans\nnum2/8*p\n420\nanswer\nformat(\"$%1.2f\",ans)\n$420.00\nPrice2\nformat(\"$%1.2f\",p/8)"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 12912 to 122283 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 23 candidate v06 question string clusters."
+    }
+  ],
+  "stats": {
+    "questionCount": 23,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 23
+  }
+}

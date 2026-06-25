@@ -1,0 +1,1451 @@
+       Chapter 4: Trigonometry and the Unit Circle
+
+
+       MULTIPLE CHOICE
+
+               4
+          1.      radians is equal to how many degrees?
+               3
+               A. 240°                                         C. 420°
+               B. 150°                                         D. 330°
+               ANS: A            DIF: Easy                 OBJ: Section 4.1 NAT: T1
+               TOP: Angles and Angle Measure               KEY: radians | degrees
+
+          2. The exact radian measure for an angle of 255° is
+                  17                                                17
+             A.                                             C.        
+                  12                                                6
+                  12                                                6
+             B.                                             D.        
+                  17                                                17
+               ANS: A            DIF: Easy                 OBJ: Section 4.1 NAT: T1
+               TOP: Angles and Angle Measure               KEY: radians | degrees
+
+                                                                                                6
+          3. Which of the following angles, in degrees, is coterminal with, but not equal to,      radians?
+                                                                                                5
+               A. 396°                                         C. 486°
+               B. 576°                                         D. 216°
+               ANS: B            DIF: Average              OBJ: Section 4.1 NAT: T1
+               TOP: Angles and Angle Measure               KEY: radians | degrees
+
+                                                                                                                5
+          4. Determine the arc length of a circle with radius 5.5 cm if it is subtended by a central angle of     
+                                                                                                                2
+               radians. Round your answer to one decimal place.
+               A. 1.4 cm                                     C. 4.4 cm
+               B. 43.2 cm                                    D. 6.9 cm
+               ANS: B            DIF: Easy                 OBJ: Section 4.1 NAT: T1
+               TOP: Angles and Angle Measure               KEY: radians | degrees
+
+          5. Determine the equation of a circle with centre at the origin and radius 8.
+             A. x 2  y 2  16                                C. x 2  y 2  8
+               B. x 2  y 2  64                               D. x 2  y 2    8
+               ANS: B               DIF: Easy             OBJ: Section 4.2       NAT: T2
+               TOP: Unit Circle     KEY: unit circle | unit circle equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              1
+          6. Determine the equation of a circle with centre at (3, –3) and radius 10.
+             A. (x  3) 2  (y  3) 2  100                   C. (x  3) 2  (y  3) 2  10
+              B. (x  3) 2  (y  3) 2  20                   D. (x  3) 2  (y  3) 2       10
+              ANS: A                 DIF: Difficult +      OBJ: Section 4.2      NAT: T2
+              TOP: Unit Circle       KEY: unit circle | unit circle equation
+
+                                                                                           5
+          7. Which graph represents an angle in standard position with a measure of           rad?
+                                                                                           8
+              A.                                              C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: B            DIF: Easy                  OBJ: Section 4.1      NAT: T1
+              TOP: Angles and Angle Measure                KEY: radians
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                              2
+          8. Which graph represents an angle in standard position with a measure of 135°?
+             A.                                            C.
+
+
+
+
+              B.                                              D.
+
+
+
+
+              ANS: D            DIF: Easy                  OBJ: Section 4.1   NAT: T1
+              TOP: Angles and Angle Measure                KEY: degrees
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                    3
+          9. Determine the measure of the angle in standard position shown on the graph below. Round your
+             answer to the nearest tenth of a degree.
+
+
+
+
+              A. 161.6°                                         C. 71.6°
+              B. 341.6°                                         D. 251.6°
+              ANS: C            DIF: Easy                   OBJ: Section 4.1       NAT: T1
+              TOP: Angles and Angle Measure                 KEY: radians
+
+         10. John cuts a slice from a circular ice cream cake with a diameter of 24 cm. His slice is in the shape of a
+             sector with an arc length of 7 cm. What is the measure of the central angle of the slice, in radians?
+             Round your answer to two decimal places, if necessary.
+             A. 1.71 rad                                      C. 0.29 rad
+             B. 3.43 rad                                      D. 0.58 rad
+              ANS: D            DIF: Average                OBJ: Section 4.1 NAT: T1
+              TOP: Angles and Angle Measure                 KEY: angle | radians | arc length
+
+         11. The coordinates of the point that lies at the intersection of the terminal arm and the unit circle at an
+             angle of 110° are
+             A. (0.94, –0.34)                                   C. (–0.34, 0.94)
+             B. (–0.34, –2.75)                                  D. (–2.75, 0.94)
+              ANS: C              DIF: Average              OBJ: Section 4.3       NAT: T2
+              TOP: Trigonometric Ratios
+              KEY: trigonometric ratios | unit circle | terminal arm | angle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 4
+         12. Identify the point on the unit circle corresponding to an angle of 300° in standard position.
+                                  3                                1     3
+              A. (  3 ,           )                          C. ( ,     )
+                                 2                                 2    2
+                         3 1                                       1
+              B. (       , )                                  D. ( ,  3 )
+                        2 2                                        2
+              ANS: C              DIF: Average        OBJ: Section 4.3 NAT: T2
+              TOP: Trigonometric Ratios               KEY: exact value | unit circle
+              NOT: tan90 and tan 270 changed to remove undefined
+
+                                                                                      4
+         13. Identify the point on the unit circle corresponding to an angle of          radians in standard position.
+                                                                                       3
+                         3   1                                      1     3
+              A. (        , )                                C. ( ,     )
+                        2    2                                      2    2
+                                3                                   1
+              B. (     3,        )                            D. ( ,           3)
+                               2                                    2
+              ANS: C             DIF: Average          OBJ: Section 4.3 NAT: T2
+              TOP: Trigonometric Ratios                KEY: exact value | unit circle | radians
+              NOT: tan90 and tan270 do not include undefined
+
+         14. Which point on the unit circle corresponds to tan  =        3?
+                   1                                                              3
+              A. ( ,     3)                                   C. (       3 ,      )
+                   2                                                             2
+                         3 1                                        1    3
+              B. (       , )                                 D. ( ,    )
+                        2   2                                       2   2
+              ANS: D             DIF: Average              OBJ: Section 4.3 NAT: T2
+              TOP: Trigonometric Ratios                    KEY: Unit Circle | exact value | tangent ratio
+
+                                                                                                            2    2
+         15. Identify a measure for the central angle  in the interval 0    2 such that point (             ) is on
+                                                                                                           2    2
+              the terminal arm.
+                                                                     3
+              A.                                              C.
+                                                                      4
+                                                                    3
+              B.                                               D.
+                   3                                                  2
+              ANS: C             DIF: Average              OBJ: Section 4.3 NAT: T2
+              TOP: Trigonometric Ratios                    KEY: unit circle | exact value | tangent ratio
+
+         16. Which is a possible value of  to the nearest hundredth of a radian, when cos   –0.58?
+             A. –2.19                                         C. 2.19
+             B. –0.62                                         D. 0.84
+              ANS: C               DIF: Average          OBJ: Section 4.4               NAT: T4
+              TOP: Introduction to Trigonometric Equations
+              KEY: reciprocal trigonometric ratios | approximate values
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     5
+         17. If the angle  is –5000° in standard position, it can be described as having made
+                     8                                                 7
+             A. 13 rotations                                    C. 27 rotations
+                     9                                                 9
+                       8                                                 7
+             B. 13 rotations                                   D. 27 rotations
+                       9                                                 9
+              ANS: B            DIF: Average                 OBJ: Section 4.1 NAT: T1
+              TOP: Angles and Angle Measure                  KEY: rotations | standard position
+              NOT: Mixed numbers
+
+                                                           1
+         18. During a routine, a figure skater completes 1 rotations. How many degrees has the figure skater
+                                                           9
+             turned?
+             A. –400°                                        C. –220°
+             B. 400°                                         D. 580°
+              ANS: A            DIF: Average                 OBJ: Section 4.1 NAT: T1
+              TOP: Angles and Angle Measure                  KEY: rotations | degrees | co-terminal angles
+              NOT: Mixed numbers
+
+         19. If the angle  is 1600° in standard position, in which quadrant does it terminate?
+             A. quadrant III                                   C. quadrant II
+             B. quadrant IV                                    D. quadrant I
+              ANS: C            DIF: Average                 OBJ: Section 4.1 NAT: T1
+              TOP: Angles and Angle Measure                  KEY: rotations | standard position
+
+         20. A ball is riding the waves at a beach. The ball’s up and down motion with the waves can be described
+                                             t 
+             using the formula h  2.3sin  , where h is the height, in metres, above the flat surface of the water
+                                             3 
+              and t is the time, in seconds. What is the height of the ball, to the nearest hundredth of a metre, after t
+              = 17 s?
+              A. –0.87 m                                        C. –1.99 m
+              B. –2.66 m                                        D. 1.99 m
+              ANS: C              DIF: Easy            OBJ: Section 4.4             NAT: T4
+              TOP: Introduction to Trigonometric Equations                          KEY: trigonometric ratios
+
+         21. A tricycle has a front wheel that is 30 cm in diameter and two rear wheels that are each 12 cm in
+             diameter. If the front wheel rotates through a angle of 32°, through how many degrees does each rear
+             wheel rotate, to the nearest tenth of a degree?
+             A. 32.0°                                         C. 80.0
+             B. 40.0                                         D. 160.0
+              ANS: C            DIF: Difficult +             OBJ: Section 4.1 NAT: T1
+              TOP: Angles and Angle Measure                  KEY: arc length | degrees
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                     6
+         22. Determine the point in quadrant II where the line represented by y  3x intersects the unit circle.
+             A. (0.95, –0.32)                                C. (–0.35, 0.94)
+             B. (–0.32, 0.95)                                D. (–0.32, 0.94)
+              ANS: B                 DIF: Difficult +      OBJ: Section 4.2         NAT: T2
+              TOP: Unit Circle       KEY: unit circle | intersection point
+
+         23. The point P(0.391, 0.921) is the point of intersection of a unit circle and the terminal arm of an angle
+              in standard position. What is the equation of the line passing through the centre of the circle and the
+             point P? Round the slope to two decimal places.
+             A. y  2.36x                                     C. y  2.36x  0.92
+             B. y  0.42x                                     D. y  2.36x  0.39
+
+              ANS: A             DIF: Difficult             OBJ: Section 4.3 NAT: T3
+              TOP: Trigonometric Ratios                     KEY: unit circle | trigonometric ratios
+
+         24. Giai got an answer of 3.86 when she was calculating the value of a trigonometric function. Assuming
+             Giai did her calculation correctly, which of the following was she calculating?
+                      1                                                 1
+             A. tan                                           C. csc 
+                      12                                               12
+                       7                                               1
+             B. sec                                           D. cot 
+                      12                                               12
+              ANS: C             DIF: Average               OBJ: Section 4.3 NAT: T3
+              TOP: Trigonometric Ratios                     KEY: trigonometric ratios
+
+         25. A bottle is riding the waves at a beach. The bottle’s up and down motion with the waves can be
+                                                       t 
+             described using the formula h  1.4sin  , where h is the height, in metres, above the flat water
+                                                       3 
+              surface and t is the time, in seconds. When is the first time, to the nearest tenth of a second, that the
+              height of the bottle will be 1.4 m?
+              A. 14.8 s                                        C. 0.9 s
+              B. 1.1 s                                         D. 1.5 s
+              ANS: D              DIF: Average            OBJ: Section 4.4          NAT: T4
+              TOP: Introduction to Trigonometric Equations
+              KEY: trigonometric ratios | reciprocal trigonometric ratios
+
+
+       COMPLETION
+
+          1. The cosine of an angle is _______________ in quadrant III.
+
+              ANS: negative
+
+              DIF: Easy           OBJ: Section 4.3          NAT: T3                 TOP: Trigonometric Ratios
+              KEY: trigonometric ratios
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  7
+          2. The sine of an angle is _______________ in quadrant I.
+
+               ANS: positive
+
+               DIF: Easy           OBJ: Section 4.3        NAT: T3              TOP: Trigonometric Ratios
+               KEY: trigonometric ratios
+
+          3. The reciprocal of tangent is ____________________.
+
+               ANS: cotangent
+
+               DIF: Easy           OBJ: Section 4.3 NAT: T3                     TOP: Trigonometric Ratios
+               KEY: trigonometric ratios | reciprocal trigonometric ratios
+
+          4. For a point on the unit circle, the y-coordinate can be determined using the ____________________.
+
+               ANS: sine of the reference angle
+
+               DIF: Easy           OBJ: Section 4.3        NAT: T3              TOP: Trigonometric Ratios
+               KEY: trigonometric ratios
+
+          5. The smallest non-negative value for sin x occurs when the angle in standard position is
+             ____________________.
+
+               ANS: 180°
+
+               DIF: Easy           OBJ: Section 4.3        NAT: T3              TOP: Trigonometric Ratios
+               KEY: trigonometric ratios
+
+
+       MATCHING
+
+               Match each trigonometric expression with an equal expression to form a trigonometric identity.
+                         9                                              9 
+               A. sin                              D. tan  
+                          2                                                  2 
+                           13                                        5        
+               B. cos                              E. tan          
+                            2                                            2          
+                              5                                         11      
+               C. cos              
+                                          
+                                                            F.   sin    
+                                                                        
+                                                                        
+                                                                                         
+                                                                                          
+                                2                                            2          
+          1.   sin 
+          2.   cot 
+          3.   cos 
+          4.   cot 
+          5.   sin 
+
+          1. ANS: C              DIF: Average             OBJ: Section 4.4      NAT: T4
+             TOP: Introduction to Trigonometric Equations
+             KEY: trigonometric ratios | translations | identity
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          8
+          2. ANS: E              DIF: Average             OBJ:     Section 4.4   NAT: T4
+             TOP: Introduction to Trigonometric Equations
+             KEY: trigonometric ratios | translations | identity
+          3. ANS: A              DIF: Average             OBJ:     Section 4.4   NAT: T4
+             TOP: Introduction to Trigonometric Equations
+             KEY: trigonometric ratios | translations | identity
+          4. ANS: D              DIF: Average             OBJ:     Section 4.4   NAT: T4
+             TOP: Introduction to Trigonometric Equations
+             KEY: trigonometric ratios | translations | identity
+          5. ANS: B              DIF: Average             OBJ:     Section 4.4   NAT: T4
+             TOP: Introduction to Trigonometric Equations
+             KEY: trigonometric ratios | translations | identity
+
+
+       SHORT ANSWER
+
+          1. A child swings on a playground swing set. If the length of the swing’s chain is 3 m and the child
+                                        
+             swings through an angle of , what is the exact arc length through which the child travels?
+                                        9
+
+              ANS:
+              a  r
+                    
+                     (3)
+                    9
+                    
+              a
+                    3
+                                                           
+              The child travels through an arc length of     m.
+                                                           3
+
+              DIF: Easy             OBJ: Section 4.1        NAT: T1              TOP: Angles and Angle Measure
+              KEY: arc length
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                         9
+                                                              
+                                          cot    csc  
+                                                  3             3
+          2. Determine the exact value of                           .
+                                                          
+                                                          
+                                                    cos    
+                                                               
+                                                           4
+
+              ANS:
+                                                            
+                                                   cos  
+                                                           3        1
+                                                     
+              cot    csc          sin  sin 
+                      3               3                3         3
+                                                                  
+                               
+                        cos                             cos  
+                                4                                    4
+                                                            
+                                                   cos    1
+                                                           3
+                                                               
+                                                     sin 
+                                                              3
+                                                               
+                                                       cos  
+                                                               4
+                                                          
+                                                 cos    1
+                                                          3
+                                                                 
+                                                    
+                                              sin  cos  
+                                                     3            4
+                                                             1
+                                                                  1
+                                                             2
+                                                                         
+                                                          3   2 
+                                                
+                                                                         
+                                                         2   2 
+                                                                          
+                                                       3
+                                                       2
+                                             
+                                                        6
+                                                       4
+                                                   3   4 
+                                                      
+                                                                   
+                                                     2
+                                                           6    
+                                                       6
+                                             
+                                                        6
+                                    
+              cot    csc  
+                      3                3
+                                                 6
+                        cos  
+                                 4
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                         10
+              DIF: Average        OBJ: Section 4.3 NAT: T3                      TOP: Trigonometric Ratios
+              KEY: trigonometric ratios | special angles
+
+          3. A 3-m ladder is leaning against a vertical wall such that the angle between the ground and the ladder
+               
+             is . What is the exact height that the ladder reaches up the wall?
+               3
+
+              ANS:
+              Use the trigonometry of right triangles. The hypotenuse is the length of the ladder, or 3 m. The angle
+                                                    
+              between the ladder and the ground is . The opposite side to the angle is the height the ladder reaches
+                                                    3
+              up the wall. Let this height be h.
+              h            
+                  sin 
+              3           3
+                            
+               h  3sin 
+                           3
+                     3 3
+               h
+                      2
+                                                             3 3
+              The height the ladder reaches up the wall is       m.
+                                                              2
+
+              DIF: Average         OBJ: Section 4.3 NAT: T3                     TOP: Trigonometric Ratios
+              KEY: special angles | trigonometric ratios
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               11
+                                            11 
+          4. Find the exact value of sin        .
+                                                    
+                                              12    
+
+              ANS:
+                     11                     
+              sin         sin   11 
+                             
+                                     
+                                            12 
+                      12            
+                                        
+                               sin 
+                                        12 
+
+
+
+
+                                 
+              BCD is a         - - triangle, so BD = 2 and CD =   3 . Since the measures of DAB and DBA are
+                               6 3 2
+                    
+              both    , BDA is isosceles, and AD = BD = 2.
+                   12
+              Find the measure of AB using the Pythagorean theorem.
+              AB2  AC2  BC 2
+
+                AB         AC 2  BC2
+
+                           (2        3) 2  12
+
+                           44 3 31
+
+                           84 3
+
+                         2 2 3
+              Thus,
+                       BC
+              sin  
+                      12  AB
+                                      1
+                          
+                               2 2             3
+
+              DIF: Difficult +     OBJ: Section 4.3 NAT: T3                  TOP: Trigonometric Ratios
+              KEY: special angles | exact value | Pythagorean theorem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                         12
+                                             5 
+          5. Find the exact value of cos   .
+                                              12 
+
+              ANS:
+                      5          5 
+              cos    sin       
+                                              
+                        12
+                                    2 12    
+                                     
+                            sin 
+                                     12 
+
+
+
+
+                                
+              BCD is a        - - triangle, so BD = 2 and CD =   3 . Since the measures of DAB and DBA are
+                              6 3 2
+                    
+              both    , BDA is isosceles, and AD = BD = 2.
+                   12
+              Find the measure of AB using the Pythagorean theorem.
+              AB2  AC2  BC 2
+
+               AB         AC 2  BC2
+
+                          (2      3) 2  12
+
+                          44 3 31
+
+                          84 3
+
+                         2 2 3
+              Thus,
+                       BC
+              sin  
+                      12  AB
+                                    1
+                          
+                              2 2           3
+
+              DIF: Difficult +     OBJ: Section 4.3 NAT: T3                 TOP: Trigonometric Ratios
+              KEY: exact value | special angles | Pythagorean theorem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                        13
+                                        
+          6. Given that sinx  cos   and that x lies in the first quadrant, determine the exact measure of angle x.
+                                       5
+
+              ANS:
+                              
+              sinx  cos  
+                              5
+                               3 
+              sinx  cos          
+                                        
+                               2   10   
+                            3 
+              sinx  sin 
+                             10 
+                       3
+                 x
+                       10
+
+              DIF: Average        OBJ: Section 4.4 NAT: T4
+              TOP: Introduction to Trigonometric Equations
+              KEY: equivalent trigonometric expression | exact value
+
+                                                                                                                      2
+          7. Without using a calculator, determine two angles between 0° and 360° that have a cosecant of               .
+                                                                                                                       3
+              Include an explanation of how you determined the two angles.
+
+              ANS:
+                                 2               3                   3
+              Since csc           , sin      . Since sin60     , the reference angle is 60°. The ratio is
+                                   3            2                   2
+              negative in quadrants III and IV.This means that the angle can be found by looking for reflections of
+              60 that lie in these quadrants.
+              quadrant III: 180° + 60° = 240°
+              quadrant IV: 360° – 60° = 300°
+
+              DIF: Average        OBJ: Section 4.3 NAT: T2                        TOP: Trigonometric Ratios
+              KEY: reference angle | reciprocal trigonometric ratios | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                      14
+          8. Given a circle of diameter 21 cm, determine the arc length subtended by a central angle of 1.2 radians.
+
+              ANS:
+                 d
+              r
+                 2
+                     21
+                 
+                     2
+                  10.5
+              a  r
+              a  (10.5)(1.2)
+                12.6
+              The arc length is 12.6 cm.
+
+              DIF: Average         OBJ: Section 4.1                    NAT: T1        TOP: Angles and Angle Measure
+              KEY: arc length | central angle
+
+                                           2     2
+                                          5               5  
+          9. Find the exact value of  cos      sin   .
+                                           6                6  
+                                                                             
+
+              ANS:
+                  2     2                      2   2
+                 5          5        3       1 
+                 cos      sin            
+                   6            6         2    2 
+                                                      
+                                                             
+                                                        3 1
+                                                        
+                                                        4 4
+                                                        1
+                                                    
+                                                        2
+
+              DIF: Difficult       OBJ: Section 4.3                    NAT: T3        TOP: Trigonometric Ratios
+              KEY: exact value | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               15
+                                                                             2              3
+         10. Angles A and B are located in the first quadrant. If sin A       and cos B     , determine the
+                                                                            2              2
+              exact value of sec A + sec B.
+
+              ANS:
+                           2                                3
+              sin A                          cos B 
+                          2                                2
+                                                        
+                A                              B 
+                        4                                6
+                                                  
+              sec A  sec B  sec    sec  
+                                       4            6
+                                     2    2
+                                       
+                                      2    3
+
+                                    2 3 2 2
+                                
+                                            6
+
+                                    2 18  2 12
+                                
+                                         6
+
+                                    23 2 22 3
+                                
+                                          6
+
+                                    3 2 2 3
+                                
+                                        3
+
+              DIF: Average         OBJ: Section 4.3 NAT: T3                      TOP: Trigonometric Ratios
+              KEY: exact value | reciprocal trigonometric ratios
+
+         11. Determine the exact measures for all angles where tan         3 in the domain 180    180.
+
+              ANS:
+              The tangent ratio is negative in quadrants II and IV. In quadrant II for the domain 0    180,
+                120. In quadrant IV for the domain 180    0,   60.
+
+              DIF: Difficult     OBJ: Section 4.3 NAT: T3                        TOP: Trigonometric Ratios
+              KEY: primary trigonometric ratios | exact value
+
+         12. A grandfather clock shows a time of 7 o’clock. What is the exact radian measure of the angle between
+             the hour hand and the minute hand?
+
+              ANS:
+              5
+               6
+
+              DIF: Easy                    OBJ: Section 4.1     NAT: T1          TOP: Angles and Angle Measure
+              KEY: radian
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            16
+       PROBLEM
+
+          1. A 150-cm-tall person stands on the bank of a narrow river and observes a flagpole on the opposite
+             bank. If the angle of elevation to the top of the flagpole is 0.25 and the angle of depression to the
+             bottom of the flagpole is 0.09, determine the flagpole’s height, in metres, to two decimal places.
+
+              ANS:
+              Let d represent the width of the river. Let h represent the height of the pole.
+
+
+
+
+                          1.5                               h  1.5
+              tan0.09                          tan0.25 
+                           d                                  d
+                          1.5                                h  1.5
+                    d                                d
+                        tan0.09                             tan0.25
+              Equate and solve for h.
+                1.5      h  1.5
+                      
+              tan0.09 tan0.25
+                          1.5tan0.25
+                     h               1.5
+                            tan0.09
+                       5.74
+              The height of the flagpole is approximately 5.74 m.
+
+              DIF: Difficult      OBJ: Section 4.3 | Section 4.4                NAT: T3 |T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: radians | primary trigonometric ratios | trigonometric equations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             17
+                                                                                      A top  A bottom
+          2. The volume of a drinking cup can be approximated by the formula V                      h, where the top
+                                                                                              2
+              and bottom of the cup are circular and h is the height. If the cup has a bottom diameter of 6 cm, a
+              height of 10 cm, and sides that slope outward at an angle of 0.09, determine the cup’s volume.
+
+              ANS:
+
+
+
+
+              First, find x.
+               x
+                   tan 0.09
+              10
+               x  10tan 0.09
+              A bottom  r 2                        A top  r 2
+                                   2
+                           (3)                            (3  x)
+                                                                        2
+
+
+                          9                               (3  10tan 0.09)
+                                                                                 2
+
+
+                                                           15.23
+                      A  A               
+                       top       bottom   
+              V                            h
+                              2              
+                                               
+                         15.23  9 
+                                    10
+                                         
+                               2         
+                 381
+              The volume of the cup is approximately 381 cm3, or 381 mL.
+
+              DIF: Difficult      OBJ: Section 4.3 | Section 4.4                NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: volume | trigonometric ratios | trigonometric equations | radians
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                18
+          3. Two billiard balls collide and then separate from one another at the same, constant speed. Assume the
+             billiard table is frictionless. The angle between the balls is 1.25 radians. After 2 s, the distance
+             between the balls is 1 m. How fast are the balls moving, to the nearest hundredth of a metre per
+             second?
+
+              ANS:
+
+
+
+
+              Use the cosine law.
+              12  d 2  d 2  2d (d ) cos 1.25
+               1  2d 2  2d 2 cos 1.25
+                  d 2 (2  2cos 1.25)
+
+                            1
+               d
+                      2  2cos 1.25
+
+                                d
+              Recall that s      . The balls have travelled a distance, d, in metres, in a time, t, of 2 s.
+                                t
+                           1
+                     2  2cos 1.25
+              s
+                          2
+                0.43
+              Therefore, after 2 s, the billiard balls are moving at approximately 0.43 m/s.
+
+              DIF: Difficult +    OBJ: Section 4.3 | Section 4.4             NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: trigonometric ratios | radians | cosine law
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             19
+          4. To support a new 2.5-m wall in the construction of a home, the carpenters nail a piece of wood from
+             the top of the wall to the floor, with the piece of wood forming the hypotenuse of the right triangle it
+             makes with the wall and floor. The piece of wood is nailed to the ground such that it makes a 30°
+             angle with the floor.
+             a) Represent this situation with a diagram.
+             b) Which trigonometric ratio can be used to determine the length of the piece of wood?
+             c) Determine the length of the piece of wood.
+
+              ANS:
+              a)
+
+
+
+
+              b) Use the sine ratio, since the side opposite the given angle is known and the hypotenuse is needed.
+                           2.5
+              c) sin 30 
+                            x
+                              2.5
+                      x
+                            sin 30
+                            2.5
+                        
+                             1
+                             2
+                       5
+              The length of the piece of wood is 5 m.
+
+              DIF: Easy           OBJ: Section 4.3 | Section 4.4                NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: trigonometric ratios | special angles | trigonometric equations
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                20
+          5. Two wires are connected to a tower at the same point on the tower. Wire #1 makes an angle of 45°
+             with the ground and wire #2 makes an angle of 60° with the ground.
+             a) Represent this situation with a diagram.
+             b) Which wire is longer? Explain.
+             c) If the point where the two wires connect to the tower is 35 m above the ground, determine exact
+             expressions for the lengths of the two wires.
+             d) Determine the length of each wire, to the nearest tenth of a metre.
+             e) How do your answers to parts b) and d) compare?
+
+              ANS:
+              a)
+
+
+
+
+              b) Both wires are connected to the tower at the same height, which is the opposite side to the given
+              angles. Each wire length represents the hypotenuse of its respective triangle. The longer hypotenuse is
+              the wire that forms the smaller angle, as it needs to be longer to reach the tower.
+                                   35                              35
+              c) Wire 1: sin 45              Wire 2: sin 60 
+                                    x                              y
+                                      35                            35
+                              x                            y
+                                    sin 45                       sin 60
+                                     35                            35
+                                                             
+                                     1
+                                                                    3
+                                      2                            2
+                                 35 2                             70
+                                                              
+                                                                    3
+
+                                                                 70 3
+                                                              
+                                                                   3
+              d) The length of wire #1 is 49.5 m and the length of wire #2 is 40.4 m.
+              e) The values calculated in part d) support the answers in part b).
+
+              DIF: Average         OBJ: Section 4.3 | Section 4.4                 NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: special angles | primary trigonometric ratios | right triangle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                21
+          6. Sarah and Simone are walking in a walk-a-thon down a straight street that leads to the finish line in
+             the park. At the same time, they both notice a hot-air balloon directly over the finish line. Sarah sees
+             the angle from the ground to the balloon as 30° and Simone, who is 0.25 km closer to the finish line
+             than Sarah, sees the angle from the ground to the balloon as 45°.
+             a) Draw a diagram to represent this situation.
+             b) If x represents the distance that Simone is from the finish line, write an expression for the distance
+             from Sarah to the finish line.
+             c) Write a trigonometric ratio for each girl’s position that involves the height of the balloon, h; the
+             distance, x, each girl is away from the finish line; and the angle from the girl to the balloon.
+             d) Rearrange each equation from part c) to isolate h.
+             e) Set the two expressions for h equal to each other and solve for x, to the nearest hundredth of a
+             kilometre.
+             f) Determine the height of the balloon, to the nearest hundredth of a kilometre.
+
+              ANS:
+              a)
+
+
+
+
+              b) x + 0.25
+                                      h                         h
+              c) Sarah: tan 30            , Simone: tan 45 
+                                   x  0.25                     x
+              d) h  (x  0.25) tan 30          h  x tan 45
+                       x  0.25                  x
+                     
+                            3
+                     x  0.25
+              e)              x
+                          3
+
+                     x  0.25      3x
+                         3x  x  0.25
+                   x( 3  1)  0.25
+                                   0.25
+                             x
+                                    3 1
+                                0.34
+              f) h  x
+                   0.34
+              The height of the balloon is 0.34 km.
+
+              DIF: Average       OBJ: Section 4.3 | Section 4.4              NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: two-dimensional problem | special angles | right triangle
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 22
+          7. Gursant and Leo are both standing on the north side of a monument that is 6.0 m tall. Leo is standing
+             3.5 m closer to the monument than Gursant. Leo measures the angle from the ground to the top of the
+             monument to be 41°. Determine the angle that Gursant would measure from the ground to the top of
+             the monument, to the nearest degree.
+
+              ANS:
+              Draw a diagram of the situation.
+
+
+
+
+              Let x represent the distance that Leo is from the base of the monument.
+                        6.0
+              tan 41 
+                         x
+                          6.0
+                    x
+                        tan 41
+              Let A represent the angle that Gursant would measure. Let d represent the distance that Gursant is
+                                                     6
+              from the monument. Thus, d  3.5           .
+                                                  tan 41
+                             6
+              tan A 
+                               6
+                      3.5 
+                            tan41
+               A  30
+              Gursant would measure an angle of 30° from the ground to the top of the monument.
+
+              DIF: Difficult     OBJ: Section 4.3 | Section 4.4                NAT: T3 | T5
+              TOP: Trigonometric Ratios | Introduction to Trigonometric Equations
+              KEY: two-dimensional problem | trigonometric ratios | right triangle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             23
+          8. The point (–5, 7) is located on the terminal arm of A in standard position.
+             a) Determine the primary trigonometric ratios for A.
+             b) Determine the primary trigonometric ratios for B with the same sine as A, but different signs
+             for the other two primary trigonometric ratios.
+             c) Use a calculator to determine the measures of A and B, to the nearest degree.
+
+              ANS:
+              A is in quadrant II. Therefore, only the sine ratio will be positive.
+              Use the Pythagorean theorem.
+              r2  x2  y2
+                         2
+                  (5)  72
+                  25  49
+                  74
+               r       74
+                                     7                  5                    7
+              Therefore, sin A          , cos A          , and tan A   .
+                                      74                 74                  5
+              b) The quadrant in which the sine ratio is still positive, but the cosine and tangent ratios change from
+              negative to positive, is quadrant I. In this quadrant, all three primary trigonometric ratios are positive.
+                        7                 5                  7
+              sin B        , cos B          , and tan B  .
+                         74                74                5
+              c) Use the fact that B is the reference angle for A.
+                            7
+              B  sin1
+                             74
+              B  54
+              A  180  54
+                     126
+
+              DIF: Average         OBJ: Section 4.2 | Section 4.3         NAT: T2 | T3
+              TOP: Unit Circle | Trigonometric Ratios KEY: trigonometric ratios | reference angle | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    24
+                                                                                                                1
+          9. a) Without using a calculator, determine two angles between 0° and 360° that have a sine ratio of  .
+                                                                                                                2
+             b) Use a calculator and a diagram to verify your answers to part a).
+
+              ANS:
+                                 1
+              a) Since sin 30° = , the reference angle is 30°. The sine ratio is negative in quadrants III and IV.
+                                 2
+              Look for reflections of the 30° angle in these quadrants.
+              quadrant III: 180° + 30° = 210°
+              quadrant IV: 360° – 30° = 330°
+                                                  1                   1
+              b) Using a calculator, sin 210° =  and sin 330° =  .
+                                                  2                   2
+
+
+
+
+              DIF: Average         OBJ: Section 4.2 | Section 4.3           NAT: T2 | T3
+              TOP: Unit Circle | Trigonometric Ratios KEY: sine ratio | reference angle | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             25
+                                                 12
+         10. Consider A such that cos A =          .
+                                                 13
+              a) In which quadrant(s) is this angle? Explain.
+              b) If the sine of the angle is negative, in which quadrant is the angle? Explain.
+              c) Sketch a diagram to represent the angle in standard position, given that the condition in part b) is
+              true.
+              d) Find the coordinates of a point on the terminal arm of the angle.
+              e) Write exact expressions for the other two primary trigonometric ratios for the angle.
+
+              ANS:
+              a) Since the cosine ratio is positive, the angle is in quadrant I or IV.
+              b) If the sine ratio is negative, the angle is in quadrant IV.
+              c)
+
+
+
+
+              d) Use the Pythagorean theorem.
+               r2  x 2  y 2
+              132  122  y 2
+               y 2  169  144
+               y 2  25
+                y  5
+              Therefore, a point on the terminal arm is (12, –5).
+                           5               5
+              e) sin A   , tan A  
+                           13             12
+
+              DIF: Average         OBJ: Section 4.2 | Section 4.3         NAT: T2 | T3
+              TOP: Unit Circle | Trigonometric Ratios KEY: trigonometric ratios | unit circle | reference angle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                26
+         11. In ABC, c = 11 cm, b = 7 cm, and B = 38°.
+             a) Sketch possible diagrams for this situation.
+             b) Determine the measure, to the nearest degree, of C in each diagram.
+             c) Find the measure of A in each diagram.
+             d) Calculate the length of BC in each diagram.
+
+              ANS:
+              a)      Triangle 1                                Triangle 2
+
+
+
+
+              b) For triangle 1,                        For triangle 2,
+              sin 38 sin C
+                                                       C  180  75
+                 7        11
+                                                             105
+                        11sin38
+                sin C 
+                           7
+                  C  75
+              c) For triangle 1,                        For triangle 2,
+              A  180  (38  75)                   A  180  (38  105)
+                   67                                      37
+              d) For triangle 1,                        For triangle 2,
+                BC         7                              BC         7
+                                                               
+              sin67 sin38                             sin37 sin38
+                        7sin67                                    7sin37
+                 BC                                        BC 
+                        sin38                                     sin38
+                       10.5                                      6.8
+              In triangle 1, the length of BC is 10.5 cm. In triangle 2, the length of BC is 6.8 cm.
+
+              DIF: Average      OBJ: Section 4.3 NAT: T3                           TOP: Trigonometric Ratios
+              KEY: two-dimensional problem | ambiguous case | sine law
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       27
+         12. Jason is standing 8.7 km from town X and 11.5 km from town Y. From where he stands, the angle
+             between the two towns is 37°. A new hotel has just been built on the road connecting town X and
+             town Y, exactly halfway between the two towns. From where Jason is standing, he sees that the angle
+             of elevation to the top of the hotel is 1°. Determine the height of the hotel, to the nearest tenth of a
+             metre. Include a diagram with your solution.
+
+              ANS:
+
+
+
+
+              First, use the cosine law to determine the distance between towns X and Y.
+                     2
+              (XY)  11.52  8.72  2(11.5) (8.7) cos 37
+                     2
+              (XY)  48.133
+                XY  6.94
+              Then, use the cosine law to determine the measure of Y.
+               8.72  11.52  6.942  2(11.5) (6.94) cos Y
+              75.69  180.4136  159.62cos Y
+                         75.69  180.4136
+              cos Y 
+                             159.62
+                Y  49.0
+              The hotel is built halfway between the two towns, so the distance from town Y to the hotel is 3.47 km.
+              Next, use the cosine law to determine the distance from Jason to the hotel, JH.
+                  2
+              (JH)  11.52  3.472  2(11.5) (3.47) cos 49
+                   2
+              (JH)  91.93
+                 JH  9.6
+              Finally, determine the height of the hotel.
+                         h
+              tan 1 
+                        9.6
+                  h  9.6tan 1
+                     0.1676
+              The height of the hotel is approximately 0.1676 km, or 167.6 m.
+
+              DIF: Difficult +    OBJ: Section 4.4 NAT: T5
+              TOP: Introduction to Trigonometric Equations
+              KEY: three-dimensional problem | cosine law | tangent ratio
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                28
+         13. A rectangle has a diagonal of 8 cm. The diagonal creates a 60° angle at the base of the rectangle.
+             a) Write an exact expression for the base and the height of the rectangle.
+             b) Use your expressions to find the exact area of the rectangle.
+
+              ANS:
+                             base                         height
+              a) cos 60             and     sin60 
+                              8                             8
+                   base  8cos 60             height  8sin60
+                                1                                
+                   base  8                                3 
+                                2              height  8       
+                                                             2 
+                   base  4                                        
+                                               height  4 3
+              b) A  bh
+
+                    44 3
+                    16 3
+              The area of the rectangle is 16 3 cm2.
+
+              DIF: Easy            OBJ: Section 4.3 NAT: T3                     TOP: Trigonometric Ratios
+              KEY: special angles | trigonometric ratios | area
+
+         14. Adriano knows that the distance from the point on the bridge where he is standing to one side of the
+             canyon floor is 725 m, and that the distance from where he is to a point on the other side of the canyon
+             floor is 816 m. If Adriano measures the angle between the two points on the canyon floor to be 11°,
+             determine the width of the canyon, to the nearest tenth of a metre.
+
+              ANS:
+              Let x represent the width of the canyon. Use the cosine law.
+              x 2  7252  8162  2(725)(816) cos 11
+                  30 019.72
+               x  173.3
+              The width of the canyon is approximately 173.3 m.
+
+              DIF: Easy           OBJ: Section 4.3 NAT: T3                      TOP: Trigonometric Ratios
+              KEY: cosine law | two-dimensional problem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                29
+         15. Simon is due north of a tall totem pole and walks 75 m, 40° west of south. From his new position, the
+             totem pole is due east, with an angle of elevation of 17°. Determine the height of the totem pole, to the
+             nearest tenth of a metre.
+
+              ANS:
+              Draw a diagram to find the distance, x, of Simon’s new position from the totem pole.
+
+
+
+
+                          x
+              sin 40 
+                          75
+                   x  75sin 40
+                       48.2
+              Now, draw a diagram to show the angle of elevation of Simon’s new position to the totem pole, and
+              the height, h, of the totem pole.
+
+
+
+
+                           x
+              tan 17 
+                          48.2
+                    x  48.2 tan 17
+                      14.7
+              The height of the totem pole is approximately 14.7 m.
+
+              DIF: Average        OBJ: Section 4.3 NAT: T3                       TOP: Trigonometric Ratios
+              KEY: trigonometric ratios | three-dimensional problem
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 30
+         16. a) For the given trigonometric ratio, determine two other angles that have the same value.
+             i) sin 45°
+             ii) tan 300°
+             iii) cos 120°
+             b) Explain how you determined the angles in part a).
+
+              ANS:
+              a) Answers may vary. Sample answers:
+              i) –315° and 405°
+              ii) –60° and 120°
+              iii) 240° and –240°
+              b) In all cases, locate the given angle on a Cartesian plane, and then identify the reference angle.
+              Then, locate the other quadrant where the given trigonometric ratio has the same sign as the given
+              ratio. Then, any angle that is co-terminal to the two angles in the diagram has the same trigonometric
+              ratio as that given.
+
+              DIF: Average         OBJ: Section 4.2 | Section 4.3                NAT: T2 | T3
+              TOP: Unit Circle | Trigonometric Ratios
+              KEY: trigonometric ratios | reference angle | co-terminal angles | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                               31
+         17. The point P(–3, –6) lies on the terminal arm of an angle in standard position.
+             a) Which primary trigonometric ratios are positive and which are negative?
+             b) Which reciprocal trigonometric ratios are positive and which are negative?
+             c) Determine exact values for the primary trigonometric ratios.
+             d) Determine exact values for the reciprocal trigonometric ratios.
+
+              ANS:
+              a) Since the point on the terminal arm lies in quadrant III, the tangent ratio is positive, and the sine
+              and cosine ratios are negative.
+              b) The cotangent ratio is positive, and the cosecant and secant ratios are negative.
+              c) r 2  x 2  y 2
+                           2       2
+                    (3)  (6)
+                    9  36
+                    45
+
+                  r      45
+                    3 5
+                      y                           x                         y
+              sin P                   cos P                     tan P 
+                      r                           r                         x
+                        6                         3                       6
+                                                                     
+                       3 5                        3 5                       3
+
+                          2                        1                   2
+                                           
+                           5                         5
+              d) Using the answers in part c), take the reciprocal of each primary trigonometric ratio to write the
+              reciprocal trigonometric ratios.
+                            5                                 1
+              csc P         , sec P     5 , and cot P 
+                           2                                  2
+
+              DIF: Average         OBJ: Section 4.2 | Section 4.3               NAT: T2 | T3
+              TOP: Unit Circle | Trigonometric Ratios
+              KEY: primary trigonometric ratios | reciprocal trigonometric ratios | point on terminal arm
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 32
+         18. Darren cuts a slice from his circular birthday cake, which has a diameter of 30 cm. The slice is in the
+             shape of a sector with arc length 8 cm. What is the measure of the central angle of the slice, in radians,
+             rounded to two decimal places?
+
+              ANS:
+              Since the diameter is 30 cm, the radius is 15 cm.
+              a  r
+              8  15
+                   8
+              
+                   15
+                0.53
+              The central angle measures 0.53 rad.
+
+              DIF: Easy            OBJ: Section 4.1        NAT: T1                TOP: Angles and Angle Measure
+              KEY: central angle | arc length
+
+         19. A bicycle tire revolves at 150 rpm (revolutions per minute). What is its angular velocity, in radians per
+             second, rounded to two decimal places?
+
+              ANS:
+              150 revolutions 150(2)
+                             
+                  minute        60 s
+                              15.71 rad/s
+              The angular velocity is 15.71 rad/s.
+
+              DIF: Average        OBJ: Section 4.1         NAT: T1                TOP: Angles and Angle Measure
+              KEY: angular velocity
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  33
+         20. A group of marketing students are creating a strategy to sell ceiling fans. They determine that the
+                                                                                                                    
+                                                                                                                    
+             number of sales will vary according to the month of the year. The formula s  9.2  2.4cos  (t  6) 
+                                                                                                           
+                                                                                                            6        
+             gives the expected sales, in thousands, according to the month, t, where t = 1 represents January, t = 2
+             is February, and so on.
+             a) In which month are sales of fans expected to reach 11 600?
+             b) In which month are sales expected to be the least?
+             c) Does this formula seem reasonable? Explain.
+
+              ANS:
+                                                                    
+                                                                    
+              a) Solve the equation 11.6  9.2  2.4cos  (t  6)  for t.
+                                                             
+                                                              6      
+                                                     
+                                                      
+                  11.6  9.2  2.4cos  (t  6) 
+                                              6       
+                                                 
+                                                  
+                   2.4  2.4cos  (t  6) 
+                                        6         
+                                             
+                                              
+                     1  cos  (t  6) 
+                                  6           
+                             
+                (t  6)  0 or (t  6)  2
+              6               6
+                       t  6 or t  18
+              These both represent June. Sales will be 11 600 in June. Since the cosine function is equal to 1 at this
+              point, this is the maximum number of sales.
+              b) The minimum sales will occur when the cosine function is equal to 1, which occurs when
+              
+                (t  6)  
+              6
+                  t6 6
+                      t  12
+              The minimum sales are in December.
+              c) Yes. You would expect the most sales to occur at the beginning of summer and the least sales in a
+              cold month like December.
+
+              DIF: Average        OBJ: Section 4.4 NAT: T5
+              TOP: Introduction to Trigonometric Equations                         KEY: sine ratio | algebraic solution
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                    34
+

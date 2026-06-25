@@ -1,0 +1,189 @@
+Chat with us, powered by LiveChat Skip to main content
+Support Help Center home page
+Echo360 Status: 
+
+  • What's New?
+  • Join the Community
+  • Contact Support
+  • Sign in
+
+(Toggle navigation menu)
+
+  • Sign in
+  • 
+  • What's New
+  • Join the Community
+  • Contact Support
+
+ 1. Support
+ 2. ExamView
+ 3. ExamView Test Generator
+
+ExamView: Algorithmic Syntax in Test Generator
+
+[6f54bac614]
+Echo360
+
+  • March 13, 2024 18:17
+  • Updated
+
+Sections in Article
+
+Related articles
+
+  • ExamView: Algorithm Definitions in Exam View
+  • ExamView: About ExamView Test Generator
+  • ExamView: Creating or Editing an Algorithm in Test Generator
+  • EchoVideo: Reporting API
+  • ExamView: Create and Print a Test in Test Generator
+
+NOTICE:  EXAMVIEW END-OF-LIFE ANNOUNCEMENT
+
+As of June 30, 2024, ExamView will officially reach its end of life.
+
+Please be advised that after ExamView’s end-of-life date of June 30th, 2024, we will no longer be providing updates,
+security patches, or technical support for any version of ExamView. Our obligations to maintain or support ExamView
+will cease as of this date. Continued use of ExamView post end-of-life may expose you to increased security
+vulnerabilities, compatibility issues, and potentially reduced functionality. To avoid these risks and ensure
+uninterrupted service, we encourage migrating to EchoExam, which is designed to offer superior security, compatibility,
+and a range of advanced features that align with current technological standards. For questions click here.
+
+Algorithmic Syntax
+
+A variable is a named object that can be modified during recalculation. Each variable has a unique name and a "scope"
+or context where it is identified. In the ExamView Test Generator, the scope of a variable is either limited to a
+single question, a narrative and all questions linked to it, or to a matching group and all questions within that
+matching group.
+
+All variables are one of the following types:
+
+Variable                    What it indicates
+int      integer (positive and negative whole numbers and zero)
+
+double   double-precision floating point (has fractional part)
+
+string   characters or letters
+
+A variable name must begin with an alphabetic character, cannot be longer than 40 characters, and cannot contain
+characters other than alphabetic characters, numeric characters, and the underscore.
+
+An expression is a mathematical, logical, or string phrase that contains constants, variables, operators, and keywords.
+An expression is used to define a variable.
+
+For example:
+
+y = x + 8
+
+In this example, "y" is a variable being defined, "x" is a variable already defined, "+" is an arithmetic operator to
+do addition, and "8" is a numeric constant. You do not have to explicitly assign a type to any variable or constant.
+The program does that for you.
+
+ExamView Test Generator uses the following arithmetic operators:
+
+Arithmetic Operators                         What it indicates
++                    Addition (can also concatenate two string variables or constants)
+
+-                    Subtraction
+*                    Multiplication (use 3 * x instead of 3x)
+/                    Division
+\                    Integer division
+%                    Modulus
+^                    Power (use x^2 to represent x to the 2nd power)
+!                    Factorial
+
+In addition to the arithmetic operators, ExamView Test Generator uses the following relational operators:
+
+Rational Operators       What it indicates
+=                  Equals
+[1844171885]       Less than
+[1844157728]       Less than or equal to
+[1844170540]       Greater than
+[1844156431]       Greater than or equal to
+[1844177860]       Not equal to
+&                  And (you can also use "and")
+|                  Or (you can also use "or")
+
+An expression that adds two strings together might look like this:
+
+y = "Mrs. " + firstName + " " + lastName
+
+In this case, "Mrs."; and the space between the first and last name are considered string constants. The variables
+firstName and lastName would have already been defined as string variables. When the expression has been evaluated, y
+will be a string variable.
+
+ExamView Test Generator will not let you combine variables of different types when writing expressions, except where
+variables of a particular type are expected.
+
+For example, you could not write an expression like:
+
+y = "Mrs. " + 8 * x
+
+The program would not know whether the string constant "Mrs."; should be treated as a numeric variable and added to the
+product of 8 times x, or whether the product of 8 * x should be treated as a string variable and concatenated to
+"Mrs."; to give the string result y.
+
+The list of keywords shows what types of variables or constants can be used as arguments (input) to the various
+functions, as well as what type of variable gets created by the keyword or function (output).
+
+ExamView Test Generator also lets you use parentheses to assign precedence to parts of your expressions when the
+program evaluates them. The following list will help you when determining the order in which an expression is
+evaluated:
+
+                      Operators                                              What it indicates
+( )                                                  parentheses
+! + -                                                factorial, positive, negative
+
+^                                                    power
+* / \ %                                              multiplication, division, integer division, modulus
++ -                                                  addition, subtraction
+[1844170201], [1844157728], [1844170637],            less than, less than or equals, greater than, greater than or
+[1844156431]                                         equals
+[1844171270], [1844173142]                           equals, not equals
+&                                                    and
+|                                                    or
+
+ 
+
+  •  
+  •  
+  •  
+
+Was this article helpful?
+(This article was helpful)Yes (This article was not helpful)No
+1 out of 2 found this helpful
+Return to top
+Main Echo360 Home
+
+Support
+
+  • EchoAuthor
+  • EchoExam
+  • EchoInk
+  • EchoPoll
+  • EchoVideo
+  • PointSolutions
+
+Company
+
+  • The Echosystem
+  • Education
+  • Business
+  • Government
+  • Resources
+  • Company
+  • Downloads
+
+  • Privacy Policy
+  • |
+  • Terms & Conditions
+  • |
+  • Support Policy
+  • |
+  • Feedback Policy
+  • |
+  • Contact
+
+ 
+ 
+ 
+ 

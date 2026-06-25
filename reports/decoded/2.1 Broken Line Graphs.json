@@ -1,0 +1,2371 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/MathWorks 11/Ch2-Graphical Representations/2.1 Broken Line Graphs.bnk",
+    "byteLength": 228937,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 228921,
+    "inflatedByteLength": 5770938
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which destination appears to be the favourite for Canadian tourists? 4 a. c. b. d. They are all equally preferred."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "4"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "i",
+          "rule": "1",
+          "sampleValue": "1"
+        },
+        {
+          "name": "question",
+          "rule": "choose(i,questionlist)",
+          "sampleValue": "Which destination appears to be the favourite for Canadian tourists?"
+        },
+        {
+          "name": "questionlist",
+          "rule": "list(\"Which destination appears to be the favourite for Canadian tourists?\",\"Which year seemed to be the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")",
+          "sampleValue": "Which destination appears to be the favourite for Canadian tourists?, Which year seemed to be the slowest year for tourism?, Approximately how many more tourists visited Hawaii compared to Cuba in 2008?"
+        },
+        {
+          "name": "j",
+          "rule": "rand(4)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "correct",
+          "rule": "if(i=1,choose(i,correctlist),if(i=2,choose(i,correctlist),choose(i,correctlist)))"
+        },
+        {
+          "name": "correctlist",
+          "rule": "list(\"Mexico\",\"2006\",\"25 000\")",
+          "sampleValue": "Mexico, 2006, 25 000"
+        },
+        {
+          "name": "err1",
+          "rule": "if(i=1,choose(i,err1list),if(i=2,choose(i,err1list),choose(i,err1list)))"
+        },
+        {
+          "name": "err1list",
+          "rule": "list(\"Hawaii\",\"2000\",\"150 000\")",
+          "sampleValue": "Hawaii, 2000, 150 000"
+        },
+        {
+          "name": "err2list",
+          "rule": "list(\"Cuba\",\"2002\",\"125 000\")",
+          "sampleValue": "Cuba, 2002, 125 000"
+        },
+        {
+          "name": "err3list",
+          "rule": "list(\"They are all equally preferred.\",\"2004\",\"75 000\")",
+          "sampleValue": "They are all equally preferred., 2004, 75 000"
+        },
+        {
+          "name": "err2",
+          "rule": "if(i=1,choose(i,err2list),if(i=2,choose(i,err2list),choose(i,err2list)))"
+        },
+        {
+          "name": "Cuba",
+          "rule": "H"
+        },
+        {
+          "name": "err3",
+          "rule": "if(i=1,choose(i,err3list),if(i=2,choose(i,err3list),choose(i,err3list)))",
+          "sampleValue": "They are all equally preferred."
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 c8 0b 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 69 00 00 00 31 00 00 00 31 00 00 00 08 00 00 00 16 00 00 00 44 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 00 00 63 00 68 00 6f 00 6f 00 73 00 65 00 28 00 69 00 2c 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 29 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 64 00 65 00 73 00 74 00 69 00 6e 00 61 00 74 00 69 00 6f 00 6e 00 20 00 61 00 70 00 70 00 65 00 61 00 72 00 73 00 20 00 74 00 6f 00 20 00 62 00 65 00 20 00 74 00 68 00 65 00 20 00 66 00 61 00 76 00 6f 00 75 00 72 00 69 00 74 00 65 00 20 00 66 00 6f 00 72 00 20 00 43 00 61 00 6e 00 61 00 64 00 69 00 61 00 6e 00 20 00 74 00 6f 00 75 00 72 00 69 00 73 00 74 00 73 00 3f 00 00 00 0c 00 00 00 d4 00 00 00 cc 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 00 00 6c 00 69 00 73 00 74 00 28 00 22 00 57 00 68 00 69 00 63 00 68 00 20 00 64 00",
+          "textPreview": "Easy\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\ni\n1\n1\nD\nquestion\nchoose(i,questionlist)\nWhich destination appears to be the favourite for Canadian tourists?\nquestionlist\nlist(\"Which destination appears to be the favourite for Canadian tourists?\",\"Which year seemed to be the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")\nWhich destination appears to be the favourite for Canadian tourists?, Which year seemed to be the slowes"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which year seems to have been the slowest for tourism? 2 a. 2000 c. 2002 b. 2006 d. 2004"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 347464,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "i",
+          "rule": "2",
+          "sampleValue": "2"
+        },
+        {
+          "name": "question",
+          "rule": "choose(i,questionlist)",
+          "sampleValue": "Which year seems to have been the slowest year for tourism?"
+        },
+        {
+          "name": "questionlist",
+          "rule": "list(\"Which destination appears to be to be the favourite for Canadian tourists?\",\"Which year seems to have been the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")",
+          "sampleValue": "Which destination appears to be to be the favourite for Canadian tourists?, Which year seems to have been the slowest year for tourism?, Approximately how many more tourists visited Hawaii compared to Cuba in 2008?"
+        },
+        {
+          "name": "j",
+          "rule": "rand(4)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "correct",
+          "rule": "if(i=1,choose(i,correctlist),if(i=2,choose(i,correctlist),choose(i,correctlist)))",
+          "sampleValue": "2006"
+        },
+        {
+          "name": "correctlist",
+          "rule": "list(\"Mexico\",\"2006\",\"25 000\")",
+          "sampleValue": "Mexico, 2006, 25 000"
+        },
+        {
+          "name": "err1",
+          "rule": "if(i=1,choose(i,err1list),if(i=2,choose(i,err1list),choose(i,err1list)))",
+          "sampleValue": "2000"
+        },
+        {
+          "name": "err1list",
+          "rule": "list(\"Hawaii\",\"2000\",\"150 000\")",
+          "sampleValue": "Hawaii, 2000, 150 000"
+        },
+        {
+          "name": "err2list",
+          "rule": "list(\"Cuba\",\"2002\",\"125 000\")",
+          "sampleValue": "Cuba, 2002, 125 000"
+        },
+        {
+          "name": "err3list",
+          "rule": "list(\"They are all equally preffered\",\"2004\",\"75 000\")",
+          "sampleValue": "They are all equally preffered, 2004, 75 000"
+        },
+        {
+          "name": "err2",
+          "rule": "if(i=1,choose(i,err2list),if(i=2,choose(i,err2list),choose(i,err2list)))",
+          "sampleValue": "2002"
+        },
+        {
+          "name": "err3",
+          "rule": "if(i=1,choose(i,err3list),if(i=2,choose(i,err3list),choose(i,err3list)))",
+          "sampleValue": "2004"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 347464,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 a4 0b 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 40 69 00 00 00 32 00 00 00 32 00 00 00 08 00 00 00 16 00 00 00 3b 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 00 00 63 00 68 00 6f 00 6f 00 73 00 65 00 28 00 69 00 2c 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 29 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 79 00 65 00 61 00 72 00 20 00 73 00 65 00 65 00 6d 00 73 00 20 00 74 00 6f 00 20 00 68 00 61 00 76 00 65 00 20 00 62 00 65 00 65 00 6e 00 20 00 74 00 68 00 65 00 20 00 73 00 6c 00 6f 00 77 00 65 00 73 00 74 00 20 00 79 00 65 00 61 00 72 00 20 00 66 00 6f 00 72 00 20 00 74 00 6f 00 75 00 72 00 69 00 73 00 6d 00 3f 00 00 00 0c 00 00 00 e0 00 00 00 d8 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 00 00 6c 00 69 00 73 00 74 00 28 00 22 00 57 00 68 00 69 00 63 00 68 00 20 00 64 00 65 00 73 00 74 00 69 00 6e 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\ni\n2\n2\n;\nquestion\nchoose(i,questionlist)\nWhich year seems to have been the slowest year for tourism?\nquestionlist\nlist(\"Which destination appears to be to be the favourite for Canadian tourists?\",\"Which year seems to have been the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")\nWhich destination appears to be to be the favourite for Canadian tourists?, Which year seems to h"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Approximately how many more tourists visited Hawaii compared to Cuba in 2008? 2 a. 25 000 c. 15 000 b. 75 000 d. 125 000"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 690182,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "i",
+          "rule": "3",
+          "sampleValue": "3"
+        },
+        {
+          "name": "question",
+          "rule": "choose(i,questionlist)",
+          "sampleValue": "Approximately how many more tourists visited Hawaii compared to Cuba in 2008?"
+        },
+        {
+          "name": "questionlist",
+          "rule": "list(\"Which destination appears to be to be the favourite for Canadian tourists?\",\"Which year seemed to be the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")",
+          "sampleValue": "Which destination appears to be to be the favourite for Canadian tourists?, Which year seemed to be the slowest year for tourism?, Approximately how many more tourists visited Hawaii compared to Cuba in 2008?"
+        },
+        {
+          "name": "j",
+          "rule": "rand(4)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "correct",
+          "rule": "if(i=1,choose(i,correctlist),if(i=2,choose(i,correctlist),choose(i,correctlist)))",
+          "sampleValue": "25 000"
+        },
+        {
+          "name": "correctlist",
+          "rule": "list(\"Mexico\",\"2006\",\"25 000\")",
+          "sampleValue": "Mexico, 2006, 25 000"
+        },
+        {
+          "name": "err1",
+          "rule": "if(i=1,choose(i,err1list),if(i=2,choose(i,err1list),choose(i,err1list)))",
+          "sampleValue": "150 000"
+        },
+        {
+          "name": "err1list",
+          "rule": "list(\"Hawaii\",\"2000\",\"150 000\")",
+          "sampleValue": "Hawaii, 2000, 150 000"
+        },
+        {
+          "name": "err2list",
+          "rule": "list(\"Cuba\",\"2002\",\"125 000\")",
+          "sampleValue": "Cuba, 2002, 125 000"
+        },
+        {
+          "name": "err3list",
+          "rule": "list(\"They are all equally preffered\",\"2004\",\"75 000\")",
+          "sampleValue": "They are all equally preffered, 2004, 75 000"
+        },
+        {
+          "name": "err2",
+          "rule": "if(i=1,choose(i,err2list),if(i=2,choose(i,err2list),choose(i,err2list)))",
+          "sampleValue": "125 000"
+        },
+        {
+          "name": "err3",
+          "rule": "if(i=1,choose(i,err3list),if(i=2,choose(i,err3list),choose(i,err3list)))",
+          "sampleValue": "75 000"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 690182,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 c4 0b 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 08 40 69 00 00 00 33 00 00 00 33 00 00 00 08 00 00 00 16 00 00 00 4d 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 00 00 63 00 68 00 6f 00 6f 00 73 00 65 00 28 00 69 00 2c 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 29 00 00 00 41 00 70 00 70 00 72 00 6f 00 78 00 69 00 6d 00 61 00 74 00 65 00 6c 00 79 00 20 00 68 00 6f 00 77 00 20 00 6d 00 61 00 6e 00 79 00 20 00 6d 00 6f 00 72 00 65 00 20 00 74 00 6f 00 75 00 72 00 69 00 73 00 74 00 73 00 20 00 76 00 69 00 73 00 69 00 74 00 65 00 64 00 20 00 48 00 61 00 77 00 61 00 69 00 69 00 20 00 63 00 6f 00 6d 00 70 00 61 00 72 00 65 00 64 00 20 00 74 00 6f 00 20 00 43 00 75 00 62 00 61 00 20 00 69 00 6e 00 20 00 32 00 30 00 30 00 38 00 3f 00 00 00 0c 00 00 00 da 00 00 00 d2 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 71 00 75 00 65 00 73 00 74 00 69 00 6f 00 6e 00 6c 00 69 00 73 00 74 00 00 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\ni\n3\n3\nM\nquestion\nchoose(i,questionlist)\nApproximately how many more tourists visited Hawaii compared to Cuba in 2008?\nquestionlist\nlist(\"Which destination appears to be to be the favourite for Canadian tourists?\",\"Which year seemed to be the slowest year for tourism?\",\"Approximately how many more tourists visited Hawaii compared to Cuba in 2008?\")\nWhich destination appears to be to be the favourite for Canadian tourists?, Which yea"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "A video game company used a line graph to track the sales of a new video game from its release in March to July. The company then used the graph to predict then number of sales that would occur in September. This is an example of: a. interpolation. c. statistics. b. extrapolation. d. graphical prospecting."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 1032996,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "extrapolation"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 1032996,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 65 00 78 00 74 00 72 00 61 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 96 06 00 00 01 00 00 00 37 01 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 76 00 69 00 64 00 65 00 6f 00 20 00 67 00 61 00 6d 00 65 00 20 00 63 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 20 00 75 00 73 00 65 00 64 00 20 00 61 00 20 00 6c 00 69 00 6e 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 20 00 74 00 6f 00 20 00 74 00 72 00 61 00 63 00 6b 00 20 00 74 00 68 00 65 00 20 00 73 00 61 00 6c 00 65 00 73 00 20 00 6f 00 66 00 20 00 61 00 20 00 6e 00 65 00 77 00 20 00 76 00 69 00 64 00 65 00 6f 00 20 00 67 00 61 00 6d 00 65 00 20 00 66 00 72 00 6f 00 6d 00 20 00 69 00 74 00 73 00 20 00 72 00 65 00 6c 00 65 00 61 00 73 00 65 00 20 00 69 00 6e 00 20 00 4d 00 61 00 72 00 63 00 68 00 20 00 74 00 6f 00 20 00 4a 00 75 00 6c 00 79 00 2e 00 20 00 54 00 68 00 65 00 20 00 63 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 20 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nextrapolation\nL\nscramble\ntrue\n1\nA video game company used a line graph to track the sales of a new video game from its release in March to July. The company then used the graph to predict then number of sales that would occur in September. This is an example of:\na.\ninterpolation.\nc.\nstatistics.\nb.\nextrapolation.\nd.\ngraphical prospecting.\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ\n$\n\"\n-"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "The following line graph shows the number of people in a company with 500 employees who took sick days over a six-month period. [embedded object] Based on this graph, how many people would you expect to be sick in March? a. 35 c. 21 b. 24 d. 27"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 1035420,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "extrapolation|reading a graph"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "ple in a company with 500 employees who took sick days over a six-month period. [inline object not decoded yet] Based on this graph, how many people would you expect to be sick in March? a. 3",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 1035420,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 65 00 78 00 74 00 72 00 61 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 7c 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 80 a8 09 00 01 00 00 00 ea 00 00 00 02 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 54 00 68 00 65 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 69 00 6e 00 67 00 20 00 6c 00 69 00 6e 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 20 00 73 00 68 00 6f 00 77 00 73 00 20 00 74 00 68 00 65 00 20 00 6e 00 75 00 6d 00 62 00 65 00 72 00 20 00 6f 00 66 00 20 00 70 00 65 00 6f 00 70 00 6c 00 65 00 20 00 69 00 6e 00 20 00 61 00 20 00 63 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 20 00 77 00 69 00 74 00 68 00 20 00 35 00 30 00 30 00 20 00 65 00 6d 00 70 00 6c 00 6f 00 79 00 65 00 65 00 73 00 20 00 77 00 68 00 6f 00 20 00 74 00 6f 00 6f 00 6b 00 20 00 73 00 69 00 63 00 6b 00 20 00 64 00 61 00 79 00 73 00 20 00 6f 00 76 00 65 00 72 00 20 00 61 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nextrapolation|reading a graph\nL\nscramble\ntrue\n1\nThe following line graph shows the number of people in a company with 500 employees who took sick days over a six-month period.\r\r[[slot]]\r\rBased on this graph, how many people would you expect to be sick in March?\na.\n35\nc.\n21\nb.\n24\nd.\n27\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ\n$\n\"\n!"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Based on the broken line graph below, in which year was the most canola grown? [embedded object] a. 2005 c. 2007 b. 2008 d. 2009"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 1669150,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph|calculation"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "Based on the broken line graph below, in which year was the most canola grown? [inline object not decoded yet] a. 2005 c. 2007 b. 2008 d. 2009",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 1669150,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 7c 00 63 00 61 00 6c 00 63 00 75 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 18 a0 05 00 01 00 00 00 76 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 42 00 61 00 73 00 65 00 64 00 20 00 6f 00 6e 00 20 00 74 00 68 00 65 00 20 00 62 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 6c 00 69 00 6e 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 20 00 62 00 65 00 6c 00 6f 00 77 00 2c 00 20 00 69 00 6e 00 20 00 77 00 68 00 69 00 63 00 68 00 20 00 79 00 65 00 61 00 72 00 20 00 77 00 61 00 73 00 20 00 74 00 68 00 65 00 20 00 6d 00 6f 00 73 00 74 00 20 00 63 00 61 00 6e 00 6f 00 6c 00 61 00 20 00 67 00 72 00 6f 00 77 00 6e 00 3f 00 0d 00 0d 00 0f 00 0d 00 0d 00 10 00 61 00 2e 00 11 00 32 00 30 00 30 00 35 00 11 00 63 00 2e 00 11 00 32 00 30 00 30 00 37 00 11 00 11 00 62 00 2e 00 11 00 32 00 30 00 30 00 38 00 11 00 64 00 2e 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph|calculation\nL\nscramble\ntrue\n1\nv\nBased on the broken line graph below, in which year was the most canola grown?\r\r[[slot]]\na.\n2005\nc.\n2007\nb.\n2008\nd.\n2009\nv\nTimes New Roman\nS\nT\n#\n-\nW\n[[slot]]\nZ\n\\"
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "In which year did Manitoba produce more canola than Saskatchewan? [embedded object] a. 2008 c. 2005 b. 2009 d. 2010"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 2038580,
+        "difficulty": "Easy",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "In which year did Manitoba produce more canola than Saskatchewan? [inline object not decoded yet] a. 2008 c. 2005 b. 2009 d. 2010",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 2038580,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 fe 9f 05 00 01 00 00 00 69 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 49 00 6e 00 20 00 77 00 68 00 69 00 63 00 68 00 20 00 79 00 65 00 61 00 72 00 20 00 64 00 69 00 64 00 20 00 4d 00 61 00 6e 00 69 00 74 00 6f 00 62 00 61 00 20 00 70 00 72 00 6f 00 64 00 75 00 63 00 65 00 20 00 6d 00 6f 00 72 00 65 00 20 00 63 00 61 00 6e 00 6f 00 6c 00 61 00 20 00 74 00 68 00 61 00 6e 00 20 00 53 00 61 00 73 00 6b 00 61 00 74 00 63 00 68 00 65 00 77 00 61 00 6e 00 3f 00 0d 00 0d 00 0f 00 0d 00 0d 00 10 00 61 00 2e 00 11 00 32 00 30 00 30 00 38 00 11 00 63 00 2e 00 11 00 32 00 30 00 30 00 35 00 11 00 11 00 62 00 2e 00 11 00 32 00 30 00 30 00 39 00 11 00 64 00 2e 00 11 00 32 00 30 00 31 00 30 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 69 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\nL\nscramble\ntrue\n1\ni\nIn which year did Manitoba produce more canola than Saskatchewan?\r\r[[slot]]\na.\n2008\nc.\n2005\nb.\n2009\nd.\n2010\ni\nTimes New Roman\nF\nG\n#\n-\nJ\n[[slot]]\nZ\nO"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Based on the graph below, which province and time period does this trend statement best represents? Trend: increase, followed by a decrease, and leveling off. [embedded object] a. Manitoba from 2005 to 2010. c. Saskatchewan from 2005 to 2009. b. Saskatchewan from 2006 to 2010. d. Manitoba from 2005 to 2008."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 2407952,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "trend"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "ent best represents? Trend: increase, followed by a decrease, and leveling off. [inline object not decoded yet] a. Manitoba from 2005 to 2010. c. Saskatchewan from 2005 to 2009. b. Saskatchew",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 2407952,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 74 00 72 00 65 00 6e 00 64 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 b2 a1 05 00 01 00 00 00 2b 01 00 00 02 00 00 00 02 00 00 00 03 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 42 00 61 00 73 00 65 00 64 00 20 00 6f 00 6e 00 20 00 74 00 68 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 20 00 62 00 65 00 6c 00 6f 00 77 00 2c 00 20 00 77 00 68 00 69 00 63 00 68 00 20 00 70 00 72 00 6f 00 76 00 69 00 6e 00 63 00 65 00 20 00 61 00 6e 00 64 00 20 00 74 00 69 00 6d 00 65 00 20 00 70 00 65 00 72 00 69 00 6f 00 64 00 20 00 64 00 6f 00 65 00 73 00 20 00 74 00 68 00 69 00 73 00 20 00 74 00 72 00 65 00 6e 00 64 00 20 00 73 00 74 00 61 00 74 00 65 00 6d 00 65 00 6e 00 74 00 20 00 62 00 65 00 73 00 74 00 20 00 72 00 65 00 70 00 72 00 65 00 73 00 65 00 6e 00 74 00 73 00 3f 00 20 00 0d 00 0d 00 54 00 72 00 65 00 6e 00 64 00 3a 00 20 00 69 00 6e 00 63 00 72 00 65 00 61 00 73 00 65 00 2c 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 65 00 64 00 20 00 62 00 79 00 20 00 61 00 20 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ntrend\nL\nscramble\ntrue\n1\nBased on the graph below, which province and time period does this trend statement best represents? \r\rTrend: increase, followed by a decrease, and leveling off.\r\r[[slot]]\na.\nManitoba from 2005 to 2010.\nc.\nSaskatchewan from 2005 to 2009.\nb.\nSaskatchewan from 2006 to 2010.\nd.\nManitoba from 2005 to 2008.\nTimes New Roman\n#\n-\n[[slot]]\nZ\n-\n[[slot]]\nZ\n$\n\"\n-"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "What would be the best choices for her$ _x$ and$ _y$ axes? a.$ _x$-axis = Temperature\ry-axis = Month c.$ _x$-axis = Temperature\ry-axis = Year b.$ _x$-axis = Year\ry-axis = Temperature d.$ _x$-axis = Month\ry-axis = Temperature"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 2777748,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "axis labelling|dependent vs. independent variables"
+      },
+      "algorithmicVariables": [],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 2777748,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 61 00 78 00 69 00 73 00 20 00 6c 00 61 00 62 00 65 00 6c 00 6c 00 69 00 6e 00 67 00 7c 00 64 00 65 00 70 00 65 00 6e 00 64 00 65 00 6e 00 74 00 20 00 76 00 73 00 2e 00 20 00 69 00 6e 00 64 00 65 00 70 00 65 00 6e 00 64 00 65 00 6e 00 74 00 20 00 76 00 61 00 72 00 69 00 61 00 62 00 6c 00 65 00 73 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 42 09 00 00 01 00 00 00 67 01 00 00 0a 00 00 00 03 00 00 00 16 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 4e 00 61 00 76 00 69 00 20 00 77 00 6f 00 72 00 6b 00 73 00 20 00 77 00 69 00 74 00 68 00 20 00 45 00 6e 00 76 00 69 00 72 00 6f 00 6e 00 6d 00 65 00 6e 00 74 00 20 00 43 00 61 00 6e 00 61 00 64 00 61 00 2c 00 20 00 74 00 72 00 61 00 63 00 6b 00 69 00 6e 00 67 00 20 00 67 00 72 00 6f 00 75 00 6e 00 64 00 20 00 74 00 65 00 6d 00 70 00 65 00 72 00 61 00 74 00 75 00 72 00 65 00 73 00 20 00 6f 00 66 00 20 00 61 00 72 00 63 00 74 00 69 00 63 00 20 00 70 00 65 00 72 00 6d 00 61 00 66 00 72 00 6f 00 73 00 74 00 2e 00 20 00 53 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\naxis labelling|dependent vs. independent variables\nL\nscramble\ntrue\n1\nNavi works with Environment Canada, tracking ground temperatures of arctic permafrost. She must present her results from March 2007 to January 2009. What would be the best choices for her x and y axes?\na.\nx-axis = Temperature\ry-axis = Month\nc.\nx-axis = Temperature\ry-axis = Year\nb.\nx-axis = Year\ry-axis = Temperature\nd.\nx-axis = Month\ry-axis = Temperature\nTimes New Roman\n#\n-\n[[slot"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which of the following graphs most closely resembles the following data? Number of bike sales per month Number of bikes sold 14 12 10 a. [embedded object] c. b. d."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 2780930,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "following data? Number of bike sales per month Number of bikes sold 14 12 10 a. [inline object not decoded yet] c. b. d.",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 2780930,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 a6 8a 0e 00 01 00 00 00 d5 00 00 00 02 00 00 00 02 00 00 00 0b 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 02 00 00 00 1c 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 6f 00 66 00 20 00 74 00 68 00 65 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 69 00 6e 00 67 00 20 00 67 00 72 00 61 00 70 00 68 00 73 00 20 00 6d 00 6f 00 73 00 74 00 20 00 63 00 6c 00 6f 00 73 00 65 00 6c 00 79 00 20 00 72 00 65 00 73 00 65 00 6d 00 62 00 6c 00 65 00 73 00 20 00 74 00 68 00 65 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 3f 00 0d 00 0d 00 10 00 4e 00 75 00 6d 00 62 00 65 00 72 00 20 00 6f 00 66 00 20 00 62 00 69 00 6b 00 65 00 20 00 73 00 61 00 6c 00 65 00 73 00 20 00 70 00 65 00 72 00 20 00 6d 00 6f 00 6e 00 74 00 68 00 11 00 11 00 4d 00 6f 00 6e 00 74 00 68 00 11 00 4d 00 61 00 79 00 11 00 4a 00 75 00 6e 00 65 00 11 00 4a 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\nL\nscramble\ntrue\n1\nWhich of the following graphs most closely resembles the following data?\nNumber of bike sales per month\nMonth\nMay\nJune\nJuly\nAugust\nSeptember\nOctober\nNumber of bikes sold\n5\n7\n14\n12\n10\n3\na.\n[[slot]]\nc.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-11",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Based on the graph below, interpolate the number of factories XYZ Company owned in 1970. [embedded object] a. c. b. d."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 3734670,
+        "difficulty": "Easy",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "interpolation"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "unknown",
+          "placeholder": "[inline object not decoded yet]",
+          "context": "the graph below, interpolate the number of factories XYZ Company owned in 1970. [inline object not decoded yet] a. c. b. d.",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 3734670,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 69 00 6e 00 74 00 65 00 72 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 4c 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 74 00 72 00 75 00 65 00 00 00 31 00 00 00 34 31 04 00 01 00 00 00 74 00 00 00 02 00 00 00 02 00 00 00 02 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 42 00 61 00 73 00 65 00 64 00 20 00 6f 00 6e 00 20 00 74 00 68 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 20 00 62 00 65 00 6c 00 6f 00 77 00 2c 00 20 00 69 00 6e 00 74 00 65 00 72 00 70 00 6f 00 6c 00 61 00 74 00 65 00 20 00 74 00 68 00 65 00 20 00 6e 00 75 00 6d 00 62 00 65 00 72 00 20 00 6f 00 66 00 20 00 66 00 61 00 63 00 74 00 6f 00 72 00 69 00 65 00 73 00 20 00 58 00 59 00 5a 00 20 00 43 00 6f 00 6d 00 70 00 61 00 6e 00 79 00 20 00 6f 00 77 00 6e 00 65 00 64 00 20 00 69 00 6e 00 20 00 31 00 39 00 37 00 30 00 2e 00 0d 00 0d 00 20 00 0f 00 0d 00 10 00 61 00 2e 00 11 00 38 00 11 00 63 00 2e 00 11 00 34 00 11 00 11 00 62 00 2e 00 11 00 33 00 11 00 64 00 2e 00 11 00 36 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 74 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ninterpolation\nL\nscramble\ntrue\n1\nt\nBased on the graph below, interpolate the number of factories XYZ Company owned in 1970.\r\r [[slot]]\na.\n8\nc.\n4\nb.\n3\nd.\n6\nt\n]\nTimes New Roman\n]\n^\n#\n-\na\n[[slot]]\nZ"
+        }
+      ]
+    },
+    {
+      "id": "q-12",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "\"Membership at Tough Guy Gym\" Membership at Tough Guy Gym Draw a broken line graph for the new member registrations at Tough Guy Gym. New members at Tough Guy Gym, by month Jan. Feb. Mar. Apr. Jun. Jul. Aug. Sept. Oct. Nov. Dec. Number of new members 30"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4010140,
+        "difficulty": "Easy",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "Jan",
+          "rule": "range(28,32)",
+          "sampleValue": "30"
+        },
+        {
+          "name": "Feb",
+          "rule": "range(12,16)",
+          "sampleValue": "13"
+        },
+        {
+          "name": "Mar",
+          "rule": "range(13,21)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "Apr",
+          "rule": "range(17,21)",
+          "sampleValue": "18"
+        },
+        {
+          "name": "May",
+          "rule": "range(22,24)",
+          "sampleValue": "23"
+        },
+        {
+          "name": "Jun",
+          "rule": "range(22,28)",
+          "sampleValue": "28"
+        },
+        {
+          "name": "Jul",
+          "rule": "range(18,22)",
+          "sampleValue": "21"
+        },
+        {
+          "name": "Aug",
+          "rule": "range(10,15)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "Sep",
+          "rule": "range(12,15)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "Oct",
+          "rule": "range(8,12)",
+          "sampleValue": "11"
+        },
+        {
+          "name": "Nov",
+          "rule": "range(12,14)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "Dec",
+          "rule": "range(10,15)",
+          "sampleValue": "15"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4010140,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 00 00 6a 04 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3e 40 4a 00 61 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 38 00 2c 00 33 00 32 00 29 00 00 00 33 00 30 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2a 40 46 00 65 00 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 32 00 2c 00 31 00 36 00 29 00 00 00 31 00 33 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 2c 40 4d 00 61 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 33 00 2c 00 32 00 31 00 29 00 00 00 31 00 34 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 32 40 41 00 70 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 37 00 2c 00 32 00 31 00 29 00 00 00 31 00 38 00 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 37 40 4d 00 61 00 79 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 32 00 2c 00 32 00 34 00",
+          "textPreview": "Easy\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data\nJan\nrange(28,32)\n30\nFeb\nrange(12,16)\n13\nMar\nrange(13,21)\n14\nApr\nrange(17,21)\n18\nMay\nrange(22,24)\n23\nJun\nrange(22,28)\n28\nJul\nrange(18,22)\n21\nAug\nrange(10,15)\n12"
+        }
+      ]
+    },
+    {
+      "id": "q-13",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "Use the graph below to extrapolate the number of cyclists that can be expected in the city of Vancouver in 2015. $N_umber of Cyclists in Vancouver, by Year$ 6 Year"
+      },
+      "answer": {
+        "value": "13000",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4064714,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "extrapolation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "Jan",
+          "rule": "range(5,6)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "Feb",
+          "rule": "range(7,8)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "Mar",
+          "rule": "range(8,9,.2)",
+          "sampleValue": "8.8"
+        },
+        {
+          "name": "Apr",
+          "rule": "range(9,10)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "May",
+          "rule": "Apr+.5",
+          "sampleValue": "9.5"
+        },
+        {
+          "name": "Jun",
+          "rule": "May+1",
+          "sampleValue": "10.5"
+        },
+        {
+          "name": "Jul",
+          "rule": "Jun+.5",
+          "sampleValue": "11"
+        },
+        {
+          "name": "answer",
+          "rule": "(Jul+2)*1000",
+          "sampleValue": "13000"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4064714,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 65 00 78 00 74 00 72 00 61 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 64 02 00 00 03 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 4a 00 61 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 36 00 29 00 00 00 36 00 00 00 03 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 46 00 65 00 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 37 00 2c 00 38 00 29 00 00 00 37 00 00 00 03 00 00 00 0d 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 9a 99 99 99 99 99 21 40 4d 00 61 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 39 00 2c 00 2e 00 32 00 29 00 00 00 38 00 2e 00 38 00 00 00 03 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 41 00 70 00 72 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 39 00 2c 00 31 00 30 00 29 00 00 00 39 00 00 00 03 00 00 00 06 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 23 40 4d 00 61 00 79 00 00 00 41 00 70 00 72 00 2b 00 2e 00 35 00 00 00 39 00 2e 00 35 00 00 00 03 00 00 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nextrapolation\nJan\nrange(5,6)\n6\nFeb\nrange(7,8)\n7\nMar\nrange(8,9,.2)\n8.8\nApr\nrange(9,10)\n9\nMay\nApr+.5\n9.5\nJun\nMay+1\n10.5\nJul\nJun+.5\n11\nanswer\n(Jul+2)*1000\n13000"
+        }
+      ]
+    },
+    {
+      "id": "q-14",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A coffee shop in Lethbridge, Alberta, is tracking its coffee sales by time of day. Describe the general trend in coffee sales during a weekday. [embedded diagram/object]"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4106010,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "trend"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "es by time of day. Describe the general trend in coffee sales during a weekday. [diagram/object not decoded yet]",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4106010,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 74 00 72 00 65 00 6e 00 64 00 00 00 04 00 00 00 d2 4b 05 00 01 00 00 00 95 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 41 00 20 00 63 00 6f 00 66 00 66 00 65 00 65 00 20 00 73 00 68 00 6f 00 70 00 20 00 69 00 6e 00 20 00 4c 00 65 00 74 00 68 00 62 00 72 00 69 00 64 00 67 00 65 00 2c 00 20 00 41 00 6c 00 62 00 65 00 72 00 74 00 61 00 2c 00 20 00 69 00 73 00 20 00 74 00 72 00 61 00 63 00 6b 00 69 00 6e 00 67 00 20 00 69 00 74 00 73 00 20 00 63 00 6f 00 66 00 66 00 65 00 65 00 20 00 73 00 61 00 6c 00 65 00 73 00 20 00 62 00 79 00 20 00 74 00 69 00 6d 00 65 00 20 00 6f 00 66 00 20 00 64 00 61 00 79 00 2e 00 20 00 0d 00 0d 00 44 00 65 00 73 00 63 00 72 00 69 00 62 00 65 00 20 00 74 00 68 00 65 00 20 00 67 00 65 00 6e 00 65 00 72 00 61 00 6c 00 20 00 74 00 72 00 65 00 6e 00 64 00 20 00 69 00 6e 00 20 00 63 00 6f 00 66 00 66 00 65 00 65 00 20 00 73 00 61 00 6c 00 65 00 73 00 20 00 64 00 75 00 72 00 69 00 6e 00 67 00 20 00 61 00 20 00 77 00 65 00 65 00 6b 00 64 00 61 00 79 00 2e 00 20 00 0d 00 0d 00 0f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ntrend\nA coffee shop in Lethbridge, Alberta, is tracking its coffee sales by time of day. \r\rDescribe the general trend in coffee sales during a weekday. \r\r[[slot]]\nTimes New Roman\n\"\n(\n+\nq\nO\n{\n_\n_\n%\n+\nn\n2\n%\n1\nB\n0\n&\n0\n?\n1\n?\n_"
+        }
+      ]
+    },
+    {
+      "id": "q-15",
+      "type": "short_answer",
+      "body": {
+        "format": "typst",
+        "text": "A bookstore keeps a record of the number of $b_ooks $of each genres that it sells. The graph below shows the mystery and science fiction $b_ooks $sold over a nine-year period. 2005 a)\tWhich gen$r_e so$$l_d the$$ _most $$b_ooks $$i_n Science fiction a$nd by how much? b)\tIn which year did the top-selling genre switch between mystery and science fiction?"
+      },
+      "answer": {
+        "value": "100",
+        "format": "text"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4454432,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "yearlist",
+          "rule": "list(2003,2004,2005,2006,2007,2008,2009,2010,2011)",
+          "sampleValue": "2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011"
+        },
+        {
+          "name": "i",
+          "rule": "rand(9)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "year",
+          "rule": "choose(i,yearlist)",
+          "sampleValue": "2005"
+        },
+        {
+          "name": "answerlist",
+          "rule": "list(200,125,100,250,100,50,100,200,400)",
+          "sampleValue": "200, 125, 100, 250, 100, 50, 100, 200, 400"
+        },
+        {
+          "name": "answer",
+          "rule": "choose(i,answerlist)",
+          "sampleValue": "100"
+        },
+        {
+          "name": "genre",
+          "rule": "if(i<6,\"Science fiction\",\"Mystery\")",
+          "sampleValue": "Science fiction"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4454432,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 00 00 a2 03 00 00 08 00 00 00 32 00 00 00 36 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 79 00 65 00 61 00 72 00 6c 00 69 00 73 00 74 00 00 00 6c 00 69 00 73 00 74 00 28 00 32 00 30 00 30 00 33 00 2c 00 32 00 30 00 30 00 34 00 2c 00 32 00 30 00 30 00 35 00 2c 00 32 00 30 00 30 00 36 00 2c 00 32 00 30 00 30 00 37 00 2c 00 32 00 30 00 30 00 38 00 2c 00 32 00 30 00 30 00 39 00 2c 00 32 00 30 00 31 00 30 00 2c 00 32 00 30 00 31 00 31 00 29 00 00 00 01 00 86 f0 32 00 30 00 30 00 33 00 2c 00 20 00 32 00 30 00 30 00 34 00 2c 00 20 00 32 00 30 00 30 00 35 00 2c 00 20 00 32 00 30 00 30 00 36 00 2c 00 20 00 32 00 30 00 30 00 37 00 2c 00 20 00 32 00 30 00 30 00 38 00 2c 00 20 00 32 00 30 00 30 00 39 00 2c 00 20 00 32 00 30 00 31 00 30 00 2c 00 20 00 32 00 30 00 31 00 31 00 00 00 01 00 00 00 07 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 69 00 00 00 72 00 61 00 6e 00 64 00 28 00 39 00 29 00 00 00 33 00 00 00 04 00 00 00 12 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 54 9f 40 79 00 65 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph\n2\n6\nyearlist\nlist(2003,2004,2005,2006,2007,2008,2009,2010,2011)\n2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011\ni\nrand(9)\n3\nyear\nchoose(i,yearlist)\n2005\n(\n,\nanswerlist\nlist(200,125,100,250,100,50,100,200,400)\n200, 125, 100, 250, 100, 50, 100, 200, 400\nanswer\nchoose(i,answerlist)\n100\n#\n[[slot]]\ngenre\nif(i<6,\"Science fiction\",\"Mystery\")\nScience fiction"
+        }
+      ]
+    },
+    {
+      "id": "q-16",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "The following table shows the total value of admission fees collected at a festival over a one-hour period. Draw a broken line graph using the data. Total sales of admission fees Time elapsed (minutes) Total sales $0 10 $ 65.00 20 30 40 50 60"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4804260,
+        "difficulty": "Easy",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p1",
+          "rule": "range(50,75,5)",
+          "sampleValue": "65.00"
+        },
+        {
+          "name": "p2",
+          "rule": "range(165,185,5)",
+          "sampleValue": "180.00"
+        },
+        {
+          "name": "p3",
+          "rule": "range(235,260,5)",
+          "sampleValue": "240.00"
+        },
+        {
+          "name": "p4",
+          "rule": "range(325,375,10)",
+          "sampleValue": "375.00"
+        },
+        {
+          "name": "p5",
+          "rule": "range(385,405,5)",
+          "sampleValue": "405.00"
+        },
+        {
+          "name": "p0",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "p6",
+          "rule": "range(415,450,5)",
+          "sampleValue": "445.00"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4804260,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 00 00 6a 02 00 00 02 00 00 00 0e 00 00 00 05 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 0b 00 00 00 00 00 00 00 00 40 50 40 70 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 30 00 2c 00 37 00 35 00 2c 00 35 00 29 00 00 00 36 00 35 00 2e 00 30 00 30 00 00 00 02 00 00 00 10 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 0b 00 00 00 00 00 00 00 00 80 66 40 70 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 36 00 35 00 2c 00 31 00 38 00 35 00 2c 00 35 00 29 00 00 00 31 00 38 00 30 00 2e 00 30 00 30 00 00 00 02 00 00 00 10 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 0b 00 00 00 00 00 00 00 00 00 6e 40 70 00 33 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 33 00 35 00 2c 00 32 00 36 00 30 00 2c 00 35 00 29 00 00 00 32 00 34 00 30 00 2e 00 30 00 30 00 00 00 02 00 00 00 11 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 02 00 00 00 0b 00 00 00 00 00 00 00 00 70 77 40 70 00 34 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 32 00 35 00 2c 00 33 00 37 00 35 00 2c 00 31 00 30 00 29 00 00 00 33 00 37 00 35 00 2e 00 30 00 30 00 00 00 02 00 00 00 10 00 00 00 06 00 00 00 00 00 00 00 01 00",
+          "textPreview": "Easy\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data\np1\nrange(50,75,5)\n65.00\np2\nrange(165,185,5)\n180.00\np3\nrange(235,260,5)\n240.00\np4\nrange(325,375,10)\n375.00\np5\nrange(385,405,5)\n405.00\np0\n0\n0\np6\nrange(415,450,5)\n445.00\nThe following table shows the total value of admission fees collected at a festival over a one-hour period. Draw a broken line graph using the data.\nTotal sales of admission fees\nTime elapsed (minutes)"
+        }
+      ]
+    },
+    {
+      "id": "q-17",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "a) Draw a broken line graph of the following data showing the recovery of a population of wolves in Wood Buffalo National Park in Alberta. Number of Wolves in Wood Buffalo National Park, Alberta Number of wolves 2006 103 2007 2008 2009 2010 b)\tExtrapolate to predict the population of the wolves in 2014. Recovered graph functions: (119)+x; round((169)+4*((16)+x+y+(17))/4,10)."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4824884,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data|extrapolation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p1",
+          "rule": "range(100,125)",
+          "sampleValue": "103"
+        },
+        {
+          "name": "p2",
+          "rule": "p1+w",
+          "sampleValue": "119"
+        },
+        {
+          "name": "p3",
+          "rule": "p2+x",
+          "sampleValue": "136"
+        },
+        {
+          "name": "p4",
+          "rule": "p3+y",
+          "sampleValue": "152"
+        },
+        {
+          "name": "p5",
+          "rule": "p4+z",
+          "sampleValue": "169"
+        },
+        {
+          "name": "p0",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "p6",
+          "rule": "range(415,450,5)",
+          "sampleValue": "440"
+        },
+        {
+          "name": "x",
+          "rule": "range(13,18)",
+          "sampleValue": "17"
+        },
+        {
+          "name": "y",
+          "rule": "range(13,18)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "z",
+          "rule": "range(13,18)",
+          "sampleValue": "17"
+        },
+        {
+          "name": "w",
+          "rule": "range(13,18)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "extrap",
+          "rule": "round(p5+4*(w+x+y+z)/4,10)",
+          "sampleValue": "240"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "p2+x",
+            "round(p5+4*(w+x+y+z)/4,10)"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "p2+x",
+              "substituted": "(119)+x",
+              "typst": "(119)+x",
+              "latex": "(119)+x",
+              "variables": [
+                "p2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 109
+                },
+                {
+                  "x": -9.5,
+                  "y": 109.5
+                },
+                {
+                  "x": -9,
+                  "y": 110
+                },
+                {
+                  "x": -8.5,
+                  "y": 110.5
+                },
+                {
+                  "x": -8,
+                  "y": 111
+                },
+                {
+                  "x": -7.5,
+                  "y": 111.5
+                },
+                {
+                  "x": -7,
+                  "y": 112
+                },
+                {
+                  "x": -6.5,
+                  "y": 112.5
+                },
+                {
+                  "x": -6,
+                  "y": 113
+                },
+                {
+                  "x": -5.5,
+                  "y": 113.5
+                },
+                {
+                  "x": -5,
+                  "y": 114
+                },
+                {
+                  "x": -4.5,
+                  "y": 114.5
+                },
+                {
+                  "x": -4,
+                  "y": 115
+                },
+                {
+                  "x": -3.5,
+                  "y": 115.5
+                },
+                {
+                  "x": -3,
+                  "y": 116
+                },
+                {
+                  "x": -2.5,
+                  "y": 116.5
+                },
+                {
+                  "x": -2,
+                  "y": 117
+                },
+                {
+                  "x": -1.5,
+                  "y": 117.5
+                },
+                {
+                  "x": -1,
+                  "y": 118
+                },
+                {
+                  "x": -0.5,
+                  "y": 118.5
+                },
+                {
+                  "x": 0,
+                  "y": 119
+                },
+                {
+                  "x": 0.5,
+                  "y": 119.5
+                },
+                {
+                  "x": 1,
+                  "y": 120
+                },
+                {
+                  "x": 1.5,
+                  "y": 120.5
+                },
+                {
+                  "x": 2,
+                  "y": 121
+                },
+                {
+                  "x": 2.5,
+                  "y": 121.5
+                },
+                {
+                  "x": 3,
+                  "y": 122
+                },
+                {
+                  "x": 3.5,
+                  "y": 122.5
+                },
+                {
+                  "x": 4,
+                  "y": 123
+                },
+                {
+                  "x": 4.5,
+                  "y": 123.5
+                },
+                {
+                  "x": 5,
+                  "y": 124
+                },
+                {
+                  "x": 5.5,
+                  "y": 124.5
+                },
+                {
+                  "x": 6,
+                  "y": 125
+                },
+                {
+                  "x": 6.5,
+                  "y": 125.5
+                },
+                {
+                  "x": 7,
+                  "y": 126
+                },
+                {
+                  "x": 7.5,
+                  "y": 126.5
+                },
+                {
+                  "x": 8,
+                  "y": 127
+                },
+                {
+                  "x": 8.5,
+                  "y": 127.5
+                },
+                {
+                  "x": 9,
+                  "y": 128
+                },
+                {
+                  "x": 9.5,
+                  "y": 128.5
+                },
+                {
+                  "x": 10,
+                  "y": 129
+                }
+              ]
+            },
+            {
+              "original": "round(p5+4*(w+x+y+z)/4,10)",
+              "substituted": "round((169)+4*((16)+x+y+(17))/4,10)",
+              "typst": "round((169)+4 dot ((16)+x+y+(17))/4,10)",
+              "latex": "round((169)+4 \\cdot ((16)+x+y+(17))/4,10)",
+              "variables": [
+                "p5",
+                "w",
+                "z"
+              ]
+            }
+          ],
+          "variables": {
+            "p2": "119",
+            "p5": "169",
+            "w": "16",
+            "z": "17"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4824884,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 7c 00 65 00 78 00 74 00 72 00 61 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 8a 03 00 00 02 00 00 00 0e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 59 40 70 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 30 00 2c 00 31 00 32 00 35 00 29 00 00 00 31 00 30 00 33 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 c0 5d 40 70 00 32 00 00 00 70 00 31 00 2b 00 77 00 00 00 31 00 31 00 39 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 61 40 70 00 33 00 00 00 70 00 32 00 2b 00 78 00 00 00 31 00 33 00 36 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 63 40 70 00 34 00 00 00 70 00 33 00 2b 00 79 00 00 00 31 00 35 00 32 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 20 65 40 70 00 35 00 00 00 70 00 34 00 2b 00 7a 00 00 00 31 00 36 00 39 00 00 00 02 00 00 00 01 00 00 00 01 00 00 00 00 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data|extrapolation\np1\nrange(100,125)\n103\np2\np1+w\n119\np3\np2+x\n136\np4\np3+y\n152\np5\np4+z\n169\np0\n0\n0\np6\nrange(415,450,5)\n440\nx\nrange(13,18)\n17"
+        }
+      ]
+    },
+    {
+      "id": "q-18",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "What is misleading about the following graph? How could the data be misinterpreted? [embedded diagram/object]"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 4881814,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "misleading graphs"
+      },
+      "algorithmicVariables": [],
+      "inlineObjects": [
+        {
+          "kind": "diagram",
+          "placeholder": "[diagram/object not decoded yet]",
+          "context": "is misleading about the following graph? How could the data be misinterpreted? [diagram/object not decoded yet]",
+          "source": "utf16-slot-marker",
+          "id": "inline-object-1"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4881814,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 6d 00 69 00 73 00 6c 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 67 00 72 00 61 00 70 00 68 00 73 00 00 00 04 00 00 00 54 2d 05 00 01 00 00 00 56 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 61 00 74 00 20 00 69 00 73 00 20 00 6d 00 69 00 73 00 6c 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 62 00 6f 00 75 00 74 00 20 00 74 00 68 00 65 00 20 00 66 00 6f 00 6c 00 6c 00 6f 00 77 00 69 00 6e 00 67 00 20 00 67 00 72 00 61 00 70 00 68 00 3f 00 20 00 48 00 6f 00 77 00 20 00 63 00 6f 00 75 00 6c 00 64 00 20 00 74 00 68 00 65 00 20 00 64 00 61 00 74 00 61 00 20 00 62 00 65 00 20 00 6d 00 69 00 73 00 69 00 6e 00 74 00 65 00 72 00 70 00 72 00 65 00 74 00 65 00 64 00 3f 00 0d 00 0d 00 0f 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nmisleading graphs\nV\nWhat is misleading about the following graph? How could the data be misinterpreted?\r\r[[slot]]\nTimes New Roman\nU\n#\n(\nO\n{\n2\n%\n1\nB\n0\n?\n1\n?\n@\n~\n7\n#\nE\ng\nI\n~"
+        }
+      ]
+    },
+    {
+      "id": "q-19",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "Describe the general trend in the graph. c)\tIf this trend continues, what would you expect the price of the stock to be on the next business day? (y = 14, x = 16, x = 16, w = 15, w = 15) Recovered graph functions: (138)+x; (183)+4*((15)+x+y+(15))/4."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 5222538,
+        "difficulty": "Difficult",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data|trend|extrapolation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "p1",
+          "rule": "range(100,125)",
+          "sampleValue": "123"
+        },
+        {
+          "name": "p2",
+          "rule": "p1+w",
+          "sampleValue": "138"
+        },
+        {
+          "name": "p3",
+          "rule": "p2+x",
+          "sampleValue": "154"
+        },
+        {
+          "name": "p4",
+          "rule": "p3+y",
+          "sampleValue": "168"
+        },
+        {
+          "name": "p5",
+          "rule": "p4+z",
+          "sampleValue": "183"
+        },
+        {
+          "name": "p0",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "p6",
+          "rule": "range(415,450,5)",
+          "sampleValue": "430"
+        },
+        {
+          "name": "x",
+          "rule": "range(13,18)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "y",
+          "rule": "range(13,18)",
+          "sampleValue": "14"
+        },
+        {
+          "name": "z",
+          "rule": "range(13,18)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "w",
+          "rule": "range(13,18)",
+          "sampleValue": "15"
+        },
+        {
+          "name": "extrap",
+          "rule": "p5+4*(w+x+y+z)/4",
+          "sampleValue": "243"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "p2+x",
+            "p5+4*(w+x+y+z)/4"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "p2+x",
+              "substituted": "(138)+x",
+              "typst": "(138)+x",
+              "latex": "(138)+x",
+              "variables": [
+                "p2"
+              ],
+              "samplePoints": [
+                {
+                  "x": -10,
+                  "y": 128
+                },
+                {
+                  "x": -9.5,
+                  "y": 128.5
+                },
+                {
+                  "x": -9,
+                  "y": 129
+                },
+                {
+                  "x": -8.5,
+                  "y": 129.5
+                },
+                {
+                  "x": -8,
+                  "y": 130
+                },
+                {
+                  "x": -7.5,
+                  "y": 130.5
+                },
+                {
+                  "x": -7,
+                  "y": 131
+                },
+                {
+                  "x": -6.5,
+                  "y": 131.5
+                },
+                {
+                  "x": -6,
+                  "y": 132
+                },
+                {
+                  "x": -5.5,
+                  "y": 132.5
+                },
+                {
+                  "x": -5,
+                  "y": 133
+                },
+                {
+                  "x": -4.5,
+                  "y": 133.5
+                },
+                {
+                  "x": -4,
+                  "y": 134
+                },
+                {
+                  "x": -3.5,
+                  "y": 134.5
+                },
+                {
+                  "x": -3,
+                  "y": 135
+                },
+                {
+                  "x": -2.5,
+                  "y": 135.5
+                },
+                {
+                  "x": -2,
+                  "y": 136
+                },
+                {
+                  "x": -1.5,
+                  "y": 136.5
+                },
+                {
+                  "x": -1,
+                  "y": 137
+                },
+                {
+                  "x": -0.5,
+                  "y": 137.5
+                },
+                {
+                  "x": 0,
+                  "y": 138
+                },
+                {
+                  "x": 0.5,
+                  "y": 138.5
+                },
+                {
+                  "x": 1,
+                  "y": 139
+                },
+                {
+                  "x": 1.5,
+                  "y": 139.5
+                },
+                {
+                  "x": 2,
+                  "y": 140
+                },
+                {
+                  "x": 2.5,
+                  "y": 140.5
+                },
+                {
+                  "x": 3,
+                  "y": 141
+                },
+                {
+                  "x": 3.5,
+                  "y": 141.5
+                },
+                {
+                  "x": 4,
+                  "y": 142
+                },
+                {
+                  "x": 4.5,
+                  "y": 142.5
+                },
+                {
+                  "x": 5,
+                  "y": 143
+                },
+                {
+                  "x": 5.5,
+                  "y": 143.5
+                },
+                {
+                  "x": 6,
+                  "y": 144
+                },
+                {
+                  "x": 6.5,
+                  "y": 144.5
+                },
+                {
+                  "x": 7,
+                  "y": 145
+                },
+                {
+                  "x": 7.5,
+                  "y": 145.5
+                },
+                {
+                  "x": 8,
+                  "y": 146
+                },
+                {
+                  "x": 8.5,
+                  "y": 146.5
+                },
+                {
+                  "x": 9,
+                  "y": 147
+                },
+                {
+                  "x": 9.5,
+                  "y": 147.5
+                },
+                {
+                  "x": 10,
+                  "y": 148
+                }
+              ]
+            },
+            {
+              "original": "p5+4*(w+x+y+z)/4",
+              "substituted": "(183)+4*((15)+x+y+(15))/4",
+              "typst": "(183)+4 dot ((15)+x+y+(15))/4",
+              "latex": "(183)+4 \\cdot ((15)+x+y+(15))/4",
+              "variables": [
+                "p5",
+                "w",
+                "z"
+              ]
+            }
+          ],
+          "variables": {
+            "p2": "138",
+            "p5": "183",
+            "w": "15",
+            "z": "15"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 5222538,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 7c 00 74 00 72 00 65 00 6e 00 64 00 7c 00 65 00 78 00 74 00 72 00 61 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 76 03 00 00 02 00 00 00 0e 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 c0 5e 40 70 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 31 00 30 00 30 00 2c 00 31 00 32 00 35 00 29 00 00 00 31 00 32 00 33 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 61 40 70 00 32 00 00 00 70 00 31 00 2b 00 77 00 00 00 31 00 33 00 38 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 63 40 70 00 33 00 00 00 70 00 32 00 2b 00 78 00 00 00 31 00 35 00 34 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 65 40 70 00 34 00 00 00 70 00 33 00 2b 00 79 00 00 00 31 00 36 00 38 00 00 00 02 00 00 00 04 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 e0 66 40 70 00 35 00 00 00 70 00 34 00 2b 00 7a 00 00 00 31 00 38 00 33 00 00 00",
+          "textPreview": "Difficult\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data|trend|extrapolation\np1\nrange(100,125)\n123\np2\np1+w\n138\np3\np2+x\n154\np4\np3+y\n168\np5\np4+z\n183\np0\n0\n0\np6\nrange(415,450,5)\n430\nx\nrange(13,18)\n16"
+        }
+      ]
+    },
+    {
+      "id": "q-20",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "A music school has been keeping track of the number of people who participate in group sessions over the course of a year. Number of Participants in Group Music Sessions, by Month 26 Month a)\tIn which month did the most number of people attend group music sessions? b)\tIn which month did the least number of people attend? c)\tIs there a trend in the number of people attending the sessions? If so, what might explain the trend?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 5538100,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph|trend"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "Jan",
+          "rule": "range(25,30)",
+          "sampleValue": "26"
+        },
+        {
+          "name": "a",
+          "rule": "range(2,4)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "Feb",
+          "rule": "Jan+a",
+          "sampleValue": "28"
+        },
+        {
+          "name": "Mar",
+          "rule": "Feb+b",
+          "sampleValue": "33"
+        },
+        {
+          "name": "b",
+          "rule": "range(2,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "c",
+          "rule": "range(-3,-1)",
+          "sampleValue": "–3"
+        },
+        {
+          "name": "Apr",
+          "rule": "Mar+c",
+          "sampleValue": "30"
+        },
+        {
+          "name": "d",
+          "rule": "range(-8,-5)",
+          "sampleValue": "–5"
+        },
+        {
+          "name": "May",
+          "rule": "Apr+d",
+          "sampleValue": "25"
+        },
+        {
+          "name": "Jun",
+          "rule": "May+e",
+          "sampleValue": "25"
+        },
+        {
+          "name": "e",
+          "rule": "range(-3,0)",
+          "sampleValue": "0"
+        },
+        {
+          "name": "f",
+          "rule": "range(-3,-1)",
+          "sampleValue": "–2"
+        },
+        {
+          "name": "Jul",
+          "rule": "Jun+f",
+          "sampleValue": "23"
+        },
+        {
+          "name": "g",
+          "rule": "range(-4,-1)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "Aug",
+          "rule": "Jul+g",
+          "sampleValue": "22"
+        },
+        {
+          "name": "h",
+          "rule": "range(1,3)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "Sep",
+          "rule": "Aug+h",
+          "sampleValue": "24"
+        },
+        {
+          "name": "i",
+          "rule": "range(1,3)",
+          "sampleValue": "1"
+        },
+        {
+          "name": "Oct",
+          "rule": "Sep+i",
+          "sampleValue": "25"
+        },
+        {
+          "name": "j",
+          "rule": "range(-1,3)",
+          "sampleValue": "–1"
+        },
+        {
+          "name": "Nov",
+          "rule": "Oct+j",
+          "sampleValue": "24"
+        },
+        {
+          "name": "k",
+          "rule": "range(2,3)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "Dec",
+          "rule": "Nov+k",
+          "sampleValue": "26"
+        },
+        {
+          "name": "ansc",
+          "rule": "mar-aug",
+          "sampleValue": "11"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 5538100,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 7c 00 74 00 72 00 65 00 6e 00 64 00 00 00 92 06 00 00 03 00 00 00 0c 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 3a 40 4a 00 61 00 6e 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 35 00 2c 00 33 00 30 00 29 00 00 00 32 00 36 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 34 00 29 00 00 00 32 00 00 00 03 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3c 40 46 00 65 00 62 00 00 00 4a 00 61 00 6e 00 2b 00 61 00 00 00 32 00 38 00 00 00 03 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 40 40 4d 00 61 00 72 00 00 00 46 00 65 00 62 00 2b 00 62 00 00 00 33 00 33 00 00 00 01 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 62 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 35 00 29 00 00 00 35 00 00 00 01 00 00 00 0c 00 00 00 02 00 00 00 00 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph|trend\nJan\nrange(25,30)\n26\na\nrange(2,4)\n2\nFeb\nJan+a\n28\nMar\nFeb+b\n33\nb\nrange(2,5)\n5\nc\nrange(-3,-1)\n–3\nApr\nMar+c\n30\nd\nrange(-8,-5)\n–5"
+        }
+      ]
+    },
+    {
+      "id": "q-21",
+      "type": "unknown",
+      "body": {
+        "format": "typst",
+        "text": "When is one pumpkin larger than the other. When are they equal. Which is largest at the end. b)\tFarmer Brown s pumpkin weighs approximately 680 pounds after 12 weeks. Farmer Green s pumpkin weighs approximately 520 pounds after 12 weeks. c)\tFarmer Brown s pumpkin likely weighed approximately 310 pounds in week 8. The name of the technique is interpolation."
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 5588710,
+        "difficulty": "Moderate",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "reading a graph|trend|interpolation"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "b0",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "b2",
+          "rule": "range(8,10)",
+          "sampleValue": "9"
+        },
+        {
+          "name": "b4",
+          "rule": "2*b2",
+          "sampleValue": "18"
+        },
+        {
+          "name": "a",
+          "rule": "range(50,90,5)",
+          "sampleValue": "55"
+        },
+        {
+          "name": "b6",
+          "rule": "b4+a",
+          "sampleValue": "73"
+        },
+        {
+          "name": "c",
+          "rule": "range(350,500,25)",
+          "sampleValue": "475"
+        },
+        {
+          "name": "b10",
+          "rule": "round(b6+c,10)",
+          "sampleValue": "550"
+        },
+        {
+          "name": "d",
+          "rule": "range(80,130,10)",
+          "sampleValue": "130"
+        },
+        {
+          "name": "b12",
+          "rule": "round(b10+d,10)",
+          "sampleValue": "680"
+        },
+        {
+          "name": "e",
+          "rule": "range(35,60,5)",
+          "sampleValue": "45"
+        },
+        {
+          "name": "b14",
+          "rule": "round(b12+e,10)",
+          "sampleValue": "730"
+        },
+        {
+          "name": "f",
+          "rule": "range(35,60,5)",
+          "sampleValue": "35"
+        },
+        {
+          "name": "b16",
+          "rule": "round(b14+f,10)",
+          "sampleValue": "770"
+        },
+        {
+          "name": "g",
+          "rule": "range(40,60,5)",
+          "sampleValue": "45"
+        },
+        {
+          "name": "b18",
+          "rule": "round(b16+g,10)",
+          "sampleValue": "820"
+        },
+        {
+          "name": "h",
+          "rule": "range(20,75,5)",
+          "sampleValue": "50"
+        },
+        {
+          "name": "b20",
+          "rule": "round(b18+h,10)",
+          "sampleValue": "870"
+        },
+        {
+          "name": "g0",
+          "rule": "0",
+          "sampleValue": "0"
+        },
+        {
+          "name": "g2",
+          "rule": "range(3,8)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "g4",
+          "rule": "g2*2",
+          "sampleValue": "16"
+        },
+        {
+          "name": "z",
+          "rule": "range(60,80,5)",
+          "sampleValue": "70"
+        },
+        {
+          "name": "g6",
+          "rule": "g4+z",
+          "sampleValue": "86"
+        },
+        {
+          "name": "y",
+          "rule": "range(90,130,10)",
+          "sampleValue": "130"
+        },
+        {
+          "name": "g8",
+          "rule": "g6+y",
+          "sampleValue": "216"
+        },
+        {
+          "name": "x",
+          "rule": "range(175,250,25)",
+          "sampleValue": "200"
+        },
+        {
+          "name": "g10",
+          "rule": "round(g8+x,10)",
+          "sampleValue": "420"
+        },
+        {
+          "name": "w",
+          "rule": "range(75,125,5)",
+          "sampleValue": "95"
+        },
+        {
+          "name": "g12",
+          "rule": "round(g10+w,10)",
+          "sampleValue": "520"
+        },
+        {
+          "name": "v",
+          "rule": "range(40,60,5)",
+          "sampleValue": "45"
+        },
+        {
+          "name": "g14",
+          "rule": "round(g12+v,10)",
+          "sampleValue": "570"
+        },
+        {
+          "name": "u",
+          "rule": "range(130,160,10)",
+          "sampleValue": "140"
+        },
+        {
+          "name": "g16",
+          "rule": "round(g14+u,10)",
+          "sampleValue": "710"
+        },
+        {
+          "name": "t",
+          "rule": "range(120,180,10)",
+          "sampleValue": "120"
+        },
+        {
+          "name": "g18",
+          "rule": "round(g16+t,10)",
+          "sampleValue": "830"
+        },
+        {
+          "name": "s",
+          "rule": "range(20,120,10)",
+          "sampleValue": "60"
+        },
+        {
+          "name": "g20",
+          "rule": "round(g18+s,10)",
+          "sampleValue": "890"
+        },
+        {
+          "name": "weekslist",
+          "rule": "list(10,12,14,16,18,20)",
+          "sampleValue": "10, 12, 14, 16, 18, 20"
+        },
+        {
+          "name": "bmasslist",
+          "rule": "list(b10,b12,b14,b16,b18,b20)",
+          "sampleValue": "550, 680, 730, 770, 820, 870"
+        },
+        {
+          "name": "gmasslist",
+          "rule": "list(g10,g12,g14,g16,g18,g20)",
+          "sampleValue": "420, 520, 570, 710, 830, 890"
+        },
+        {
+          "name": "i",
+          "rule": "rand(6)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "week",
+          "rule": "choose(i,weekslist)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "bmass",
+          "rule": "choose(i,bmasslist)",
+          "sampleValue": "680"
+        },
+        {
+          "name": "gmass",
+          "rule": "choose(i,gmasslist)",
+          "sampleValue": "520"
+        },
+        {
+          "name": "extrap",
+          "rule": "round((b6+b10)/2,10)",
+          "sampleValue": "310"
+        }
+      ],
+      "graphDefinitions": [
+        {
+          "id": "graph-1",
+          "expressions": [
+            "round(g8+x,10)"
+          ],
+          "normalizedExpressions": [
+            {
+              "original": "round(g8+x,10)",
+              "substituted": "round((216)+x,10)",
+              "typst": "round((216)+x,10)",
+              "latex": "round((216)+x,10)",
+              "variables": [
+                "g8"
+              ]
+            }
+          ],
+          "variables": {
+            "g8": "216"
+          },
+          "source": "string-token-heuristic"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 5588710,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 72 00 65 00 61 00 64 00 69 00 6e 00 67 00 20 00 61 00 20 00 67 00 72 00 61 00 70 00 68 00 7c 00 74 00 72 00 65 00 6e 00 64 00 7c 00 69 00 6e 00 74 00 65 00 72 00 70 00 6f 00 6c 00 61 00 74 00 69 00 6f 00 6e 00 00 00 12 0f 00 00 02 00 00 00 01 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 62 00 30 00 00 00 30 00 00 00 30 00 00 00 02 00 00 00 0b 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 22 40 62 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 38 00 2c 00 31 00 30 00 29 00 00 00 39 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 32 40 62 00 34 00 00 00 32 00 2a 00 62 00 32 00 00 00 31 00 38 00 00 00 01 00 00 00 0e 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 80 4b 40 61 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 30 00 2c 00 39 00 30 00 2c 00 35 00 29 00 00 00 35 00 35 00 00 00 02 00 00 00 04 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 40 52 40 62 00 36 00 00 00 62 00 34 00 2b 00 61 00 00 00 37 00 33 00 00 00 01 00 00 00 11 00",
+          "textPreview": "Moderate\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\nreading a graph|trend|interpolation\n[[slot]]\nb0\n0\n0\nb2\nrange(8,10)\n9\nb4\n2*b2\n18\na\nrange(50,90,5)\n55\nb6\nb4+a\n73\nc\nrange(350,500,25)\n475\nb10\nround(b6+c,10)\n550\nd\nrange(80,130,10)"
+        }
+      ]
+    },
+    {
+      "id": "q-22",
+      "type": "true_false",
+      "body": {
+        "format": "typst",
+        "text": "The difference in employment between 2009 and 2000 was 799 – 675 124 There is no apparent pattern in the employment at restaurants. (r0 = 349, r1 = 329, r2 = 485, r3 = 488, r4 = 250, r5 = 266, r6 = 339, r7 = 467, r8 = 399, r9 = 500, s0 = 450, s1 = 425, s2 = 450, s3 = 350, s4 = 300, s5 = 300, s6 = 250, s7 = 250, s8 = 200, s9 = 175, j = 2, r0 = 349, r1 = 329, r1 = 329, r2 = 485, r2 = 485, r3 = 488, r3 = 488, r4 = 250, r4 = 250, r5 = 266, r5 = 266, r6 = 339, r6 = 339, r7 = 467, r7 = 467, r8 = 399, s0 = 450, s1 = 425, s1 = 425, s2 = 450, s2 = 450, s3 = 350, s3 = 350, s4 = 300, s4 = 300, s5 = 300, s5 = 300, s6 = 250, s6 = 250, s7 = 250, s7 = 250, s8 = 200, s8 = 200, s9 = 175, r8 = 399, r9 = 500, r9 = 500, s9 = 175, emp09 = 675, r0 = 349, s0 = 450, emp00 = 799, emp09 = 675, emp00 = 799, setup = if(emp09>=emp00,\"The difference in employment between 2009 and 2000 was \" + semp09 + \" – \" + semp00,\"The difference in employment between 2009 and 2000 was \" + semp00 + \" – \" + semp09))"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 5652922,
+        "difficulty": "Difficult",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data|double broken line graph|trend"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "rli",
+          "rule": "list(300,325,350,350,350,375,400,350,300,275)",
+          "sampleValue": "300, 325, 350, 350, 350, 375, 400, 350, 300, 275"
+        },
+        {
+          "name": "rld",
+          "rule": "list(500,525,450,450,425,400,400,350,300,275)",
+          "sampleValue": "500, 525, 450, 450, 425, 400, 400, 350, 300, 275"
+        },
+        {
+          "name": "rlnp",
+          "rule": "list(300,425,450,350,450,375,450,350,300,475)",
+          "sampleValue": "300, 425, 450, 350, 450, 375, 450, 350, 300, 475"
+        },
+        {
+          "name": "i",
+          "rule": "rand(3)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "scli",
+          "rule": "list(225,200,250,300,325,300,350,400,425,450)",
+          "sampleValue": "225, 200, 250, 300, 325, 300, 350, 400, 425, 450"
+        },
+        {
+          "name": "scld",
+          "rule": "list(450,425,450,350,300,300,250,250,200,175)",
+          "sampleValue": "450, 425, 450, 350, 300, 300, 250, 250, 200, 175"
+        },
+        {
+          "name": "sclnp",
+          "rule": "list(300,225,250,150,350,375,250,225,300,275)",
+          "sampleValue": "300, 225, 250, 150, 350, 375, 250, 225, 300, 275"
+        },
+        {
+          "name": "j",
+          "rule": "rand(3)",
+          "sampleValue": "2"
+        },
+        {
+          "name": "choose_trend_restaurant",
+          "rule": "if(i=1,makelist(10,250,325,375,425,500,true),if(i=2, rld,makelist(10,250,-1,-1,-1,500,false)))",
+          "sampleValue": "349, 329, 485, 488, 250, 266, 339, 467, 399, 500"
+        },
+        {
+          "name": "choose_trend_summer_camp",
+          "rule": "if(j=1,scli,if(j=2,scld,sclnp))",
+          "sampleValue": "450, 425, 450, 350, 300, 300, 250, 250, 200, 175"
+        },
+        {
+          "name": "r0",
+          "rule": "choose(1,rlist)",
+          "sampleValue": "349"
+        },
+        {
+          "name": "r1",
+          "rule": "choose(2,rlist)",
+          "sampleValue": "329"
+        },
+        {
+          "name": "r2",
+          "rule": "choose(3,rlist)",
+          "sampleValue": "485"
+        },
+        {
+          "name": "r3",
+          "rule": "choose(4,rlist)",
+          "sampleValue": "488"
+        },
+        {
+          "name": "r4",
+          "rule": "choose(5,rlist)",
+          "sampleValue": "250"
+        },
+        {
+          "name": "r5",
+          "rule": "choose(6,rlist)",
+          "sampleValue": "266"
+        },
+        {
+          "name": "r6",
+          "rule": "choose(7,rlist)",
+          "sampleValue": "339"
+        },
+        {
+          "name": "r7",
+          "rule": "choose(8,rlist)",
+          "sampleValue": "467"
+        },
+        {
+          "name": "r8",
+          "rule": "choose(9,rlist)",
+          "sampleValue": "399"
+        },
+        {
+          "name": "r9",
+          "rule": "choose(10,rlist)",
+          "sampleValue": "500"
+        },
+        {
+          "name": "s0",
+          "rule": "choose(1,slist)",
+          "sampleValue": "450"
+        },
+        {
+          "name": "s1",
+          "rule": "choose(2,slist)",
+          "sampleValue": "425"
+        },
+        {
+          "name": "s2",
+          "rule": "choose(3,slist)",
+          "sampleValue": "450"
+        },
+        {
+          "name": "s3",
+          "rule": "choose(4,slist)",
+          "sampleValue": "350"
+        },
+        {
+          "name": "s4",
+          "rule": "choose(5,slist)",
+          "sampleValue": "300"
+        },
+        {
+          "name": "s5",
+          "rule": "choose(6,slist)",
+          "sampleValue": "300"
+        },
+        {
+          "name": "s6",
+          "rule": "choose(7,slist)",
+          "sampleValue": "250"
+        },
+        {
+          "name": "s7",
+          "rule": "choose(8,slist)",
+          "sampleValue": "250"
+        },
+        {
+          "name": "s8",
+          "rule": "choose(9,slist)",
+          "sampleValue": "200"
+        },
+        {
+          "name": "s9",
+          "rule": "choose(10,slist)",
+          "sampleValue": "175"
+        },
+        {
+          "name": "emp09",
+          "rule": "r9+s9",
+          "sampleValue": "675"
+        },
+        {
+          "name": "emp00",
+          "rule": "r0+s0",
+          "sampleValue": "799"
+        },
+        {
+          "name": "semp09",
+          "rule": "str(emp09)",
+          "sampleValue": "675"
+        },
+        {
+          "name": "semp00",
+          "rule": "str(emp00)",
+          "sampleValue": "799"
+        },
+        {
+          "name": "setup",
+          "rule": "if(emp09>=emp00,\"The difference in employment between 2009 and 2000 was \" + semp09 + \" – \" + semp00,\"The difference in employment between 2009 and 2000 was \" + semp00 + \" – \" + semp09)"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 5652922,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 7c 00 64 00 6f 00 75 00 62 00 6c 00 65 00 20 00 62 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 6c 00 69 00 6e 00 65 00 20 00 67 00 72 00 61 00 70 00 68 00 7c 00 74 00 72 00 65 00 6e 00 64 00 00 00 1e 1a 00 00 03 00 00 00 2d 00 00 00 32 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 72 00 6c 00 69 00 00 00 6c 00 69 00 73 00 74 00 28 00 33 00 30 00 30 00 2c 00 33 00 32 00 35 00 2c 00 33 00 35 00 30 00 2c 00 33 00 35 00 30 00 2c 00 33 00 35 00 30 00 2c 00 33 00 37 00 35 00 2c 00 34 00 30 00 30 00 2c 00 33 00 35 00 30 00 2c 00 33 00 30 00 30 00 2c 00 32 00 37 00 35 00 29 00 00 00 01 00 86 f0 33 00 30 00 30 00 2c 00 20 00 33 00 32 00 35 00 2c 00 20 00 33 00 35 00 30 00 2c 00 20 00 33 00 35 00 30 00 2c 00 20 00 33 00 35 00 30 00 2c 00 20 00 33 00 37 00 35 00 2c 00 20 00 34 00 30 00 30 00 2c 00 20 00 33 00 35 00 30 00 2c 00 20 00 33 00 30 00 30 00 2c 00 20 00 32 00 37 00 35 00 00 00 03 00 00 00 2d 00 00 00 32 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 72 00 6c 00 64 00 00 00 6c 00 69 00 73 00 74 00 28 00 35 00 30 00 30 00 2c 00 35 00 32 00 35 00 2c 00 34 00",
+          "textPreview": "Difficult\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data|double broken line graph|trend\n-\n2\nrli\nlist(300,325,350,350,350,375,400,350,300,275)\n300, 325, 350, 350, 350, 375, 400, 350, 300, 275\n-\n2\nrld\nlist(500,525,450,450,425,400,400,350,300,275)\n500, 525, 450, 450, 425, 400, 400, 350, 300, 275\n-\n2\nrlnp\nlist(300,425,450,350,450,375,450,350,300,475)\n300, 425, 450, 350, 450, 375, 450, 350, 300, 475\ni\nrand(3)\n3\n-\n2\nscli\nlist(225,200,250,300,325,300,350,400,425,450)\n225, 200, 250, 300, 325, 300"
+        }
+      ]
+    },
+    {
+      "id": "q-23",
+      "type": "true_false",
+      "body": {
+        "format": "typst",
+        "text": "If you were drawing a broken line graph for this information, at what value would you begin on your x and y axes? What scale would you use for each axis? Explain your answer. b)\tDraw a broken line graph for this data c)\tIf the data continues along the current trend, is it possible to extrapolate the y-value for the x-value of 38? If so, what is it? If not, why not?"
+      },
+      "metadata": {
+        "className": "MathWorks 11",
+        "unitName": "2.1 Broken Line Graphs",
+        "sectionName": "2.1",
+        "sourceOffset": 5732546,
+        "difficulty": "Difficult",
+        "reference": "S-SO1",
+        "topic": "Broken Line Graphs",
+        "title": "graphing data|trend"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "xlist1",
+          "rule": "list(24,26,28,30,32,34,36)",
+          "sampleValue": "24, 26, 28, 30, 32, 34, 36"
+        },
+        {
+          "name": "xlist2",
+          "rule": "list(30,35,40,45,50,55,60)",
+          "sampleValue": "30, 35, 40, 45, 50, 55, 60"
+        },
+        {
+          "name": "xlist3",
+          "rule": "list(4,8,12,16,20,24,28)",
+          "sampleValue": "4, 8, 12, 16, 20, 24, 28"
+        },
+        {
+          "name": "Choose_x",
+          "rule": "if(i=1,xlist1,if(i=2,xlist2,xlist3))",
+          "sampleValue": "4, 8, 12, 16, 20, 24, 28"
+        },
+        {
+          "name": "i",
+          "rule": "rand(3)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "ylist1",
+          "rule": "list(1150,1180,1250,1200,1100,1030,975)",
+          "sampleValue": "1150, 1180, 1250, 1200, 1100, 1030, 975"
+        },
+        {
+          "name": "ylist2",
+          "rule": "list(850,950,900,975,1100,1200,1300)",
+          "sampleValue": "850, 950, 900, 975, 1100, 1200, 1300"
+        },
+        {
+          "name": "ylist3",
+          "rule": "makelist(7,800,-1,-1,-1,1300,false)",
+          "sampleValue": "924, 1300, 800, 994, 1162, 869, 1289"
+        },
+        {
+          "name": "Choose_y",
+          "rule": "if(j=1,ylist1,if(j=2,ylist2,ylist3))",
+          "sampleValue": "924, 1300, 800, 994, 1162, 869, 1289"
+        },
+        {
+          "name": "j",
+          "rule": "rand(3)",
+          "sampleValue": "3"
+        },
+        {
+          "name": "x0",
+          "rule": "choose(1,xlist)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "x1",
+          "rule": "choose(2,xlist)",
+          "sampleValue": "8"
+        },
+        {
+          "name": "x2",
+          "rule": "choose(3,xlist)",
+          "sampleValue": "12"
+        },
+        {
+          "name": "x3",
+          "rule": "choose(4,xlist)",
+          "sampleValue": "16"
+        },
+        {
+          "name": "x4",
+          "rule": "choose(5,xlist)",
+          "sampleValue": "20"
+        },
+        {
+          "name": "x5",
+          "rule": "choose(6,xlist)",
+          "sampleValue": "24"
+        },
+        {
+          "name": "x6",
+          "rule": "choose(7,xlist)",
+          "sampleValue": "28"
+        },
+        {
+          "name": "y0",
+          "rule": "choose(1,ylist)",
+          "sampleValue": "924"
+        },
+        {
+          "name": "y1",
+          "rule": "choose(2,ylist)",
+          "sampleValue": "1300"
+        },
+        {
+          "name": "y2",
+          "rule": "choose(3,ylist)",
+          "sampleValue": "800"
+        },
+        {
+          "name": "y3",
+          "rule": "choose(4,ylist)",
+          "sampleValue": "994"
+        },
+        {
+          "name": "y4",
+          "rule": "choose(5,ylist)",
+          "sampleValue": "1162"
+        },
+        {
+          "name": "y5",
+          "rule": "choose(6,ylist)",
+          "sampleValue": "869"
+        },
+        {
+          "name": "y6",
+          "rule": "choose(7,ylist)",
+          "sampleValue": "1289"
+        },
+        {
+          "name": "ansc",
+          "rule": "if(j=1,\"When x is 38, y will be approximately 900.\",if(j=2,\"When x is 38, y will be approximately 1400.\", \"There is no clear pattern and so no extrapolation may take place.\"))"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 5732546,
+          "length": 512,
+          "hexPreview": "44 00 69 00 66 00 66 00 69 00 63 00 75 00 6c 00 74 00 00 00 32 00 2e 00 31 00 00 00 53 00 74 00 61 00 74 00 69 00 73 00 74 00 69 00 63 00 73 00 00 00 53 00 2d 00 53 00 4f 00 31 00 00 00 42 00 72 00 6f 00 6b 00 65 00 6e 00 20 00 4c 00 69 00 6e 00 65 00 20 00 47 00 72 00 61 00 70 00 68 00 73 00 00 00 67 00 72 00 61 00 70 00 68 00 69 00 6e 00 67 00 20 00 64 00 61 00 74 00 61 00 7c 00 74 00 72 00 65 00 6e 00 64 00 00 00 82 0e 00 00 06 00 00 00 1a 00 00 00 1c 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 78 00 6c 00 69 00 73 00 74 00 31 00 00 00 6c 00 69 00 73 00 74 00 28 00 32 00 34 00 2c 00 32 00 36 00 2c 00 32 00 38 00 2c 00 33 00 30 00 2c 00 33 00 32 00 2c 00 33 00 34 00 2c 00 33 00 36 00 29 00 00 00 01 00 86 f0 32 00 34 00 2c 00 20 00 32 00 36 00 2c 00 20 00 32 00 38 00 2c 00 20 00 33 00 30 00 2c 00 20 00 33 00 32 00 2c 00 20 00 33 00 34 00 2c 00 20 00 33 00 36 00 00 00 06 00 00 00 1a 00 00 00 1c 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 78 00 6c 00 69 00 73 00 74 00 32 00 00 00 6c 00 69 00 73 00 74 00 28 00 33 00 30 00 2c 00 33 00 35 00 2c 00 34 00 30 00 2c 00 34 00 35 00 2c 00 35 00 30 00 2c 00 35 00 35 00 2c 00 36 00 30 00 29 00 00 00 01 00 86 f0 33 00 30 00 2c 00 20 00 33 00 35 00 2c 00 20 00 34 00 30 00 2c 00 20 00 34 00 35 00 2c 00 20 00 35 00 30 00 2c 00 20 00 35 00 35 00 2c 00 20 00 36 00 30 00 00 00 06 00 00 00 18 00 00 00 1a 00 00 00 00 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00",
+          "textPreview": "Difficult\n2.1\nStatistics\nS-SO1\nBroken Line Graphs\ngraphing data|trend\nxlist1\nlist(24,26,28,30,32,34,36)\n24, 26, 28, 30, 32, 34, 36\nxlist2\nlist(30,35,40,45,50,55,60)\n30, 35, 40, 45, 50, 55, 60\nxlist3\nlist(4,8,12,16,20,24,28)\n4, 8, 12, 16, 20, 24, 28\n$\nChoose_x\nif(i=1,xlist1,if(i=2,xlist2,xlist3))\n4, 8, 12, 16, 20, 24, 28\ni\nrand(3)\n3\nxlist\nChoose_x\n4, 8, 12, 16, 20, 24, 28\n'\n)\nylist1\nlist(1150,1180,1250,1200,1100,1030,975)\n1150, 1180, 1250, 1200, 1100, 1030, 975"
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 228921 to 5770938 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 23 candidate v06 question string clusters."
+    }
+  ],
+  "stats": {
+    "questionCount": 23,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 23
+  }
+}

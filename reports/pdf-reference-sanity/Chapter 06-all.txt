@@ -1,0 +1,1278 @@
+       Chapter 6: Trigonometric Identities
+
+
+       MULTIPLE CHOICE
+
+          1. Which equation is a reciprocal identity?
+                          1                                              1
+             A. sec                                        C. sec 
+                        tan                                           csc
+                          1                                              1
+             B. sec                                        D. sec 
+                        cos                                           sin
+              ANS: B             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: reciprocal identity
+
+          2. Which equation is a quotient identity?
+                          1                                            cos
+             A. cot                                        C. cot 
+                       cos                                            sin
+                        sin                                             1
+             B. cot                                        D. cot 
+                       cos                                            sin
+              ANS: C             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: quotient identity
+
+          3. Which equation is a Pythagorean identity?
+             A. 1  tan2   sec 2                          C. 1  tan2   sec 2 
+             B. cot 2   1  csc 2                         D. sin2   cos 2   1
+              ANS: A             DIF: Easy             OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities            KEY: Pythagorean identities
+
+          4. What does the expression cot sincsc  simplify to?
+             A. cot                                        C. cos 
+             B. tan                                        D. sin
+              ANS: A               DIF: Average            OBJ: Section 6.1    NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: quotient identity | reciprocal identity
+
+          5. Which of the following sets is the set of reciprocal trigonometric ratios?
+             A. csc , sec , and cot                        C. sin , csc , and cot 
+             B. sec , cos , and cot                        D. csc , sec , and tan 
+              ANS: A               DIF: Average        OBJ: Section 6.1        NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal trigonometric ratios
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                     1
+          6. What is an equivalent expression for cot A?
+                   1                                                    1
+             A.                                                 C.
+                 sin A                                                cos A
+                    1                                                   1
+             B.                                                 D.
+                 tan A                                                secA
+              ANS: B               DIF: Easy           OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal trigonometric ratios
+
+                                                  cos 
+          7. Which expression is equivalent to            ?
+                                                 1  sin
+                   cos  1  sin                                   1  sin
+              A.                                                C.
+                      1  sin2                                        cos 
+                    cos                                              1  sin
+              B.                                                D.
+                   1  sin                                            cos 
+              ANS: C             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+          8. Which expression is equivalent to tan  cot  ?
+                                                                            1
+              A. 1                                              C.
+                                                                   cos  sin
+                                                                        sin 
+              B. cos  sin                                     D. 2        
+                                                                                 
+                                                                         cos    
+              ANS: C             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+          9. Which expression is equivalent to sec 2  sin2 ?
+             A. tan2                                          C. 1
+             B. cos 2                                         D. sin4 
+              ANS: A             DIF: Easy             OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+         10. Which expression is equivalent to tan2   sin2  ?
+                                                                      sin3 
+              A. sin2  cos 2                                  C.
+                                                                      cos 2 
+                                                                      sin2 
+              B. sin2  tan2                                   D.
+                                                                      cos 2 
+              ANS: B             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+                                                                2
+         11. Which expression is equivalent to sin  cos  ?
+             A. 1  2sin cos                               C. 1
+             B. 2sin cos                                   D. sin2   cos 2 
+              ANS: A             DIF: Average          OBJ: Section 6.1               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                   KEY: trigonometric identity
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            2
+         12. Which expression is equivalent to 1  2sin2 ?
+             A. cos 2                                      C. 1  2cos 2 
+             B. 2cos   1
+                      2                                     D. sin2 
+              ANS: B             DIF: Average          OBJ: Section 6.1                  NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                      KEY: trigonometric identity
+
+                         cos   sec                        tan  sin 
+         13. Express                  cos 2  tan2                 in terms of cosine and sine only, and simplify.
+                                                                                 
+                              sec                                 tan        
+             A. 0                                                        C. 1
+             B. cos 2                                                   D. sin2 
+              ANS: A             DIF: Difficult        OBJ: Section 6.1                  NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                      KEY: trigonometric identity
+
+         14. Which expression is equivalent to cosx cos y  sinx siny?
+             A. sin(x  y)                                    C. sin(x  y)
+             B. cos(x  y)                                    D. cos(x  y)
+
+              ANS: B             DIF: Average        OBJ: Section 6.2                    NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities                          KEY: sum identities
+
+                                                      tanA  tanB
+         15. Which expression is equivalent to                    ?
+                                                     1  tanAtanB
+              A. tan(A  B)                                      C. tan(A  B)
+              B. cot(A  B)                                      D. cot(A  B)
+
+              ANS: C              DIF: Average             OBJ: Section 6.2              NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities
+              KEY: tangent | sum identities | difference identities
+
+         16. Determine the exact value of cos 15.
+                                                                             6     2
+              A. 2 2                                                C.
+                                                                              4
+                    2 2                                                      6     2
+              B.                                                    D.
+                     3                                                        4
+              ANS: D             DIF: Average        OBJ: Section 6.2                    NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities                          KEY: difference identities
+
+         17. Simplify cos 19 cos 161  sin19 sin161.
+             A. 0                                                   C. 1
+             B. undefined                                           D. 1
+              ANS: C             DIF: Easy           OBJ: Section 6.2                    NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities                          KEY: sum identities | evaluate
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                             3
+         18. Simplify sin168 cos 143  cos 168 sin143. Round your answer to the nearest hundredth.
+             A. 0.47                                         C. –0.75
+             B. –1.15                                        D. 0.42
+               ANS: D               DIF: Average             OBJ: Section 6.2      NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities
+               KEY: sum identities | difference identities | evaluate
+
+                         tan(116)  tan(26)
+         19. Simplify                           .
+                        1  tan(116) tan(26)
+               A. 1                                               C. 0
+               B. 1                                                D. undefined
+               ANS: D             DIF: Easy           OBJ: Section 6.2             NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities                   KEY: sum identities | evaluate
+
+                                                    cos(A  B)
+         20. Which expression is equivalent to                 ?
+                                                    cos(A  B)
+                    1  tanAtanB
+               A.                                                  C. cos A sinB
+                    1  tanAtanB
+                    1  tanAtanB
+               B.                                                  D. sinA cos B
+                    1  tanAtanB
+               ANS: B               DIF: Difficult          OBJ: Section 6.2       NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities
+               KEY: sum identities | evaluate | difference identities
+
+                                                    sin(2B)
+         21. Which expression is equivalent to                ?
+                                                    2sin2 B
+               A. 2csc B                                           C. tanB
+                    2
+               B.                                                  D. cot B
+                  sinB
+               ANS: D             DIF: Average        OBJ: Section 6.2             NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities                   KEY: double-angle identities
+
+                 sin4
+         22.              is equivalent to
+               1  cos 4
+               A. tan2                                            C. tan
+               B. tan2                                            D. 2tan
+               ANS: A             DIF: Difficult      OBJ: Section 6.2             NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities                   KEY: double-angle identities
+
+         23. 4cos 3   3cos  can be rewritten as
+             A. cos 3                                             C. cos 
+             B. 3cos                                              D. cos 2 
+               ANS: A              DIF: Difficult          OBJ: Section 6.2        NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities
+               KEY: double-angle identities | sum identities
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            4
+               1  cos x
+         24.             can be rewritten as
+                 sinx
+                                                                           x
+               A. 2tanx                                       C. 2tan
+                                                                           4
+                    tanx                                               x
+               B.                                             D. tan
+                      2                                                2
+               ANS: D             DIF: Difficult +    OBJ: Section 6.2           NAT: T6
+               TOP: Sum, Difference, and Double-Angle Identities                 KEY: half-angle identities
+
+         25. What is the solution to the equation sinx  4csc x  5  0 over the domain 0  x  2?
+                 3                                                
+             A.                                               C.
+                  4                                                 4
+                                                                  3
+             B.                                               D.
+                 2                                                  2
+               ANS: D             DIF: Average        OBJ: Section 6.4           NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities             KEY: reciprocal identity
+
+         26. What is the solution to the equation tan2 x  3sec x  3  0 over the domain 0  x  360?
+             A. 60and 240                                  C. no solution
+             B. 120, 180, and 240                          D. 120
+               ANS: B             DIF: Average        OBJ: Section 6.4           NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities             KEY: reciprocal identity
+
+         27. What is the general solution, in degress, to the equation 2cos x cos 2x  2sinx sin2x  1?
+             A. 40  180n and 80  180n. where n  I C. 40  120n and 80  120n, where n  I
+             B. 40  120n, where n  I                       D. 220  120n and 330  120n, where
+                                                                    nI
+               ANS: C              DIF: Difficult          OBJ: Section 6.4      NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities
+               KEY: double-angle identities | general solutions
+
+                                                                                          1
+         28. What is the general solution, in radians, to the equation (4cos 2 2  1) sin   0?
+                                                                                          3
+             A. 2n where n  I                                C. 3n where n  I
+                                                                    
+             B. no solution                                    D.     n where n  I
+                                                                    3
+               ANS: C              DIF: Difficult          OBJ: Section 6.4      NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities
+               KEY: double-angle identities | general solutions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                      5
+         29. What is the general solution, in radians, to the equation sin2x  2cos x  0?
+                      
+             A.   n, where n  I                             C. no solution
+                      2
+                                                                    
+             B. 2n, where n  I                               D.      n, where n  I
+                                                                    2
+              ANS: D              DIF: Average            OBJ: Section 6.4        NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: double-angle identities | general solutions
+
+
+       COMPLETION
+
+                      sinx              cos x
+          1. tanx          and cot x        are known as the _______________ identities.
+                      cos x             sinx
+
+              ANS: quotient
+
+              DIF: Easy           OBJ: Section 6.1 NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal identities | quotient identities | Pythagorean identities
+
+          2. An equation with trigonometric expressions that is true for all values of the variable for which the
+             expressions are defined is called a trigonometric _______________ .
+
+              ANS: identity
+
+              DIF: Easy          OBJ: Section 6.1 NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities               KEY: trigonometric identity
+
+                                                                          1
+          3. The general solution, in degrees, for the equation cos x       0 is _______________ .
+                                                                          2
+
+              ANS: 60  360n and 300  360n, where n  I
+
+              DIF: Average       OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities               KEY: general solutions
+
+          4. The reciprocal identities are defined as csc x                              ,
+                                                      sec x                              , and
+                                                      cot x 
+
+                        1    1     1
+              ANS:        ,     ,
+                      sinx cos x tanx
+
+              DIF: Easy           OBJ: Section 6.1 NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities
+              KEY: reciprocal identities | quotient identities | Pythagorean identities
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            6
+          5. A trigonometric identity is a relation among trigonometric ratios that is ____________________ for
+             all values of the variables for which both sides are ____________________.
+
+               ANS: true, defined
+
+               DIF: Average        OBJ: Section 6.3        NAT: T6               TOP: Proving Identities
+               KEY: trigonometric identity
+
+
+       MATCHING
+
+               Match the corresponding trigonometric expressions to form trigonometric identities.
+                   sin(  )
+               A.                                           D. tan
+                   cos(  )
+                   1  tan tan
+               B.                                           E. tan  sec 
+                   1  tan tan
+                   csc  cos 
+               C.
+                   sec  sin
+             sin  1
+          1.
+               cos 
+          2. (csc   1) (1  csc )
+             sin  cos  tan
+          3.
+             cos   sin tan
+              sin4  sin2
+          4.
+             cos 2  cos 4
+             cos(  )
+          5.
+             cos(  )
+
+          1. ANS: E              DIF:      Average         OBJ: Section 6.3 NAT: T6
+             TOP: Proving Identities                       KEY: quotient identities | reciprocal identities
+          2. ANS: C              DIF:      Average         OBJ: Section 6.3 NAT: T6
+             TOP: Proving Identities                       KEY: reciprocal identities
+          3. ANS: A              DIF:      Average         OBJ: Section 6.3 NAT: T6
+             TOP: Proving Identities                       KEY: difference identities | sum identities
+          4. ANS: D              DIF:      Difficult +     OBJ: Section 6.3 NAT: T6
+             TOP: Proving Identities                       KEY: double-angle identities
+          5. ANS: B              DIF:      Average         OBJ: Section 6.3 NAT: T6
+             TOP: Proving Identities                       KEY: difference identities | sum identities
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          7
+       SHORT ANSWER
+
+                                               2             2    
+          1. Find the exact value of cos          cos     sin    sin .
+                                                9     18        9    18
+
+              ANS:
+                  2             2                 2  
+              cos    cos     sin    sin     cos       
+                   9     18        9     18             9  18 
+                                                             4  
+                                                    cos         
+                                                               18    18 
+                                                              3 
+                                                    cos  
+                                                               18 
+                                                              
+                                                    cos  
+                                                             6
+                                                         3
+                                                   
+                                                        2
+
+              DIF: Average        OBJ: Section 6.2 NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities
+              KEY: difference identities | exact value
+
+                                                  
+                                          tan tan
+                                          10       15
+          2. Find the exact value of                   .
+                                                   
+                                     1  tan tan
+                                             10     15
+
+              ANS:
+                         
+               tan  tan              
+                   10    15                 
+                              tan  
+                                     10 15 
+              1  tan tan
+                      10  15
+                                          3 2 
+                                  tan           
+                                                       
+                                            30    30   
+                                           5 
+                                  tan 
+                                            30 
+                                           
+                                  tan 
+                                          6
+
+                                      1      3
+                                        or
+                                       3    3
+
+              DIF: Difficult     OBJ: Section 6.2 NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities              KEY: sum identities | exact value
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                         8
+                                              sin sec   tan 
+          3. Determine the value of cos                        if sin  13 and cos   84 .
+                                                   sec  tan                 85             85
+                                                                    
+
+              ANS:
+              Simplify the expression.
+                                                        sin sin 
+                                                                         
+                      sin sec   tan                                
+                                                        
+                                                             cos    cos    
+              cos                        cos   1 sin 
+                                                         
+                          sec  tan                                       
+                                                                              
+                                                             cos  cos  
+                                                                               
+                                                          2sin 
+                                                                        
+                                                                         
+                                                             cos  
+                                                 cos                  
+                                                              sin 
+                                                                          
+                                                                cos 2  
+                                                                           
+                                                            2sin   cos 2  
+                                                 cos            
+                                                                        sin 
+                                                                                     
+                                                             cos                
+                                                                                     
+                                                 2cos 2 
+                                       84
+              Substitute cos            :
+                                       85
+                   84  2 14 112
+              2  
+                    85      7225
+                                                                  13            84             85
+              Or, substitute directly. Since sin                   and cos   , then sec   , and
+                                                                  85            85             84
+                         sin
+              tan 
+                         cos 
+                       13
+                       85
+                     
+                       84
+                       85
+                         13
+                     
+                         84
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                9
+                                                                      
+                                                        13   85  13 
+                                                                     
+                       sin sec   tan  84   85   84  84 
+              cos                      
+                                                                            
+                            sec  tan        85   85   13  
+                                                           
+                                                           84   84  
+                                                               
+                                                                               
+                                                        13 13 
+                                                                  
+                                                                     
+                                                 84  84 84 
+                                               
+                                                 85  (85)(13) 
+                                                                    
+                                                           7056 
+                                                                     
+                                                      26 
+                                                                 
+                                                                  
+                                                 84      84       
+                                                                     
+                                                 85  (85)(13) 
+                                                        
+                                                        
+                                                                    
+                                                          7056 
+                                                                     
+                                                   84  26   7056 
+                                               
+                                                   85  84   (85)(13) 
+                                                   2(7056)
+                                               
+                                                     852
+                                                   14 112
+                                               
+                                                    7225
+
+              DIF: Difficult     OBJ: Section 6.1 NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities                     KEY: exact value
+
+          4. Use a counterexample to show that cos(x  y)  cos x  cos y is not an identity.
+
+              ANS:
+              Answers may vary. Sample answer:
+                                
+              Use x = 0 and y  :
+                                2
+              L.S.  cos(x  y)              R.S.  cos x  cos y
+                                                                               
+                     cos  0                                cos 0  cos
+                                                                                    2
+                                 2
+                                                                    10
+                     cos
+                            2                                       1
+                    0
+                                  L.S.  R.S.
+              Thus, cos(x  y)  cos x  cos y is not an identity.
+
+              DIF: Average      OBJ: Section 6.3                          NAT: T6       TOP: Proving Identities
+              KEY: counterexample
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                          10
+          5. Prove the identity tan2   sin2   sin2  tan2  .
+
+              ANS:
+              L.S.  tan2   sin2                    R.S.  sin2  tan2 
+                       sin2 
+                               sin2 
+                       cos 2 
+                       sin2   sin2  cos 2 
+                   
+                              cos 2 
+                       sin2  1  cos 2 
+                   
+                              cos 2 
+                       sin2  sin2 
+                   
+                          cos 2 
+                    sin2  tan2 
+                                              L.S. = R.S.
+
+              DIF: Average       OBJ: Section 6.1 | Section 6.3               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: Pythagorean identities | trigonometric identity
+
+          6. Is the equation csc 2   1  cot 2  true for all values of 
+
+              ANS:
+              L.S.  csc 2                   R.S.  1  cot 2 
+                                                           cos 2 
+                                                    1
+                                                           sin2 
+                                                       sin2  cos 2 
+                                                            
+                                                       sin2  sin2 
+                                                       sin2   cos 2 
+                                                   
+                                                            sin2 
+                                                         1
+                                                   
+                                                       sin2 
+                                                    csc 2 
+                                L.S. = R.S.
+              The identity is true for all values of 
+
+              DIF: Average       OBJ: Section 6.1 | Section 6.3               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: Pythagorean identities | trigonometric identity
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                   11
+          7. Verify graphically that cos x tanx  sinx for 0  x  360.
+
+              ANS:
+              Graph y  cos x tanx
+
+
+
+
+              Graph y  sinx
+
+
+
+
+              The graphs are the same for the range 0  x  360.
+
+              DIF: Easy           OBJ: Section 6.3 NAT: T6                     TOP: Proving Identities
+              KEY: reciprocal identities | trigonometric identity | graphing
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                 12
+          8. What is the solution for 2cos x         3  0 for 0  x  2?
+
+              ANS:
+              2cos x      3 0
+
+                       2cos x        3
+
+                                    3
+                        cos x 
+                                   2
+                                               
+                                          3 
+                           x  cos 1         
+                                           2 
+                                                 
+                                  
+                             
+                                  6
+                                                                                         11
+              Since cosine is also positive in quadrant IV, another solution is 2          .
+                                                                                        6   6
+
+              DIF: Easy          OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities                  KEY: exact value
+
+          9. Solve cot 2   cot   0. State the solution in general form.
+
+              ANS:
+               cot 2   cot   0
+              cot  (cot   1)  0
+                          cot   0 or cot   1
+                                              3
+                                      or  
+                                      2         4
+                                                                                                   3
+              Since the period for cot  is , the solution in general form is        n and       n , where
+                                                                                     2               4
+              n  I.
+
+              DIF: Difficult       OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: exact value | general solutions
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                              13
+         10. Solve sec 2   2tan  3  0. State the general solution to the nearest degree.
+
+              ANS:
+                 sec 2   2tan  3  0
+              (1  tan2 )  2tan  3  0
+                   tan2   2tan  2  0
+                                       Use the quadratic formula.
+
+                                         2       12
+                                tan 
+                                              2
+                                       1        3
+                                       2.732 or  0.732
+                                      tan1 (2.732) or tan1 (0.732)
+                                       70 or  36
+              Since the period for tan is 180°, a positive solution corresponding to 36° is 36° + 180° or 144°.
+              The general solution is 70  180n and 144  180n, where n  I.
+
+              DIF: Difficult       OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: exact value | general solutions | quadratic formula
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                             14
+       PROBLEM
+
+                                                                   
+          1. A skateboard ramp is built with an incline angle of      . If the base of the ramp is 1 m in length,
+                                                                   12
+              determine the exact height of the ramp.
+
+              ANS:
+
+
+
+
+                                               
+              From the triangle, h = tan  .
+                                               12 
+                        
+                       
+              12 3 4
+              Apply a compound angle formula for tangent.
+                                 
+              tan   tan  
+                      12           3 4
+                                     
+                           tan   tan
+                              3       4
+                       
+                                      
+                         1  tan tan
+                                3      4
+
+                            3 1
+                       
+                           1    3
+                                                 3 1
+              The exact height of the ramp is            m.
+                                                1   3
+
+              DIF: Difficult     OBJ: Section 6.2 NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities                   KEY: difference identities
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                            15
+                                                             sin2 
+          2. Prove the identity 1  cos                            .
+                                                           1  cos 
+
+              ANS:
+              L.S.  1  cos                                      sin2 
+                                                    R.S. 
+                                                                 1  cos 
+                                                                 1  cos 2 
+                                                             
+                                                                 1  cos 
+                                                                 (1  cos ) (1  cos )
+                                                             
+                                                                       1  cos 
+                                                              1  cos 
+                               L.S. = R.S.
+                                       sin2 
+              Therefore, 1  cos             .
+                                     1  cos 
+
+              DIF: Average       OBJ: Section 6.1 | Section 6.3               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: Pythagorean identities | proof
+
+                                                         
+          3. Prove the identity sin  x  cot   x   sinx .
+                                       2        2              
+
+              ANS:
+                                              
+              L.S.  sin  x  cot   x       R.S.  sinx
+                            2        2              
+                     cos x(tanx)
+                                sinx 
+                     cos x         
+                                          
+                                  cos x   
+                     sinx
+                                   L.S. = R.S.
+                                                  
+              Therefore, sin  x  cot   x   sinx .
+                                2        2              
+
+              DIF: Average            OBJ: Section 6.1 | Section 6.2 | Section 6.3
+              NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Sum, Difference, and Double-Angle
+              Identities | Proving Identities
+              KEY: difference identities | sum identities | quotient identities | proof
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                  16
+                                  cos   sin
+          4. Prove the identity                 sec 2  tan2.
+                                  cos   sin
+
+              ANS:
+                       cos   sin
+              L.S.                               R.S.  sec 2  tan2
+                       cos   sin
+                                                             1     sin2
+                                                                
+                                                           cos 2 cos 2
+                                                           1  sin2
+                                                       
+                                                            cos 2
+                                                           1  2sin cos 
+                                                       
+                                                            cos 2   sin2 
+                                                           sin2   cos 2   2sin cos 
+                                                       
+                                                           cos   sin cos   sin
+                                                           cos   sin cos   sin
+                                                       
+                                                           cos   sin cos   sin
+                                                           cos   sin
+                                                       
+                                                           cos   sin
+                     L.S. = R.S.
+                         cos   sin
+              Therefore,               sec 2  tan2.
+                         cos   sin
+
+              DIF: Difficult          OBJ: Section 6.1 | Section 6.2 | Section 6.3
+              NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Sum, Difference, and Double-Angle
+              Identities | Proving Identities              KEY: Pythagorean identities | double-angle identities
+
+          5. Express sin(x  y  z) in terms of cosines and sines of x, y, and z.
+
+              ANS:
+              sin(x  y  z)  sin(x  y) cos z  cos(x  y) sinz
+                             (sinx cos y  cos x siny) cos z  (cos x cos y  sinx siny) sinz
+                             sinx cos y cos z  cos x siny cos z  cos x cos y sinz  sinx siny sinz
+
+              DIF: Difficult +   OBJ: Section 6.2 NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities                        KEY: sum identities
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                           17
+          6. If sinx  cos x  k , for what value(s) of k does sinx cos x  1?
+
+              ANS:
+                               sinx  cos x  k
+                                            2
+                            (sinx  cos x)  k 2
+              sin2 x  2sinx cos x  cos 2 x  k 2
+                            1  2sinx cos x  k 2
+
+                                                k2 1
+                                 sinx cos x 
+                                                  2
+              Substitute sinx cos x  1.
+                  k2 1
+              1
+                     2
+              2  k2 1
+              3  k2
+              k  3
+
+              DIF: Average       OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: Pythagorean identities | equation
+
+                                   1  cos 2  sin2
+          7. Prove the identity                        tan.
+                                   1  cos 2  sin2
+
+              ANS:
+                       1  cos 2  sin2
+              L.S.                                       L.S.  tan
+                       1  cos 2  sin2
+                       1  (1  2sin2 )  2sin cos 
+                   
+                       1  (2cos 2   1)  2sin cos 
+
+                       2sin2   2sin cos 
+                   
+                       2cos 2   2sin cos 
+                       2sin sin  cos 
+                   
+                       2cos  sin  cos 
+                       sin
+                   
+                       cos 
+                    tan
+                                              L.S. = R.S
+                         1  cos 2  sin2
+              Therefore,                     tan.
+                         1  cos 2  sin2
+
+              DIF: Average        OBJ: Section 6.2 | Section 6.3             NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities | Proving Identities
+              KEY: double-angle identities | proof
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                               18
+                                       cos 2   sin2 
+          8. Prove the identity                            1  tan.
+                                     cos 2   sin cos 
+
+              ANS:
+                         cos 2   sin2 
+              L.S.                                        R.S.  1  tan
+                       cos 2   sin cos 
+                                                                          sin
+                     cos   sin cos   sin                 1
+                                                                         cos 
+                         cos  cos   sin
+                                                                      cos   sin
+                     cos   sin                                 
+                                                                         cos 
+                        cos 
+                                                   L.S. = R.S.
+
+              DIF: Average        OBJ: Section 6.3               NAT: T6             TOP: Proving Identities
+              KEY: trigonometric identity | proof
+
+                                         1         1       2
+          9. Prove the identity                               .
+                                     1  cos  1  cos  sin2 
+
+              ANS:
+                           1         1                                  2
+              L.S.                                       R.S. 
+                       1  cos  1  cos                             sin2 
+                        1  cos   1  cos 
+                   
+                       1  cos  1  cos 
+                           2
+                   
+                       1  cos 2 
+                         2
+                   
+                       sin2 
+                                          L.S. = R.S.
+
+              DIF: Average       OBJ: Section 6.1 | Section 6.3               NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: Pythagorean identities | proof
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       19
+                                     1  tan 1  tan
+         10. Prove the identity                         .
+                                     1  cot  cot   1
+
+              ANS:
+                       1  tan                                                1  tan
+              L.S.                                                   R.S. 
+                       1  cot                                                cot   1
+                        sin                                                    sin
+                       1                                                      1
+                        cos                                                   cos 
+                                                                         
+                        cos                                                cos 
+                     1                                                           1
+                        sin                                                sin
+                     cos   sin                                           cos   sin
+                        cos                                                   cos 
+                                                                         
+                     sin  cos                                            cos   sin
+                         sin                                                   sin
+                         cos   sin       sin                        cos   sin       sin      
+                                     
+                                            cos   sin 
+                                            
+                                                                                          
+                                                                                                 
+                                                                                                   cos   sin 
+                                                                                                    
+                                                                                                                    
+                             cos                                               cos                          
+                       sin                                                    sin
+                                                                         
+                       cos                                                    cos 
+                                                        L.S. = R.S.
+
+              DIF: Average         OBJ: Section 6.1 | Section 6.3             NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: quotient identities | proof
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                 20
+         11. An angle satisfies the relation sec  cot   1.
+             a) Use the definition of the reciprocal trigonometric ratios to express the left side of the relation in
+             terms of the sine and/or cosine ratios.
+             b) Determine the value(s) for the angle. Do not use a calculator.
+             c) Verify your answer to part b) using a calculator.
+             d) Show your answer to part b) using a unit circle.
+
+              ANS:
+                                   1   cos  
+              a) sec  cot                     
+                                              sin 
+                                    cos              
+                                      1
+                                
+                                    sin
+                     1
+              b)        1
+                   sin
+                       1  sin
+                      90
+              c) This is verified using a calculator.
+              d)
+
+
+
+
+              DIF: Average         OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: reciprocal trigonometric ratios | unit circle
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                21
+         12. Use the expressions for the reciprocal trigonometric ratios in terms of x, y, and r to show that
+             csc 2 A  1  cot 2 A for all values of A.
+
+              ANS:
+                       r          x
+              csc A     , cot A  , x2 + y2 = r2
+                       y          y
+              L.S.  csc A
+                         2            R.S.  1  cot 2 A
+                         r  2                      x  2
+                                     1   
+                         y                           y
+                       r2                             x2
+                                             1
+                       y2                             y2
+                                                 y2  x2
+                                             
+                                                   y2
+                                                 r2
+                                             
+                                                 y2
+                              L.S. = R.S.
+              This proves that the expression is valid for all values of A.
+
+              DIF: Average         OBJ: Section 6.1 | Section 6.3                NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: reciprocal trigonometric ratios | Pythagorean identities | proof
+
+                                                        1         1
+         13. Prove that the equation 2csc 2 x                         is true for all values of x.
+                                                    1  cos x 1  cos x
+
+              ANS:
+                                                     1         1
+              L.S.  2csc 2 x          R.S.              
+                                                 1  cos x 1  cos x
+                                                 1  cos x  1  cos x
+                                             
+                                                  1  cos x 1  cos x
+                                                     2
+                                             
+                                                 1  cos 2 x
+                                                   2
+                                             
+                                                 sin2 x
+                                              2csc 2 x
+                              L.S. = R.S.
+              This proves that the expression is valid for all values of x.
+
+              DIF: Average         OBJ: Section 6.1 | Section 6.3             NAT: T6
+              TOP: Reciprocal, Quotient, and Pythagorean Identities | Proving Identities
+              KEY: reciprocal trigonometric ratios | proof
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                        22
+                                      sin3  sin
+         14. Prove the identity                      tan2.
+                                     cos 3  cos 
+
+              ANS:
+                        sin3  sin
+              L.S.                                                             R.S.  tan2
+                       cos 3  cos 
+                       sin2 cos   cos 2 sin  sin
+                   
+                       cos 2 cos   sin2 sin  cos 
+                       2sin cos 2   (2cos 2   1) sin  sin
+                   
+                       (2cos 2   1) cos   2sin2  cos   cos 
+                                                             
+                     sin  2cos 2   2cos 2   1  1 
+                   
+                     cos   2cos 2   1  2sin2   1 
+                                                             
+                                          
+                     sin  4cos 2  
+                   
+                     cos   2cos 2 
+                                          
+                       4sin cos 2 
+                   
+                       2cos 2 cos 
+                       2sin cos 
+                   
+                         cos 2
+                       sin2
+                   
+                       cos 2
+                    tan2
+                                                                  L.S. = R.S.
+                                sin3  sin
+              This proves that                 tan2.
+                               cos 3  cos 
+
+              DIF: Difficult       OBJ: Section 6.2 | Section 6.3            NAT: T6
+              TOP: Sum, Difference, and Double-Angle Identities | Proving Identities
+              KEY: sum identities | proof
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                       23
+         15. What is the solution to the equation cos 2x  2  sinx for 0  x  360?
+
+               ANS:
+                              cos 2x  2  sinx
+                         1  2sin2 x  2  sinx
+                     2sin2 x  sinx  3  0
+               (2sinx  3) (sinx  1)  0
+                                                3
+                                     sinx       or sinx  1
+                                                2
+                     no solution or x  90
+               The solution is x = 90°.
+
+               DIF: Easy           OBJ: Section 6.4 NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities
+               KEY: double-angle identities | equation
+
+                           1            1 
+         16. Solve cos  x   sin x   1.
+                           2              2 
+
+               ANS:
+                                                         1            1 
+               Graph the equations y = 1 and y  cos  x   sin x  on the same set of axes and find the points of
+                                                         2              2 
+               intersection.
+
+
+
+
+               From the graph, the solutions are 0°, 180°, 720°, 900°. The general solution is x = 4n or x = (4n +
+               1), where n  I.
+
+               DIF: Difficult +   OBJ: Section 6.4 NAT: T6
+               TOP: Solving Trigonometric Equations Using Identities                     KEY: general solutions | equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                           24
+         17. Solve sin3x  sinx  cos x for 0  x  2.
+
+              ANS:
+                                           sin3x  sinx  cos x
+                       sin2x cos x  cos 2x sinx  sinx  cos x
+               2sinx cos 2 x  (2cos 2 x  1) sinx  sinx  cos x
+              2sinx cos 2 x  2cos 2 x sinx  sinx  sinx  cos x
+                                           4sinx cos 2 x  cos x
+                                   4sinx cos 2 x  cos x  0
+                                 cos x(4sinx cos x  1)  0
+                                      cos x(2sin2x  1)  0
+                                                                          1
+                                                   cos x  0 or sin2x 
+                                                                          2
+                                                             3         5 13 17
+                                                       x    ,   or 2x  ,  ,   ,
+                                                            2 2         6 6   6   6
+                                                 3  5 13 17
+                                                  , , ,x,   ,
+                                                2 2 12 12 12 12
+                                   5 13 17  3
+              The solution is x    ,  ,  ,   , , .
+                                  12 12 12 12 2 2
+
+              DIF: Difficult +   OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities                   KEY: general solutions | equation
+
+         18. What is the general solution to tanx (csc x  2)  0?
+
+              ANS:
+              tanx (csc x  2)  0
+              tanx  0       csc x  2  0
+                 x  0  n        csc x  2
+                    n                        1
+                                    sinx  
+                                               2
+                                                       11
+                                       x       or x 
+                                               6         6
+                                                                                    11
+              sin x is also negative in quadrant III, so find a reflection of x        in this quadrant. Another value
+                                                                                     6
+                          1         7
+              for sinx   is x       .
+                          2          6
+              Since the period of tan x is  and the period of sin x is 2, the general solution is is
+                            7               11
+              x  n or x       n or x         n , where n  I.
+                             6                6
+
+              DIF: Average       OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities                   KEY: general solutions | equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                                  25
+         19. Solve 4sin4 x  3sin2 x  1  0 over the domain 0  x  360.
+
+              ANS:
+                4sin4 x  3sin2 x  1  0
+              (4sin2 x  1)(sin2 x  1)  0   Divide both sides by sin2 x  1 because it is always positive.
+                           4sin2 x  1  0
+                                          1
+                                 sinx  
+                                          2
+              sin x is positive in quadrants I and II and negative in quadrants III and IV. The solution is
+              x  30,150,210,330 .
+
+              DIF: Average        OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: general solutions | quadratic equation
+
+         20. Solve sin2 x  0 over the domain 0  x  360.
+
+              ANS:
+              sin2 x  0
+               sinx  0
+                 x  0, 180, 360
+              The solution is x  0,180,360 .
+
+              DIF: Easy           OBJ: Section 6.4 NAT: T6
+              TOP: Solving Trigonometric Equations Using Identities
+              KEY: general solutions | quadratic equation
+
+
+
+
+Copyright 2012 McGraw-Hill Ryerson. All rights reserved.                                                       26
+

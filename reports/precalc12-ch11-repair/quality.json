@@ -1,0 +1,126 @@
+{
+  "generatedAt": "2026-06-13T18:51:07.264Z",
+  "inputDir": "reports/precalc12-ch11-repair",
+  "chapterCount": 1,
+  "questionCount": 65,
+  "notDecodedBodyCount": 15,
+  "embeddedBodyCount": 2,
+  "slotBodyCount": 0,
+  "inlineObjectCount": 35,
+  "badChoiceCount": 0,
+  "quality": {
+    "clean": 64,
+    "suspect": 1,
+    "garbage": 0,
+    "averageScore": 93
+  },
+  "chapters": [
+    {
+      "file": "Chapter 11.json",
+      "questions": 65,
+      "notDecodedBodies": 15,
+      "embeddedBodies": 2,
+      "slotBodies": 0,
+      "inlineObjects": 35,
+      "badChoices": 0,
+      "quality": {
+        "clean": 64,
+        "suspect": 1,
+        "garbage": 0,
+        "averageScore": 93
+      },
+      "bodyIssues": [
+        {
+          "number": 5,
+          "id": "q-5",
+          "title": "combinations",
+          "body": "Solve for the variable: $X + X$ [DIAGRAM: variables (n, r, d)] $=$ [DIAGRAM: variables (n, r, d)]"
+        },
+        {
+          "number": 31,
+          "id": "q-31",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 32,
+          "id": "q-32",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 33,
+          "id": "q-33",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 34,
+          "id": "q-34",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 35,
+          "id": "q-35",
+          "title": "permutations | combinations | factorial",
+          "body": "[DIAGRAM NEEDED]"
+        },
+        {
+          "number": 36,
+          "id": "q-36",
+          "title": "fundamental counting principle",
+          "body": "Let s represent the number of sandwich choices, c the number of cheese choices, v the number of vegetable choices, and a the number of sauce choices. Let T represent the total number of choices. [embedded object] There are $3528$ different choices."
+        },
+        {
+          "number": 37,
+          "id": "q-37",
+          "title": "fundamental counting principle",
+          "body": "Let P represent the number of ways the letters in PERMUTATION can be arranged, and C the number of ways the letters in COMBINATION can be arranged. $P = 11!$ [DIAGRAM NEEDED] There are more arrangements for PERMUTATION, so Sun Eui is correct."
+        },
+        {
+          "number": 39,
+          "id": "q-39",
+          "title": "combinations",
+          "body": "Show that [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 40,
+          "id": "q-40",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Use the binomial theorem to expand [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 48,
+          "id": "q-48",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand and simplify: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 49,
+          "id": "q-49",
+          "title": "permutations",
+          "body": "The number of different permutations using all of the $1-$digit numbers of a set is given by [DIAGRAM NEEDED].\ra) What is the smallest number that can be created that meets these conditions? Explain your reasoning.\rb) What is the difference between the largest number and the smallest number? Explain your reasoning."
+        },
+        {
+          "number": 60,
+          "id": "q-60",
+          "title": "factorial | permutations | combinations",
+          "body": "Simplify.\ra) [DIAGRAM NEEDED] b) [DIAGRAM NEEDED] [DIAGRAM NEEDED]"
+        },
+        {
+          "number": 62,
+          "id": "q-62",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Expand using the binomial theorem: [DIAGRAM NEEDED]."
+        },
+        {
+          "number": 64,
+          "id": "q-64",
+          "title": "binomial expansion | binomial theorem",
+          "body": "Which of the following binomial expansions has the greater coefficient: the $12$th term in the expansion of [embedded object] or the $8$th term in the expansion of [DIAGRAM NEEDED]?"
+        }
+      ]
+    }
+  ]
+}

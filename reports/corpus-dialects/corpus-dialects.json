@@ -1,0 +1,513 @@
+{
+  "generatedAt": "2026-05-16T18:19:19.492Z",
+  "root": "ignore/ExamView/Banks",
+  "fileCount": 373,
+  "inflatedCount": 372,
+  "versionCounts": {
+    "W 05.00": 1,
+    "W 06.00": 372
+  },
+  "familyCounts": {
+    "Calculus": 1,
+    "Foundations of Math 10": 72,
+    "Foundations of Math 11": 9,
+    "Foundations of Math 12": 8,
+    "Math Apprenticeship 10": 10,
+    "Math Apprenticeship 11": 10,
+    "Math Makes Sense 9": 67,
+    "MathWorks 10": 37,
+    "MathWorks 11": 30,
+    "MathWorks 12": 29,
+    "Pre-Calculus 11 (Mickelson)": 45,
+    "Pre-Calculus 11": 9,
+    "Pre-Calculus 12 (Mickelson)": 35,
+    "Pre-Calculus 12": 11
+  },
+  "familySummaries": [
+    {
+      "family": "Foundations of Math 10",
+      "files": 72,
+      "dialects": {
+        "v06-foundations": 72
+      },
+      "versions": {
+        "W 06.00": 72
+      },
+      "inflated": 72,
+      "averageBytes": 14053,
+      "averageInflatedBytes": 303591,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Math Makes Sense 9",
+      "files": 67,
+      "dialects": {
+        "v06-math-makes-sense": 67
+      },
+      "versions": {
+        "W 06.00": 67
+      },
+      "inflated": 67,
+      "averageBytes": 13591,
+      "averageInflatedBytes": 359647,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Pre-Calculus 11 (Mickelson)",
+      "files": 45,
+      "dialects": {
+        "v06-precalculus-mickelson": 45
+      },
+      "versions": {
+        "W 06.00": 45
+      },
+      "inflated": 45,
+      "averageBytes": 8226,
+      "averageInflatedBytes": 200069,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "MathWorks 10",
+      "files": 37,
+      "dialects": {
+        "v06-mathworks": 37
+      },
+      "versions": {
+        "W 06.00": 37
+      },
+      "inflated": 37,
+      "averageBytes": 37599,
+      "averageInflatedBytes": 532967,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Pre-Calculus 12 (Mickelson)",
+      "files": 35,
+      "dialects": {
+        "v06-precalculus-mickelson": 35
+      },
+      "versions": {
+        "W 06.00": 35
+      },
+      "inflated": 35,
+      "averageBytes": 7555,
+      "averageInflatedBytes": 275144,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "MathWorks 11",
+      "files": 30,
+      "dialects": {
+        "v06-mathworks": 30
+      },
+      "versions": {
+        "W 06.00": 30
+      },
+      "inflated": 30,
+      "averageBytes": 92761,
+      "averageInflatedBytes": 2989000,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "MathWorks 12",
+      "files": 29,
+      "dialects": {
+        "v06-mathworks": 29
+      },
+      "versions": {
+        "W 06.00": 29
+      },
+      "inflated": 29,
+      "averageBytes": 45447,
+      "averageInflatedBytes": 505480,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Pre-Calculus 12",
+      "files": 11,
+      "dialects": {
+        "v06-precalculus-standard": 11
+      },
+      "versions": {
+        "W 06.00": 11
+      },
+      "inflated": 11,
+      "averageBytes": 52087,
+      "averageInflatedBytes": 705341,
+      "narrativeHits": 0,
+      "matchingHits": 1,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Math Apprenticeship 10",
+      "files": 10,
+      "dialects": {
+        "v06-math-apprenticeship": 10
+      },
+      "versions": {
+        "W 06.00": 10
+      },
+      "inflated": 10,
+      "averageBytes": 548928,
+      "averageInflatedBytes": 10140273,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Math Apprenticeship 11",
+      "files": 10,
+      "dialects": {
+        "v06-math-apprenticeship": 10
+      },
+      "versions": {
+        "W 06.00": 10
+      },
+      "inflated": 10,
+      "averageBytes": 391507,
+      "averageInflatedBytes": 8917807,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Foundations of Math 11",
+      "files": 9,
+      "dialects": {
+        "v06-foundations": 9
+      },
+      "versions": {
+        "W 06.00": 9
+      },
+      "inflated": 9,
+      "averageBytes": 496552,
+      "averageInflatedBytes": 12272226,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Pre-Calculus 11",
+      "files": 9,
+      "dialects": {
+        "v06-precalculus-standard": 9
+      },
+      "versions": {
+        "W 06.00": 9
+      },
+      "inflated": 9,
+      "averageBytes": 54326,
+      "averageInflatedBytes": 924813,
+      "narrativeHits": 0,
+      "matchingHits": 2,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Foundations of Math 12",
+      "files": 8,
+      "dialects": {
+        "v06-foundations": 8
+      },
+      "versions": {
+        "W 06.00": 8
+      },
+      "inflated": 8,
+      "averageBytes": 179367,
+      "averageInflatedBytes": 3778364,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    },
+    {
+      "family": "Calculus",
+      "files": 1,
+      "dialects": {
+        "v05-calculus": 1
+      },
+      "versions": {
+        "W 05.00": 1
+      },
+      "inflated": 0,
+      "averageBytes": 2196142,
+      "averageInflatedBytes": 0,
+      "narrativeHits": 0,
+      "matchingHits": 0,
+      "embeddedPlaceholderCount": 0
+    }
+  ],
+  "dialectCounts": {
+    "v05-calculus": 1,
+    "v06-foundations": 89,
+    "v06-math-apprenticeship": 20,
+    "v06-math-makes-sense": 67,
+    "v06-mathworks": 96,
+    "v06-precalculus-mickelson": 80,
+    "v06-precalculus-standard": 20
+  },
+  "interestingFiles": [
+    {
+      "path": "ignore/ExamView/Banks/Calculus/GQ-Calculus.bnk",
+      "family": "Calculus",
+      "byteLength": 2196142,
+      "header": {
+        "recognized": true,
+        "kind": "bank",
+        "platform": "W",
+        "majorVersion": "05",
+        "minorVersion": "00",
+        "versionKey": "W 05.00",
+        "rawHex": "1a 46 53 43 42 4e 4b 23 57 23 30 35 23 30 30 23",
+        "rawText": ".FSCBNK#W#05#00#"
+      },
+      "inflated": false,
+      "dialect": {
+        "version": "v05",
+        "family": "Calculus",
+        "profile": "v05-calculus",
+        "notes": [
+          "Known single-file v05 outlier; defer until a dedicated v05 parser exists."
+        ]
+      },
+      "inflateError": "incorrect header check"
+    },
+    {
+      "path": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk",
+      "family": "Pre-Calculus 11",
+      "byteLength": 47730,
+      "header": {
+        "recognized": true,
+        "kind": "bank",
+        "platform": "W",
+        "majorVersion": "06",
+        "minorVersion": "00",
+        "versionKey": "W 06.00",
+        "rawHex": "1a 46 53 43 42 4e 4b 23 57 23 30 36 23 30 30 23",
+        "rawText": ".FSCBNK#W#06#00#"
+      },
+      "inflated": true,
+      "inflatedLength": 542356,
+      "markers": {
+        "question": {
+          "Question": 0,
+          "question": 0
+        },
+        "answer": {
+          "Answer": 0,
+          "answer": 0
+        },
+        "solution": {
+          "Solution": 0,
+          "solution": 0
+        },
+        "difficulty": {
+          "Easy": 0,
+          "Average": 0,
+          "Difficult": 0,
+          "Hard": 0
+        },
+        "narrative": {
+          "narr1": 0,
+          "narr2": 0,
+          "narr3": 0,
+          "narr4": 0,
+          "narr5": 1,
+          "narr6": 1
+        },
+        "matching": {
+          "Match the correct term": 1,
+          "Match": 1
+        },
+        "embedded": {
+          "[embedded object]": 0,
+          "[DIAGRAM NEEDED]": 0,
+          "[embedded value]": 0
+        },
+        "math": {
+          "$": 41,
+          "#math.": 0,
+          "t_n": 0,
+          "S_8": 0,
+          "f(11)": 1,
+          "sqrt(": 0
+        }
+      },
+      "diagnostics": {
+        "hasNarrativeCatalog": false,
+        "hasMatchingPrompt": true,
+        "embeddedPlaceholderCount": 0
+      },
+      "dialect": {
+        "version": "v06",
+        "family": "Pre-Calculus 11",
+        "profile": "v06-precalculus-standard",
+        "notes": [
+          "Baseline pre-calculus dialect used for regression control."
+        ]
+      }
+    },
+    {
+      "path": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 04.bnk",
+      "family": "Pre-Calculus 11",
+      "byteLength": 56582,
+      "header": {
+        "recognized": true,
+        "kind": "bank",
+        "platform": "W",
+        "majorVersion": "06",
+        "minorVersion": "00",
+        "versionKey": "W 06.00",
+        "rawHex": "1a 46 53 43 42 4e 4b 23 57 23 30 36 23 30 30 23",
+        "rawText": ".FSCBNK#W#06#00#"
+      },
+      "inflated": true,
+      "inflatedLength": 1907125,
+      "markers": {
+        "question": {
+          "Question": 0,
+          "question": 0
+        },
+        "answer": {
+          "Answer": 0,
+          "answer": 0
+        },
+        "solution": {
+          "Solution": 0,
+          "solution": 0
+        },
+        "difficulty": {
+          "Easy": 0,
+          "Average": 0,
+          "Difficult": 0,
+          "Hard": 0
+        },
+        "narrative": {
+          "narr1": 0,
+          "narr2": 0,
+          "narr3": 0,
+          "narr4": 0,
+          "narr5": 0,
+          "narr6": 0
+        },
+        "matching": {
+          "Match the correct term": 1,
+          "Match": 1
+        },
+        "embedded": {
+          "[embedded object]": 0,
+          "[DIAGRAM NEEDED]": 0,
+          "[embedded value]": 0
+        },
+        "math": {
+          "$": 17,
+          "#math.": 0,
+          "t_n": 0,
+          "S_8": 0,
+          "f(11)": 0,
+          "sqrt(": 17
+        }
+      },
+      "diagnostics": {
+        "hasNarrativeCatalog": false,
+        "hasMatchingPrompt": true,
+        "embeddedPlaceholderCount": 0
+      },
+      "dialect": {
+        "version": "v06",
+        "family": "Pre-Calculus 11",
+        "profile": "v06-precalculus-standard",
+        "notes": [
+          "Baseline pre-calculus dialect used for regression control."
+        ]
+      }
+    },
+    {
+      "path": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 03.bnk",
+      "family": "Pre-Calculus 12",
+      "byteLength": 51681,
+      "header": {
+        "recognized": true,
+        "kind": "bank",
+        "platform": "W",
+        "majorVersion": "06",
+        "minorVersion": "00",
+        "versionKey": "W 06.00",
+        "rawHex": "1a 46 53 43 42 4e 4b 23 57 23 30 36 23 30 30 23",
+        "rawText": ".FSCBNK#W#06#00#"
+      },
+      "inflated": true,
+      "inflatedLength": 524707,
+      "markers": {
+        "question": {
+          "Question": 0,
+          "question": 0
+        },
+        "answer": {
+          "Answer": 0,
+          "answer": 0
+        },
+        "solution": {
+          "Solution": 0,
+          "solution": 0
+        },
+        "difficulty": {
+          "Easy": 0,
+          "Average": 0,
+          "Difficult": 0,
+          "Hard": 0
+        },
+        "narrative": {
+          "narr1": 0,
+          "narr2": 0,
+          "narr3": 0,
+          "narr4": 0,
+          "narr5": 0,
+          "narr6": 0
+        },
+        "matching": {
+          "Match the correct term": 1,
+          "Match": 1
+        },
+        "embedded": {
+          "[embedded object]": 0,
+          "[DIAGRAM NEEDED]": 0,
+          "[embedded value]": 0
+        },
+        "math": {
+          "$": 38,
+          "#math.": 0,
+          "t_n": 0,
+          "S_8": 0,
+          "f(11)": 0,
+          "sqrt(": 0
+        }
+      },
+      "diagnostics": {
+        "hasNarrativeCatalog": false,
+        "hasMatchingPrompt": true,
+        "embeddedPlaceholderCount": 0
+      },
+      "dialect": {
+        "version": "v06",
+        "family": "Pre-Calculus 12",
+        "profile": "v06-precalculus-standard",
+        "notes": [
+          "Baseline pre-calculus dialect used for regression control."
+        ]
+      }
+    }
+  ]
+}
