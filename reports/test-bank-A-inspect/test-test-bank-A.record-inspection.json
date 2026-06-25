@@ -1,0 +1,27 @@
+{
+  "source": {
+    "path": "test-test-bank-A.bnk",
+    "byteLength": 842,
+    "inflatedByteLength": 7184,
+    "header": {
+      "recognized": true,
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "rawText": "\\x1aFSCBNK#W#06#00#"
+    }
+  },
+  "summary": {
+    "recordCount": 0,
+    "inlineSlotCount": 0,
+    "recordsWithSlots": 0,
+    "recordsWithSlotsWithoutRefs": 0,
+    "variableCount": 0,
+    "visibleChoiceCount": 0,
+    "slotClassCounts": {},
+    "layoutCounts": {},
+    "difficultyCounts": {}
+  },
+  "records": []
+}

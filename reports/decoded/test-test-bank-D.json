@@ -1,0 +1,68 @@
+{
+  "source": {
+    "filename": "test-test-bank-D.bnk",
+    "byteLength": 842,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 826,
+    "inflatedByteLength": 7184
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "unknown",
+      "body": {
+        "format": "plain",
+        "text": "t e s t - t e s t - b a n k A K A L A R A Z C A C O C T D E F L G A H I I A I D I L I N K S K Y L A M A M D M E M I M N M O M S M T N C N D N E N H N J N M N V N Y O H O K O R P A R I S C S D T N T X U T V A V T W A W I W V W Y T i m e s N e w R o m a n\nT i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n A\nM S C M i s c e l l a n e o u s O T O t h e r & F x 2 Z r f o u n d - d i f f i c u l t y f o u n d - r e f e r e n c e f o u n d - l e a r n i n g - o b j e c t i v e f o u n d - n a t i o n a l - s t a n d a r d f o u n d - s t a t e - s t a n d a r d f o u n d - l o c a l - s t a n d a r d f o u n d - t o p i c f o u n d - k e y w o r d s f o u n d - m i s c e l l a n e o u s f o u n d - n o t e s g\nW h i c h o p t i o n i s c o r r e c t ? A T h i s i s o p t i o n A C T h i s i s o p t i o n C B T h i s i s o p t i o n B D T h i s i s o p t i o n D , . @ B S U T i m e s N e w R o m a n # v ; h - v ; Z , v Y h - . v ) Z ? $ v G\" @ \" ; h - B ; Z S Y h - U ) Z f , G\" f o u n d - n a r r a t i v e - n a m e T h i s i s a n a r r a t i v e . T i m e s N e w R o m a n"
+      },
+      "metadata": {},
+      "assets": [],
+      "confidence": "low",
+      "raw": [
+        {
+          "offset": 0,
+          "length": 256,
+          "hexPreview": "a1 10 b0 12 74 00 65 00 73 00 74 00 2d 00 74 00 65 00 73 00 74 00 2d 00 62 00 61 00 6e 00 6b 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "t e s t - t e s t - b a n k A K A L A R A Z C A C O C T D E F L G A H I I A I D I L I N K S K Y L A M A M D M E M I M N M O M S M T N C N D N E N H N J N M N V N Y O H O K O R P A R I S C S D T N T X U T V A V T W A W I W V W Y T i m e s N e w R o m a n \n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n T i m e s N e w R o m a n A \n \n M S C M i s c e l l a n e o u s O T O t h e r & F x 2 Z r f o u n d - d i f f i c "
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 826 to 7184 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "warning",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 0 candidate v06 question string clusters."
+    }
+  ],
+  "stats": {
+    "questionCount": 1,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 1
+  }
+}

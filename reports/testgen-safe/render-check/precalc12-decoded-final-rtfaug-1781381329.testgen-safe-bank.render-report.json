@@ -1,0 +1,9 @@
+{
+  "inputPath": "/home/max/testgen-suite/bnk-decoder/reports/testgen-safe/precalc12-decoded-final-rtfaug-1781381329.testgen-safe-bank.json",
+  "outDir": "/home/max/testgen-suite/bnk-decoder/reports/testgen-safe/render-check",
+  "typPath": "/home/max/testgen-suite/bnk-decoder/reports/testgen-safe/render-check/precalc12-decoded-final-rtfaug-1781381329.testgen-safe-bank.typ",
+  "style": "bank-review",
+  "questionCount": 736,
+  "imageCount": 838,
+  "compileError": "spawnSync typst EPERM"
+}

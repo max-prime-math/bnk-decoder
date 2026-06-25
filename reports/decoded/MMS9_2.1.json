@@ -1,0 +1,809 @@
+{
+  "source": {
+    "filename": "ignore/ExamView/Banks/Math Makes Sense 9/Unit 02/MMS9_2.1.bnk",
+    "byteLength": 9804,
+    "detectedFormat": "examview-container",
+    "examView": {
+      "kind": "bank",
+      "platform": "W",
+      "majorVersion": "06",
+      "minorVersion": "00",
+      "headerText": "\\x1aFSCBNK#W#06#00#",
+      "payloadOffset": 16,
+      "compression": "zlib"
+    },
+    "payloadByteLength": 9788,
+    "inflatedByteLength": 141066
+  },
+  "questions": [
+    {
+      "id": "q-1",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Write the number of unit squares in this large square as a power. 7"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]] 2"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]] [[slot]]"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 4628,
+        "difficulty": "Easy",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(5,8)",
+          "sampleValue": "7"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 4628,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 94 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 38 00 29 00 00 00 37 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 6a 1c 00 00 01 00 00 00 5b 00 00 00 02 00 00 00 02 00 00 00 0d 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 06 00 00 00 01 00 00 00 00 00 00 00 57 00 72 00 69 00 74 00 65 00 20 00 74 00 68 00 65 00 20 00 6e 00 75 00 6d 00 62 00 65 00 72 00 20 00 6f 00 66 00 20 00 75 00 6e 00 69 00 74 00 20 00 73 00 71 00 75 00 61 00 72 00 65 00 73 00 20 00 69 00 6e 00 20 00 74 00 68 00 69 00 73 00 20 00 6c 00 61 00 72 00 67 00 65 00 20 00 73 00 71 00 75 00 61 00 72 00 65 00 20 00 61 00 73 00 20 00 61 00 20 00 70 00 6f 00 77 00 65 00 72 00 2e 00 0d 00 0f 00 10 00 41 00 2e 00 11 00 0f 00 11 00 42 00 2e 00 11 00 0f 00 32 00 11 00 43 00 2e 00 11 00 0f 00 11 00 44 00 2e 00 11 00 0f 00 0f 00",
+          "textPreview": "Easy\n2.1 What Is a Power?\n9.N1\nNumber\nConceptual Understanding\nn1\nrange(5,8)\n7\nscramble\nTRUE\n1\n[\nWrite the number of unit squares in this large square as a power.\r[[slot]]\nA.\n[[slot]]\nB.\n[[slot]]2\nC.\n[[slot]]\nD.\n[[slot]][[slot]]\n[\nD\nG\nI\nL\nM\nN\nO\nR"
+        }
+      ]
+    },
+    {
+      "id": "q-2",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Write the base of 5."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "3"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "3"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 12712,
+        "difficulty": "Easy",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,7)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "n2",
+          "rule": "range(3,5)",
+          "sampleValue": "3"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 12712,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 16 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 37 00 29 00 00 00 35 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 08 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 29 00 00 00 33 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6e 00 31 00 3c 00 3e 00 6e 00 32 00 00 00 cd cd 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 53 0b 00 00 01 00 00 00 2b 00 00 00 02 00 00 00 02 00 00 00 0a 00 00 00 03 00 00 00 02 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 57 00 72 00 69 00 74 00 65 00 20 00 74 00 68 00 65 00 20 00 62 00 61 00 73 00 65 00 20 00 6f 00 66 00 20 00 0f 00 2e 00 10 00 41 00 2e 00 11 00",
+          "textPreview": "Easy\n2.1 What Is a Power?\n9.N1\nNumber\nConceptual Understanding\nn1\nrange(3,7)\n5\nn2\nrange(3,5)\n3\nn1<>n2\nscramble\nTRUE\n1\n+\nWrite the base of [[slot]].\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]\n+\n#\n%\n(\nTimes New Roman"
+        }
+      ]
+    },
+    {
+      "id": "q-3",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Write 7 as repeated multiplication."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]] 9"
+          }
+        }
+      ],
+      "answer": {
+        "value": "C",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 16551,
+        "difficulty": "Easy",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(6,9)",
+          "sampleValue": "7"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 16551,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 94 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 36 00 2c 00 39 00 29 00 00 00 37 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 77 10 00 00 01 00 00 00 39 00 00 00 02 00 00 00 02 00 00 00 09 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 57 00 72 00 69 00 74 00 65 00 20 00 0f 00 61 00 73 00 20 00 72 00 65 00 70 00 65 00 61 00 74 00 65 00 64 00 20 00 6d 00 75 00 6c 00 74 00 69 00 70 00 6c 00 69 00 63 00 61 00 74 00 69 00 6f 00 6e 00 2e 00 10 00 41 00 2e 00 11 00 0f 00 11 00 43 00 2e 00 11 00 0f 00 11 00 11 00 42 00 2e 00 11 00 0f 00 11 00 44 00 2e 00 11 00 0f 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 39 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(6,9)\n7\nscramble\nTRUE\n1\n9\nWrite [[slot]]as repeated multiplication.\nA.\n[[slot]]\nC.\n[[slot]]\nB.\n[[slot]]\nD.\n[[slot]]\n9\n#\n&\n(\n+\n.\n1\n3\n6"
+        }
+      ]
+    },
+    {
+      "id": "q-4",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Write 4 as a power."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 21568,
+        "difficulty": "Easy",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(2,5)",
+          "sampleValue": "4"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 21568,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 94 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 32 00 2c 00 35 00 29 00 00 00 34 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 2b 11 00 00 01 00 00 00 29 00 00 00 02 00 00 00 02 00 00 00 09 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 57 00 72 00 69 00 74 00 65 00 20 00 0f 00 20 00 61 00 73 00 20 00 61 00 20 00 70 00 6f 00 77 00 65 00 72 00 2e 00 10 00 41 00 2e 00 11 00 0f 00 11 00 42 00 2e 00 11 00 0f 00 11 00 43 00 2e 00 11 00 0f 00 11 00 44 00 2e 00 11 00 0f 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 29 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(2,5)\n4\nscramble\nTRUE\n1\n)\nWrite [[slot]] as a power.\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]\n)\n!\n#\n&\nTimes New Roman\n#\nM-\nZ\nM-"
+        }
+      ]
+    },
+    {
+      "id": "q-5",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Write 5 as a power."
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "[[slot]]"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 26765,
+        "difficulty": "Easy",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,7)",
+          "sampleValue": "5"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 26765,
+          "length": 512,
+          "hexPreview": "45 00 61 00 73 00 79 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 94 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 37 00 29 00 00 00 35 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 bd 11 00 00 01 00 00 00 2a 00 00 00 02 00 00 00 02 00 00 00 09 00 00 00 02 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 0a 00 00 00 05 00 00 00 01 00 00 00 00 00 00 00 57 00 72 00 69 00 74 00 65 00 20 00 0f 00 20 00 61 00 73 00 20 00 61 00 20 00 70 00 6f 00 77 00 65 00 72 00 2e 00 10 00 41 00 2e 00 11 00 0f 00 11 00 43 00 2e 00 11 00 0f 00 11 00 11 00 42 00 2e 00 11 00 0f 00 11 00 44 00 2e 00 11 00 0f 00 11 00 11 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 2a 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ff ff 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00",
+          "textPreview": "Easy\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(3,7)\n5\nscramble\nTRUE\n1\n*\nWrite [[slot]] as a power.\nA.\n[[slot]]\nC.\n[[slot]]\nB.\n[[slot]]\nD.\n[[slot]]\n*\n\"\n$\n'\nTimes New Roman\n#\n>-\n[[slot]]\nZ"
+        }
+      ]
+    },
+    {
+      "id": "q-6",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Evaluate: 6"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "30"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "7776"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "15 625"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "11"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 32108,
+        "difficulty": "Moderate",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,6)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n2",
+          "rule": "range(3,6)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "n3",
+          "rule": "n1^n2",
+          "sampleValue": "7776"
+        },
+        {
+          "name": "n4",
+          "rule": "n1*n2",
+          "sampleValue": "30"
+        },
+        {
+          "name": "n5",
+          "rule": "n1+n2",
+          "sampleValue": "11"
+        },
+        {
+          "name": "n6",
+          "rule": "n2^n1",
+          "sampleValue": "15 625"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 32108,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 22 02 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 29 00 00 00 36 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 36 00 29 00 00 00 35 00 00 00 00 00 00 00 06 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 6e 00 31 00 3c 00 3e 00 6e 00 32 00 00 00 cd cd 02 00 00 00 05 00 00 00 04 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 60 be 40 6e 00 33 00 00 00 6e 00 31 00 5e 00 6e 00 32 00 00 00 37 00 37 00 37 00 36 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 3e 40 6e 00 34 00 00 00 6e 00 31 00 2a 00 6e 00 32 00 00 00 33 00 30 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 26 40 6e 00 35 00 00 00 6e 00",
+          "textPreview": "Moderate\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(3,6)\n6\nn2\nrange(3,6)\n5\nn1<>n2\nn3\nn1^n2\n7776\nn4\nn1*n2\n30\nn5\nn1+n2\n11\nn6\nn2^n1\n15 625\nscramble\nTRUE\n1\n!\nEvaluate: [[slot]]\nA."
+        }
+      ]
+    },
+    {
+      "id": "q-7",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Evaluate: 4"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "256"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "16"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "16"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "256"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 35751,
+        "difficulty": "Moderate",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,5)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n2",
+          "rule": "range(4,8,2)",
+          "sampleValue": "4"
+        },
+        {
+          "name": "n3",
+          "rule": "n1^n2",
+          "sampleValue": "256"
+        },
+        {
+          "name": "n4",
+          "rule": "n1*n2",
+          "sampleValue": "16"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 35751,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 62 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 29 00 00 00 34 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 10 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 38 00 2c 00 32 00 29 00 00 00 34 00 00 00 02 00 00 00 05 00 00 00 03 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 70 40 6e 00 33 00 00 00 6e 00 31 00 5e 00 6e 00 32 00 00 00 32 00 35 00 36 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 30 40 6e 00 34 00 00 00 6e 00 31 00 2a 00 6e 00 32 00 00 00 31 00 36 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 fa 09 00 00 01 00 00 00 23 00 00 00 02 00 00 00 02 00 00 00 0c 00 00 00 04 00 00 00 02 00 00 00",
+          "textPreview": "Moderate\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(3,5)\n4\nn2\nrange(4,8,2)\n4\nn3\nn1^n2\n256\nn4\nn1*n2\n16\nscramble\nTRUE\n1\n#\nEvaluate: [[slot]]\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-8",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Evaluate: 5"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "35"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "35"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "78 125"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "78 125"
+          }
+        }
+      ],
+      "answer": {
+        "value": "D",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 39321,
+        "difficulty": "Moderate",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Procedural Knowledge"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(3,5)",
+          "sampleValue": "5"
+        },
+        {
+          "name": "n2",
+          "rule": "range(3,9,2)",
+          "sampleValue": "7"
+        },
+        {
+          "name": "n3",
+          "rule": "n1^n2",
+          "sampleValue": "78 125"
+        },
+        {
+          "name": "n4",
+          "rule": "n1*n2",
+          "sampleValue": "35"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 39321,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 50 00 72 00 6f 00 63 00 65 00 64 00 75 00 72 00 61 00 6c 00 20 00 4b 00 6e 00 6f 00 77 00 6c 00 65 00 64 00 67 00 65 00 00 00 68 01 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 35 00 29 00 00 00 35 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 1c 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 39 00 2c 00 32 00 29 00 00 00 37 00 00 00 02 00 00 00 05 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 d0 12 f3 40 6e 00 33 00 00 00 6e 00 31 00 5e 00 6e 00 32 00 00 00 37 00 38 00 20 00 31 00 32 00 35 00 00 00 02 00 00 00 05 00 00 00 02 00 00 00 00 00 00 00 01 00 00 00 06 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 80 41 40 6e 00 34 00 00 00 6e 00 31 00 2a 00 6e 00 32 00 00 00 33 00 35 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 fc 09 00 00 01 00 00 00 23 00 00 00 02 00 00 00 02 00 00 00 0c 00 00 00 04 00",
+          "textPreview": "Moderate\n2.1 What Is a Power?\n9.N1\nNumber\nProcedural Knowledge\nn1\nrange(3,5)\n5\nn2\nrange(3,9,2)\n7\nn3\nn1^n2\n78 125\nn4\nn1*n2\n35\nscramble\nTRUE\n1\n#\nEvaluate: [[slot]]\nA.\n[[slot]]\nB.\n[[slot]]\nC.\n[[slot]]\nD.\n[[slot]]"
+        }
+      ]
+    },
+    {
+      "id": "q-9",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which answer is negative?\ri) 6 ii) 6 iii) 6"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "i and ii"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "ii and iii"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "i only"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "i and iii"
+          }
+        }
+      ],
+      "answer": {
+        "value": "B",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 42899,
+        "difficulty": "Moderate",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(5,8)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n2",
+          "rule": "range(4,10,2)",
+          "sampleValue": "6"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 42899,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 e2 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 38 00 29 00 00 00 36 00 00 00 02 00 00 00 0d 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 34 00 2c 00 31 00 30 00 2c 00 32 00 29 00 00 00 36 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 79 0c 00 00 01 00 00 00 5e 00 00 00 04 00 00 00 03 00 00 00 0a 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 61 00 6e 00 73 00 77 00 65 00 72 00 20 00 69 00 73 00 20 00 6e 00 65 00 67 00 61 00 74 00 69 00 76 00 65 00 3f 00 0d 00 69 00 29 00 09 00 0f 00 0d 00 69 00 69 00 29 00 09 00 0f 00 0d 00 69 00 69 00 69 00 29 00 09 00 0f 00 10 00 41 00 2e 00",
+          "textPreview": "Moderate\n2.1 What Is a Power?\n9.N1\nNumber\nConceptual Understanding\nn1\nrange(5,8)\n6\nn2\nrange(4,10,2)\n6\nscramble\nTRUE\n1\n^\nWhich answer is negative?\ri)\t[[slot]]\rii)\t[[slot]]\riii)\t[[slot]]\nA.\ni and ii\nB.\nii and iii\nC.\ni only\nD.\ni and iii\n,\n^\n,\n/\n7\n8"
+        }
+      ]
+    },
+    {
+      "id": "q-10",
+      "type": "mcq",
+      "body": {
+        "format": "typst",
+        "text": "Which power is positive?\ri) 6 ii) 5 iii) 6 iv) 5"
+      },
+      "choices": [
+        {
+          "id": "A",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "B",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        },
+        {
+          "id": "C",
+          "body": {
+            "format": "typst",
+            "text": "6"
+          }
+        },
+        {
+          "id": "D",
+          "body": {
+            "format": "typst",
+            "text": "5"
+          }
+        }
+      ],
+      "answer": {
+        "value": "A",
+        "format": "choice"
+      },
+      "metadata": {
+        "className": "Math Makes Sense 9",
+        "unitName": "MMS9_2.1",
+        "sectionName": "2.1 What Is a Power?",
+        "sourceOffset": 46988,
+        "difficulty": "Moderate",
+        "reference": "9.N1",
+        "topic": "Number",
+        "title": "Conceptual Understanding"
+      },
+      "algorithmicVariables": [
+        {
+          "name": "n1",
+          "rule": "range(5,8)",
+          "sampleValue": "6"
+        },
+        {
+          "name": "n2",
+          "rule": "range(3,9,2)",
+          "sampleValue": "5"
+        }
+      ],
+      "assets": [],
+      "confidence": "medium",
+      "raw": [
+        {
+          "offset": 46988,
+          "length": 512,
+          "hexPreview": "4d 00 6f 00 64 00 65 00 72 00 61 00 74 00 65 00 00 00 32 00 2e 00 31 00 20 00 57 00 68 00 61 00 74 00 20 00 49 00 73 00 20 00 61 00 20 00 50 00 6f 00 77 00 65 00 72 00 3f 00 00 00 39 00 2e 00 4e 00 31 00 00 00 4e 00 75 00 6d 00 62 00 65 00 72 00 00 00 43 00 6f 00 6e 00 63 00 65 00 70 00 74 00 75 00 61 00 6c 00 20 00 55 00 6e 00 64 00 65 00 72 00 73 00 74 00 61 00 6e 00 64 00 69 00 6e 00 67 00 00 00 e0 00 00 00 02 00 00 00 0a 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 18 40 6e 00 31 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 35 00 2c 00 38 00 29 00 00 00 36 00 00 00 02 00 00 00 0c 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 03 00 00 00 00 00 00 00 00 00 14 40 6e 00 32 00 00 00 72 00 61 00 6e 00 67 00 65 00 28 00 33 00 2c 00 39 00 2c 00 32 00 29 00 00 00 35 00 00 00 08 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 00 00 00 00 00 00 f0 3f 73 00 63 00 72 00 61 00 6d 00 62 00 6c 00 65 00 00 00 54 00 52 00 55 00 45 00 00 00 31 00 00 00 b2 0e 00 00 01 00 00 00 69 00 00 00 04 00 00 00 03 00 00 00 0a 00 00 00 03 00 00 00 01 00 00 00 00 00 00 00 00 00 00 00 01 00 00 00 09 00 00 00 04 00 00 00 01 00 00 00 00 00 00 00 57 00 68 00 69 00 63 00 68 00 20 00 70 00 6f 00 77 00 65 00 72 00 20 00 69 00 73 00 20 00 70 00 6f 00 73 00 69 00 74 00 69 00 76 00 65 00 3f 00 0d 00 69 00 29 00 09 00 0f 00 0d 00 69 00 69 00 29 00 09 00 0f 00 0d 00 69 00 69 00 69 00 29 00 09 00 0f 00 0d 00 69 00 76 00 29 00 09 00",
+          "textPreview": "Moderate\n2.1 What Is a Power?\n9.N1\nNumber\nConceptual Understanding\nn1\nrange(5,8)\n6\nn2\nrange(3,9,2)\n5\nscramble\nTRUE\n1\ni\nWhich power is positive?\ri)\t[[slot]]\rii)\t[[slot]]\riii)\t[[slot]]\riv)\t[[slot]]\nA.\ni and iv\nB.\niii and iv\nC.\ni, ii, and iv\nD.\ni and ii\n1\ni\n1\n4\n<\n="
+        }
+      ]
+    }
+  ],
+  "assets": [],
+  "diagnostics": [
+    {
+      "level": "info",
+      "code": "EXAMVIEW_PAYLOAD_INFLATED",
+      "message": "Inflated ExamView payload from 9788 to 141066 bytes."
+    },
+    {
+      "level": "warning",
+      "code": "BNK_PARSER_DISCOVERY_MODE",
+      "message": "Question records are still being mapped; decoder is using inflated payload text plus preserved raw fragments."
+    },
+    {
+      "level": "info",
+      "code": "EXAMVIEW_CONTAINER_DETECTED",
+      "message": "Detected ExamView bank container version 06.00."
+    },
+    {
+      "level": "info",
+      "code": "V06_STRING_CLUSTER_SCAN",
+      "message": "Found 25 candidate string clusters; using header count 10."
+    }
+  ],
+  "stats": {
+    "questionCount": 10,
+    "assetCount": 0,
+    "diagnosticCount": 4,
+    "unsupportedFragmentCount": 10
+  }
+}
