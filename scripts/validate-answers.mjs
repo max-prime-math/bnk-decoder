@@ -3,6 +3,7 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import { reportPath } from './output-paths.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -138,15 +139,16 @@ function analyzeDistribution(dist) {
 // Main
 console.log('=== ANSWER KEY VALIDATION ===\n');
 
+const decodedReportsDir = process.argv[2] ?? reportPath('decoded');
 const jsonFiles = fs
-  .readdirSync('./reports/decoded')
+  .readdirSync(decodedReportsDir)
   .filter(f => f.endsWith('.json') && !f.startsWith('test-'))
   .sort();
 
 const allResults = [];
 
 for (const file of jsonFiles) {
-  const fullPath = path.join('./reports/decoded', file);
+  const fullPath = path.join(decodedReportsDir, file);
   try {
     const result = validateAnswers(fullPath);
     if (!result || result.totalQuestions === 0) continue;

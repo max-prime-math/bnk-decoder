@@ -2,9 +2,10 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { decodeBnkFile, toPortableJson, toPortableQuestionPackage, toTypst } from '../packages/bnk-core/src/index.ts';
+import { reportPath } from './output-paths.mjs';
 
 const inputPath = process.argv[2];
-const outDir = process.argv[3] ?? 'reports/decoded';
+const outDir = process.argv[3] ?? reportPath('decoded');
 
 if (!inputPath) {
   console.error('Usage: npm run decode:file -- <path-to-bnk-or-tst> [output-dir]');

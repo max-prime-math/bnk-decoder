@@ -20,6 +20,8 @@
     "report:quality": "node scripts/report-decode-quality.mjs",
     "audit:pdf": "node scripts/audit-pdf-reference.mjs",
     "audit:precalc": "node --experimental-strip-types scripts/audit-precalc-corpus.mjs",
+    "audit:mathpix-typst": "node scripts/audit-mathpix-pqp-typst.mjs",
+    "convert:mathpix-examview": "node scripts/convert-mathpix-examview.mjs",
     "augment:rtf": "node scripts/augment-with-rtf-reference.mjs",
     "regress:dialects": "node --experimental-strip-types scripts/run-dialect-regression.mjs",
     "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs"

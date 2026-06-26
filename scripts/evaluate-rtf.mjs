@@ -2,10 +2,11 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, join } from 'node:path';
 import { decodeBnkFile } from '../packages/bnk-core/src/index.ts';
+import { reportPath } from './output-paths.mjs';
 
 const bnkPath = process.argv[2];
 const rtfPath = process.argv[3];
-const outDir = process.argv[4] ?? 'reports/evaluation';
+const outDir = process.argv[4] ?? reportPath('evaluation');
 
 if (!bnkPath || !rtfPath) {
   console.error('Usage: npm run evaluate:rtf -- <path-to-bnk-or-tst> <path-to-rtf> [output-dir]');

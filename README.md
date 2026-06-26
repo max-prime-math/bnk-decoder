@@ -109,7 +109,7 @@ npm run build
 # Decode a single file
 npm run decode:file -- "path/to/file.bnk"
 
-# Output appears in reports/decoded/
+# Output appears in ../../sources/examview-test-banks/outputs/reports/decoded/
 ```
 
 ## Recent Achievements

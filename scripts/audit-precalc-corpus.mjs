@@ -2,9 +2,10 @@
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
 import { decodeBnkFile } from '../packages/bnk-core/src/index.ts';
+import { reportPath } from './output-paths.mjs';
 
 const inputRoot = process.argv[2] ?? 'ignore/ExamView/Banks';
-const outDir = process.argv[3] ?? 'reports/precalc-audit';
+const outDir = process.argv[3] ?? reportPath('precalc-audit');
 const outFile = join(outDir, 'precalc-corpus-quality.json');
 
 const wanted = new Set(['.bnk', '.tst']);

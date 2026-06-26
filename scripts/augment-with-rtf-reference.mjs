@@ -9,10 +9,11 @@ import {
   writeFileSync,
 } from 'node:fs';
 import { basename, extname, join } from 'node:path';
+import { reportPath } from './output-paths.mjs';
 
 const decodedDir = process.argv[2];
 const rtfDir = process.argv[3];
-const outDir = process.argv[4] ?? 'reports/rtf-augmented';
+const outDir = process.argv[4] ?? reportPath('rtf-augmented');
 
 if (!decodedDir || !rtfDir) {
   console.error('Usage: node scripts/augment-with-rtf-reference.mjs <decoded-dir> <rtf-html-dir> [out-dir]');

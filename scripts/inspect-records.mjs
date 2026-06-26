@@ -2,9 +2,10 @@
 import { inflateSync } from 'node:zlib';
 import { basename, join } from 'node:path';
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { reportPath } from './output-paths.mjs';
 
 const inputPath = process.argv[2];
-const outDir = process.argv[3] ?? 'reports/record-inspector';
+const outDir = process.argv[3] ?? reportPath('record-inspector');
 
 if (!inputPath) {
   console.error('Usage: npm run inspect:records -- <path-to-bnk-or-tst> [output-dir]');

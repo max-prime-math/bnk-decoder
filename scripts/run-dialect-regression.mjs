@@ -2,8 +2,9 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative } from 'node:path';
 import { decodeBnkFile } from '../packages/bnk-core/src/index.ts';
+import { reportPath } from './output-paths.mjs';
 
-const outDir = process.argv[2] ?? 'reports/dialect-regression';
+const outDir = process.argv[2] ?? reportPath('dialect-regression');
 const jsonOut = join(outDir, 'dialect-regression.json');
 const mdOut = join(outDir, 'dialect-regression.md');
 

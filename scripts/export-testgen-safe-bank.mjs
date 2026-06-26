@@ -2,6 +2,7 @@
 import { mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, extname, join, resolve } from 'node:path';
 import { createRequire } from 'node:module';
+import { reportPath as defaultReportPath } from './output-paths.mjs';
 
 const SUPPORTED_IMAGE_EXTENSIONS = new Set(['png', 'jpg', 'jpeg', 'svg', 'webp', 'gif', 'bmp', 'pdf']);
 const requireFromTestGenerator = createRequire(new URL('../../test-generator/package.json', import.meta.url));
@@ -328,7 +329,7 @@ async function main() {
   const inputArg = process.argv[2];
   if (!inputArg) usage();
   const inputDir = resolve(inputArg);
-  const defaultOut = resolve(inputDir, '..', 'testgen-safe', `${basename(inputDir)}.testgen-safe-bank.json`);
+  const defaultOut = defaultReportPath('testgen-safe', `${basename(inputDir)}.testgen-safe-bank.json`);
   const outputPath = process.argv[3] ? resolve(process.argv[3]) : defaultOut;
   const reportPath = outputPath.replace(/\.json$/i, '.report.json');
 

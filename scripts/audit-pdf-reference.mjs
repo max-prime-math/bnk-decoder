@@ -2,10 +2,11 @@
 import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { basename, dirname, join } from 'node:path';
 import { spawnSync } from 'node:child_process';
+import { reportPath } from './output-paths.mjs';
 
 const decodedDir = process.argv[2];
 const pdfDir = process.argv[3];
-const outPath = process.argv[4] ?? 'reports/pdf-reference-audit.json';
+const outPath = process.argv[4] ?? reportPath('pdf-reference-audit.json');
 
 if (!decodedDir || !pdfDir) {
   console.error('Usage: node scripts/audit-pdf-reference.mjs <decoded-json-dir> <pdf-dir> [out-json]');

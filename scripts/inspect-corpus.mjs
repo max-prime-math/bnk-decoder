@@ -2,9 +2,10 @@
 import { inflateSync } from 'node:zlib';
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
+import { reportPath } from './output-paths.mjs';
 
 const root = process.argv[2] ?? 'ignore';
-const outDir = process.argv[3] ?? 'reports';
+const outDir = process.argv[3] ?? reportPath();
 const outFile = join(outDir, 'corpus-summary.json');
 
 const wanted = new Set(['.bnk', '.tst']);

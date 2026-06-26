@@ -2,9 +2,10 @@
 import { inflateSync } from 'node:zlib';
 import { mkdirSync, readFileSync, readdirSync, statSync, writeFileSync } from 'node:fs';
 import { extname, join, relative } from 'node:path';
+import { reportPath } from './output-paths.mjs';
 
 const root = process.argv[2] ?? 'ignore/ExamView/Banks';
-const outDir = process.argv[3] ?? 'reports/corpus-dialects';
+const outDir = process.argv[3] ?? reportPath('corpus-dialects');
 const jsonOut = join(outDir, 'corpus-dialects.json');
 const mdOut = join(outDir, 'corpus-dialects.md');
 
