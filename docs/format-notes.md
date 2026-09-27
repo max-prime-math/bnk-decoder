@@ -458,7 +458,9 @@ test-generator can vary the question correctly:
   test-generator redraws them for each version. Each template must land on the ink of its
   printed picture with the sample values (70% of sampled points) before it's attached, which
   checks the decoding and the picture pairing at once. Pictures that aren't graphs, x = f(y)
-  curves, circles and number lines keep the question fixed. Templates set `showFeatures`, so
+  curves, circles and number lines keep the question fixed, and so does a question whose
+  variable graph has no picture at all (Ch09 MC24). `check:pqp` fails if any picture in an
+  attached question lacks a template. Templates set `showFeatures`, so
   test-generator widens the window when new values push roots or asymptotes out of the
   ExamView frame, and draws and labels them.
 - **Gates** for ExamView authoring flaws: a displayed value also typed as fixed text; choices

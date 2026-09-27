@@ -179,6 +179,11 @@ function buildAlgorithm(block, question, override = {}, { graphs = [], pictures 
   // (a diagram drawn from a displayed value, say) can't follow new values.
   const graphTemplates = [];
   const orderedPictures = picturesInGraphOrder(question);
+  if (!orderedPictures.length && variableGraphs.length) {
+    // The graph wasn't captured (or ExamView draws it only in the answer key): new values
+    // would change a function whose graph the question never shows.
+    return fail('MISSING_GRAPH', `ExamView draws ${graphs.length} graph(s) that use the values, but the question has no picture of them`);
+  }
   if (orderedPictures.length) {
     if (orderedPictures.length !== graphs.length) {
       return fail('PICTURE', `it has ${orderedPictures.length} picture(s) but ${graphs.length} ExamView graph(s), so the pictures can't all be redrawn`);

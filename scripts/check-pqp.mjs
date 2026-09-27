@@ -166,6 +166,14 @@ function checkAlgorithms(pkg, drafts, file) {
     if (!draft.algorithmModel) return;
     totals.algorithmic += 1;
     const label = pkg.questions[index].provenance.sourceQuestionNumber;
+    // Every picture in a question with new values must be redrawn with them.
+    const templated = new Set((draft.algorithmModel.graphs ?? []).map((graph) => graph.image));
+    const pictures = JSON.stringify([draft.body, draft.choices, draft.solution]).match(/\/imgs\/[\w-]+/g) ?? [];
+    const fixed = [...new Set(pictures.map((ref) => ref.slice(6)))].filter((name) => !templated.has(name));
+    if (fixed.length) {
+      problems.push(`variant ${label}: picture(s) ${fixed.join(', ')} would not follow new values`);
+      return;
+    }
     // Strict conditions can make some seeds fail, so sample more seeds than we compile.
     for (let seed = VARIANT_SEEDS + 1; seed <= RESOLVE_SEEDS; seed += 1) {
       const warning = importer.calculate(draft, seed).diagnostics.find((item) => item.level !== 'info');
