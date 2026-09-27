@@ -27,6 +27,7 @@
     "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs",
     "pqp:mathpix": "node scripts/mathpix-to-pqp.mjs",
     "pqp:precalc12": "node scripts/mathpix-to-pqp.mjs 'ignore/Mathpix/Pre-Calculus 12' reports/pqp/pre-calculus-12 data/pqp-overrides/pre-calculus-12.json && npm run -s pqp:algorithms -- reports/pqp/pre-calculus-12 'ignore/ExamView/Banks/Pre-Calculus 12' data/algorithm-overrides/pre-calculus-12.json",
+    "pqp:mickelson12": "node --experimental-strip-types --no-warnings scripts/bnk-records-to-pqp.mjs 'ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)' reports/pqp/pre-calculus-12-mickelson data/pqp-banks/pre-calculus-12-mickelson.json data/pqp-overrides/pre-calculus-12-mickelson.json && npm run -s pqp:algorithms -- reports/pqp/pre-calculus-12-mickelson 'ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)'",
     "check:pqp": "node --experimental-strip-types --no-warnings scripts/check-pqp.mjs",
     "pqp:algorithms": "node --experimental-strip-types --no-warnings scripts/attach-algorithms.mjs"
   },

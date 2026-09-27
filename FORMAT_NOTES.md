@@ -802,3 +802,81 @@ each reviewed by reading generated versions. The rest stay fixed with the reason
 | Uses variables defined outside the question (narratives) | 10 | Decode narrative algorithm blocks |
 | Graph has x = f(y), circles or number lines | 9 | Extend Math Graph |
 | Pictures that aren't ExamView graphs | 6 | Nothing (they can't follow new values) |
+
+## Version 06 Question Records (structural, 2026-09)
+
+Teacher-made banks (Pre-Calculus 11 and 12 (Mickelson)) carry no difficulty, topic or
+algorithm strings, so the string-cluster scan finds nothing in them. Their records are read
+structurally by `packages/bnk-core/src/records.ts`; every record in all 35 Pre-Calculus 12
+(Mickelson) files and in Pre-Calculus 11 (Mickelson) 4.6 splits into blocks with no bytes left
+over. The same record header appears in publisher banks, but there variable-length metadata
+and algorithm blocks sit where the first text block would be.
+
+File header (inflated payload): int32 bank id at 0x0, bank title UTF-16 at 0x4, section title
+UTF-16 at 0x16c.
+
+Record header (found anywhere by its signature):
+
+| Offset | Field |
+| --- | --- |
+| +0x00 | int32 ExamView question number (not contiguous) |
+| +0x04 | int32 bank id |
+| +0x08 | int32 type: 0 T/F, 2 and 4 MC, 5 yes/no, 7 completion, 8 matching, 9 short answer, 10 problem |
+| +0x0c | int32 -1 |
+| +0x10 | int32 bank id |
+| +0x14 | int32 1 |
+| +0x18 | int32 1 for written-response types |
+| +0x1c | int32 answer: MC choice index (0 = a), T/F and yes/no 0 = True/Yes, 1 = False/No; written types store another value here |
+| +0x24 | int32 MC choice count |
+| +0x21c | first rich-text block (metadata-free records) |
+
+Verified: T/F and yes/no answers against the statements, MC indexes against worked answers
+(e.g. 1.6 q8 `y = 3|f(x)| + 1` → choice d), and publisher Pre-Calculus 12 Chapter 01 MC
+records 1-4 (answers 2, 2, 0, 3) against the printed key C, C, A, D.
+
+Blocks chain by length until the next record: block 0 is the question, block 1 the written
+answer (short answer, problem) or a choice question's rationale.
+
+Rich-text block layout:
+
+| Part | Size |
+| --- | --- |
+| header | 15 int32: byteLength, 1, charCount, paragraphRuns, paragraphStyles, charRuns, charStyles, faces, 0, 0, tables, tableCells, objects, 1, 0 |
+| text | charCount UTF-16 units + 2-byte terminator |
+| paragraph runs | 12 bytes each: start, style, 0 |
+| paragraph styles | 168 bytes each (6-byte prefix + 162) |
+| character runs | 12 bytes each: start, style, 0 |
+| character styles | 24 bytes: size, flags (1 bold, 2 italic, 4 underline), face index, weight, pitch/charset, 0 |
+| faces | 66 bytes each, UTF-16 face name |
+| tables | 20 bytes each (int32 position of the 0x10 marker first) |
+| table cells | 52 bytes each: int32 content start; int16 flags at +20 (2 first cell of a row, 4 row-end marker, 8 last row) |
+| object headers | 72 bytes each: int32 text position, 0, 0, width and height in twips, …, int32 kind at +36 (1 equation, 0 picture) |
+| object payloads | int32 length + bytes, in object order |
+
+Text control characters: 0x09 tab (default stops every 0.5 in), 0x0d paragraph, 0x0f object
+(matched to its object by position), 0x10 table start, 0x11 cell end (each row ends with an
+extra empty marker cell, flag 4). Characters in a "Symbol" face run, and U+F0xx, use the Adobe
+Symbol encoding (e.g. U+F0A5 ∞).
+
+Equation payload: 11 int32 layout fields, then a token stream:
+
+- `0x09` + int32, int32 class, int32 flags: style for the following characters. Class -11
+  regular, -10 Greek (Symbol letters: p π, q θ, a α, Q Θ), -6 Symbol operators (° ± ≤ ≥ ≠ × ≈),
+  -9 extra symbols (0x9e ∘).
+- `0x01` int16 flags, int16 0, int32 slot count, int16 kind, int16 variant, 8 bytes: template;
+  slots follow as lines, each slot after the first preceded by int32 0. Kinds seen: 0.0 ( ),
+  0.2 { }, 0.4 | |, 1.0 fraction, 1.1 small fraction, 1.2 slash fraction, 1.5 square root,
+  1.6 nth root (radicand, index), 1.7 long division (dividend in the slot), 2.0 superscript,
+  2.1 subscript, 2.4 left subscript (applies to what follows, as in ₆C₃).
+- `0x0d` line break (also found inside slots, where authors type derivations into a
+  denominator), `0x00` end of line, anything else one Windows-1252 character. Letters typed
+  together are separate variables ("sinx" = sin x); the payload is zero-padded after the root line.
+
+Picture payload: int32 1, int32 width+1, int32 height+1 (twips), then a Windows DIB
+(BITMAPINFOHEADER, uncompressed, 8-bit or 1-bit in this corpus). `dibToPng` output is
+pixel-identical to ImageMagick's decoding of the same DIB.
+
+Teacher conventions to expect: multiple-choice choices typed into a borderless table at the end
+of the stem (`a. | … | c. | …` / `b. | … | d. | …`, so map by label); graphs pasted as bitmaps
+(there are no ExamView graph objects or algorithm blocks in the Mickelson banks); text art laid
+out with tabs and spaces.

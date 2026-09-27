@@ -1,0 +1,205 @@
+{
+  "bank": "Pre-Calculus 12 (Mickelson)",
+  "author": "Mickelson",
+  "prefix": "pc12m",
+  "tags": [
+    "mickelson"
+  ],
+  "chapters": {
+    "1": "Transformations",
+    "2": "Polynomials",
+    "3": "Radicals and Rational Functions",
+    "4": "Logarithms",
+    "5": "Trigonometry, Part I",
+    "6": "Trigonometry, Part II",
+    "7": "Combinatorics"
+  },
+  "sections": {
+    "1.1": {
+      "outcomes": [],
+      "unitId": "relations-and-functions",
+      "note": "Functions and relations (domain, range, vertical and horizontal line tests) has no 40S outcome of its own; placed in the Relations and Functions unit under the section title."
+    },
+    "1.2": {
+      "outcomes": [
+        "12P.R.1"
+      ]
+    },
+    "1.3": {
+      "outcomes": [
+        "12P.R.1"
+      ]
+    },
+    "1.4": {
+      "outcomes": [
+        "12P.R.4",
+        "12P.R.2",
+        "12P.R.3",
+        "12P.R.5"
+      ]
+    },
+    "1.5": {
+      "outcomes": [
+        "12P.R.6"
+      ]
+    },
+    "1.6": {
+      "outcomes": [
+        "12P.R.4",
+        "12P.R.5",
+        "12P.R.6"
+      ]
+    },
+    "2.1": {
+      "outcomes": [
+        "12P.R.12"
+      ]
+    },
+    "2.2": {
+      "outcomes": [
+        "12P.R.12"
+      ]
+    },
+    "2.3": {
+      "outcomes": [
+        "12P.R.11"
+      ]
+    },
+    "2.4": {
+      "outcomes": [
+        "12P.R.11"
+      ]
+    },
+    "2.5": {
+      "outcomes": [
+        "12P.R.12"
+      ]
+    },
+    "3.1": {
+      "outcomes": [
+        "12P.R.13"
+      ]
+    },
+    "3.2": {
+      "outcomes": [
+        "12P.R.13"
+      ]
+    },
+    "3.3": {
+      "outcomes": [
+        "12P.R.14"
+      ]
+    },
+    "3.4": {
+      "outcomes": [
+        "12P.R.14"
+      ]
+    },
+    "4.1": {
+      "outcomes": [
+        "12P.R.9",
+        "12P.R.10"
+      ]
+    },
+    "4.2": {
+      "outcomes": [
+        "12P.R.7",
+        "12P.R.9"
+      ]
+    },
+    "4.3": {
+      "outcomes": [
+        "12P.R.8"
+      ]
+    },
+    "4.4": {
+      "outcomes": [
+        "12P.R.10"
+      ]
+    },
+    "4.5": {
+      "outcomes": [
+        "12P.R.10"
+      ]
+    },
+    "5.1": {
+      "outcomes": [
+        "12P.T.1"
+      ]
+    },
+    "5.2": {
+      "outcomes": [
+        "12P.T.3"
+      ]
+    },
+    "5.3": {
+      "outcomes": [
+        "12P.T.3",
+        "12P.T.2"
+      ]
+    },
+    "5.4": {
+      "outcomes": [
+        "12P.T.4"
+      ]
+    },
+    "5.5": {
+      "outcomes": [
+        "12P.T.4"
+      ]
+    },
+    "6.1": {
+      "outcomes": [
+        "12P.T.6",
+        "12P.T.5"
+      ]
+    },
+    "6.2": {
+      "outcomes": [
+        "12P.T.6"
+      ]
+    },
+    "6.3": {
+      "outcomes": [
+        "12P.T.5"
+      ]
+    },
+    "6.4": {
+      "outcomes": [
+        "12P.T.6"
+      ]
+    },
+    "6.5": {
+      "outcomes": [
+        "12P.T.6"
+      ]
+    },
+    "7.1": {
+      "outcomes": [
+        "12P.P.1"
+      ]
+    },
+    "7.2": {
+      "outcomes": [
+        "12P.P.2"
+      ]
+    },
+    "7.3": {
+      "outcomes": [
+        "12P.P.3"
+      ]
+    },
+    "7.4": {
+      "outcomes": [
+        "12P.P.4"
+      ]
+    },
+    "7.5": {
+      "outcomes": [
+        "12P.P.1",
+        "12P.P.3"
+      ]
+    }
+  },
+  "note": "Primary outcome first; the rest are listed under classification.curriculum.outcomes. Chosen by reading each section."
+}

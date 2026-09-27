@@ -39,8 +39,10 @@ const KNOWN_IDENTIFIERS = new Set([...SUPPORTED_FUNCTIONS, 'pi', 'true', 'false'
 
 const totals = { questions: 0, matched: 0, attached: 0, reasons: {} };
 for (const file of readdirSync(pqpDir).filter((name) => name.endsWith('.pqp.json')).sort()) {
-  const chapter = file.match(/Chapter \d+/i)?.[0];
-  const bnkPath = chapter && join(bnkDir, `${chapter}.bnk`);
+  // Chapter packages ("Chapter 01.pqp.json") pair with "Chapter 01.bnk"; per-section packages
+  // pair with the BNK of the same name.
+  const chapter = file.match(/Chapter \d+/i)?.[0] ?? file.replace(/\.pqp\.json$/, '');
+  const bnkPath = join(bnkDir, `${chapter}.bnk`);
   let blocks;
   let payload;
   try {

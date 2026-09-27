@@ -32,18 +32,20 @@ const fixtures = [
     label: 'Pre-Calculus 11 Mickelson stress',
     path: 'ignore/ExamView/Banks/Pre-Calculus 11 (Mickelson)/4.6 Reciprocal Functions.bnk',
     expectInflated: true,
-    minQuestions: 5,
-    maxGarbage: 8,
-    minAverageScore: 55,
+    // Read structurally from its question records (10 records, V06_QUESTION_RECORDS).
+    minQuestions: 10,
+    maxGarbage: 0,
+    minAverageScore: 85,
   },
   {
     dialect: 'v06-precalculus-mickelson',
     label: 'Pre-Calculus 12 Mickelson representative',
     path: 'ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.1 Functions and Relations.bnk',
     expectInflated: true,
-    minQuestions: 1,
-    maxGarbage: 2,
-    minAverageScore: 70,
+    // Six true/false question records, read structurally.
+    minQuestions: 6,
+    maxGarbage: 0,
+    minAverageScore: 85,
   },
   {
     dialect: 'v06-mathworks',

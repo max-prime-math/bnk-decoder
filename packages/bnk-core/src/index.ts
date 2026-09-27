@@ -13,8 +13,15 @@ import type {
 } from '@bnk-decoder/question-model';
 import { unzlibSync } from 'fflate';
 import { resolveQuestionCurriculum, type TestGeneratorCurriculumOptions } from './test-gen-adapter.ts';
+import { readQuestionRecords, type RecordQuestionType } from './records.ts';
+import { renderRecordQuestion } from './record-questions.ts';
+import { dibToPng, pictureWidthInches } from './record-typst.ts';
 export * from './algorithms.ts';
 export * from './graphs.ts';
+export * from './records.ts';
+export * from './record-questions.ts';
+export { dibToPng, findChoiceTable, pictureWidthInches, renderBlock, renderRange } from './record-typst.ts';
+export { equationToTypst, parseEquation, type EquationNode } from './equations.ts';
 
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
 export type DecodeConfidence = 'high' | 'medium' | 'low';
@@ -383,12 +390,18 @@ export async function decodeBnkFile(input: ArrayBuffer, options: DecodeOptions =
   const questions = container?.majorVersion === '06'
     ? decodeVersion06QuestionCandidates(parserBytes, options, diagnostics, assets)
     : [];
+  // Teacher-made banks store no metadata strings, so the string-cluster scan finds nothing in
+  // them; their question records are read structurally instead.
+  const recordQuestions = !questions.length && container?.majorVersion === '06'
+    ? decodeVersion06Records(parserBytes, diagnostics, assets)
+    : [];
+  const primaryQuestions = questions.length ? questions : recordQuestions;
   const text = extractReadableText(parserBytes);
   const dialect = inferBankDialect(options.filename, container?.majorVersion);
-  const fallbackQuestions = questions.length
+  const fallbackQuestions = primaryQuestions.length
     ? []
     : decodeTextLikeQuestions(text, parserBytes, options.preserveRaw !== false, assets);
-  const decodedQuestions = questions.length ? questions : fallbackQuestions;
+  const decodedQuestions = primaryQuestions.length ? primaryQuestions : fallbackQuestions;
   const structuredQuestions = decodedQuestions.map((question) => {
     const parts = inferQuestionParts(question);
     return {
@@ -1016,6 +1029,69 @@ function readVersion06QuestionCount(bytes: Uint8Array): number | undefined {
   const count = readUint32Le(bytes, V06_QUESTION_COUNT_OFFSET);
   if (count < 1 || count > 2000) return undefined;
   return count;
+}
+
+const RECORD_QUESTION_TYPES: Record<RecordQuestionType, QuestionType> = {
+  'true-false': 'true_false',
+  'multiple-choice': 'mcq',
+  'yes-no': 'mcq',
+  completion: 'completion',
+  matching: 'matching',
+  'short-answer': 'short_answer',
+  problem: 'problem',
+  unknown: 'short_answer',
+};
+
+// Structural path for metadata-free v06 banks (records.ts): Typst text, equations, tables and
+// pictures come from the question records themselves. Returns [] when the layout doesn't fit.
+function decodeVersion06Records(
+  bytes: Uint8Array,
+  diagnostics: DecodeDiagnostic[],
+  assets: DecodedAsset[],
+): DecodedQuestion[] {
+  const bank = readQuestionRecords(bytes);
+  if (!bank) return [];
+  diagnostics.push({
+    level: 'info',
+    code: 'V06_QUESTION_RECORDS',
+    message: `Read ${bank.records.length} question record${bank.records.length === 1 ? '' : 's'} structurally (metadata-free v06 layout).`,
+  });
+  return bank.records.map((record, index) => {
+    const questionAssets: string[] = [];
+    const pictureProblems: string[] = [];
+    const content = renderRecordQuestion(record, {
+      picture(object) {
+        let png: Uint8Array;
+        try {
+          png = dibToPng(object.dib);
+        } catch (error) {
+          pictureProblems.push(`picture: ${(error as Error).message}`);
+          return '';
+        }
+        const id = `asset-${assets.length + 1}`;
+        assets.push({ id, kind: 'image', mimeType: 'image/png', filename: `${id}.png`, bytes: png, sourceOffset: record.offset });
+        questionAssets.push(id);
+        return `#box(image("/imgs/${id}", width: ${pictureWidthInches(object).toFixed(2)}in))`;
+      },
+    });
+    const problems = [...content.problems, ...pictureProblems];
+    const id = `q-${index + 1}`;
+    for (const problem of problems) {
+      diagnostics.push({ level: 'warning', code: 'V06_RECORD_CONTENT', message: `Question ${record.number}: ${problem}`, questionId: id, offset: record.offset });
+    }
+    return {
+      id,
+      type: RECORD_QUESTION_TYPES[record.type],
+      body: { format: 'typst', text: content.stem },
+      choices: content.choices?.map((choice) => ({ id: choice.id, body: { format: 'typst' as const, text: choice.text } })),
+      answer: content.answer ? { value: content.answer, format: 'choice' } : undefined,
+      solution: content.solution ? { format: 'typst', text: content.solution } : undefined,
+      metadata: { sourceOffset: record.offset, title: bank.title, sectionName: bank.sectionTitle || undefined, reference: `ExamView question ${record.number}` },
+      assets: questionAssets,
+      confidence: problems.length ? 'low' : 'high',
+      decodeDiagnostics: problems.map((message) => ({ level: 'warning' as const, code: 'V06_RECORD_CONTENT', message })),
+    };
+  });
 }
 
 function decodeVersion06QuestionCandidates(
