@@ -1,0 +1,19 @@
+{
+  "Chapter 04": {
+    "MULTIPLE CHOICE 7": {
+      "note": "Mathpix dropped the B label and moved choice D after the answer line. Image positions (page 2, 2x2 grid) and the B label inside the bottom-left crop were checked by hand.",
+      "choiceImages": {
+        "A": "e9692e4f-d4e7-4615-b94e-8edba801b987-02_506_515_554_429",
+        "B": "e9692e4f-d4e7-4615-b94e-8edba801b987-02_525_604_1059_348",
+        "C": "e9692e4f-d4e7-4615-b94e-8edba801b987-02_510_519_552_1162",
+        "D": "e9692e4f-d4e7-4615-b94e-8edba801b987-02_515_523_1065_1160"
+      }
+    }
+  },
+  "Chapter 10": {
+    "MULTIPLE CHOICE 12": {
+      "note": "Mathpix OCR lost the ANS line. Answer taken from the ExamView RTF export of the same test.",
+      "answer": "A"
+    }
+  }
+}

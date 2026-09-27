@@ -1,0 +1,21 @@
+{
+  "Chapter 07": {
+    "MULTIPLE CHOICE 24": {
+      "note": "ExamView picks x first and rounds c^x for the stem, so for small values the keyed x (e.g. 2.2 for 5 = 2^x) is not the true solution (2.3). Require the key to match the solution to one decimal.",
+      "conditions": [
+        "round(log(a)/log(c)*10) = round(x_var*10)"
+      ]
+    }
+  },
+  "Chapter 11": {
+    "MULTIPLE CHOICE 11": {
+      "note": "The stem says \"her 50 favourite songs\" as fixed text while m = range(50,150,10) drives the choices, so ExamView's own versions contradict the stem. Pin m to the printed 50; the player and library sizes still vary.",
+      "conditions": [
+        "m=50"
+      ],
+      "acceptFixedText": [
+        "m"
+      ]
+    }
+  }
+}

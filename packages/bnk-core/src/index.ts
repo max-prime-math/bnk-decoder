@@ -1,5 +1,7 @@
 import type { DraftQuestionLike, QuestionType } from '@bnk-decoder/question-model';
 import { unzlibSync } from 'fflate';
+export * from './algorithms.ts';
+export * from './graphs.ts';
 
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
 export type DecodeConfidence = 'high' | 'medium' | 'low';
