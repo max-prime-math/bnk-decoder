@@ -24,10 +24,15 @@
     "convert:mathpix-examview": "node scripts/convert-mathpix-examview.mjs",
     "augment:rtf": "node scripts/augment-with-rtf-reference.mjs",
     "regress:dialects": "node --experimental-strip-types scripts/run-dialect-regression.mjs",
-    "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs"
+    "evaluate:rtf": "node --experimental-strip-types scripts/evaluate-rtf.mjs",
+    "pqp:mathpix": "node scripts/mathpix-to-pqp.mjs",
+    "pqp:precalc12": "node scripts/mathpix-to-pqp.mjs 'ignore/Mathpix/Pre-Calculus 12' reports/pqp/pre-calculus-12 data/pqp-overrides/pre-calculus-12.json && npm run -s pqp:algorithms -- reports/pqp/pre-calculus-12 'ignore/ExamView/Banks/Pre-Calculus 12' data/algorithm-overrides/pre-calculus-12.json",
+    "check:pqp": "node --experimental-strip-types --no-warnings scripts/check-pqp.mjs",
+    "pqp:algorithms": "node --experimental-strip-types --no-warnings scripts/attach-algorithms.mjs"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^4.0.0",
+    "fflate": "^0.8.3",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "tslib": "^2.7.0",

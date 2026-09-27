@@ -671,3 +671,134 @@ Ground truth data for differential analysis: Ch03 Q1=A, Q2=C, Q3=B, Q4=C, Q5=B, 
 | 76 clusters decoded instead of 30 actual questions | All Ch01 records | Open — needs question-type/record-kind byte in binary header |
 | Graph inline slot interpolated as variable value | Graph questions where first body slot is the graph image (e.g. Ch03 q-10) | Partially fixed — graph-image body slots skipped; body instead shows graph expression from graphDefinitions |
 | Slot-based choices not decoded | Questions where all choice text is variable slots (e.g. Ch03 q-10) | Fixed — inferSlotBasedChoices fills slots from post-font refs in column-major order, then sorts A→D |
+
+
+## Algorithm Blocks (v06)
+
+Decoded structurally in `packages/bnk-core/src/algorithms.ts` (`readAlgorithmBlocks`).
+The old string-sequence heuristic (`name`, `rule`, `sample` in a row) dropped every
+condition and produced false variables from ordinary words; the structure below
+parses exactly, with each block's entries filling its declared length.
+
+A question's algorithm block follows its five metadata strings (difficulty,
+objective, reference, topic, key) directly, at any byte alignment:
+
+```text
+int32  byteLength                 includes this field; block ends at start + byteLength
+entry* until the block end
+  int32 nameLength, ruleLength, displayLength   UTF-16 code units
+  int32 kind        0 = variable, 3 = condition (conditions have an empty name)
+  int32 valueType   1 = number, 2 = string
+  int32 format      0 plain, 1 fixed decimals, 4 always signed ("+ 5", "– 9"),
+                    6 fixed decimals with digit grouping ("20 712"), 5 other signed style
+  int32 decimals    places for formats 1 and 6
+  int32 flags
+  float64 value     numeric sample (0 for strings)
+  UTF-16 name, rule, display, each followed by one 16-bit slot (not always 0 when empty)
+```
+
+`scramble` is an ordinary entry (`true`). Display strings switch to the Symbol font
+with `\x01` + U+F08x and then use U+F0xx glyphs (U+F02D is a minus sign).
+
+Rules are ExamView expressions evaluated in dependency order, not list order
+(`ans_x = cos(radians)` can precede `radians = degrees*pi/180`). Semantics that
+matter when translating: `rand(n)` is an integer 1..n; `choose(i, a, b, ...)`
+picks by index; `round(x, d)` keeps d decimals; `isunique(...)` can sit inside a
+larger condition; `mod` is an operator. Some rules reference variables that are
+not in the question's own block (narrative-scoped).
+
+Inside the question record that follows, variables are referenced three ways:
+
+| Where | Encoding |
+| --- | --- |
+| Text slot | UTF-16 string `"X"` immediately followed by the UTF-16 variable name |
+| Equation object | byte `0x0a`, UTF-16 name, UTF-16 terminator, inside compact object math (`g(x)=x` `01 ff 7f` `2` `0a k`) |
+| Graph object | plain UTF-16 expression strings: point coordinates (`x1`, `y1`), label offsets (`x3-.3`), functions (`(x + h)^2 + k`) |
+
+Counting these gives, per question, exactly how many times each variable is
+displayed. Ch01 Q1: `k` once in `g(x)=x^2+k`, `ANS_units` four times (one per
+choice), `ANS_direction` and `DIS_direction` once each.
+
+The ExamView printout (and so the Mathpix text) shows each variable's stored
+display value, which is what makes attaching algorithms to printed text possible.
+
+Pre-Calculus 12: 376 blocks parse; 332 match PQP questions.
+
+## Graph Objects (v06)
+
+Decoded in `packages/bnk-core/src/graphs.ts` (`readGraphObjects`). A Cartesian graph is a
+fixed-layout record with fixed-width UTF-16 string buffers:
+
+```text
++0x000  int32 byteLength (2456 + 1796 per item), int32 5
++0x008  four 16-char strings: view settings, [0]/[1] = centre x/y (expressions, usually "0")
++0x86c  x-axis: label (12 chars), float64 scale, int32 ticksPerInch, int32 ticksPerLabel,
+        ..., font; +0x88 show tick labels, +0x8c show tick marks
++0x8fc  y-axis, same layout
++0xa1c + k*0x704   item k, addressed from its main string E:
+        E-0x80 domain min, E-0x60 domain max, E-0x40 display condition (16 chars each)
+        E-0x20 type, E-0x14 colour index (1 black, 2 blue, 6 red), E-0x08 width (300/600)
+        E      expression, or the first coordinate
+```
+
+| Type | Item | Layout from E |
+| ---: | --- | --- |
+| 0 | y = f(x) | expression |
+| 1 | x = f(y) | expression in y |
+| 3 | circle | (not decoded yet) |
+| 6 | point | x, y (+0x20); marker +0x60 (1 solid, 2 hollow); label style +0x64 (1 = coordinates); label position +0x68 |
+| 7 | segment | two point records, the second at +0xc4 |
+| 12 | text | text; position expressions at +0x98 / +0xb8 |
+| 18 | number-line ray | (not decoded yet) |
+
+The view size (width/height in twips minus one) sits in a frame record shortly before
+many graphs. Graphs used as choices have none nearby; their Mathpix crops measure
+254 px per inch, so the crop size gives the frame. The x range is centre ±
+width × ticksPerInch × scale / 2 (the frame edge), which projects curves onto the printed
+crops exactly. Graph choices are stored row by row across ExamView's two-column layout:
+stem graphs, then choices A, C, B, D, then the rest.
+
+## Attaching Algorithms to PQP
+
+`npm run pqp:algorithms -- <pqp-dir> <bnk-dir> [overrides]` (part of `pqp:precalc12`)
+matches algorithm blocks to questions and adds `extensions.algorithmModel` only when
+test-generator can vary the question correctly:
+
+- **Rules** are kept close to ExamView; test-generator's evaluator implements ExamView's
+  functions. Only indexed `choose` is rewritten (to `if`), and call spacing normalised.
+- **Slots** (`algorithmModel.slots`) record exactly where each displayed value is printed:
+  each variable must take exactly as many places as the BNK references it, solved as an
+  assignment over the printed text (math vs prose breaks ties). Anything ambiguous stays fixed.
+- **Display formats** (`display`: signed terms, fixed decimals, digit grouping) come from the
+  ExamView entry header, so new values print the way ExamView prints them.
+- **Graphs** that use variables become Math Graph templates (`algorithmModel.graphs`), and
+  test-generator redraws them for each version. Each template must land on the ink of its
+  printed picture with the sample values (70% of sampled points) before it's attached, which
+  checks the decoding and the picture pairing at once. Pictures that aren't graphs, x = f(y)
+  curves, circles and number lines keep the question fixed, and so does a question whose
+  variable graph has no picture at all (Ch09 MC24). `check:pqp` fails if any picture in an
+  attached question lacks a template. Templates set `showFeatures`, so
+  test-generator widens the window when new values push roots or asymptotes out of the
+  ExamView frame, and draws and labels them.
+- **Gates** for ExamView authoring flaws: a displayed value also typed as fixed text; choices
+  that can coincide (a distinct-choices condition is added); values in term position printed
+  plain ("x –9" becoming "x 7") are printed as signed terms.
+- `data/algorithm-overrides/` records reviewed fixes for individual authoring flaws.
+
+`npm run check:pqp` runs test-generator's engine for 100 seeds per question (25 compiled with
+their redrawn graphs), recomputes every deterministic rule, and fails on any warning.
+
+Current result: 147 of 332 algorithmic questions attached (26 of them with redrawn graphs),
+each reviewed by reading generated versions. The rest stay fixed with the reason in
+`extensions.examview.algorithm` and an `ALGORITHM_STATIC` diagnostic:
+
+| Reason | Count | What would unlock it |
+| --- | ---: | --- |
+| Printed text doesn't pin down every slot (equal values, OCR differences) | 83 | Use the BNK's slot order inside each field |
+| No displayed variables | 24 | Nothing to vary |
+| Display value not matchable (Symbol glyphs, `list` displays) | 23 | More display decoding |
+| Unsupported ExamView function (mostly `list`) | 19 | `list` is a choice-list construct, not a value |
+| Decoded graph doesn't match its printed picture | 11 | Decode the remaining graph settings |
+| Uses variables defined outside the question (narratives) | 10 | Decode narrative algorithm blocks |
+| Graph has x = f(y), circles or number lines | 9 | Extend Math Graph |
+| Pictures that aren't ExamView graphs | 6 | Nothing (they can't follow new values) |

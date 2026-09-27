@@ -13,6 +13,8 @@ import type {
 } from '@bnk-decoder/question-model';
 import { unzlibSync } from 'fflate';
 import { resolveQuestionCurriculum, type TestGeneratorCurriculumOptions } from './test-gen-adapter.ts';
+export * from './algorithms.ts';
+export * from './graphs.ts';
 
 export type RichContentFormat = 'plain' | 'latex' | 'typst' | 'unknown';
 export type DecodeConfidence = 'high' | 'medium' | 'low';
