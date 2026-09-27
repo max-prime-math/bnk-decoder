@@ -821,14 +821,28 @@ Record header (found anywhere by its signature):
 | --- | --- |
 | +0x00 | int32 ExamView question number (not contiguous) |
 | +0x04 | int32 bank id |
-| +0x08 | int32 type: 0 T/F, 2 and 4 MC, 5 yes/no, 7 completion, 8 matching, 9 short answer, 10 problem |
+| +0x08 | int32 type: 0 T/F, 2 and 4 MC, 3 multiple response, 5 yes/no, 7 completion, 8 matching item, 9 short answer, 10 problem |
 | +0x0c | int32 -1 |
-| +0x10 | int32 bank id |
+| +0x10 | int32 bank id (0 in some matching items) |
 | +0x14 | int32 1 |
 | +0x18 | int32 1 for written-response types |
 | +0x1c | int32 answer: MC choice index (0 = a), T/F and yes/no 0 = True/Yes, 1 = False/No; written types store another value here |
-| +0x24 | int32 MC choice count |
+| +0x24 | int32 MC choice count; for a matching item, the 0-based index of its matching choice |
 | +0x21c | first rich-text block (metadata-free records) |
+
+Multiple response (type 3, "circle all answers that apply"): the answer at +0x1c is a bitmask
+of the choices, bit 0 = a (Pre-Calculus 11 Mickelson: 14 = b, c, d; 4 = c; 7 = a, b, c; checked
+against the questions).
+
+**Matching group record** (Pre-Calculus 11 Mickelson 3.1, 3.5, 5.2, 6.4, 7.3). A file with
+matching items also holds one group record, which the question-record signature misses. Its
+44-byte header is `int32 group number, bank id, choice count (3, 4 or 6), 1 or 2, 1, 1, 0, 0,
+0, 0, 4`, followed by one rich-text block: the shared prompt and an `a.`/`b.`/… choice table
+(text, equations or pictures). The matching items (type 8) are ordinary records whose +0x24
+indexes into those choices. Until a record is known to link items to groups, the converter
+handles one group per file (every file in the corpus) and leaves items out when there are more.
+With the group records recognised, every record in all 45 Pre-Calculus 11 (Mickelson) files
+splits with no bytes left over (1.1 Absolute Value is empty: header only).
 
 Verified: T/F and yes/no answers against the statements, MC indexes against worked answers
 (e.g. 1.6 q8 `y = 3|f(x)| + 1` → choice d), and publisher Pre-Calculus 12 Chapter 01 MC
@@ -862,12 +876,18 @@ Equation payload: 11 int32 layout fields, then a token stream:
 
 - `0x09` + int32, int32 class, int32 flags: style for the following characters. Class -11
   regular, -10 Greek (Symbol letters: p π, q θ, a α, Q Θ), -6 Symbol operators (° ± ≤ ≥ ≠ × ≈),
-  -9 extra symbols (0x9e ∘).
+  -9 extra symbols (0x9e ∘, 0x98 ℝ, 0xbd ℕ; from "{x | x ∈ ℝ, x ≠ 3}" and "n ∈ ℕ").
 - `0x01` int16 flags, int16 0, int32 slot count, int16 kind, int16 variant, 8 bytes: template;
   slots follow as lines, each slot after the first preceded by int32 0. Kinds seen: 0.0 ( ),
   0.2 { }, 0.4 | |, 1.0 fraction, 1.1 small fraction, 1.2 slash fraction, 1.5 square root,
   1.6 nth root (radicand, index), 1.7 long division (dividend in the slot), 2.0 superscript,
-  2.1 subscript, 2.4 left subscript (applies to what follows, as in ₆C₃).
+  2.1 subscript, 2.4 left subscript (applies to what follows, as in ₆C₃), 0.19 left brace
+  only (piecewise function; one row per line of its slot), 3.2 summation (slots: body, lower
+  limit, upper limit).
+- `0x05`–`0x08`: spaces, narrowest to widest, typed between an expression and its condition
+  (`x − 11/3,␣␣−∞ < x < −2/3`), sometimes several in a row.
+- `0x0b` int32 shape, then a line: a geometry name. Shape 0 is △ (`In △ABC`), 1 is ▱
+  (`In parallelogram ▱ABCD`); the vertex letters follow as the line.
 - `0x0d` line break (also found inside slots, where authors type derivations into a
   denominator), `0x00` end of line, anything else one Windows-1252 character. Letters typed
   together are separate variables ("sinx" = sin x); the payload is zero-padded after the root line.

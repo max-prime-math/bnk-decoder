@@ -9,6 +9,10 @@
 //   0x01 int16 flags, int16 0, int32 slotCount, int16 kind, int16 variant, 8 bytes
 //                                            template; its slots follow as lines, slots after
 //                                            the first are each preceded by an int32 0
+//   0x05–0x08                                spaces, narrowest to widest (typed between an
+//                                            expression and its condition: "x − 1,  x ≥ 2")
+//   0x0b int32 shape, line                   geometry name: shape 0 △ (triangle ABC),
+//                                            1 ▱ (parallelogram ABCD); the letters follow as a line
 //   0x0d                                     line break inside the equation
 //   0x00                                     end of the current line (slot or root)
 //   other bytes                              one character each (Windows-1252 / Symbol font)
@@ -16,12 +20,15 @@
 // Templates seen (kind.variant, slots): 0.0 ( ), 0.2 { }, 0.4 | |, 1.0 stacked fraction (2),
 // 1.1 small fraction (2), 1.2 slash fraction (2), 1.5 square root, 1.6 nth root
 // (radicand, index), 1.7 long division (divisor before, dividend in slot), 2.0 superscript,
-// 2.1 subscript, 2.4 left subscript (attaches to what follows, as in ₆C₃).
+// 2.1 subscript, 2.4 left subscript (attaches to what follows, as in ₆C₃), 0.19 left brace
+// only (piecewise function; rows are the slot's lines), 3.2 summation (body, lower, upper).
 // The root line ends with 0x00; the payload is zero-padded after it.
 
 export type EquationNode =
   | { type: 'char'; code: number; style: number }
   | { type: 'break' }
+  | { type: 'space'; width: number }
+  | { type: 'geometry'; shape: number; name: EquationNode[] }
   | { type: 'template'; kind: number; variant: number; slots: EquationNode[][] };
 
 export interface ParsedEquation {
@@ -62,8 +69,11 @@ export const SYMBOL_FONT: Record<number, string> = {
   0xdf: '⇓', 0xe0: '◊', 0xe1: '⟨', 0xe5: '∑', 0xf1: '⟩', 0xf2: '∫',
 };
 
-// Class -9 is a small extra-symbol font; only the composition ring is evidenced (f ∘ g).
-const EXTRA_FONT: Record<number, string> = { 0x9e: '∘' };
+// Class -9 is a small extra-symbol font. Evidenced: the composition ring (f ∘ g), and the
+// number sets in "{x | x ∈ ℝ, x ≠ 3}" and "n ∈ ℕ" (Pre-Calculus 11 Mickelson).
+const EXTRA_FONT: Record<number, string> = { 0x9e: '∘', 0x98: 'ℝ', 0xbd: 'ℕ' };
+const SPACES: Record<number, string> = { 0x05: 'thin', 0x06: 'thin', 0x07: 'med', 0x08: 'thick' };
+const SHAPES: Record<number, string> = { 0: '△', 1: '▱' };
 
 const WINDOWS_1252 = new TextDecoder('windows-1252');
 
@@ -112,6 +122,18 @@ export function parseEquation(bytes: Uint8Array, start: number, end: number): Pa
           slots.push(line(depth + 1));
         }
         nodes.push({ type: 'template', kind, variant, slots });
+        continue;
+      }
+      if (byte >= 0x05 && byte <= 0x08) {
+        nodes.push({ type: 'space', width: byte });
+        cursor += 1;
+        continue;
+      }
+      if (byte === 0x0b) {
+        if (cursor + 5 > end) break;
+        const shape = view.getInt32(cursor + 1, true);
+        cursor += 5;
+        nodes.push({ type: 'geometry', shape, name: line(depth + 1) });
         continue;
       }
       if (byte === 0x0d) {
@@ -169,7 +191,9 @@ export function equationToTypst(nodes: EquationNode[]): EquationTypst {
 // Authors also break lines inside a template slot (a derivation typed into a denominator);
 // any break means the equation needs display layout.
 function hasBreak(nodes: EquationNode[]): boolean {
-  return nodes.some((node) => node.type === 'break' || (node.type === 'template' && node.slots.some(hasBreak)));
+  // A piecewise brace sets its own rows, so its breaks don't make the equation multi-line.
+  return nodes.some((node) => node.type === 'break'
+    || (node.type === 'template' && !(node.kind === 0 && node.variant === 19) && node.slots.some(hasBreak)));
 }
 
 function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean): string {
@@ -214,6 +238,31 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
       out.push('\\\n');
       continue;
     }
+    if (node.type === 'space') {
+      out.push(SPACES[node.width]);
+      continue;
+    }
+    if (node.type === 'geometry') {
+      const shape = SHAPES[node.shape];
+      if (!shape) errors.push(`unknown geometry shape ${node.shape}`);
+      // Vertex letters are separate points (△ABC, ▱ABCD), never a word.
+      const letters = node.name.every((item) => item.type === 'char' && /^[A-Za-z]$/.test(String.fromCharCode(item.code)));
+      const name = letters
+        ? node.name.map((item) => (item.type === 'char' ? String.fromCharCode(item.code) : '')).join(' ')
+        : renderLine(node.name, errors, inArgument).trim();
+      push(`${shape ?? ''} ${name}`);
+      continue;
+    }
+    if (node.kind === 0 && node.variant === 19) {
+      // Piecewise function: one row per line of the slot; commas inside a row are escaped.
+      const rows: EquationNode[][] = [[]];
+      for (const item of node.slots[0] ?? []) {
+        if (item.type === 'break') rows.push([]);
+        else rows[rows.length - 1].push(item);
+      }
+      push(`cases(${rows.map((row) => renderLine(row, errors, true).trim() || '""').join(', ')})`);
+      continue;
+    }
     const slots = node.slots.map((slot) => renderLine(slot, errors, true).trim());
     const slot = (index: number) => slots[index] || '""';
     const key = `${node.kind}.${node.variant}`;
@@ -251,6 +300,9 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
         break;
       case '2.4':
         prefix = `""_(${slot(0)})`;
+        break;
+      case '3.2':
+        push(`sum${slots[1] ? `_(${slots[1]})` : ''}${slots[2] ? `^(${slots[2]})` : ''} ${slot(0)}`);
         break;
       default:
         errors.push(`unsupported equation template ${key}`);

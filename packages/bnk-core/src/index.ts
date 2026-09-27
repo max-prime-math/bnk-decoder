@@ -1034,6 +1034,7 @@ function readVersion06QuestionCount(bytes: Uint8Array): number | undefined {
 const RECORD_QUESTION_TYPES: Record<RecordQuestionType, QuestionType> = {
   'true-false': 'true_false',
   'multiple-choice': 'mcq',
+  'multiple-response': 'multiple_response',
   'yes-no': 'mcq',
   completion: 'completion',
   matching: 'matching',

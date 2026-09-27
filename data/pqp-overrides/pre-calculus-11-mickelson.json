@@ -1,0 +1,163 @@
+{
+  "1.3 Simplifying Radicals": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 14, "note": "Squaring gives 2304 = x^(-1/3), so x = 1/2304^3; the key's final answer x = 1/(4·∛36) is wrong, and x = 0 is also a solution."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 16, "note": "Asks to change to mixed radical form, but the expression is already mixed and the answer converts it to an entire radical."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 17, "note": "-2·⁵√(64x¹¹y¹⁵) = -4x²y³·⁵√(2x); the key gives -64x²y³·⁵√(2x)."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 18, "note": "x⁸ = 256 has real solutions x = ±2 only; the key also lists ±4 and ±16."}
+  },
+  "1.5 Multiplying and Dividing Radical Expressions": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 1, "note": "Key C (39 + 12√3) is right, but the shipped worked solution ends with 45 + 12√3."},
+    "PROBLEM 1": {"exclude": true, "questionNumber": 10, "note": "V/SA = r/3 = 12 gives r = 36; the key says r = 4."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 7, "note": "The answer multiplies the factors in the other order from the stem: the stem's product is 8 - 2x, the key says 2x - 8."}
+  },
+  "1.6 Radical Equations": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 6, "note": "Asks for extraneous roots, but the key lists both b = (-2 ± √10)/2 as solutions; (-2 - √10)/2 is extraneous (3 + 2b < 0)."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 7, "note": "The answer only restates the equation; there is no solution."}
+  },
+  "2.1 Properties of Rational Expressions": {
+    "MULTIPLE CHOICE 3": {"exclude": true, "questionNumber": 7, "note": "The first error is in Line 2 ((2x - 4 + 2)/(-1) doesn't follow from Line 1); the key says Line 3."}
+  },
+  "2.2 Multiplication and Division of Rational Expressions": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 2, "note": "The product is -2(y + 8)/(3y(y - 2)); the key drops the factor y in the denominator."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 3, "note": "The quotient is -32/(x + 2)²; the key says -1/(8(x - 2))."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 5, "note": "The quotient is (x - 1)/(x + 5); the key says (x - 1)/(x - 5)."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 9, "note": "Result -2(x + 2) is right, but x = -2 is not a restriction; the key lists ±2."},
+    "SHORT ANSWER 6": {"exclude": true, "questionNumber": 10, "note": "The product is 1/(12(2x - 5)); the key has the opposite sign."}
+  },
+  "2.3 Sums and Differences of Rational Expressions": {
+    "MULTIPLE CHOICE 2": {"exclude": true, "questionNumber": 5, "note": "The stem has typos (numerator c - 3, denominator f(d + 3)), so none of the choices follows from it as printed."},
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 2, "note": "The key's correction is also wrong: the difference is (4x² - 15x + 2)/(4x²(x + 2))."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 4, "note": "The key's result doesn't equal the expression (checked numerically), and no restrictions are given though asked."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 10, "note": "The difference is (-x² + 5x - 3)/(x - 1); the key says (x² - 7x + 7)/(x - 1)."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 11, "note": "The expression is (2w² + 6w - 1)/((w - 1)(2w + 3)); the key says (4w² + 5w - 7)/(...)."}
+  },
+  "2.4 Mixed Operations": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 2, "note": "The expression simplifies to x(x + 4)/(3(x - 4)), which is choice C; the key says D."},
+    "MULTIPLE CHOICE 3": {"exclude": true, "questionNumber": 9, "note": "The expression is (1 - a)/a³, which is not a choice; the key says (1 - a)/a²."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 7, "note": "The expression is (x² + 8x + 8)/(4 + 3x); the key says x² + 8x + 9 in the numerator."}
+  },
+  "2.6 Applications of Rational Equations": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 3, "note": "A headwind lowers the speed: the system is 3000 = (r - 60)(t + 0.5), 3000 = rt, which is not a choice; the key (A) uses r + 60."},
+    "PROBLEM 1": {"exclude": true, "questionNumber": 4, "note": "The equation 5x² + 7x - 12 = 0 also has x = -12/5, which gives a valid arithmetic sequence; the key gives only x = 1."},
+    "PROBLEM 3": {"exclude": true, "questionNumber": 10, "note": "10/w + 10/(4w) = 0.5 gives a walking speed of 25 km/h and a bike speed of 100 km/h; the key gives 25 km/h for the bike."},
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 1, "note": "1/45 + 1/J = 1/30 gives J = 90 minutes; the key says 40."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 8, "note": "1/9 + 1/11 = 20/99, not 516/66563; the integers are 257 and 259."}
+  },
+  "3.1 Angles and Their Measure": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 2, "note": "Reflecting 60° in the y-axis gives 120° (A) and in the x-axis gives 300° (B); two choices are correct, the key accepts only A."}
+  },
+  "3.2 The Three Trigonometric Functions": {
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 7, "note": "The lines meet at (74.3, -170), in quadrant IV; the key's ratios (sin -255/257, cos -32/257) describe a quadrant III point."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 8, "note": "For P(-7, 11), r = √170: sin θ = 11/√170 and tan θ = -11/7; the key gives 6√170/86 and -12/7."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 9, "note": "The key's point (-3, -4) is not on y = -4/3·x (the terminal arm is in quadrant II or IV)."},
+    "SHORT ANSWER 6": {"exclude": true, "questionNumber": 10, "note": "Says the terminal side is in quadrant II, but the key's ratios (sin and cos both negative) are for quadrant III; the stem's line is also missing its x."}
+  },
+  "3.3 Special Angles": {
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 4, "note": "cos θ = 1/√2 on -360° < θ < 360° gives ±45° and ±315°; the key lists 225°, 405° and 585°."}
+  },
+  "3.4 Oblique Triangles": {
+    "MULTIPLE CHOICE 4": {"exclude": true, "questionNumber": 9, "note": "The degree signs in choices B and D are pasted pictures that render as large circles on their own lines; the key (46°) is right."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 3, "note": "a = 12·sin 120°/sin 45° = 14.70; the key says 14.20."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 5, "note": "With A = 42°, b = 9 and c = 6, a ≈ 6.06; the key says 6.7, and its angles sum to 173.9°."}
+  },
+  "3.5 Law of Sines": {
+    "MULTIPLE CHOICE 2": {"exclude": true, "questionNumber": 4, "note": "h = 7√3·sin 62° ≈ 10.7 < a = 11 < b ≈ 12.1, so two triangles exist; the key says one."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 2, "note": "sin B = 12·sin 29°/9 = 0.6464 gives B = 40.3° or 139.7°; the key says 46.7° and 133.3°."}
+  },
+  "3.6 Law of Cosines": {
+    "PROBLEM 1": {"exclude": true, "questionNumber": 3, "note": "The 'acute' angle is typed as 150° (text '1' then '50°'), and the answer '119..2 cm' is impossible: with sides 10 and 9 the diagonal is under 19 cm."}
+  },
+  "4.1 Factoring x^2 + bx + c": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 1, "note": "z² - 3z - 108 = (z - 12)(z + 9); the key's (z + 12)(z - 9) expands to z² + 3z - 108."}
+  },
+  "4.2 Factoring ax^2 + bx + c": {
+    "MULTIPLE CHOICE 2": {"exclude": true, "questionNumber": 8, "note": "The expression is 16x²(8x² + x - 3), which doesn't factor further over the integers; the keyed B expands to 128x³ - 32x² - 48x."},
+    "MULTIPLE RESPONSE 1": {"exclude": true, "questionNumber": 9, "note": "Both b ((5x - 2)²) and c ((2x - 3)²) are perfect squares; the key gives only c."}
+  },
+  "4.3 Absolute Value Functions": {
+    "MULTIPLE CHOICE 2": {"exclude": true, "questionNumber": 4, "note": "y = ⅓|3x + 2| - 3 is -x - 11/3 for x < -2/3 and x - 7/3 for x ≥ -2/3; no choice matches, and the keyed A has both slopes reversed."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 5, "note": "The answer describes a different function: this one has y-intercept -5, x-intercept 2.5 and range y ≤ 1; the key says (0, 5), no x-intercepts and y ≥ 1."},
+    "SHORT ANSWER 8": {"exclude": true, "questionNumber": 10, "note": "The range of |x - 2| - 2 is y ≥ -2; the key says y ≥ 2."}
+  },
+  "4.5 Rational Functions": {
+    "MULTIPLE CHOICE 4": {"exclude": true, "questionNumber": 10, "note": "y = 0 is in the range (x = 5); the range excludes about 0.046 < y < 2.40, so the keyed 'y ≠ 0' (B) is wrong and no choice is right."},
+    "TRUE/FALSE 2": {"exclude": true, "questionNumber": 3, "note": "The teacher typed words inside an equation; 'denominator' contains the function name 'min' and renders as 'd e n o min ator'."}
+  },
+  "4.6 Reciprocal Functions": {
+    "MULTIPLE CHOICE 2": {"exclude": true, "questionNumber": 6, "note": "f(x) > -1 implies none of the choices (f = -1/2 breaks the keyed C: 1/f > -1/f needs f > 0)."}
+  },
+  "5.1 Properties of Quadratic Functions": {
+    "MULTIPLE CHOICE 4": {"exclude": true, "questionNumber": 8, "note": "The keyed choice D has a stray '3' typed after -9/2, so it reads '-9/2 3'."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 2, "note": "2x² - x + 6 has no x-intercepts (discriminant -47); the key's (-3/2, 0) and (2, 0) are roots of 2x² - x - 6."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 4, "note": "The parabola is y = -2(x - 1)² + 4, so y(7) = -68; the key's second point (7, -8) is not on it."}
+  },
+  "5.2 The Standard Form of a Quadratic Function": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 8, "note": "Both C (-2, 249) and D (36, 7165) are on the parabola (7·32² - 3 = 7165); the key accepts only C."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 6, "note": "3(x - 4)² - 3 opens upward, so the range is y ≥ -3 and -3 is a minimum; the key says y ≤ -3."}
+  },
+  "5.3 Finding the Equation of a Parabola": {
+    "MULTIPLE CHOICE 3": {"exclude": true, "questionNumber": 7, "note": "a < 0 with q > 0 (D) also gives two x-intercepts; the key accepts only A."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 5, "note": "The key y = (x - 2)² - 36 has y-intercept -32; the parabola is y = 9/8·(x - 8)(x + 4)."}
+  },
+  "5.4 Standard Form to General Form": {
+    "MULTIPLE RESPONSE 1": {"exclude": true, "questionNumber": 10, "note": "c is not a perfect square ((3x/7 - 2)² has -12x/7, not -12x/49); only b is. The key says b and c."},
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 1, "note": "x² + 16x - 22 = (x + 8)² - 86, vertex (-8, -86); the key gives (x - 8)² - 86 and no vertex."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 2, "note": "The completed square is -3/2·(x - 4/3)² - 5/6; the key's leading coefficient is -3/4."}
+  },
+  "5.5 Vertex of a Parabola": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 4, "note": "The keyed choice B is missing the square on x (-3/8·x - 2x + 5), so no choice is right."},
+    "PROBLEM 1": {"exclude": true, "questionNumber": 1, "note": "The answer's b² is typed with an empty exponent, so it renders as c - b/(4a)."},
+    "PROBLEM 2": {"exclude": true, "questionNumber": 8, "note": "The vertex is (-df/(2c), df²/(4c) + a); the key drops the factors 2 and 4."}
+  },
+  "5.6 Applications of Quadratic Functions": {
+    "PROBLEM 8": {"exclude": true, "questionNumber": 8, "note": "B(T) = 20T² + 20T + 120 is least at T = -0.5 °C (115 million); the key says T = -1.5 °C."}
+  },
+  "6.1 Solving Quadratic Equations by Factoring": {
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 4, "note": "2x² + 6 = 4x has no real solutions (x² - 2x + 3 = 0); the key's 1 and -3 solve x² + 2x - 3 = 0."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 5, "note": "The equation reduces to 3y = 2(y + 5) with y ≠ 5, so y = 10 only; the key also lists ±5 (5 is non-permissible, -5 doesn't satisfy it)."},
+    "SHORT ANSWER 8": {"exclude": true, "questionNumber": 9, "note": "The key's roots -3/2 and 5/4 solve 8y² + 2y - 15 = 0, not 8y² + 22y - 15 = 0."}
+  },
+  "6.2 Completing the Square and Square Root Property": {
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 4, "note": "The student's first error is line 2 (w(2 - w) = -w² + 2w, not -w² - 2w); the correct answer is w = 1 ± √5, but the key says w = -2 ± 5."}
+  },
+  "6.3 The Quadratic Formula": {
+    "PROBLEM 1": {"exclude": true, "questionNumber": 1, "note": "The derivation's fourth line divides by 4a instead of 4a² ((x + b/2a)² = (b² - 4ac)/(4a²))."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 4, "note": "The stem has an x² typo, and the key's -11 and 12 fail either reading (the intended √(132 - x) = x has only x = 11)."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 5, "note": "√((-√2)² - 4(-4)(1)) = √18 = 3√2; the key has 6√2."}
+  },
+  "6.5 Applications of Quadratic Equations": {
+    "PROBLEM 3": {"exclude": true, "questionNumber": 4, "note": "Underdetermined: the fencing cost alone doesn't fix the buildings' dimensions, and the key's 250 m doesn't follow from the stem."},
+    "PROBLEM 4": {"exclude": true, "questionNumber": 5, "note": "The stem mixes 105 mph and 115 km/h; the key's 2 h + 3 h only works if both speeds are in the same unit."},
+    "PROBLEM 8": {"exclude": true, "questionNumber": 9, "note": "(10 + 2w)(8 + 2w) = 160 gives w = (-9 + √161)/2 ≈ 1.8 m; the key says 1.2 m."},
+    "PROBLEM 9": {"exclude": true, "questionNumber": 10, "note": "4x - 21/x = 25 has solutions 7 and -3/4; the key gives only 7."}
+  },
+  "7.1 Graphing Non-Linear Systems of Equations": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 6, "note": "(12 - h)² = 25 gives h = 7 or h = 17; the question asks for all values and the key gives only 7."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 7, "note": "The system has two real solutions (12x² - 7x - 44 = 0 has discriminant 2161); the key says no solution."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 8, "note": "The system has two solutions, (3, 2) and about (2.54, 2.15); the key says no solution."}
+  },
+  "7.5 Applications of Inequalities": {
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 2, "note": "With x ≤ 200, y ≤ 300 and x + y ≤ 250 the corners are (0, 0), (200, 0), (200, 50) and (0, 250); the key's (0, 300) breaks x + y ≤ 250."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 3, "note": "At least $4000 in stocks with bonds more than twice the stocks exceeds $10,000, so no combination works; the key's points don't satisfy the conditions."},
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 4, "note": "A + (A + 7) ≥ 16 gives at least 5 pillows for Anika and 12 for Bradley; the key says 11 and 18."}
+  },
+  "8.2 Arithmetic Series": {
+    "SHORT ANSWER 4": {"exclude": true, "questionNumber": 7, "note": "Walking out 8k m and back for trees k = 1…23 totals 4416 m (4232 m without the last return); the key says 368 m."}
+  },
+  "8.3 Geometric Sequences": {
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 5, "note": "(x + 30)² = (4x - 25)(8x + 15) gives x ≈ 10.4 (r ≈ 2.43) or x ≈ -3.95 (r ≈ -0.64); no x gives r = 3."}
+  },
+  "8.4 Geometric Series": {
+    "MULTIPLE CHOICE 3": {"exclude": true, "questionNumber": 4, "note": "The stem's second term 123 (for -125) makes the sequence non-geometric as printed."},
+    "SHORT ANSWER 3": {"exclude": true, "questionNumber": 6, "note": "Reducing the dose by one third each day (×2/3) totals about 282 mg over 7 days; the key's 150 mg reduces it to one third."},
+    "SHORT ANSWER 5": {"exclude": true, "questionNumber": 8, "note": "The ball travels about 55 ft (16.8 m); the stem asks for the nearest metre and the key says 55 m."},
+    "SHORT ANSWER 7": {"exclude": true, "questionNumber": 10, "note": "0.94¹¹ ≈ 0.506, so less than half remains after 12 months; the key says 11."}
+  },
+  "8.5 Infinite Geometric Series": {
+    "MULTIPLE CHOICE 1": {"exclude": true, "questionNumber": 2, "note": "Starting at k = 1 the sum is 3(0.99)/0.01 = 297, which is not a choice; the keyed 300 is the sum from k = 0."},
+    "SHORT ANSWER 1": {"exclude": true, "questionNumber": 4, "note": "The halving distances sum to 1 (the whole distance), not 2, and the stem's 'sixteenth' should be 'eighth'."},
+    "SHORT ANSWER 2": {"exclude": true, "questionNumber": 5, "note": "The printed series 1/81 + a²/27 + a²/3 + … is not geometric, so the key's condition doesn't follow from it."},
+    "SHORT ANSWER 6": {"exclude": true, "questionNumber": 9, "note": "The series has ratio -1/(a - 2)², so its sum is -(a - 2)³/((a - 2)² + 1); the key says -(a + 1)."},
+    "SHORT ANSWER 7": {"exclude": true, "questionNumber": 10, "note": "A 15 ft arc decreasing by 55% each lap sums to about 27 ft (55 ft counting both directions); the key's 52 ft doesn't follow."}
+  }
+}

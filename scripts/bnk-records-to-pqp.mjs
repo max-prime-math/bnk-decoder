@@ -16,10 +16,10 @@ import { mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { basename, dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { unzlibSync } from 'fflate';
-import { readQuestionRecords } from '../packages/bnk-core/src/records.ts';
-import { renderRecordQuestion } from '../packages/bnk-core/src/record-questions.ts';
+import { lastRecordFailure, readQuestionRecords } from '../packages/bnk-core/src/records.ts';
+import { renderMatchingGroup, renderRecordQuestion } from '../packages/bnk-core/src/record-questions.ts';
 import { dibToPng, pictureWidthInches } from '../packages/bnk-core/src/record-typst.ts';
-import { buildOutcomeLookup, loadManitobaClass } from './manitoba-curriculum.mjs';
+import { buildOutcomeLookup, manitobaClass } from './manitoba-curriculum.mjs';
 
 const TOOL_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const [bnkArg, outArg, configArg, overridesArg] = process.argv.slice(2);
@@ -30,14 +30,18 @@ if (!bnkArg || !outArg || !configArg) {
 const bnkDir = resolve(bnkArg);
 const outDir = resolve(outArg);
 const config = JSON.parse(readFileSync(resolve(configArg), 'utf8'));
+if (!config.corpus) throw new Error(`${configArg}: add a "corpus" name (the source collection, used as the source tag)`);
 const OVERRIDES = overridesArg ? JSON.parse(readFileSync(resolve(overridesArg), 'utf8')) : {};
-const CURRICULUM = loadManitobaClass(process.env.CURRICULUM_CLASSES ? resolve(process.env.CURRICULUM_CLASSES) : null);
+// The bank config names the course (default Pre-Calculus 40S).
+const CURRICULUM = manitobaClass(config.course ?? 'pre-calculus-40s', process.env.CURRICULUM_CLASSES ? resolve(process.env.CURRICULUM_CLASSES) : null);
 const OUTCOMES = buildOutcomeLookup(CURRICULUM);
 
 const TYPE_INFO = {
   'true-false': { label: 'TRUE/FALSE', kind: 'mcq', points: 1 },
   'yes-no': { label: 'YES/NO', kind: 'mcq', points: 1 },
   'multiple-choice': { label: 'MULTIPLE CHOICE', kind: 'mcq', points: 1 },
+  // Any number of correct choices; test-generator keys one, so written response with the letters.
+  'multiple-response': { label: 'MULTIPLE RESPONSE', kind: 'frq', points: 1 },
   'short-answer': { label: 'SHORT ANSWER', kind: 'frq', points: 2 },
   problem: { label: 'PROBLEM', kind: 'frq', points: 5 },
 };
@@ -65,7 +69,8 @@ function convertFile(file) {
   }
   const bank = readQuestionRecords(unzlibSync(bytes.subarray(16)));
   if (!bank) {
-    console.warn(`${file}: records don't follow the metadata-free v06 layout, skipped`);
+    if (lastRecordFailure === '!offsets.length') console.warn(`${file}: no question records (empty section), skipped`);
+    else console.warn(`${file}: records don't follow the metadata-free v06 layout (${lastRecordFailure}), skipped`);
     return summary;
   }
 
@@ -79,78 +84,68 @@ function convertFile(file) {
   const diagnostics = [];
   const counters = {};
 
-  for (const record of bank.records) {
-    summary.found += 1;
-    const info = TYPE_INFO[record.type];
-    const label = info?.label ?? `TYPE ${record.typeCode}`;
-    counters[label] = (counters[label] ?? 0) + 1;
-    const sourceQuestionNumber = `${label} ${counters[label]}`;
-    summary.byType[label] ??= { found: 0, shipped: 0 };
-    summary.byType[label].found += 1;
-
-    const pictureProblems = [];
-    const usedAssets = new Set();
-    // Pictures are staged per question and only written when the question ships.
-    const staged = [];
-    const options = {
+  // Pictures are staged per question and only written when the question ships.
+  const pictureCollector = (recordNumber) => {
+    const collected = { problems: [], used: new Set(), staged: [] };
+    collected.options = {
       picture(object) {
         let png;
         try {
           png = dibToPng(object.dib);
         } catch (error) {
-          pictureProblems.push(`picture: ${error.message}`);
+          collected.problems.push(`picture: ${error.message}`);
           return '';
         }
         const hash = createHash('sha1').update(png).digest('hex');
-        let asset = assetByHash.get(hash) ?? staged.find((item) => item.hash === hash)?.asset;
+        let asset = assetByHash.get(hash) ?? collected.staged.find((item) => item.hash === hash)?.asset;
         if (!asset) {
-          const name = `${config.prefix}-${sectionKey.replace('.', '-')}-${String(assets.length + staged.length + 1).padStart(2, '0')}`;
+          const name = `${config.prefix}-${sectionKey.replace('.', '-')}-${String(assets.length + collected.staged.length + 1).padStart(2, '0')}`;
           asset = {
             id: `${slug(stem)}-asset-${name}`,
             kind: 'image',
             filename: `${name}.png`,
             mimeType: 'image/png',
             storage: { mode: 'external', path: join('assets', stem, `${name}.png`) },
-            source: { originalPath: `${sourcePath}#question-${record.number}` },
+            source: { originalPath: `${sourcePath}#question-${recordNumber}` },
             extensions: { examview: { widthTwips: object.widthTwips, heightTwips: object.heightTwips } },
           };
-          staged.push({ hash, png, asset });
+          collected.staged.push({ hash, png, asset });
         }
-        usedAssets.add(asset.id);
+        collected.used.add(asset.id);
         // Inline box: pictures typed side by side ("shown on the left ... right") stay side by side.
         return `#box(image("/imgs/${asset.filename.replace(/\.png$/, '')}", width: ${pictureWidthInches(object).toFixed(2)}in))`;
       },
     };
+    return collected;
+  };
 
-    const rendered = renderRecordQuestion(record, options);
-    const problems = [...rendered.problems, ...pictureProblems];
-    const content = {
-      stem: rich(rendered.stem),
-      choices: rendered.choices?.map((choice) => ({ id: choice.id, body: rich(choice.text) })),
-      solution: rendered.solution ? rich(rendered.solution) : undefined,
-    };
-    const answer = rendered.answer ? { type: 'choice', value: rendered.answer } : undefined;
+  // Count a question, apply any reviewed exclusion, and ship it or record why it's left out.
+  const finish = ({ label, recordNumber, problems, pictures, build }) => {
+    counters[label] = (counters[label] ?? 0) + 1;
+    const sourceQuestionNumber = `${label} ${counters[label]}`;
+    summary.found += 1;
+    summary.byType[label] ??= { found: 0, shipped: 0 };
+    summary.byType[label].found += 1;
+    const all = [...problems, ...pictures.problems];
     const override = OVERRIDES[stem]?.[sourceQuestionNumber];
     unusedOverrides.delete(sourceQuestionNumber);
     if (override?.exclude) {
-      if (override.questionNumber !== undefined && override.questionNumber !== record.number) {
-        throw new Error(`${stem} ${sourceQuestionNumber}: override is for ExamView question ${override.questionNumber}, found ${record.number}`);
+      if (override.questionNumber !== undefined && override.questionNumber !== recordNumber) {
+        throw new Error(`${stem} ${sourceQuestionNumber}: override is for ExamView question ${override.questionNumber}, found ${recordNumber}`);
       }
-      problems.push(`reviewed authoring error: ${override.note}`);
+      all.push(`reviewed authoring error: ${override.note}`);
     }
-
-    if (problems.length) {
+    if (all.length) {
       summary.leftOut += 1;
-      summary.leftOutQuestions.push({ sourceQuestionNumber, recordNumber: record.number, reasons: [...new Set(problems)] });
+      summary.leftOutQuestions.push({ sourceQuestionNumber, recordNumber, reasons: [...new Set(all)] });
       diagnostics.push({
         level: 'warning',
         code: 'QUESTION_LEFT_OUT',
-        message: `${sourceQuestionNumber} (ExamView question ${record.number}) left out: ${[...new Set(problems)].join('; ')}`,
+        message: `${sourceQuestionNumber} (ExamView question${String(recordNumber).includes(',') ? 's' : ''} ${recordNumber}) left out: ${[...new Set(all)].join('; ')}`,
       });
-      continue;
+      return;
     }
-
-    for (const { hash, png, asset } of staged) {
+    for (const { hash, png, asset } of pictures.staged) {
       mkdirSync(assetDir, { recursive: true });
       writeFileSync(join(assetDir, asset.filename), png);
       assetByHash.set(hash, asset);
@@ -158,36 +153,101 @@ function convertFile(file) {
     }
     summary.shipped += 1;
     summary.byType[label].shipped += 1;
-    questions.push(pruneUndefined({
-      id: `${config.prefix}-${sectionKey.replace('.', '-')}-q${String(record.number).padStart(2, '0')}`,
-      kind: info?.kind ?? 'frq',
-      content,
-      answer,
-      scoring: { points: info?.points ?? 1 },
-      classification: classificationFor(record.type, sectionKey, sectionConfig, bank, chapterNumber),
-      assets: usedAssets.size ? [...usedAssets] : undefined,
-      provenance: {
-        sourceApp: 'bnk-decoder',
-        sourceSystem: 'ExamView',
-        author: config.author,
-        collection: config.bank,
-        sourceLabel: file,
-        sourceQuestionNumber,
-        confidence: 'high',
-        originFiles: [sourcePath],
-      },
-      extensions: {
-        examview: {
-          sourceSection: label,
-          sourceQuestionNumber: counters[label],
-          questionNumber: record.number,
-          typeCode: record.typeCode,
-          answerCode: rendered.answer ? record.answerCode : undefined,
-          recordOffset: record.offset,
+    questions.push(pruneUndefined(build({ sourceQuestionNumber, number: counters[label], usedAssets: pictures.used.size ? [...pictures.used] : undefined })));
+  };
+
+  const provenance = (sourceQuestionNumber) => ({
+    sourceApp: 'bnk-decoder',
+    sourceSystem: 'ExamView',
+    author: config.author,
+    collection: config.bank,
+    sourceLabel: file,
+    sourceQuestionNumber,
+    confidence: 'high',
+    originFiles: [sourcePath],
+  });
+  const decodedNote = [{ level: 'info', code: 'BNK_RECORD_DECODED', message: 'Decoded from the ExamView question record (no printout).' }];
+
+  for (const record of bank.records) {
+    if (record.type === 'matching') continue; // shipped with their group below
+    const info = TYPE_INFO[record.type];
+    const label = info?.label ?? `TYPE ${record.typeCode}`;
+    const pictures = pictureCollector(record.number);
+    const rendered = renderRecordQuestion(record, pictures.options);
+    finish({
+      label,
+      recordNumber: record.number,
+      problems: rendered.problems,
+      pictures,
+      build: ({ sourceQuestionNumber, number, usedAssets }) => ({
+        id: `${config.prefix}-${sectionKey.replace('.', '-')}-q${String(record.number).padStart(2, '0')}`,
+        kind: info?.kind ?? 'frq',
+        content: {
+          stem: rich(rendered.stem),
+          choices: rendered.choices?.map((choice) => ({ id: choice.id, body: rich(choice.text) })),
+          solution: rendered.solution ? rich(rendered.solution) : undefined,
         },
-        decodeDiagnostics: [{ level: 'info', code: 'BNK_RECORD_DECODED', message: 'Decoded from the ExamView question record (no printout).' }],
-      },
-    }));
+        answer: rendered.answer ? { type: 'choice', value: rendered.answer } : undefined,
+        scoring: { points: info?.points ?? 1 },
+        classification: classificationFor(record.type, sectionKey, sectionConfig, bank, chapterNumber),
+        assets: usedAssets,
+        provenance: provenance(sourceQuestionNumber),
+        extensions: {
+          examview: {
+            sourceSection: label,
+            sourceQuestionNumber: number,
+            questionNumber: record.number,
+            typeCode: record.typeCode,
+            answerCode: rendered.answer || record.type === 'multiple-response' ? record.answerCode : undefined,
+            recordOffset: record.offset,
+          },
+          decodeDiagnostics: decodedNote,
+        },
+      }),
+    });
+  }
+
+  // Matching: each group (shared prompt and choices) and its items become one question. With
+  // more than one group in a file the items can't be assigned yet, so they're left out.
+  const matchingItems = bank.records.filter((record) => record.type === 'matching');
+  if (bank.groups.length > 1 && matchingItems.length) {
+    for (const group of bank.groups) {
+      finish({ label: 'MATCHING', recordNumber: `group ${group.number}`, problems: ['more than one matching group in the file; items not assigned to groups'], pictures: pictureCollector(group.number), build: () => ({}) });
+    }
+    // Items are listed by number so the gate can account for them.
+    diagnostics.push({ level: 'warning', code: 'QUESTION_LEFT_OUT', message: `Matching items (ExamView questions ${matchingItems.map((item) => item.number).join(', ')}) left out with their groups` });
+  } else if (bank.groups.length === 1 || matchingItems.length) {
+    const group = bank.groups[0];
+    const pictures = pictureCollector(group?.number ?? 0);
+    const rendered = group
+      ? renderMatchingGroup(group, matchingItems, pictures.options)
+      : { problems: ['matching items without a matching group'], stem: '', solution: '', answer: '', items: matchingItems.length };
+    finish({
+      label: 'MATCHING',
+      // Logged as the item numbers, so a left-out group accounts for its items.
+      recordNumber: [...matchingItems].sort((a, b) => a.number - b.number).map((item) => item.number).join(', ') || `group ${group?.number}`,
+      problems: rendered.problems,
+      pictures,
+      build: ({ sourceQuestionNumber, usedAssets }) => ({
+        id: `${config.prefix}-${sectionKey.replace('.', '-')}-m${String(group.number).padStart(2, '0')}`,
+        kind: 'matching',
+        content: { stem: rich(rendered.stem), solution: rich(rendered.solution) },
+        answer: { type: 'text', value: rendered.answer },
+        scoring: { points: rendered.items },
+        classification: classificationFor('matching', sectionKey, sectionConfig, bank, chapterNumber),
+        assets: usedAssets,
+        provenance: provenance(sourceQuestionNumber),
+        extensions: {
+          examview: {
+            sourceSection: 'MATCHING',
+            matchingGroup: group.number,
+            questionNumbers: [...matchingItems].sort((a, b) => a.number - b.number).map((item) => item.number),
+            recordOffset: group.offset,
+          },
+          decodeDiagnostics: decodedNote,
+        },
+      }),
+    });
   }
   if (unusedOverrides.size) throw new Error(`${stem}: overrides for questions that don't exist: ${[...unusedOverrides].join(', ')}`);
   summary.pictures = assets.length;
@@ -202,7 +262,7 @@ function convertFile(file) {
       sourceSystem: 'ExamView',
       author: config.author,
       collection: config.bank,
-      curriculum: 'Manitoba Pre-Calculus 40S',
+      curriculum: `Manitoba ${CURRICULUM.name}`,
       bankTitle: bank.title,
       sectionTitle: bank.sectionTitle,
       originFiles: [sourcePath],
@@ -221,14 +281,18 @@ function convertFile(file) {
 }
 
 function classificationFor(type, sectionKey, sectionConfig, bank, chapterNumber) {
-  const codes = (sectionConfig.outcomes ?? []).filter((code) => OUTCOMES.has(code));
+  const unknown = (sectionConfig.outcomes ?? []).filter((code) => !OUTCOMES.has(code));
+  if (unknown.length) throw new Error(`${sectionKey}: unknown ${CURRICULUM.name} outcome(s) ${unknown.join(', ')}`);
+  const codes = sectionConfig.outcomes ?? [];
   const primary = codes[0] ? OUTCOMES.get(codes[0]) : undefined;
   const chapterName = config.chapters?.[chapterNumber] ?? `Chapter ${chapterNumber}`;
   const unit = primary ?? (sectionConfig.unitId ? CURRICULUM.units.find((item) => item.id === sectionConfig.unitId) : undefined);
   const sectionName = bank.sectionTitle || sectionKey;
   return pruneUndefined({
     questionType: type,
-    tags: [...new Set(['examview', ...(config.tags ?? []), 'pre-calculus-40s', type])],
+    // Class, outcome and question type are categories, not tags. True/false and yes/no stay as
+    // tags because test-generator stores them as plain multiple choice.
+    tags: [...new Set(['examview', `source: ${config.corpus}`, ...(type === 'true-false' || type === 'yes-no' ? [type] : [])])],
     classId: CURRICULUM.id,
     className: CURRICULUM.name,
     unitId: primary?.unitId ?? unit?.id ?? `${config.prefix}-chapter-${chapterNumber.padStart(2, '0')}`,
@@ -273,7 +337,7 @@ Generated by \`scripts/bnk-records-to-pqp.mjs\` straight from the ExamView BNK q
 (no printout or Mathpix output exists for this bank). Content is Typst; answers come from the
 BNK record (multiple-choice index, true/false and yes/no flag, short-answer and problem answer text).
 
-Regenerate with \`npm run pqp:mickelson12\`; check with
+Regenerate with \`npm run ${config.script ?? 'pqp:mickelson12'}\`; check with
 \`TEST_GENERATOR_DIR=<test-generator> npm run check:pqp -- ${relative(TOOL_ROOT, outDir)} --bnk '${relative(TOOL_ROOT, bnkDir)}'\`.
 
 | Section | Found | Shipped | Left out | Pictures | By type (shipped/found) |

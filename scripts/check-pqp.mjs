@@ -166,8 +166,10 @@ function checkTextAndAssets(pkg) {
 }
 
 // Answer keys against the BNK itself. Record headers are read here with a minimal reader,
-// independent of the decoder: int32 question number, bank id, type code, -1, bank id, 1, ..,
-// answer (+0x1c), .., choice count (+0x24). Choice answers: 0 = A (True, Yes), 1 = B, ...
+// independent of the decoder: int32 question number, bank id, type code, -1, bank id (0 in
+// some matching items), 1, .., answer (+0x1c), .., choice count (+0x24). Choice answers:
+// 0 = A (True, Yes), 1 = B, ... Multiple response (type 3): answer is a bitmask, bit 0 = a.
+// Matching items (type 8): +0x24 is the 0-based index of the matching choice.
 function checkBnkAnswers(pkg) {
   const problems = [];
   const label = pkg.source?.label;
@@ -178,16 +180,35 @@ function checkBnkAnswers(pkg) {
   const bank = view.getInt32(0, true);
   const records = new Map();
   for (let at = 4; at + 0x28 <= payload.byteLength; at += 1) {
-    if (view.getInt32(at + 4, true) !== bank || view.getInt32(at + 16, true) !== bank || view.getInt32(at + 12, true) !== -1) continue;
+    const linked = view.getInt32(at + 16, true);
+    if (view.getInt32(at + 4, true) !== bank || (linked !== bank && linked !== 0) || view.getInt32(at + 12, true) !== -1 || view.getInt32(at + 20, true) !== 1) continue;
     records.set(view.getInt32(at, true), { type: view.getInt32(at + 8, true), answer: view.getInt32(at + 0x1c, true), choices: view.getInt32(at + 0x24, true) });
   }
   const leftOut = new Set((pkg.diagnostics ?? [])
     .filter((item) => item.code === 'QUESTION_LEFT_OUT')
-    .map((item) => Number(item.message.match(/ExamView question (\d+)/)?.[1])));
+    .flatMap((item) => (item.message.match(/ExamView questions? ([\d, ]+)/)?.[1] ?? '').split(',').map(Number)));
   const shipped = new Set();
   const OPTIONS = { 0: ['True', 'False'], 5: ['Yes', 'No'] };
   for (const question of pkg.questions) {
     const label = question.provenance.sourceQuestionNumber;
+    if (question.kind === 'matching') {
+      // One question per matching group: each item's key must be its record's match index.
+      const numbers = question.extensions?.examview?.questionNumbers ?? [];
+      const key = (question.answer?.value ?? '').split(';').map((part) => part.trim()).filter(Boolean);
+      if (!numbers.length || key.length !== numbers.length) problems.push(`bnk ${label}: ${key.length} keyed items for ${numbers.length} matching records`);
+      numbers.forEach((number, index) => {
+        const record = records.get(number);
+        if (!record || record.type !== 8) {
+          problems.push(`bnk ${label}: ExamView question ${number} is not a matching record`);
+          return;
+        }
+        shipped.add(number);
+        totals.bnkAnswerChecks += 1;
+        const expected = `${index + 1}:${String.fromCharCode(65 + record.choices)}`;
+        if (key[index] !== expected) problems.push(`bnk ${label}: item key ${key[index]} but the BNK record says ${expected}`);
+      });
+      continue;
+    }
     const number = question.extensions?.examview?.questionNumber;
     const record = records.get(number);
     if (!record) {
@@ -197,6 +218,12 @@ function checkBnkAnswers(pkg) {
     shipped.add(number);
     if (question.kind !== 'mcq') {
       if (!question.content.solution?.text?.trim()) problems.push(`bnk ${label}: written-answer question has no answer text`);
+      if (record.type === 3) {
+        totals.bnkAnswerChecks += 1;
+        const expected = [...'abcdefgh'].filter((_, index) => record.answer & (1 << index)).join(', ');
+        const given = question.content.solution?.text?.split('\n')[0].trim();
+        if (given !== expected) problems.push(`bnk ${label}: multiple-response answer ${given} but the BNK record says ${expected}`);
+      }
       continue;
     }
     totals.bnkAnswerChecks += 1;

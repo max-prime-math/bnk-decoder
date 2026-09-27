@@ -1,0 +1,255 @@
+{
+  "bank": "Pre-Calculus 11 (Mickelson)",
+  "author": "Mickelson",
+  "corpus": "Mickelson Pre-Calculus 11",
+  "prefix": "pc11m",
+  "course": "pre-calculus-30s",
+  "script": "pqp:mickelson11",
+  "chapters": {
+    "1": "Radicals",
+    "2": "Rational Expressions and Equations",
+    "3": "Trigonometry",
+    "4": "Factoring, Absolute Value and Reciprocal Functions",
+    "5": "Quadratic Functions",
+    "6": "Quadratic Equations",
+    "7": "Systems and Inequalities",
+    "8": "Sequences and Series"
+  },
+  "chaptersNote": "The file headers only carry the generic title 'Mickelson Grade 11 Pre-Calc'; chapter names are taken from their sections.",
+  "sections": {
+    "1.1": {
+      "outcomes": [
+        "11P.A.1"
+      ],
+      "note": "The file has no questions (header only)."
+    },
+    "1.2": {
+      "outcomes": [
+        "11P.A.2"
+      ]
+    },
+    "1.3": {
+      "outcomes": [
+        "11P.A.2"
+      ]
+    },
+    "1.4": {
+      "outcomes": [
+        "11P.A.2"
+      ]
+    },
+    "1.5": {
+      "outcomes": [
+        "11P.A.2"
+      ]
+    },
+    "1.6": {
+      "outcomes": [
+        "11P.A.3"
+      ]
+    },
+    "2.1": {
+      "outcomes": [
+        "11P.A.4"
+      ]
+    },
+    "2.2": {
+      "outcomes": [
+        "11P.A.5"
+      ]
+    },
+    "2.3": {
+      "outcomes": [
+        "11P.A.5"
+      ]
+    },
+    "2.4": {
+      "outcomes": [
+        "11P.A.5"
+      ]
+    },
+    "2.5": {
+      "outcomes": [
+        "11P.A.6"
+      ]
+    },
+    "2.6": {
+      "outcomes": [
+        "11P.A.6"
+      ]
+    },
+    "3.1": {
+      "outcomes": [
+        "11P.T.1"
+      ]
+    },
+    "3.2": {
+      "outcomes": [
+        "11P.T.2"
+      ]
+    },
+    "3.3": {
+      "outcomes": [
+        "11P.T.2"
+      ],
+      "note": "Special-angle ratios and equations from 0° to 360°."
+    },
+    "3.4": {
+      "outcomes": [
+        "11P.T.3"
+      ]
+    },
+    "3.5": {
+      "outcomes": [
+        "11P.T.3"
+      ]
+    },
+    "3.6": {
+      "outcomes": [
+        "11P.T.3"
+      ]
+    },
+    "4.1": {
+      "outcomes": [
+        "11P.R.1"
+      ]
+    },
+    "4.2": {
+      "outcomes": [
+        "11P.R.1"
+      ]
+    },
+    "4.3": {
+      "outcomes": [
+        "11P.R.2"
+      ]
+    },
+    "4.4": {
+      "outcomes": [
+        "11P.R.2",
+        "11P.A.1"
+      ]
+    },
+    "4.5": {
+      "outcomes": [],
+      "unitId": "relations-and-functions",
+      "note": "General rational functions (asymptotes, domain, range) have no 30S outcome (they are 40S 12P.R.14); placed in Relations and Functions under the section title."
+    },
+    "4.6": {
+      "outcomes": [
+        "11P.R.11"
+      ]
+    },
+    "5.1": {
+      "outcomes": [
+        "11P.R.4",
+        "11P.R.3"
+      ]
+    },
+    "5.2": {
+      "outcomes": [
+        "11P.R.3"
+      ],
+      "note": "'Standard form' here is y = a(x − p)² + q."
+    },
+    "5.3": {
+      "outcomes": [
+        "11P.R.3"
+      ]
+    },
+    "5.4": {
+      "outcomes": [
+        "11P.R.4",
+        "11P.R.3"
+      ]
+    },
+    "5.5": {
+      "outcomes": [
+        "11P.R.4"
+      ]
+    },
+    "5.6": {
+      "outcomes": [
+        "11P.R.4",
+        "11P.R.3"
+      ]
+    },
+    "6.1": {
+      "outcomes": [
+        "11P.R.5"
+      ]
+    },
+    "6.2": {
+      "outcomes": [
+        "11P.R.5"
+      ]
+    },
+    "6.3": {
+      "outcomes": [
+        "11P.R.5"
+      ]
+    },
+    "6.4": {
+      "outcomes": [
+        "11P.R.5"
+      ]
+    },
+    "6.5": {
+      "outcomes": [
+        "11P.R.5"
+      ]
+    },
+    "7.1": {
+      "outcomes": [
+        "11P.R.6"
+      ]
+    },
+    "7.2": {
+      "outcomes": [
+        "11P.R.6"
+      ]
+    },
+    "7.3": {
+      "outcomes": [
+        "11P.R.7"
+      ]
+    },
+    "7.4": {
+      "outcomes": [
+        "11P.R.7",
+        "11P.R.8"
+      ],
+      "note": "Two-variable inequalities, with some one-variable quadratic inequalities."
+    },
+    "7.5": {
+      "outcomes": [
+        "11P.R.7"
+      ]
+    },
+    "8.1": {
+      "outcomes": [
+        "11P.R.9"
+      ]
+    },
+    "8.2": {
+      "outcomes": [
+        "11P.R.9"
+      ]
+    },
+    "8.3": {
+      "outcomes": [
+        "11P.R.10"
+      ]
+    },
+    "8.4": {
+      "outcomes": [
+        "11P.R.10"
+      ]
+    },
+    "8.5": {
+      "outcomes": [
+        "11P.R.10"
+      ]
+    }
+  }
+}

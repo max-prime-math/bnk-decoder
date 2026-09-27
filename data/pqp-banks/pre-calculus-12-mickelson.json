@@ -1,10 +1,8 @@
 {
   "bank": "Pre-Calculus 12 (Mickelson)",
   "author": "Mickelson",
+  "corpus": "Mickelson Pre-Calculus 12",
   "prefix": "pc12m",
-  "tags": [
-    "mickelson"
-  ],
   "chapters": {
     "1": "Transformations",
     "2": "Polynomials",

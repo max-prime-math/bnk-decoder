@@ -36,6 +36,8 @@ const SOURCE_METADATA = {
   publisherConfidence: 'inferred-from-bank-family',
   collection: 'Pre-Calculus 12 ExamView Test Banks',
   curriculum: 'Manitoba Pre-Calculus 40S',
+  // One tag names the corpus; class, unit, section and type are categories, not tags.
+  corpusTag: 'source: McGraw-Hill Pre-Calculus 12',
 };
 // Mathpix page crops are 254 px per inch (10 px/mm); used to print crops at their original size.
 const MATHPIX_PIXELS_PER_INCH = 254;
@@ -845,14 +847,10 @@ function classificationFor(section, chapterTitle, metadata, evidenceText = '') {
   const outcomeCodes = explicitOutcomeCodes.length ? explicitOutcomeCodes : inferredOutcomeCodes;
   const outcomeSource = explicitOutcomeCodes.length ? 'examview-nat' : inferredOutcomeCodes.length ? 'inferred-from-topic' : undefined;
   const primaryOutcome = outcomeCodes[0] ? MANITOBA_OUTCOMES.get(outcomeCodes[0]) : undefined;
-  const tags = [
-    'examview',
-    'mathpix',
-    'mcgraw-hill',
-    'pre-calculus-40s',
-    section.toLowerCase().replace(/\s+/g, '-'),
-  ];
-  if (key) tags.push(...key.split('|').map((item) => item.trim()).filter(Boolean));
+  // The class, curriculum outcome and question type are categories in test-generator, so
+  // they aren't repeated as tags; tags carry the corpus and ExamView's topic keywords.
+  const tags = ['examview', SOURCE_METADATA.corpusTag];
+  if (key) tags.push(...keywordTags(key));
   return pruneUndefined({
     questionType: section.toLowerCase().replace(/\s+/g, '-'),
     tags: uniqueTags(tags),
@@ -896,6 +894,25 @@ function classificationFor(section, chapterTitle, metadata, evidenceText = '') {
       collection: SOURCE_METADATA.collection,
     },
   });
+}
+
+// ExamView's KEY line, cleaned for tags. Mathpix sometimes runs the line into ExamView's
+// "NOT:" notes, table or LaTeX debris, or the next question's instructions, and wraps long
+// keywords across items ("square root | of a function"). The raw KEY stays in the metadata.
+function keywordTags(key) {
+  const parts = [];
+  for (const raw of key.split('|')) {
+    const cut = raw.split(/\bNOT:|\bUse the following|\bFor the following|[&$\\]/i)[0]
+      .replace(/[\s,;:.]+$/, '').replace(/\s+/g, ' ').trim();
+    if (!cut) continue;
+    if (/^(of|and|or|in|to|for|with|the)\b/i.test(cut) && parts.length) {
+      parts[parts.length - 1] = `${parts[parts.length - 1]} ${cut}`;
+      continue;
+    }
+    parts.push(cut);
+  }
+  // Test Generator splits tags at commas; a keyword is a short phrase.
+  return parts.map((part) => part.replace(/,/g, '')).filter((part) => part.split(' ').length <= 6);
 }
 
 function uniqueTags(tags) {
@@ -1840,7 +1857,7 @@ Generated from ExamView PDF exports processed through Mathpix.
 - Diagnostics: ${totalDiagnostics}
 - Content format: Typst (\`content.*.format = "typst"\`)
 - Curriculum: the Manitoba Pre-Calculus 40S outcome is the question's unit and section (\`classification.unitId\` / \`sectionId\`), not a tag
-- Source tags: \`examview\`, \`mathpix\`, \`mcgraw-hill\`, \`pre-calculus-40s\`
+- Tags: \`examview\`, \`${SOURCE_METADATA.corpusTag}\` and ExamView's topic keywords (class, outcome and type are categories, not tags)
 
 ## Chapter Summary
 
