@@ -1,0 +1,5 @@
+param([int]$ProcessId)
+Add-Type @"
+using System;using System.Text;using System.Runtime.InteropServices;using System.Collections.Generic;public class EVWindowRead{public delegate bool CB(IntPtr h,IntPtr p);[DllImport("user32.dll")]static extern bool EnumWindows(CB c,IntPtr p);[DllImport("user32.dll")]static extern uint GetWindowThreadProcessId(IntPtr h,out uint p);[DllImport("user32.dll",CharSet=CharSet.Unicode)]static extern int GetClassName(IntPtr h,StringBuilder s,int n);[DllImport("user32.dll",CharSet=CharSet.Unicode)]static extern IntPtr SendMessage(IntPtr h,uint m,IntPtr w,StringBuilder l);[DllImport("user32.dll")]static extern IntPtr GetMenu(IntPtr h);public static string[] Windows(uint pid){var x=new List<string>();EnumWindows((h,p)=>{uint id;GetWindowThreadProcessId(h,out id);if(id==pid){var c=new StringBuilder(256);var s=new StringBuilder(1024);GetClassName(h,c,256);SendMessage(h,13,(IntPtr)1024,s);x.Add(h.ToString()+" | "+c+" | "+s+" | menu="+GetMenu(h));}return true;},IntPtr.Zero);return x.ToArray();}}
+"@
+[EVWindowRead]::Windows($ProcessId)

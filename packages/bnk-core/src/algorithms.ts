@@ -17,7 +17,7 @@
 // immediately before the block. Inside the question that follows, variables
 // are referenced three ways:
 //   text slot       UTF-16 "X" string followed by the variable name
-//   equation slot   byte 0x0a + ASCII name + 0x00 inside compact equation objects
+//   equation slot   byte 0x0a + UTF-16LE name + uint16 0 inside equation objects
 //   graph object    UTF-16 expression strings such as "x1", "(x + h)^2 + k"
 
 export type AlgorithmEntryKind = 'variable' | 'condition' | 'control';
@@ -30,6 +30,10 @@ export interface AlgorithmEntry {
   rawDisplay: string;
   /** Display text with ExamView font escapes mapped to plain characters; undefined if unmappable. */
   display: string | undefined;
+  /** Typst expression for native fraction-display strings, rather than flattened text. */
+  mathDisplay?: string;
+  /** Reason a stored display cannot be safely substituted. */
+  displayError?: string;
   value: number;
   valueType: 'number' | 'string' | 'none';
   format: number;
@@ -112,6 +116,16 @@ export function readAlgorithmBlocks(payload: Uint8Array): AlgorithmBlock[] {
   return blocks;
 }
 
+/** Parse a length-prefixed algorithm block at its structural record range, without scanning. */
+export function readAlgorithmBlockAt(payload: Uint8Array, start: number, end = payload.byteLength): AlgorithmEntry[] | undefined {
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end > payload.byteLength || start + 4 > end) return undefined;
+  const view = new DataView(payload.buffer, payload.byteOffset, payload.byteLength);
+  const length = view.getInt32(start, true);
+  if (length < 4 || start + length !== end) return undefined;
+  if (length === 4) return [];
+  return parseBlock(payload, view, start);
+}
+
 function parseBlock(payload: Uint8Array, view: DataView, start: number): AlgorithmEntry[] | undefined {
   const byteLength = view.getInt32(start, true);
   if (byteLength < MIN_BLOCK_LENGTH || byteLength > MAX_BLOCK_LENGTH || start + byteLength > payload.byteLength) return undefined;
@@ -124,23 +138,40 @@ function parseBlock(payload: Uint8Array, view: DataView, start: number): Algorit
     const [nameLength, ruleLength, displayLength, kind, valueType, format, decimals, flags] = header;
     if ([nameLength, ruleLength, displayLength].some((length) => length < 0 || length > MAX_STRING_LENGTH)) return undefined;
     if (!ruleLength) return undefined;
+    const stringsEnd = cursor + 40 + 2 * (nameLength + ruleLength + displayLength + 3);
+    if (stringsEnd > end) return undefined;
     const value = view.getFloat64(cursor + 32, true);
     let offset = cursor + 40;
     const name = readUtf16(payload, offset, nameLength);
+    if (nameLength && view.getUint16(offset + nameLength * 2, true) !== 0) return undefined;
     offset += 2 * (nameLength + 1);
     const rule = readUtf16(payload, offset, ruleLength);
+    if (view.getUint16(offset + ruleLength * 2, true) !== 0) return undefined;
     offset += 2 * (ruleLength + 1);
     const rawDisplay = readUtf16(payload, offset, displayLength);
+    // Empty display fields reserve a UTF-16 slot whose bytes may be uninitialized.
+    if (displayLength && view.getUint16(offset + displayLength * 2, true) !== 0) return undefined;
     offset += 2 * (displayLength + 1);
     if (offset > end) return undefined;
     if (name && !IDENTIFIER.test(name)) return undefined;
     if (!PRINTABLE_RULE.test(rule)) return undefined;
+    const storedDisplay = cleanDisplay(rawDisplay);
+    // ExamView's native RTF oracle (PC12 Ch01 Q35, images 141/142) prints
+    // F081 fraction strings as stacked fractions and applies format 4's sign
+    // after evaluating the string. The stored string itself does not contain +.
+    const numericString = valueType === 2 && /^[-+]?\s*\d+(?:\.\d+)?(?:\/\d+(?:\.\d+)?)?$/.test(storedDisplay ?? '');
+    const display = format === 4 && numericString && !/^[-+]/.test(storedDisplay!) && !/^0(?:\.0+)?(?:\/|$)/.test(storedDisplay!) ? `+ ${storedDisplay}` : storedDisplay;
+    const fraction = rawDisplay.startsWith('\u0001\uf081') && numericString ? /^([-+])?\s*(\d+(?:\.\d+)?)(?:\/(\d+(?:\.\d+)?))?$/.exec(display!) : undefined;
+    const mathDisplay = fraction ? `${fraction[1] ? `${fraction[1]} ` : ''}${fraction[3] ? `frac(${fraction[2]}, ${fraction[3]})` : fraction[2]}` : undefined;
+    const displayError = display === undefined ? displayDiagnostic(rawDisplay) ?? 'unmapped stored display glyph or control' : rawDisplay.includes('\u0001\uf081') && !mathDisplay ? 'unsupported F081 fraction display syntax' : undefined;
     entries.push({
       kind: !name ? 'condition' : name.toLowerCase() === 'scramble' ? 'control' : 'variable',
       name,
       rule,
       rawDisplay,
-      display: cleanDisplay(rawDisplay),
+      display: displayError ? undefined : display,
+      ...(mathDisplay ? { mathDisplay } : {}),
+      ...(displayError ? { displayError } : {}),
       value,
       valueType: kind === 3 || !name ? 'none' : valueType === 2 ? 'string' : 'number',
       format,
@@ -158,6 +189,11 @@ function readUtf16(payload: Uint8Array, offset: number, length: number): string 
 
 /** Map ExamView display text to plain characters; undefined when it uses glyphs we can't map. */
 export function cleanDisplay(raw: string): string | undefined {
+  // F080 is the sqrs() structured radical marker, not a font switch. Stripping
+  // it turns e.g. a square-root expression into an unrelated plain fraction.
+  // Preserve rawDisplay, and refuse the flattened substitute until its grammar
+  // is decoded or the native exporter supplies the rendered expression.
+  if (displayDiagnostic(raw)) return undefined;
   let unmapped = false;
   const text = raw
     .replace(/\u0001[-]/g, '')
@@ -168,6 +204,19 @@ export function cleanDisplay(raw: string): string | undefined {
     })
     .replace(/[–−]/g, '-');
   return unmapped || /[\u0000-\u001f]/.test(text) ? undefined : text;
+}
+
+function displayDiagnostic(raw: string): string | undefined {
+  // F081 fractions have a verified renderer. F086/F087 lists, F08B Symbol
+  // characters, and F08C sentences retain their plain stored text. Other native
+  // value markers require layout semantics: square roots, mixed fractions,
+  // scientific notation, repeating decimals and rational fractions.
+  const supported = new Set([0xf081, 0xf086, 0xf087, 0xf08b, 0xf08c]);
+  for (const match of raw.matchAll(/\u0001(.)/gs)) {
+    const code = match[1].charCodeAt(0);
+    if (!supported.has(code)) return `unsupported encoded math display marker U+${code.toString(16).toUpperCase().padStart(4, '0')}`;
+  }
+  return undefined;
 }
 
 // Five metadata strings end exactly where the block starts.

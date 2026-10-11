@@ -1,0 +1,16 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { renderNativeHtml } from '../native-html-to-typst.mjs';
+const path=process.argv[2]??'reports/rea-examview/native-chapter04.pqp.native-njHmy3/inventory.json';
+const inventory=JSON.parse(readFileSync(path,'utf8')),materials=[];
+function visit(v){if(!v||typeof v!=='object')return;if(typeof v.html==='string')materials.push(v.html);for(const child of Object.values(v))if(typeof child==='object')visit(child);}visit(inventory);
+let images=0;const image=(src,attrs)=>{assert.match(src,/^ppg\/examview\//);assert.match(attrs.width,/^\d+$/);images++;return '#image("fixture.jpg");';};
+for(const html of materials)assert.deepEqual(renderNativeHtml(html,{image}).errors,[],html);
+const times=materials.find(s=>s.includes("font-family:'Times'"));assert.ok(times);assert.ok(renderNativeHtml(times,{image}).typst.includes('font: "Times New Roman"'));
+const table=materials.find(s=>s.includes('width="59%"'));assert.ok(table);const renderedTable=renderNativeHtml(table,{image}).typst;assert.ok(renderedTable.includes('#block(width: 59%)'));assert.ok(renderedTable.includes('columns: (100%,)'));assert.ok(renderedTable.includes('rows: (auto, auto,)'));assert.ok(renderedTable.includes('align: top'));assert.ok(renderedTable.includes('stroke: none'));
+const sized=materials.find(s=>s.includes('font-size:12pt'));assert.ok(sized);assert.ok(renderNativeHtml(sized,{image}).typst.includes('#text(size: 12pt)'));
+const symbol=materials.find(s=>s.includes('&#193;'));assert.ok(symbol);assert.ok(renderNativeHtml(symbol,{image}).typst.includes('ℑ'),'preserve official Adobe Symbol C1; do not guess a degree sign');
+const nested=renderNativeHtml('<span style="font-family:\'Symbol\'">&#179;<span style="font-family:\'Times\'">x</span>&#206;</span>');assert.deepEqual(nested.errors,[]);assert.equal(nested.typst,'≥#text(font: "Times New Roman")[x];∈');
+const nestedTable=renderNativeHtml('<table><tr style="font-family:\'Times\';font-size:12pt"><td><table width="50%"><tr><td>x</td></tr></table></td></tr></table>');assert.deepEqual(nestedTable.errors,[]);assert.ok(nestedTable.typst.includes('#text(font: "Times New Roman")'));assert.ok(nestedTable.typst.includes('#block(width: 50%)'));
+assert.ok(renderNativeHtml('<table width="1000%"><tr height="-1"><td>x</td></tr></table>').errors.length);
+console.log(`Chapter 04 styles passed ${materials.length} actual materials, Times/style inheritance, table dimensions and rows, font sizes, and official Symbol C1 mapping (${images} resolved images).`);

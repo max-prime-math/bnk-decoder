@@ -62,6 +62,80 @@ const ITEM_STRIDE = 0x704;
 const BASE_LENGTH = 2456;
 const UTF16 = new TextDecoder('utf-16le', { fatal: false });
 
+/** A native subtype-9 body, independent of the legacy font-signature finder below.
+ * Layout is backed by ExamView FUN_004bdf30, FUN_004bdc60 and FUN_004bd780.
+ * Raw fields are retained where rendering semantics have not yet been established.
+ */
+export interface NativeGraphObject {
+  version: number;
+  byteLength: number;
+  viewExpressions: string[];
+  alternateText: string;
+  headerFields: number[];
+  axes: Array<{ label: string; scale: number; ticksPerInch: number; ticksPerLabel: number; raw: Uint8Array }>;
+  items: Array<{
+    offset: number;
+    code: number;
+    domain: { min: string; max: string };
+    condition: string;
+    /** Native common words +0x64..+0x7c; enum meanings require renderer evidence. */
+    styleFields: number[];
+    data: Uint8Array;
+    /** Code 11 appends these bytes after its 0x704-byte fixed record. */
+    pictureBytes?: Uint8Array;
+  }>;
+  /** Exact bytes support subsequent decoding without silently discarding fields. */
+  raw: Uint8Array;
+  diagnostics: string[];
+}
+
+/** Parse one body selected by the enclosing rich object kind 0 / subtype 9.
+ * The body's length excludes the enclosing four-byte length prefix.
+ * This function never searches for fonts or infers item count from total size.
+ */
+export function readNativeGraphObject(body: Uint8Array): NativeGraphObject {
+  const v = new DataView(body.buffer, body.byteOffset, body.byteLength);
+  const string = (at: number, chars: number): string => {
+    const decoded = UTF16.decode(body.subarray(at, at + chars * 2));
+    const end = decoded.indexOf('\u0000');
+    return end >= 0 ? decoded.slice(0, end) : decoded;
+  };
+  if (body.byteLength < 0x998) throw new Error('graph header truncated');
+  const version = v.getInt32(0, true);
+  if (version !== 5) throw new Error(`unsupported graph version ${version}`);
+  const count = v.getInt32(0x85c, true);
+  if (count < 0 || count > Math.floor((body.byteLength - 0x998) / 0x704)) throw new Error('invalid graph item count');
+  const items: NativeGraphObject['items'] = [];
+  let cursor = 0x998;
+  for (let index = 0; index < count; index++) {
+    if (cursor + 0x704 > body.byteLength) throw new Error(`graph item ${index + 1} truncated`);
+    const code = v.getInt32(cursor + 0x60, true);
+    const item: NativeGraphObject['items'][number] = {
+      offset: cursor,
+      code,
+      domain: { min: string(cursor, 16), max: string(cursor + 0x20, 16) },
+      condition: string(cursor + 0x40, 16),
+      styleFields: Array.from({ length: 7 }, (_, n) => v.getInt32(cursor + 0x64 + n * 4, true)),
+      data: body.slice(cursor + 0x80, cursor + 0x704),
+    };
+    const pictureLength = code === 11 ? v.getInt32(cursor + 0x84, true) : 0;
+    cursor += 0x704;
+    if (pictureLength < 0 || cursor + pictureLength > body.byteLength) throw new Error(`graph picture ${index + 1} length out of bounds`);
+    if (code === 11) { item.pictureBytes = body.slice(cursor, cursor + pictureLength); cursor += pictureLength; }
+    items.push(item);
+  }
+  if (cursor !== body.byteLength) throw new Error(`graph has ${body.byteLength - cursor} unconsumed bytes`);
+  return {
+    version, byteLength: body.byteLength,
+    viewExpressions: Array.from({ length: 4 }, (_, n) => string(4 + n * 0x20, 16)),
+    alternateText: string(0x84, 1001),
+    headerFields: [0x858, 0x85c, 0x860, 0x988, 0x98c, 0x990].map(at => v.getInt32(at, true)),
+    axes: [0x868, 0x8f8].map(at => ({ label: string(at, 9), scale: v.getFloat64(at + 0x18, true), ticksPerInch: v.getInt32(at + 0x20, true), ticksPerLabel: v.getInt32(at + 0x24, true), raw: body.slice(at, at + 0x90) })),
+    items, raw: body.slice(),
+    diagnostics: ['Native graph framing decoded; visual rendering, expression evaluation and style enum semantics are not yet verified.'],
+  };
+}
+
 // x-axis font block that directly follows the scale/ticks fields: int32 1, int32 1, then the
 // LOGFONT height and face name ("Times New Roman" or "Symbol").
 const AXIS_SIGNATURE = /\u0001\u0000\u0000\u0000\u0001\u0000\u0000\u0000.ÿ(?:T\u0000i\u0000m\u0000e\u0000s|S\u0000y\u0000m)/gs;

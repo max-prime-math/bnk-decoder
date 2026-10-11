@@ -96,9 +96,83 @@ Known readiness gaps:
 
 ## PQP for test-generator
 
-Working PQP files currently come from ExamView's own printout of a bank, not from
-decoding the BNK binary directly. The BNK decoder still misses too much embedded
-math and graph content.
+### BNK-only conversion with local ExamView
+
+On Windows with Node 24 and the local `ExamView/evpro.exe`, run:
+
+```sh
+npm run pqp:examview -- "path/to/bank.bnk" "output/bank.pqp.json"
+```
+
+This machine can also use its installed Codex Node runtime through the launcher:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File scripts/convert-bnk.ps1 -Bank "path/to/bank.bnk" -Output "output/bank.pqp.json"
+```
+
+This opens an isolated copy of the v06 bank and exports synchronized native question
+XML and RTF. Questions, narratives, choices, matching answers, tables, and solutions
+become PQP content; native-rendered math and graphs become embedded images. The RTF
+supplies graphical completion answers that ExamView omits from its Blackboard XML.
+No PDF or OCR input is required. Source hashes are checked before and after export,
+and the original BNK, native evidence, algorithm bytes, and diagnostics are retained.
+Existing PQP outputs are never overwritten; exit 2 reports a partial conversion.
+
+The [validated publisher packages](reports/rea-examview/native-publisher-OR4kc6/summary.json)
+cover **739/739 source records** across Chapters 01–11: 696 PQP questions and 2,530
+images. All packages compile in Typst and conform to this repository's PQP interface;
+all 300 multiple-choice keys match the paired native RTF. Matching groups account
+for the difference between source-record and question counts. A teacher graph bank
+and a controlled shared-narrative bank also convert completely.
+
+The bridge captures one native loaded instance; it does not reproduce randomized
+algorithm generation. Missing original fonts produce explicit substitution warnings
+and native Windows glyph images, rather than guessed symbols. Consumer-app import
+and pixel parity across every corpus bank remain unverified. The standalone browser
+app still uses its existing decoder; this Windows bridge is a CLI command.
+
+Further fidelity checks found that ExamView can overwrite image filenames when
+exporting bimodal questions in short-answer mode. Bimodal conversion now captures
+both modes and requires content alignment; unresolved mismatches produce a partial
+result. Earlier coverage counts establish record inclusion and compilation, not
+correctness of every diagram in those native exports.
+
+Retained exports can be reprocessed without launching ExamView:
+
+```sh
+npm run pqp:examview -- "path/to/bank.bnk" "output/new-bank.pqp.json" --evidence "path/to/native-evidence-directory"
+```
+
+### Direct BNK conversion (structural reader)
+
+With Node 24, convert a single v06 bank without PDF, Mathpix, or a curriculum config:
+
+```sh
+npm run pqp:bnk -- "path/to/bank.bnk" "output/bank.pqp.json"
+```
+
+The new file embeds recovered PNG assets and preserves raw metadata and algorithm bytes.
+Existing output files are never overwritten. Exit status 0 means all detected source records
+converted; status 2 means a partial package was written, with each omission listed in
+`extensions.bnk.omittedQuestions`; status 1 means conversion failed. Record coverage does
+not establish visual or semantic parity with ExamView.
+
+The structural reader now follows ExamView's declared counts and sequential question,
+narrative, and matching records, including length-prefixed metadata and algorithms.
+Corpus checks parse all 372 v06 banks (13,871 question records), preserving opaque tails
+in 49 banks. Rendering coverage is lower: graphs, some equation templates, completion
+questions, and other embedded objects remain unresolved. Stored algorithm display values
+are substituted by their binary variable references; randomized variants are not evaluated.
+Teacher-made structural smoke samples convert 22/22, 15/15, and 11/11 records.
+The structural CLI explicitly omits unsupported content; the native bridge above
+provides the validated publisher-bank route. Matching groups combine several source
+records into one question.
+See [REA investigation](reports/rea-examview/INVESTIGATION.md) for evidence and limitations.
+
+### Existing PDF and Mathpix route
+
+The curated publisher-bank PQP files use ExamView's printouts because direct conversion
+still omits too much embedded math and graph content for complete publisher-bank coverage.
 
 1. Export the bank from ExamView as a PDF and as RTF (the RTF is the answer-key oracle).
 2. Run the PDF through Mathpix and keep the LaTeX `.zip` for each chapter.

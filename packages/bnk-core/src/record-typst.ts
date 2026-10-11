@@ -1,12 +1,14 @@
 // Typst rendering for rich-text blocks read by records.ts, plus picture conversion.
 
 import { zlibSync } from 'fflate';
-import { equationToTypst, SYMBOL_FONT } from './equations.ts';
+import { equationToTypst, SYMBOL_FONT, type StoredVariables } from './equations.ts';
 import type { RichObject, RichTable, RichTextBlock, TextRun } from './records.ts';
 
 export interface RenderOptions {
   /** Typst for a picture object (usually an #image call). */
   picture: (object: Extract<RichObject, { kind: 'picture' }>) => string;
+  /** Display samples recovered from this record's algorithm; no expression evaluation. */
+  variables?: StoredVariables;
 }
 
 export interface RenderedContent {
@@ -20,7 +22,9 @@ export interface ChoiceTable {
   choices: Array<{ label: string; start: number; end: number }>;
 }
 
-const CHOICE_LABEL = /^\s*([a-z])\s*[.)]\s*$/i;
+// Publisher tables use bare A/B/C/D; teacher-made tables usually use a./b./c./d.
+// Only accept these in alternating label/content cells of the final table.
+const CHOICE_LABEL = /^\s*([a-z])\s*[.)]?\s*$/i;
 const MAX_PICTURE_WIDTH_IN = 6;
 
 /** Render text positions [start, end) of a block as Typst markup. */
@@ -223,12 +227,32 @@ function formatRun(text: string, run: TextRun | undefined): string {
 
 function renderObject(object: RichObject, options: RenderOptions, errors: string[]): string {
   if (object.kind === 'picture') return options.picture(object);
+  if (object.kind === 'variable') {
+    const sample = options.variables?.get(object.name);
+    if (sample?.displayError) {
+      errors.push(`stored text variable ${object.name}: ${sample.displayError}`);
+      return '';
+    }
+    if (!sample || sample.display === undefined || sample.valueType === 'none') {
+      errors.push(`unresolved stored text variable ${object.name}`);
+      return '';
+    }
+    return sample.mathDisplay ? `$${sample.mathDisplay}$` : formatRun(sample.display, undefined);
+  }
+  if (object.kind === 'graph') {
+    errors.push(...object.errors, 'native graph decoded; visual rendering is not yet verified');
+    return '';
+  }
   if (object.kind === 'unknown') {
     errors.push(`unsupported embedded object kind ${object.code}`);
     return '';
   }
   errors.push(...object.errors);
-  const rendered = equationToTypst(object.nodes);
+  if (object.footer?.name) {
+    errors.push(`unsupported named-equation visibility: ${object.footer.name}`);
+    return '';
+  }
+  const rendered = equationToTypst(object.nodes, options.variables);
   errors.push(...rendered.errors);
   return rendered.multiline ? `\n$ ${rendered.math} $\n` : `$${rendered.math}$`;
 }

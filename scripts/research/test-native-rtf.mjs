@@ -1,0 +1,18 @@
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { readNativeRtf } from './read-native-rtf.mjs';
+const fixture = readNativeRtf(readFileSync('reports/rea-examview/runtime-oracle/chapter01.rtf'));
+assert.equal(fixture.questions.length, 71);
+assert.equal(fixture.pictures.length, 308);
+assert.equal(fixture.numberedSegments.filter(q => !q.hasAnswerMarker).length, 5);
+assert.match(fixture.questions[34].answer, /\[IMAGE:140\].*\[IMAGE:141\].*\[IMAGE:142\]/);
+assert.equal(fixture.questions[0].answer, 'C');
+assert.equal(fixture.questions[35].answer, 'D');
+assert.match(fixture.questions[70].answer, /\[IMAGE:307\].*\n.*\[IMAGE:308\]/);
+assert.ok(!fixture.text.includes('Times New Roman;'));
+assert.ok(!fixture.text.includes('\u0096'));
+assert.equal(readNativeRtf('{\\rtf1{\\fonttbl ignored}A\\u945?\\{\\}\\\\\\par B}').text, 'Aα{}\\\nB');
+assert.equal(readNativeRtf("{\\rtf1 \\'96}").text, '–');
+assert.throws(() => readNativeRtf('{\\rtf1 missing close'), /unterminated/);
+assert.throws(() => readNativeRtf("{\\rtf1 \\'zz}"), /hex/);
+console.log('Native RTF checks passed: 71 answer records, five matching stems, 308 images, graphical completion answer, Unicode, escaping, destinations and malformed input.');

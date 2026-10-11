@@ -6,13 +6,15 @@
 //   0x09 int32 a, int32 class, int32 flags   style change for the characters that follow
 //                                            class -11 regular, -10 Greek (Symbol letters),
 //                                            -6 Symbol operators, -9 extra symbols (0x9e = ∘)
-//   0x01 int16 flags, int16 0, int32 slotCount, int16 kind, int16 variant, 8 bytes
-//                                            template; its slots follow as lines, slots after
-//                                            the first are each preceded by an int32 0
+//   0x01 int16 flags, int16 0, int32 slotCount, int16 kind, int16 variant,
+//        int32 extraLength, extra bytes      template; every slot starts with int32 metadata
+//                                            and then a terminated line. Matrix extra data
+//                                            stores columns/rows at offsets 8/12.
+//   0x03 uint8 format                        character formatting (preserved, rendering unsupported)
 //   0x05–0x08                                spaces, narrowest to widest (typed between an
 //                                            expression and its condition: "x − 1,  x ≥ 2")
-//   0x0b int32 shape, line                   geometry name: shape 0 △ (triangle ABC),
-//                                            1 ▱ (parallelogram ABCD); the letters follow as a line
+//   0x0b int32 shape                         standalone symbol: 0 △, 1 ▱, 2 −.
+//                                            Any vertex letters are peer tokens, not a nested line.
 //   0x0d                                     line break inside the equation
 //   0x00                                     end of the current line (slot or root)
 //   other bytes                              one character each (Windows-1252 / Symbol font)
@@ -26,10 +28,12 @@
 
 export type EquationNode =
   | { type: 'char'; code: number; style: number }
+  | { type: 'variable'; name: string; range: [number, number] }
   | { type: 'break' }
   | { type: 'space'; width: number }
+  | { type: 'format'; code: number }
   | { type: 'geometry'; shape: number; name: EquationNode[] }
-  | { type: 'template'; kind: number; variant: number; slots: EquationNode[][] };
+  | { type: 'template'; kind: number; variant: number; slots: EquationNode[][]; slotMetadata?: number[]; extra?: Uint8Array };
 
 export interface ParsedEquation {
   nodes: EquationNode[];
@@ -73,11 +77,12 @@ export const SYMBOL_FONT: Record<number, string> = {
 // number sets in "{x | x ∈ ℝ, x ≠ 3}" and "n ∈ ℕ" (Pre-Calculus 11 Mickelson).
 const EXTRA_FONT: Record<number, string> = { 0x9e: '∘', 0x98: 'ℝ', 0xbd: 'ℕ' };
 const SPACES: Record<number, string> = { 0x05: 'thin', 0x06: 'thin', 0x07: 'med', 0x08: 'thick' };
-const SHAPES: Record<number, string> = { 0: '△', 1: '▱' };
+const SHAPES: Record<number, string> = { 0: '△', 1: '▱', 2: '-' };
 
 const WINDOWS_1252 = new TextDecoder('windows-1252');
 
 export function parseEquation(bytes: Uint8Array, start: number, end: number): ParsedEquation {
+  if (!Number.isInteger(start) || !Number.isInteger(end) || start < 0 || end > bytes.byteLength || start >= end) return { nodes: [], errors: ['invalid equation byte range'] };
   const view = new DataView(bytes.buffer, bytes.byteOffset, bytes.byteLength);
   const errors: string[] = [];
   let cursor = start;
@@ -102,26 +107,55 @@ export function parseEquation(bytes: Uint8Array, start: number, end: number): Pa
         cursor += 13;
         continue;
       }
+      if (byte === 0x0a) {
+        const tokenStart = cursor;
+        cursor += 1;
+        const nameStart = cursor;
+        while (cursor + 2 <= end && view.getUint16(cursor, true) !== 0) cursor += 2;
+        if (cursor + 2 > end) { errors.push('unterminated equation variable name'); cursor = end; return nodes; }
+        const name = new TextDecoder('utf-16le').decode(bytes.subarray(nameStart, cursor));
+        cursor += 2;
+        if (!/^[A-Za-z][A-Za-z0-9_]{0,39}$/.test(name)) errors.push('invalid equation variable name');
+        nodes.push({ type: 'variable', name, range: [tokenStart, cursor] });
+        continue;
+      }
       if (byte === 0x01) {
-        if (cursor + 21 > end) break;
-        const slotCount = view.getInt32(cursor + 5, true);
+        if (cursor + 17 > end) break;
+        let slotCount = view.getInt32(cursor + 5, true);
         const kind = view.getInt16(cursor + 9, true);
         const variant = view.getInt16(cursor + 11, true);
-        cursor += 21;
-        if (slotCount < 1 || slotCount > 4) {
+        const extraLength = view.getInt32(cursor + 13, true);
+        cursor += 17;
+        if (extraLength < 0 || extraLength > end - cursor) { errors.push('invalid equation template extra-data length'); cursor = end; return nodes; }
+        const extra = bytes.slice(cursor, cursor + extraLength);
+        cursor += extraLength;
+        if (kind === 8) {
+          if (extraLength < 16) { errors.push('truncated matrix template dimensions'); cursor = end; return nodes; }
+          const dims = new DataView(extra.buffer, extra.byteOffset, extra.byteLength);
+          const columns = dims.getInt32(8, true), rows = dims.getInt32(12, true);
+          if (columns < 1 || rows < 1 || columns > 100 || rows > 100 || columns * rows !== slotCount) { errors.push('invalid matrix template dimensions'); cursor = end; return nodes; }
+          slotCount = columns * rows;
+        }
+        if (slotCount < 1 || slotCount > 1000) {
           errors.push(`template ${kind}.${variant} has ${slotCount} slots`);
           cursor = end;
           return nodes;
         }
         const slots: EquationNode[][] = [];
+        const slotMetadata: number[] = [];
         for (let slot = 0; slot < slotCount; slot += 1) {
-          if (slot > 0) {
-            if (view.getInt32(cursor, true) !== 0) errors.push(`template ${kind}.${variant} slot separator is not zero`);
-            cursor += 4;
-          }
+          if (cursor + 4 > end) { errors.push(`template ${kind}.${variant} slot metadata truncated`); cursor = end; return nodes; }
+          slotMetadata.push(view.getInt32(cursor, true));
+          cursor += 4;
           slots.push(line(depth + 1));
         }
-        nodes.push({ type: 'template', kind, variant, slots });
+        nodes.push({ type: 'template', kind, variant, slots, slotMetadata, extra });
+        continue;
+      }
+      if (byte === 0x03) {
+        if (cursor + 2 > end) break;
+        nodes.push({ type: 'format', code: bytes[cursor + 1] });
+        cursor += 2;
         continue;
       }
       if (byte >= 0x05 && byte <= 0x08) {
@@ -133,7 +167,9 @@ export function parseEquation(bytes: Uint8Array, start: number, end: number): Pa
         if (cursor + 5 > end) break;
         const shape = view.getInt32(cursor + 1, true);
         cursor += 5;
-        nodes.push({ type: 'geometry', shape, name: line(depth + 1) });
+        // Native FUN_004bc520 copies exactly five bytes for this token. Recursing here
+        // consumes the enclosing slot terminator and corrupts subsequent fractions.
+        nodes.push({ type: 'geometry', shape, name: [] });
         continue;
       }
       if (byte === 0x0d) {
@@ -181,10 +217,13 @@ interface Token {
   text: string;
 }
 
-export function equationToTypst(nodes: EquationNode[]): EquationTypst {
+export interface StoredVariableDisplay { display: string | undefined; valueType: 'number' | 'string' | 'none'; mathDisplay?: string; displayError?: string }
+export type StoredVariables = ReadonlyMap<string, StoredVariableDisplay>;
+
+export function equationToTypst(nodes: EquationNode[], variables?: StoredVariables): EquationTypst {
   const errors: string[] = [];
   const multiline = hasBreak(nodes);
-  const math = renderLine(nodes, errors, false).trim();
+  const math = renderLine(nodes, errors, false, variables).trim();
   return { math: math || '""', multiline, errors };
 }
 
@@ -196,7 +235,7 @@ function hasBreak(nodes: EquationNode[]): boolean {
     || (node.type === 'template' && !(node.kind === 0 && node.variant === 19) && node.slots.some(hasBreak)));
 }
 
-function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean): string {
+function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean, variables?: StoredVariables): string {
   const out: string[] = [];
   let pending: { style: number; chars: string[] } | undefined;
   let prefix = ''; // left subscript waiting for the next atom
@@ -234,6 +273,23 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
       continue;
     }
     flush();
+    if (node.type === 'format') {
+      errors.push(`unsupported equation character format 0x${node.code.toString(16)}`);
+      continue;
+    }
+    if (node.type === 'variable') {
+      const sample = variables?.get(node.name);
+      if (sample?.displayError) {
+        errors.push(`stored equation variable ${node.name}: ${sample.displayError}`);
+      } else if (!sample || sample.display === undefined || sample.valueType === 'none') {
+        errors.push(`unresolved stored equation variable ${node.name}`);
+      } else {
+        if (sample.mathDisplay) { push(sample.mathDisplay); continue; }
+        const tokens = sample.valueType === 'string' ? [{ kind: 'text' as const, text: sample.display }] : tokenize([...sample.display], STYLE_REGULAR, errors);
+        push(tokens.map((token) => renderToken(token, inArgument)).join(' '));
+      }
+      continue;
+    }
     if (node.type === 'break') {
       out.push('\\\n');
       continue;
@@ -249,7 +305,7 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
       const letters = node.name.every((item) => item.type === 'char' && /^[A-Za-z]$/.test(String.fromCharCode(item.code)));
       const name = letters
         ? node.name.map((item) => (item.type === 'char' ? String.fromCharCode(item.code) : '')).join(' ')
-        : renderLine(node.name, errors, inArgument).trim();
+        : renderLine(node.name, errors, inArgument, variables).trim();
       push(`${shape ?? ''} ${name}`);
       continue;
     }
@@ -260,10 +316,10 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
         if (item.type === 'break') rows.push([]);
         else rows[rows.length - 1].push(item);
       }
-      push(`cases(${rows.map((row) => renderLine(row, errors, true).trim() || '""').join(', ')})`);
+      push(`cases(${rows.map((row) => renderLine(row, errors, true, variables).trim() || '""').join(', ')})`);
       continue;
     }
-    const slots = node.slots.map((slot) => renderLine(slot, errors, true).trim());
+    const slots = node.slots.map((slot) => renderLine(slot, errors, true, variables).trim());
     const slot = (index: number) => slots[index] || '""';
     const key = `${node.kind}.${node.variant}`;
     switch (key) {

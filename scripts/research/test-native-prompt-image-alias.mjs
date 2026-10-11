@@ -1,0 +1,28 @@
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import { inflateSync } from 'node:zlib';
+import { createHash } from 'node:crypto';
+import { readQuestionRecords } from '../../packages/bnk-core/src/records.ts';
+import { convertNativeExport } from '../native-export-to-pqp.mjs';
+const area = fs.readFileSync('ExamView/Banks/Foundations of Math 10/APL-banks/Area.bnk');
+const root = 'reports/rea-examview/runtime-oracle/area-dual-bridge-evidence';
+const common = { sourceName: 'Area.bnk', sourceSha256: createHash('sha256').update(area).digest('hex'), bank: readQuestionRecords(inflateSync(area.subarray(16))) };
+const bad = JSON.parse(fs.readFileSync(`${root}/inventory-1791679671956-46db56bebde288.json`));
+const good = JSON.parse(fs.readFileSync(`${root}/inventory-1791679675470-be3dedcbf3336.json`));
+const badResult = convertNativeExport({ ...common, inventory: bad });
+assert.ok(badResult.diagnostics.some(d => d.code === 'NATIVE_PROMPT_IMAGE_ALIAS'));
+assert.ok(badResult.pqp.extensions.nativeConversion.omittedQuestions.some(q => q.reasons.some(r => r.includes('aliased across'))));
+const goodResult = convertNativeExport({ ...common, inventory: good });
+assert.ok(!goodResult.diagnostics.some(d => d.code === 'NATIVE_PROMPT_IMAGE_ALIAS'));
+// A shared native narrative asset is expected to appear in more than one prompt.
+const chapter = fs.readFileSync('ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk');
+const fixture = JSON.parse(fs.readFileSync('reports/rea-examview/runtime-oracle/chapter01-auto.inventory.json'));
+const minimal = { ...fixture, items: structuredClone(fixture.items.slice(0, 2)), assets: [{ ...fixture.assets[0], entry: 'na001-1.jpg' }] };
+for (const item of minimal.items) item.question = [{ html: '<img src="na001-1.jpg" width="55" height="29" border="0">' }];
+const minimalCommon = { sourceName: 'synthetic-shared-narrative', sourceSha256: createHash('sha256').update(chapter).digest('hex'), bank: { ...readQuestionRecords(inflateSync(chapter.subarray(16))), records: readQuestionRecords(inflateSync(chapter.subarray(16))).records.slice(0, 2) } };
+const narrativeResult = convertNativeExport({ ...minimalCommon, inventory: minimal });
+assert.equal(narrativeResult.counts.convertedRecords, 2);assert.ok(!narrativeResult.diagnostics.some(d => d.code === 'NATIVE_PROMPT_IMAGE_ALIAS'));
+minimal.assets[0].entry = 'mc001-1.jpg';for (const item of minimal.items) item.question[0].html = item.question[0].html.replace('na001', 'mc001');
+const aliasResult = convertNativeExport({ ...minimalCommon, inventory: minimal });
+assert.equal(aliasResult.counts.convertedRecords, 0);assert.equal(aliasResult.pqp.assets.length, 0);
+console.log('Actual Area short-answer image overwrite is omitted; forced-MC export has no aliases; shared narrative images remain valid.');

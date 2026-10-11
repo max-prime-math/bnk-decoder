@@ -1,0 +1,268 @@
+{
+  "evidence_id": "ev_54271a3a4b19f459399a33e224e9ccf38a79f0dea81f817da852d91e7ac99f8f",
+  "subject": {
+    "name": "C:\\Users\\Max\\bnk-decoder\\ExamView\\evpro.exe",
+    "digest": {
+      "sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0"
+    },
+    "format": "pe",
+    "architecture": null,
+    "local_path": "C:\\Users\\Max\\bnk-decoder\\ExamView\\evpro.exe"
+  },
+  "provider": {
+    "id": "rea-artifact-graph",
+    "name": "REA safe artifact graph provider",
+    "version": "1"
+  },
+  "analysis_profile": null,
+  "predicate_type": "rea.analysis",
+  "operation": "inspect_artifact",
+  "parameters": {
+    "integrity_policy": "fail"
+  },
+  "raw_result": null,
+  "normalized_result": {
+    "inspection_id": "ai_1f115c81337cdf3dcc2231dbaef3426f712220ebd42e480cef96fe30d6eaf7e4",
+    "subject": {
+      "manifest_id": "agm_b56674ec9c75975a711e7d2cc908ee8575298010ca0c66ccdafbff6fef7fdd19",
+      "root_artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+      "root_sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0",
+      "root_format": "pe"
+    },
+    "substeps": [
+      {
+        "substep_id": "ais_b030c3adba9ed92b5a929c8b96eb482fb84beb41bdb1ba79ab9aa91d0a6bc00c",
+        "operation": "inventory_artifact",
+        "status": "completed",
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c",
+        "evidence": {
+          "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c",
+          "subject": {
+            "name": "C:\\Users\\Max\\bnk-decoder\\ExamView\\evpro.exe",
+            "digest": {
+              "sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0"
+            },
+            "format": "pe",
+            "architecture": null,
+            "local_path": "C:\\Users\\Max\\bnk-decoder\\ExamView\\evpro.exe"
+          },
+          "provider": {
+            "id": "rea-artifact-graph",
+            "name": "REA safe artifact graph provider",
+            "version": "1"
+          },
+          "analysis_profile": null,
+          "predicate_type": "rea.analysis",
+          "operation": "inventory_artifact",
+          "parameters": {
+            "integrity_policy": "fail"
+          },
+          "raw_result": null,
+          "normalized_result": {
+            "manifest": {
+              "manifest_id": "agm_b56674ec9c75975a711e7d2cc908ee8575298010ca0c66ccdafbff6fef7fdd19",
+              "root_artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+              "root_sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0",
+              "root_format": "pe",
+              "graph_sha256": "222d327cada48488ac2d5da8d1eb9f3fc693a21c99e0724fa287314f195ae841",
+              "node_count": 1,
+              "occurrence_count": 1,
+              "edge_count": 0
+            },
+            "nodes": [
+              {
+                "artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+                "format": "pe",
+                "sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0",
+                "size": 11534336,
+                "media_type": null,
+                "architecture": null,
+                "content_state": "materialized",
+                "limitations": []
+              }
+            ],
+            "occurrences": [
+              {
+                "occurrence_id": "occ_536f8aa4b2f25ade9effbad64c0c5424442b68a9126936e0efd28a1de005edd9",
+                "artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+                "parent_occurrence_id": null,
+                "logical_path": ".",
+                "entry_kind": "file",
+                "artifact_kind": "executable",
+                "artifact_format": "pe",
+                "declared_size": 11534336,
+                "compressed_size": null,
+                "executable": false,
+                "encrypted": false,
+                "hash_status": "verified",
+                "source_location": null,
+                "limitations": []
+              }
+            ],
+            "edges": [],
+            "provenance": [],
+            "integrity_contradictions": [],
+            "limitations": [
+              "Artifact has no child container entries."
+            ]
+          },
+          "confidence": "observed",
+          "authority": "shipped-artifact",
+          "environment": null,
+          "limitations": [
+            "Artifact has no child container entries."
+          ],
+          "locations": [
+            {
+              "kind": "artifact-path",
+              "path": "."
+            }
+          ],
+          "evidence_links": []
+        }
+      }
+    ],
+    "observations": [
+      {
+        "observation_id": "aio_3112984bfad92e53dbb3ee9e2a34038e3f719b459e100fc266fca085d49365aa",
+        "kind": "root-manifest",
+        "subject": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+        "value": {
+          "manifest_id": "agm_b56674ec9c75975a711e7d2cc908ee8575298010ca0c66ccdafbff6fef7fdd19",
+          "root_artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+          "root_sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0",
+          "root_format": "pe",
+          "graph_sha256": "222d327cada48488ac2d5da8d1eb9f3fc693a21c99e0724fa287314f195ae841",
+          "node_count": 1,
+          "occurrence_count": 1,
+          "edge_count": 0
+        },
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+      },
+      {
+        "observation_id": "aio_140d527a4ac18b5023759799f2626d38f253d1d6b4692050a260d9db9af9e30d",
+        "kind": "artifact",
+        "subject": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+        "value": {
+          "artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+          "format": "pe",
+          "sha256": "c58619d66fefb3e16ae5675c86ba04971f0a73d0f64b3bd630892999dabcd8f0",
+          "size": 11534336,
+          "media_type": null,
+          "architecture": null,
+          "content_state": "materialized",
+          "limitations": []
+        },
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+      },
+      {
+        "observation_id": "aio_2a11c63ad9cf3816799f50dae99498178905b71e20ddac35d2dd78590be04a13",
+        "kind": "occurrence",
+        "subject": "occ_536f8aa4b2f25ade9effbad64c0c5424442b68a9126936e0efd28a1de005edd9",
+        "value": {
+          "occurrence_id": "occ_536f8aa4b2f25ade9effbad64c0c5424442b68a9126936e0efd28a1de005edd9",
+          "artifact_id": "art_f9b1617c20b3028dbd340270b1cd0f104d17d605fe3cd3591a3c26631b4fd61f",
+          "parent_occurrence_id": null,
+          "logical_path": ".",
+          "entry_kind": "file",
+          "artifact_kind": "executable",
+          "artifact_format": "pe",
+          "declared_size": 11534336,
+          "compressed_size": null,
+          "executable": false,
+          "encrypted": false,
+          "hash_status": "verified",
+          "source_location": null,
+          "limitations": []
+        },
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+      }
+    ],
+    "derived_relationships": [],
+    "hypotheses": [
+      {
+        "hypothesis_id": "aih_ff77f5ed55f6fe83769ea010eda7e84bdc3804ba742d9818e166da08834f0f49",
+        "statement": "The PE artifact may contain managed CLI metadata or native code; inventory bytes alone do not distinguish them.",
+        "confidence": "low",
+        "basis_evidence_ids": [
+          "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+        ],
+        "limitation": "Format classification proposes a bounded follow-up; it is not semantic proof."
+      }
+    ],
+    "contradictions": [],
+    "unexplored_branches": [
+      {
+        "branch_id": "aib_9a7ec9baa7390155e9819ea3e000441ffbf8945b9d52a5a424019235b30d4770",
+        "reason": "format-specific-analysis-required",
+        "detail": "inspect_managed_artifact was not run by provider-neutral artifact inspection.",
+        "next_probe": {
+          "operation": "inspect_managed_artifact",
+          "rationale": "Check execution-free CLI metadata before choosing a deep native provider.",
+          "authority": "managed-static-analysis"
+        },
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+      },
+      {
+        "branch_id": "aib_3b583b6d01dc46e558e46eb933b8f9df66108dc7275bfcc6dd2c184204b13606",
+        "reason": "format-specific-analysis-required",
+        "detail": "open_binary was not run by provider-neutral artifact inspection.",
+        "next_probe": {
+          "operation": "open_binary",
+          "rationale": "Open as native code only when managed inspection reports a native or mixed boundary.",
+          "authority": "native-analysis-provider"
+        },
+        "evidence_id": "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+      }
+    ],
+    "next_probes": [
+      {
+        "operation": "inspect_managed_artifact",
+        "rationale": "Check execution-free CLI metadata before choosing a deep native provider.",
+        "authority": "managed-static-analysis"
+      },
+      {
+        "operation": "open_binary",
+        "rationale": "Open as native code only when managed inspection reports a native or mixed boundary.",
+        "authority": "native-analysis-provider"
+      }
+    ],
+    "coverage": {
+      "status": "complete-within-substeps",
+      "substeps_completed": 1,
+      "observations_retained": 3,
+      "observations_omitted": 0,
+      "relationships_retained": 0,
+      "relationships_omitted": 0,
+      "hypotheses_retained": 1,
+      "hypotheses_omitted": 0,
+      "unexplored_branches_retained": 2,
+      "unexplored_branches_omitted": 0,
+      "next_probes_retained": 2,
+      "next_probes_omitted": 0
+    },
+    "evidence_links": [
+      "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+    ],
+    "limitations": [
+      "Artifact has no child container entries.",
+      "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics."
+    ]
+  },
+  "confidence": "observed",
+  "authority": "shipped-artifact",
+  "environment": null,
+  "limitations": [
+    "Artifact has no child container entries.",
+    "Inspection derives bounded static hypotheses and next probes; it does not execute the artifact or claim format-specific semantics."
+  ],
+  "locations": [
+    {
+      "kind": "artifact-path",
+      "path": "."
+    }
+  ],
+  "evidence_links": [
+    "ev_4bc3aad86a8a2adcf17622463aae7b2d392854fe5f9e0b0b98d39a7814c9448c"
+  ]
+}

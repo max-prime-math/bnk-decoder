@@ -1,0 +1,4 @@
+import{readFileSync,writeFileSync}from'node:fs';import{createHash}from'node:crypto';
+const dir='reports/rea-examview/runtime-oracle';const text=readFileSync(`${dir}/chapter01.txt`,'utf8').replace(/\r/g,'').replace(/\n{3,}/g,'\n\n');
+const marks=[...text.matchAll(/^([0-9]+)\.\t/gm)];const questions=marks.map((m,i)=>({number:+m[1],text:text.slice(m.index,marks[i+1]?.index??text.length).trim(),images:[...text.slice(m.index,marks[i+1]?.index??text.length).matchAll(/\[IMAGE:(\d+)\]/g)].map(x=>+x[1])}));
+const source='ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk';writeFileSync(`${dir}/question-fixtures.json`,JSON.stringify({source,sourceSha256:createHash('sha256').update(readFileSync(source)).digest('hex'),nativeLoad:'Opened original BNK, no Calculate Values command; automatic evaluation on load unknown',questions},null,2));console.log(questions.filter(q=>[1,5,32,34,35].includes(q.number)));

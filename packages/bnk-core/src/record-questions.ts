@@ -35,7 +35,12 @@ export function renderRecordQuestion(record: QuestionRecord, options: RenderOpti
   };
   const letter = (index: number) => String.fromCharCode(65 + index);
   const content: RecordQuestionContent = { type: record.type, stem: '', problems };
-  const [first, second] = record.blocks;
+  const first = record.blocks[record.blockRoles.indexOf('question')];
+  const second = record.blocks[record.blockRoles.indexOf('solution')];
+  if (!first) {
+    problems.push('no question text block');
+    return content;
+  }
 
   // Block 0 is the question; block 1, when present, is the written answer (short answer,
   // problem) or the rationale shown with a choice question's key.
@@ -49,7 +54,7 @@ export function renderRecordQuestion(record: QuestionRecord, options: RenderOpti
     content.solution = rationale();
     if (record.answerCode === 0 || record.answerCode === 1) content.answer = letter(record.answerCode);
     else problems.push(`answer field ${record.answerCode} is not 0 or 1`);
-  } else if (record.type === 'multiple-choice') {
+  } else if (record.type === 'multiple-choice' || record.type === 'bimodal') {
     content.solution = rationale();
     const table = findChoiceTable(first);
     if (!table) {
@@ -72,9 +77,7 @@ export function renderRecordQuestion(record: QuestionRecord, options: RenderOpti
       else problems.push(`answer index ${record.answerCode} is outside the ${content.choices.length} choices`);
     }
   } else if (record.type === 'multiple-response') {
-    // Any number of choices can be correct; the answer is a bitmask (bit 0 = a). Test
-    // Generator's multiple choice has one key, so this ships as a written response with the
-    // choices listed and the correct letters as the answer.
+    // Any number of choices can be correct; the answer is a bitmask (bit 0 = a).
     const table = findChoiceTable(first);
     if (!table) {
       problems.push('no a./b./c./d. choice table at the end of the question');
@@ -87,14 +90,16 @@ export function renderRecordQuestion(record: QuestionRecord, options: RenderOpti
       const choices = table.choices.map((choice) => {
         const text = render(renderRange(first, choice.start, choice.end, options), `choice ${choice.label}`);
         if (!text.trim()) problems.push(`choice ${choice.label} is empty`);
-        return `${choice.label}. ${text}`;
+        return { id: choice.label.toUpperCase(), text };
       });
-      content.stem = `${stem}\n\n${choices.join('\n\n')}`;
+      content.stem = stem;
+      content.choices = choices;
       const correct = table.choices.filter((_, index) => record.answerCode & (1 << index)).map((choice) => choice.label);
       if (!correct.length || record.answerCode >> table.choices.length) {
         problems.push(`answer bitmask ${record.answerCode} doesn't select from the ${table.choices.length} choices`);
       }
       const extra = second ? render(renderBlock(second, options), 'rationale') : '';
+      content.answer = correct.map(label => label.toUpperCase()).join(', ');
       content.solution = [correct.join(', '), extra].filter(Boolean).join('\n\n');
     }
   } else if (record.type === 'short-answer' || record.type === 'problem') {
