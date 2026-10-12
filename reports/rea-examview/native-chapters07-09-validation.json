@@ -1,0 +1,112 @@
+{
+  "scope": "Native export conversion/count reconciliation only; Typst pixel and application import validation separately required.",
+  "chapters": [
+    {
+      "chapter": "07",
+      "pqp": "reports/rea-examview/native-chapter07.pqp.json",
+      "evidence": "reports/rea-examview/native-chapter07.pqp.native-6EJ9vg",
+      "status": "partial",
+      "counts": {
+        "sourceRecords": 68,
+        "nativeItems": 64,
+        "convertedRecords": 62,
+        "questions": 58,
+        "omittedRecords": 6,
+        "assets": 185
+      },
+      "sourceSha256": "230de64002779e0da821fda3aa0c18fecf9ee37408518fb0732e3f7273034677",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_21_1: question: unsupported HTML attribute td.bgcolor"
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_49_1: solution: unsupported HTML attribute td.bgcolor"
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_50_1: solution: unsupported HTML attribute td.bgcolor"
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_60_1: question: unsupported HTML attribute td.bgcolor; solution: unsupported HTML attribute td.bgcolor"
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_61_1: question: unsupported HTML attribute td.bgcolor"
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_QUESTION_LEFT_OUT",
+          "message": "question_62_1: question: unsupported HTML attribute td.bgcolor"
+        }
+      ]
+    },
+    {
+      "chapter": "08",
+      "pqp": "reports/rea-examview/native-chapter08.pqp.json",
+      "evidence": "reports/rea-examview/native-chapter08.pqp.native-2eOq8X",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 66,
+        "nativeItems": 62,
+        "convertedRecords": 66,
+        "questions": 62,
+        "omittedRecords": 0,
+        "assets": 209
+      },
+      "sourceSha256": "035c9f4055cf9b38380da3ae20d81870c18fb11fd56b3c00183c0a12d8db1f17",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_ORPHAN_MATCHING_CONDITION",
+          "message": "question_32_1: ignored native answer condition answer_36=answer_42, which refers to no presented matching stem."
+        }
+      ]
+    },
+    {
+      "chapter": "09",
+      "pqp": "reports/rea-examview/native-chapter09.pqp.json",
+      "evidence": "reports/rea-examview/native-chapter09.pqp.native-pjRAkM",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 65,
+        "nativeItems": 61,
+        "convertedRecords": 65,
+        "questions": 61,
+        "omittedRecords": 0,
+        "assets": 304
+      },
+      "sourceSha256": "b15631cb683e0bd7fe23f5a53db5e6df57979ae3efca8a93533769c8bd8bed92",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_ORPHAN_MATCHING_CONDITION",
+          "message": "question_31_1: ignored native answer condition answer_46=answer_52, which refers to no presented matching stem."
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_ORPHAN_MATCHING_CONDITION",
+          "message": "question_31_1: ignored native answer condition answer_55=answer_62, which refers to no presented matching stem."
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_ORPHAN_MATCHING_CONDITION",
+          "message": "question_31_1: ignored native answer condition answer_64=answer_72, which refers to no presented matching stem."
+        }
+      ]
+    }
+  ]
+}

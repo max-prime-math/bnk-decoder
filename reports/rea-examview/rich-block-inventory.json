@@ -1,0 +1,499 @@
+{
+  "evidence": "Inferred from file structure; not executable-backed. Block candidates validate all count-derived fixed lengths, object payload lengths, and exact consumption. Record boundaries use an existing unverified signature.",
+  "files": [
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12/Chapter 01.bnk",
+      "bankId": -839556,
+      "inflatedLength": 817961,
+      "recordsDetected": 71,
+      "fullCandidates": 108,
+      "alignedRecords": 71,
+      "firstRecords": [
+        {
+          "offset": 4092,
+          "end": 8753,
+          "number": 1,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 5318,
+              "length": 3435,
+              "chars": 159,
+              "tables": 1,
+              "objects": 8,
+              "textPreview": "Compared to the graph of the base function \u000f, the graph of the function \u000f is translated\u0010A\u0011\u000f units to the left\u0011C\u0011\u000f units \u000f\u0011\u0011B\u0011\u000f uni",
+              "relative": 1226
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              5318
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 162,
+            "fields": [
+              "Easy",
+              "Section 1.1",
+              "RF2",
+              "Horizontal and Vertical Translations",
+              "vertical translation",
+              ""
+            ],
+            "endsAtRelative": 694,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 694,
+            "length": 532,
+            "endsAtRelative": 1226,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 8753,
+          "end": 13592,
+          "number": 2,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 9985,
+              "length": 3607,
+              "chars": 159,
+              "tables": 1,
+              "objects": 8,
+              "textPreview": "Compared to the graph of the base function \u000f, the graph of the function \u000f is translated\u0010A\u0011\u000f units to the right\u0011C\u0011\u000f units \u000f\u0011\u0011B\u0011\u000f un",
+              "relative": 1232
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              9985
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 168,
+            "fields": [
+              "Average",
+              "Section 1.1",
+              "RF2",
+              "Horizontal and Vertical Translations",
+              "vertical translation",
+              ""
+            ],
+            "endsAtRelative": 700,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 700,
+            "length": 532,
+            "endsAtRelative": 1232,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 13592,
+          "end": 18304,
+          "number": 3,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 14840,
+              "length": 3464,
+              "chars": 156,
+              "tables": 1,
+              "objects": 8,
+              "textPreview": "Compared to the graph of the base function \u000f, the graph of the function \u000f is translated\u0010A\u0011\u000f units to the \u000f\u0011C\u0011\u000f units down\u0011\u0011B\u0011\u000f uni",
+              "relative": 1248
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              14840
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 166,
+            "fields": [
+              "Easy",
+              "Section 1.1",
+              "RF2",
+              "Horizontal and Vertical Translations",
+              "horizontal translation",
+              ""
+            ],
+            "endsAtRelative": 698,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 698,
+            "length": 550,
+            "endsAtRelative": 1248,
+            "followedImmediatelyByRichText": true
+          }
+        }
+      ],
+      "relativeBlockOffsets": [
+        1226,
+        1232,
+        1248,
+        1928,
+        1970,
+        1494,
+        2668,
+        2038,
+        1308,
+        2562,
+        2566,
+        1342,
+        1398,
+        1706,
+        3318,
+        1670,
+        1234,
+        1942,
+        1786,
+        1266,
+        1738,
+        1660,
+        1372,
+        1578,
+        1000,
+        1876,
+        1068,
+        912,
+        988,
+        2526
+      ],
+      "metadataLengthConfirmedRecords": 71,
+      "algorithmEndsAtRichTextRecords": 71,
+      "algorithmGaps": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 12 (Mickelson)/1.1 Functions and Relations.bnk",
+      "bankId": 1624058129,
+      "inflatedLength": 9976,
+      "recordsDetected": 6,
+      "fullCandidates": 6,
+      "alignedRecords": 6,
+      "firstRecords": [
+        {
+          "offset": 4092,
+          "end": 5120,
+          "number": 1,
+          "typeCode": 0,
+          "blocks": [
+            {
+              "offset": 4632,
+              "length": 488,
+              "chars": 72,
+              "tables": 0,
+              "objects": 0,
+              "textPreview": "The vertical line test is used to determine if a relation is a function.",
+              "relative": 540
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              4632
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 4,
+            "fields": [
+              ""
+            ],
+            "endsAtRelative": 536,
+            "stringCount": 0,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 536,
+            "length": 4,
+            "endsAtRelative": 540,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 5120,
+          "end": 6072,
+          "number": 2,
+          "typeCode": 0,
+          "blocks": [
+            {
+              "offset": 5660,
+              "length": 412,
+              "chars": 34,
+              "tables": 0,
+              "objects": 0,
+              "textPreview": "The domain is the set of y-values.",
+              "relative": 540
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              5660
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 4,
+            "fields": [
+              ""
+            ],
+            "endsAtRelative": 536,
+            "stringCount": 0,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 536,
+            "length": 4,
+            "endsAtRelative": 540,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 6072,
+          "end": 7050,
+          "number": 3,
+          "typeCode": 0,
+          "blocks": [
+            {
+              "offset": 6612,
+              "length": 438,
+              "chars": 47,
+              "tables": 0,
+              "objects": 0,
+              "textPreview": "In a graph, the range is located on the y-axis.",
+              "relative": 540
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              6612
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 4,
+            "fields": [
+              ""
+            ],
+            "endsAtRelative": 536,
+            "stringCount": 0,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 536,
+            "length": 4,
+            "endsAtRelative": 540,
+            "followedImmediatelyByRichText": true
+          }
+        }
+      ],
+      "relativeBlockOffsets": [
+        540
+      ],
+      "metadataLengthConfirmedRecords": 6,
+      "algorithmEndsAtRichTextRecords": 6,
+      "algorithmGaps": []
+    },
+    {
+      "file": "ignore/ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk",
+      "bankId": -820729,
+      "inflatedLength": 157144,
+      "recordsDetected": 23,
+      "fullCandidates": 36,
+      "alignedRecords": 23,
+      "firstRecords": [
+        {
+          "offset": 4092,
+          "end": 7234,
+          "number": 1,
+          "typeCode": 2,
+          "blocks": [
+            {
+              "offset": 4790,
+              "length": 2444,
+              "chars": 240,
+              "tables": 1,
+              "objects": 1,
+              "textPreview": "Which of the following would not be a correct description of slope?\r\u0010a.\u0011\u000f\u0011\u0011b.\u0011The height that a line rises.\u0011\u0011c.\u0011How gently or stee",
+              "relative": 698
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              4790
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 90,
+            "fields": [
+              "Easy",
+              "1.1",
+              "Algebra",
+              "A-SO2",
+              "Rise Over Run",
+              "slope",
+              ""
+            ],
+            "endsAtRelative": 622,
+            "stringCount": 6,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 622,
+            "length": 76,
+            "endsAtRelative": 698,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 7234,
+          "end": 10752,
+          "number": 2,
+          "typeCode": 2,
+          "blocks": [
+            {
+              "offset": 8478,
+              "length": 2274,
+              "chars": 113,
+              "tables": 1,
+              "objects": 6,
+              "textPreview": "A wheelchair ramp rises \u000f feet over a distance of \u000f feet. What is the slope of this ramp?\r\u0010a.\u0011\u000f\u0011c.\u0011\u000f\u0011\u0011b.\u0011\u000f\u0011d.\u0011\u000f\u0011\u0011",
+              "relative": 1244
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              8478
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 90,
+            "fields": [
+              "Easy",
+              "1.1",
+              "Algebra",
+              "A-SO2",
+              "Rise Over Run",
+              "slope",
+              ""
+            ],
+            "endsAtRelative": 622,
+            "stringCount": 6,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 622,
+            "length": 622,
+            "endsAtRelative": 1244,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 10752,
+          "end": 14290,
+          "number": 3,
+          "typeCode": 2,
+          "blocks": [
+            {
+              "offset": 11962,
+              "length": 2328,
+              "chars": 140,
+              "tables": 1,
+              "objects": 6,
+              "textPreview": "The slope of a bike jump is \u000f and it rises \u000f feet. What is the horizontal distance covered by this jump?\r\u0010a.\u0011\u000f ft\u0011c.\u0011\u000f ft\u0011\u0011b.\u0011\u000f ft",
+              "relative": 1210
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              11962
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 98,
+            "fields": [
+              "Moderate",
+              "1.1",
+              "Algebra",
+              "A-SO2",
+              "Rise Over Run",
+              "slope",
+              ""
+            ],
+            "endsAtRelative": 630,
+            "stringCount": 6,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 630,
+            "length": 580,
+            "endsAtRelative": 1210,
+            "followedImmediatelyByRichText": true
+          }
+        }
+      ],
+      "relativeBlockOffsets": [
+        698,
+        1244,
+        1210,
+        1338,
+        1294,
+        2412,
+        1190,
+        1802,
+        706,
+        916,
+        1936,
+        1208,
+        3114,
+        926,
+        2340,
+        974,
+        2224,
+        924,
+        1970,
+        914,
+        1722,
+        894,
+        1796,
+        1262,
+        13242,
+        1400,
+        3754,
+        992,
+        2798,
+        1144
+      ],
+      "metadataLengthConfirmedRecords": 23,
+      "algorithmEndsAtRichTextRecords": 23,
+      "algorithmGaps": []
+    },
+    {
+      "file": "test-test-bank.bnk",
+      "bankId": 592197506,
+      "inflatedLength": 7088,
+      "recordsDetected": 0,
+      "fullCandidates": 0,
+      "alignedRecords": 0,
+      "firstRecords": [],
+      "relativeBlockOffsets": [],
+      "metadataLengthConfirmedRecords": 0,
+      "algorithmEndsAtRichTextRecords": 0,
+      "algorithmGaps": []
+    }
+  ]
+}

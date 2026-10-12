@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import { inflateSync } from 'node:zlib';
-import { readNativeGraphObject } from '../../packages/bnk-core/src/graphs.ts';
+import { normalizeNativeGraphObject, readNativeGraphObject } from '../../packages/bnk-core/src/graphs.ts';
 const inventory = JSON.parse(fs.readFileSync('reports/rea-examview/graph-object-inventory.json', 'utf8'));
 const cached = new Map(), types = {}, failures = [];
 let parsed = 0, pictures = 0;
@@ -10,6 +10,14 @@ for (const sample of inventory.samples.filter(s => s.kind === 0 && s.subtype ===
   const p = cached.get(sample.file), body = p.subarray(sample.body, sample.body + sample.length);
   try {
     const graph = readNativeGraphObject(body); parsed++;
+    const normalized = normalizeNativeGraphObject(graph, {
+      width: (sample.width + 1) / 1440,
+      height: (sample.height + 1) / 1440,
+    });
+    assert.deepEqual(normalized.view, graph.viewExpressions);
+    assert.equal(normalized.items.length, graph.items.length);
+    assert.equal(normalized.axes.x.label, graph.axes[0].label);
+    assert.equal(normalized.axes.y.label, graph.axes[1].label);
     for (const item of graph.items) { types[item.code] = (types[item.code] ?? 0) + 1; if (item.pictureBytes) pictures++; }
     assert.deepEqual(graph.raw, body);
   } catch (error) { failures.push({ file: sample.file, number: sample.number, error: error.message }); }

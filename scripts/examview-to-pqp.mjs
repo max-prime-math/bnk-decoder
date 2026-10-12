@@ -23,6 +23,18 @@ function powershell(script, args) {
   if (result.error || result.status !== 0) throw new Error(`${basename(script)}: ${result.error?.message || result.stderr || result.stdout}`);
   return result.stdout;
 }
+function nodeScript(script, args, acceptedStatuses = [0]) {
+  const result = spawnSync(process.execPath, ['--experimental-strip-types', '--no-warnings', resolve(repository, script), ...args], {
+    cwd: repository,
+    encoding: 'utf8',
+    timeout: 300000,
+    maxBuffer: 32 * 1024 * 1024,
+  });
+  if (result.error || !acceptedStatuses.includes(result.status)) {
+    throw new Error(`${basename(script)}: ${result.error?.message || result.stderr || result.stdout || `exit ${result.status}`}`);
+  }
+  return result.stdout;
+}
 function main() {
   const args = process.argv.slice(2);
   const evidenceAt = args.indexOf('--evidence');
@@ -62,20 +74,23 @@ function main() {
     bank = readQuestionRecords(inflateSync(bytes.subarray(16)));
     if (!bank) throw new Error('Native legacy upgrade record structure could not be reconciled.');
   }
-  function convertPair(zip, rtfPath, sourceBank = bank) {
+  function convertPair(zip, rtfPath, sourceBank = bank, rationaleReferenceInventory) {
   const inventoryPath = join(work, `inventory-${Date.now()}-${Math.random().toString(16).slice(2)}.json`);
   powershell('scripts/blackboard-to-json.ps1', ['-ZipPath', zip, '-OutputPath', inventoryPath, '-IncludeAssetData']);
   let inventory = JSON.parse(readFileSync(inventoryPath, 'utf8').replace(/^\uFEFF/, ''));
   const rtf = readNativeRtf(readFileSync(rtfPath));
   const pictureDirectory = mkdtempSync(join(work, 'rtf-pictures-'));
   for (const picture of rtf.pictures) writeFileSync(join(pictureDirectory, `${picture.index}.wmf`), picture.bytes, { flag: 'wx' });
-  powershell('scripts/rasterize-native-wmf.ps1', ['-Directory', pictureDirectory]);
+  const rasterResult = JSON.parse(powershell('scripts/rasterize-native-wmf.ps1', ['-Directory', pictureDirectory]) || '[]');
+  const rasterReceipts = new Map((Array.isArray(rasterResult) ? rasterResult : [rasterResult]).map(receipt => [Number(basename(receipt.wmf, '.wmf')), receipt]));
   const rtfImage = index => {
     const picture = rtf.pictures[index - 1];
     if (!picture || !existsSync(join(pictureDirectory, `${index}.png`))) throw new Error(`Native answer image ${index} is missing.`);
-    return { bytes: readFileSync(join(pictureDirectory, `${index}.png`)), mimeType: 'image/png', widthTwips: picture.metadata.picwgoal, heightTwips: picture.metadata.pichgoal, baselineShiftPoints: picture.metadata.baselineShiftPoints, originalWmfBase64: picture.bytes.toString('base64') };
+    const rasterization = rasterReceipts.get(index);
+    if (!rasterization || rasterization.sourceSha256 !== hash(picture.bytes)) throw new Error(`Native metafile raster receipt mismatch for image ${index}.`);
+    return { bytes: readFileSync(join(pictureDirectory, `${index}.png`)), mimeType: 'image/png', widthTwips: picture.metadata.picwgoal, heightTwips: picture.metadata.pichgoal, baselineShiftPoints: picture.metadata.baselineShiftPoints, originalWmfBase64: picture.bytes.toString('base64'), rasterization };
   };
-  inventory = repairBimodalInventory(inventory, { rtf, rtfImage });
+  inventory = repairBimodalInventory(inventory, { rtf, rtfImage, rationaleReferenceInventory });
   if (typeof sourceBank === 'function') sourceBank = sourceBank(inventory, { rtf, rtfImage });
   const glyphCache = new Map();
   const result = convertNativeExport({ inventory, sourceName: basename(input), sourceSha256: digest, bank: sourceBank, rtf, pairedNativeEvidence: true, nativeFontGlyph(face, codePoint, attrs, records) {
@@ -99,19 +114,22 @@ function main() {
     glyph.receipt.htmlExportCodePoint = codePoint;
     glyphCache.set(key, glyph); return glyph;
   }, rtfImage });
+  result.pqp.extensions.nativeConversion.rtfRepairs = (inventory.rtfRepairs ?? []).map(({ originalWmfBase64, ...evidence }) => evidence);
   return { result, inventory, rtf, rtfImage };
   }
   const primary = convertPair(zip, rtfPath);
   let pqp = primary.result.pqp;
   if (bank.records.some(record => record.type === 'bimodal')) {
     const alternates = [], modes = new Set();
+    let rationaleReference = primary.inventory;
     try {
       for (const evidence of receipt.alternateEvidence ?? []) {
         if (!['multiple-choice', 'short-answer'].includes(evidence.mode) || modes.has(evidence.mode)) throw new Error('Bimodal presentation mode is invalid or duplicated.');
         modes.add(evidence.mode);
         if (evidence.sameLoadedBank !== true || evidence.presentationCommand !== (evidence.mode === 'multiple-choice' ? 30591 : 30590)) throw new Error('Bimodal receipt does not verify the native presentation command and loaded bank.');
         if (hash(readFileSync(evidence.output)) !== evidence.outputSha256?.toLowerCase() || hash(readFileSync(evidence.rtfOutput)) !== evidence.rtfSha256?.toLowerCase()) throw new Error('Bimodal native evidence digest mismatch.');
-        const alternate = convertPair(evidence.output, evidence.rtfOutput, inventory => alignBimodalBank(primary.inventory, inventory, bank));
+        const alternate = convertPair(evidence.output, evidence.rtfOutput, inventory => alignBimodalBank(primary.inventory, inventory, bank), rationaleReference);
+        if (evidence.mode === 'multiple-choice') rationaleReference = alternate.inventory;
         alternates.push({ mode: evidence.mode, pqp: alternate.result.pqp });
       }
       pqp = attachBimodalPresentations(pqp, alternates, bank);
@@ -125,6 +143,38 @@ function main() {
   pqp.extensions.nativeEvidence = { directory: work, receipt, rtfSha256: hash(readFileSync(rtfPath)), zipSha256: hash(readFileSync(zip)), algorithmEvaluation: 'ExamView may evaluate variables on load; this package captures one native snapshot.' };
   pqp.extensions.examviewSource = { sha256: digest, originalBnkBase64: source.toString('base64'), preservation: 'Original bank retained exactly for unimplemented fields and future decoding.' };
   if (legacy) pqp.extensions.examviewSource.nativeUpgrade = { ...receipt.upgradedBank, recordRangeBasis: 'Source record ranges refer to the verified native v06 upgrade, not the original v05 serialization.' };
+  // Native Blackboard export rasterizes equations. For algorithmic questions, conservatively
+  // substitute only whole fields decoded from the exact same structural BNK record, then attach
+  // algorithms only when every displayed value has an unambiguous TestGen slot and every rule is
+  // supported. Failed or ambiguous questions remain faithful native snapshots with diagnostics.
+  try {
+    const algorithmBank = legacy ? receipt.upgradedBank.path : input;
+    const algorithmWork = mkdtempSync(join(work, 'algorithm-pqp-'));
+    const nativeBase = join(work, `native-before-algorithms-${Date.now()}.pqp.json`);
+    const structural = join(work, `structural-for-algorithms-${Date.now()}.pqp.json`);
+    const algorithmOutput = join(algorithmWork, `${basename(algorithmBank, extname(algorithmBank))}.pqp.json`);
+    writeFileSync(nativeBase, `${JSON.stringify(pqp, null, 2)}\n`, { flag: 'wx' });
+    nodeScript('scripts/bnk-to-pqp.mjs', [algorithmBank, structural], [0, 2]);
+    nodeScript('scripts/hybridize-native-algorithm-text.mjs', [nativeBase, structural, algorithmOutput]);
+    nodeScript('scripts/attach-algorithms.mjs', [algorithmWork, dirname(algorithmBank)]);
+    pqp = JSON.parse(readFileSync(algorithmOutput, 'utf8'));
+    const attached = pqp.questions.filter(question => question.extensions?.algorithmModel).length;
+    const staticQuestions = pqp.questions.filter(question => question.extensions?.examview?.algorithm?.status === 'static').length;
+    pqp.extensions.nativeConversion.algorithmCoverage = {
+      status: staticQuestions ? 'partial' : 'complete',
+      attached,
+      static: staticQuestions,
+      method: 'exact source-record structural text plus conservative TestGen slots',
+    };
+    pqp.extensions.nativeConversion.limitations = (pqp.extensions.nativeConversion.limitations ?? [])
+      .filter(item => item !== 'Native rendered samples; randomized algorithm generation is not reproduced.')
+      .concat(staticQuestions
+        ? [`${staticQuestions} algorithmic question(s) remain fixed native snapshots; see ALGORITHM_STATIC diagnostics.`]
+        : []);
+  } catch (error) {
+    pqp.diagnostics.push({ level: 'warning', code: 'ALGORITHM_ATTACHMENT_SKIPPED', message: error.message });
+    pqp.extensions.nativeConversion.algorithmCoverage = { status: 'skipped', attached: 0, reason: error.message };
+  }
   writeFileSync(output, `${JSON.stringify(pqp, null, 2)}\n`, { flag: 'wx' });
   const failed = pqp.extensions.nativeConversion?.status === 'partial' || pqp.diagnostics?.some(d => d.level === 'error' || d.code === 'QUESTION_LEFT_OUT');
   const counts = pqp.extensions.nativeConversion?.counts;

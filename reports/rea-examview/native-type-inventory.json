@@ -1,0 +1,78 @@
+{
+  "counts": {
+    "0": 50,
+    "2": 4142,
+    "3": 6,
+    "4": 1830,
+    "5": 7,
+    "7": 103,
+    "8": 121,
+    "9": 4656,
+    "10": 2956
+  },
+  "examples": {
+    "0": {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.2 Radical Operations.bnk",
+      "number": 10,
+      "type": "true-false",
+      "answerCode": 1,
+      "text": "\u000f"
+    },
+    "2": {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.2.bnk",
+      "number": 1,
+      "type": "multiple-choice",
+      "answerCode": 2,
+      "text": "Which referent could you use for 1 m?\u0010A.\u0011The width of a computer keyboard\u0011\u0011B.\u0011The length of a dinner"
+    },
+    "3": {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.1 Properties of Rational Expressions.bnk",
+      "number": 1,
+      "type": "multiple-response",
+      "answerCode": 14,
+      "text": "Which of the following is a rational expression? Circle all answers that apply.\u0010a.\u0011\u000f\u0011c.\u0011\u000f\u0011\u0011b.\u00117\u0011d.\u0011\u000f"
+    },
+    "4": {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Approximations.bnk",
+      "number": 1,
+      "type": "bimodal",
+      "answerCode": 2,
+      "text": "\u000f\rRecord the value of \u000f to the nearest whole number.\r\u000f\u0010A.\u0011\u000f \u0011B.\u0011\u000f\u0011C.\u0011\u000f\u0011D.\u0011\u000f\u0011\u0011"
+    },
+    "5": {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.6 Law of Cosines.bnk",
+      "number": 5,
+      "type": "yes-no",
+      "answerCode": 0,
+      "text": "Jennifer decided to solve for the the missing side in a triangle with \u000f, \u000f, \u000f. She found that the mi"
+    },
+    "7": {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 01.bnk",
+      "number": 30,
+      "type": "completion",
+      "answerCode": 810,
+      "text": "In the formula for the general term of an arithmetic sequence \u000f, \u000f represents the __________________"
+    },
+    "8": {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 01.bnk",
+      "number": 36,
+      "type": "matching",
+      "answerCode": 1,
+      "text": "a geometric series that has no last term"
+    },
+    "9": {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Linear-relations.bnk",
+      "number": 7,
+      "type": "short-answer",
+      "answerCode": 4005,
+      "text": "On the grid below, graph the relation \u000f for integer values of x from 4 to 4.\r\u000f"
+    },
+    "10": {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Approximations.bnk",
+      "number": 9,
+      "type": "problem",
+      "answerCode": 2310,
+      "text": "\u000f m of edging is needed for a garden.\rEdging comes in 2-m pieces.\rHow many pieces of edging must be "
+    }
+  }
+}

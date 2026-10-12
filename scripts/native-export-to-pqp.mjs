@@ -124,6 +124,18 @@ export function convertNativeExport({ inventory, sourceName, sourceSha256, bank,
       }
       for (const e of equal) if (!(item.responses ?? []).some(r => r.attributes.ident === e.responseId)) warn('NATIVE_ORPHAN_MATCHING_CONDITION', `${item.sourceId}: ignored native answer condition ${e.responseId}=${e.value}, which refers to no presented matching stem.`);
       if (mappings.length !== consume) problems.push('not every matching stem has a verified answer');
+      const structuralMappings = records.map((record, n) => (
+        record.choiceCount >= 0 && record.choiceCount < right.length
+          ? `${n + 1}. ${String.fromCharCode(65 + record.choiceCount)}`
+          : undefined
+      ));
+      if (structuralMappings.some((mapping) => !mapping)) problems.push('structural matching answer index is outside the presented choice list');
+      else {
+        if (JSON.stringify(mappings) !== JSON.stringify(structuralMappings)) {
+          warn('NATIVE_MATCHING_KEY_CORRECTED', `${item.sourceId}: native QTI response-label order disagrees with the BNK matching indices; used the BNK key.`);
+        }
+        mappings.splice(0, mappings.length, ...structuralMappings);
+      }
       stem += `\n\n${right.map((s, n) => `${String.fromCharCode(65 + n)}. ${s}`).join('\n\n')}\n\n${lines.join('\n\n')}`;
       answer = { type: 'text', value: mappings.join('\n') };
     } else if (itemType?.some(t => ['multiple-choice', 'multiple-response', 'true-false', 'yes-no'].includes(t))) {
@@ -205,7 +217,7 @@ export function convertNativeExport({ inventory, sourceName, sourceSha256, bank,
               if (picture?.typst && picture.asset) { staged.set(picture.asset.id, picture.asset); used.add(picture.asset.id); return `${picture.typst.replace(/;$/, '')};`; }
               const bytes = picture?.bytes ?? (picture?.base64 ? Buffer.from(picture.base64, 'base64') : undefined);
               if (!bytes) throw new Error('RTF picture bytes unavailable');
-              return stageImage(bytes, picture.mimeType, `native-rtf-picture-${match[1]}`, { width: picture.width, height: picture.height, widthTwips: picture.widthTwips, heightTwips: picture.heightTwips, baselineShiftPoints: picture.baselineShiftPoints }, { nativeRtfIndex: Number(match[1]), widthTwips: picture.widthTwips, heightTwips: picture.heightTwips, baselineShiftPoints: picture.baselineShiftPoints, originalWmfBase64: picture.originalWmfBase64 ?? picture.rawWmfBase64 ?? (picture.originalBytes ? Buffer.from(picture.originalBytes).toString('base64') : undefined) });
+              return stageImage(bytes, picture.mimeType, `native-rtf-picture-${match[1]}`, { width: picture.width, height: picture.height, widthTwips: picture.widthTwips, heightTwips: picture.heightTwips, baselineShiftPoints: picture.baselineShiftPoints }, { nativeRtfIndex: Number(match[1]), widthTwips: picture.widthTwips, heightTwips: picture.heightTwips, baselineShiftPoints: picture.baselineShiftPoints, rasterization: picture.rasterization, originalWmfBase64: picture.originalWmfBase64 ?? picture.rawWmfBase64 ?? (picture.originalBytes ? Buffer.from(picture.originalBytes).toString('base64') : undefined) });
             } catch (error) { problems.push(error.message); return ''; }
           }).join('');
           answer = { type: 'text', value: solution };
@@ -229,10 +241,38 @@ export function convertNativeExport({ inventory, sourceName, sourceSha256, bank,
     convertedRecords += records.length;
     questions.push({ id: `${packageId}-native-${index + 1}`, kind, content: { stem: rich(stem), ...(choices ? { choices } : {}), ...(solution ? { solution: rich(solution) } : {}) }, answer, scoring: { points }, classification: { questionType: pqpRecordType(records[0]?.type), tags: ['examview', 'native-export'] }, ...(used.size ? { assets: [...used] } : {}), provenance: { sourceApp: 'bnk-decoder', sourceSystem: 'ExamView', sourceLabel: sourceName, sourceQuestionNumber: records.map(r => r.number).join(', '), originFiles: [sourceName], confidence: 'high' }, extensions: { examview: { sourceRecords: records.map(metadata), nativeSourceId: item.sourceId, nativeExportOrdinal: index + 1, nativeExport: item, rtfAnswer: itemType?.includes('completion') && rtf ? rtf.questions?.find(q => q.answerOrdinal === sourceStart + 1) : undefined } } });
   }
+  // Blackboard repeats a shared ExamView narrative inside each linked item. Recover PQP's
+  // shared-narrative shape only when at least two native exports agree on the exact prefix
+  // through the blank-line separator.
+  for (const narrative of bank.narratives ?? []) {
+    const linked = questions.filter(question => (
+      question.extensions.examview.sourceRecords.some(record => record.narrativeId === narrative.number)
+    ));
+    if (linked.length < 2) continue;
+    let prefix = linked[0].content.stem.text;
+    for (const question of linked.slice(1)) {
+      const text = question.content.stem.text;
+      let length = 0;
+      while (length < prefix.length && length < text.length && prefix[length] === text[length]) length += 1;
+      prefix = prefix.slice(0, length);
+    }
+    const separators = [...prefix.matchAll(/#linebreak\(\);\s*\n\s*#linebreak\(\);/g)];
+    const separator = separators.at(-1);
+    if (!separator) continue;
+    const narrativeText = prefix.slice(0, separator.index).trim();
+    const splitAt = separator.index + separator[0].length;
+    if (!narrativeText || linked.some(question => !question.content.stem.text.slice(splitAt).trim())) continue;
+    const narrativeId = `${packageId}-narrative-${narrative.number}`;
+    for (const question of linked) {
+      question.narrativeId = narrativeId;
+      question.content.narrative = rich(narrativeText);
+      question.content.stem.text = question.content.stem.text.slice(splitAt).trim();
+    }
+  }
   if (cursor !== bank.records.length) warn('NATIVE_SOURCE_RECORD_COUNT_MISMATCH', `Native items consumed ${cursor} source positions; structural bank declares ${bank.records.length}.`);
   const counts = { sourceRecords: bank.records.length, nativeItems: inventory.items.length, convertedRecords, questions: questions.length, omittedRecords: bank.records.length - convertedRecords, assets: assets.length };
   const status = convertedRecords === bank.records.length && omitted.length === 0 && !alignmentLost ? 'complete' : 'partial';
-  const pqp = { format: 'portable-question-package', version: '1.0', producer: { app: 'bnk-decoder', appVersion: '0.1.0', pipeline: 'examview-native-export' }, source: { kind: 'bnk', label: sourceName, sourceSystem: 'ExamView', bankTitle: bank.title, sectionTitle: bank.sectionTitle, originFiles: [sourceName] }, questions, assets, diagnostics, extensions: { nativeConversion: { status, counts, omittedQuestions: omitted, sourceSha256: sourceSha256.toLowerCase(), pairedNativeEvidence, limitations: ['Native rendered samples; randomized algorithm generation is not reproduced.', 'Successful conversion does not establish pixel parity or consuming-application import validation.'] }, examview: { bankId: bank.bankId, narratives: bank.narratives, matchingGroups: bank.groups, opaqueTrailerBase64: bank.trailingBytes?.length ? Buffer.from(bank.trailingBytes).toString('base64') : undefined } } };
+  const pqp = { format: 'portable-question-package', version: '1.0', producer: { app: 'bnk-decoder', appVersion: '0.1.0', pipeline: 'examview-native-export' }, source: { kind: 'bnk', label: sourceName, sourceSystem: 'ExamView', bankTitle: bank.title, sectionTitle: bank.sectionTitle, originFiles: [sourceName] }, questions, assets, diagnostics, extensions: { nativeConversion: { status, counts, omittedQuestions: omitted, sourceSha256: sourceSha256.toLowerCase(), pairedNativeEvidence, limitations: ['Native rendered samples; randomized algorithm generation is not reproduced.', 'Successful conversion does not establish pixel parity across every bank.'] }, examview: { bankId: bank.bankId, narratives: bank.narratives, matchingGroups: bank.groups, opaqueTrailerBase64: bank.trailingBytes?.length ? Buffer.from(bank.trailingBytes).toString('base64') : undefined } } };
   pqp.producer.exportedAt = new Date().toISOString();
   return { pqp, diagnostics, counts };
 }

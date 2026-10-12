@@ -1,3 +1,17 @@
 .tools/
 node_modules/
 dist/
+
+# Local ExamView installation and source-bank corpus. These are third-party runtime inputs.
+ExamView/
+
+# REA creates large transient native-export workspaces. Keep the authored reports and final
+# portable banks while leaving the reproducible extraction scratch data local.
+reports/rea-examview/*
+!reports/rea-examview/*.md
+!reports/rea-examview/*.json
+reports/rea-examview/*.pqp.json
+!reports/rea-examview/equation-format-typst.pdf
+!reports/rea-examview/font-intent-ch11-page15.png
+!reports/rea-examview/perfected-local-pqp/
+!reports/rea-examview/perfected-local-pqp/*.pqp.json

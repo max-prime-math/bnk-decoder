@@ -16,7 +16,8 @@ assert.deepEqual(result.pqp.extensions.nativeConversion.omittedQuestions.map(q =
 assert.equal(result.pqp.questions[0].answer.value, 'c');
 const matching = result.pqp.questions.find(q => q.kind === 'matching');
 assert.equal(matching.extensions.examview.sourceRecords.length, 5);
-assert.equal(matching.answer.value, '1. A\n2. B\n3. C\n4. D\n5. E');
+assert.equal(matching.answer.value, '1. D\n2. F\n3. B\n4. C\n5. A');
+assert.ok(result.diagnostics.some(d => d.code === 'NATIVE_MATCHING_KEY_CORRECTED'));
 assert.ok(result.diagnostics.some(d => d.code === 'NATIVE_ORPHAN_MATCHING_CONDITION'));
 assert.ok(result.pqp.questions.find(q => q.extensions.examview.nativeExportOrdinal === 37).extensions.examview.sourceRecords[0].number === 41);
 const corrupted = structuredClone(inventory);

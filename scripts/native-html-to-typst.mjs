@@ -4,6 +4,15 @@ import { SYMBOL_FONT } from '../packages/bnk-core/src/equations.ts';
 // Official Adobe Symbol encoding: https://www.unicode.org/Public/MAPPINGS/VENDORS/ADOBE/symbol.txt
 // C1 is black-letter I (U+2111). Do not infer a degree symbol from question prose.
 const NATIVE_SYMBOL_FONT={...SYMBOL_FONT,0xc1:'ℑ'};
+// Verified against the publisher's original Chapter 11 PDF (SHA-256
+// bc2248c8f83881687a632291ff692e02c549171029e4b28e4e83190a9cbf5610):
+// page 15 uses its embedded symbol font to draw both Euclid Symbol byte A5
+// occurrences as infinity. PDF.js preserves those glyphs as U+F0A5. Keep this
+// map face-specific because legacy symbol fonts assign different meanings to
+// the same byte values.
+const VERIFIED_LEGACY_FONT={
+ 'Euclid Symbol':new Map([[0xa5,'∞']]),
+};
 const ENTITIES={amp:'&',lt:'<',gt:'>',quot:'"',apos:"'",nbsp:'\u00a0',ndash:'–',mdash:'—',deg:'°',times:'×',divide:'÷',minus:'−',le:'≤',ge:'≥',ne:'≠',pi:'π',theta:'θ',infin:'∞',hellip:'…',lsquo:'‘',rsquo:'’',ldquo:'“',rdquo:'”'};
 export function decodeNativeEntities(text,errors=[]) {
  return text.replace(/&([^;\s]+);/g,(all,name)=>{
@@ -63,6 +72,14 @@ export function renderNativeHtml(html,{image,fontText}={}){
     try{const result=fontText(fontName,text,{...a});if(typeof result==='string')rendered=result;else if(result&&typeof result.typst==='string'){rendered=result.typst;errors.push(...(result.errors??[]));}else errors.push(`invalid native font resolver result: ${fontName}`);}catch(e){errors.push(`native font resolver failed: ${fontName}: ${e.message}`);}
     if(!rendered?.trim()){errors.push(`native font resolver produced no glyph content: ${fontName}`);return '';}
     return style(n,symbol,true).wrap(rendered);
+   }
+   if(unknown&&hasTextGlyph(n)&&n.children.every(c=>c.text!==undefined)){
+    const name=/^(?:'([^']+)'|"([^"]+)"|([A-Za-z][A-Za-z0-9 -]*))$/.exec(family);
+    const fontName=name?.[1]??name?.[2]??name?.[3],fontMap=VERIFIED_LEGACY_FONT[fontName];
+    const text=n.children.map(c=>c.text).join('').replace(/[\t\r\n ]+/g,' ');
+    if(fontMap&&[...text].every(c=>fontMap.has(c.codePointAt(0)))){
+     return style(n,symbol,true).wrap(escape([...text].map(c=>fontMap.get(c.codePointAt(0))).join('')));
+    }
    }
    const s=style(n,symbol);return s.wrap(children(n,s.symbol));
   }

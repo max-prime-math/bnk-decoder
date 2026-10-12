@@ -12,7 +12,7 @@
 // Usage: npm run check:pqp -- <pqp-dir> [rtf-dir] [--bnk <bnk-dir>]
 // Set TEST_GENERATOR_DIR to point at a test-generator checkout (default ../test-generator).
 import { spawnSync } from 'node:child_process';
-import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { inflateSync } from 'node:zlib';
 import { basename, dirname, extname, join, resolve } from 'node:path';
@@ -193,8 +193,11 @@ function checkBnkAnswers(pkg) {
     const label = question.provenance.sourceQuestionNumber;
     if (question.kind === 'matching') {
       // One question per matching group: each item's key must be its record's match index.
-      const numbers = question.extensions?.examview?.questionNumbers ?? [];
-      const key = (question.answer?.value ?? '').split(';').map((part) => part.trim()).filter(Boolean);
+      const numbers = question.extensions?.examview?.questionNumbers
+        ?? question.extensions?.examview?.sourceRecords?.map((source) => source.number)
+        ?? [];
+      const key = [...(question.answer?.value ?? '').matchAll(/(?:^|\n)\s*(\d+)\s*[.:]\s*([A-Z])/gi)]
+        .map((match) => `${Number(match[1])}:${match[2].toUpperCase()}`);
       if (!numbers.length || key.length !== numbers.length) problems.push(`bnk ${label}: ${key.length} keyed items for ${numbers.length} matching records`);
       numbers.forEach((number, index) => {
         const record = records.get(number);
@@ -209,7 +212,9 @@ function checkBnkAnswers(pkg) {
       });
       continue;
     }
-    const number = question.extensions?.examview?.questionNumber;
+    const number = question.extensions?.examview?.questionNumber
+      ?? question.extensions?.examview?.sourceRecords?.[0]?.number
+      ?? question.extensions?.examview?.nativeExportOrdinal;
     const record = records.get(number);
     if (!record) {
       problems.push(`bnk ${label}: no record for ExamView question ${number}`);
@@ -228,7 +233,7 @@ function checkBnkAnswers(pkg) {
     }
     totals.bnkAnswerChecks += 1;
     const expected = String.fromCharCode(65 + record.answer);
-    if (question.answer?.value !== expected) problems.push(`bnk ${label}: answer ${question.answer?.value} but the BNK record says ${expected}`);
+    if (question.answer?.value?.toUpperCase() !== expected) problems.push(`bnk ${label}: answer ${question.answer?.value} but the BNK record says ${expected}`);
     const choices = question.content.choices ?? [];
     if (OPTIONS[record.type]) {
       const texts = choices.map((choice) => choice.body.text);
@@ -250,7 +255,16 @@ function compileQuestions(pkg, file) {
   for (const asset of pkg.assets ?? []) {
     const source = resolve(pqpDir, asset.storage?.path ?? asset.filename);
     const target = join(root, 'imgs', asset.filename);
-    if (existsSync(source) && !existsSync(target)) symlinkSync(source, target);
+    if (asset.storage?.mode === 'inline-base64' && asset.storage.base64) {
+      if (!existsSync(target)) writeFileSync(target, Buffer.from(asset.storage.base64, 'base64'));
+    } else if (existsSync(source) && !existsSync(target)) {
+      try {
+        symlinkSync(source, target);
+      } catch (error) {
+        if (!['EPERM', 'EACCES'].includes(error?.code)) throw error;
+        copyFileSync(source, target);
+      }
+    }
   }
   const extensionByStem = new Map((pkg.assets ?? []).map((asset) => [
     basename(asset.filename, extname(asset.filename)),
@@ -285,12 +299,14 @@ function compileQuestions(pkg, file) {
   if (result.status === 0) return [];
 
   const failures = [];
+  const stderr = typeof result.stderr === 'string' ? result.stderr : '';
+  if (result.error) return [{ label: 'document', error: `Typst compiler unavailable: ${result.error.message}` }];
   const errorPattern = /error: (.*)\n\s*┌─ (.+?):\d+:\d+/g;
-  for (const [, message, path] of result.stderr.matchAll(errorPattern)) {
+  for (const [, message, path] of stderr.matchAll(errorPattern)) {
     const name = path.slice(path.indexOf('fields/'));
     failures.push({ label: labels.get(name) ?? name, error: message.trim() });
   }
-  if (!failures.length) failures.push({ label: 'document', error: result.stderr.trim().split('\n')[0] });
+  if (!failures.length) failures.push({ label: 'document', error: stderr.trim().split('\n')[0] || `Typst exited with status ${result.status}` });
   return failures;
 }
 
@@ -369,9 +385,12 @@ function recomputeMismatch(draft, engine) {
       const expected = evaluateRule(rule, values);
       const actual = values.get(definition.name);
       if (expected === undefined || actual === undefined) continue;
+      const tolerance = 1e-3 * Math.max(1, Math.abs(Number(expected)));
+      const circular = typeof expected === 'number' && /\bpi\b/i.test(rule)
+        && Math.abs((expected - Number(actual)) - Math.round((expected - Number(actual)) / (2 * Math.PI)) * 2 * Math.PI) <= tolerance;
       const same = typeof expected === 'number'
         // Engine values are reported to 6 decimals, which steep functions (tan) amplify.
-        ? Math.abs(expected - Number(actual)) <= 1e-3 * Math.max(1, Math.abs(expected))
+        ? Math.abs(expected - Number(actual)) <= tolerance || circular
         : String(expected) === String(actual) || (typeof expected === 'boolean' && String(Number(expected)) === String(actual));
       if (!same) return `${definition.name} = ${rule} should be ${expected} but test-generator produced ${actual} (seed ${seed})`;
     }
@@ -381,7 +400,7 @@ function recomputeMismatch(draft, engine) {
 
 function evaluateRule(rule, values) {
   const strings = [];
-  let js = rule.replace(/"[^"]*"/g, (literal) => `__s${strings.push(literal) - 1}__`)
+  let js = rule.replace(/"(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*'/g, (literal) => `__s${strings.push(literal) - 1}__`)
     .replace(/\bAND\b/gi, '&&').replace(/\bOR\b/gi, '||').replace(/\bNOT\b/gi, '!')
     .replace(/<>/g, '!=').replace(/(?<![<>=!])=(?!=)/g, '==').replace(/\^/g, '**')
     .replace(/\bif\s*\(/gi, '__if(');

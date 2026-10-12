@@ -1,0 +1,98 @@
+{
+  "scope": "Fresh native tests of one non-prior-skills Math Makes Sense 9 unit, one algorithm-heavy Foundations APL Area bank, and publisher Pre-Calculus 11 Chapter 01. Counts and actual compiler checks; not complete-family or pixel-parity claims.",
+  "families": [
+    {
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Math Makes Sense 9\\Unit 09\\MMS9_9.4.bnk",
+      "pqp": "reports/rea-examview/native-family-MMS9.pqp.json",
+      "evidence": "C:\\Users\\Max\\bnk-decoder\\reports\\rea-examview\\native-family-MMS9.pqp.native-tAJndP",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 24,
+        "nativeItems": 24,
+        "convertedRecords": 24,
+        "questions": 24,
+        "omittedRecords": 0,
+        "assets": 0
+      },
+      "sourceSha256": "8b87cd3570234887f8e4750b7b99342beef5db504db4c116ca68c5f27d54f14e",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "omitted": [],
+      "diagnostics": [],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-MMS9.pqp.json",
+        "questions": 24,
+        "materials": 78,
+        "assets": 0,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 101363
+      }
+    },
+    {
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Area.bnk",
+      "pqp": "reports/rea-examview/native-family-APL-area-complete.pqp.json",
+      "evidence": "C:\\Users\\Max\\bnk-decoder\\reports\\rea-examview\\native-family-APL-area.pqp.native-ncQ7z4",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 15,
+        "nativeItems": 15,
+        "convertedRecords": 15,
+        "questions": 15,
+        "omittedRecords": 0,
+        "assets": 26
+      },
+      "sourceSha256": "50ad7001125cd2c0adddce1e8aa98429adeb41637e24f5a4b7669d234bb63fce",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "omitted": [],
+      "diagnostics": [],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-APL-area-complete.pqp.json",
+        "questions": 15,
+        "materials": 30,
+        "assets": 26,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 257224
+      }
+    },
+    {
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Pre-Calculus 11\\Chapter 01.bnk",
+      "pqp": "reports/rea-examview/native-family-PC11-complete.pqp.json",
+      "evidence": "C:\\Users\\Max\\bnk-decoder\\reports\\rea-examview\\native-family-PC11.pqp.native-XB5qDn",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 81,
+        "nativeItems": 77,
+        "convertedRecords": 81,
+        "questions": 77,
+        "omittedRecords": 0,
+        "assets": 250
+      },
+      "sourceSha256": "03bbf00afdcbad474f232f13330b0e25fe53406a62e1d0af1daf011a0642329b",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "omitted": [],
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_ORPHAN_MATCHING_CONDITION",
+          "message": "question_36_1: ignored native answer condition answer_36=answer_42, which refers to no presented matching stem."
+        }
+      ],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-PC11-complete.pqp.json",
+        "questions": 77,
+        "materials": 240,
+        "assets": 250,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 1542169
+      }
+    }
+  ]
+}

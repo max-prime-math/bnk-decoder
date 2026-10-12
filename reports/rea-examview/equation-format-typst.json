@@ -1,0 +1,18 @@
+{
+  "sourceBanks": 9,
+  "nativeOracleQuestions": [
+    31,
+    25,
+    3,
+    7,
+    66,
+    22,
+    41,
+    36,
+    22,
+    37
+  ],
+  "hasError": false,
+  "diagnostics": [],
+  "pdfBytes": 38905
+}

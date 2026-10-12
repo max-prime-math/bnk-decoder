@@ -1,0 +1,179 @@
+{
+  "evidence": "Inferred from file structure; not executable-backed. Block candidates validate all count-derived fixed lengths, object payload lengths, and exact consumption. Record boundaries use an existing unverified signature.",
+  "files": [
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk",
+      "bankId": -801936,
+      "inflatedLength": 542356,
+      "recordsDetected": 64,
+      "fullCandidates": 134,
+      "alignedRecords": 64,
+      "firstRecords": [
+        {
+          "offset": 4092,
+          "end": 8486,
+          "number": 1,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 5818,
+              "length": 2668,
+              "chars": 94,
+              "tables": 1,
+              "objects": 9,
+              "textPreview": "Which of the following numbers occurs in the sequence \u000f, \u000f, \u000f, \u000f, \u000f, . . .?\u0010A\u0011\u000f\u0011C\u0011\u000f\u0011\u0011B\u0011\u000f\u0011D\u0011\u000f\u0011\u0011",
+              "relative": 1726
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              5818
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 108,
+            "fields": [
+              "Easy",
+              "Section 1.1",
+              "RF 9",
+              "Arithmetic Sequences",
+              "nth term",
+              ""
+            ],
+            "endsAtRelative": 640,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 640,
+            "length": 1086,
+            "endsAtRelative": 1726,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 8486,
+          "end": 12688,
+          "number": 2,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 10016,
+              "length": 2672,
+              "chars": 88,
+              "tables": 1,
+              "objects": 8,
+              "textPreview": "The common difference in the arithmetic sequence \u000f, \u000f, \u000f, \u000f, . . . is\u0010A\u0011\u000f\u0011C\u0011\u000f\u0011\u0011B\u0011\u000f\u0011D\u0011\u000f\u0011\u0011",
+              "relative": 1530
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              10016
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 126,
+            "fields": [
+              "Easy",
+              "Section 1.1",
+              "RF 9",
+              "Arithmetic Sequences",
+              "common difference",
+              ""
+            ],
+            "endsAtRelative": 658,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 658,
+            "length": 872,
+            "endsAtRelative": 1530,
+            "followedImmediatelyByRichText": true
+          }
+        },
+        {
+          "offset": 12688,
+          "end": 17283,
+          "number": 3,
+          "typeCode": 4,
+          "blocks": [
+            {
+              "offset": 14542,
+              "length": 2741,
+              "chars": 91,
+              "tables": 1,
+              "objects": 9,
+              "textPreview": "The common difference in the arithmetic sequence \u000f, \u000f, \u000f, \u000f, \u000f, . . . is\u0010A\u0011\u000f\u0011C\u0011\u000f\u0011\u0011B\u0011\u000f\u0011D\u0011\u000f\u0011\u0011",
+              "relative": 1854
+            }
+          ],
+          "chainsEndingAtRecordEnd": [
+            [
+              14542
+            ]
+          ],
+          "metadata": {
+            "relative": 532,
+            "length": 154,
+            "fields": [
+              "Average",
+              "Section 1.1",
+              "RF 9",
+              "Arithmetic Sequences",
+              "common difference | fraction",
+              ""
+            ],
+            "endsAtRelative": 686,
+            "stringCount": 5,
+            "terminatedStringBlock": true
+          },
+          "algorithm": {
+            "relative": 686,
+            "length": 1168,
+            "endsAtRelative": 1854,
+            "followedImmediatelyByRichText": true
+          }
+        }
+      ],
+      "relativeBlockOffsets": [
+        1726,
+        1530,
+        1854,
+        1380,
+        1610,
+        1750,
+        1788,
+        1652,
+        1688,
+        1582,
+        1606,
+        1378,
+        1638,
+        1370,
+        1534,
+        1992,
+        1766,
+        1544,
+        1558,
+        1760,
+        1938,
+        1762,
+        1716,
+        1260,
+        1678,
+        1596,
+        1736,
+        1702,
+        1494,
+        1266
+      ],
+      "metadataLengthConfirmedRecords": 64,
+      "algorithmEndsAtRichTextRecords": 64,
+      "algorithmGaps": []
+    }
+  ]
+}

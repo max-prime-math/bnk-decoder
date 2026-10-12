@@ -1,0 +1,92 @@
+{
+  "scope": "One meaningful first unit bank from each MathWorks family; native counts/source reconciliation and actual Typst compilation, not complete family or pixel parity claims.",
+  "families": [
+    {
+      "family": "MW10",
+      "source": "ExamView/Banks/MathWorks 10/Ch1-Unit Pricing, Currency Exch/1.1-Proportional Reasoning.bnk",
+      "pqp": "reports/rea-examview/native-family-MW10.pqp.json",
+      "evidence": "reports/rea-examview/native-family-MW10.pqp.native-nTfirp",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 23,
+        "nativeItems": 23,
+        "convertedRecords": 23,
+        "questions": 23,
+        "omittedRecords": 0,
+        "assets": 23
+      },
+      "sourceSha256": "c8ce5d3a2c5ac645a754f85026358df5b71c41b24118df27498942651c6e7b4f",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-MW10.pqp.json",
+        "questions": 23,
+        "materials": 76,
+        "assets": 23,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 290621
+      }
+    },
+    {
+      "family": "MW11",
+      "source": "ExamView/Banks/MathWorks 11/Ch1-Slope and Rate of Change/1.1 Rise Over Run.bnk",
+      "pqp": "reports/rea-examview/native-family-MW11.pqp.json",
+      "evidence": "reports/rea-examview/native-family-MW11.pqp.native-beHTon",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 23,
+        "nativeItems": 23,
+        "convertedRecords": 23,
+        "questions": 23,
+        "omittedRecords": 0,
+        "assets": 41
+      },
+      "sourceSha256": "0af3fcfca64a7c7d5a1205c41aa3a95fc671f14bf545e860bf295d6da98e0eeb",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-MW11.pqp.json",
+        "questions": 23,
+        "materials": 76,
+        "assets": 41,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 287546
+      }
+    },
+    {
+      "family": "MW12",
+      "source": "ExamView/Banks/MathWorks 12/Ch1-Linear Relations/1.1 Linear Rel-Table-Graph.bnk",
+      "pqp": "reports/rea-examview/native-family-MW12.pqp.json",
+      "evidence": "reports/rea-examview/native-family-MW12.pqp.native-On2Jw6",
+      "status": "complete",
+      "counts": {
+        "sourceRecords": 24,
+        "nativeItems": 24,
+        "convertedRecords": 24,
+        "questions": 24,
+        "omittedRecords": 0,
+        "assets": 45
+      },
+      "sourceSha256": "a2657092545aa0e079d6c884882085e358e3b7f8cc7f6c410b4e1c1e95f7c456",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "diagnostics": [],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-family-MW12.pqp.json",
+        "questions": 24,
+        "materials": 87,
+        "assets": 45,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 1045419
+      }
+    }
+  ]
+}

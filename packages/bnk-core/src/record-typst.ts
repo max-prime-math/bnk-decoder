@@ -218,9 +218,11 @@ function formatRun(text: string, run: TextRun | undefined): string {
   const leading = markup.match(/^\s*/)?.[0] ?? '';
   const trailing = markup.match(/\s*$/)?.[0] ?? '';
   let core = markup.trim();
-  if (run.style.underline) core = `#underline[${core}]`;
-  if (run.style.italic) core = `#emph[${core}]`;
-  if (run.style.bold) core = `#strong[${core}]`;
+  // The terminator keeps following punctuation such as `(x)` in markup mode instead of
+  // being parsed as another argument to the styling function.
+  if (run.style.underline) core = `#underline[${core}];`;
+  if (run.style.italic) core = `#emph[${core}];`;
+  if (run.style.bold) core = `#strong[${core}];`;
   markup = `${leading}${core}${trailing}`;
   return markup;
 }

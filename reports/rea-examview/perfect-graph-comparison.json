@@ -1,0 +1,834 @@
+[
+  {
+    "id": "native-publisher-dual-chapter03#0",
+    "record": 2,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9996958637469586,
+    "text": {
+      "matched": 18,
+      "ref": 18,
+      "ours": 18
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#1",
+    "record": 2,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9996845425867508,
+    "text": {
+      "matched": 18,
+      "ref": 18,
+      "ours": 18
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#2",
+    "record": 2,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9996701846965699,
+    "text": {
+      "matched": 18,
+      "ref": 18,
+      "ours": 18
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#3",
+    "record": 2,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9996844430419691,
+    "text": {
+      "matched": 18,
+      "ref": 18,
+      "ours": 18
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#4",
+    "record": 3,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997159897756319,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#5",
+    "record": 3,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9996956786366403,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#6",
+    "record": 3,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997339010111762,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#7",
+    "record": 3,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997340425531915,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#8",
+    "record": 22,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9999272356836207,
+    "text": {
+      "matched": 18,
+      "ref": 18,
+      "ours": 18
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#9",
+    "record": 23,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998339697825004,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#10",
+    "record": 23,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.99983429991715,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#11",
+    "record": 23,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998339697825004,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#12",
+    "record": 23,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998326079678608,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#13",
+    "record": 24,
+    "codes": [
+      0
+    ],
+    "recall": 0.9998801534036433,
+    "precision": 0.9998805970149254,
+    "text": {
+      "matched": 21,
+      "ref": 21,
+      "ours": 21
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#14",
+    "record": 24,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998813760379597,
+    "text": {
+      "matched": 21,
+      "ref": 21,
+      "ours": 21
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#15",
+    "record": 24,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.99987972095261,
+    "text": {
+      "matched": 21,
+      "ref": 21,
+      "ours": 21
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#16",
+    "record": 24,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998797064838205,
+    "text": {
+      "matched": 21,
+      "ref": 21,
+      "ours": 21
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#17",
+    "record": 25,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998381091144568,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#18",
+    "record": 25,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.999836038694868,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#19",
+    "record": 25,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998380829015544,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#20",
+    "record": 25,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9998360118071499,
+    "text": {
+      "matched": 14,
+      "ref": 14,
+      "ours": 14
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#21",
+    "record": 46,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997767857142857,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#22",
+    "record": 46,
+    "codes": [
+      0
+    ],
+    "recall": 0.9944337157787118,
+    "precision": 0.9951318917695008,
+    "text": {
+      "matched": 33,
+      "ref": 34,
+      "ours": 33
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [
+      {
+        "text": "15",
+        "x": 270,
+        "y": 150,
+        "align": 6
+      }
+    ],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#23",
+    "record": 47,
+    "codes": [
+      0
+    ],
+    "recall": 0.9997726756080928,
+    "precision": 0.9997736019923025,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#24",
+    "record": 47,
+    "codes": [
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997755331088665,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#25",
+    "record": 62,
+    "codes": [
+      0
+    ],
+    "recall": 0.9875424688561721,
+    "precision": 0.9876070301937809,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#26",
+    "record": 63,
+    "codes": [
+      18,
+      18
+    ],
+    "recall": 0.7461645746164575,
+    "precision": 0.8661202185792349,
+    "text": {
+      "matched": 10,
+      "ref": 12,
+      "ours": 10
+    },
+    "errors": [
+      "number-line graphs are not yet rendered",
+      "graph item 1 (code 18): item type not yet rendered",
+      "graph item 2 (code 18): item type not yet rendered"
+    ],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [
+      {
+        "text": "0",
+        "x": 119,
+        "y": 29,
+        "align": 6
+      },
+      {
+        "text": "0",
+        "x": 119,
+        "y": 29,
+        "align": 6
+      }
+    ],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter03#27",
+    "record": 64,
+    "codes": [
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9997842037116962,
+    "text": {
+      "matched": 22,
+      "ref": 22,
+      "ours": 22
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#0",
+    "record": 7,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.8887015177065767,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#1",
+    "record": 7,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 0.9933333333333333,
+    "precision": 0.983206106870229,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#2",
+    "record": 7,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9863945578231292,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#3",
+    "record": 7,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.987987987987988,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#4",
+    "record": 8,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9874411302982732,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#5",
+    "record": 8,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 0.97,
+    "precision": 0.9828767123287672,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#6",
+    "record": 8,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.925,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#7",
+    "record": 8,
+    "codes": [
+      7,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "recall": 1,
+    "precision": 0.9868913857677902,
+    "text": {
+      "matched": 2,
+      "ref": 2,
+      "ours": 2
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#8",
+    "record": 9,
+    "codes": [
+      7,
+      6
+    ],
+    "recall": 1,
+    "precision": 0.999337528983107,
+    "text": {
+      "matched": 3,
+      "ref": 3,
+      "ours": 3
+    },
+    "errors": [],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  },
+  {
+    "id": "native-publisher-dual-chapter04#9",
+    "record": 51,
+    "codes": [
+      22,
+      12,
+      12,
+      12
+    ],
+    "recall": 0,
+    "precision": 1,
+    "text": {
+      "matched": 3,
+      "ref": 3,
+      "ours": 3
+    },
+    "errors": [
+      "graph item 1 (code 22): item type not yet rendered"
+    ],
+    "warnings": [
+      "font advance widths and baselines are approximated; native text placement is not verified"
+    ],
+    "missing": [],
+    "extra": []
+  }
+]

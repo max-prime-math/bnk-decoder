@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { basename } from 'node:path';
 import init, { TypstCompilerBuilder } from '@myriaddreamin/typst-ts-web-compiler';
@@ -8,7 +8,10 @@ import { renderNativeHtml } from '../native-html-to-typst.mjs';
 const require=createRequire(import.meta.url);
 await init({module_or_path:readFileSync(require.resolve('@myriaddreamin/typst-ts-web-compiler/wasm'))});
 const builder=new TypstCompilerBuilder();builder.set_dummy_access_model();
-for(const font of ['arial.ttf','arialbd.ttf','ariali.ttf','arialbi.ttf','times.ttf','timesbd.ttf','timesi.ttf','timesbi.ttf','DejaVuMathTeXGyre.ttf'])await builder.add_raw_font(readFileSync(`C:/Windows/Fonts/${font}`));
+const fonts=['arial.ttf','arialbd.ttf','ariali.ttf','arialbi.ttf','times.ttf','timesbd.ttf','timesi.ttf','timesbi.ttf','DejaVuMathTeXGyre.ttf'].map(font=>`C:/Windows/Fonts/${font}`);
+const portableMathFont='.tools/fonts/NewCMMath-Regular.otf';
+if(existsSync(portableMathFont))fonts.push(portableMathFont);
+for(const font of fonts)await builder.add_raw_font(readFileSync(font));
 const compiler=await builder.build();
 const prefix='#set text(font: "Arial", size: 10pt)\n#set math.equation(numbering: none)\n#set page(width: 8.5in, height: 11in, margin: 0.6in)\n';
 const out='reports/rea-examview/runtime-oracle/typst-compile';mkdirSync(out,{recursive:true});
@@ -22,7 +25,13 @@ if(process.argv[2]&&process.argv[2]!=='--inventory'){
  const path=process.argv[2],pqp=JSON.parse(readFileSync(path,'utf8')),texts=[];
  for(const asset of Array.isArray(pqp.assets)?pqp.assets:Object.values(pqp.assets??{})){assert.equal(asset.storage.mode,'inline-base64');const bytes=Buffer.from(asset.storage.base64,'base64');compiler.map_shadow(`/imgs/${asset.filename.replace(/\.[^.]+$/,'')}`,bytes);compiler.map_shadow(`/imgs/${asset.filename}`,bytes);}
  function collect(v){if(!v||typeof v!=='object')return;if(v.format==='typst'&&typeof v.text==='string')texts.push(v.text);else for(const child of Object.values(v))if(typeof child==='object')collect(child);}
- for(const q of pqp.questions){collect(q.content);for(const presentation of q.extensions?.examview?.bimodalPresentations??[])collect(presentation.content);}
+ const questionAt=process.argv.indexOf('--question-number'), questionNumber=questionAt>=0?Number(process.argv[questionAt+1]):undefined;
+ assert.ok(questionNumber===undefined||(Number.isInteger(questionNumber)&&questionNumber>0),'question number must be a positive integer');
+ for(const q of pqp.questions){
+  if(questionNumber!==undefined&&q.extensions?.examview?.questionNumber!==questionNumber&&!q.extensions?.examview?.sourceRecords?.some(record=>record.number===questionNumber)&&!q.extensions?.examview?.records?.some(record=>record.questionNumber===questionNumber))continue;
+  collect(q.content);for(const presentation of q.extensions?.examview?.bimodalPresentations??[])collect(presentation.content);
+ }
+ assert.ok(texts.length,questionNumber===undefined?'PQP contains no Typst materials':`PQP contains no Typst materials for source question ${questionNumber}`);
  const name=`${basename(path).replace(/\.pqp\.json$/i,'').replace(/\.json$/i,'').replace(/[^A-Za-z0-9._-]+/g,'-')}-pqp`;
  const requested=process.argv.indexOf('--batch-size'),batchSize=requested>=0?Number(process.argv[requested+1]):400;
  assert.ok(Number.isInteger(batchSize)&&batchSize>0,'batch size must be a positive integer');

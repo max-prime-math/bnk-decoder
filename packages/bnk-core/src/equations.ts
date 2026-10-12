@@ -10,8 +10,11 @@
 //        int32 extraLength, extra bytes      template; every slot starts with int32 metadata
 //                                            and then a terminated line. Matrix extra data
 //                                            stores columns/rows at offsets 8/12.
-//   0x03 uint8 format                        character formatting (preserved, rendering unsupported)
-//   0x05–0x08                                spaces, narrowest to widest (typed between an
+//   0x03 uint8 embellishment                 postfix/pair presentation marker. Observed native
+//                                            meanings: 0x0e paired cancellation, 0x0f postfix
+//                                            cancellation, 0x10 prime, 0x11 double-prime,
+//                                            0x14 multiline alignment, 0x17 overbar.
+//   0x04–0x08                                spaces, narrowest to widest (typed between an
 //                                            expression and its condition: "x − 1,  x ≥ 2")
 //   0x0b int32 shape                         standalone symbol: 0 △, 1 ▱, 2 −.
 //                                            Any vertex letters are peer tokens, not a nested line.
@@ -19,11 +22,13 @@
 //   0x00                                     end of the current line (slot or root)
 //   other bytes                              one character each (Windows-1252 / Symbol font)
 //
-// Templates seen (kind.variant, slots): 0.0 ( ), 0.2 { }, 0.4 | |, 1.0 stacked fraction (2),
+// Templates seen (kind.variant, slots): 0.0/0.1 ( ), 0.2 { }, 0.4 | |, 1.0 stacked fraction (2),
 // 1.1 small fraction (2), 1.2 slash fraction (2), 1.5 square root, 1.6 nth root
 // (radicand, index), 1.7 long division (divisor before, dividend in slot), 2.0 superscript,
-// 2.1 subscript, 2.4 left subscript (attaches to what follows, as in ₆C₃), 0.19 left brace
-// only (piecewise function; rows are the slot's lines), 3.2 summation (body, lower, upper).
+// 2.1 subscript, 2.2 paired lower/upper scripts, 2.4 left subscript (attaches to what
+// follows, as in ₆C₃), 5.0 overbar, 5.2 underline, 0.19 left brace
+// only (piecewise function; rows are the slot's lines), 0.24 set-builder condition bar,
+// 1.8 polynomial long division (work, quotient), 3.2 summation (body, lower, upper).
 // The root line ends with 0x00; the payload is zero-padded after it.
 
 export type EquationNode =
@@ -75,8 +80,16 @@ export const SYMBOL_FONT: Record<number, string> = {
 
 // Class -9 is a small extra-symbol font. Evidenced: the composition ring (f ∘ g), and the
 // number sets in "{x | x ∈ ℝ, x ≠ 3}" and "n ∈ ℕ" (Pre-Calculus 11 Mickelson).
-const EXTRA_FONT: Record<number, string> = { 0x9e: '∘', 0x98: 'ℝ', 0xbd: 'ℕ' };
-const SPACES: Record<number, string> = { 0x05: 'thin', 0x06: 'thin', 0x07: 'med', 0x08: 'thick' };
+// Native ExamView exports confirm these characters from its extra-symbol font.
+// 0x80 is the parallel relation and 0x91 is the centered ellipsis used in series.
+const EXTRA_FONT: Record<number, string> = {
+  0x80: '∥',
+  0x91: '…',
+  0x98: 'ℝ',
+  0x9e: '∘',
+  0xbd: 'ℕ',
+};
+const SPACES: Record<number, string> = { 0x04: 'thin', 0x05: 'thin', 0x06: 'thin', 0x07: 'med', 0x08: 'thick' };
 const SHAPES: Record<number, string> = { 0: '△', 1: '▱', 2: '-' };
 
 const WINDOWS_1252 = new TextDecoder('windows-1252');
@@ -158,7 +171,7 @@ export function parseEquation(bytes: Uint8Array, start: number, end: number): Pa
         cursor += 2;
         continue;
       }
-      if (byte >= 0x05 && byte <= 0x08) {
+      if (byte >= 0x04 && byte <= 0x08) {
         nodes.push({ type: 'space', width: byte });
         cursor += 1;
         continue;
@@ -223,7 +236,12 @@ export type StoredVariables = ReadonlyMap<string, StoredVariableDisplay>;
 export function equationToTypst(nodes: EquationNode[], variables?: StoredVariables): EquationTypst {
   const errors: string[] = [];
   const multiline = hasBreak(nodes);
-  const math = renderLine(nodes, errors, false, variables).trim();
+  let math = renderLine(nodes, errors, false, variables).trim();
+  if (multiline && !math.includes('&')) {
+    const lines = math.split('\n');
+    const relation = /\s(=|≈|≤|≥|<|>)\s/;
+    if (lines.filter(line => relation.test(line)).length > 1) math = lines.map(line => line.replace(relation, ' & $1 ')).join('\n');
+  }
   return { math: math || '""', multiline, errors };
 }
 
@@ -257,7 +275,17 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
     out.push(text);
   };
 
-  for (const node of nodes) {
+  const wrapPrevious = (label: string, transform: (value: string) => string) => {
+    flush();
+    if (!out.length || out[out.length - 1] === '\\\n' || out[out.length - 1] === '&') {
+      errors.push(`${label} has no preceding equation atom`);
+      return;
+    }
+    out[out.length - 1] = transform(out[out.length - 1]);
+  };
+
+  for (let index = 0; index < nodes.length; index += 1) {
+    const node = nodes[index];
     if (node.type === 'char') {
       const char = decodeChar(node.code, node.style, errors);
       if (pending && pending.style === classOf(node.style)) {
@@ -274,7 +302,29 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
     }
     flush();
     if (node.type === 'format') {
-      errors.push(`unsupported equation character format 0x${node.code.toString(16)}`);
+      if (node.code === 0x0e) {
+        const close = nodes.findIndex((candidate, candidateIndex) => candidateIndex > index && candidate.type === 'format' && candidate.code === 0x0e);
+        if (close < 0) errors.push('paired equation cancellation marker is not closed');
+        else {
+          const content = renderLine(nodes.slice(index + 1, close), errors, true, variables).trim();
+          if (!content) errors.push('paired equation cancellation marker is empty');
+          else push(`cancel(${content})`);
+          index = close;
+        }
+      } else if (node.code === 0x0f) {
+        wrapPrevious('equation cancellation marker', value => `cancel(${value})`);
+      } else if (node.code === 0x10) {
+        wrapPrevious('equation prime marker', value => `${value}'`);
+      } else if (node.code === 0x11) {
+        wrapPrevious('equation double-prime marker', value => `${value}''`);
+      } else if (node.code === 0x14) {
+        if (out.length && out[out.length - 1] === '=') out[out.length - 1] = '& =';
+        else out.push('&');
+      } else if (node.code === 0x17) {
+        wrapPrevious('equation overbar marker', value => `overline(${value})`);
+      } else {
+        errors.push(`unsupported equation character format 0x${node.code.toString(16)}`);
+      }
       continue;
     }
     if (node.type === 'variable') {
@@ -322,8 +372,35 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
     const slots = node.slots.map((slot) => renderLine(slot, errors, true, variables).trim());
     const slot = (index: number) => slots[index] || '""';
     const key = `${node.kind}.${node.variant}`;
+    if (node.kind === 8 && node.variant === 0) {
+      const dimensions = node.extra && node.extra.byteLength >= 16
+        ? new DataView(node.extra.buffer, node.extra.byteOffset, node.extra.byteLength)
+        : undefined;
+      const mode = dimensions?.getInt32(0, true), columns = dimensions?.getInt32(8, true), rows = dimensions?.getInt32(12, true);
+      if (!columns || !rows || columns * rows !== slots.length) {
+        errors.push('invalid matrix template dimensions');
+        push(`(${slots.join(', ')})`);
+      } else if (columns === 1 && rows === 1) {
+        // ExamView also uses a 1x1 matrix as an alignment wrapper.
+        push(slot(0));
+      } else {
+        const cells = slots.map(value => `[$ ${value || '""'} $]`).join(', ');
+        if (mode === 1) {
+          // Publisher factor tables use a fully ruled grid.
+          push(`#table(columns: ${columns}, inset: 2pt, stroke: 0.5pt, ${cells})`);
+        } else if (mode === 4) {
+          // Synthetic division: separator after column one and after row two.
+          push(`#table(columns: ${columns}, inset: 2pt, stroke: (x, y) => (left: if x == 1 { 0.5pt } else { none }, bottom: if y == 1 { 0.5pt } else { none }), ${cells})`);
+        } else {
+          // One-row coefficient/vector layouts have no rulings.
+          push(`#grid(columns: ${columns}, column-gutter: 0.5em, ${cells})`);
+        }
+      }
+      continue;
+    }
     switch (key) {
       case '0.0':
+      case '0.1':
         push(`(${slots[0]})`);
         break;
       case '0.2':
@@ -331,6 +408,9 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
         break;
       case '0.4':
         push(`abs(${slot(0)})`);
+        break;
+      case '0.24':
+        push(`${slot(0)} |`);
         break;
       case '1.0':
       case '1.1':
@@ -348,17 +428,41 @@ function renderLine(nodes: EquationNode[], errors: string[], inArgument: boolean
       case '1.7':
         push(`thin lr(\\)) overline(${slot(0)})`);
         break;
+      case '1.8':
+        // Polynomial long division owns the divisor immediately before the template.
+        // A two-column matrix keeps that divisor aligned with the dividend while the
+        // quotient occupies the cell above it.
+        {
+          const divisor = out.splice(0).join(' ') || '""';
+          push(`#grid(columns: (auto, auto), column-gutter: 0pt, [], [$ ${slot(1)} $], [$ ${divisor} thin lr(\\)) $], [$ overline(${slot(0)}) $])`);
+        }
+        break;
       case '2.0':
         out.push(out.length ? `^(${slot(0)})` : `""^(${slot(0)})`);
         break;
       case '2.1':
         out.push(out.length ? `_(${slot(0)})` : `""_(${slot(0)})`);
         break;
+      case '2.2':
+        out.push(out.length ? `_(${slot(0)})^(${slot(1)})` : `""_(${slot(0)})^(${slot(1)})`);
+        break;
       case '2.4':
         prefix = `""_(${slot(0)})`;
         break;
+      case '2.3':
+        prefix = `""^(${slot(0)})`;
+        break;
       case '3.2':
         push(`sum${slots[1] ? `_(${slots[1]})` : ''}${slots[2] ? `^(${slots[2]})` : ''} ${slot(0)}`);
+        break;
+      case '5.0':
+        push(`overline(${slot(0)})`);
+        break;
+      case '5.2':
+        push(`underline(${slot(0)})`);
+        break;
+      case '6.0':
+        push(`arrow.r.long ${slot(0)}`);
         break;
       default:
         errors.push(`unsupported equation template ${key}`);

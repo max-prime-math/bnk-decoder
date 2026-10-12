@@ -136,6 +136,66 @@ export function readNativeGraphObject(body: Uint8Array): NativeGraphObject {
   };
 }
 
+/** Convert the structurally framed rich-text graph into the compact graph shape used by
+ * TestGen template generation. This avoids the legacy font-signature scan when the enclosing
+ * rich-object directory has already identified the exact subtype-9 body and its display size.
+ */
+export function normalizeNativeGraphObject(
+  native: NativeGraphObject,
+  frame?: { width: number; height: number },
+): GraphObject {
+  const raw = native.raw;
+  const view = new DataView(raw.buffer, raw.byteOffset, raw.byteLength);
+  const point = (at: number): GraphPointRecord => ({
+    x: readString(raw, at, 16),
+    y: readString(raw, at + 0x20, 16),
+    marker: view.getInt32(at + 0x60, true),
+    labelStyle: view.getInt32(at + 0x64, true),
+  });
+  const items = native.items.map((item): GraphItem => {
+    const at = item.offset + 0x80;
+    const colour = view.getInt32(at - 0x14, true);
+    const width = view.getInt32(at - 0x08, true);
+    const common = { domain: item.domain, condition: item.condition, colour, width };
+    switch (item.code) {
+      case 0:
+        return { type: 'function', expression: readString(raw, at, 256), ...common };
+      case 1:
+        return { type: 'relation-y', expression: readString(raw, at, 256), ...common };
+      case 6:
+        return { type: 'point', ...point(at), condition: item.condition, colour };
+      case 7:
+        return { type: 'segment', from: point(at), to: point(at + 0xc4), condition: item.condition, colour, width };
+      case 12:
+        return {
+          type: 'text', text: readString(raw, at, 32), x: readString(raw, at + 0x98, 16),
+          y: readString(raw, at + 0xb8, 16), condition: item.condition, colour,
+        };
+      default:
+        return { type: 'other', code: item.code, strings: [readString(raw, at, 16), readString(raw, at + 4, 16)] };
+    }
+  });
+  const axis = (index: number): GraphAxis => {
+    const source = native.axes[index];
+    const axisView = new DataView(source.raw.buffer, source.raw.byteOffset, source.raw.byteLength);
+    return {
+      label: source.label,
+      scale: source.scale,
+      ticksPerInch: source.ticksPerInch,
+      ticksPerLabel: source.ticksPerLabel,
+      showLabels: axisView.getInt32(0x88, true) !== 0 || axisView.getInt32(0x8c, true) !== 0,
+    };
+  };
+  return {
+    offset: 0,
+    byteLength: native.byteLength,
+    view: native.viewExpressions,
+    ...(frame ? { frame } : {}),
+    axes: { x: axis(0), y: axis(1) },
+    items,
+  };
+}
+
 // x-axis font block that directly follows the scale/ticks fields: int32 1, int32 1, then the
 // LOGFONT height and face name ("Times New Roman" or "Symbol").
 const AXIS_SIGNATURE = /\u0001\u0000\u0000\u0000\u0001\u0000\u0000\u0000.ÿ(?:T\u0000i\u0000m\u0000e\u0000s|S\u0000y\u0000m)/gs;

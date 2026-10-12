@@ -1,0 +1,1310 @@
+{
+  "root": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks",
+  "parsedBanks": 372,
+  "counts": {
+    "0x14": 331,
+    "0x0e": 4,
+    "0x10": 107,
+    "0x0f": 18,
+    "0x17": 99,
+    "0x11": 30
+  },
+  "examples": [
+    {
+      "file": "Foundations of Math 10\\APL-banks\\Volumes.bnk",
+      "record": 15,
+      "range": [
+        260219,
+        260433
+      ],
+      "code": "0x14",
+      "position": 27,
+      "before": "<br>=p´{n1}<template:2.0>´{n2}<br>=",
+      "after": "{n4}"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.1.bnk",
+      "record": 22,
+      "range": [
+        74781,
+        75564
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0e",
+      "position": 6,
+      "before": "{n1}<space:5><space:5><space:5><space:5>y",
+      "after": "d<03:0e>."
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.1.bnk",
+      "record": 22,
+      "range": [
+        74781,
+        75564
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0e",
+      "position": 8,
+      "before": "{n1}<space:5><space:5><space:5><space:5>y<03:0e>d",
+      "after": "."
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.1.bnk",
+      "record": 22,
+      "range": [
+        74781,
+        75564
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0e",
+      "position": 6,
+      "before": "1<space:5><space:5><space:5><space:5>y",
+      "after": "d<03:0e>."
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.1.bnk",
+      "record": 22,
+      "range": [
+        74781,
+        75564
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0e",
+      "position": 8,
+      "before": "1<space:5><space:5><space:5><space:5>y<03:0e>d",
+      "after": "."
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        66505,
+        67030
+      ],
+      "code": "0x14",
+      "position": 2,
+      "before": "<template:1.0>=",
+      "after": "<template:1.0><br>{n4}<template:0.0>=<03:14>{n4}<template:0.0><br>h"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        66505,
+        67030
+      ],
+      "code": "0x14",
+      "position": 8,
+      "before": "<template:1.0>=<03:14><template:1.0><br>{n4}<template:0.0>=",
+      "after": "{n4}<template:0.0><br>h=<03:14><template:1.0><br>h="
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        66505,
+        67030
+      ],
+      "code": "0x14",
+      "position": 14,
+      "before": "<br>{n4}<template:0.0>=<03:14>{n4}<template:0.0><br>h=",
+      "after": "<template:1.0><br>h=<03:14>{n5}"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        66505,
+        67030
+      ],
+      "code": "0x14",
+      "position": 19,
+      "before": "{n4}<template:0.0><br>h=<03:14><template:1.0><br>h=",
+      "after": "{n5}"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        67220,
+        67681
+      ],
+      "code": "0x14",
+      "position": 9,
+      "before": "1<space:5><space:5><space:5><space:5>ft.=",
+      "after": "30<space:5><space:5><space:5><space:5>cm<br>{n1}"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        67220,
+        67681
+      ],
+      "code": "0x14",
+      "position": 28,
+      "before": "<br>{n1}<space:5><space:5><space:5><space:5>ft.=",
+      "after": "{n6}<space:5><space:5><space:5><space:5>cm<br>So"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 23,
+      "range": [
+        67220,
+        67681
+      ],
+      "code": "0x14",
+      "position": 63,
+      "before": "<space:5>{n2}<space:5><space:5><space:5><space:5>in.=",
+      "after": "{n5}<space:5><space:5><space:5><space:5>cm<space:5><space:5><space:5>"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        70961,
+        71457
+      ],
+      "code": "0x14",
+      "position": 22,
+      "before": "l<space:5><space:5><space:5><space:5>mile=",
+      "after": "6080<space:5><space:5><space:5><space:5>ft"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        70961,
+        71457
+      ],
+      "code": "0x14",
+      "position": 65,
+      "before": "<space:5><space:5><space:5><space:5>miles=",
+      "after": "<space:5><space:5><space:5><space:5>{n1}(6080"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        70961,
+        71457
+      ],
+      "code": "0x14",
+      "position": 108,
+      "before": "<space:5><space:5><space:5><space:5>miles=",
+      "after": "{n2}<space:5><space:5><space:5><space:5>ft."
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        71647,
+        72015
+      ],
+      "code": "0x14",
+      "position": 9,
+      "before": "1<space:5><space:5><space:5><space:5>ft.=",
+      "after": "0.3<space:5><space:5><space:5><space:5>m<br>S"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        71647,
+        72015
+      ],
+      "code": "0x14",
+      "position": 35,
+      "before": "<space:5>{n2}<space:5><space:5><space:5><space:5>ft.=",
+      "after": "<space:5><space:5><space:5>{n2}(0.3<space:5><space:5>"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 24,
+      "range": [
+        71647,
+        72015
+      ],
+      "code": "0x14",
+      "position": 60,
+      "before": "<br>{n2}<space:5><space:5><space:5><space:5>ft.=",
+      "after": "{n3}<space:5><space:5><space:5><space:5>m"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 26,
+      "range": [
+        84211,
+        84228
+      ],
+      "code": "0x14",
+      "position": 1,
+      "before": "=",
+      "after": ""
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 26,
+      "range": [
+        84819,
+        85190
+      ],
+      "code": "0x14",
+      "position": 9,
+      "before": "1<space:5><space:5><space:5><space:5>ft.=",
+      "after": "0.3<space:5><space:5><space:5><space:5>m<br>S"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 26,
+      "range": [
+        84819,
+        85190
+      ],
+      "code": "0x14",
+      "position": 35,
+      "before": "<space:5>{n3}<space:5><space:5><space:5><space:5>ft.=",
+      "after": "<space:5><space:5><space:5><space:5>{n3}(0.3<space:5>"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "record": 26,
+      "range": [
+        84819,
+        85190
+      ],
+      "code": "0x14",
+      "position": 61,
+      "before": "<br>{n3}<space:5><space:5><space:5><space:5>ft.=",
+      "after": "{n11}<space:5><space:5><space:5><space:5>m"
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 02\\MMS10_2.1.bnk",
+      "record": 15,
+      "range": [
+        258170,
+        258187
+      ],
+      "code": "0x14",
+      "position": 1,
+      "before": "=",
+      "after": ""
+    },
+    {
+      "file": "Foundations of Math 10\\Chapter 02\\MMS10_2.1.bnk",
+      "record": 20,
+      "range": [
+        335987,
+        336584
+      ],
+      "code": "0x14",
+      "position": 36,
+      "before": "<template:2.0><br>AC=<template:1.5><br>AC=",
+      "after": "{n3}"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 137,
+      "range": [
+        19321112,
+        19321269
+      ],
+      "code": "0x10",
+      "position": 1,
+      "before": "A",
+      "after": "<template:0.0>=A<03:10><template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 137,
+      "range": [
+        19321112,
+        19321269
+      ],
+      "code": "0x10",
+      "position": 5,
+      "before": "A<03:10><template:0.0>=A",
+      "after": "<template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 137,
+      "range": [
+        19321679,
+        19321835
+      ],
+      "code": "0x10",
+      "position": 1,
+      "before": "D",
+      "after": "<template:0.0>=D<03:10><template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 137,
+      "range": [
+        19321679,
+        19321835
+      ],
+      "code": "0x10",
+      "position": 5,
+      "before": "D<03:10><template:0.0>=D",
+      "after": "<template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 138,
+      "range": [
+        19329653,
+        19329817
+      ],
+      "code": "0x10",
+      "position": 1,
+      "before": "E",
+      "after": "<template:0.0>=E<03:10><template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 138,
+      "range": [
+        19329653,
+        19329817
+      ],
+      "code": "0x10",
+      "position": 5,
+      "before": "E<03:10><template:0.0>=E",
+      "after": "<template:0.0>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19380343,
+        19380418
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "X",
+      "after": "Y<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19380343,
+        19380418
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "X<03:10>Y",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19380828,
+        19380903
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "X",
+      "after": "Z<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19380828,
+        19380903
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "X<03:10>Z",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19381313,
+        19381388
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "Y",
+      "after": "Z<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19381313,
+        19381388
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "Y<03:10>Z",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19430450,
+        19430674
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "X",
+      "after": "Y<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19430450,
+        19430674
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "X<03:10>Y",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19431084,
+        19431306
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "X",
+      "after": "Z<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19431084,
+        19431306
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "X<03:10>Z",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19431716,
+        19431940
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "Y",
+      "after": "Z<03:10>"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 139,
+      "range": [
+        19431716,
+        19431940
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 3,
+      "before": "Y<03:10>Z",
+      "after": ""
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 140,
+      "range": [
+        19516784,
+        19516857
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "A",
+      "after": "O"
+    },
+    {
+      "file": "Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "record": 140,
+      "range": [
+        19517267,
+        19517340
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x10",
+      "position": 1,
+      "before": "B",
+      "after": "O"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "2",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "2",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "3",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "3",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "4",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "record": 13,
+      "range": [
+        63398,
+        64248
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "4",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        131526,
+        132233
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.3>3",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        131526,
+        132233
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.4>4",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        131526,
+        132233
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "4",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        131526,
+        132233
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "6",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        132331,
+        133038
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.3>4",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        132331,
+        133038
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.4>5",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        132331,
+        133038
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "5",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        132331,
+        133038
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "6",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        133136,
+        133843
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.3>6",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        133136,
+        133843
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 2,
+      "before": "<template:2.4>7",
+      "after": ""
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        133136,
+        133843
+      ],
+      "template": "1.0",
+      "slot": 0,
+      "code": "0x0f",
+      "position": 1,
+      "before": "7",
+      "after": "<template:2.0>"
+    },
+    {
+      "file": "Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "record": 25,
+      "range": [
+        133136,
+        133843
+      ],
+      "template": "1.0",
+      "slot": 1,
+      "code": "0x0f",
+      "position": 1,
+      "before": "8",
+      "after": "<template:2.1>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        107598,
+        107825
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        107598,
+        107825
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        107598,
+        107825
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 32,
+      "range": [
+        110725,
+        110952
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 32,
+      "range": [
+        110725,
+        110952
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 32,
+      "range": [
+        110725,
+        110952
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 33,
+      "range": [
+        117174,
+        117389
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 33,
+      "range": [
+        117174,
+        117389
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={med}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "record": 33,
+      "range": [
+        117174,
+        117389
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={med}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 30,
+      "range": [
+        108590,
+        108815
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 30,
+      "range": [
+        108590,
+        108815
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 30,
+      "range": [
+        108590,
+        108815
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        114241,
+        114466
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        114241,
+        114466
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 31,
+      "range": [
+        114241,
+        114466
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={avg}"
+    },
+    {
+      "file": "MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "record": 34,
+      "range": [
+        126776,
+        127247
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>{avg}=<template:1.0><br>6´{avg}"
+    },
+    {
+      "file": "MathWorks 12\\Ch2-Limits to Measurement\\2.2 Tolerances.bnk",
+      "record": 22,
+      "range": [
+        127422,
+        127512
+      ],
+      "code": "0x11",
+      "position": 4,
+      "before": "16<03:10>3",
+      "after": "±<template:1.0>"
+    },
+    {
+      "file": "MathWorks 12\\Ch3-Statistics\\3.1 Mean, Median, Mode.bnk",
+      "record": 12,
+      "range": [
+        60882,
+        61109
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\Ch3-Statistics\\3.1 Mean, Median, Mode.bnk",
+      "record": 12,
+      "range": [
+        60882,
+        61109
+      ],
+      "code": "0x17",
+      "position": 6,
+      "before": "x<03:17>=<template:1.0><br>x",
+      "after": "=<template:1.0><br>x<03:17>={avg}"
+    },
+    {
+      "file": "MathWorks 12\\Ch3-Statistics\\3.1 Mean, Median, Mode.bnk",
+      "record": 12,
+      "range": [
+        60882,
+        61109
+      ],
+      "code": "0x17",
+      "position": 11,
+      "before": "<03:17>=<template:1.0><br>x<03:17>=<template:1.0><br>x",
+      "after": "={avg}"
+    },
+    {
+      "file": "MathWorks 12\\Ch3-Statistics\\3.1 Mean, Median, Mode.bnk",
+      "record": 14,
+      "range": [
+        68363,
+        68634
+      ],
+      "code": "0x17",
+      "position": 1,
+      "before": "x",
+      "after": "=<template:1.0><br>x<03:17>=<template:1.0><br>x<03:17>"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.1 Single Transformations.bnk",
+      "record": 24,
+      "range": [
+        513655,
+        513976
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({Px},{Py})®A",
+      "after": "({Tx},{Ty})<br>B<03:10>({Qx}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.1 Single Transformations.bnk",
+      "record": 24,
+      "range": [
+        513655,
+        513976
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({Qx},{Qy})®B",
+      "after": "({Ux},{Uy})<br>C<03:10>({Rx}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.1 Single Transformations.bnk",
+      "record": 24,
+      "range": [
+        513655,
+        513976
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({Rx},{Ry})®C",
+      "after": "({Vx},{Vy})"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 11,
+      "range": [
+        200397,
+        200754
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({Apx},{Apy})®A",
+      "after": "({A2px},{A2py})<br>B<03:10>({Bpx}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 11,
+      "range": [
+        200397,
+        200754
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({Bpx},{Bpy})®B",
+      "after": "({B2px},{B2py})<br>C<03:10>({Cpx}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 11,
+      "range": [
+        200397,
+        200754
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({Cpx},{Cpy})®C",
+      "after": "({C2px},{C2py})"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 12,
+      "range": [
+        218930,
+        219422
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({A1px},{A1py})®A",
+      "after": "({A2px},{A2py})<br>B<03:10>({B1px}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 12,
+      "range": [
+        218930,
+        219422
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({B1px},{B1py})®B",
+      "after": "({B2px},{B2py})<br>C<03:10>({C1px}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 12,
+      "range": [
+        218930,
+        219422
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({C1px},{C1py})®C",
+      "after": "({C2px},{C2py})<br>D<03:10>({D1px}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 12,
+      "range": [
+        218930,
+        219422
+      ],
+      "code": "0x11",
+      "position": 57,
+      "before": "<br>D<03:10>({D1px},{D1py})®D",
+      "after": "({D2px},{D2py})"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 14,
+      "range": [
+        271083,
+        271452
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({Apx1},{Apy1})®A",
+      "after": "({Apx2},{Apy2})<br>B<03:10>({Bpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 14,
+      "range": [
+        271083,
+        271452
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({Bpx1},{Bpy1})®B",
+      "after": "({Bpx2},{Bpy2})<br>C<03:10>({Cpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 14,
+      "range": [
+        271083,
+        271452
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({Cpx1},{Cpy1})®C",
+      "after": "({Cpx2},{Cpy2})"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 17,
+      "range": [
+        336382,
+        336751
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({Apx1},{Apy1})®A",
+      "after": "({Apx2},{Apy2})<br>B<03:10>({Bpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 17,
+      "range": [
+        336382,
+        336751
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({Bpx1},{Bpy1})®B",
+      "after": "({Bpx2},{Bpy2})<br>C<03:10>({Cpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 17,
+      "range": [
+        336382,
+        336751
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({Cpx1},{Cpy1})®C",
+      "after": "({Cpx2},{Cpy2})"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 18,
+      "range": [
+        346249,
+        346741
+      ],
+      "code": "0x11",
+      "position": 9,
+      "before": "A<03:10>({Apx1},{Apy1})®A",
+      "after": "({Apx2},{Apy2})<br>B<03:10>({Bpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 18,
+      "range": [
+        346249,
+        346741
+      ],
+      "code": "0x11",
+      "position": 25,
+      "before": "<br>B<03:10>({Bpx1},{Bpy1})®B",
+      "after": "({Bpx2},{Bpy2})<br>C<03:10>({Cpx1}"
+    },
+    {
+      "file": "MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "record": 18,
+      "range": [
+        346249,
+        346741
+      ],
+      "code": "0x11",
+      "position": 41,
+      "before": "<br>C<03:10>({Cpx1},{Cpy1})®C",
+      "after": "({Cpx2},{Cpy2})<br>D<03:10>({Dpx1}"
+    }
+  ]
+}

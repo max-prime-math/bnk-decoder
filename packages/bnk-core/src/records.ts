@@ -23,7 +23,7 @@
 //   paragraphRuns × 12 bytes   [int32 start, int32 style, int32 0]
 //   paragraphStyles × 168 bytes (6-byte prefix + 162)
 //   charRuns × 12 bytes        [int32 start, int32 style, int32 0]
-//   charStyles × 24 bytes      [int32 size, int32 flags (1 bold, 2 italic, 4 underline),
+//   charStyles × 24 bytes      [int32 size, int32 flags (1 bold, 2 underline, 4 italic),
 //                               int32 face, int32 weight, int32 pitch/charset, int32 0]
 //   faces × 66 bytes           UTF-16 face name ("Times New Roman", "Symbol")
 //   tables × 20 bytes, then tableCells × 52 bytes [int32 start, ..., int16 flags at +20:
@@ -340,8 +340,8 @@ function readBlock(payload: Uint8Array, view: DataView, at: number, byteLength: 
       style: {
         size: style.size,
         bold: (style.flags & 1) !== 0,
-        italic: (style.flags & 2) !== 0,
-        underline: (style.flags & 4) !== 0,
+        italic: (style.flags & 4) !== 0,
+        underline: (style.flags & 2) !== 0,
         face: faces[style.face] ?? '',
         weight: style.weight,
         fontFlags: style.fontFlags,

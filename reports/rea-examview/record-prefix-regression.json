@@ -1,0 +1,4726 @@
+{
+  "fixturesPassed": 5,
+  "counts": {
+    "other-version": 1,
+    "parsed": 372
+  },
+  "banksWithOpaqueTrailers": 49,
+  "questions": 13871,
+  "equations": 20780,
+  "equationErrors": 35,
+  "results": [
+    {
+      "file": "ExamView\\Banks\\Calculus\\GQ-Calculus.bnk",
+      "status": "other-version"
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Approximations.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 5,
+      "embeddedVariables": 47,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Area.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 62,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Distributive-property.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 68,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Fractions_decimals_percents.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 56,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Fractions_equivalent-forms.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 35,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Geometry_angles.bnk",
+      "status": "parsed",
+      "records": 12,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 40,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Geometry_similar-triangles.bnk",
+      "status": "parsed",
+      "records": 7,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 25,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Linear-relations.bnk",
+      "status": "parsed",
+      "records": 13,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 31,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Order-of-Operations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 58,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Patterns-Relations.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 73,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Perimeter.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 15,
+      "embeddedVariables": 70,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Polynomials.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 121,
+      "embeddedVariables": 48,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Polynomials_add-subtract.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 273,
+      "embeddedVariables": 9,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Polynomials_multiply.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 84,
+      "embeddedVariables": 10,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Powers-Exponents.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 55,
+      "embeddedVariables": 64,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Pythagorean-Theorem.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 49,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Rationals_add-subtract.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 35,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Rationals_multiply-divide.bnk",
+      "status": "parsed",
+      "records": 12,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 51,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\SI-units.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 104,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Solving-equations.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 32,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Square-roots_approximate.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 54,
+      "embeddedVariables": 122,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Square-roots_exact.bnk",
+      "status": "parsed",
+      "records": 17,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 6,
+      "embeddedVariables": 135,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Surface-areas.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Volumes.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 11,
+      "embeddedVariables": 67,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\APL-banks\\Whole-num_factoring.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 7,
+      "embeddedVariables": 158,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.1.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 25,
+      "embeddedVariables": 131,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.2.bnk",
+      "status": "parsed",
+      "records": 18,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.3.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 16,
+      "embeddedVariables": 76,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.4.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 51,
+      "embeddedVariables": 55,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.5.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 80,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.6.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 82,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 01\\MMS10_1.7.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 83,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.1.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 17,
+      "embeddedVariables": 93,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.2.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 96,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.3.bnk",
+      "status": "parsed",
+      "records": 6,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 7,
+      "embeddedVariables": 29,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.4.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 9,
+      "embeddedVariables": 98,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.5.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 90,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.6.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 72,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 02\\MMS10_2.7.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 34,
+      "embeddedVariables": 94,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.1.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 15,
+      "embeddedVariables": 155,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.2.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 97,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.3.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 109,
+      "embeddedVariables": 2,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.4.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 8,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.5.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 146,
+      "embeddedVariables": 16,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.6.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 128,
+      "embeddedVariables": 1,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.7.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 89,
+      "embeddedVariables": 1,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 03\\MMS10_3.8.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 95,
+      "embeddedVariables": 10,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.1.bnk",
+      "status": "parsed",
+      "records": 19,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 50,
+      "embeddedVariables": 35,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.2.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 145,
+      "embeddedVariables": 107,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.3.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 141,
+      "embeddedVariables": 13,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.4.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 126,
+      "embeddedVariables": 55,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.5.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 102,
+      "embeddedVariables": 58,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 04\\MMS10_4.6.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 136,
+      "embeddedVariables": 31,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.1.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 6,
+      "embeddedVariables": 107,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.2.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 78,
+      "embeddedVariables": 88,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.3.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 36,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.4.bnk",
+      "status": "parsed",
+      "records": 8,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 2,
+      "embeddedVariables": 48,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.5.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 48,
+      "embeddedVariables": 59,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.6.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 54,
+      "embeddedVariables": 99,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 05\\MMS10_5.7.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 39,
+      "embeddedVariables": 73,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.1.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 49,
+      "embeddedVariables": 101,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.2.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 67,
+      "embeddedVariables": 171,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.3.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 23,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.4.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 119,
+      "embeddedVariables": 59,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.5.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 140,
+      "embeddedVariables": 74,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 06\\MMS10_6.6.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 107,
+      "embeddedVariables": 35,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.1.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 373,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.2.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 9,
+      "embeddedVariables": 278,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.3.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 45,
+      "embeddedVariables": 146,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.4.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 446,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.5.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 217,
+      "embeddedVariables": 31,
+      "equationErrors": 5
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 10\\Chapter 07\\MMS10_7.6.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 53,
+      "embeddedVariables": 136,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 01.bnk",
+      "status": "parsed",
+      "records": 250,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 02.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 03.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 55,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 04.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 44,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 05.bnk",
+      "status": "parsed",
+      "records": 210,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 06.bnk",
+      "status": "parsed",
+      "records": 180,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 452,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 07 1to7 s4.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2844,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2844 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 6,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 07 5to7 s8.bnk",
+      "status": "parsed",
+      "records": 160,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 293,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 11\\Chapter 08.bnk",
+      "status": "parsed",
+      "records": 240,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1318,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1318 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 332,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 01.bnk",
+      "status": "parsed",
+      "records": 210,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 02.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 11,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 03.bnk",
+      "status": "parsed",
+      "records": 210,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 04.bnk",
+      "status": "parsed",
+      "records": 250,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 192,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 05.bnk",
+      "status": "parsed",
+      "records": 210,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 176,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 06.bnk",
+      "status": "parsed",
+      "records": 130,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 07.bnk",
+      "status": "parsed",
+      "records": 170,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 129,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Foundations of Math 12\\Chapter 08.bnk",
+      "status": "parsed",
+      "records": 170,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 80,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 01 AW10.bnk",
+      "status": "parsed",
+      "records": 200,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 114,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 02 AW10.bnk",
+      "status": "parsed",
+      "records": 175,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 7167,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "7167 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 99,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 03 AW10.bnk",
+      "status": "parsed",
+      "records": 125,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 100,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "100 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 285,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 04 AW10.bnk",
+      "status": "parsed",
+      "records": 225,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 69,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 05 AW10.bnk",
+      "status": "parsed",
+      "records": 250,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 7495,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "7495 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 141,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 06 AW10.bnk",
+      "status": "parsed",
+      "records": 150,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2149,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2149 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 170,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 07 AW10.bnk",
+      "status": "parsed",
+      "records": 175,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4668,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4668 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 08 AW10.bnk",
+      "status": "parsed",
+      "records": 175,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 159,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 09 AW10.bnk",
+      "status": "parsed",
+      "records": 125,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1350,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1350 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 210,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 10\\Chapter 10 AW10.bnk",
+      "status": "parsed",
+      "records": 150,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 3425,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "3425 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 60,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 01 AW11.bnk",
+      "status": "parsed",
+      "records": 125,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4384,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4384 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 59,
+      "embeddedVariables": 0,
+      "equationErrors": 16
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 02 AW11.bnk",
+      "status": "parsed",
+      "records": 150,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4452,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4452 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 241,
+      "embeddedVariables": 0,
+      "equationErrors": 2
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 03 AW11.bnk",
+      "status": "parsed",
+      "records": 150,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 5051,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "5051 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 169,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 04 AW11.bnk",
+      "status": "parsed",
+      "records": 225,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1974,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1974 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 320,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 05 AW11.bnk",
+      "status": "parsed",
+      "records": 100,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4152,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4152 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 29,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 06 AW11.bnk",
+      "status": "parsed",
+      "records": 225,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1660,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1660 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 218,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 07 AW11.bnk",
+      "status": "parsed",
+      "records": 200,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2792,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2792 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 53,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 08 AW11.bnk",
+      "status": "parsed",
+      "records": 150,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4569,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4569 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 34,
+      "embeddedVariables": 0,
+      "equationErrors": 10
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 09 AW11.bnk",
+      "status": "parsed",
+      "records": 100,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 6691,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "6691 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 221,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Apprenticeship 11\\Chapter 10 AW11.bnk",
+      "status": "parsed",
+      "records": 125,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4086,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4086 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 22,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Approximate_square-roots.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 50,
+      "embeddedVariables": 122,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Approximations-Conversions.bnk",
+      "status": "parsed",
+      "records": 12,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 6,
+      "embeddedVariables": 91,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Distributive-property.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 85,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_add-subtract.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 30,
+      "embeddedVariables": 56,
+      "equationErrors": 2
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_decimals_percents.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 55,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_equivalent-forms.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 37,
+      "embeddedVariables": 20,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Fractions_multiply-divide.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 33,
+      "embeddedVariables": 60,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Geometry_angles.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 36,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Geometry_constructions.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Geometry_transformations.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 11,
+      "embeddedVariables": 41,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Integers_add-subtract.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 137,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Integers_multiply-divide.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 71,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Linear-equations.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 11,
+      "embeddedVariables": 54,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Linear-relations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 18,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Patterns-Relations.bnk",
+      "status": "parsed",
+      "records": 13,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 85,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Probability.bnk",
+      "status": "parsed",
+      "records": 13,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 80,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Pythagorean-Theorem.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 13,
+      "embeddedVariables": 53,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Questionnaires.bnk",
+      "status": "parsed",
+      "records": 8,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 74,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Surface-areas.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Views-of-cubes.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 8,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Whole-num_forms.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 15,
+      "embeddedVariables": 129,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Prior Skills and Knowledge\\Whole-num_squares.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 128,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 01\\MMS9_1.1.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 57,
+      "embeddedVariables": 53,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 01\\MMS9_1.2.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 49,
+      "embeddedVariables": 70,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 01\\MMS9_1.3.bnk",
+      "status": "parsed",
+      "records": 29,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 13,
+      "embeddedVariables": 42,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 01\\MMS9_1.4.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 37,
+      "embeddedVariables": 116,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 02\\MMS9_2.1.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 82,
+      "embeddedVariables": 24,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 02\\MMS9_2.2.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 44,
+      "embeddedVariables": 62,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 02\\MMS9_2.3.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 53,
+      "embeddedVariables": 48,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 02\\MMS9_2.4.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 78,
+      "embeddedVariables": 16,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 02\\MMS9_2.5.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 70,
+      "embeddedVariables": 13,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.1.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 104,
+      "embeddedVariables": 137,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.2.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 48,
+      "embeddedVariables": 48,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.3.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 56,
+      "embeddedVariables": 98,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.4.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 77,
+      "embeddedVariables": 102,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.5.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 42,
+      "embeddedVariables": 121,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 03\\MMS9_3.6.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 35,
+      "embeddedVariables": 74,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 04\\MMS9_4.1.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 68,
+      "embeddedVariables": 105,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 04\\MMS9_4.2.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 131,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 04\\MMS9_4.3.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 55,
+      "embeddedVariables": 50,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 04\\MMS9_4.4.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 141,
+      "embeddedVariables": 2,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 04\\MMS9_4.5.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 4,
+      "embeddedVariables": 91,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.1.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 92,
+      "embeddedVariables": 32,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.2.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 95,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.3.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 79,
+      "embeddedVariables": 11,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.4.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 111,
+      "embeddedVariables": 15,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.5.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 90,
+      "embeddedVariables": 1,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 05\\MMS9_5.6.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 91,
+      "embeddedVariables": 21,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 06\\MMS9_6.1.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 39,
+      "embeddedVariables": 70,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 06\\MMS9_6.2.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 73,
+      "embeddedVariables": 33,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 06\\MMS9_6.3.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 57,
+      "embeddedVariables": 48,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 06\\MMS9_6.4.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 75,
+      "embeddedVariables": 40,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 06\\MMS9_6.5.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 85,
+      "embeddedVariables": 49,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.1.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 8,
+      "embeddedVariables": 116,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.2.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 32,
+      "embeddedVariables": 84,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.3.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 17,
+      "embeddedVariables": 49,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.4.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 42,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.5.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 22,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.6.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 10,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 07\\MMS9_7.7.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 16,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 08\\MMS9_8.1.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 59,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 08\\MMS9_8.2.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 08\\MMS9_8.3.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 41,
+      "embeddedVariables": 36,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 09\\MMS9_9.1.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 09\\MMS9_9.2.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 09\\MMS9_9.3.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Math Makes Sense 9\\Unit 09\\MMS9_9.4.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch1-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 33,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1613,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1613 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 25,
+      "embeddedVariables": 134,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch2-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1653,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1653 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 29,
+      "embeddedVariables": 72,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 37,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2620,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2620 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 31,
+      "embeddedVariables": 116,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch4-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 3144,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "3144 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 38,
+      "embeddedVariables": 78,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch5-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 938,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "938 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 12,
+      "embeddedVariables": 12,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch6-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1422,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1422 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 44,
+      "embeddedVariables": 24,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\1-Reviewing Prior Concepts\\Ch7-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 904,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "904 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 36,
+      "embeddedVariables": 10,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch1-Unit Pricing, Currency Exch\\1.1-Proportional Reasoning.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 158,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch1-Unit Pricing, Currency Exch\\1.2-Unit Price.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 3286,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "3286 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 12,
+      "embeddedVariables": 171,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch1-Unit Pricing, Currency Exch\\1.3-Setting a Price.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 176,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch1-Unit Pricing, Currency Exch\\1.4-On Sale.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1136,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1136 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 30,
+      "embeddedVariables": 150,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch1-Unit Pricing, Currency Exch\\1.5-Currency Exchange Rates.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 158,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch2-Earning an Income\\2.1-Wages and Salaries.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 302,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch2-Earning an Income\\2.2-Alt Ways to Earn Money.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4117,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4117 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 15,
+      "embeddedVariables": 184,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch2-Earning an Income\\2.3-Additional Earnings.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2242,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2242 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 20,
+      "embeddedVariables": 180,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch2-Earning an Income\\2.4-Deductions and Net Pay.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 137,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch3-Length, Area, Volume\\3.1-Systems of Measurement.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 185,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch3-Length, Area, Volume\\3.2-Converting Measurements.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 144,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch3-Length, Area, Volume\\3.3-Surface Area.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 43,
+      "embeddedVariables": 133,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch3-Length, Area, Volume\\3.4-Volume.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 7483,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "7483 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 27,
+      "embeddedVariables": 94,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch4-Mass, Temp, Volume\\4.1-Temperature Conversions.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 123,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch4-Mass, Temp, Volume\\4.2-Mass-Imperial System.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 5669,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "5669 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 29,
+      "embeddedVariables": 235,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch4-Mass, Temp, Volume\\4.3-Mass-SI.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2971,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2971 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 32,
+      "embeddedVariables": 182,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch4-Mass, Temp, Volume\\4.4-Making Conversions.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2175,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2175 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 27,
+      "embeddedVariables": 126,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch5-Angles and Parallel Lines\\5.1-Meas., Drawing, Est. Angles.bnk",
+      "status": "parsed",
+      "records": 30,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 5230,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "5230 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 10,
+      "embeddedVariables": 79,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch5-Angles and Parallel Lines\\5.2-Bisectors, Perpend. Lines.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2879,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2879 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 10,
+      "embeddedVariables": 134,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch5-Angles and Parallel Lines\\5.3-Non-Parallel Lines.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1838,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1838 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 101,
+      "embeddedVariables": 20,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch5-Angles and Parallel Lines\\5.4-Parallel Lines.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1383,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1383 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 65,
+      "embeddedVariables": 69,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch6-Similarity of Figures\\6.1-Similar Polygons.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 4119,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "4119 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 27,
+      "embeddedVariables": 80,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch6-Similarity of Figures\\6.2-Determining Similarity.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 148,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "148 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 20,
+      "embeddedVariables": 152,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch6-Similarity of Figures\\6.3-Draw Similar Polygons.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 383,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "383 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 6,
+      "embeddedVariables": 161,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch6-Similarity of Figures\\6.4-Similar Triangles.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 7477,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "7477 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 30,
+      "embeddedVariables": 114,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch7-Trig of Right Triangles\\7.1-The Pythagorean Theorem.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 123,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch7-Trig of Right Triangles\\7.2-The Sine Ratio.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 3366,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "3366 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 17,
+      "embeddedVariables": 96,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch7-Trig of Right Triangles\\7.3-The Cosine Ratio.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 7436,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "7436 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 16,
+      "embeddedVariables": 113,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch7-Trig of Right Triangles\\7.4-The Tangent Ratio.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 1130,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1130 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 16,
+      "embeddedVariables": 94,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 10\\Ch7-Trig of Right Triangles\\7.5-Solving Right Triangles.bnk",
+      "status": "parsed",
+      "records": 28,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 2790,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2790 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 23,
+      "embeddedVariables": 122,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch1-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 33,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 45,
+      "embeddedVariables": 77,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch2-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 6,
+      "embeddedVariables": 30,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 75,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch4-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 35,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 167,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch5-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 77,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch6-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 30,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 60,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\00-Reviewing Prior Concepts\\Ch7-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 28,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 134,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch1-Slope and Rate of Change\\1.1 Rise Over Run.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 118,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch1-Slope and Rate of Change\\1.2 Grade, Elev., Distance.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 102,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch1-Slope and Rate of Change\\1.3 Rate of Change.bnk",
+      "status": "parsed",
+      "records": 30,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 168,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch2-Graphical Representations\\2.1 Broken Line Graphs.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 90,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch2-Graphical Representations\\2.2 Bar Graphs.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 180,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch2-Graphical Representations\\2.3 Histograms.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 91,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch2-Graphical Representations\\2.4 Circle Graphs.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 42,
+      "embeddedVariables": 187,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch3-Sur Area, Vol, and Capacity\\3.1 Surface Area of Prisms.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 83,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch3-Sur Area, Vol, and Capacity\\3.2 Sur. Area-Pyramids etc.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 96,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch3-Sur Area, Vol, and Capacity\\3.3 Vol-Capacity-Prisms.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 32,
+      "embeddedVariables": 120,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch3-Sur Area, Vol, and Capacity\\3.4 Vol-Capacity-Sphere etc.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 111,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch4-Trig of Right Triangles\\4.1 Angle, Length, Distance.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 47,
+      "embeddedVariables": 142,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch4-Trig of Right Triangles\\4.2 Solve Complex Problems.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 35,
+      "embeddedVariables": 141,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch5-Scale Representations\\5.1 Scale Drawing, Models.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 18,
+      "embeddedVariables": 94,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch5-Scale Representations\\5.2 2-D Representations.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 1,
+      "embeddedVariables": 27,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch5-Scale Representations\\5.3 3-D Representations.bnk",
+      "status": "parsed",
+      "records": 19,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 6,
+      "embeddedVariables": 25,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch6-Financial Services\\6.1 Choosing an Account.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 216,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch6-Financial Services\\6.2 Simple, Cmpd Interest.bnk",
+      "status": "parsed",
+      "records": 31,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 209,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch6-Financial Services\\6.3 Credit Card-Store Promo.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 146,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch6-Financial Services\\6.4 Loan-Line of Credit etc.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 164,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch7-Personal Budgets\\7.1 Prep. to Make a Budget.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 212,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch7-Personal Budgets\\7.2 The Budgeting Process.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 223,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 11\\Ch7-Personal Budgets\\7.3 Analyzing a Budget.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 74,
+      "embeddedVariables": 215,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch1-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 58,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 71,
+      "embeddedVariables": 77,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch2-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 42,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 177,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch3-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 35,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 16,
+      "embeddedVariables": 160,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch4-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 33,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 154,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch5-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 41,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 32,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch6-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 29,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 44,
+      "embeddedVariables": 97,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch7-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 36,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 25,
+      "embeddedVariables": 106,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\00-Reviewing Prior Concepts\\Ch8-Review Prior Concepts.bnk",
+      "status": "parsed",
+      "records": 36,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 207,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch1-Linear Relations\\1.1 Linear Rel-Table-Graph.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 263,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch1-Linear Relations\\1.2 The Equation of a Line.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 180,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch1-Linear Relations\\1.3 Scatterplots and Trends.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 151,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch2-Limits to Measurement\\2.1 Accuracy and Precision.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 5,
+      "embeddedVariables": 172,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch2-Limits to Measurement\\2.2 Tolerances.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 53,
+      "embeddedVariables": 194,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch3-Statistics\\3.1 Mean, Median, Mode.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 22,
+      "embeddedVariables": 203,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch3-Statistics\\3.2 Weighted-Trimmed Means.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 252,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch3-Statistics\\3.3 Percentile Ranking.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 17,
+      "embeddedVariables": 191,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch4-Probability and Odds\\4.1 ExperimentalProbability.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 34,
+      "embeddedVariables": 197,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch4-Probability and Odds\\4.2 Theoretical Probability.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 146,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch4-Probability and Odds\\4.3 Odds and Probability.bnk",
+      "status": "parsed",
+      "records": 24,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 281,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch5-Prop of Geometric Figures\\5.1 Triangles.bnk",
+      "status": "parsed",
+      "records": 23,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 7,
+      "embeddedVariables": 92,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch5-Prop of Geometric Figures\\5.2 Quadrilaterals.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 101,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch5-Prop of Geometric Figures\\5.3 Regular Polygons.bnk",
+      "status": "parsed",
+      "records": 25,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 147,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch6-Transformations\\6.1 Single Transformations.bnk",
+      "status": "parsed",
+      "records": 27,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 259,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch6-Transformations\\6.2 Multiple Transformations.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 20,
+      "embeddedVariables": 209,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch7-Trigonometry\\7.1 The Sine Law.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 34,
+      "embeddedVariables": 95,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch7-Trigonometry\\7.2 The Cosine Law.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 38,
+      "embeddedVariables": 106,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch8-Owning a Small Business\\8.1 Start a Small Business.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 16,
+      "embeddedVariables": 193,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch8-Owning a Small Business\\8.2 Operate a Small Business.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 175,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\MathWorks 12\\Ch8-Owning a Small Business\\8.3 Buy or Lease a Vehicle.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 171,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 01.bnk",
+      "status": "parsed",
+      "records": 81,
+      "narratives": 6,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 230,
+      "embeddedVariables": 257,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 02.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 170,
+      "embeddedVariables": 119,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 03.bnk",
+      "status": "parsed",
+      "records": 66,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 185,
+      "embeddedVariables": 98,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 04.bnk",
+      "status": "parsed",
+      "records": 66,
+      "narratives": 2,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 139,
+      "embeddedVariables": 129,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 05.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 211,
+      "embeddedVariables": 79,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 06.bnk",
+      "status": "parsed",
+      "records": 67,
+      "narratives": 3,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 248,
+      "embeddedVariables": 71,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 07.bnk",
+      "status": "parsed",
+      "records": 67,
+      "narratives": 1,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 197,
+      "embeddedVariables": 57,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 08.bnk",
+      "status": "parsed",
+      "records": 69,
+      "narratives": 1,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 279,
+      "embeddedVariables": 80,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11\\Chapter 09.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 4,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 179,
+      "embeddedVariables": 44,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.1 Absolute Value.bnk",
+      "status": "parsed",
+      "records": 0,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.2 Radical Operations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 41,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.3 Simplifying Radicals.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 73,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.4 Adding and Subtracting Radical Expressions.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.5 Multiplying and Dividing Radical Expressions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 57,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.6 Radical Equations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 50,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.1 Properties of Rational Expressions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 43,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.2 Multiplication and Division of Rational Expressions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 35,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.3 Sums and Differences of Rational Expressions.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 38,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.4 Mixed Operations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 38,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.5 Rational Equations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.6 Applications of Rational Equations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.1 Angles and Their Measure.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.2 The Three Trigonometric Functions.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 32,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.3 Special Angles.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 53,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.4 Oblique Triangles.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 65,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.5 Law of Sines.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 40,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.6 Law of Cosines.bnk",
+      "status": "parsed",
+      "records": 8,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.1 Factoring x^2 + bx + c.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.2 Factoring ax^2 + bx + c.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.3 Absolute Value Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 33,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.4 Solving Absolute Value Equations.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.5 Rational Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 37,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\4.6 Reciprocal Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 42,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.1 Properties of Quadratic Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.2 The Standard Form of a Quadratic Function.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 34,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.3 Finding the Equation of a Parabola.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 38,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.4 Standard Form to General Form.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 37,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.5 Vertex of a Parabola.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 31,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\5.6 Applications of Quadratic Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\6.1 Solving Quadratic Equations by Factoring.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\6.2 Completing the Square and Square Root Property.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 30,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\6.3 The Quadratic Formula.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 24,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\6.4 Graphing Calculator and the Discriminant.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\6.5 Applications of Quadratic Equations.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 3,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\7.1 Graphing Non-Linear Systems of Equations.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 23,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\7.2 Solving Non-Linear Systems Algebraically.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\7.3 Graphing Linear Inequalities in Two Variables.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\7.4 Graphing Non-Linear Inequalities in Two Variables.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\7.5 Applications of Inequalities.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 11,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\8.1 Sequences.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 26,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\8.2 Arithmetic Series.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\8.3 Geometric Sequences.bnk",
+      "status": "parsed",
+      "records": 8,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\8.4 Geometric Series.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 17,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\8.5 Infinite Geometric Series.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 12,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 01.bnk",
+      "status": "parsed",
+      "records": 71,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 217,
+      "embeddedVariables": 150,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 02.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 196,
+      "embeddedVariables": 130,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 03.bnk",
+      "status": "parsed",
+      "records": 68,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 235,
+      "embeddedVariables": 115,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 04.bnk",
+      "status": "parsed",
+      "records": 67,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 686,
+      "embeddedVariables": 111,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 05.bnk",
+      "status": "parsed",
+      "records": 69,
+      "narratives": 2,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 221,
+      "embeddedVariables": 122,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 06.bnk",
+      "status": "parsed",
+      "records": 69,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 1290,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "1290 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 333,
+      "embeddedVariables": 4,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 07.bnk",
+      "status": "parsed",
+      "records": 68,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 208,
+      "embeddedVariables": 102,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 08.bnk",
+      "status": "parsed",
+      "records": 66,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 198,
+      "embeddedVariables": 119,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 09.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 8030,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "8030 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 266,
+      "embeddedVariables": 44,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 10.bnk",
+      "status": "parsed",
+      "records": 66,
+      "narratives": 1,
+      "groups": 1,
+      "trailingBytes": 2744,
+      "diagnostics": [
+        {
+          "code": "OPAQUE_BANK_TRAILER",
+          "message": "2744 bytes after declared records preserved without decoding"
+        }
+      ],
+      "equations": 299,
+      "embeddedVariables": 22,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12\\Chapter 11.bnk",
+      "status": "parsed",
+      "records": 65,
+      "narratives": 0,
+      "groups": 1,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 153,
+      "embeddedVariables": 109,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.1 Functions and Relations.bnk",
+      "status": "parsed",
+      "records": 6,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.2 Arithmetic Combinations of Functions.bnk",
+      "status": "parsed",
+      "records": 12,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 43,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.3 Composite Functions.bnk",
+      "status": "parsed",
+      "records": 6,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 19,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.4 Transformations of Graphs.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 90,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.5 Inverse Functions.bnk",
+      "status": "parsed",
+      "records": 8,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 44,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\1.6 Combined Transformations.bnk",
+      "status": "parsed",
+      "records": 26,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 124,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\2.1 Polynomials.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\2.2 Graphing Polynomial Functions.bnk",
+      "status": "parsed",
+      "records": 13,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 28,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\2.3 Division of Polynomials.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 29,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\2.4 The Remainder and Factor Theorems.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 59,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\2.5 Polynomial Applications.bnk",
+      "status": "parsed",
+      "records": 9,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 7,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\3.1 Radicals.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 33,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\3.2 Graphing and Solving Radical Equations.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 14,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\3.3 Rational Functions.bnk",
+      "status": "parsed",
+      "records": 17,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\3.4 Graphing Rational Functions.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 16,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\4.1 Exponents.bnk",
+      "status": "parsed",
+      "records": 17,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 42,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\4.2 Logarithmic Functions and Their Graphs.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\4.3 Properties of Logarithms.bnk",
+      "status": "parsed",
+      "records": 12,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 57,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\4.4 Exponential and Logarithmic Equations.bnk",
+      "status": "parsed",
+      "records": 13,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\4.5 Applications of Exponential and Logarithmic Equations.bnk",
+      "status": "parsed",
+      "records": 19,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 27,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\5.1 Angles and Their Measure.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 68,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\5.2 Trigonometric Functions of Acute Angles.bnk",
+      "status": "parsed",
+      "records": 21,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 69,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\5.3 Trigonometric Functions General and Special Angles.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 43,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\5.4 Graphing Basic Trigonometric Functions.bnk",
+      "status": "parsed",
+      "records": 20,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 77,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\5.5 Applications of Periodic Functions.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 36,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\6.1 Trigonometric Identities and Equation.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 60,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\6.2 Verifying Trigonometric Identities.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 21,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\6.3 Trigonometric Equations.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 34,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\6.4 Sum and Difference Identities.bnk",
+      "status": "parsed",
+      "records": 10,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 31,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\6.5 Double Angle Identities.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 38,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\7.1 Fundamental Counting Principle.bnk",
+      "status": "parsed",
+      "records": 14,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 13,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\7.2 Permutations.bnk",
+      "status": "parsed",
+      "records": 16,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 7,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\7.3 Combinations.bnk",
+      "status": "parsed",
+      "records": 22,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 10,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\7.4 Binomial Theorem.bnk",
+      "status": "parsed",
+      "records": 15,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 33,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    },
+    {
+      "file": "ExamView\\Banks\\Pre-Calculus 12 (Mickelson)\\7.5 Pathway Problems.bnk",
+      "status": "parsed",
+      "records": 11,
+      "narratives": 0,
+      "groups": 0,
+      "trailingBytes": 0,
+      "diagnostics": [],
+      "equations": 0,
+      "embeddedVariables": 0,
+      "equationErrors": 0
+    }
+  ]
+}

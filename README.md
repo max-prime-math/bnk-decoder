@@ -54,9 +54,11 @@ Known readiness gaps:
 - Graph objects are imported as data, not yet rendered as ExamView-style graph visuals.
 - OLE/MathType and WMF-style embedded math/picture objects still need deeper structural decoding or a clearly documented fallback.
 
-## Status: ALPHA (Early Development) 🔧
+## Standalone structural/browser decoder status: ALPHA 🔧
 
-**Current Decoder State:** ~75% functional with significant issues
+The status below describes the independent structural decoder used by the browser app.
+The Windows native CLI under **PQP for test-generator** has substantially higher fidelity
+because it asks the bundled ExamView runtime to render objects it cannot yet reproduce.
 
 ### Working Features
 - ✅ ExamView v06 BNK format detection
@@ -85,7 +87,8 @@ Known readiness gaps:
 ### Known Limitations
 - Type classification off (MCQ +1, Short Answer -13, Problem +8 for Ch01)
 - Only Chapter 01 narrative linkage verified end-to-end; Ch02-Ch09 not yet validated for narrative coverage
-- ExamView v05 format: Not supported
+- ExamView v05 format: supported by the native CLI through a verified Save As v06 copy;
+  not independently decoded by the structural reader
 - OLE equation objects: Not implemented
 
 ## Packages
@@ -110,32 +113,79 @@ This machine can also use its installed Codex Node runtime through the launcher:
 powershell -NoProfile -ExecutionPolicy Bypass -File scripts/convert-bnk.ps1 -Bank "path/to/bank.bnk" -Output "output/bank.pqp.json"
 ```
 
-This opens an isolated copy of the v06 bank and exports synchronized native question
+This opens an isolated copy of the v05 or v06 bank and exports synchronized native question
 XML and RTF. Questions, narratives, choices, matching answers, tables, and solutions
 become PQP content; native-rendered math and graphs become embedded images. The RTF
 supplies graphical completion answers that ExamView omits from its Blackboard XML.
 No PDF or OCR input is required. Source hashes are checked before and after export,
 and the original BNK, native evidence, algorithm bytes, and diagnostics are retained.
 Existing PQP outputs are never overwritten; exit 2 reports a partial conversion.
+Legacy v05 banks are saved to a new v06 evidence file by ExamView before export;
+the original v05 file remains unchanged. Bimodal questions retain both presentations
+in `extensions.examview.bimodalPresentations`. Verified common narrative prefixes become
+shared `content.narrative` values with stable `narrativeId` links.
 
-The [validated publisher packages](reports/rea-examview/native-publisher-OR4kc6/summary.json)
-cover **739/739 source records** across Chapters 01–11: 696 PQP questions and 2,530
-images. All packages compile in Typst and conform to this repository's PQP interface;
-all 300 multiple-choice keys match the paired native RTF. Matching groups account
+The command also runs the structural reader against the same source records. For each
+algorithmic question, it replaces native equation fields or individual rendered-variable
+images with structural Typst only when source-object order proves the correspondence, then
+attaches a TestGen algorithm model only when every displayed variable has an unambiguous
+slot and every rule is supported. Questions
+that cannot meet those checks remain faithful fixed native snapshots and carry an
+`ALGORITHM_STATIC` diagnostic; the converter never guesses a randomized form.
+
+The [validated publisher packages](reports/rea-examview/native-publisher-dual-YtJbgT/validated-summary.json)
+cover **739/739 source records** across Chapters 01–11: 696 PQP questions, 2,707
+images, and 446 alternate bimodal presentations. All packages compile in Typst
+and conform to this repository's PQP interface; 523 primary and alternate
+multiple-choice keys match the paired native RTF. Matching groups account
 for the difference between source-record and question counts. A teacher graph bank
 and a controlled shared-narrative bank also convert completely.
 
-The bridge captures one native loaded instance; it does not reproduce randomized
-algorithm generation. Missing original fonts produce explicit substitution warnings
-and native Windows glyph images, rather than guessed symbols. Consumer-app import
-and pixel parity across every corpus bank remain unverified. The standalone browser
-app still uses its existing decoder; this Windows bridge is a CLI command.
+The resulting PQP is self-contained: its PNG assets use inline base64 storage, and the
+TestGen importer installs them directly without a second image-upload step. Real TestGen
+browser imports and Typst-WASM renders pass for the Chapter 03 and Chapter 04 packages,
+including one generated variant for every attached algorithm and 25 evaluation seeds per
+algorithm. Chapter 03 currently attaches 17 of 28 algorithmic questions; Chapter 04
+attaches all 22 of 22. The remaining Chapter 03 questions stay static with explicit
+reasons, chiefly ambiguous repeated values, implicit coefficients, and one decoded graph
+whose curve does not meet the native-ink verification threshold. Missing original fonts
+produce explicit substitution warnings and native Windows
+glyph images rather than guessed symbols. Pixel parity across every corpus bank remains
+unverified. The standalone browser app still uses its existing decoder; this Windows
+bridge is a CLI command.
+
+Graph algorithms are admitted only after their decoded curves and points land on at least
+70% of the native printed graph ink. The verifier decodes ExamView PNGs locally and uses
+TestGen's installed `sharp` package for native JPEGs; unavailable or ambiguous image
+evidence leaves the question static. Chapter 03 questions 3 and 23 now pass that gate and
+regenerate their four graph choices in TestGen.
+
+Algorithm slots treat ASCII hyphen-minus, en dash, and the Unicode minus sign as equivalent
+minus glyphs while retaining the exact exported glyph in the question text. This is needed
+because the BNK display record and ExamView's native export use different minus code points;
+the surrounding value, field, occurrence, and source-record counts still have to match.
+Constant ExamView `list(...)` tables are lowered into indexed scalar `if(...)` expressions,
+ExamView's `MOD` operator maps to TestGen's existing modulo evaluator, and numeric format 2
+rounds to the stored precision before trimming trailing zeroes. A rendered fraction variable
+in Chapter 04 question 7 is now regenerated as structural Typst while its four native graph
+choices remain intact; this path requires a one-for-one source-object/native-image ordering.
+Named equation runs are also lowered when every branch is controlled by the same complete
+`rand(n)` selector, each selector value occurs exactly once, and the stored sample selects
+exactly one branch. This recovers Chapter 04 questions 14 and 15 while rejecting incomplete
+or conflicting visibility rules.
 
 Further fidelity checks found that ExamView can overwrite image filenames when
 exporting bimodal questions in short-answer mode. Bimodal conversion now captures
-both modes and requires content alignment; unresolved mismatches produce a partial
-result. Earlier coverage counts establish record inclusion and compilation, not
-correctness of every diagram in those native exports.
+both modes and repairs images from their paired RTF. Rationale images omitted by
+RTF require matching bytes and uniquely owned images in a separate native export.
+Unresolved mismatches produce a partial result. Metafile rasterization records its
+font antialias adjustment and preserves the original metafile bytes.
+
+[Additional validation](reports/rea-examview/native-extended-hI8DxY/summary.json)
+covers 242/242 records in Area, Pre-Calculus 11 Chapter 01, and legacy GQ-Calculus,
+including 286 alternate presentations and compilation of 2,086 rich content fields.
+Claude's independent graph renderer remains research code: its approximate text
+metrics and incomplete drawing support prevent production SVG export by default.
 
 Retained exports can be reprocessed without launching ExamView:
 
@@ -160,9 +210,13 @@ not establish visual or semantic parity with ExamView.
 The structural reader now follows ExamView's declared counts and sequential question,
 narrative, and matching records, including length-prefixed metadata and algorithms.
 Corpus checks parse all 372 v06 banks (13,871 question records), preserving opaque tails
-in 49 banks. Rendering coverage is lower: graphs, some equation templates, completion
-questions, and other embedded objects remain unresolved. Stored algorithm display values
-are substituted by their binary variable references; randomized variants are not evaluated.
+in 49 banks. The equation grammar audit now renders all 20,780 equation objects without
+unsupported controls, glyphs, or templates; native-correlated Typst fixtures cover math
+accents, cancellation, stacked scripts, set-builder notation, long division, ruled tables,
+and synthetic division. Overall structural coverage remains lower because graphs,
+completion questions, named-equation visibility, some encoded algorithm displays, and
+other embedded objects remain unresolved. Stored algorithm display values are substituted
+by their binary variable references; randomized variants are not evaluated.
 Teacher-made structural smoke samples convert 22/22, 15/15, and 11/11 records.
 The structural CLI explicitly omits unsupported content; the native bridge above
 provides the validated publisher-bank route. Matching groups combine several source

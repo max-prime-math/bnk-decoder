@@ -1,0 +1,250 @@
+{
+  "scope": "Actual source/XML/paired-RTF answer reconciliation and Typst compilation, not pixel parity or importer validation.",
+  "findings": [
+    "True/False QTI identifiers can disagree with displayed truth labels; source answer code and paired native RTF repair is explicit.",
+    "Multiple Answer QTI conditions use zero-based answer indexes while displayed choice labels use one-based identifiers; complete conjunction, source bitmask and paired RTF must agree.",
+    "Yes/No is exported as Multiple Choice, requiring verified Yes/No label semantics."
+  ],
+  "fixtures": [
+    {
+      "type": "MR",
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\2.1 Properties of Rational Expressions.bnk",
+      "sourceSha256": "a9324a6d1e4dcdc967d05177bdb84e2136c65800e84fb2afdc4c731f05d24001",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "output": "reports/rea-examview/native-rare-MR-verified.pqp.json",
+      "counts": {
+        "sourceRecords": 10,
+        "nativeItems": 10,
+        "convertedRecords": 10,
+        "questions": 10,
+        "omittedRecords": 0,
+        "assets": 42
+      },
+      "status": "complete",
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_TRUE_FALSE_CONDITION_CONFLICT",
+          "message": "question_1_1: native QTI label identifiers conflict with their displayed truth labels; selected false using the agreeing source answer code and paired native RTF key."
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_MULTIPLE_ANSWER_INDEXING",
+          "message": "question_6_1: reconciled zero-based native QTI condition indexes with the source bitmask and paired native RTF answer key."
+        }
+      ],
+      "representativeKeys": [
+        {
+          "sourceNumbers": "3",
+          "kind": "mcq",
+          "type": "true_false",
+          "answer": {
+            "type": "choice",
+            "value": "a"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "false"
+            },
+            {
+              "id": "b",
+              "body": "true"
+            }
+          ],
+          "rationale": false
+        },
+        {
+          "sourceNumbers": "4",
+          "kind": "mcq",
+          "type": "true_false",
+          "answer": {
+            "type": "choice",
+            "value": "a"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "true"
+            },
+            {
+              "id": "b",
+              "body": "false"
+            }
+          ],
+          "rationale": false
+        },
+        {
+          "sourceNumbers": "1",
+          "kind": "multiple_response",
+          "type": "multiple_response",
+          "answer": {
+            "type": "choice",
+            "value": "b, c, d"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "#box(baseline: 50% - 0.25em, image(\"/imgs/eb29bc8f447b4eea5272\", width: 0.593750in, height: 0.479167in));"
+            },
+            {
+              "id": "b",
+              "body": "7"
+            },
+            {
+              "id": "c",
+              "body": "#box(baseline: 50% - 0.25em, image(\"/imgs/a72c379c0b6203262e07\", width: 1.145833in, height: 0.572917in));"
+            },
+            {
+              "id": "d",
+              "body": "#box(baseline: 50% - 0.25em, image(\"/imgs/08b8b4f6fb692e8d38e4\", width: 0.406250in, height: 0.479167in));"
+            }
+          ],
+          "rationale": false
+        }
+      ],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-rare-MR-verified.pqp.json",
+        "questions": 10,
+        "materials": 34,
+        "assets": 42,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 157903
+      }
+    },
+    {
+      "type": "TF",
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\1.2 Radical Operations.bnk",
+      "sourceSha256": "1f0a3af54dd65b8a190146753079fce3412d1262cc66c55789e8aaef2e37337f",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "output": "reports/rea-examview/native-rare-TF-verified.pqp.json",
+      "counts": {
+        "sourceRecords": 10,
+        "nativeItems": 10,
+        "convertedRecords": 10,
+        "questions": 10,
+        "omittedRecords": 0,
+        "assets": 35
+      },
+      "status": "complete",
+      "diagnostics": [
+        {
+          "level": "warning",
+          "code": "NATIVE_TRUE_FALSE_CONDITION_CONFLICT",
+          "message": "question_1_1: native QTI label identifiers conflict with their displayed truth labels; selected false using the agreeing source answer code and paired native RTF key."
+        },
+        {
+          "level": "warning",
+          "code": "NATIVE_TRUE_FALSE_CONDITION_CONFLICT",
+          "message": "question_2_1: native QTI label identifiers conflict with their displayed truth labels; selected false using the agreeing source answer code and paired native RTF key."
+        }
+      ],
+      "representativeKeys": [
+        {
+          "sourceNumbers": "10",
+          "kind": "mcq",
+          "type": "true_false",
+          "answer": {
+            "type": "choice",
+            "value": "a"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "false"
+            },
+            {
+              "id": "b",
+              "body": "true"
+            }
+          ],
+          "rationale": true
+        },
+        {
+          "sourceNumbers": "11",
+          "kind": "mcq",
+          "type": "true_false",
+          "answer": {
+            "type": "choice",
+            "value": "a"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "false"
+            },
+            {
+              "id": "b",
+              "body": "true"
+            }
+          ],
+          "rationale": true
+        }
+      ],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-rare-TF-verified.pqp.json",
+        "questions": 10,
+        "materials": 40,
+        "assets": 35,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 186632
+      }
+    },
+    {
+      "type": "YN",
+      "source": "C:\\Users\\Max\\bnk-decoder\\ExamView\\Banks\\Pre-Calculus 11 (Mickelson)\\3.6 Law of Cosines.bnk",
+      "sourceSha256": "1a0cde499a424de24ca32e16916e647b6532d6030016bac78dc75650b1a5773d",
+      "unchangedSource": true,
+      "sameLoadedBank": true,
+      "output": "reports/rea-examview/native-rare-YN-full.pqp.json",
+      "counts": {
+        "sourceRecords": 8,
+        "nativeItems": 8,
+        "convertedRecords": 8,
+        "questions": 8,
+        "omittedRecords": 0,
+        "assets": 22
+      },
+      "status": "complete",
+      "diagnostics": [],
+      "representativeKeys": [
+        {
+          "sourceNumbers": "5",
+          "kind": "mcq",
+          "type": "mcq",
+          "answer": {
+            "type": "choice",
+            "value": "a"
+          },
+          "choices": [
+            {
+              "id": "a",
+              "body": "Yes"
+            },
+            {
+              "id": "b",
+              "body": "No"
+            }
+          ],
+          "rationale": false
+        }
+      ],
+      "typstCompile": {
+        "compiler": "@myriaddreamin/typst-ts-web-compiler 0.7.0-rc2",
+        "source": "reports/rea-examview/native-rare-YN-full.pqp.json",
+        "questions": 8,
+        "materials": 20,
+        "assets": 22,
+        "hasError": false,
+        "diagnostics": [],
+        "pdfBytes": 131146
+      }
+    }
+  ]
+}

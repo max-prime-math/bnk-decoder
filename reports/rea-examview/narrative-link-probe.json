@@ -1,0 +1,232 @@
+{
+  "evidence": "File-structure inference; +592 narrative rich-text offset is a candidate requiring executable confirmation and full block validation.",
+  "results": [
+    {
+      "file": "test-test-bank.bnk",
+      "bankId": 592197506,
+      "inflatedLength": 7088,
+      "questionsDetected": 1,
+      "linkedQuestions": [
+        {
+          "offset": 4092,
+          "number": 1,
+          "type": 2,
+          "inferredNarrativeId": 1,
+          "richTextOffset": 4998,
+          "text": "Which option is correct?\u0010A\u0011This\u0011C\u0011This\u0011\u0011B\u0011This\u0011D\u0011This\u0011\u0011"
+        }
+      ],
+      "narratives": [
+        {
+          "offset": 6112,
+          "id": 1,
+          "name": "found-narrative-name",
+          "richTextOffset": 6704,
+          "richTextLength": 384,
+          "end": 7088,
+          "text": "This is a narrative."
+        }
+      ]
+    },
+    {
+      "file": "ignore/ExamView/Banks/Pre-Calculus 11/Chapter 01.bnk",
+      "bankId": -801936,
+      "inflatedLength": 542356,
+      "questionsDetected": 81,
+      "linkedQuestions": [
+        {
+          "offset": 163939,
+          "number": 42,
+          "type": 9,
+          "inferredNarrativeId": 1,
+          "richTextOffset": 164659,
+          "text": "–8, –5, –2, 1, …"
+        },
+        {
+          "offset": 166986,
+          "number": 43,
+          "type": 9,
+          "inferredNarrativeId": 1,
+          "richTextOffset": 167712,
+          "text": "3a, 3a – 2b, 3a – 4b, 3a – 6b, …"
+        },
+        {
+          "offset": 169601,
+          "number": 44,
+          "type": 9,
+          "inferredNarrativeId": 1,
+          "richTextOffset": 170327,
+          "text": "\u000f, 1, \u000f, \u000f, …"
+        },
+        {
+          "offset": 178179,
+          "number": 46,
+          "type": 9,
+          "inferredNarrativeId": 2,
+          "richTextOffset": 178917,
+          "text": "5, –10, 20, –40, …"
+        },
+        {
+          "offset": 179781,
+          "number": 47,
+          "type": 9,
+          "inferredNarrativeId": 2,
+          "richTextOffset": 180519,
+          "text": "\u000f"
+        },
+        {
+          "offset": 182290,
+          "number": 48,
+          "type": 9,
+          "inferredNarrativeId": 2,
+          "richTextOffset": 183028,
+          "text": "0.0005, 0.005, 0.05, 0.5, …"
+        },
+        {
+          "offset": 183910,
+          "number": 49,
+          "type": 9,
+          "inferredNarrativeId": 2,
+          "richTextOffset": 184648,
+          "text": "\u000f"
+        },
+        {
+          "offset": 186505,
+          "number": 50,
+          "type": 9,
+          "inferredNarrativeId": 3,
+          "richTextOffset": 187221,
+          "text": "\u000f = 3, r = 2"
+        },
+        {
+          "offset": 188871,
+          "number": 51,
+          "type": 9,
+          "inferredNarrativeId": 3,
+          "richTextOffset": 189593,
+          "text": "\u000f"
+        },
+        {
+          "offset": 193113,
+          "number": 52,
+          "type": 9,
+          "inferredNarrativeId": 3,
+          "richTextOffset": 193835,
+          "text": "\u000f"
+        },
+        {
+          "offset": 197315,
+          "number": 53,
+          "type": 9,
+          "inferredNarrativeId": 3,
+          "richTextOffset": 198037,
+          "text": "\u000f \u000f"
+        },
+        {
+          "offset": 202040,
+          "number": 54,
+          "type": 9,
+          "inferredNarrativeId": 4,
+          "richTextOffset": 202762,
+          "text": "\u000f = 2, d = 3, n = 4"
+        },
+        {
+          "offset": 206519,
+          "number": 55,
+          "type": 9,
+          "inferredNarrativeId": 4,
+          "richTextOffset": 207247,
+          "text": "2 + 4 + 6 + \u000f + 48"
+        },
+        {
+          "offset": 211211,
+          "number": 56,
+          "type": 9,
+          "inferredNarrativeId": 4,
+          "richTextOffset": 211939,
+          "text": "–12 – 9 – 6 – \u000f + 12"
+        },
+        {
+          "offset": 215872,
+          "number": 57,
+          "type": 9,
+          "inferredNarrativeId": 5,
+          "richTextOffset": 216540,
+          "text": "\u000f"
+        },
+        {
+          "offset": 218723,
+          "number": 58,
+          "type": 9,
+          "inferredNarrativeId": 5,
+          "richTextOffset": 219397,
+          "text": "\u000f"
+        },
+        {
+          "offset": 222541,
+          "number": 59,
+          "type": 9,
+          "inferredNarrativeId": 5,
+          "richTextOffset": 223219,
+          "text": "\u000f"
+        }
+      ],
+      "narratives": [
+        {
+          "offset": 532493,
+          "id": 1,
+          "name": "narr1",
+          "richTextOffset": 533085,
+          "richTextLength": 730,
+          "end": 533815,
+          "text": "For each arithmetic sequence, determine\ra) the value of t1 and d\rb) an explicit formula for the general term\rc) t20"
+        },
+        {
+          "offset": 533815,
+          "id": 2,
+          "name": "narr2",
+          "richTextOffset": 534407,
+          "richTextLength": 524,
+          "end": 534931,
+          "text": "Determine whether each sequence is geometric, arithmetic, or neither. Justify your answer."
+        },
+        {
+          "offset": 534931,
+          "id": 3,
+          "name": "narr3",
+          "richTextOffset": 535523,
+          "richTextLength": 812,
+          "end": 536335,
+          "text": "For each geometric sequence, determine\ra) an explicit formula for the general term\rb) \u000f"
+        },
+        {
+          "offset": 536335,
+          "id": 4,
+          "name": "narr4",
+          "richTextOffset": 536927,
+          "richTextLength": 1155,
+          "end": 538082,
+          "text": "For each arithmetic series, determine\ra) an explicit formula for the general term\rb) a formula for the general sum\rc) \u000f\rd) \u000f"
+        },
+        {
+          "offset": 538082,
+          "id": 5,
+          "name": "narr5",
+          "richTextOffset": 538674,
+          "richTextLength": 432,
+          "end": 539106,
+          "text": "Determine the sum of each arithmetic series."
+        },
+        {
+          "offset": 539106,
+          "id": 6,
+          "name": "narr6",
+          "richTextOffset": 539698,
+          "richTextLength": 904,
+          "end": 540602,
+          "text": "A recursion formula defines each term of a sequence using the previous term. Thus, t2 is defined in terms of t1, t3 is defined in terms of t2, and so on, up to tn being defined in "
+        }
+      ]
+    }
+  ]
+}
